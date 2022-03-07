@@ -1,0 +1,29 @@
+{
+  "name": "@echoingtech/du-styles",
+  "version": "0.2.6",
+  "main": "dist/index.css",
+  "module": "./src/index.vue",
+  "description": "> TODO: description",
+  "author": "onelong <love@onelong.org>",
+  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "license": "ISC",
+  "files": [
+    "dist/*",
+    "styles/*",
+    "package.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echoingtech/dumpling.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/echoingtech/dumpling/issues"
+  }
+}

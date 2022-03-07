@@ -1,0 +1,32 @@
+{
+  "name": "@echoingtech/du-storybook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "@echoingtech/du-button": "workspace:*",
+    "@echoingtech/du-styles": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/vue": "^6.4.19",
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
+    "babel-loader": "^8.2.3",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.11",
+    "@storybook/preset-scss": "~1.0.3",
+    "postcss-px-to-viewport": "~1.1.1",
+    "postcss-loader": "4"
+  }
+}
