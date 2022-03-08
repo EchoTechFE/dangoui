@@ -9,7 +9,7 @@
 ## Develop
 
 1、克隆仓库到本地
-2、全局安装rush
+2、全局安装 rush
 3、rush update
 
 rush 文档 https://rushjs.io/pages/intro/welcome/
@@ -20,7 +20,7 @@ rush 文档 https://rushjs.io/pages/intro/welcome/
 
 - extClass，extStyle 应在每个组件做保留属性或实现
 - 组件需要使用 vue-composition-api 的写法，页面使用 H5 标签，应同时考虑 Uniapp 和 h5 的使用，严禁使用 Uniapp 的 view 等组件
-.js 文件导出
+  .js 文件导出
 
 ### 提交
 
@@ -38,8 +38,9 @@ rush 文档 https://rushjs.io/pages/intro/welcome/
 
 ### publish
 
+- `rush change`
 - `rush version --bump` or `rush version --override-bump BUMPTYPE`
-- `rush publish --include-all -t TAG -p --regenerate-changelogs`
+- `rush publish --include-all -t TAG -p`
 
 ## 为什么使用 rush + pnpm
 
