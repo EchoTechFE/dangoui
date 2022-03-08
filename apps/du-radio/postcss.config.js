@@ -8,7 +8,7 @@ module.exports = {
       viewportUnit: 'rem',
       fontViewportUnit: 'rem',
       selectorBlackList: ['.ignore'],
-      minPixelValue: 1, // ios对于小于1px的border不显示
+      minPixelValue: 1,
       mediaQuery: false,
     },
     cssnano: {

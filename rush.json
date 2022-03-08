@@ -452,8 +452,28 @@
       "projectFolder": "apps/du-button"
     },
     {
-      "packageName": "@echoingtech/du-storybook",
-      "projectFolder": "apps/storybook"
+      "packageName": "@echoingtech/du-input",
+      "projectFolder": "apps/du-input"
+    },
+    {
+      "packageName": "@echoingtech/du-input-number",
+      "projectFolder": "apps/du-input-number"
+    },
+    {
+      "packageName": "@echoingtech/du-steps",
+      "projectFolder": "apps/du-steps"
+    },
+    {
+      "packageName": "@echoingtech/du-radio",
+      "projectFolder": "apps/du-radio"
+    },
+    {
+      "packageName": "@echoingtech/du-form",
+      "projectFolder": "apps/du-form"
+    },
+    {
+      "packageName": "@echoingtech/du-ui",
+      "projectFolder": "apps/du-ui"
     },
     {
       "packageName": "@echoingtech/du-styles",

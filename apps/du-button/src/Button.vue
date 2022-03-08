@@ -154,7 +154,6 @@ export default {
     animation: du-button-laoding 1s steps(12, end) infinite;
   }
 
-  // size
   &--large {
     height: 80rpx;
     padding: 0 32rpx;
@@ -212,7 +211,6 @@ export default {
     }
   }
 
-  // type
   &--primary {
     @include typeTheme('primary');
     &.du-button--ghost {
@@ -270,17 +268,14 @@ export default {
     border-radius: 0;
   }
 
-  //full
   &--full {
     width: 100%;
   }
 
-  // square
   &--square {
     border-radius: 16rpx;
   }
 
-  // loading
   &--loading {
     opacity: 0.6;
   }

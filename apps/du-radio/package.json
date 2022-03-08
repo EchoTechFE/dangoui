@@ -1,16 +1,16 @@
 {
-  "name": "@echoingtech/du-button",
-  "version": "0.2.1",
-  "main": "dist/index.umd.min.js",
-  "module": "./src/index.js",
-  "scripts": {
-    "build": "vue-cli-service build --target lib --name DuButton --filename index src/index.js"
-  },
-  "typings": "typings/index.d.ts",
+  "name": "@echoingtech/du-radio",
+  "version": "0.2.0",
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
   "homepage": "https://github.com/echoingtech/dumpling#readme",
   "license": "ISC",
+  "main": "dist/index.umd.min.js",
+  "module": "./src/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
   "files": [
     "dist/*",
     "src/*",
@@ -19,14 +19,14 @@
     "README.md"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/echoingtech/dumpling.git"
   },
-  "bugs": {
-    "url": "https://github.com/echoingtech/dumpling/issues"
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name DuRadio --filename index src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -34,7 +34,8 @@
     "style-object-to-css-string": "~1.0.1",
     "@vue/composition-api": "~1.4.9",
     "classnames": "~2.3.1",
-    "@echoingtech/du-styles": "workspace:*"
+    "@echoingtech/du-styles": "workspace:*",
+    "@echoingtech/du-button": "workspace:*"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.6",
@@ -44,5 +45,8 @@
     "vue-template-compiler": "^2.6.11",
     "postcss-px-to-viewport": "~1.1.1",
     "postcss": "7"
+  },
+  "bugs": {
+    "url": "https://github.com/echoingtech/dumpling/issues"
   }
 }

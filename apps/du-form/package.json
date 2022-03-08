@@ -1,0 +1,48 @@
+{
+  "name": "@echoingtech/du-form",
+  "version": "0.2.10",
+  "main": "dist/index.umd.min.js",
+  "module": "./src/index.js",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name DuForm --filename index src/index.js"
+  },
+  "typings": "types/index.d.ts",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "style-object-to-css-string": "~1.0.1",
+    "@vue/composition-api": "~1.4.9",
+    "classnames": "~2.3.1",
+    "@echoingtech/du-styles": "workspace:*"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11",
+    "postcss-px-to-viewport": "~1.1.1",
+    "postcss": "7"
+  },
+  "description": "> TODO: description",
+  "author": "onelong <love@onelong.org>",
+  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "license": "ISC",
+  "files": [
+    "dist/*",
+    "src/*",
+    "typings/*",
+    "package.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echoingtech/dumpling.git"
+  },
+  "bugs": {
+    "url": "https://github.com/echoingtech/dumpling/issues"
+  }
+}

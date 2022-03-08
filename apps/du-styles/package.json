@@ -21,7 +21,8 @@
     "url": "git+https://github.com/echoingtech/dumpling.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "echo nothing"
   },
   "bugs": {
     "url": "https://github.com/echoingtech/dumpling/issues"
