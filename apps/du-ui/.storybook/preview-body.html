@@ -1,29 +1,33 @@
 <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0 !important;
-    }
+  html,
+  body {
+    margin: 0;
+    padding: 0 !important;
+  }
 
+  html {
+    font-size: 1vw;
+  }
+  body {
+    background: #fff;
+    font-size: 14px;
+  }
+  @media screen and (min-width: 900px) {
     html {
-      font-size: 10vw !important;
-
-      background: #f0f0f0;
+      font-size: 7.5px;
+      height: 100%;
     }
     body {
-      min-height: 100vh;
-
-      background: #f0f0f0;
-    }
-    @media screen and (min-width: 800px) {
-      html {
-        height: 100%;
-        margin: 0 auto;
-
-        font-size: 48px !important;
-      }
+      min-height: 100%;
+      margin: 0 auto;
     }
     #root {
-      font-size: 14px;
+      max-width: 750px;
+      background: #f4f4f4;
     }
-  </style>
+    .docs-story {
+      max-width: 750px;
+      background: #f4f4f4;
+    }
+  }
+</style>

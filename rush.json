@@ -1,35 +1,7 @@
-/**
- * This is the main configuration file for Rush.
- * For full documentation, please see https://rushjs.io
- */
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
-
-  /**
-   * (Required) This specifies the version of the Rush engine to be used in this repo.
-   * Rush's "version selector" feature ensures that the globally installed tool will
-   * behave like this release, regardless of which version is installed globally.
-   *
-   * The common/scripts/install-run-rush.js automation script also uses this version.
-   *
-   * NOTE: If you upgrade to a new major version of Rush, you should replace the "v5"
-   * path segment in the "$schema" field for all your Rush config files.  This will ensure
-   * correct error-underlining and tab-completion for editors such as VS Code.
-   */
   "rushVersion": "5.62.4",
-
-  /**
-   * The next field selects which package manager should be installed and determines its version.
-   * Rush installs its own local copy of the package manager to ensure that your build process
-   * is fully isolated from whatever tools are present in the local environment.
-   *
-   * Specify one of: "pnpmVersion", "npmVersion", or "yarnVersion".  See the Rush documentation
-   * for details about these alternatives.
-   */
   "pnpmVersion": "6.7.1",
-
-  // "npmVersion": "6.14.15",
-  // "yarnVersion": "1.9.4",
 
   /**
    * Options that are only used when the PNPM package manager is selected
@@ -138,19 +110,7 @@
    * to disable Rush's warning.
    */
   // "suppressNodeLtsWarning": false,
-
-  /**
-   * If you would like the version specifiers for your dependencies to be consistent, then
-   * uncomment this line. This is effectively similar to running "rush check" before any
-   * of the following commands:
-   *
-   *   rush install, rush update, rush link, rush version, rush publish
-   *
-   * In some cases you may want this turned on, but need to allow certain packages to use a different
-   * version. In those cases, you will need to add an entry to the "allowedAlternativeVersions"
-   * section of the common-versions.json.
-   */
-  // "ensureConsistentVersions": true,
+  "ensureConsistentVersions": true,
 
   /**
    * Large monorepos can become intimidating for newcomers if project folder paths don't follow
@@ -272,32 +232,9 @@
   },
 
   "repository": {
-    /**
-     * The URL of this Git repository, used by "rush change" to determine the base branch for your PR.
-     *
-     * The "rush change" command needs to determine which files are affected by your PR diff.
-     * If you merged or cherry-picked commits from the master branch into your PR branch, those commits
-     * should be excluded from this diff (since they belong to some other PR).  In order to do that,
-     * Rush needs to know where to find the base branch for your PR.  This information cannot be
-     * determined from Git alone, since the "pull request" feature is not a Git concept.  Ideally
-     * Rush would use a vendor-specific protocol to query the information from GitHub, Azure DevOps, etc.
-     * But to keep things simple, "rush change" simply assumes that your PR is against the "master" branch
-     * of the Git remote indicated by the repository.url setting in rush.json.  If you are working in
-     * a GitHub "fork" of the real repo, this setting will be different from the repository URL of your
-     * your PR branch, and in this situation "rush change" will also automatically invoke "git fetch"
-     * to retrieve the latest activity for the remote master branch.
-     */
-    // "url": "https://github.com/microsoft/rush-example",
-    /**
-     * The default branch name. This tells "rush change" which remote branch to compare against.
-     * The default value is "master"
-     */
-    // "defaultBranch": "master",
-    /**
-     * The default remote. This tells "rush change" which remote to compare against if the remote URL is
-     * not set or if a remote matching the provided remote URL is not found.
-     */
-    // "defaultRemote": "origin"
+    "url": "https://github.com/echoingtech/dumpling",
+    "defaultBranch": "master",
+    "defaultRemote": "origin"
   },
 
   /**
