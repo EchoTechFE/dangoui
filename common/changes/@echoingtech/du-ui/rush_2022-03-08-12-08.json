@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/du-ui",
+      "comment": "test publish step2",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/du-ui"
+}

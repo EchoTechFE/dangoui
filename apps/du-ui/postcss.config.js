@@ -1,10 +1,9 @@
 // postcss.config.js
 module.exports = {
   plugins: {
-    /* Only H5 vw移动端适配 */
     'postcss-px-to-viewport': {
-      unitToConvert: 'rpx',
-      viewportWidth: 7500,
+      unitToConvert: 'px',
+      viewportWidth: 750,
       viewportHeight: 1334,
       unitPrecision: 3,
       viewportUnit: 'rem',
@@ -12,6 +11,11 @@ module.exports = {
       selectorBlackList: ['.ignore'],
       minPixelValue: 1, // ios对于小于1px的border不显示
       mediaQuery: false,
+    },
+    cssnano: {
+      'cssnano-preset-advanced': {
+        zindex: false,
+      },
     },
   },
 };

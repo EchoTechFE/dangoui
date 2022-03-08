@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/du-input-number",
-  "version": "0.2.8",
+  "version": "1.0.0-alpha.3",
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
   "homepage": "https://github.com/echoingtech/dumpling#readme",
@@ -28,22 +28,22 @@
     "build": "vue-cli-service build --target lib --name DuInputNumber --filename index src/index.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "style-object-to-css-string": "~1.0.1",
+    "@echoingtech/du-input": "workspace:*",
+    "@echoingtech/du-styles": "workspace:*",
     "@vue/composition-api": "~1.4.9",
     "classnames": "~2.3.1",
-    "@echoingtech/du-styles": "workspace:*",
-    "@echoingtech/du-input": "workspace:*"
+    "core-js": "^3.6.5",
+    "style-object-to-css-string": "~1.0.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-service": "~4.5.6",
+    "postcss": "7",
+    "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
-    "postcss-px-to-viewport": "~1.1.1",
-    "postcss": "7"
+    "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
     "url": "https://github.com/echoingtech/dumpling/issues"
