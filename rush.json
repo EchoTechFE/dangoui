@@ -386,31 +386,45 @@
     //
     {
       "packageName": "@echoingtech/du-button",
-      "projectFolder": "apps/du-button"
+      "projectFolder": "apps/du-button",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-input",
-      "projectFolder": "apps/du-input"
+      "projectFolder": "apps/du-input",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-input-number",
-      "projectFolder": "apps/du-input-number"
+      "projectFolder": "apps/du-input-number",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-steps",
-      "projectFolder": "apps/du-steps"
+      "projectFolder": "apps/du-steps",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-radio",
-      "projectFolder": "apps/du-radio"
+      "projectFolder": "apps/du-radio",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-form",
-      "projectFolder": "apps/du-form"
+      "projectFolder": "apps/du-form",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-ui",
-      "projectFolder": "apps/du-ui"
+      "projectFolder": "apps/du-ui",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     },
     {
       "packageName": "@echoingtech/du-styles",

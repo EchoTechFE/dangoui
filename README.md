@@ -36,6 +36,11 @@ rush 文档 https://rushjs.io/pages/intro/welcome/
 
 - 创建 PR 后需要经过至少两位同事 review
 
+### publish
+
+- `rush version --bump` or `rush version --override-bump BUMPTYPE`
+- `rush publish --include-all -t TAG -p --regenerate-changelogs`
+
 ## 为什么使用 rush + pnpm
 
 - lerna 和 yarn 有两套命令
