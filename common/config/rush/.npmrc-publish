@@ -19,4 +19,4 @@
 #   //registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
 #
 
-//npm.pkg.github.com/:_authToken=${GIT_TOKEN}
+//npm.pkg.github.com/:_authToken=

@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/du-ui",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "scripts": {
     "build": "npm run build-lib && npm run build-packages",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",

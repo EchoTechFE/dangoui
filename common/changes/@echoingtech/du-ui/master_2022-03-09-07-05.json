@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/du-ui",
+      "comment": "du-ui packages",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/du-ui"
+}
