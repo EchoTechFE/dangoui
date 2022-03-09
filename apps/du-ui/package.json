@@ -2,7 +2,9 @@
   "name": "@echoingtech/du-ui",
   "version": "1.0.0-alpha.3",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
+    "build": "npm run build-lib && npm run build-packages",
+    "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
+    "build-packages": "node scripts/build-packages.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -13,6 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/echoingtech/dumpling.git"
   },
+  "files": [
+    "dist/*",
+    "packages",
+    "package.json",
+    "README.md"
+  ],
   "dependencies": {
     "@echoingtech/du-button": "workspace:*",
     "@echoingtech/du-form": "workspace:*",
