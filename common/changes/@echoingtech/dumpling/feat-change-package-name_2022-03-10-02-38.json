@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/dumpling",
+      "comment": "change package name",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/dumpling"
+}
