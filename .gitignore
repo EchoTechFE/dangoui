@@ -69,3 +69,5 @@ common/autoinstallers/*/.npmrc
 
 dist
 apps/du-ui/packages
+
+.vscode
