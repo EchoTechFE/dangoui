@@ -421,7 +421,7 @@
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-ui",
+      "packageName": "@echoingtech/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
       "versionPolicyName": "du"

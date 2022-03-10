@@ -1,5 +1,5 @@
 {
-  "name": "@echoingtech/du-ui",
+  "name": "@echoingtech/dumpling",
   "version": "1.0.0-alpha.4",
   "scripts": {
     "build": "npm run build-lib && npm run build-packages",

@@ -14,7 +14,7 @@
     "definitionName": "lockStepVersion",
     "version": "1.0.0-alpha.4",
     "nextBump": "prerelease",
-    "mainProject": "@echoingtech/du-ui"
+    "mainProject": "@echoingtech/dumpling"
   }
   // {
   //   /**
