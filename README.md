@@ -14,6 +14,70 @@
 
 rush 文档 https://rushjs.io/pages/intro/welcome/
 
+### 给自己的组件安装依赖
+
+```bash
+# 例子：给 du-button 组件库安装 vue 依赖
+$ cd ./apps/du-button
+$ rush add --package vue
+```
+
+### 添加一个新组件（临时）
+
+```bash
+# 例子：假设创建一个叫 du-hello 的组件
+$ mkdir ./apps/du-hello
+# 把 du-button 中必要的文件复制一份到 du-hello 里面
+# __tests__, src, typings, .browserslistrc,
+# babel.config.js, package.json, postcss.config.js, vue.config.js
+# 修改 package.json 的 name 字段为 @echoingtech/du-hello，修改 build 命令中的 --name 字段
+```
+
+操作完之后目录结构大概是这样
+
+```
+.
+├── README.md
+├── __tests__
+├── babel.config.js
+├── package.json
+├── postcss.config.js
+├── src
+│   ├── Hello.vue
+│   └── index.js
+└── vue.config.js
+```
+
+修改 rush.json，projects 字段下增加包：
+
+```json
+{
+  "packageName": "@echoingtech/du-hello",
+  "projectFolder": "apps/du-hello",
+  "shouldPublish": true,
+  "versionPolicyName": "du"
+}
+```
+
+然后执行
+
+```bash
+$ rush update
+```
+
+此时新组件目录会多 node_modules 和 .rush 文件夹
+
+接着，你就可以在 du-ui/stories 增加对应的组件 demo，在 src/index.js 中引入导出 du-hello，在 du-ui/package.json 中的 dependencies 下面增加 @echoingtech/du-hello 的依赖
+
+查看自己开发的组件：
+
+```bash
+# 然后在 du-ui 目录下执行
+npm run storybook
+```
+
+**依赖有问题的时候就跑一下 rush update 重新更新一下依赖**
+
 ### 编写组件的须知
 
 > !非常重要
