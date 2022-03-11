@@ -78,6 +78,8 @@ npm run storybook
 
 **依赖有问题的时候就跑一下 rush update 重新更新一下依赖**
 
+更多信息请好好阅读一下 rush 的文档：https://rushjs.io/pages/intro/welcome/
+
 ### 编写组件的须知
 
 > !非常重要
