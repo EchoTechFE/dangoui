@@ -1,0 +1,47 @@
+{
+  "name": "@echoingtech/du-popup",
+  "version": "1.0.0-alpha.6",
+  "main": "dist/index.umd.min.js",
+  "module": "./src/index.js",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name DuPopup --filename index src/index.js"
+  },
+  "typings": "typings/index.d.ts",
+  "description": "> TODO: description",
+  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "license": "ISC",
+  "files": [
+    "dist/*",
+    "src/*",
+    "typings/*",
+    "package.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echoingtech/dumpling.git"
+  },
+  "bugs": {
+    "url": "https://github.com/echoingtech/dumpling/issues"
+  },
+  "dependencies": {
+    "@echoingtech/du-styles": "workspace:*",
+    "@vue/composition-api": "~1.4.9",
+    "classnames": "~2.3.1",
+    "core-js": "^3.6.5",
+    "style-object-to-css-string": "~1.0.1",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
+    "postcss": "7",
+    "postcss-px-to-viewport": "~1.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

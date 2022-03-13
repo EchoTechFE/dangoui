@@ -131,6 +131,37 @@ importers:
       sass-loader: 8.0.2_sass@1.49.9
       vue-template-compiler: 2.6.14
 
+  ../../apps/du-popup:
+    specifiers:
+      '@echoingtech/du-styles': workspace:*
+      '@vue/cli-plugin-babel': ~4.5.6
+      '@vue/cli-service': ~4.5.6
+      '@vue/composition-api': ~1.4.9
+      classnames: ~2.3.1
+      core-js: ^3.6.5
+      postcss: '7'
+      postcss-px-to-viewport: ~1.1.1
+      sass: ^1.26.5
+      sass-loader: ^8.0.2
+      style-object-to-css-string: ~1.0.1
+      vue: ^2.6.11
+      vue-template-compiler: ^2.6.11
+    dependencies:
+      '@echoingtech/du-styles': link:../du-styles
+      '@vue/composition-api': 1.4.9_vue@2.6.14
+      classnames: 2.3.1
+      core-js: 3.21.1
+      style-object-to-css-string: 1.0.1
+      vue: 2.6.14
+    devDependencies:
+      '@vue/cli-plugin-babel': 4.5.15_4c1e5ebbf041a85328f9984e4ede8f8a
+      '@vue/cli-service': 4.5.15_0f25d1aa8415e98c3e62a4178f3c555d
+      postcss: 7.0.39
+      postcss-px-to-viewport: 1.1.1
+      sass: 1.49.9
+      sass-loader: 8.0.2_sass@1.49.9
+      vue-template-compiler: 2.6.14
+
   ../../apps/du-radio:
     specifiers:
       '@echoingtech/du-button': workspace:*
@@ -205,6 +236,7 @@ importers:
       '@echoingtech/du-form': workspace:*
       '@echoingtech/du-input': workspace:*
       '@echoingtech/du-input-number': workspace:*
+      '@echoingtech/du-popup': workspace:*
       '@echoingtech/du-radio': workspace:*
       '@echoingtech/du-steps': workspace:*
       '@echoingtech/du-styles': workspace:*
@@ -229,6 +261,7 @@ importers:
       '@echoingtech/du-form': link:../du-form
       '@echoingtech/du-input': link:../du-input
       '@echoingtech/du-input-number': link:../du-input-number
+      '@echoingtech/du-popup': link:../du-popup
       '@echoingtech/du-radio': link:../du-radio
       '@echoingtech/du-steps': link:../du-steps
       '@echoingtech/du-styles': link:../du-styles

@@ -421,6 +421,12 @@
       "versionPolicyName": "du"
     },
     {
+      "packageName": "@echoingtech/du-popup",
+      "projectFolder": "apps/du-popup",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
+    },
+    {
       "packageName": "@echoingtech/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
