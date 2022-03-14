@@ -87,6 +87,7 @@ npm run storybook
 - extClass，extStyle 应在每个组件做保留属性或实现
 - 组件需要使用 vue-composition-api 的写法，页面使用 H5 标签，应同时考虑 Uniapp 和 h5 的使用，严禁使用 Uniapp 的 view 等组件
   .js 文件导出
+- 注意小程序与浏览器的差异，比如浏览器中没有 scroll-view，开发时可以在 stories 中注册为浏览器编写的模拟 scroll-view 组件：https://github.com/echoingtech/dumpling/blob/master/apps/du-ui/stories/DuPopup.stories.js#L11
 
 ### 提交
 
