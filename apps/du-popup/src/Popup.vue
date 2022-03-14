@@ -80,11 +80,13 @@ export default {
     const handleMaskClick = () => {
       if (props.maskClick) {
         emit('update:visible', false)
+        emit('close')
       }
     }
 
     const handleClose = () => {
       emit('update:visible', false)
+      emit('close')
     }
 
     watch(
