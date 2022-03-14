@@ -26,9 +26,9 @@
     "@echoingtech/du-form": "workspace:*",
     "@echoingtech/du-input": "workspace:*",
     "@echoingtech/du-input-number": "workspace:*",
+    "@echoingtech/du-popup": "workspace:*",
     "@echoingtech/du-radio": "workspace:*",
     "@echoingtech/du-steps": "workspace:*",
-    "@echoingtech/du-popup": "workspace:*",
     "@echoingtech/du-styles": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
