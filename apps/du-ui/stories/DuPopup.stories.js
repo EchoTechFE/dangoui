@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
 import { DuPopup } from '@echoingtech/du-popup/src/index.js'
 import DuButton from '@echoingtech/du-button/src/Button.vue'
+import ScrollView from '../components/ScrollView.vue'
 import './theme.scss'
 
 import '@echoingtech/du-styles/styles/index.scss'
 
 Vue.use(VueCompositionApi)
+Vue.component('scroll-view', ScrollView)
 
 export default {
   title: 'Popup',
