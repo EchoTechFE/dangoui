@@ -22,17 +22,25 @@ const Template = (args, { argTypes }) => ({
     return {
       visible: false,
       centerVisible: false,
+      topVisible: false,
     }
   },
   template: `
     <div style="margin-top: 18px; background: #fff;">
       <DuButton @click="handleOpen">打开</DuButton>
       <DuButton @click="handleOpenCenter">打开居中</DuButton>
+      <DuButton @click="handleOpenTop">打开顶部</DuButton>
       <DuPopup :visible="visible" title="选择日期（最多可选30天）" @update:visible="handleClose" type="bottom">
         <div>这是内容</div>
         <div>这是内容</div>
       </DuPopup>
       <DuPopup :visible.sync="centerVisible" title="选择日期（最多可选30天）" type="center" extStyle="width: 300px;" :maskClick="false">
+        <div style="padding: 8px;">
+          <div>这是内容</div>
+          <div>这是内容</div>
+        </div>
+      </DuPopup>
+      <DuPopup :visible.sync="topVisible" title="选择日期（最多可选30天）" type="top" :headerVisible="false">
         <div style="padding: 8px;">
           <div>这是内容</div>
           <div>这是内容</div>
@@ -51,6 +59,10 @@ const Template = (args, { argTypes }) => ({
 
     handleOpenCenter() {
       this.centerVisible = true
+    },
+
+    handleOpenTop() {
+      this.topVisible = true
     },
   },
 })

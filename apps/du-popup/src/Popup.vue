@@ -2,7 +2,7 @@
   <div class="du-popup" v-if="innerVisible">
     <div :class="maskClassName" @click="handleMaskClick" />
     <div :style="style" :class="className">
-      <div class="du-popup__header">
+      <div class="du-popup__header" v-if="headerVisible">
         <div class="du-popup__title">{{ title }}</div>
         <div class="du-popup__close" @click="handleClose" />
       </div>
@@ -21,6 +21,11 @@ export default {
     title: {
       type: String,
       default: '',
+    },
+
+    headerVisible: {
+      type: Boolean,
+      default: true,
     },
 
     type: {
@@ -151,6 +156,19 @@ export default {
     background-color: #fff;
     position: fixed;
     transition: all 0.3s;
+  }
+
+  &--top {
+    border-radius: 0 0 30rpx 30rpx;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+  }
+
+  &--top-open {
+    transform: translateY(0);
   }
 
   &--bottom {
