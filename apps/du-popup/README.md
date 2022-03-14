@@ -16,7 +16,7 @@
 Name | Type | Required | Default | 备注
 -- | -- | -- | -- | --
 update:visible | function | false |   | 弹窗关闭
-
+close|function|false| |弹窗关闭事件
 
 ## Example
 
