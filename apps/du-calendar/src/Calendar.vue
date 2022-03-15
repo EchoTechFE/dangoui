@@ -212,6 +212,7 @@ export default {
       }
 
       &__day {
+        margin: 0 auto;
         width: 78rpx;
         height: 78rpx;
         display: flex;
