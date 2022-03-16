@@ -146,6 +146,7 @@ export default {
     bottom: 0;
     opacity: 0;
     transition: all 0.3s;
+    z-index: 9998;
 
     &--open {
       opacity: 1;
@@ -156,6 +157,7 @@ export default {
     background-color: #fff;
     position: fixed;
     transition: all 0.3s;
+    z-index: 9999;
   }
 
   &--top {
