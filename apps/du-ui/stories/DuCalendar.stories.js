@@ -21,13 +21,15 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       singleVisible: false,
-      multipleVisible: false,
+      multipleVisible: true,
       calendarType: 'single',
       defaultDateSingle: new Date(),
+      minSelectDate: new Date('2021-10-21'),
+      maxSelectDate: new Date('2022-04-20'),
       defaultDateArray: [
-        new Date('2021-11-21'), new Date('2022-01-15'), new Date('2022-01-20'),
+        new Date('2021-10-21'), new Date('2022-01-15'), new Date('2022-01-20'),
         new Date('2022-01-29'), new Date('2022-02-16'), new Date(),
-        new Date('2022-03-27'), new Date('2022-04-23'), 
+        new Date('2022-03-20'), new Date('2022-04-20'), 
       ],
       singleResult: null,
       multipleResult: [],
@@ -38,12 +40,26 @@ const Template = (args, { argTypes }) => ({
       <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;">
         <DuButton @click="handleSingleOpen">单选</DuButton>
         <div>单选日期为：{{ singleResult }}</div>
-        <DuCalendar type="single" :visible="singleVisible" :defaultDate="defaultDateSingle" @close="handleClose" @confirm="handleSingleConfirm" />
+        <DuCalendar
+          type="single"
+          :visible="singleVisible"
+          :defaultDate="defaultDateSingle"
+          @close="handleClose"
+          @confirm="handleSingleConfirm"
+        />
       </div>
       <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
         <DuButton @click="handleMultipleOpen">多选</DuButton>
         <div>多选日期数为：{{ multipleResult.length }}个</div>
-        <DuCalendar type="multiple" :visible="multipleVisible" :defaultDate="defaultDateArray" @close="handleClose" @confirm="handleMultipleConfirm" />
+        <DuCalendar
+          type="multiple"
+          :minDate="minSelectDate"
+          :maxDate="maxSelectDate"
+          :visible="multipleVisible"
+          :defaultDate="defaultDateArray"
+          @close="handleClose"
+          @confirm="handleMultipleConfirm"
+        />
       </div>
     </div>
   `,

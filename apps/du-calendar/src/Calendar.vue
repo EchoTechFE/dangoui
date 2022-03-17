@@ -281,25 +281,6 @@ export default {
 
     // 初始化数据
     const getInitDateData = async () => {
-      // 获取默认值的最小日期，比对默认的最小选择区间是否小于最小日期，是的话，最小可选区间为默认值的
-      let minElement = null;
-      if (type.value === 'single') {
-        minElement = defaultDate.value;
-      } else if (type.value === 'multiple') {
-        minElement = await getLimitValue('min', defaultDate.value);
-      }
-      const minDateTimeStamp = dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date);
-      const minElementTimeStamp = minElement ? dateToTimeStamp(minElement.getFullYear(), minElement.getMonth(), minElement.getDate()) : null;
-      if (minElement && (minDateTimeStamp > minElementTimeStamp)) {
-        minDateObj.year = minElement.getFullYear();
-        minDateObj.month = minElement.getMonth();
-        minDateObj.date = minElement.getDate();
-        const { year, month, date } = getMaxDate(minElement, 5);
-        maxDateObj.year = year;
-        maxDateObj.month = month;
-        maxDateObj.date = date;
-      }
-      
       const yearInstance = maxDateObj.year - minDateObj.year;
       let monthInstance = null;
       if (yearInstance === 0) {
@@ -308,7 +289,8 @@ export default {
         monthInstance = yearInstance * 12 - minDateObj.month + maxDateObj.month;
       }
 
-      calendarList.value = getNewDate('new', { year: minDateObj.year, month: minDateObj.month }, monthInstance);
+      const list = getNewDate('new', { year: minDateObj.year, month: minDateObj.month }, monthInstance + 1);
+      calendarList.value = [...list];
     };
 
     const transMonFilter = (month) => {
@@ -448,8 +430,8 @@ export default {
       calendarList.value = [...topList, ...calendarList.value];
     };
 
-    onMounted(async () => {
-      await getInitDateData();
+    onMounted(() => {
+      getInitDateData();
     });
 
     watch(
