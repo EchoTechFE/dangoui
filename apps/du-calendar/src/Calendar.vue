@@ -1,6 +1,6 @@
 <template>
   <DuPopup
-    :visible="innerVisible"
+    :visible="calendarVisible"
     :title="calendarTitle"
     :extStyle="style"
     :extClass="'pop-class'"
@@ -17,7 +17,7 @@
         </div>
       </div>
       <scroll-view
-        scrollX
+        scrollY
         class="du-cal-cantainer"
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
@@ -28,31 +28,36 @@
             <!-- 补齐日期空格 -->
             <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space+'space'"></div>
             <!-- 遍历日期 -->
-            <div class="du-cal-flex-item" v-for="(day, d) in item.day" :key="d">
+            <div class="du-cal-flex-item" v-for="(date, d) in item.day" :key="d">
               <!-- 禁用的日期 -->
-              <!-- <div
+              <div
+                v-show="dateToTimeStamp(item.year, item.month, date) < dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date)
+                || dateToTimeStamp(item.year, item.month, date) > dateToTimeStamp(maxDateObj.year, maxDateObj.month, maxDateObj.date)"
                 class="du-cal-flex-item__day du-cal-list-day__disable"
-              >{{ day }}</div> -->
+              >{{ date }}</div>
               <!-- 未禁用的日期 -->
               <div
-                class="du-cal-flex-item__day du-cal-list-day__undisable"
-                @click="changeSelectDate(item, day)"
-              >{{ day }}</div>
-              <!-- 选中的日期 -->
-              <!-- <div class="du-cal-flex-item__day du-cal-list-day-actived">
-                <div class="actived-icon__bg">{{ day }}</div>
-                <div class="actived__icon">
+                v-show="dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date) <= dateToTimeStamp(item.year, item.month, date)
+                && dateToTimeStamp(item.year, item.month, date) <= dateToTimeStamp(maxDateObj.year, maxDateObj.month, maxDateObj.date)"
+                :class="showUnDisClassNames(item.year, item.month, date, selectedDates)"
+                @click="changeSelectDate(item, date)"
+              >
+                <div class="actived-icon__bg">{{ date }}</div>
+                <!-- 选中的样式 -->
+                <div v-show="isSelected(item.year, item.month, date, selectedDates)" class="actived__icon">
                   <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>
       </scroll-view>
       <div class="du-cal-button">
-        <DuButton type="text">取消</DuButton>
+        <DuButton type="text" @click="handleClose">取消</DuButton>
         <DuButton
+          :disabled="selectedDates.length <= 0"
           class="du-cal-button__confirm"
+          @click="handleConfirm"
         >{{ buttonConfirmText }}</DuButton>
       </div>
     </div>
@@ -60,28 +65,30 @@
 </template>
 
 <script>
-import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api';
+import { computed, toRefs, ref, onMounted, watch, reactive } from '@vue/composition-api';
 import styleToCss from 'style-object-to-css-string';
 import classNames from 'classnames';
 import DuButton from '@echoingtech/du-button/src/Button.vue';
 import DuPopup from '@echoingtech/du-popup/src/Popup.vue';
 
 // 获取最大选择日期
-const getMaxDate = (date) => {
+const getMaxDate = (date, instance = 6) => {
   let year = Number(date.getFullYear());
-  let month = Number(date.getMonth());
-
-  for (let i = 0; i < 6; i++) {
-    if (month === 11) {
-      month = 0;
-      year = year + 1;
-    } else {
-      month = month + 1;
-      year = year;
-    }
+  let month = Number(date.getMonth()) + instance;
+  let initDate = Number(date.getDate());
+  if (month > 11) {
+    month = month -11;
+    year = year + 1;
   }
-
-  return new Date(year, month, new Date(year, month + 1, 0).getDate());
+  let dateDetail = Number(new Date(year, month + 1, 0).getDate());
+  if (dateDetail > initDate) {
+    dateDetail = initDate;
+  }
+  return {
+    year,
+    month,
+    date: dateDetail,
+  };
 };
 
 export default {
@@ -97,7 +104,7 @@ export default {
     },
     visible: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     type: {
       type: String,
@@ -113,10 +120,7 @@ export default {
     },
     defaultDate: {
       type: [Date, Array, null],
-      default: () => { return [
-        new Date('2021-11-23'), new Date('2021-12-31'), new Date('2022-01-15'), new Date('2022-01-20'),
-        new Date('2022-01-29'), new Date('2022-02-16'), new Date('2022-02-20'), new Date(),
-      ] },
+      default: () => { return [] },
     },
     minDate: {
       type: Date,
@@ -125,7 +129,8 @@ export default {
     maxDate: {
       type: Date,
       default: () => {
-        return getMaxDate(new Date());
+        const { year, month, date } = getMaxDate(new Date());
+        return new Date(year, month, date);
       },
     },
     selectableCount: {
@@ -144,7 +149,19 @@ export default {
       selectableCount,
     } = toRefs(props);
 
-    const innerVisible = ref(props.visible);
+    const calendarVisible = ref(props.visible);
+
+    const minDateObj = reactive({
+      year: Number(minDate.value.getFullYear()),
+      month: Number(minDate.value.getMonth()),
+      date: Number(minDate.value.getDate()),
+    });
+
+    const maxDateObj = reactive({
+      year: Number(maxDate.value.getFullYear()),
+      month: Number(maxDate.value.getMonth()),
+      date: Number(maxDate.value.getDate()),
+    });
 
     const className = computed(() => {
       const {
@@ -180,35 +197,36 @@ export default {
         if (type.value === 'single') {
           return '确定';
         } else if (type.value === 'multiple') {
-          return selectedDates.value.length > 0 ? `确定(${selectableCount.value})` : '确定';
+          return selectedDates.value.length > 0 ? `确定(${selectedDates.value.length})` : '确定';
         }
       }
     });
 
-    const minDateObj = computed(() => {
-      return {
-        year: Number(minDate.value.getFullYear()),
-        month: Number(minDate.value.getMonth()),
-        day: Number(minDate.value.getDate()),
-      };
-    });
-
-    const maxDateObj = computed(() => {
-      return {
-        year: Number(maxDate.value.getFullYear()),
-        month: Number(maxDate.value.getMonth()),
-        day: Number(maxDate.value.getDate()),
-      };
-    });
-
-    const unDisClassNames = computed(() => {
-      let className = '';
-      return ['du-cal-flex-item__day', className];
+    // 转换默认数组结构之后的数组对象
+    const echoDefault = computed(() => {
+      let list = [];
+      if (Array.isArray(defaultDate.value)) {
+        // new Date('')和new Date(y, m, d)转换后的时间戳起始小时不同，所以统一格式。
+        for (let i = 0; i < defaultDate.value.length; i++) {
+          list.push({
+            year: Number(defaultDate.value[i].getFullYear()),
+            month: Number(defaultDate.value[i].getMonth()),
+            date: Number(defaultDate.value[i].getDate()),
+          });
+        }
+      } else if (defaultDate.value) {
+        list.push({
+          year: Number(defaultDate.value.getFullYear()),
+          month: Number(defaultDate.value.getMonth()),
+          date: Number(defaultDate.value.getDate()),
+        });
+      }
+      return list;
     });
 
     const weekList = ref(['日', '一', '二', '三', '四', '五', '六']);
     let calendarList = ref([]);
-    let selectedDates = ref([]);
+    let selectedDates = ref([...echoDefault.value]);
 
     /**
      * 获取更多的数据
@@ -262,121 +280,211 @@ export default {
     };
 
     // 初始化数据
-    const getInitDateData = () => {
-      const yearInstance = maxDateObj.value.year - minDateObj.value.year;
+    const getInitDateData = async () => {
+      // 获取默认值的最小日期，比对默认的最小选择区间是否小于最小日期，是的话，最小可选区间为默认值的
+      let minElement = null;
+      if (type.value === 'single') {
+        minElement = defaultDate.value;
+      } else if (type.value === 'multiple') {
+        minElement = await getLimitValue('min', defaultDate.value);
+      }
+      const minDateTimeStamp = dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date);
+      const minElementTimeStamp = minElement ? dateToTimeStamp(minElement.getFullYear(), minElement.getMonth(), minElement.getDate()) : null;
+      if (minElement && (minDateTimeStamp > minElementTimeStamp)) {
+        minDateObj.year = minElement.getFullYear();
+        minDateObj.month = minElement.getMonth();
+        minDateObj.date = minElement.getDate();
+        const { year, month, date } = getMaxDate(minElement, 5);
+        maxDateObj.year = year;
+        maxDateObj.month = month;
+        maxDateObj.date = date;
+      }
+      
+      const yearInstance = maxDateObj.year - minDateObj.year;
       let monthInstance = null;
       if (yearInstance === 0) {
-        monthInstance = maxDateObj.value.month - minDateObj.value.month;
+        monthInstance = maxDateObj.month - minDateObj.month;
       } else {
-        monthInstance = yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month;
+        monthInstance = yearInstance * 12 - minDateObj.month + maxDateObj.month;
       }
 
-      let list = getNewDate('new', { year: minDateObj.value.year, month: minDateObj.value.month }, monthInstance);
-      calendarList.value = [...list];
+      calendarList.value = getNewDate('new', { year: minDateObj.year, month: minDateObj.month }, monthInstance);
     };
 
     const transMonFilter = (month) => {
       return month < 9 ? `0${month + 1}` : month + 1;
     };
 
-    // 是否展示禁用样式
-    const showDisable = (item) => {
-      if (item.year < minDateObj.value.year) {
-        return true;
-      } else if (item.year === minDateObj.value.year && item.year === maxDateObj.value.year) {
-        if (item.month < minDateObj.value.month) { return true }
-        if (item.month = minDateObj.value.month && item.day < minDateObj.value.day) { return true}
-        if (item.month = maxDateObj.value.month && item.day > maxDateObj.value.day) { return true }
-        if (item.month > maxDateObj.value.month) { return true }
-      } else if (item.year > maxDateObj.value.year) { return true }
-
-      return false;
+    // 精确到天
+    const dateToTimeStamp = (year, month, date) => {
+      const inti = new Date(year, month, date).getTime();
+      const ms = Math.floor(inti / 1000);
+      const s = Math.floor(ms / 60);
+      const h = Math.floor(s / 60);
+      const d = Math.floor(h / 24);
+      return d;
     };
 
-    const handleClose = () => {
-      // innerVisible.value = false;
-      emit('close');
+    // 判断某项是否被选中
+    const isSelected = (year, month, date, array) => {
+      const init = dateToTimeStamp(year, month, date);
+      const flag = array.some(item => {
+        const timeStamp = dateToTimeStamp(item.year, item.month, item.date);
+        return init === timeStamp;
+      });
+      return flag;
     };
 
-    const changeSelectDate = (item, day) => {
-      console.log('year:', item.year);
-      console.log('month:', item.month);
-      console.log('day:', day);
+    // 根据是否被选中显示不同的样式
+    const showUnDisClassNames = (year, month, date, array) => {
+      const haved = isSelected(year, month, date, array);
+      if (haved) {
+        return classNames(['du-cal-flex-item__day', 'du-cal-list-day-actived'])
+      } else {
+        return classNames(['du-cal-flex-item__day', 'du-cal-list-day__undisable']);
+      }
+    };
+
+    // 获取数组中的最小/最大日期(max/min)
+    const getLimitValue = (type = 'min', array) => {
+      const max = new Date(Math.max.apply(null, array));
+      const min = new Date(Math.min.apply(null, array));
+      return type === 'max' ? max : min;
+    };
+
+    const changeSelectDate = (item, date) => {
       if (selectedDates.value.length === 0) {
         selectedDates.value.push({
-          year: item.year,
-          month: item.month,
-          day: day,
+          year: Number(item.year),
+          month: Number(item.month),
+          date: Number(date),
         });
         return;
       }
       // 遍历该数据在已选数据中是否已存在
-      const haved = selectedDates.value.filter(element => {
-        if (
-          item.year === element.year
-          && item.month === element.month
-          && day === element.day
-        ) {
-          return true;
-        } else { return false }
-      });
+      const haved = isSelected(item.year, item.month, date, selectedDates.value);
 
       if (type.value === 'single') {
-        if (haved.length > 0) {
+        if (haved) {
           selectedDates.value = [];
         } else {
           selectedDates.value = [{
-            year: item.year,
-            month: item.month,
-            day: day,
+            year: Number(item.year),
+            month: Number(item.month),
+            date: Number(date),
           }];
         }
       } else if (type.value === 'multiple') {
-        if (haved.length > 0) {
+        if (haved) {
           for (let i = 0; i < selectedDates.value.length; i++) {
             if (
               item.year === selectedDates.value[i].year
               && item.month === selectedDates.value[i].month
-              && day === selectedDates.value[i].day
+              && date === selectedDates.value[i].date
             ) {
               selectedDates.value.splice(i, 1);
             }
           }
         } else {
+          if (selectedDates.value.length >= selectableCount.value) { return }
           selectedDates.value.push({
-            year: item.year,
-            month: item.month,
-            day: day,
+            year: Number(item.year),
+            month: Number(item.month),
+            date: Number(date),
           });
         }
       }
     };
 
-    const scrolltolower = () => {};
+    const handleClose = () => {
+      emit('close');
+    };
 
-    const scrolltoupper = () => {};
+    const handleConfirm = () => {
+      if (selectedDates.value.length === 0) { return }
+      let confirmDate = null;
+      let confirmMap = [];
 
-    onMounted(() => {
-      getInitDateData();
+      if (type.value === 'single') {
+        confirmDate = selectedDates.value[0];
+        emit('confirm', { value: new Date(confirmDate.year, confirmDate.month, confirmDate.date) });
+      } else if (type.value === 'multiple') {
+        confirmMap = selectedDates.value.map(item => {
+          return new Date(item.year, item.month, item.date);
+        })
+        emit('confirm', { value: confirmMap });
+      }
+    };
+
+    // 触底加载更多
+    const scrolltolower = () => {
+      console.log('startDate - bottom:', startDate);
+      const startDate = calendarList.value.length > 0 ? calendarList.value[calendarList.value.length -1] : null;
+      if (!startDate) { return }
+      let year = startDate.year;
+      let month = startDate.month + 1;
+      if (month > 11) {
+        month = month -11;
+        year = year + 1;
+      }
+      const topList = getNewDate('new', { year: year, month: month }, 3);
+      console.log('topList:', topList);
+      calendarList.value = [...calendarList.value, ...topList];
+    };
+
+    // 上拉加载更多
+    const scrolltoupper = () => {
+      console.log('startDate - top:', startDate);
+      const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null;
+      if (!startDate) { return }
+      let year = startDate.year;
+      let month = startDate.month - 1;
+      if (month < 0) {
+        month = month + 1;
+        year = year - 1;
+      }
+      const topList = getNewDate('old', { year: year, month: month }, 3);
+      console.log('topList:', topList);
+      calendarList.value = [...topList, ...calendarList.value];
+    };
+
+    onMounted(async () => {
+      await getInitDateData();
     });
 
+    watch(
+      () => props.visible,
+      async (val) => {
+        if (val) {
+          await getInitDateData();
+          calendarVisible.value = true;
+        } else {
+          calendarVisible.value = false;
+          calendarList.value = [];
+        }
+      }
+    );
+
     return {
-      innerVisible,
+      calendarVisible,
       className,
       style,
       calendarTitle,
       weekList,
       calendarList,
+      selectedDates,
       buttonConfirmText,
       minDateObj,
       maxDateObj,
-      unDisClassNames,
       handleClose,
       scrolltolower,
       scrolltoupper,
       transMonFilter,
-      showDisable,
       changeSelectDate,
+      dateToTimeStamp,
+      showUnDisClassNames,
+      isSelected,
+      handleConfirm,
     }
   },
 };
