@@ -108,7 +108,7 @@ export default {
     },
     title: {
       type: String,
-      default: '请选择日期',
+      default: '',
     },
     confirmText: {
       type: String,
@@ -167,10 +167,14 @@ export default {
     });
 
     const calendarTitle = computed(() => {
-      if (type.value === 'single') {
+      if (title.value) {
         return title.value;
-      } else if (type.value === 'multiple') {
-        return `${title.value}(最大可选${selectableCount.value}天)`;
+      } else {
+        if (type.value === 'single') {
+          return '请选择日期';
+        } else if (type.value === 'multiple') {
+          return `请选择日期(最大可选${selectableCount.value}天)`;
+        }
       }
     });
 
