@@ -359,9 +359,9 @@ export default {
     const changeSelectDate = (item, date) => {
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
-          year: Number(item.year),
-          month: Number(item.month),
-          date: Number(date),
+          year: item.year,
+          month: item.month,
+          date: date,
         });
         return;
       }
