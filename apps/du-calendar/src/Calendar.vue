@@ -151,24 +151,12 @@ export default {
 
     const calendarVisible = ref(props.visible);
 
-    const minDateObj = reactive({
-      year: Number(minDate.value.getFullYear()),
-      month: Number(minDate.value.getMonth()),
-      date: Number(minDate.value.getDate()),
-    });
-
-    const maxDateObj = reactive({
-      year: Number(maxDate.value.getFullYear()),
-      month: Number(maxDate.value.getMonth()),
-      date: Number(maxDate.value.getDate()),
-    });
-
     const className = computed(() => {
       const {
         extClass
       } = props;
       return classNames(
-        ['du-calendarendar', 'du-calendarendar--' + type.value],
+        ['du-calendarendar'],
         extClass,
       );
     });
@@ -200,6 +188,22 @@ export default {
           return selectedDates.value.length > 0 ? `确定(${selectedDates.value.length})` : '确定';
         }
       }
+    });
+
+    const minDateObj = computed(() => {
+      return {
+        year: Number(minDate.value.getFullYear()),
+        month: Number(minDate.value.getMonth()),
+        date: Number(minDate.value.getDate()),
+      };
+    });
+
+    const maxDateObj = computed(() => {
+      return {
+        year: Number(maxDate.value.getFullYear()),
+        month: Number(maxDate.value.getMonth()),
+        date: Number(maxDate.value.getDate()),
+      };
     });
 
     // 转换默认数组结构之后的数组对象
@@ -281,15 +285,15 @@ export default {
 
     // 初始化数据
     const getInitDateData = async () => {
-      const yearInstance = maxDateObj.year - minDateObj.year;
+      const yearInstance = maxDateObj.value.year - minDateObj.value.year;
       let monthInstance = null;
       if (yearInstance === 0) {
-        monthInstance = maxDateObj.month - minDateObj.month;
+        monthInstance = maxDateObj.value.month - minDateObj.value.month;
       } else {
-        monthInstance = yearInstance * 12 - minDateObj.month + maxDateObj.month;
+        monthInstance = yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month;
       }
 
-      const list = getNewDate('new', { year: minDateObj.year, month: minDateObj.month }, monthInstance + 1);
+      const list = getNewDate('new', { year: minDateObj.value.year, month: minDateObj.value.month }, monthInstance + 1);
       calendarList.value = [...list];
     };
 
