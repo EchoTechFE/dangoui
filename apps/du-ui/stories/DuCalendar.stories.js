@@ -5,6 +5,7 @@ import ScrollView from '../components/ScrollView.vue';
 import  DuButton from '@echoingtech/du-button/src/Button.vue'
 
 import '@echoingtech/du-styles/styles/index.scss';
+import './theme.scss';
 
 Vue.use(VueCompositionApi);
 Vue.component('scroll-view', ScrollView);
@@ -21,7 +22,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       singleVisible: false,
-      multipleVisible: false,
+      multipleVisible: true,
       calendarType: 'single',
       defaultDateSingle: new Date(),
       minSelectDate: new Date('2021-10-21'),
@@ -31,32 +32,30 @@ const Template = (args, { argTypes }) => ({
         new Date('2022-01-29'), new Date('2022-02-16'), new Date(),
         new Date('2022-03-20'), new Date('2022-04-20'), 
       ],
-      singleResult: null,
-      multipleResult: [],
     }
   },
   template: `
     <div>
       <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;">
         <DuButton @click="handleSingleOpen">单选</DuButton>
-        <div>单选日期为：{{ singleResult }}</div>
+        <div>单选日期为：{{ defaultDateSingle }}</div>
         <DuCalendar
           type="single"
           :visible="singleVisible"
-          :defaultDate="defaultDateSingle"
+          :selectedDate="defaultDateSingle"
           @close="handleClose"
           @confirm="handleSingleConfirm"
         />
       </div>
       <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
         <DuButton @click="handleMultipleOpen">多选</DuButton>
-        <div>多选日期数为：{{ multipleResult.length }}个</div>
+        <div>多选日期数为：{{ defaultDateArray.length }}个</div>
         <DuCalendar
           type="multiple"
           :minDate="minSelectDate"
           :maxDate="maxSelectDate"
           :visible="multipleVisible"
-          :defaultDate="defaultDateArray"
+          :selectedDate="defaultDateArray"
           @close="handleClose"
           @confirm="handleMultipleConfirm"
         />
@@ -75,12 +74,11 @@ const Template = (args, { argTypes }) => ({
       this.multipleVisible = false
     },
     handleSingleConfirm(val) {
-      this.singleResult = val.value
+      this.defaultDateSingle = val.value
       this.singleVisible = false
     },
     handleMultipleConfirm(val) {
-      this.multipleResult = [...val.value]
-      console.log('Multiple:', this.multipleResult);
+      this.defaultDateArray = [...val.value]
       this.multipleVisible = false
     },
   },

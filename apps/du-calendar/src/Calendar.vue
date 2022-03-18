@@ -29,22 +29,17 @@
             <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space+'space'"></div>
             <!-- 遍历日期 -->
             <div class="du-cal-flex-item" v-for="(date, d) in item.day" :key="d">
-              <!-- 禁用的日期 -->
               <div
-                v-show="dateToTimeStamp(item.year, item.month, date) < dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date)
-                || dateToTimeStamp(item.year, item.month, date) > dateToTimeStamp(maxDateObj.year, maxDateObj.month, maxDateObj.date)"
-                class="du-cal-flex-item__day du-cal-list-day__disable"
-              >{{ date }}</div>
-              <!-- 未禁用的日期 -->
-              <div
-                v-show="dateToTimeStamp(minDateObj.year, minDateObj.month, minDateObj.date) <= dateToTimeStamp(item.year, item.month, date)
-                && dateToTimeStamp(item.year, item.month, date) <= dateToTimeStamp(maxDateObj.year, maxDateObj.month, maxDateObj.date)"
-                :class="showUnDisClassNames(item.year, item.month, date, selectedDates)"
+                :class="showDateClassNames(item.year, item.month, date, selectedDateList)"
                 @click="changeSelectDate(item, date)"
               >
-                <div class="actived-icon__bg">{{ date }}</div>
-                <!-- 选中的样式 -->
-                <div v-show="isSelected(item.year, item.month, date, selectedDates)" class="actived__icon">
+                <div
+                  :class="showDisable(item.year, item.month, date) ? '' : 'actived-icon__bg'"
+                >{{ date }}</div>
+                <div
+                  v-if="!showDisable(item.year, item.month, date) && isSelected(item.year, item.month, date, selectedDateList)"
+                  class="actived__icon"
+                >
                   <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
                 </div>
               </div>
@@ -55,8 +50,8 @@
       <div class="du-cal-button">
         <DuButton type="text" @click="handleClose">取消</DuButton>
         <DuButton
-          :disabled="selectedDates.length <= 0"
-          class="du-cal-button__confirm"
+          :disabled="selectedDateList.length <= 0"
+          :extClass="'du-cal-button__confirm'"
           @click="handleConfirm"
         >{{ buttonConfirmText }}</DuButton>
       </div>
@@ -65,7 +60,7 @@
 </template>
 
 <script>
-import { computed, toRefs, ref, onMounted, watch, reactive } from '@vue/composition-api';
+import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api';
 import styleToCss from 'style-object-to-css-string';
 import classNames from 'classnames';
 import DuButton from '@echoingtech/du-button/src/Button.vue';
@@ -118,7 +113,7 @@ export default {
       type: String,
       default: '',
     },
-    defaultDate: {
+    selectedDate: {
       type: [Date, Array, null],
       default: () => { return [] },
     },
@@ -145,7 +140,7 @@ export default {
       confirmText,
       minDate,
       maxDate,
-      defaultDate,
+      selectedDate,
       selectableCount,
     } = toRefs(props);
 
@@ -185,44 +180,53 @@ export default {
         if (type.value === 'single') {
           return '确定';
         } else if (type.value === 'multiple') {
-          return selectedDates.value.length > 0 ? `确定(${selectedDates.value.length})` : '确定';
+          return selectedDateList.value.length > 0 ? `确定(${selectedDateList.value.length})` : '确定';
         }
       }
     });
 
     const minDateObj = computed(() => {
+      const year = minDate.value.getFullYear();
+      const month = minDate.value.getMonth();
+      const date = minDate.value.getDate();
       return {
-        year: Number(minDate.value.getFullYear()),
-        month: Number(minDate.value.getMonth()),
-        date: Number(minDate.value.getDate()),
+        year,
+        month,
+        date,
+        timeStamp: dateToTimeStamp(year, month, date),
       };
     });
 
     const maxDateObj = computed(() => {
+      const year = maxDate.value.getFullYear();
+      const month = maxDate.value.getMonth();
+      const date = maxDate.value.getDate();
       return {
-        year: Number(maxDate.value.getFullYear()),
-        month: Number(maxDate.value.getMonth()),
-        date: Number(maxDate.value.getDate()),
+        year,
+        month,
+        date,
+        timeStamp: dateToTimeStamp(year, month, date),
       };
     });
 
     // 转换默认数组结构之后的数组对象
     const echoDefault = computed(() => {
       let list = [];
-      if (Array.isArray(defaultDate.value)) {
+      const selectedList = selectedDate.value;
+      if (Array.isArray(selectedList)) {
         // new Date('')和new Date(y, m, d)转换后的时间戳起始小时不同，所以统一格式。
-        for (let i = 0; i < defaultDate.value.length; i++) {
+        for (let i = 0; i < selectedList.length; i++) {
           list.push({
-            year: Number(defaultDate.value[i].getFullYear()),
-            month: Number(defaultDate.value[i].getMonth()),
-            date: Number(defaultDate.value[i].getDate()),
+            year: selectedList[i].getFullYear(),
+            month: selectedList[i].getMonth(),
+            date: selectedList[i].getDate(),
           });
         }
-      } else if (defaultDate.value) {
+      } else if (selectedList) {
         list.push({
-          year: Number(defaultDate.value.getFullYear()),
-          month: Number(defaultDate.value.getMonth()),
-          date: Number(defaultDate.value.getDate()),
+          year: selectedList.getFullYear(),
+          month: selectedList.getMonth(),
+          date: selectedList.getDate(),
         });
       }
       return list;
@@ -230,7 +234,7 @@ export default {
 
     const weekList = ref(['日', '一', '二', '三', '四', '五', '六']);
     let calendarList = ref([]);
-    let selectedDates = ref([...echoDefault.value]);
+    let selectedDateList = ref([...echoDefault.value]);
 
     /**
      * 获取更多的数据
@@ -243,19 +247,19 @@ export default {
     const getNewDate = (
       type = 'new',
       startObj = { year: null, month: null },
-      monthInstance = 6,
+      monthCount = 6,
     ) => {
       let year = startObj.year;
       let month = startObj.month;
       let list = [];
-      for (let i = 0; i < monthInstance; i++) {
+      for (let i = 0; i < monthCount; i++) {
         // 获得新的月份
         if (type === 'new') {
           list.push({
             year: Number(year),
             month: Number(month),
-            day: Number(new Date(year, month + 1, 0).getDate()),
-            spaceDay: Number(new Date(year, month, 1).getDay()),
+            day: new Date(year, month + 1, 0).getDate(),
+            spaceDay: new Date(year, month, 1).getDay(),
           })
           if (Number(month) === 11) {
             year = year + 1;
@@ -268,8 +272,8 @@ export default {
           list.unshift({
             year: Number(year),
             month: Number(month),
-            day: Number(new Date(year, month + 1, 0).getDate()),
-            spaceDay: Number(new Date(year, month, 1).getDay()),
+            day: new Date(year, month + 1, 0).getDate(),
+            spaceDay: new Date(year, month, 1).getDay(),
           })
           if (Number(month) === 0) {
             year = year - 1;
@@ -284,7 +288,7 @@ export default {
     };
 
     // 初始化数据
-    const getInitDateData = async () => {
+    const getInitDateData = () => {
       const yearInstance = maxDateObj.value.year - minDateObj.value.year;
       let monthInstance = null;
       if (yearInstance === 0) {
@@ -321,13 +325,29 @@ export default {
       return flag;
     };
 
+    // 动态判断是否被禁用
+    const showDisable = (year, month, date) => {
+      const itemTimeStamp = dateToTimeStamp(year, month, date);
+      if (minDateObj.value.timeStamp <= itemTimeStamp
+        && itemTimeStamp <= maxDateObj.value.timeStamp
+      ) {
+        return false;
+      }
+      return true;
+    };
+
     // 根据是否被选中显示不同的样式
-    const showUnDisClassNames = (year, month, date, array) => {
-      const haved = isSelected(year, month, date, array);
-      if (haved) {
-        return classNames(['du-cal-flex-item__day', 'du-cal-list-day-actived'])
+    const showDateClassNames = (year, month, date, array) => {
+      const saved = isSelected(year, month, date, array);
+      const disable = showDisable(year, month, date);
+      if (disable) {
+        return classNames(['du-cal-flex-item__day', 'du-cal-list-day__disable'])
       } else {
-        return classNames(['du-cal-flex-item__day', 'du-cal-list-day__undisable']);
+        if (saved) {
+          return classNames(['du-cal-flex-item__day', 'du-cal-list-day-actived']);
+        } else {
+          return classNames(['du-cal-flex-item__day', 'du-cal-list-day__undisable']);
+        }
       }
     };
 
@@ -339,8 +359,8 @@ export default {
     };
 
     const changeSelectDate = (item, date) => {
-      if (selectedDates.value.length === 0) {
-        selectedDates.value.push({
+      if (selectedDateList.value.length === 0) {
+        selectedDateList.value.push({
           year: Number(item.year),
           month: Number(item.month),
           date: Number(date),
@@ -348,35 +368,35 @@ export default {
         return;
       }
       // 遍历该数据在已选数据中是否已存在
-      const haved = isSelected(item.year, item.month, date, selectedDates.value);
+      const saved = isSelected(item.year, item.month, date, selectedDateList.value);
 
       if (type.value === 'single') {
-        if (haved) {
-          selectedDates.value = [];
+        if (saved) {
+          selectedDateList.value = [];
         } else {
-          selectedDates.value = [{
-            year: Number(item.year),
-            month: Number(item.month),
-            date: Number(date),
+          selectedDateList.value = [{
+            year: item.year,
+            month: item.month,
+            date: date,
           }];
         }
       } else if (type.value === 'multiple') {
-        if (haved) {
-          for (let i = 0; i < selectedDates.value.length; i++) {
+        if (saved) {
+          for (let i = 0; i < selectedDateList.value.length; i++) {
             if (
-              item.year === selectedDates.value[i].year
-              && item.month === selectedDates.value[i].month
-              && date === selectedDates.value[i].date
+              item.year === selectedDateList.value[i].year
+              && item.month === selectedDateList.value[i].month
+              && date === selectedDateList.value[i].date
             ) {
-              selectedDates.value.splice(i, 1);
+              selectedDateList.value.splice(i, 1);
             }
           }
         } else {
-          if (selectedDates.value.length >= selectableCount.value) { return }
-          selectedDates.value.push({
-            year: Number(item.year),
-            month: Number(item.month),
-            date: Number(date),
+          if (selectedDateList.value.length >= selectableCount.value) { return }
+          selectedDateList.value.push({
+            year: item.year,
+            month: item.month,
+            date: date,
           });
         }
       }
@@ -387,18 +407,18 @@ export default {
     };
 
     const handleConfirm = () => {
-      if (selectedDates.value.length === 0) { return }
+      if (selectedDateList.value.length === 0) { return }
       let confirmDate = null;
-      let confirmMap = [];
+      let confirmList = [];
 
       if (type.value === 'single') {
-        confirmDate = selectedDates.value[0];
+        confirmDate = selectedDateList.value[0];
         emit('confirm', { value: new Date(confirmDate.year, confirmDate.month, confirmDate.date) });
       } else if (type.value === 'multiple') {
-        confirmMap = selectedDates.value.map(item => {
+        confirmList = selectedDateList.value.map(item => {
           return new Date(item.year, item.month, item.date);
         })
-        emit('confirm', { value: confirmMap });
+        emit('confirm', { value: confirmList });
       }
     };
 
@@ -442,6 +462,7 @@ export default {
       () => props.visible,
       async (val) => {
         if (val) {
+          selectedDateList.value = [...echoDefault.value];
           await getInitDateData();
           calendarVisible.value = true;
         } else {
@@ -458,7 +479,7 @@ export default {
       calendarTitle,
       weekList,
       calendarList,
-      selectedDates,
+      selectedDateList,
       buttonConfirmText,
       minDateObj,
       maxDateObj,
@@ -468,9 +489,10 @@ export default {
       transMonFilter,
       changeSelectDate,
       dateToTimeStamp,
-      showUnDisClassNames,
+      showDateClassNames,
       isSelected,
       handleConfirm,
+      showDisable,
     }
   },
 };
@@ -544,10 +566,11 @@ export default {
 
         .du-cal-list-day-actived {
           position: relative;
-          background: rgba(92, 58, 135, 0.2);
+          background-color: rgba(var(--du-calendar-primary), .2);
           border-radius: 8rpx;
-          box-shadow: 0 0 0 1px #5C3A87;
+          box-shadow: 0 0 0 1px var(--du-calendar-primary);
           overflow: hidden;
+          color: var(--du-calendar-primary);
 
           .actived-icon__bg {
             position: absolute;
@@ -561,7 +584,7 @@ export default {
             right: 0;
             width: 24rpx;
             height: 18rpx;
-            background: #5C3A87;
+            background-color: var(--du-calendar-primary);
             border-radius: 8rpx 0 0 0;
             line-height: 0;
             display: flex;
@@ -588,6 +611,7 @@ export default {
 
     &__confirm {
       width: 604rpx;
+      background-color: var(--du-calendar-primary);
     }
   }
 }
