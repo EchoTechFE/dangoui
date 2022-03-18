@@ -33,6 +33,7 @@
                 :class="showDateClassNames(item.year, item.month, date, selectedDateList)"
                 @click="changeSelectDate(item, date)"
               >
+                <div class="du-cal-main-bg"></div>
                 <div
                   :class="showDisable(item.year, item.month, date) ? '' : 'actived-icon__bg'"
                 >{{ date }}</div>
@@ -351,13 +352,6 @@ export default {
       }
     };
 
-    // 获取数组中的最小/最大日期(max/min)
-    const getLimitValue = (type = 'min', array) => {
-      const max = new Date(Math.max.apply(null, array));
-      const min = new Date(Math.min.apply(null, array));
-      return type === 'max' ? max : min;
-    };
-
     const changeSelectDate = (item, date) => {
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
@@ -424,7 +418,6 @@ export default {
 
     // 触底加载更多
     const scrolltolower = () => {
-      console.log('startDate - bottom:', startDate);
       const startDate = calendarList.value.length > 0 ? calendarList.value[calendarList.value.length -1] : null;
       if (!startDate) { return }
       let year = startDate.year;
@@ -434,13 +427,11 @@ export default {
         year = year + 1;
       }
       const topList = getNewDate('new', { year: year, month: month }, 3);
-      console.log('topList:', topList);
       calendarList.value = [...calendarList.value, ...topList];
     };
 
     // 上拉加载更多
     const scrolltoupper = () => {
-      console.log('startDate - top:', startDate);
       const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null;
       if (!startDate) { return }
       let year = startDate.year;
@@ -450,7 +441,6 @@ export default {
         year = year - 1;
       }
       const topList = getNewDate('old', { year: year, month: month }, 3);
-      console.log('topList:', topList);
       calendarList.value = [...topList, ...calendarList.value];
     };
 
@@ -543,43 +533,51 @@ export default {
     width: auto;
     overflow: auto;
     height: 854rpx;
-    background: rgba(32, 36, 38, 0.06);
+    background: var(--du-calendar-container-bg-color);
     .du-cal-list {
       &__month {
         font-size: 32rpx;
-        color: #202426;
+        color: va(--du-calendar-normal-text-color);
         padding: 10rpx 30rpx;
       }
       .du-cal-list-day {
         font-size: 32rpx;
-        background: #fff;
+        background: var(--du-calendar-main-container-bg-color);
         padding: 30rpx 30rpx 0 30rpx;
 
         &__disable {
-          color: rgba(32, 36, 38, 0.2);
+          color: var(--du-calendar-disable-text-color);
         }
 
         &__undisable {
-          background: rgba(32, 36, 38, 0.06);
+          background: var(--du-calendar-undisable-bg-color);
           border-radius: 8rpx;
         }
 
         .du-cal-list-day-actived {
           position: relative;
-          background-color: rgba(var(--du-calendar-primary), .2);
           border-radius: 8rpx;
           box-shadow: 0 0 0 1px var(--du-calendar-primary);
           overflow: hidden;
-          color: var(--du-calendar-primary);
+          color: var(--du-calendar-actived-text-color);
+
+          .du-cal-main-bg {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--du-calendar-primary);
+            opacity: 0.2;
+          }
 
           .actived-icon__bg {
             position: absolute;
-            z-index: 0;
+            z-index: 20;
           }
 
           .actived__icon {
             position: absolute;
-            z-index: 10;
+            z-index: 50;
             bottom: 0;
             right: 0;
             width: 24rpx;

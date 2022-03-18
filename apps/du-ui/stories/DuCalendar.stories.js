@@ -22,7 +22,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       singleVisible: false,
-      multipleVisible: true,
+      multipleVisible: false,
       calendarType: 'single',
       defaultDateSingle: new Date(),
       minSelectDate: new Date('2021-10-21'),

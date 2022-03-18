@@ -1,4 +1,10 @@
 :root,
 page {
   --du-calendar-primary: var(--du-primary-color);
+  --du-calendar-container-bg-color: rgba(32, 36, 38, 0.06);
+  --du-calendar-normal-text-color: #202426;
+  --du-calendar-main-container-bg-color: #fff;
+  --du-calendar-disable-text-color: rgba(32, 36, 38, 0.2);
+  --du-calendar-undisable-bg-color: rgba(32, 36, 38, 0.06);
+  --du-calendar-actived-text-color: var(--du-primary-color);
 }
