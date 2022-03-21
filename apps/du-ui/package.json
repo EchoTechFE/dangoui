@@ -29,6 +29,7 @@
     "@echoingtech/du-popup": "workspace:*",
     "@echoingtech/du-radio": "workspace:*",
     "@echoingtech/du-steps": "workspace:*",
+    "@echoingtech/du-calendar": "workspace:*",
     "@echoingtech/du-styles": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
