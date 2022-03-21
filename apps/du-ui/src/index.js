@@ -5,7 +5,6 @@ import { InputNumber } from '@echoingtech/du-input-number/src/index.js'
 import { Radio, RadioGroup } from '@echoingtech/du-radio/src/index.js'
 import { Steps } from '@echoingtech/du-steps/src/index.js'
 import { Popup } from '@echoingtech/du-popup/src/index.js'
-import { Calendar } from '@echoingtech/du-calendar/src/index.js'
 
 const DuButton = Button
 const DuForm = Form
@@ -16,7 +15,6 @@ const DuRadio = Radio
 const DuRadioGroup = RadioGroup
 const DuSteps = Steps
 const DuPopup = Popup
-const DuCalendar = Calendar
 
 export {
   Button,
@@ -37,6 +35,4 @@ export {
   DuSteps,
   Popup,
   DuPopup,
-  Calendar,
-  DuCalendar,
 }

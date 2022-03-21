@@ -427,12 +427,6 @@
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-calendar",
-      "projectFolder": "apps/du-calendar",
-      "shouldPublish": true,
-      "versionPolicyName": "du"
-    },
-    {
       "packageName": "@echoingtech/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
