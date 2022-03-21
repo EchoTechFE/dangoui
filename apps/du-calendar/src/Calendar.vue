@@ -350,21 +350,6 @@ export default {
       return true;
     };
 
-    // 根据是否被选中显示不同的样式
-    const showDateClassNames = (year, month, date, array) => {
-      const saved = isSelected(year, month, date, array);
-      const disable = showDisable(year, month, date);
-      if (disable) {
-        return classNames(['du-cal-flex-item__day', 'du-cal-list-day__disable'])
-      } else {
-        if (saved) {
-          return classNames(['du-cal-flex-item__day', 'du-cal-list-day-actived']);
-        } else {
-          return classNames(['du-cal-flex-item__day', 'du-cal-list-day__undisable']);
-        }
-      }
-    };
-
     const changeSelectDate = (item, date) => {
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
@@ -492,7 +477,6 @@ export default {
       transMonFilter,
       changeSelectDate,
       dateToTimeStamp,
-      showDateClassNames,
       isSelected,
       handleConfirm,
       showDisable,
