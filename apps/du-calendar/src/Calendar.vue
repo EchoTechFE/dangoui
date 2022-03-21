@@ -550,11 +550,11 @@ export default {
         padding: 30rpx 30rpx 0 30rpx;
 
         &__disable {
-          color: var(--du-calendar-disable-text-color);
+          color: var(--du-calendar-disabled-text-color);
         }
 
         &__undisable {
-          background: var(--du-calendar-undisable-bg-color);
+          background: var(--du-calendar-normal-bg-color);
           border-radius: 8rpx;
         }
       }
@@ -563,7 +563,7 @@ export default {
         border-radius: 8rpx;
         box-shadow: 0 0 0 1px var(--du-calendar-primary);
         overflow: hidden;
-        color: var(--du-calendar-actived-text-color);
+        color: var(--du-calendar-active-text-color);
 
         .du-cal-main-bg {
           position: absolute;
