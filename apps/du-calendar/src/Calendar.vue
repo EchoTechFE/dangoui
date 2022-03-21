@@ -78,14 +78,14 @@ import DuPopup from '@echoingtech/du-popup/src/Popup.vue';
 
 // 获取最大选择日期
 const getMaxDate = (date, instance = 6) => {
-  let year = Number(date.getFullYear());
-  let month = Number(date.getMonth()) + instance;
-  let initDate = Number(date.getDate());
+  let year = date.getFullYear();
+  let month = date.getMonth() + instance;
+  let initDate = date.getDate();
   if (month > 11) {
     month = month -11;
     year = year + 1;
   }
-  let dateDetail = Number(new Date(year, month + 1, 0).getDate());
+  let dateDetail = new Date(year, month + 1, 0).getDate();
   if (dateDetail > initDate) {
     dateDetail = initDate;
   }
@@ -105,7 +105,7 @@ export default {
     },
     extStyle: {
       type: [String, Object],
-      default: 'font-size: 16rpx;',
+      default: '',
     },
     visible: {
       type: Boolean,
