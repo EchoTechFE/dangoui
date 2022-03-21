@@ -3,22 +3,19 @@
     :visible="calendarVisible"
     :title="calendarTitle"
     :extStyle="style"
-    :extClass="'pop-class'"
+    :extClass="className"
     type="bottom"
     @update:visible="handleClose"
   >
-    <div
-      :class="className"
-      :style="style"
-    >
-      <div class="du-cal-flex du-cal-week">
+    <div class="du-calendarendar--main">
+      <div class="du-cal-flex du-calendarendar--week">
         <div v-for="(item, index) in weekList" :key="index" class="du-cal-flex-item">
           <div class="du-cal-flex-item__week">{{ item }}</div>
         </div>
       </div>
       <scroll-view
         scrollY
-        class="du-cal-cantainer"
+        class="du-calendarendar-cantainer"
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
       >
@@ -48,11 +45,15 @@
           </div>
         </div>
       </scroll-view>
-      <div class="du-cal-button">
-        <DuButton type="text" @click="handleClose">取消</DuButton>
+      <div class="du-calendarendar-button">
+        <DuButton
+          type="text"
+          :extClass="'du-calendarendar-button__top'"
+          @click="handleClose"
+        >取消</DuButton>
         <DuButton
           :disabled="selectedDateList.length <= 0"
-          :extClass="'du-cal-button__confirm'"
+          :extClass="'du-calendarendar-button__confirm'"
           @click="handleConfirm"
         >{{ buttonConfirmText }}</DuButton>
       </div>
@@ -493,14 +494,14 @@ export default {
 </script>
 
 <style lang="scss">
-.pop-class {
-  font-size: 28rpx;
-}
-
 .du-calendarendar {
-  position: relative;
+  font-size: 28rpx;
 
-  .du-cal-week {
+  &--main {
+    position: relative;
+  }
+
+  &--week {
     padding: 0 30rpx;
   }
 
@@ -508,7 +509,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     font-size: 28rpx;
-    
 
     .du-cal-flex-item {
       width: 14.2%;
@@ -533,7 +533,7 @@ export default {
     }
   }
 
-  .du-cal-cantainer {
+  .du-calendarendar-cantainer {
     width: auto;
     overflow: auto;
     height: 854rpx;
@@ -557,61 +557,66 @@ export default {
           background: var(--du-calendar-undisable-bg-color);
           border-radius: 8rpx;
         }
+      }
+      .du-cal-list-day-actived {
+        position: relative;
+        border-radius: 8rpx;
+        box-shadow: 0 0 0 1px var(--du-calendar-primary);
+        overflow: hidden;
+        color: var(--du-calendar-actived-text-color);
 
-        .du-cal-list-day-actived {
-          position: relative;
-          border-radius: 8rpx;
-          box-shadow: 0 0 0 1px var(--du-calendar-primary);
-          overflow: hidden;
-          color: var(--du-calendar-actived-text-color);
+        .du-cal-main-bg {
+          position: absolute;
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          background-color: var(--du-calendar-primary);
+          opacity: 0.2;
+        }
 
-          .du-cal-main-bg {
-            position: absolute;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--du-calendar-primary);
-            opacity: 0.2;
-          }
+        .actived-icon__bg {
+          position: absolute;
+          z-index: 20;
+        }
 
-          .actived-icon__bg {
-            position: absolute;
-            z-index: 20;
-          }
-
-          .actived__icon {
-            position: absolute;
-            z-index: 50;
-            bottom: 0;
-            right: 0;
-            width: 24rpx;
-            height: 18rpx;
-            background-color: var(--du-calendar-primary);
-            border-radius: 8rpx 0 0 0;
-            line-height: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 14rpx;
-              height: 10rpx;
-            }
+        .actived__icon {
+          position: absolute;
+          z-index: 50;
+          bottom: 0;
+          right: 0;
+          width: 24rpx;
+          height: 18rpx;
+          background-color: var(--du-calendar-primary);
+          border-radius: 8rpx 0 0 0;
+          line-height: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 14rpx;
+            height: 10rpx;
           }
         }
       }
     }
   }
 
-  .du-cal-button {
+  .du-calendarendar-button {
     padding-left: 30rpx;
     padding-right: 30rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 0rpx;
     padding-bottom: calc(0rpx + constant(safe-area-inset-bottom));
     padding-bottom: calc(0rpx + env(safe-area-inset-bottom));
 
+    &__top {
+      margin-top: 10rpx;
+    }
+
     &__confirm {
+      margin-top: 10rpx;
       width: 604rpx;
       background-color: var(--du-calendar-primary);
     }
