@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/dumpling",
+      "comment": "add canlendar",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/dumpling"
+}
