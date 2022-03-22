@@ -8,42 +8,42 @@
     @update:visible="handleClose"
   >
     <div class="du-calendarendar--main">
-      <div class="du-cal-flex du-calendarendar--week">
+      <div class="du-calendarendar--flex du-calendarendar--week">
         <div v-for="(item, index) in weekList" :key="index" class="du-cal-flex-item">
           <div class="du-cal-flex-item__week">{{ item }}</div>
         </div>
       </div>
       <scroll-view
         :scroll-y="true"
-        class="du-calendarendar-cantainer"
+        class="du-calendarendar--cantainer"
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
       >
         <div v-for="(item, index) in calendarList" :key="index"  class="du-cal-list">
           <div class="du-cal-list__month">{{ item.year }}.{{transMonFilter(item.month)}}</div>
-          <div class="du-cal-flex du-cal-list-day">
+          <div class="du-calendarendar--flex du-cal-list-day">
             <!-- 补齐日期空格 -->
-            <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space+'space'"></div>
+            <div class="du-cal-flex-item" v-for="(space, s) in item.spaceDay" :key="s"></div>
             <!-- 遍历日期 -->
-            <div class="du-cal-flex-item" v-for="(date, d) in item.day" :key="d">
+            <div class="du-cal-flex-item" v-for="(date, dateIdx) in item.day" :key="dateIdx">
               <div
                 :class="[
                   'du-cal-flex-item__day',
                   {
-                    'du-cal-list-day__disable': showDisable(item.year, item.month, date),
-                    'du-cal-list-day-actived': !showDisable(item.year, item.month, date) && isSelected(item.year, item.month, date, selectedDateList),
-                    'du-cal-list-day__undisable': !showDisable(item.year, item.month, date) && !isSelected(item.year, item.month, date, selectedDateList),
+                    'du-cal-list-day__disable': showDisable(item.year, item.month, dateIdx + 1),
+                    'du-cal-list-day-actived': !showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
+                    'du-cal-list-day__undisable': !showDisable(item.year, item.month, dateIdx + 1) && !isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
                   }
                 ]"
-                @click="changeSelectDate(item, date)"
+                @click="changeSelectDate(item, dateIdx + 1)"
               >
                 <div
-                  v-if="!showDisable(item.year, item.month, date) && isSelected(item.year, item.month, date, selectedDateList)"
+                  v-if="!showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList)"
                   class="du-cal-main-bg"
                 ></div>
-                <div class="actived-icon__bg">{{ date }}</div>
+                <div class="actived-icon__bg">{{ dateIdx + 1 }}</div>
                 <div
-                  v-if="!showDisable(item.year, item.month, date) && isSelected(item.year, item.month, date, selectedDateList)"
+                  v-if="!showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList)"
                   class="actived__icon"
                 >
                   <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
@@ -53,17 +53,19 @@
           </div>
         </div>
       </scroll-view>
-      <div class="du-calendarendar-button">
+      <div class="du-calendarendar--button">
         <DuButton
           type="text"
-          :extClass="['du-calendarendar-button__top']"
           @click="handleClose"
         >取消</DuButton>
-        <DuButton
-          :disabled="selectedDateList.length <= 0"
-          :extClass="['du-calendarendar-button__confirm']"
-          @click="handleConfirm"
-        >{{ buttonConfirmText }}</DuButton>
+        <div class="du-cal-button-confirm">
+          <DuButton
+            type="primary"
+            full
+            :disabled="buttonDisabled"
+            @click="handleConfirm"
+          >{{ buttonConfirmText }}</DuButton>
+        </div>
       </div>
     </div>
   </DuPopup>
@@ -124,7 +126,7 @@ export default {
       default: '',
     },
     selectedDate: {
-      type: [Date, Array, null, String, Object],
+      type: [Date, Array, String, Object],
       default: () => { return [] },
     },
     minDate: {
@@ -225,6 +227,12 @@ export default {
       };
     });
 
+    const buttonDisabled = computed(() => {
+      if (selectedDateList.value.length <= 0) {
+        return true;
+      }
+      return false;
+    });
     // 转换默认数组结构之后的数组对象
     const echoDefault = computed(() => {
       let list = [];
@@ -246,6 +254,9 @@ export default {
           month: itemDate.getMonth(),
           date: itemDate.getDate(),
         });
+      }
+      if (type.value === 'single' && list.length > 1) {
+        list = list.slice(0, 1);
       }
       return list;
     });
@@ -475,6 +486,7 @@ export default {
       buttonConfirmText,
       minDateObj,
       maxDateObj,
+      buttonDisabled,
       handleClose,
       scrolltolower,
       scrolltoupper,
@@ -490,8 +502,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "sass:math";
-
 .du-calendarendar {
   font-size: 28rpx;
 
@@ -503,7 +513,7 @@ export default {
     padding: 0 30rpx;
   }
 
-  .du-cal-flex {
+  &--flex {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -511,7 +521,7 @@ export default {
 
     .du-cal-flex-item {
       margin-bottom: 24rpx;
-      flex: 0 0 math.div((78rpx * 7 + 24rpx * 6), 7);
+      flex: 0 0 (78rpx * 7 + 24rpx * 6) / 7;
       &__week {
         margin: 0 auto;
         width: 78rpx;
@@ -532,7 +542,7 @@ export default {
     }
   }
 
-  .du-calendarendar-cantainer {
+  &--cantainer {
     width: auto;
     overflow: auto;
     height: 854rpx;
@@ -601,24 +611,14 @@ export default {
     }
   }
 
-  .du-calendarendar-button {
-    padding-left: 30rpx;
-    padding-right: 30rpx;
+  &--button {
+    padding: 10rpx 30rpx 0 30rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 0rpx;
-    padding-bottom: calc(0rpx + constant(safe-area-inset-bottom));
-    padding-bottom: calc(0rpx + env(safe-area-inset-bottom));
 
-    &__top {
-      margin-top: 10rpx;
-    }
-
-    &__confirm {
-      margin-top: 10rpx;
+    .du-cal-button-confirm {
       width: 604rpx;
-      background-color: var(--du-calendar-primary);
     }
   }
 }
