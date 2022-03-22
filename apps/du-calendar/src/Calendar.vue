@@ -490,6 +490,8 @@ export default {
 </script>
 
 <style lang="scss">
+@use "sass:math";
+
 .du-calendarendar {
   font-size: 28rpx;
 
@@ -508,8 +510,8 @@ export default {
     font-size: 28rpx;
 
     .du-cal-flex-item {
-      width: 14.2857%;
       margin-bottom: 24rpx;
+      flex: 0 0 math.div((78rpx * 7 + 24rpx * 6), 7);
       &__week {
         margin: 0 auto;
         width: 78rpx;
