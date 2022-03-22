@@ -14,7 +14,7 @@
         </div>
       </div>
       <scroll-view
-        scrollY
+        :scroll-y="true"
         class="du-calendarendar-cantainer"
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
@@ -124,18 +124,18 @@ export default {
       default: '',
     },
     selectedDate: {
-      type: [Date, Array, null],
+      type: [Date, Array, null, String, Object],
       default: () => { return [] },
     },
     minDate: {
-      type: Date,
-      default: () => { return new Date() },
+      type: [Date, String, Object],
+      default: () => { return new Date().toString() },
     },
     maxDate: {
-      type: Date,
+      type: [Date, String, Object],
       default: () => {
         const { year, month, date } = getMaxDate(new Date());
-        return new Date(year, month, date);
+        return new Date(year, month, date).toString();
       },
     },
     selectableCount: {
@@ -200,9 +200,10 @@ export default {
     });
 
     const minDateObj = computed(() => {
-      const year = minDate.value.getFullYear();
-      const month = minDate.value.getMonth();
-      const date = minDate.value.getDate();
+      const minDateProp = new Date(minDate.value);
+      const year = minDateProp.getFullYear();
+      const month = minDateProp.getMonth();
+      const date = minDateProp.getDate();
       return {
         year,
         month,
@@ -212,9 +213,10 @@ export default {
     });
 
     const maxDateObj = computed(() => {
-      const year = maxDate.value.getFullYear();
-      const month = maxDate.value.getMonth();
-      const date = maxDate.value.getDate();
+      const maxDateProp = new Date(maxDate.value);
+      const year = maxDateProp.getFullYear();
+      const month = maxDateProp.getMonth();
+      const date = maxDateProp.getDate();
       return {
         year,
         month,
@@ -227,20 +229,22 @@ export default {
     const echoDefault = computed(() => {
       let list = [];
       const selectedList = selectedDate.value;
-      if (Array.isArray(selectedList)) {
+      if (selectedList && Array.isArray(selectedList)) {
         // new Date('')和new Date(y, m, d)转换后的时间戳起始小时不同，所以统一格式。
         for (let i = 0; i < selectedList.length; i++) {
+          const itemDate = new Date(selectedList[i].toString());
           list.push({
-            year: selectedList[i].getFullYear(),
-            month: selectedList[i].getMonth(),
-            date: selectedList[i].getDate(),
+            year: itemDate.getFullYear(),
+            month: itemDate.getMonth(),
+            date: itemDate.getDate(),
           });
         }
-      } else if (selectedList) {
+      } else if (selectedList && !Array.isArray(selectedList)) {
+        const itemDate = new Date(selectedList.toString());
         list.push({
-          year: selectedList.getFullYear(),
-          month: selectedList.getMonth(),
-          date: selectedList.getDate(),
+          year: itemDate.getFullYear(),
+          month: itemDate.getMonth(),
+          date: itemDate.getDate(),
         });
       }
       return list;
@@ -500,10 +504,11 @@ export default {
   .du-cal-flex {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     font-size: 28rpx;
 
     .du-cal-flex-item {
-      width: 14.2%;
+      width: 14.2857%;
       margin-bottom: 24rpx;
       &__week {
         margin: 0 auto;
