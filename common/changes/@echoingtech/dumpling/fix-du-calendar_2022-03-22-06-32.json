@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/dumpling",
+      "comment": "fix calendar date prop type",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/dumpling"
+}
