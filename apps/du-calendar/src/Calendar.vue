@@ -54,18 +54,20 @@
         </div>
       </scroll-view>
       <div class="du-calendarendar--button">
-        <DuButton
-          type="text"
+        <div
+          class="du-cal-button-cancle"
           @click="handleClose"
-        >取消</DuButton>
-        <div class="du-cal-button-confirm">
-          <DuButton
-            type="primary"
-            full
-            :disabled="buttonDisabled"
-            @click="handleConfirm"
-          >{{ buttonConfirmText }}</DuButton>
-        </div>
+        >取消</div>
+        <div
+          :class="[
+            'du-cal-button-public',
+            {
+              'du-cal-button-confirm': !buttonDisabled,
+              'du-cal-button-confirm__disabled': buttonDisabled,
+            },
+          ]"
+          @click="handleConfirm"
+        >{{ buttonConfirmText }}</div>
       </div>
     </div>
   </DuPopup>
@@ -75,7 +77,6 @@
 import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api';
 import styleToCss from 'style-object-to-css-string';
 import classNames from 'classnames';
-import DuButton from '@echoingtech/du-button/src/Button.vue';
 import DuPopup from '@echoingtech/du-popup/src/Popup.vue';
 
 // 获取最大选择日期
@@ -99,7 +100,7 @@ const getMaxDate = (date, instance = 6) => {
 };
 
 export default {
-  components: { DuButton, DuPopup },
+  components: { DuPopup },
   props: {
     extClass: {
       type: [String, Array, Object],
@@ -634,8 +635,31 @@ export default {
     align-items: center;
     justify-content: space-between;
 
-    .du-cal-button-confirm {
+    .du-cal-button-cancle {
+      color: var(--du-calendar-cancle-button-text-color);
+      font-size: 28rpx;
+    }
+
+    .du-cal-button-public {
       width: 604rpx;
+      height: 80rpx;
+      border-radius: 40rpx;
+      font-size: 28rpx;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .du-cal-button-confirm {
+      background: var(--du-calendar-primary);
+      color: var(--du-calendar-confirm-button-text-color);
+    }
+
+    .du-cal-button-confirm__disabled {
+      color: var(--du-calendar-disable-button-text-color);
+      background: var(--du-calendar-disable-button-bg-color);
+      border: none;
     }
   }
 }
