@@ -23,7 +23,7 @@
           <div class="du-cal-list__month">{{ item.year }}.{{transMonFilter(item.month)}}</div>
           <div class="du-calendarendar--flex du-cal-list-day">
             <!-- 补齐日期空格 -->
-            <div class="du-cal-flex-item" v-for="(space, s) in item.spaceDay" :key="s"></div>
+            <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space.id"></div>
             <!-- 遍历日期 -->
             <div class="du-cal-flex-item" v-for="(date, dateIdx) in item.day" :key="dateIdx">
               <div
@@ -284,11 +284,12 @@ export default {
       for (let i = 0; i < monthCount; i++) {
         // 获得新的月份
         if (type === 'new') {
+          const spaceDay = new Date(year, month, 1).getDay();
           list.push({
             year: Number(year),
             month: Number(month),
             day: new Date(year, month + 1, 0).getDate(),
-            spaceDay: new Date(year, month, 1).getDay(),
+            spaceDay: getSpaceDayToList(spaceDay),
           })
           if (Number(month) === 11) {
             year = year + 1;
@@ -298,11 +299,12 @@ export default {
             month = month + 1;
           }
         } else if (type === 'old') { // 获得之前的月份
+        const spaceDay = new Date(year, month, 1).getDay();
           list.unshift({
             year: Number(year),
             month: Number(month),
             day: new Date(year, month + 1, 0).getDate(),
-            spaceDay: new Date(year, month, 1).getDay(),
+            spaceDay: getSpaceDayToList(spaceDay),
           })
           if (Number(month) === 0) {
             year = year - 1;
@@ -328,6 +330,17 @@ export default {
 
       const list = getNewDate('new', { year: minDateObj.value.year, month: minDateObj.value.month }, monthInstance + 1);
       calendarList.value = [...list];
+    };
+
+    const getSpaceDayToList = (spaceDay) => {
+      let spaceDayList = [];
+      for (let j = 0; j < spaceDay; j++) {
+        spaceDayList.push({
+          id: `space${j}`,
+          value: j,
+        })
+      }
+      return spaceDayList;
     };
 
     const transMonFilter = (month) => {
@@ -573,6 +586,7 @@ export default {
       .du-cal-list-day-actived {
         position: relative;
         border-radius: 8rpx;
+        box-sizing: border-box;
         border: 1px solid;
         border-color: var(--du-calendar-primary);
         overflow: hidden;
