@@ -440,7 +440,9 @@
     },
     {
       "packageName": "@echoingtech/du-styles",
-      "projectFolder": "apps/du-styles"
+      "projectFolder": "apps/du-styles",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
     }
   ]
 }
