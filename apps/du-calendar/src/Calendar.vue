@@ -19,8 +19,8 @@
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
       >
-        <div v-for="(item, index) in calendarList" :key="index"  class="du-cal-list">
-          <div class="du-cal-list__month">{{ item.year }}.{{transMonFilter(item.month)}}</div>
+        <div v-for="(item, index) in calendarList" :key="index" class="du-cal-list">
+          <div class="du-cal-list__month">{{ item.year }}.{{ transMonFilter(item.month) }}</div>
           <div class="du-calendarendar--flex du-cal-list-day">
             <!-- 补齐日期空格 -->
             <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space.id"></div>
@@ -31,19 +31,29 @@
                   'du-cal-flex-item__day',
                   {
                     'du-cal-list-day__disable': showDisable(item.year, item.month, dateIdx + 1),
-                    'du-cal-list-day-actived': !showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
-                    'du-cal-list-day__undisable': !showDisable(item.year, item.month, dateIdx + 1) && !isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
-                  }
+                    'du-cal-list-day-actived':
+                      !showDisable(item.year, item.month, dateIdx + 1) &&
+                      isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
+                    'du-cal-list-day__undisable':
+                      !showDisable(item.year, item.month, dateIdx + 1) &&
+                      !isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
+                  },
                 ]"
                 @click="changeSelectDate(item, dateIdx + 1)"
               >
                 <div
-                  v-if="!showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList)"
+                  v-if="
+                    !showDisable(item.year, item.month, dateIdx + 1) &&
+                    isSelected(item.year, item.month, dateIdx + 1, selectedDateList)
+                  "
                   class="du-cal-main-bg"
                 ></div>
                 <div class="actived-icon__bg">{{ dateIdx + 1 }}</div>
                 <div
-                  v-if="!showDisable(item.year, item.month, dateIdx + 1) && isSelected(item.year, item.month, dateIdx + 1, selectedDateList)"
+                  v-if="
+                    !showDisable(item.year, item.month, dateIdx + 1) &&
+                    isSelected(item.year, item.month, dateIdx + 1, selectedDateList)
+                  "
                   class="actived__icon"
                 >
                   <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
@@ -54,10 +64,7 @@
         </div>
       </scroll-view>
       <div class="du-calendarendar--button">
-        <div
-          class="du-cal-button-cancle"
-          @click="handleClose"
-        >取消</div>
+        <div class="du-cal-button-cancle" @click="handleClose">取消</div>
         <div
           :class="[
             'du-cal-button-public',
@@ -67,37 +74,39 @@
             },
           ]"
           @click="handleConfirm"
-        >{{ buttonConfirmText }}</div>
+        >
+          {{ buttonConfirmText }}
+        </div>
       </div>
     </div>
   </DuPopup>
 </template>
 
 <script>
-import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api';
-import styleToCss from 'style-object-to-css-string';
-import classNames from 'classnames';
-import DuPopup from '@echoingtech/du-popup/src/Popup.vue';
+import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api'
+import styleToCss from 'style-object-to-css-string'
+import classNames from 'classnames'
+import DuPopup from '@echoingtech/du-popup/src/Popup.vue'
 
 // 获取最大选择日期
 const getMaxDate = (date, instance = 6) => {
-  let year = date.getFullYear();
-  let month = date.getMonth() + instance;
-  let initDate = date.getDate();
+  let year = date.getFullYear()
+  let month = date.getMonth() + instance
+  let initDate = date.getDate()
   if (month > 11) {
-    month = month -11;
-    year = year + 1;
+    month = month - 11
+    year = year + 1
   }
-  let dateDetail = new Date(year, month + 1, 0).getDate();
+  let dateDetail = new Date(year, month + 1, 0).getDate()
   if (dateDetail > initDate) {
-    dateDetail = initDate;
+    dateDetail = initDate
   }
   return {
     year,
     month,
     date: dateDetail,
-  };
-};
+  }
+}
 
 export default {
   components: { DuPopup },
@@ -128,17 +137,21 @@ export default {
     },
     selectedDate: {
       type: [Date, Array, String, Object],
-      default: () => { return [] },
+      default: () => {
+        return []
+      },
     },
     minDate: {
       type: [Date, String, Object],
-      default: () => { return new Date().toString() },
+      default: () => {
+        return new Date().toString()
+      },
     },
     maxDate: {
       type: [Date, String, Object],
       default: () => {
-        const { year, month, date } = getMaxDate(new Date());
-        return new Date(year, month, date).toString();
+        const { year, month, date } = getMaxDate(new Date())
+        return new Date(year, month, date).toString()
       },
     },
     selectableCount: {
@@ -146,125 +159,112 @@ export default {
       default: 30,
     },
   },
-  setup (props, { emit }) {
-    const {
-      type,
-      title,
-      confirmText,
-      minDate,
-      maxDate,
-      selectedDate,
-      selectableCount,
-    } = toRefs(props);
+  setup(props, { emit }) {
+    const { type, title, confirmText, minDate, maxDate, selectedDate, selectableCount } = toRefs(props)
 
-    const calendarVisible = ref(props.visible);
+    const calendarVisible = ref(props.visible)
 
     const className = computed(() => {
-      const {
-        extClass
-      } = props;
-      return classNames(
-        ['du-calendarendar'],
-        extClass,
-      );
-    });
+      const { extClass } = props
+      return classNames(['du-calendarendar'], extClass)
+    })
 
     const style = computed(() => {
-      const { extStyle } = props;
+      const { extStyle } = props
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-          ...extStyle
-        });
-    });
+            ...extStyle,
+          })
+    })
 
     const calendarTitle = computed(() => {
       if (title.value) {
-        return title.value;
+        return title.value
       } else {
         if (type.value === 'single') {
-          return '请选择日期';
+          return '请选择日期'
         } else if (type.value === 'multiple') {
-          return `请选择日期(最大可选${selectableCount.value}天)`;
+          return `请选择日期(最大可选${selectableCount.value}天)`
         }
       }
-    });
+    })
 
     const buttonConfirmText = computed(() => {
       if (confirmText.value) {
-        return confirmText.value;
+        return confirmText.value
       } else {
         if (type.value === 'single') {
-          return '确定';
+          return '确定'
         } else if (type.value === 'multiple') {
-          return selectedDateList.value.length > 0 ? `确定(${selectedDateList.value.length})` : '确定';
+          return selectedDateList.value.length > 0 ? `确定(${selectedDateList.value.length})` : '确定'
         }
       }
-    });
+    })
 
     const minDateObj = computed(() => {
-      const minDateProp = new Date(minDate.value);
-      const year = minDateProp.getFullYear();
-      const month = minDateProp.getMonth();
-      const date = minDateProp.getDate();
+      const minDateProp = new Date(minDate.value)
+      const year = minDateProp.getFullYear()
+      const month = minDateProp.getMonth()
+      const date = minDateProp.getDate()
       return {
         year,
         month,
         date,
         timeStamp: dateToTimeStamp(year, month, date),
-      };
-    });
+      }
+    })
 
     const maxDateObj = computed(() => {
-      const maxDateProp = new Date(maxDate.value);
-      const year = maxDateProp.getFullYear();
-      const month = maxDateProp.getMonth();
-      const date = maxDateProp.getDate();
+      const maxDateProp = new Date(maxDate.value)
+      const year = maxDateProp.getFullYear()
+      const month = maxDateProp.getMonth()
+      const date = maxDateProp.getDate()
       return {
         year,
         month,
         date,
         timeStamp: dateToTimeStamp(year, month, date),
-      };
-    });
+      }
+    })
 
     const buttonDisabled = computed(() => {
       if (selectedDateList.value.length <= 0) {
-        return true;
+        return true
       }
-      return false;
-    });
+      return false
+    })
     // 转换默认数组结构之后的数组对象
     const echoDefault = computed(() => {
-      let list = [];
-      const selectedList = selectedDate.value;
+      let list = []
+      const selectedList = selectedDate.value
       if (selectedList && Array.isArray(selectedList)) {
         // new Date('')和new Date(y, m, d)转换后的时间戳起始小时不同，所以统一格式。
         for (let i = 0; i < selectedList.length; i++) {
-          const itemDate = new Date(selectedList[i].toString());
+          const itemDate = new Date(selectedList[i].toString())
           list.push({
             year: itemDate.getFullYear(),
             month: itemDate.getMonth(),
             date: itemDate.getDate(),
-          });
+          })
         }
       } else if (selectedList && !Array.isArray(selectedList)) {
-        const itemDate = new Date(selectedList.toString());
+        const itemDate = new Date(selectedList.toString())
         list.push({
           year: itemDate.getFullYear(),
           month: itemDate.getMonth(),
           date: itemDate.getDate(),
-        });
+        })
       }
       if (type.value === 'single' && list.length > 1) {
-        list = list.slice(0, 1);
+        list = list.slice(0, 1)
       }
-      return list;
-    });
+      return list
+    })
 
-    const weekList = ref(['日', '一', '二', '三', '四', '五', '六']);
-    let calendarList = ref([]);
-    let selectedDateList = ref([...echoDefault.value]);
+    const weekList = ref(['日', '一', '二', '三', '四', '五', '六'])
+    let calendarList = ref([])
+    let selectedDateList = ref([...echoDefault.value])
 
     /**
      * 获取更多的数据
@@ -274,18 +274,14 @@ export default {
      * @param {Object} startObj 起始日期
      * @returns {Array} 新的数据
      */
-    const getNewDate = (
-      type = 'new',
-      startObj = { year: null, month: null },
-      monthCount = 6,
-    ) => {
-      let year = startObj.year;
-      let month = startObj.month;
-      let list = [];
+    const getNewDate = (type = 'new', startObj = { year: null, month: null }, monthCount = 6) => {
+      let year = startObj.year
+      let month = startObj.month
+      let list = []
       for (let i = 0; i < monthCount; i++) {
         // 获得新的月份
         if (type === 'new') {
-          const spaceDay = new Date(year, month, 1).getDay();
+          const spaceDay = new Date(year, month, 1).getDay()
           list.push({
             year: Number(year),
             month: Number(month),
@@ -293,14 +289,15 @@ export default {
             spaceDay: getSpaceDayToList(spaceDay),
           })
           if (Number(month) === 11) {
-            year = year + 1;
-            month = 0;
+            year = year + 1
+            month = 0
           } else {
-            year = year;
-            month = month + 1;
+            year = year
+            month = month + 1
           }
-        } else if (type === 'old') { // 获得之前的月份
-        const spaceDay = new Date(year, month, 1).getDay();
+        } else if (type === 'old') {
+          // 获得之前的月份
+          const spaceDay = new Date(year, month, 1).getDay()
           list.unshift({
             year: Number(year),
             month: Number(month),
@@ -308,188 +305,203 @@ export default {
             spaceDay: getSpaceDayToList(spaceDay),
           })
           if (Number(month) === 0) {
-            year = year - 1;
-            month = 11;
+            year = year - 1
+            month = 11
           } else {
-            year = year;
-            month = month - 1;
+            year = year
+            month = month - 1
           }
         }
       }
-      return list;
-    };
+      return list
+    }
 
     // 初始化数据
     const getInitDateData = () => {
-      const yearInstance = maxDateObj.value.year - minDateObj.value.year;
-      let monthInstance = null;
+      const yearInstance = maxDateObj.value.year - minDateObj.value.year
+      let monthInstance = null
       if (yearInstance === 0) {
-        monthInstance = maxDateObj.value.month - minDateObj.value.month;
+        monthInstance = maxDateObj.value.month - minDateObj.value.month
       } else {
-        monthInstance = yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month;
+        monthInstance = yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month
       }
 
-      const list = getNewDate('new', { year: minDateObj.value.year, month: minDateObj.value.month }, monthInstance + 1);
-      calendarList.value = [...list];
-    };
+      const list = getNewDate(
+        'new',
+        { year: minDateObj.value.year, month: minDateObj.value.month },
+        monthInstance + 1,
+      )
+      calendarList.value = [...list]
+    }
 
     const getSpaceDayToList = (spaceDay) => {
-      let spaceDayList = [];
+      let spaceDayList = []
       for (let j = 0; j < spaceDay; j++) {
         spaceDayList.push({
           id: `space${j}`,
           value: j,
         })
       }
-      return spaceDayList;
-    };
+      return spaceDayList
+    }
 
     const transMonFilter = (month) => {
-      return month < 9 ? `0${month + 1}` : month + 1;
-    };
+      return month < 9 ? `0${month + 1}` : month + 1
+    }
 
     // 精确到天
     const dateToTimeStamp = (year, month, date) => {
-      const inti = new Date(year, month, date).getTime();
-      const ms = Math.floor(inti / 1000);
-      const s = Math.floor(ms / 60);
-      const h = Math.floor(s / 60);
-      const d = Math.floor(h / 24);
-      return d;
-    };
+      const inti = new Date(year, month, date).getTime()
+      const ms = Math.floor(inti / 1000)
+      const s = Math.floor(ms / 60)
+      const h = Math.floor(s / 60)
+      const d = Math.floor(h / 24)
+      return d
+    }
 
     // 判断某项是否被选中
     const isSelected = (year, month, date, array) => {
-      const init = dateToTimeStamp(year, month, date);
-      const flag = array.some(item => {
-        const timeStamp = dateToTimeStamp(item.year, item.month, item.date);
-        return init === timeStamp;
-      });
-      return flag;
-    };
+      const init = dateToTimeStamp(year, month, date)
+      const flag = array.some((item) => {
+        const timeStamp = dateToTimeStamp(item.year, item.month, item.date)
+        return init === timeStamp
+      })
+      return flag
+    }
 
     // 动态判断是否被禁用
     const showDisable = (year, month, date) => {
-      const itemTimeStamp = dateToTimeStamp(year, month, date);
-      if (minDateObj.value.timeStamp <= itemTimeStamp
-        && itemTimeStamp <= maxDateObj.value.timeStamp
-      ) {
-        return false;
+      const itemTimeStamp = dateToTimeStamp(year, month, date)
+      if (minDateObj.value.timeStamp <= itemTimeStamp && itemTimeStamp <= maxDateObj.value.timeStamp) {
+        return false
       }
-      return true;
-    };
+      return true
+    }
 
     const changeSelectDate = (item, date) => {
-      const disabled = showDisable(item.year, item.month, date);
-      if (disabled) { return }
+      const disabled = showDisable(item.year, item.month, date)
+      if (disabled) {
+        return
+      }
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
           year: item.year,
           month: item.month,
           date: date,
-        });
-        return;
+        })
+        return
       }
       // 遍历该数据在已选数据中是否已存在
-      const saved = isSelected(item.year, item.month, date, selectedDateList.value);
+      const saved = isSelected(item.year, item.month, date, selectedDateList.value)
 
       if (type.value === 'single') {
         if (saved) {
-          selectedDateList.value = [];
+          selectedDateList.value = []
         } else {
-          selectedDateList.value = [{
-            year: item.year,
-            month: item.month,
-            date: date,
-          }];
+          selectedDateList.value = [
+            {
+              year: item.year,
+              month: item.month,
+              date: date,
+            },
+          ]
         }
       } else if (type.value === 'multiple') {
         if (saved) {
           for (let i = 0; i < selectedDateList.value.length; i++) {
             if (
-              item.year === selectedDateList.value[i].year
-              && item.month === selectedDateList.value[i].month
-              && date === selectedDateList.value[i].date
+              item.year === selectedDateList.value[i].year &&
+              item.month === selectedDateList.value[i].month &&
+              date === selectedDateList.value[i].date
             ) {
-              selectedDateList.value.splice(i, 1);
+              selectedDateList.value.splice(i, 1)
             }
           }
         } else {
-          if (selectedDateList.value.length >= selectableCount.value) { return }
+          if (selectedDateList.value.length >= selectableCount.value) {
+            return
+          }
           selectedDateList.value.push({
             year: item.year,
             month: item.month,
             date: date,
-          });
+          })
         }
       }
-    };
+    }
 
     const handleClose = () => {
-      emit('close');
-    };
+      emit('close')
+    }
 
     const handleConfirm = () => {
-      if (selectedDateList.value.length === 0) { return }
-      let confirmDate = null;
-      let confirmList = [];
+      if (selectedDateList.value.length === 0) {
+        return
+      }
+      let confirmDate = null
+      let confirmList = []
 
       if (type.value === 'single') {
-        confirmDate = selectedDateList.value[0];
-        emit('confirm', { value: new Date(confirmDate.year, confirmDate.month, confirmDate.date) });
+        confirmDate = selectedDateList.value[0]
+        emit('confirm', { value: new Date(confirmDate.year, confirmDate.month, confirmDate.date) })
       } else if (type.value === 'multiple') {
-        confirmList = selectedDateList.value.map(item => {
-          return new Date(item.year, item.month, item.date);
+        confirmList = selectedDateList.value.map((item) => {
+          return new Date(item.year, item.month, item.date)
         })
-        emit('confirm', { value: confirmList });
+        emit('confirm', { value: confirmList })
       }
-    };
+    }
 
     // 触底加载更多
     const scrolltolower = () => {
-      const startDate = calendarList.value.length > 0 ? calendarList.value[calendarList.value.length -1] : null;
-      if (!startDate) { return }
-      let year = startDate.year;
-      let month = startDate.month + 1;
-      if (month > 11) {
-        month = month -11;
-        year = year + 1;
+      const startDate =
+        calendarList.value.length > 0 ? calendarList.value[calendarList.value.length - 1] : null
+      if (!startDate) {
+        return
       }
-      const topList = getNewDate('new', { year: year, month: month }, 3);
-      calendarList.value = [...calendarList.value, ...topList];
-    };
+      let year = startDate.year
+      let month = startDate.month + 1
+      if (month > 11) {
+        month = month - 11
+        year = year + 1
+      }
+      const topList = getNewDate('new', { year: year, month: month }, 3)
+      calendarList.value = [...calendarList.value, ...topList]
+    }
 
     // 上拉加载更多
     const scrolltoupper = () => {
-      const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null;
-      if (!startDate) { return }
-      let year = startDate.year;
-      let month = startDate.month - 1;
-      if (month < 0) {
-        month = month + 1;
-        year = year - 1;
+      const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null
+      if (!startDate) {
+        return
       }
-      const topList = getNewDate('old', { year: year, month: month }, 3);
-      calendarList.value = [...topList, ...calendarList.value];
-    };
+      let year = startDate.year
+      let month = startDate.month - 1
+      if (month < 0) {
+        month = month + 1
+        year = year - 1
+      }
+      const topList = getNewDate('old', { year: year, month: month }, 3)
+      calendarList.value = [...topList, ...calendarList.value]
+    }
 
     onMounted(() => {
-      getInitDateData();
-    });
+      getInitDateData()
+    })
 
     watch(
       () => props.visible,
-      async (val) => {
+      (val) => {
         if (val) {
-          selectedDateList.value = [...echoDefault.value];
-          await getInitDateData();
-          calendarVisible.value = true;
+          selectedDateList.value = [...echoDefault.value]
+          getInitDateData()
+          calendarVisible.value = true
         } else {
-          calendarVisible.value = false;
-          calendarList.value = [];
+          calendarVisible.value = false
+          calendarList.value = []
         }
-      }
-    );
+      },
+    )
 
     return {
       calendarVisible,
@@ -514,7 +526,7 @@ export default {
       showDisable,
     }
   },
-};
+}
 </script>
 
 <style lang="scss">
