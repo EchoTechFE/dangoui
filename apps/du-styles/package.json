@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/du-styles",
-  "version": "0.2.6",
+  "version": "1.0.0-alpha.14",
   "main": "dist/index.css",
   "module": "./src/index.vue",
   "description": "> TODO: description",
