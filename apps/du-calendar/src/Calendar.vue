@@ -571,7 +571,8 @@ export default {
       .du-cal-list-day-actived {
         position: relative;
         border-radius: 8rpx;
-        box-shadow: 0 0 0 1px var(--du-calendar-primary);
+        border: 1px solid;
+        border-color: var(--du-calendar-primary);
         overflow: hidden;
         color: var(--du-calendar-active-text-color);
 
@@ -580,7 +581,7 @@ export default {
           z-index: 0;
           width: 100%;
           height: 100%;
-          background-color: var(--du-calendar-primary);
+          background: var(--du-calendar-primary);
           opacity: 0.2;
         }
 
@@ -596,7 +597,7 @@ export default {
           right: 0;
           width: 24rpx;
           height: 18rpx;
-          background-color: var(--du-calendar-primary);
+          background: var(--du-calendar-primary);
           border-radius: 8rpx 0 0 0;
           line-height: 0;
           display: flex;
