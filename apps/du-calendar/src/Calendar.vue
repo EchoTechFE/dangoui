@@ -366,6 +366,8 @@ export default {
     };
 
     const changeSelectDate = (item, date) => {
+      const disabled = showDisable(item.year, item.month, date);
+      if (disabled) { return }
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
           year: item.year,
