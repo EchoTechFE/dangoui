@@ -38,6 +38,7 @@ importers:
 
   ../../apps/du-calendar:
     specifiers:
+      '@echoingtech/du-popup': workspace:*
       '@echoingtech/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
@@ -52,6 +53,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
+      '@echoingtech/du-popup': link:../du-popup
       '@echoingtech/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
