@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/du-button",
-  "version": "1.0.0-alpha.14",
+  "version": "1.0.0-alpha.15",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "scripts": {
