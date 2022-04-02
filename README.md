@@ -105,6 +105,16 @@ npm run storybook
 
 ### publish
 
+在根目录下创建 .alioss.json文件，并配置（用于icon图标上传）
+
+```json
+{
+  "accessKeyId": "",
+  "accessKeySecret": ""
+}
+
+```
+
 - `rush change`
 - `rush version --bump` or `rush version --override-bump BUMPTYPE`
 - `rush publish --include-all -t TAG -p`

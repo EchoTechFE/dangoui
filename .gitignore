@@ -68,6 +68,5 @@ common/autoinstallers/*/.npmrc
 .heft
 
 dist
-apps/du-ui/packages
-
 .vscode
+.alioss.json

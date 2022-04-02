@@ -433,6 +433,12 @@
       "versionPolicyName": "du"
     },
     {
+      "packageName": "@echoingtech/du-icon",
+      "projectFolder": "apps/du-icon",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
+    },
+    {
       "packageName": "@echoingtech/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
