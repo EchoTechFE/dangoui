@@ -73,7 +73,7 @@ $ rush update
 
 ```bash
 # 然后在 du-ui 目录下执行
-npm run storybook
+pnpm run storybook
 ```
 
 **依赖有问题的时候就跑一下 rush update 重新更新一下依赖**

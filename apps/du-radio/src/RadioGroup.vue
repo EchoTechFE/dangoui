@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="className"
-    :style="style"
-  >
+  <div :class="className" :style="style">
     <slot />
   </div>
 </template>
@@ -13,53 +10,53 @@ import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
 export default {
-  provide () {
+  provide() {
     return {
-      groupComponent: this
+      groupComponent: this,
     }
   },
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: ''
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: ''
+      default: '',
     },
     inline: {
       type: Boolean,
-      default: undefined
+      default: null,
     },
     cancel: {
       type: Boolean,
-      default: undefined
+      default: null,
     },
     shape: {
       type: String,
-      default: undefined
+      default: null,
     },
     custom: {
       type: Boolean,
-      defualt: undefined
+      default: null,
     },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
 
-    value: {}
+    value: {},
   },
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     const config = computed(() => {
       const { extStyle, extClass } = {
         props,
-        ...props.options
+        ...props.options,
       }
 
       return Object.freeze({
         extStyle,
-        extClass
+        extClass,
       })
     })
 
@@ -73,8 +70,8 @@ export default {
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-          ...extStyle
-        })
+            ...extStyle,
+          })
     })
 
     const groupValue = ref(undefined)
@@ -83,10 +80,10 @@ export default {
       () => props.value,
       () => {
         groupValue.value = props.value
-      }
+      },
     )
 
-    function updateValue (value) {
+    function updateValue(value) {
       groupValue.value = value
       emit('input', value)
     }
@@ -94,14 +91,14 @@ export default {
     const groupConfig = computed(() => {
       const { inline, cancel, shape, custom } = {
         ...props,
-        ...props.options
+        ...props.options,
       }
 
       return {
         inline,
         cancel,
         shape,
-        custom
+        custom,
       }
     })
 
@@ -112,8 +109,8 @@ export default {
     return {
       config,
       className,
-      style
+      style,
     }
-  }
+  },
 }
 </script>

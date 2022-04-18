@@ -1,35 +1,16 @@
 <template>
-  <div
-    v-if="config.custom"
-    :class="className"
-    :styles="style"
-    @click="handleClick"
-  >
+  <div v-if="config.custom" :class="className" :styles="style" @click="handleClick">
     <slot />
   </div>
-  <div
-    v-else
-    :class="className"
-    :styles="style"
-    @click="handleClick"
-  >
+  <div v-else :class="className" :styles="style" @click="handleClick">
     <template v-if="config.shape === 'normal'">
-      <div
-        :class="[
-          'du-radio__radio',
-          { 'du-radio__radio--selected': isSelected },
-        ]"
-      />
+      <div :class="['du-radio__radio', { 'du-radio__radio--selected': isSelected }]" />
       <slot>
         {{ config.label }}
       </slot>
     </template>
 
-    <DuButton
-      v-else-if="config.shape === 'button'"
-      size="mini"
-      :type="isSelected ? 'primary' : 'info'"
-    >
+    <DuButton v-else-if="config.shape === 'button'" size="mini" :type="isSelected ? 'primary' : 'info'">
       <slot>
         {{ config.label }}
       </slot>
@@ -38,69 +19,66 @@
 </template>
 
 <script>
-import {
-  computed,
-  watch,
-  ref,
-  inject,
-  reactive,
-  toRefs
-} from '@vue/composition-api'
+import { computed, watch, ref, inject, reactive, toRefs } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@echoingtech/du-button/src/Button.vue'
 
+function isEmpty(val) {
+  return val === null || val === undefined || val === ''
+}
+
 export default {
   components: {
-    DuButton
+    DuButton,
   },
 
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: ''
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: ''
+      default: '',
     },
     label: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     shape: {
       type: String,
-      default: 'normal' // normal,button
+      default: 'normal', // normal,button
     },
     custom: {
       type: Boolean,
-      default: false
+      default: false,
     },
     inline: {
       type: Boolean,
-      default: undefined
+      default: undefined,
     },
     cancel: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     options: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
-    value: {}
+    value: {},
   },
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     const groupConfig = inject('groupConfig', null)
     const groupValue = inject('groupValue', ref(null))
     const groupUpdateValue = inject('groupUpdateValue', null)
 
     const state = reactive({
-      currentVal: undefined
+      currentVal: undefined,
     })
 
     watch(groupValue, (val) => {
@@ -111,40 +89,31 @@ export default {
       () => props.value,
       (val) => {
         state.currentVal = val
-      }
+      },
     )
 
     const config = computed(() => {
-      const {
-        extStyle,
-        extClass,
-        label,
-        inline,
-        cancel,
-        custom,
-        disabled,
-        shape
-      } = {
+      const { extStyle, extClass, label, inline, cancel, custom, disabled, shape } = {
         ...props,
-        ...props.options
+        ...props.options,
       }
 
       const {
         inline: radioInline,
         cancel: radioCancel,
         shape: radioShape,
-        custom: radioCustom
+        custom: radioCustom,
       } = groupConfig ? groupConfig.value : {}
 
       return Object.freeze({
         extStyle,
         extClass,
         label,
-        custom: radioCustom !== undefined ? radioCustom : custom,
-        shape: radioShape !== undefined ? radioShape : shape,
-        inline: radioInline !== undefined ? radioInline : inline,
-        cancel: radioCancel !== undefined ? radioCancel : cancel,
-        disabled
+        custom: isEmpty(radioCustom) ? custom : radioCustom,
+        shape: isEmpty(radioShape) ? shape : radioShape,
+        inline: isEmpty(radioInline) ? inline : radioInline,
+        cancel: isEmpty(radioCancel) ? cancel : radioCancel,
+        disabled,
       })
     })
     const className = computed(() => {
@@ -153,9 +122,9 @@ export default {
         'du-radio',
         {
           'du-radio--inline': inline,
-          'du-radio--disabled': disabled
+          'du-radio--disabled': disabled,
         },
-        extClass
+        extClass,
       )
     })
 
@@ -164,8 +133,8 @@ export default {
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-          ...extStyle
-        })
+            ...extStyle,
+          })
     })
 
     const isSelected = computed(() => {
@@ -174,7 +143,7 @@ export default {
       return label === state.currentVal
     })
 
-    function update (val) {
+    function update(val) {
       state.currentVal = val
       if (groupUpdateValue) {
         groupUpdateValue(val)
@@ -182,7 +151,7 @@ export default {
       emit('input', val)
     }
 
-    function handleClick () {
+    function handleClick() {
       const { label, cancel, disabled } = config.value
       emit('click')
       if (disabled) {
@@ -197,9 +166,9 @@ export default {
       style,
       config,
       isSelected,
-      handleClick
+      handleClick,
     }
-  }
+  },
 }
 </script>
 
@@ -233,8 +202,7 @@ export default {
     border-radius: 50%;
     &--selected {
       background: rgba(5, 190, 169, 1)
-        url('https://cdn.qiandaoapp.com/admins/0a302173967d8d7a999fc17842bc886a.png')
-        no-repeat 100%/100%;
+        url('https://cdn.qiandaoapp.com/admins/0a302173967d8d7a999fc17842bc886a.png') no-repeat 100%/100%;
     }
   }
   &__input {
