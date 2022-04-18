@@ -7,19 +7,22 @@
     @getuserinfo="onGetUserInfo"
     @click="onClick"
   >
-    <div
-      v-if="loading"
-      class="du-button__icon du-button__loading"
-    />
-    <img
-      v-if="icon"
-      class="du-button__icon"
-      :src="icon"
-      alt="du-button-icon"
-    >
+    <div v-if="loading" class="du-button__icon du-button__loading" />
+    <template v-if="iconPosition === 'left' && icon">
+      <div v-if="isIconC" class="du-button__icon">
+        <DuIcon :name="icon" />
+      </div>
+      <img v-else class="du-button__icon" :src="icon" alt="du-button-icon" />
+    </template>
     <slot>
       {{ text }}
     </slot>
+    <template v-if="iconPosition === 'right' && icon">
+      <div v-if="isIconC" class="du-button__icon du-button__icon--right">
+        <DuIcon :name="icon" />
+      </div>
+      <img v-else class="du-button__icon du-button__icon--right" :src="icon" alt="du-button-icon" />
+    </template>
   </button>
 </template>
 
@@ -28,69 +31,74 @@ import { computed } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
+import DuIcon from '@echoingtech/du-icon/src/Icon.vue'
+import IconConfig from '@echoingtech/du-icon/src/iconfont-config.json'
+
+function findIcon(name) {
+  return Object.keys(IconConfig.icons).find((i) => i === name)
+}
+
 export default {
+  components: {
+    DuIcon,
+  },
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: ''
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: ''
+      default: '',
     },
     type: {
       type: String,
-      default: 'primary'
+      default: 'primary',
     },
     size: {
       type: String,
-      default: 'normal'
+      default: 'normal',
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     icon: {
       type: String,
-      default: ''
+      default: '',
+    },
+    iconPosition: {
+      type: String,
+      default: 'left',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     full: {
       type: Boolean,
-      default: false
+      default: false,
     },
     square: {
       type: Boolean,
-      default: false
+      default: false,
     },
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     openType: {
       type: String,
-      default: ''
+      default: '',
     },
     ghost: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     const className = computed(() => {
-      const {
-        size,
-        type,
-        ghost,
-        loading,
-        full,
-        square,
-        disabled,
-        extClass
-      } = props
+      const { size, type, ghost, loading, full, square, disabled, extClass } = props
       return classNames(
         ['du-button', 'du-button--' + size, 'du-button--' + type],
         {
@@ -98,31 +106,35 @@ export default {
           'du-button--ghost': ghost,
           'du-button--loading': loading,
           'du-button--full': full,
-          'du-button--square': square
+          'du-button--square': square,
         },
-        extClass
+        extClass,
       )
     })
+
     const style = computed(() => {
       const { extStyle } = props
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-          ...extStyle
-        })
+            ...extStyle,
+          })
     })
-    function onClick () {
+
+    const isIconC = computed(() => !!findIcon(props.icon))
+
+    function onClick() {
       if (!props.disabled && !props.loading) {
         emit('click')
       }
     }
 
-    function onGetUserInfo (...args) {
+    function onGetUserInfo(...args) {
       emit('getUserInfo', ...args)
     }
 
-    return { style, className, onClick, onGetUserInfo }
-  }
+    return { style, className, isIconC, onClick, onGetUserInfo }
+  },
 }
 </script>
 
@@ -162,7 +174,12 @@ export default {
     & > .du-button__icon {
       width: 40rpx;
       height: 40rpx;
+      --du-icon-fz: 40rpx;
       margin-right: 16rpx;
+      &--right{
+          margin-right: 0;
+          margin-left: 16rpx;
+      }
     }
   }
   &--medium {
@@ -173,7 +190,12 @@ export default {
     & > .du-button__icon {
       width: 32rpx;
       height: 32rpx;
+      --du-icon-fz: 32rpx;
       margin-right: 12rpx;
+      &--right{
+          margin-right: 0;
+          margin-left: 12rpx;
+      }
     }
   }
   &--normal {
@@ -184,7 +206,12 @@ export default {
     & > .du-button__icon {
       width: 32rpx;
       height: 32rpx;
+      --du-icon-fz: 32rpx;
       margin-right: 12rpx;
+      &--right{
+          margin-right: 0;
+          margin-left: 12rpx;
+      }
     }
   }
   &--small {
@@ -195,7 +222,12 @@ export default {
     & > .du-button__icon {
       width: 24rpx;
       height: 24rpx;
+      --du-icon-fz: 24rpx;
       margin-right: 8rpx;
+      &--right{
+          margin-right: 0;
+          margin-left: 8rpx;
+      }
     }
   }
   &--mini {
@@ -207,7 +239,12 @@ export default {
     & > .du-button__icon {
       width: 24rpx;
       height: 24rpx;
+      --du-icon-fz: 24rpx;
       margin-right: 8rpx;
+      &--right{
+          margin-right: 0;
+          margin-left: 8rpx;
+      }
     }
   }
 

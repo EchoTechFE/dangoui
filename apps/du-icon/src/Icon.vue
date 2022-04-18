@@ -59,9 +59,14 @@ export default {
 </script>
 
 <style lang="scss">
+:root,
+page {
+  --du-icon-fz: 24rpx;
+}
 .du-icon {
   font-family: 'dumpling-icon' !important;
-  font-size: 24rpx;
+
+  font-size: var(--du-icon-fz);
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
