@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@echoingtech/dumpling",
+      "comment": "新增icon组件",
+      "type": "none"
+    }
+  ],
+  "packageName": "@echoingtech/dumpling"
+}

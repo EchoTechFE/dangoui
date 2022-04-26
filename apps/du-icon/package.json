@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/du-icon",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.16",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "scripts": {
@@ -41,14 +41,14 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-service": "~4.5.6",
+    "ali-oss": "~6.17.1",
+    "font-carrier": "~0.3.1",
+    "glob": "~7.2.0",
+    "md5": "~2.3.0",
     "postcss": "7",
     "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
-    "ali-oss": "~6.17.1",
-    "md5": "~2.3.0",
-    "font-carrier": "~0.3.1",
-    "glob": "~7.2.0"
+    "vue-template-compiler": "^2.6.11"
   }
 }

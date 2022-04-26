@@ -1,6 +1,6 @@
 {
   "name": "@echoingtech/dumpling",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.16",
   "scripts": {
     "build": "npm run build-lib && npm run build-packages",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
@@ -23,17 +23,17 @@
   ],
   "dependencies": {
     "@echoingtech/du-button": "workspace:*",
+    "@echoingtech/du-calendar": "workspace:*",
     "@echoingtech/du-form": "workspace:*",
+    "@echoingtech/du-icon": "workspace:*",
     "@echoingtech/du-input": "workspace:*",
     "@echoingtech/du-input-number": "workspace:*",
     "@echoingtech/du-popup": "workspace:*",
     "@echoingtech/du-radio": "workspace:*",
     "@echoingtech/du-steps": "workspace:*",
-    "@echoingtech/du-calendar": "workspace:*",
     "@echoingtech/du-styles": "workspace:*",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "@echoingtech/du-icon": "workspace:*"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
