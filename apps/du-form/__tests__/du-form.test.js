@@ -2,6 +2,6 @@
 
 const duForm = require('..');
 
-describe('@echoingtech/du-form', () => {
+describe('@frontend/du-form', () => {
     it('needs tests');
 });

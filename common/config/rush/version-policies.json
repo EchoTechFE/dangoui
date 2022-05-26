@@ -12,9 +12,9 @@
   {
     "policyName": "du",
     "definitionName": "lockStepVersion",
-    "version": "1.0.0-alpha.16",
+    "version": "1.0.0-alpha.17",
     "nextBump": "prerelease",
-    "mainProject": "@echoingtech/dumpling"
+    "mainProject": "@frontend/dumpling"
   }
   // {
   //   /**

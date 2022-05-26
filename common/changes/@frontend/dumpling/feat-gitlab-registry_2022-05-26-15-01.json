@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "使用gitlab registry",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}

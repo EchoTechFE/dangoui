@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
-import { DuForm, DuFormItem } from '@echoingtech/du-form/src/index.js';
-import { DuInput } from '@echoingtech/du-input';
+import { DuForm, DuFormItem } from '@frontend/du-form/src/index.js';
+import { DuInput } from '@frontend/du-input';
 
-import '@echoingtech/du-styles/styles/index.scss';
+import '@frontend/du-styles/styles/index.scss';
 
 Vue.use(VueCompositionApi);
 

@@ -385,67 +385,67 @@
     // },
     //
     {
-      "packageName": "@echoingtech/du-button",
+      "packageName": "@frontend/du-button",
       "projectFolder": "apps/du-button",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-input",
+      "packageName": "@frontend/du-input",
       "projectFolder": "apps/du-input",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-input-number",
+      "packageName": "@frontend/du-input-number",
       "projectFolder": "apps/du-input-number",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-steps",
+      "packageName": "@frontend/du-steps",
       "projectFolder": "apps/du-steps",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-radio",
+      "packageName": "@frontend/du-radio",
       "projectFolder": "apps/du-radio",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-form",
+      "packageName": "@frontend/du-form",
       "projectFolder": "apps/du-form",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-popup",
+      "packageName": "@frontend/du-popup",
       "projectFolder": "apps/du-popup",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-calendar",
+      "packageName": "@frontend/du-calendar",
       "projectFolder": "apps/du-calendar",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-icon",
+      "packageName": "@frontend/du-icon",
       "projectFolder": "apps/du-icon",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/dumpling",
+      "packageName": "@frontend/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
       "versionPolicyName": "du"
     },
     {
-      "packageName": "@echoingtech/du-styles",
+      "packageName": "@frontend/du-styles",
       "projectFolder": "apps/du-styles",
       "shouldPublish": true,
       "versionPolicyName": "du"

@@ -7,8 +7,8 @@ importers:
 
   ../../apps/du-button:
     specifiers:
-      '@echoingtech/du-icon': workspace:*
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-icon': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -22,8 +22,8 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-icon': link:../du-icon
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-icon': link:../du-icon
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -40,8 +40,8 @@ importers:
 
   ../../apps/du-calendar:
     specifiers:
-      '@echoingtech/du-popup': workspace:*
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-popup': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -55,8 +55,8 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-popup': link:../du-popup
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-popup': link:../du-popup
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -73,7 +73,7 @@ importers:
 
   ../../apps/du-form:
     specifiers:
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -87,7 +87,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -104,7 +104,7 @@ importers:
 
   ../../apps/du-icon:
     specifiers:
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -122,7 +122,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -143,7 +143,7 @@ importers:
 
   ../../apps/du-input:
     specifiers:
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -157,7 +157,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -174,8 +174,8 @@ importers:
 
   ../../apps/du-input-number:
     specifiers:
-      '@echoingtech/du-input': workspace:*
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-input': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -189,8 +189,8 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-input': link:../du-input
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-input': link:../du-input
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -207,7 +207,7 @@ importers:
 
   ../../apps/du-popup:
     specifiers:
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -221,7 +221,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -238,8 +238,8 @@ importers:
 
   ../../apps/du-radio:
     specifiers:
-      '@echoingtech/du-button': workspace:*
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-button': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -253,8 +253,8 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-button': link:../du-button
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-button': link:../du-button
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -271,7 +271,7 @@ importers:
 
   ../../apps/du-steps:
     specifiers:
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ~4.5.6
       '@vue/cli-service': ~4.5.6
       '@vue/composition-api': ~1.4.9
@@ -285,7 +285,7 @@ importers:
       vue: ^2.6.11
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
       core-js: 3.21.1
@@ -306,16 +306,16 @@ importers:
   ../../apps/du-ui:
     specifiers:
       '@babel/core': ^7.17.5
-      '@echoingtech/du-button': workspace:*
-      '@echoingtech/du-calendar': workspace:*
-      '@echoingtech/du-form': workspace:*
-      '@echoingtech/du-icon': workspace:*
-      '@echoingtech/du-input': workspace:*
-      '@echoingtech/du-input-number': workspace:*
-      '@echoingtech/du-popup': workspace:*
-      '@echoingtech/du-radio': workspace:*
-      '@echoingtech/du-steps': workspace:*
-      '@echoingtech/du-styles': workspace:*
+      '@frontend/du-button': workspace:*
+      '@frontend/du-calendar': workspace:*
+      '@frontend/du-form': workspace:*
+      '@frontend/du-icon': workspace:*
+      '@frontend/du-input': workspace:*
+      '@frontend/du-input-number': workspace:*
+      '@frontend/du-popup': workspace:*
+      '@frontend/du-radio': workspace:*
+      '@frontend/du-steps': workspace:*
+      '@frontend/du-styles': workspace:*
       '@storybook/addon-actions': ^6.4.19
       '@storybook/addon-essentials': ^6.4.19
       '@storybook/addon-links': ^6.4.19
@@ -333,16 +333,16 @@ importers:
       vue-loader: ^15.9.8
       vue-template-compiler: ^2.6.11
     dependencies:
-      '@echoingtech/du-button': link:../du-button
-      '@echoingtech/du-calendar': link:../du-calendar
-      '@echoingtech/du-form': link:../du-form
-      '@echoingtech/du-icon': link:../du-icon
-      '@echoingtech/du-input': link:../du-input
-      '@echoingtech/du-input-number': link:../du-input-number
-      '@echoingtech/du-popup': link:../du-popup
-      '@echoingtech/du-radio': link:../du-radio
-      '@echoingtech/du-steps': link:../du-steps
-      '@echoingtech/du-styles': link:../du-styles
+      '@frontend/du-button': link:../du-button
+      '@frontend/du-calendar': link:../du-calendar
+      '@frontend/du-form': link:../du-form
+      '@frontend/du-icon': link:../du-icon
+      '@frontend/du-input': link:../du-input
+      '@frontend/du-input-number': link:../du-input-number
+      '@frontend/du-popup': link:../du-popup
+      '@frontend/du-radio': link:../du-radio
+      '@frontend/du-steps': link:../du-steps
+      '@frontend/du-styles': link:../du-styles
       core-js: 3.21.1
       vue: 2.6.14
     devDependencies:

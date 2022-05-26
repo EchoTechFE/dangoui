@@ -2,6 +2,6 @@
 
 const duCalendar = require('..');
 
-describe('@echoingtech/du-calendar', () => {
+describe('@frontend/du-calendar', () => {
     it('needs tests');
 });

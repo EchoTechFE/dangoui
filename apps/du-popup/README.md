@@ -1,4 +1,4 @@
-# `@echoingtech/du-popup`
+# `@frontend/du-popup`
 
 ## API 设计
 

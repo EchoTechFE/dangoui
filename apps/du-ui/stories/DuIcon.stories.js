@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
-import DuIcon from '@echoingtech/du-icon/src/Icon.vue'
-import '@echoingtech/du-icon/src/iconfont.css'
-import iconConfig from '@echoingtech/du-icon/src/iconfont-config.json'
+import DuIcon from '@frontend/du-icon/src/Icon.vue'
+import '@frontend/du-icon/src/iconfont.css'
+import iconConfig from '@frontend/du-icon/src/iconfont-config.json'
 
-import '@echoingtech/du-styles/styles/index.scss'
+import '@frontend/du-styles/styles/index.scss'
 import './theme.scss'
 
 Vue.use(VueCompositionApi)

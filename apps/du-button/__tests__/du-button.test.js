@@ -2,6 +2,6 @@
 
 const duButton = require('..');
 
-describe('@echoingtech/du-button', () => {
+describe('@frontend/du-button', () => {
     it('needs tests');
 });

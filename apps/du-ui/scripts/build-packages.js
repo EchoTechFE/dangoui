@@ -4,7 +4,7 @@ const fs = require('fs');
 const dependencies = require('../package.json').dependencies;
 
 const duDeps = Object.keys(dependencies).filter((dep) =>
-  /@echoingtech\/du-(?!styles)/.test(dep),
+  /@frontend\/du-(?!styles)/.test(dep),
 );
 
 if (!fs.existsSync(path.join(__dirname, '../packages'))) {
@@ -18,7 +18,7 @@ duDeps.map((dep) => {
   const packageDir = path.join(
     __dirname,
     '../packages',
-    dep.replace('@echoingtech/', ''),
+    dep.replace('@frontend/', ''),
   );
 
   if (!fs.existsSync(packageDir)) {

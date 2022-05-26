@@ -1,4 +1,4 @@
-# `@echoingtech/du-calendar`
+# `@frontend/du-calendar`
 
 ## Calendar
 ![calendar example](https://cdn.qiandaoapp.com/admins/375749399347bfabd99998303d532214.png "组件示例图片")
@@ -55,7 +55,7 @@
       const selectedDate = ref([
         new Date('2021-10-21'), new Date('2022-01-15'), new Date('2022-01-20'),
         new Date('2022-01-29'), new Date('2022-02-16'), new Date(),
-        new Date('2022-03-20'), new Date('2022-04-20'), 
+        new Date('2022-03-20'), new Date('2022-04-20'),
       ]);
       const minSelectDate = ref(new Date('2021-10-21'));
       const maxSelectDate = ref(new Date('2022-04-20'));

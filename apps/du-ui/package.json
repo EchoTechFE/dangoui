@@ -1,6 +1,6 @@
 {
-  "name": "@echoingtech/dumpling",
-  "version": "1.0.0-alpha.16",
+  "name": "@frontend/dumpling",
+  "version": "1.0.0-alpha.17",
   "scripts": {
     "build": "npm run build-lib && npm run build-packages",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
@@ -9,11 +9,7 @@
     "build-storybook": "build-storybook"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/echoingtech/dumpling.git"
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "files": [
     "dist/*",
@@ -22,16 +18,16 @@
     "README.md"
   ],
   "dependencies": {
-    "@echoingtech/du-button": "workspace:*",
-    "@echoingtech/du-calendar": "workspace:*",
-    "@echoingtech/du-form": "workspace:*",
-    "@echoingtech/du-icon": "workspace:*",
-    "@echoingtech/du-input": "workspace:*",
-    "@echoingtech/du-input-number": "workspace:*",
-    "@echoingtech/du-popup": "workspace:*",
-    "@echoingtech/du-radio": "workspace:*",
-    "@echoingtech/du-steps": "workspace:*",
-    "@echoingtech/du-styles": "workspace:*",
+    "@frontend/du-button": "workspace:*",
+    "@frontend/du-calendar": "workspace:*",
+    "@frontend/du-form": "workspace:*",
+    "@frontend/du-icon": "workspace:*",
+    "@frontend/du-input": "workspace:*",
+    "@frontend/du-input-number": "workspace:*",
+    "@frontend/du-popup": "workspace:*",
+    "@frontend/du-radio": "workspace:*",
+    "@frontend/du-steps": "workspace:*",
+    "@frontend/du-styles": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

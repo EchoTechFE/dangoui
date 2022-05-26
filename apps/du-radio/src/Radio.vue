@@ -22,7 +22,7 @@
 import { computed, watch, ref, inject, reactive, toRefs } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
-import DuButton from '@echoingtech/du-button/src/Button.vue'
+import DuButton from '@frontend/du-button/src/Button.vue'
 
 function isEmpty(val) {
   return val === null || val === undefined || val === ''

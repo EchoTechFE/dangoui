@@ -2,6 +2,6 @@
 
 const duInputNumber = require('..');
 
-describe('@echoingtech/du-input-number', () => {
+describe('@frontend/du-input-number', () => {
     it('needs tests');
 });

@@ -1,11 +1,11 @@
-# `@echoingtech/du-input`
+# `@frontend/du-input`
 
 > TODO: description
 
 ## Usage
 
 ```
-const duInput = require('@echoingtech/du-input');
+const duInput = require('@frontend/du-input');
 
 // TODO: DEMONSTRATE API
 ```

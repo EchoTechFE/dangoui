@@ -1,10 +1,10 @@
-import { Button } from '@echoingtech/du-button/src/index.js'
-import { Form, FormItem } from '@echoingtech/du-form/src/index.js'
-import { Input } from '@echoingtech/du-input'
-import { InputNumber } from '@echoingtech/du-input-number/src/index.js'
-import { Radio, RadioGroup } from '@echoingtech/du-radio/src/index.js'
-import { Steps } from '@echoingtech/du-steps/src/index.js'
-import { Popup } from '@echoingtech/du-popup/src/index.js'
+import { Button } from '@frontend/du-button/src/index.js'
+import { Form, FormItem } from '@frontend/du-form/src/index.js'
+import { Input } from '@frontend/du-input'
+import { InputNumber } from '@frontend/du-input-number/src/index.js'
+import { Radio, RadioGroup } from '@frontend/du-radio/src/index.js'
+import { Steps } from '@frontend/du-steps/src/index.js'
+import { Popup } from '@frontend/du-popup/src/index.js'
 
 const DuButton = Button
 const DuForm = Form

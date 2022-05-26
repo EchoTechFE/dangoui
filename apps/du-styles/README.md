@@ -1,11 +1,11 @@
-# `@echoingtech/du-styles`
+# `@frontend/du-styles`
 
 > TODO: description
 
 ## Usage
 
 ```
-const duStyles = require('@echoingtech/du-styles');
+const duStyles = require('@frontend/du-styles');
 
 // TODO: DEMONSTRATE API
 ```

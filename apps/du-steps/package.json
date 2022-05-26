@@ -1,7 +1,7 @@
 {
-  "name": "@echoingtech/du-steps",
-  "version": "1.0.0-alpha.16",
-  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "name": "@frontend/du-steps",
+  "version": "1.0.0-alpha.17",
+  "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
@@ -17,17 +17,13 @@
     "README.md"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/echoingtech/dumpling.git"
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --name DuSteps --filename index src/index.js"
   },
   "dependencies": {
-    "@echoingtech/du-styles": "workspace:*",
+    "@frontend/du-styles": "workspace:*",
     "@vue/composition-api": "~1.4.9",
     "classnames": "~2.3.1",
     "core-js": "^3.6.5",
@@ -44,6 +40,6 @@
     "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
-    "url": "https://github.com/echoingtech/dumpling/issues"
+    "url": "https://github.com/frontend/dumpling/issues"
   }
 }

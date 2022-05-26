@@ -1,4 +1,4 @@
-import { DumplingUIComponent } from '@echoingtech/du-types'
+import { DumplingUIComponent } from '@frontend/du-types'
 
 export type DuButtonType = 'primary' | 'secondary' | 'recommend' | 'info' | 'text' | 'text-primary'
 export type DuButtonSize = 'large' | 'medium' | 'normal' | 'small' | 'mini'

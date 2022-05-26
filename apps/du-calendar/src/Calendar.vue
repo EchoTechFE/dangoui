@@ -86,7 +86,7 @@
 import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
-import DuPopup from '@echoingtech/du-popup/src/Popup.vue'
+import DuPopup from '@frontend/du-popup/src/Popup.vue'
 
 // 获取最大选择日期
 const getMaxDate = (date, instance = 6) => {

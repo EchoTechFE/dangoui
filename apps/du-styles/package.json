@@ -1,11 +1,11 @@
 {
-  "name": "@echoingtech/du-styles",
-  "version": "1.0.0-alpha.16",
+  "name": "@frontend/du-styles",
+  "version": "1.0.0-alpha.17",
   "main": "dist/index.css",
   "module": "./src/index.vue",
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
-  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "files": [
     "dist/*",
@@ -14,17 +14,10 @@
     "README.md"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/echoingtech/dumpling.git"
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "echo nothing"
-  },
-  "bugs": {
-    "url": "https://github.com/echoingtech/dumpling/issues"
   }
 }

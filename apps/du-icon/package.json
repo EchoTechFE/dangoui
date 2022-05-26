@@ -1,6 +1,6 @@
 {
-  "name": "@echoingtech/du-icon",
-  "version": "1.0.0-alpha.16",
+  "name": "@frontend/du-icon",
+  "version": "1.0.0-alpha.17",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "typings": "typings/index.d.ts",
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
-  "homepage": "https://github.com/echoingtech/dumpling#readme",
+  "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "files": [
     "dist/*",
@@ -21,17 +21,13 @@
     "README.md"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/echoingtech/dumpling.git"
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "bugs": {
-    "url": "https://github.com/echoingtech/dumpling/issues"
+    "url": "https://github.com/frontend/dumpling/issues"
   },
   "dependencies": {
-    "@echoingtech/du-styles": "workspace:*",
+    "@frontend/du-styles": "workspace:*",
     "@vue/composition-api": "~1.4.9",
     "classnames": "~2.3.1",
     "core-js": "^3.6.5",

@@ -1,4 +1,4 @@
-# `@echoingtech/du-icon1`
+# `@frontend/du-icon1`
 
 ## Icon组件
 

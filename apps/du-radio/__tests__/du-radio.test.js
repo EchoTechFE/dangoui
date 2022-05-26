@@ -2,6 +2,6 @@
 
 const duRadio = require('..');
 
-describe('@echoingtech/du-radio', () => {
+describe('@frontend/du-radio', () => {
     it('needs tests');
 });

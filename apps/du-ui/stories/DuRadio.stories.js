@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
-import { DuRadio, DuRadioGroup } from '@echoingtech/du-radio/src/index.js'
+import { DuRadio, DuRadioGroup } from '@frontend/du-radio/src/index.js'
 
-import '@echoingtech/du-styles/styles/index.scss'
+import '@frontend/du-styles/styles/index.scss'
 
 Vue.use(VueCompositionApi)
 

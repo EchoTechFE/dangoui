@@ -39,7 +39,7 @@
 <script>
 import { ref, watch } from '@vue/composition-api'
 
-import DuInput from '@echoingtech/du-input/src/Input.vue'
+import DuInput from '@frontend/du-input/src/Input.vue'
 const ICONS = {
   minus:
     'https://cdn.qiandaoapp.com/admins/2cdeaab50e4e21960d680fe9243f5d4b.png',

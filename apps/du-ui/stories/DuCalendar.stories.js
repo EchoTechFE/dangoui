@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
-import { DuCalendar } from '@echoingtech/du-calendar/src/index.js';
+import { DuCalendar } from '@frontend/du-calendar/src/index.js';
 import ScrollView from '../components/ScrollView.vue';
-import  DuButton from '@echoingtech/du-button/src/Button.vue'
+import  DuButton from '@frontend/du-button/src/Button.vue'
 
-import '@echoingtech/du-styles/styles/index.scss';
+import '@frontend/du-styles/styles/index.scss';
 import './theme.scss';
 
 Vue.use(VueCompositionApi);
@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
       defaultDateArray: [
         new Date('2021-10-21'), new Date('2022-01-15'), new Date('2022-01-20'),
         new Date('2022-01-29'), new Date('2022-02-16'), new Date(),
-        new Date('2022-03-20'), new Date('2022-04-20'), 
+        new Date('2022-03-20'), new Date('2022-04-20'),
       ],
     }
   },

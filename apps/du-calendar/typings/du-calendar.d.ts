@@ -1,4 +1,4 @@
-import { DumplingUIComponent } from '@echoingtech/du-types'
+import { DumplingUIComponent } from '@frontend/du-types'
 export declare class DuCalendar extends DumplingUIComponent {
     visible: boolean
     type: string

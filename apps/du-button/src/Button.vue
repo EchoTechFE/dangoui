@@ -31,8 +31,8 @@ import { computed } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
-import DuIcon from '@echoingtech/du-icon/src/Icon.vue'
-import IconConfig from '@echoingtech/du-icon/src/iconfont-config.json'
+import DuIcon from '@frontend/du-icon/src/Icon.vue'
+import IconConfig from '@frontend/du-icon/src/iconfont-config.json'
 
 function findIcon(name) {
   return Object.keys(IconConfig.icons).find((i) => i === name)

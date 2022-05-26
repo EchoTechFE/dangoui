@@ -1,11 +1,11 @@
-# `@echoingtech/du-radio`
+# `@frontend/du-radio`
 
 > TODO: description
 
 ## Usage
 
 ```
-const duRadio = require('@echoingtech/du-radio');
+const duRadio = require('@frontend/du-radio');
 
 // TODO: DEMONSTRATE API
 ```

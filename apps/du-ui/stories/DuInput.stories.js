@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
-import DuInput from '@echoingtech/du-input/src/Input.vue';
+import DuInput from '@frontend/du-input/src/Input.vue';
 
-import '@echoingtech/du-styles/styles/index.scss';
+import '@frontend/du-styles/styles/index.scss';
 
 Vue.use(VueCompositionApi);
 
