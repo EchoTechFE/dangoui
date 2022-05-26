@@ -2,9 +2,8 @@
   "name": "@frontend/dumpling",
   "version": "1.0.0-alpha.17",
   "scripts": {
-    "build": "npm run build-lib && npm run build-packages",
+    "build": "npm run build-lib",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
-    "build-packages": "node scripts/build-packages.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -44,7 +43,7 @@
     "postcss-loader": "4",
     "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "10",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.11"
   }

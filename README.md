@@ -1,18 +1,59 @@
-## Usage
 
-// TODO:
+## Install
 
+```bash
+npm install @frontend/dumpling
 ```
 
+## Usage
+
+```javascript
+// vue.config.js
+export default {
+  chainWebpack: (config) => {
+    config.module
+      .rule('dumpling')
+      .test(/\.vue$/)
+      .use('uniapp-import-loader')
+      .loader('uniapp-import-loader')
+      .tap(() => {
+        return {
+          name: '@frontend/dumpling',
+          path: (name) => {
+            const files = fs.readdirSync(path.resolve(__dirname, './node_modules/@frontend'))
+            let pkgName = name.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+            if (!pkgName.startsWith('du')) pkgName = 'du-' + pkgName
+            let pkg = ''
+            pkg = files.find((file) => file === pkgName)
+            if (!pkg) {
+              pkg = files.find((file) => pkgName.startsWith(file))
+            }
+
+            return `@frontend/${pkg}/src/${name.replace('Du', '')}`
+          },
+        }
+      })
+  },
+}
+```
+
+```javascript
+//main.js
+import '@frontend/du-styles/styles/index.scss'
+```
+
+```javascript
+// in your components
+import { DuButton, DuInput } from '@frontend/dumpling'
 ```
 
 ## Develop
 
-1、克隆仓库到本地
-2、全局安装 rush
-3、rush update
+1. 克隆仓库到本地
+2. 全局安装 rush
+3. rush update
 
-rush 文档 https://rushjs.io/pages/intro/welcome/
+rush 文档 <https://rushjs.io/pages/intro/welcome/>
 
 ### 给自己的组件安装依赖
 
@@ -62,7 +103,7 @@ $ mkdir ./apps/du-hello
 然后执行
 
 ```bash
-$ rush update
+rush update
 ```
 
 此时新组件目录会多 node_modules 和 .rush 文件夹
@@ -78,7 +119,7 @@ pnpm run storybook
 
 **依赖有问题的时候就跑一下 rush update 重新更新一下依赖**
 
-更多信息请好好阅读一下 rush 的文档：https://rushjs.io/pages/intro/welcome/
+更多信息请好好阅读一下 rush 的文档：<https://rushjs.io/pages/intro/welcome/>
 
 ### 编写组件的须知
 
@@ -87,7 +128,7 @@ pnpm run storybook
 - extClass，extStyle 应在每个组件做保留属性或实现
 - 组件需要使用 vue-composition-api 的写法，页面使用 H5 标签，应同时考虑 Uniapp 和 h5 的使用，严禁使用 Uniapp 的 view 等组件
   .js 文件导出
-- 注意小程序与浏览器的差异，比如浏览器中没有 scroll-view，开发时可以在 stories 中注册为浏览器编写的模拟 scroll-view 组件：https://github.com/echoingtech/dumpling/blob/master/apps/du-ui/stories/DuPopup.stories.js#L11
+- 注意小程序与浏览器的差异，比如浏览器中没有 scroll-view，开发时可以在 stories 中注册为浏览器编写的模拟 scroll-view 组件：<https://github.com/echoingtech/dumpling/blob/master/apps/du-ui/stories/DuPopup.stories.js#L11>
 
 ### 提交
 
@@ -105,7 +146,7 @@ pnpm run storybook
 
 ### publish
 
-在根目录下创建 .alioss.json文件，并配置（用于icon图标上传）
+在根目录下创建`.alioss.json`文件，并配置（用于icon图标上传）
 
 ```json
 {

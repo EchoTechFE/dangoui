@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "input组件更新",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}

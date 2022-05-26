@@ -16,13 +16,19 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.6",
-    "@vue/cli-service": "~4.5.6",
-    "postcss": "7",
+    "@vue/cli-plugin-babel": "5",
+    "@vue/cli-service": "5",
+    "postcss": "~8.4.12",
     "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "sass-loader": "10",
+    "vue-template-compiler": "^2.6.11",
+    "@babel/core": "^7.17.5",
+    "@vue/cli-plugin-unit-jest": "~5.0.4",
+    "@vue/test-utils": "1",
+    "@vue/vue2-jest": "~27.0.0-alpha.4",
+    "babel-jest": "~27.5.1",
+    "jest": "~27.5.1"
   },
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
