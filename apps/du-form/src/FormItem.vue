@@ -238,7 +238,7 @@ export default {
 
     &__dirty {
       display: block;
-      color: #05bea9;
+      color: var(--du-color-main);
       font-size: 20rpx;
       position: absolute;
       top: 54rpx;
