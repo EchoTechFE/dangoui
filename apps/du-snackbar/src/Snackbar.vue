@@ -20,9 +20,11 @@
       <DuButton
         :text="mergedProps.text"
         :type="mergedProps.type"
+        :size="mergedProps.size"
         :ghost="mergedProps.ghost"
-        :square="mergedProps.square"
+        :round="mergedProps.round"
         :extClass="mergedProps.extClass"
+        :extStyle="mergedProps.extStyle"
         @click="emitAction"
         :style="{ flex: 'none', marginLeft: 'auto' }"
       />
@@ -78,13 +80,17 @@ export default {
     buttonProps: {
       type: Object,
       default: () => ({})
+    },
+    revertColor: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['close', 'action'],
   setup(props, { emit }) {
     const className = computed(() => {
-      const { extClass } = props;
-      return classNames('du-snackbar', extClass)
+      const { extClass, revertColor } = props;
+      return classNames('du-snackbar', extClass, { 'revert-color': revertColor })
     });
     const style = computed(() => {
       const { extStyle, offset, offsetPosition } = props;
@@ -167,10 +173,16 @@ export default {
     }
   }
   &__action {
-    height: 44rpx;
-    font-size: 24rpx;
     color: var(--du-snackbar-primary);
     background-color: #fff;
+  }
+  &.revert-color {
+    color: var(--du-snackbar-primary);
+    background-color: var(--du-snackbar-secondary-bg);
+  }
+  &.revert-color &__action {
+    color: #fff;
+    background-color: var(--du-snackbar-primary);
   }
 }
 .fade-enter-active,
