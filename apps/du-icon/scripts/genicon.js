@@ -5,7 +5,10 @@ var fontCarrier = require('font-carrier')
 const OSS = require('ali-oss')
 const md5 = require('md5')
 const glob = require('glob')
+const fetch = require('node-fetch')
+const fse = require('fs-extra')
 const aliossConfig = require('../../../.alioss.json')
+const crypto = require('crypto')
 
 // unicode Private Use Zone E000-F8FF
 const START_UNICODE = 0xe000
@@ -57,10 +60,41 @@ async function upload(filename, fileBuffer) {
     console.log(`[已存在,免上传] (上传于 ${ossFound.lastModified}) ${filename}`)
     return
   }
+  console.log(`[上传中] ${filename}`)
   await ossClient.put(ossFilePath, fileBuffer)
 }
 
-async function gen() {
+function extractSvgs(fileContent) {
+  const allSymbols = fileContent.match(/<symbol.*?<\/symbol>/g)
+  const symbolToSvg = (symbolText) => {
+    return symbolText
+      .replace(/<symbol[^>]*>/g, '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">')
+      .replace(/<\/symbol>/g, '</svg>')
+  }
+
+  const svgIcons = allSymbols
+    .map((symbolText) => {
+      const matchResult = symbolText.match(/id="(?<iconName>[a-zA-z\d\-]+)/)
+      const { iconName } = matchResult?.groups || {}
+      const content = symbolToSvg(symbolText)
+      if (iconName) {
+        return {
+          name: iconName,
+          content,
+        }
+      }
+    })
+    .filter((item) => item)
+  return svgIcons
+}
+
+async function gen(url) {
+  const ret = await fetch(url).then((res) => res.text())
+  const svgs = extractSvgs(ret)
+  fse.emptyDirSync(path.resolve(__dirname, '../icons'))
+  svgs.forEach((item) => {
+    fs.writeFileSync(path.resolve(__dirname, '../icons', item.name + '.svg'), item.content)
+  })
   const font = fontCarrier.create()
 
   const iconConfig = {
@@ -74,9 +108,12 @@ async function gen() {
 
   const icons = {}
 
+  const outHash = crypto.createHash('md5')
+
   for (let index in files) {
     const fileBuffer = fs.readFileSync(files[index])
     const hash = md5(fileBuffer)
+    outHash.update(fileBuffer)
     const filename = `${hash}.svg`
     const unicode = START_UNICODE + index
     const unicodeChar = String.fromCharCode(unicode)
@@ -95,15 +132,17 @@ async function gen() {
     return obj
   }, {})
 
-  const outHash = md5(JSON.stringify(iconConfig.icons) + V)
+  outHash.update(`${V}`)
+
+  const outMd5 = outHash.update(`${V}`).digest('hex')
 
   const { ttf, eot, woff, woff2, svg } = font.output()
 
-  iconConfig.font.ttf = `${outHash}.ttf`
-  iconConfig.font.eot = `${outHash}.eot`
-  iconConfig.font.woff = `${outHash}.woff`
-  iconConfig.font.woff2 = `${outHash}.woff2`
-  iconConfig.font.svg = `${outHash}.svg`
+  iconConfig.font.ttf = `${outMd5}.ttf`
+  iconConfig.font.eot = `${outMd5}.eot`
+  iconConfig.font.woff = `${outMd5}.woff`
+  iconConfig.font.woff2 = `${outMd5}.woff2`
+  iconConfig.font.svg = `${outMd5}.svg`
 
   await upload(iconConfig.font.ttf, ttf)
   await upload(iconConfig.font.eot, eot)
@@ -125,4 +164,4 @@ async function gen() {
   )
 }
 
-gen()
+gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_154.c3d8d623f58fbf394e48fc0f5c151f9d.js')

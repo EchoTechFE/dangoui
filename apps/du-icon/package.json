@@ -32,7 +32,9 @@
     "classnames": "~2.3.1",
     "core-js": "^3.6.5",
     "style-object-to-css-string": "~1.0.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "node-fetch": "2",
+    "fs-extra": "~10.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "5",

@@ -34,6 +34,24 @@ const Template = (args, { argTypes }) => ({
             })
             .join('')}
         </div>
+        <div style="padding-top: 24px;">通过 color 属性可以调整颜色</div>
+        <div style="display:flex;flex-wrap: wrap;">
+        ${Object.keys(iconConfig.icons)
+          .map((iconName) => {
+            return ` <div
+              style="width:25%;display:flex;flex-direction: column;align-items: center;justify-content: center;padding:12px 4px; overflow: hidden;box-sizing:border-box;word-break:break-all;"
+            >
+              <DuIcon name="${iconName}" extStyle="color:var(--color-main);"></DuIcon>
+              <div style="margin-top:6px;text-align:center">${iconName}</div>
+            </div>`
+          })
+          .join('')}
+        </div>
+        <div style="padding-top: 24px;">可以用带下划线的名字</div>
+        <div style="display:flex;flex-wrap: wrap;">
+          <DuIcon name="arrow_right""></DuIcon>
+          <DuIcon name="video_play" extStyle="color:var(--color-main);"></DuIcon>
+        </div>
       </div>
     </div>
   `,

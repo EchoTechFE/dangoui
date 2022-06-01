@@ -40,7 +40,10 @@ export default {
           })
     })
     const unicode = computed(() => {
-      const config = iconConfig.icons[props.name]
+      let config = iconConfig.icons[props.name]
+      if (!config && props.name.indexOf('_') > -1) {
+        config = iconConfig.icons[props.name.replace(/_/g, '-')]
+      }
       return config
     })
 
