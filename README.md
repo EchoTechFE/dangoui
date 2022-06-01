@@ -130,6 +130,10 @@ pnpm run storybook
   .js 文件导出
 - 注意小程序与浏览器的差异，比如浏览器中没有 scroll-view，开发时可以在 stories 中注册为浏览器编写的模拟 scroll-view 组件：<https://github.com/echoingtech/dumpling/blob/master/apps/du-ui/stories/DuPopup.stories.js#L11>
 
+### 更新图标文件
+
+我们在 https://iconpark.oceanengine.com/projects/7443/detail 上管理图标，当图标发生变化后，重新生成链接，然后选择 SVG Symbol 链接，更改 `apps/du-icon/scripts/genicon.js` 中给 `gen` 函数的传参为最新的 URL，然后运行 `npm run genicon`。提交更改，然后发新版。
+
 ### 提交
 
 组件开发完以后，应当完善 storybook，以 storybook 来做初步的文档、示例、手动测试
