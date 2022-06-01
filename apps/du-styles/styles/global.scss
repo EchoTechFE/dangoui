@@ -1,4 +1,5 @@
 :root,
 page {
-  --du-primary-color: #05BEA9;
+  --du-color-main-rgb: 5, 190, 169;
+  --du-color-main: rgb(var(--du-color-main-rgb));
 }
