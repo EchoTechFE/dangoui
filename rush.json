@@ -433,6 +433,12 @@
       "versionPolicyName": "du"
     },
     {
+      "packageName": "@frontend/du-snackbar",
+      "projectFolder": "apps/du-snackbar",
+      "shouldPublish": true,
+      "versionPolicyName": "du"
+    },
+    {
       "packageName": "@frontend/du-icon",
       "projectFolder": "apps/du-icon",
       "shouldPublish": true,

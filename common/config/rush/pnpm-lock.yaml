@@ -365,6 +365,53 @@ importers:
       sass-loader: 10.2.1_sass@1.49.9
       vue-template-compiler: 2.6.14
 
+  ../../apps/du-snackbar:
+    specifiers:
+      '@babel/core': ^7.17.5
+      '@frontend/du-button': workspace:*
+      '@frontend/du-icon': workspace:*
+      '@frontend/du-styles': workspace:*
+      '@vue/cli-plugin-babel': '5'
+      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-service': '5'
+      '@vue/composition-api': ~1.4.9
+      '@vue/test-utils': '1'
+      '@vue/vue2-jest': ~27.0.0-alpha.4
+      babel-jest: ~27.5.1
+      classnames: ~2.3.1
+      core-js: ^3.6.5
+      jest: ~27.5.1
+      postcss: ~8.4.12
+      postcss-px-to-viewport: ~1.1.1
+      sass: ^1.26.5
+      sass-loader: '10'
+      style-object-to-css-string: ~1.0.1
+      vue: ^2.6.11
+      vue-template-compiler: ^2.6.11
+    dependencies:
+      '@frontend/du-button': link:../du-button
+      '@frontend/du-icon': link:../du-icon
+      '@frontend/du-styles': link:../du-styles
+      '@vue/composition-api': 1.4.9_vue@2.6.14
+      classnames: 2.3.1
+      core-js: 3.21.1
+      style-object-to-css-string: 1.0.1
+      vue: 2.6.14
+    devDependencies:
+      '@babel/core': 7.17.5
+      '@vue/cli-plugin-babel': 5.0.4_1a7ab14a3c0306b5654c447f15269443
+      '@vue/cli-plugin-unit-jest': 5.0.4_56d87bd26b865591c52e5891c496fdf4
+      '@vue/cli-service': 5.0.4_8cb684b307ec766ada95c0a9a3b3f575
+      '@vue/test-utils': 1.3.0_9065e7474e033a8e4b95615fc8e6c36c
+      '@vue/vue2-jest': 27.0.0-alpha.4_e8095ecd03569fb863b4acf70e9bba44
+      babel-jest: 27.5.1_@babel+core@7.17.5
+      jest: 27.5.1
+      postcss: 8.4.12
+      postcss-px-to-viewport: 1.1.1
+      sass: 1.49.9
+      sass-loader: 10.2.1_sass@1.49.9
+      vue-template-compiler: 2.6.14
+
   ../../apps/du-steps:
     specifiers:
       '@babel/core': ^7.17.5
@@ -443,6 +490,7 @@ importers:
       '@frontend/du-radio': workspace:*
       '@frontend/du-steps': workspace:*
       '@frontend/du-styles': workspace:*
+      '@frontend/du-snackbar': workspace:*
       '@storybook/addon-actions': ^6.4.19
       '@storybook/addon-essentials': ^6.4.19
       '@storybook/addon-links': ^6.4.19
@@ -470,6 +518,7 @@ importers:
       '@frontend/du-radio': link:../du-radio
       '@frontend/du-steps': link:../du-steps
       '@frontend/du-styles': link:../du-styles
+      '@frontend/du-snackbar': link:../du-snackbar
       core-js: 3.21.1
       vue: 2.6.14
     devDependencies:

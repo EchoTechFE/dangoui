@@ -27,6 +27,7 @@
     "@frontend/du-radio": "workspace:*",
     "@frontend/du-steps": "workspace:*",
     "@frontend/du-styles": "workspace:*",
+    "@frontend/du-snackbar": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

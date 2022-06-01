@@ -5,6 +5,7 @@ import { InputNumber } from '@frontend/du-input-number/src/index.js'
 import { Radio, RadioGroup } from '@frontend/du-radio/src/index.js'
 import { Steps } from '@frontend/du-steps/src/index.js'
 import { Popup } from '@frontend/du-popup/src/index.js'
+import { Snackbar } from '@frontend/du-snackbar/src/index.js'
 
 const DuButton = Button
 const DuForm = Form
@@ -15,6 +16,7 @@ const DuRadio = Radio
 const DuRadioGroup = RadioGroup
 const DuSteps = Steps
 const DuPopup = Popup
+const DuSnackbar = Snackbar
 
 export {
   Button,
@@ -35,4 +37,6 @@ export {
   DuSteps,
   Popup,
   DuPopup,
+  Snackbar,
+  DuSnackbar
 }
