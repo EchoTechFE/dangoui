@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-radio",
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-alpha.18",
   "description": "> TODO: description",
   "author": "onelong <love@onelong.org>",
   "homepage": "https://github.com/frontend/dumpling#readme",
@@ -34,19 +34,19 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
     "@vue/cli-plugin-babel": "5",
+    "@vue/cli-plugin-unit-jest": "~5.0.4",
     "@vue/cli-service": "5",
+    "@vue/test-utils": "1",
+    "@vue/vue2-jest": "~27.0.0-alpha.4",
+    "babel-jest": "~27.5.1",
+    "jest": "~27.5.1",
     "postcss": "~8.4.12",
     "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
     "sass-loader": "10",
-    "vue-template-compiler": "^2.6.11",
-    "@babel/core": "^7.17.5",
-    "@vue/cli-plugin-unit-jest": "~5.0.4",
-    "@vue/test-utils": "1",
-    "@vue/vue2-jest": "~27.0.0-alpha.4",
-    "babel-jest": "~27.5.1",
-    "jest": "~27.5.1"
+    "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
     "url": "https://github.com/frontend/dumpling/issues"
