@@ -20,6 +20,9 @@ const Template = (args, { argTypes }) => ({
   components: { DuIcon },
   template: `
     <div>
+      <div style="margin-bottom: 16px;">
+        <DuIcon v-bind="$props"></DuIcon>
+      </div>
       图标数量: ${Object.keys(iconConfig.icons).length}
       <div>
         <div style="display:flex;flex-wrap: wrap;">
@@ -59,4 +62,10 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  name: 'c2c',
+  extClass: [],
+  extStyle: '',
+  size: '64px',
+  color: 'var(--du-color-main)',
+}

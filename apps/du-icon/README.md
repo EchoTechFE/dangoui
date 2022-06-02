@@ -1,4 +1,4 @@
-# `@frontend/du-icon1`
+# `@frontend/du-icon`
 
 ## Icon组件
 
@@ -11,6 +11,8 @@
 | name | String | true | | icon的名字 |
 | extStyle | String | false | '' | |
 | extClass | String, Array, Object | false | '' | |
+| size | String | false | | 大小，如 24rpx |
+| color | String | false | | 颜色，如 var(--color-main)、red、#666) |
 
 ### emit 事件
 
@@ -19,5 +21,5 @@
 ## Example
 
 ```vue
-<DuIcon name="306" />
+<DuIcon name="c2c" />
 ```

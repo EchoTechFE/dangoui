@@ -24,6 +24,14 @@ export default {
       type: String,
       required: true,
     },
+    size: {
+      type: String,
+      default: '',
+    },
+    color: {
+      type: String,
+      default: '',
+    },
   },
   emits: ['click'],
   setup(props, { emit }) {
@@ -33,11 +41,23 @@ export default {
     })
     const style = computed(() => {
       const { extStyle } = props
-      return typeof extStyle === 'string'
-        ? extStyle
-        : styleToCss({
-            ...extStyle,
-          })
+      if (typeof extStyle === 'string') {
+        const segments = []
+        if (props.size) {
+          segments.push(`font-size:${props.size};`)
+        }
+        if (props.color) {
+          segments.push(`color:${props.color};`)
+        }
+        segments.push(extStyle)
+        return segments.join('')
+      }
+
+      return styleToCss({
+        fontSize: props.size || undefined,
+        color: props.color || undefined,
+        ...extStyle,
+      })
     })
     const unicode = computed(() => {
       let config = iconConfig.icons[props.name]

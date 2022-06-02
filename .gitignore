@@ -70,5 +70,5 @@ common/autoinstallers/*/.npmrc
 dist
 .vscode
 .alioss.json
-
+.aliossrc
 storybook-static
