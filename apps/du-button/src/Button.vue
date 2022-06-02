@@ -35,7 +35,17 @@ import DuIcon from '@frontend/du-icon/src/Icon.vue'
 import IconConfig from '@frontend/du-icon/src/iconfont-config.json'
 
 function findIcon(name) {
-  return Object.keys(IconConfig.icons).find((i) => i === name)
+  return Object.keys(IconConfig.icons).find((i) => {
+    if (i === name) {
+      return true
+    }
+    if (name.indexOf('_') > -1) {
+      if (i === name.replace(/_/g, '-')) {
+        return true
+      }
+    }
+    return false
+  })
 }
 
 export default {
@@ -176,9 +186,9 @@ export default {
       height: 40rpx;
       --du-icon-fz: 40rpx;
       margin-right: 16rpx;
-      &--right{
-          margin-right: 0;
-          margin-left: 16rpx;
+      &--right {
+        margin-right: 0;
+        margin-left: 16rpx;
       }
     }
   }
@@ -192,9 +202,9 @@ export default {
       height: 32rpx;
       --du-icon-fz: 32rpx;
       margin-right: 12rpx;
-      &--right{
-          margin-right: 0;
-          margin-left: 12rpx;
+      &--right {
+        margin-right: 0;
+        margin-left: 12rpx;
       }
     }
   }
@@ -208,9 +218,9 @@ export default {
       height: 32rpx;
       --du-icon-fz: 32rpx;
       margin-right: 12rpx;
-      &--right{
-          margin-right: 0;
-          margin-left: 12rpx;
+      &--right {
+        margin-right: 0;
+        margin-left: 12rpx;
       }
     }
   }
@@ -224,9 +234,9 @@ export default {
       height: 24rpx;
       --du-icon-fz: 24rpx;
       margin-right: 8rpx;
-      &--right{
-          margin-right: 0;
-          margin-left: 8rpx;
+      &--right {
+        margin-right: 0;
+        margin-left: 8rpx;
       }
     }
   }
@@ -241,9 +251,9 @@ export default {
       height: 24rpx;
       --du-icon-fz: 24rpx;
       margin-right: 8rpx;
-      &--right{
-          margin-right: 0;
-          margin-left: 8rpx;
+      &--right {
+        margin-right: 0;
+        margin-left: 8rpx;
       }
     }
   }

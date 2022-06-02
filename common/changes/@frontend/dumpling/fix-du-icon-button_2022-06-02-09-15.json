@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "fix find icon",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}
