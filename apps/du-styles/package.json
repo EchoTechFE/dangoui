@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "echo nothing"
+    "build": "echo nothing",
+    "test:unit": "echo \"no test specified\" && exit 0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

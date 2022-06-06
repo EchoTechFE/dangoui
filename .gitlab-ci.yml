@@ -1,0 +1,27 @@
+image: node:16
+
+include:
+  - project: 'frontend/ci-templates'
+    file: 'common/rules.yml'
+    ref: master
+  - project: 'frontend/ci-templates'
+    file: 'common/registries.yml'
+    ref: master
+
+before_script:
+  - npm config set registry https://registry.npmmirror.com
+  - npm config set httpProxy http://10.18.252.1:6152
+  - npm config set httpsProxy http://10.18.252.1:6152
+  - npm instal -g pnpm @microsoft/rush
+  - !reference [.registry_echo_gitlab_auth, script]
+  - rush update
+
+stages:
+  - test
+
+job_test:
+  stage: test
+  rules:
+    - !reference [.rule_if_pr, rules]
+  script:
+    - rush test:unit

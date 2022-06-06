@@ -43,9 +43,7 @@ export default {
       default: '',
     },
     label: {
-      type: String,
-      required: true,
-      default: '',
+      default: true,
     },
     shape: {
       type: String,
@@ -57,7 +55,7 @@ export default {
     },
     inline: {
       type: Boolean,
-      default: undefined,
+      default: false,
     },
     cancel: {
       type: Boolean,
@@ -72,23 +70,38 @@ export default {
     },
     value: {},
   },
+  emits: ['click', 'input'],
   setup(props, { emit }) {
+    const GROUP_VALUE_DEFAULT = {}
     const groupConfig = inject('groupConfig', null)
-    const groupValue = inject('groupValue', ref(null))
+    const groupValue = inject('groupValue', ref(GROUP_VALUE_DEFAULT))
     const groupUpdateValue = inject('groupUpdateValue', null)
 
     const state = reactive({
-      currentVal: undefined,
+      currentVal: false,
     })
 
-    watch(groupValue, (val) => {
-      state.currentVal = val
-    })
+    watch(
+      groupValue,
+      (val) => {
+        if (val != GROUP_VALUE_DEFAULT) {
+          state.currentVal = val
+        }
+      },
+      {
+        immediate: true,
+      },
+    )
 
     watch(
       () => props.value,
       (val) => {
-        state.currentVal = val
+        if (groupValue.value === GROUP_VALUE_DEFAULT) {
+          state.currentVal = val
+        }
+      },
+      {
+        immediate: true,
       },
     )
 
@@ -157,7 +170,7 @@ export default {
       if (disabled) {
         return
       }
-      update(isSelected.value && cancel ? null : label)
+      update(isSelected.value && cancel ? false : label)
     }
 
     return {
@@ -201,7 +214,7 @@ export default {
     background: rgba(32, 36, 38, 0.1);
     border-radius: 50%;
     &--selected {
-      background: rgba(5, 190, 169, 1)
+      background: var(--du-color-main)
         url('https://cdn.qiandaoapp.com/admins/0a302173967d8d7a999fc17842bc886a.png') no-repeat 100%/100%;
     }
   }

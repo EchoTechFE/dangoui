@@ -20,7 +20,8 @@
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name DuSteps --filename index src/index.js"
+    "build": "vue-cli-service build --target lib --name DuSteps --filename index src/index.js",
+    "test:unit": "echo \"no test specified\" && exit 0"
   },
   "dependencies": {
     "@frontend/du-styles": "workspace:*",

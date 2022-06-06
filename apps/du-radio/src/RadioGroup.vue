@@ -47,6 +47,7 @@ export default {
 
     value: {},
   },
+  emits: ['input'],
   setup(props, { emit }) {
     const config = computed(() => {
       const { extStyle, extClass } = {
@@ -78,8 +79,11 @@ export default {
 
     watch(
       () => props.value,
-      () => {
-        groupValue.value = props.value
+      (val) => {
+        groupValue.value = val
+      },
+      {
+        immediate: true,
       },
     )
 

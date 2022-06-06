@@ -4,7 +4,8 @@
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name DuCalendar --filename index src/index.js"
+    "build": "vue-cli-service build --target lib --name DuCalendar --filename index src/index.js",
+    "test:unit": "echo \"no test specified\" && exit 0"
   },
   "typings": "typings/index.d.ts",
   "description": "> TODO: description",

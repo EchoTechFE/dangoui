@@ -6,7 +6,8 @@
   "scripts": {
     "prebuild": "npm run genicon",
     "build": "vue-cli-service build --target lib src/index.js ",
-    "genicon": "node ./scripts/genicon.js"
+    "genicon": "node ./scripts/genicon.js",
+    "test:unit": "echo \"no test specified\" && exit 0"
   },
   "typings": "typings/index.d.ts",
   "description": "> TODO: description",
