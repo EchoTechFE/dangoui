@@ -48,6 +48,11 @@ const TemplateAll = (args, { argTypes }) => ({
       </div>
 
       <div>
+        <h3>arrowRight</h3>
+        <p><DuButton v-bind="$props" arrowRight  @click="onClick">arrowRight</DuButton></p>
+      </div>
+
+      <div>
         <h3>Icon</h3>
         <p><DuButton v-bind="$props" type="secondary" loading @click="onClick">loading</DuButton></p>
         <p>

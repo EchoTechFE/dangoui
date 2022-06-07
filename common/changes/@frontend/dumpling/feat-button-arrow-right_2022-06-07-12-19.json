@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "button支持arrow-right属性",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}

@@ -23,11 +23,14 @@
       </div>
       <img v-else class="du-button__icon du-button__icon--right" :src="icon" alt="du-button-icon" />
     </template>
+    <div v-if="arrowRight" class="du-button__arrow-right">
+      <DuIcon name="arrow-right" />
+    </div>
   </button>
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { computed, defineComponent } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
@@ -48,7 +51,7 @@ function findIcon(name) {
   })
 }
 
-export default {
+export default defineComponent({
   components: {
     DuIcon,
   },
@@ -80,6 +83,10 @@ export default {
     iconPosition: {
       type: String,
       default: 'left',
+    },
+    arrowRight: {
+      type: Boolean,
+      default: false,
     },
     disabled: {
       type: Boolean,
@@ -145,7 +152,7 @@ export default {
 
     return { style, className, isIconC, onClick, onGetUserInfo }
   },
-}
+})
 </script>
 
 <style lang="scss">
@@ -168,6 +175,14 @@ export default {
     display: inline-block;
   }
 
+  &__arrow-right {
+    width: 16rpx;
+    height: 16rpx;
+    --du-icon-fz: 16rpx;
+    margin-left: 8rpx;
+    line-height: var(--du-icon-fz);
+  }
+
   &__loading {
     background-image: url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath fill='none' d='M0 0h100v100H0z'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E9E9E9' rx='5' ry='5' transform='translate(0 -30)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23989697' rx='5' ry='5' transform='rotate(30 105.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%239B999A' rx='5' ry='5' transform='rotate(60 75.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23A3A1A2' rx='5' ry='5' transform='rotate(90 65 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23ABA9AA' rx='5' ry='5' transform='rotate(120 58.66 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23B2B2B2' rx='5' ry='5' transform='rotate(150 54.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23BAB8B9' rx='5' ry='5' transform='rotate(180 50 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23C2C0C1' rx='5' ry='5' transform='rotate(-150 45.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23CBCBCB' rx='5' ry='5' transform='rotate(-120 41.34 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23D2D2D2' rx='5' ry='5' transform='rotate(-90 35 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23DADADA' rx='5' ry='5' transform='rotate(-60 24.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E2E2E2' rx='5' ry='5' transform='rotate(-30 -5.98 65)'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -186,6 +201,7 @@ export default {
       height: 40rpx;
       --du-icon-fz: 40rpx;
       margin-right: 16rpx;
+      line-height: var(--du-icon-fz);
       &--right {
         margin-right: 0;
         margin-left: 16rpx;
@@ -202,6 +218,7 @@ export default {
       height: 32rpx;
       --du-icon-fz: 32rpx;
       margin-right: 12rpx;
+      line-height: var(--du-icon-fz);
       &--right {
         margin-right: 0;
         margin-left: 12rpx;
@@ -218,6 +235,7 @@ export default {
       height: 32rpx;
       --du-icon-fz: 32rpx;
       margin-right: 12rpx;
+      line-height: var(--du-icon-fz);
       &--right {
         margin-right: 0;
         margin-left: 12rpx;
@@ -234,6 +252,7 @@ export default {
       height: 24rpx;
       --du-icon-fz: 24rpx;
       margin-right: 8rpx;
+      line-height: var(--du-icon-fz);
       &--right {
         margin-right: 0;
         margin-left: 8rpx;
@@ -251,6 +270,7 @@ export default {
       height: 24rpx;
       --du-icon-fz: 24rpx;
       margin-right: 8rpx;
+      line-height: var(--du-icon-fz);
       &--right {
         margin-right: 0;
         margin-left: 8rpx;
