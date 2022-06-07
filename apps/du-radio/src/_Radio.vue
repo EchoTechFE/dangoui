@@ -1,7 +1,18 @@
 <template>
   <div :class="['du-radio__radio', { 'du-radio__radio--checked': checked }]">
     <!-- TODO: 需要一些工具函数来转换rpx -->
-    <DuIcon extClass="du-radio__radio__icon" v-if="checked" name="check" color="#fff" size="16rpx" />
+    <DuIcon
+      :extStyle="{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      }"
+      v-if="checked"
+      name="check"
+      color="#fff"
+      size="16rpx"
+    />
   </div>
 </template>
 
@@ -32,14 +43,9 @@ export default defineComponent({
     background: rgba(32, 36, 38, 0.1);
     border-radius: 50%;
     position: relative;
+    --du-icon-fz: 20rpx;
     &--checked {
       background: var(--du-color-main);
-    }
-    &__icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
     }
   }
 }

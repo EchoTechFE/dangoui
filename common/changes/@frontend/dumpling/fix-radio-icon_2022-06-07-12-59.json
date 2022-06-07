@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "尝试修复radio icon在小程序的显示",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}
