@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-steps",
-  "version": "1.0.0-alpha.20",
+  "version": "1.0.0-alpha.21",
   "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "main": "dist/index.umd.min.js",

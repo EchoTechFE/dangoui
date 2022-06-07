@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "1.0.0-alpha.20",
+  "version": "1.0.0-alpha.21",
   "scripts": {
     "build": "npm run build-lib",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",

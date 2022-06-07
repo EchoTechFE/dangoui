@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-snackbar",
-  "version": "1.0.0-alpha.20",
+  "version": "1.0.0-alpha.21",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "scripts": {
