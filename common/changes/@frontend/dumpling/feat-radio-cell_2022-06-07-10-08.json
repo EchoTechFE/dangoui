@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "radio 支持 cell 属性",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}

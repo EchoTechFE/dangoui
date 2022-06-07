@@ -31,7 +31,7 @@ describe('@frontend/du-radio DuRadio', () => {
     expect(wrapper.emitted().input.length).toBe(2)
     expect(wrapper.emitted().input[0]).toStrictEqual([true])
     expect(wrapper.emitted().input[1]).toStrictEqual([false])
-    expect(wrapper.vm.$data.isSelected).toStrictEqual(false)
+    expect(wrapper.vm.$data.checked).toStrictEqual(false)
   })
 })
 
@@ -65,11 +65,11 @@ describe('@frontend/du-radio DuRadio with DuRadioGroup', () => {
     const [radio1, radio2] = wrapper.findAllComponents(DuRadio).wrappers
     await wrapper.vm.$nextTick()
     await wrapper.vm.$nextTick()
-    expect(radio2.vm.$data.isSelected).toBe(true)
+    expect(radio2.vm.$data.checked).toBe(true)
     radio1.trigger('click')
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.$data.value).toBe('lbb')
-    expect(radio1.vm.$data.isSelected).toBe(true)
-    expect(radio2.vm.$data.isSelected).toBe(false)
+    expect(radio1.vm.$data.checked).toBe(true)
+    expect(radio2.vm.$data.checked).toBe(false)
   })
 })

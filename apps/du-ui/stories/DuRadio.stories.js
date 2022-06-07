@@ -32,6 +32,13 @@ const Template = (args, { argTypes }) => ({
         </DuRadioGroup>
       </div>
       <div>
+        <h3>cell</h3>
+        <DuRadioGroup cell>
+          <DuRadio label="lbb">lbb</DuRadio>
+          <DuRadio label="黄河">黄河</DuRadio>
+        </DuRadioGroup>
+      </div>
+      <div>
         <h3>shape="button" inline</h3>
         <DuRadioGroup shape="button" inline>
           <DuRadio label="lbb">lbb</DuRadio>

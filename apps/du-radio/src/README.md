@@ -14,6 +14,7 @@
 | disabled | Boolean | false | false | 禁用 |
 | shape | 'normal','button' | false | 'normal' | 形状 |
 | inline | Boolean | false | false | 等同与display：inline |
+| cell | Boolean | false | false | group-cell的布局 |
 | custom | Boolean | false | false | 自定义样式 |
 | extStyle | String | false | '' | |
 | extClass | String, Array, Object | false | '' | |
@@ -34,6 +35,7 @@
 | ---- | ---- | -------- | ------- | ---- |
 | value |  | true | undefined | 选中的值 |
 | inline | Boolean | false | false | 等同与Radio display：inline |
+| cell | Boolean | false | false | group-cell的布局 |
 | cancel | Boolean | false | false | 选中后是否可以取消选中 |
 | shape | 'normal','button' | false | 'normal' | Radio的形状 |
 | custom | Boolean | false | false | 自定义Radio样式 |

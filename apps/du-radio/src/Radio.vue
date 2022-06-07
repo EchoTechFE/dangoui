@@ -4,13 +4,25 @@
   </div>
   <div v-else :class="className" :styles="style" @click="handleClick">
     <template v-if="config.shape === 'normal'">
-      <div :class="['du-radio__radio', { 'du-radio__radio--selected': isSelected }]" />
-      <slot>
-        {{ config.label }}
-      </slot>
+      <template v-if="config.cell">
+        <div class="du-radio__label">
+          <slot>
+            {{ config.label }}
+          </slot>
+        </div>
+        <RadioIcon :checked="checked" />
+      </template>
+      <template v-else>
+        <RadioIcon :checked="checked" />
+        <div class="du-radio__label">
+          <slot>
+            {{ config.label }}
+          </slot>
+        </div>
+      </template>
     </template>
 
-    <DuButton v-else-if="config.shape === 'button'" size="mini" :type="isSelected ? 'primary' : 'info'">
+    <DuButton v-else-if="config.shape === 'button'" size="mini" :type="checked ? 'primary' : 'info'">
       <slot>
         {{ config.label }}
       </slot>
@@ -19,18 +31,16 @@
 </template>
 
 <script>
-import { computed, watch, ref, inject, reactive, toRefs } from '@vue/composition-api'
+import { computed, watch, ref, inject, reactive, toRefs, defineComponent } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
+import RadioIcon from './_Radio.vue'
 
-function isEmpty(val) {
-  return val === null || val === undefined || val === ''
-}
-
-export default {
+export default defineComponent({
   components: {
     DuButton,
+    RadioIcon,
   },
 
   props: {
@@ -47,7 +57,7 @@ export default {
     },
     shape: {
       type: String,
-      default: 'normal', // normal,button
+      default: 'normal',
     },
     custom: {
       type: Boolean,
@@ -63,6 +73,10 @@ export default {
     },
     disabled: {
       type: Boolean,
+    },
+    cell: {
+      type: Boolean,
+      default: false,
     },
     options: {
       type: Object,
@@ -106,36 +120,33 @@ export default {
     )
 
     const config = computed(() => {
-      const { extStyle, extClass, label, inline, cancel, custom, disabled, shape } = {
+      const { extStyle, extClass, label, inline, cancel, custom, disabled, shape, cell } = {
         ...props,
         ...props.options,
       }
-
-      const {
-        inline: radioInline,
-        cancel: radioCancel,
-        shape: radioShape,
-        custom: radioCustom,
-      } = groupConfig ? groupConfig.value : {}
 
       return Object.freeze({
         extStyle,
         extClass,
         label,
-        custom: isEmpty(radioCustom) ? custom : radioCustom,
-        shape: isEmpty(radioShape) ? shape : radioShape,
-        inline: isEmpty(radioInline) ? inline : radioInline,
-        cancel: isEmpty(radioCancel) ? cancel : radioCancel,
+        inline,
+        cancel,
+        custom,
         disabled,
+        shape,
+        cell,
+
+        ...(groupConfig ? groupConfig.value : {}),
       })
     })
     const className = computed(() => {
-      const { inline, disabled, extClass } = config.value
+      const { inline, disabled, extClass, cell } = config.value
       return classNames(
         'du-radio',
         {
           'du-radio--inline': inline,
           'du-radio--disabled': disabled,
+          'du-radio--cell': cell,
         },
         extClass,
       )
@@ -150,7 +161,7 @@ export default {
           })
     })
 
-    const isSelected = computed(() => {
+    const checked = computed(() => {
       const { label } = config.value
 
       return label === state.currentVal
@@ -170,7 +181,7 @@ export default {
       if (disabled) {
         return
       }
-      update(isSelected.value && cancel ? false : label)
+      update(checked.value && cancel ? false : label)
     }
 
     return {
@@ -178,11 +189,11 @@ export default {
       className,
       style,
       config,
-      isSelected,
+      checked,
       handleClick,
     }
   },
-}
+})
 </script>
 
 <style lang="scss">
@@ -196,31 +207,26 @@ export default {
   color: rgba(32, 36, 38, 1);
   font-size: 28rpx;
   line-height: 48rpx;
+  $c: &;
+  &__label {
+    margin-left: 12rpx;
+  }
 
   &--inline {
     display: inline-flex;
     width: max-content;
     margin: 0 16rpx 0 0;
   }
-  &--disabled {
-    opacity: 0.6;
-  }
-  &__radio {
-    width: 32rpx;
-    height: 32rpx;
-    margin-right: 12rpx;
-    overflow: hidden;
-
-    background: rgba(32, 36, 38, 0.1);
-    border-radius: 50%;
-    &--selected {
-      background: var(--du-color-main)
-        url('https://cdn.qiandaoapp.com/admins/0a302173967d8d7a999fc17842bc886a.png') no-repeat 100%/100%;
+  &--cell {
+    justify-content: space-between;
+    /* TODO: 这里用不了#{$c}__label，不知道什么原因 */
+    .du-radio__label {
+      margin-left: 0;
+      margin-right: 12rpx;
     }
   }
-  &__input {
-    flex: 1 0 0;
-    margin-left: 16rpx;
+  &--disabled {
+    opacity: 0.6;
   }
 }
 </style>

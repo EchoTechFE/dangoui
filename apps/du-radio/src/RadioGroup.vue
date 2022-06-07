@@ -26,15 +26,19 @@ export default {
     },
     inline: {
       type: Boolean,
-      default: null,
+      default: false,
     },
     cancel: {
       type: Boolean,
-      default: null,
+      default: false,
     },
     shape: {
       type: String,
-      default: null,
+      default: 'normal',
+    },
+    cell: {
+      type: Boolean,
+      default: false,
     },
     custom: {
       type: Boolean,
@@ -93,7 +97,7 @@ export default {
     }
 
     const groupConfig = computed(() => {
-      const { inline, cancel, shape, custom } = {
+      const { inline, cancel, shape, custom ,cell} = {
         ...props,
         ...props.options,
       }
@@ -103,6 +107,7 @@ export default {
         cancel,
         shape,
         custom,
+        cell
       }
     })
 

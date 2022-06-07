@@ -328,6 +328,7 @@ importers:
     specifiers:
       '@babel/core': ^7.17.5
       '@frontend/du-button': workspace:*
+      '@frontend/du-icon': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': '5'
       '@vue/cli-plugin-unit-jest': ~5.0.4
@@ -348,6 +349,7 @@ importers:
       vue-template-compiler: ^2.6.11
     dependencies:
       '@frontend/du-button': link:../du-button
+      '@frontend/du-icon': link:../du-icon
       '@frontend/du-styles': link:../du-styles
       '@vue/composition-api': 1.4.9_vue@2.6.14
       classnames: 2.3.1
@@ -492,9 +494,9 @@ importers:
       '@frontend/du-input-number': workspace:*
       '@frontend/du-popup': workspace:*
       '@frontend/du-radio': workspace:*
+      '@frontend/du-snackbar': workspace:*
       '@frontend/du-steps': workspace:*
       '@frontend/du-styles': workspace:*
-      '@frontend/du-snackbar': workspace:*
       '@storybook/addon-actions': ^6.4.19
       '@storybook/addon-essentials': ^6.4.19
       '@storybook/addon-links': ^6.4.19
@@ -520,9 +522,9 @@ importers:
       '@frontend/du-input-number': link:../du-input-number
       '@frontend/du-popup': link:../du-popup
       '@frontend/du-radio': link:../du-radio
+      '@frontend/du-snackbar': link:../du-snackbar
       '@frontend/du-steps': link:../du-steps
       '@frontend/du-styles': link:../du-styles
-      '@frontend/du-snackbar': link:../du-snackbar
       core-js: 3.21.1
       vue: 2.6.14
     devDependencies:
