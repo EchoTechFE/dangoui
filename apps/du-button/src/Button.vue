@@ -180,7 +180,8 @@ export default defineComponent({
     height: 16rpx;
     --du-icon-fz: 16rpx;
     margin-left: 8rpx;
-    line-height: var(--du-icon-fz);
+    display: inline-flex;
+    align-items: center;
   }
 
   &__loading {
