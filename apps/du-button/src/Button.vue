@@ -47,6 +47,20 @@ function findIcon(name) {
         return true
       }
     }
+
+    // TODO: 下个版本替换了删掉
+    const map = {
+      attention: 'attention-circle',
+      question: 'question-circle',
+      complete: 'complete-circle',
+      'complete-filled': 'complete-circle-filled',
+      accountpay: 'accountpay-circle-filled',
+    }
+
+    if (map[name]) {
+      return true
+    }
+
     return false
   })
 }

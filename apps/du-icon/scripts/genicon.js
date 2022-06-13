@@ -164,4 +164,4 @@ async function gen(url) {
   )
 }
 
-gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_154.c3d8d623f58fbf394e48fc0f5c151f9d.js')
+gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_171.af1002276633318445746545edfc8372.js')

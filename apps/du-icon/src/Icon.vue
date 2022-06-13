@@ -64,7 +64,19 @@ export default {
       if (!config && props.name.indexOf('_') > -1) {
         config = iconConfig.icons[props.name.replace(/_/g, '-')]
       }
-      return config
+      // TODO: 下个版本替换了删掉
+      const map = {
+        attention: 'attention-circle',
+        question: 'question-circle',
+        complete: 'complete-circle',
+        'complete-filled': 'complete-circle-filled',
+        accountpay: 'accountpay-circle-filled',
+      }
+      if (!config && map[props.name]) {
+        config = iconConfig.icons[map[props.name]]
+      }
+
+      return config || iconConfig.icons['question-circle-filled']
     })
 
     function onClick(...args) {

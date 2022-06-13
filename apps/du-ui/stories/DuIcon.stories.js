@@ -53,7 +53,7 @@ const Template = (args, { argTypes }) => ({
         <div style="padding-top: 24px;">可以用带下划线的名字</div>
         <div style="display:flex;flex-wrap: wrap;">
           <DuIcon name="arrow_right""></DuIcon>
-          <DuIcon name="video_play" extStyle="color:var(--color-main);"></DuIcon>
+          <DuIcon name="video-play" extStyle="color:var(--color-main);"></DuIcon>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({})
 
 Default.args = {
-  name: 'c2c',
+  name: 'wechat-circle-filled',
   extClass: [],
   extStyle: '',
   size: '64px',
