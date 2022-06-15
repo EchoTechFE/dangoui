@@ -103,6 +103,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "aliyun-oss-deploy",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "babel-jest",
       "allowedCategories": [ "internal" ]
     },

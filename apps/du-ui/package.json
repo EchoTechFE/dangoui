@@ -6,7 +6,8 @@
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:unit": "echo \"no test specified\" && exit 0"
+    "test:unit": "echo \"no test specified\" && exit 0",
+    "deploy": "aliyun-oss-deploy -p ./storybook-static"
   },
   "publishConfig": {
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
@@ -48,6 +49,7 @@
     "sass": "^1.26.5",
     "sass-loader": "10",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "aliyun-oss-deploy":"^0.1.5"
   }
 }
