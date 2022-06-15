@@ -29,6 +29,7 @@
     "@frontend/du-snackbar": "workspace:*",
     "@frontend/du-steps": "workspace:*",
     "@frontend/du-styles": "workspace:*",
+    "@frontend/du-checkbox": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

@@ -34,7 +34,7 @@
      * The default value is false to avoid legacy compatibility issues.
      * It is strongly recommended to set strictPeerDependencies=true.
      */
-    // "strictPeerDependencies": true,
+//    "strictPeerDependencies": true,
 
     /**
      * Configures the strategy used to select versions during installation.
@@ -158,34 +158,35 @@
    * The approvals are tracked in two config files "browser-approved-packages.json"
    * and "nonbrowser-approved-packages.json".  See the Rush documentation for details.
    */
-  // "approvedPackagesPolicy": {
-  //   /**
-  //    * The review categories allow you to say for example "This library is approved for usage
-  //    * in prototypes, but not in production code."
-  //    *
-  //    * Each project can be associated with one review category, by assigning the "reviewCategory" field
-  //    * in the "projects" section of rush.json.  The approval is then recorded in the files
-  //    * "common/config/rush/browser-approved-packages.json" and "nonbrowser-approved-packages.json"
-  //    * which are automatically generated during "rush update".
-  //    *
-  //    * Designate categories with whatever granularity is appropriate for your review process,
-  //    * or you could just have a single category called "default".
-  //    */
-  //   "reviewCategories": [
-  //     // Some example categories:
-  //     "production", // projects that ship to production
-  //     "tools",      // non-shipping projects that are part of the developer toolchain
-  //     "prototypes"  // experiments that should mostly be ignored by the review process
-  //   ],
-  //
-  //   /**
-  //    * A list of NPM package scopes that will be excluded from review.
-  //    * We recommend to exclude TypeScript typings (the "@types" scope), because
-  //    * if the underlying package was already approved, this would imply that the typings
-  //    * are also approved.
-  //    */
-  //   // "ignoredNpmScopes": ["@types"]
-  // },
+  "approvedPackagesPolicy": {
+    //   /**
+    //    * The review categories allow you to say for example "This library is approved for usage
+    //    * in prototypes, but not in production code."
+    //    *
+    //    * Each project can be associated with one review category, by assigning the "reviewCategory" field
+    //    * in the "projects" section of rush.json.  The approval is then recorded in the files
+    //    * "common/config/rush/browser-approved-packages.json" and "nonbrowser-approved-packages.json"
+    //    * which are automatically generated during "rush update".
+    //    *
+    //    * Designate categories with whatever granularity is appropriate for your review process,
+    //    * or you could just have a single category called "default".
+    //    */
+    "reviewCategories": [
+      "internal"
+      // Some example categories:
+      // "production", // projects that ship to production
+      // "tools",      // non-shipping projects that are part of the developer toolchain
+      // "prototypes"  // experiments that should mostly be ignored by the review process
+    ],
+    //
+    //   /**
+    //    * A list of NPM package scopes that will be excluded from review.
+    //    * We recommend to exclude TypeScript typings (the "@types" scope), because
+    //    * if the underlying package was already approved, this would imply that the typings
+    //    * are also approved.
+    //    */
+    "ignoredNpmScopes": ["@types"]
+  },
 
   /**
    * If you use Git as your version control system, this section has some additional
@@ -388,73 +389,92 @@
       "packageName": "@frontend/du-button",
       "projectFolder": "apps/du-button",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-input",
       "projectFolder": "apps/du-input",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-input-number",
       "projectFolder": "apps/du-input-number",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-steps",
       "projectFolder": "apps/du-steps",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-radio",
       "projectFolder": "apps/du-radio",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-form",
       "projectFolder": "apps/du-form",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-popup",
       "projectFolder": "apps/du-popup",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-calendar",
       "projectFolder": "apps/du-calendar",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-snackbar",
       "projectFolder": "apps/du-snackbar",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-icon",
       "projectFolder": "apps/du-icon",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/dumpling",
       "projectFolder": "apps/du-ui",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     },
     {
       "packageName": "@frontend/du-styles",
       "projectFolder": "apps/du-styles",
       "shouldPublish": true,
-      "versionPolicyName": "du"
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-checkbox",
+      "projectFolder": "apps/du-checkbox",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }

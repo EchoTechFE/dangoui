@@ -6,6 +6,7 @@ import { Radio, RadioGroup } from '@frontend/du-radio/src/index.js'
 import { Steps } from '@frontend/du-steps/src/index.js'
 import { Popup } from '@frontend/du-popup/src/index.js'
 import { Snackbar } from '@frontend/du-snackbar/src/index.js'
+import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox/src/index.js'
 
 const DuButton = Button
 const DuForm = Form
@@ -17,6 +18,9 @@ const DuRadioGroup = RadioGroup
 const DuSteps = Steps
 const DuPopup = Popup
 const DuSnackbar = Snackbar
+
+const DuCheckbox = Checkbox
+const DuCheckboxGroup = CheckboxGroup
 
 export {
   Button,
@@ -38,5 +42,9 @@ export {
   Popup,
   DuPopup,
   Snackbar,
-  DuSnackbar
+  DuSnackbar,
+  Checkbox,
+  CheckboxGroup,
+  DuCheckbox,
+  DuCheckboxGroup,
 }

@@ -1,0 +1,186 @@
+// DO NOT ADD COMMENTS IN THIS FILE.  They will be lost when the Rush tool resaves it.
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/approved-packages.schema.json",
+  "packages": [
+    {
+      "name": "@babel/core",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-button",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-calendar",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-checkbox",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-form",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-icon",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-input",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-input-number",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-popup",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-radio",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-snackbar",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-steps",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-styles",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@storybook/addon-actions",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@storybook/addon-essentials",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@storybook/addon-links",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@storybook/preset-scss",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@storybook/vue",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/cli-plugin-babel",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/cli-plugin-unit-jest",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/cli-service",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/composition-api",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/test-utils",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@vue/vue2-jest",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "ali-oss",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "babel-jest",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "babel-loader",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "classnames",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "core-js",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "font-carrier",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "fs-extra",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "glob",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "jest",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "md5",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "node-fetch",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "postcss",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "postcss-loader",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "postcss-px-to-viewport",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "prettier",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "sass",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "sass-loader",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "style-object-to-css-string",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "vue",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "vue-loader",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "vue-template-compiler",
+      "allowedCategories": [ "internal" ]
+    }
+  ]
+}

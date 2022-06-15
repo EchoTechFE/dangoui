@@ -1,0 +1,209 @@
+<template>
+  <div v-if="custom" :class="className" :style="style" @click="onClick">
+    <slot />
+  </div>
+  <div v-else :class="className" :style="style" @click="onClick">
+    <div class="du-checkbox__label">
+      <slot>{{ content }}</slot>
+    </div>
+    <checkbox-icon :selected="selected" :shape="config.shape" />
+  </div>
+</template>
+
+<script>
+import { reactive, computed, inject, ref, getCurrentInstance, toRefs } from '@vue/composition-api'
+import styleToCss from 'style-object-to-css-string'
+import classNames from 'classnames'
+import CheckboxIcon from './CheckboxIcon.vue'
+
+function findComponentUpward(component, parentName) {
+  const parent = component.parent
+
+  if (parent) {
+    if (parent.proxy.className === parentName) {
+      return parent
+    } else {
+      return findComponentUpward(parent, parentName)
+    }
+  } else {
+    return null
+  }
+}
+
+export default {
+  name: 'du-checkbox',
+  components: {
+    CheckboxIcon,
+  },
+  props: {
+    extClass: {
+      type: [String, Array],
+      default: '',
+    },
+    extStyle: {
+      type: [String, Object],
+      default: '',
+    },
+    shape: {
+      type: String,
+      default: 'round',
+    },
+    inline: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    label: {
+      type: [String, Number],
+    },
+    value: {
+      type: Boolean,
+      default: false,
+    },
+    custom: {
+      type: Boolean,
+      default: false,
+    },
+    position: {
+      type: String,
+      default: 'right',
+    },
+  },
+  emits: ['click', 'input'],
+  setup(props, { emit }) {
+    const state = reactive({
+      currentVal: false,
+    })
+
+    const parentGroup = findComponentUpward(getCurrentInstance(), 'du-checkbox-group')
+
+    const groupConfig = parentGroup ? inject('groupConfig') : ref({})
+    const groupValue = parentGroup ? inject('groupValue') : ref([])
+    const setGroupValue = parentGroup ? inject('setGroupValue') : () => {}
+
+    // watch(
+    //   () => props.value,
+    //   (val) => {
+    //     state.currentVal = val
+    //   },
+    //   {
+    //     immediate: true,
+    //   },
+    // )
+
+    // watch(
+    //   () => groupValue,
+    //   (gvList) => {
+    //     if (!gvList?.value) return
+    //
+    //     const { value } = props
+    //
+    //     console.log('gvList', gvList.value)
+    //
+    //     if (gvList.value?.find((gv) => gv === value)) {
+    //       state.currentVal = gv
+    //     }
+    //   },
+    //   { immediate: true },
+    // )
+
+    const config = computed(() => {
+      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position } = props
+      const { shape: gShape, inline: gInline, position: gPosition } = groupConfig.value
+
+      return Object.freeze({
+        extClass,
+        extStyle,
+        disabled,
+        label,
+        value,
+        custom,
+        shape: gShape ? gShape : shape,
+        inline: gInline ? gInline : inline,
+        position: gPosition ? gPosition : position,
+      })
+    })
+
+    const className = computed(() => {
+      const { extClass, inline, disabled, position } = config.value
+      return classNames(
+        ['du-checkbox', 'du-checkbox--' + position],
+        {
+          'du-checkbox--disabled': disabled,
+          'du-checkbox--inline': inline,
+        },
+        extClass,
+      )
+    })
+
+    const style = computed(() => {
+      const { extStyle } = config.value
+      return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
+    })
+
+    const selected = computed(() => {
+      return state.currentVal === true
+    })
+
+    const content = computed(() => {
+      const { label, value } = config.value
+      return label || value || ''
+    })
+
+    function onClick() {
+      if (props.disabled) return
+
+      const { label, value } = config.value
+
+      state.currentVal = !state.currentVal
+
+      emit('click', state.currentVal)
+      emit('input', state.currentVal)
+
+      if (groupValue.value && setGroupValue) {
+        let gv
+        if (state.currentVal) {
+          gv = [...groupValue.value, label || value]
+        } else {
+          gv = groupValue.value.filter((item) => item !== (label || value))
+        }
+        setGroupValue(gv)
+      }
+    }
+
+    return { style, className, config, selected, content, onClick, ...toRefs(state) }
+  },
+}
+</script>
+
+<style lang="scss">
+.du-checkbox {
+  display: flex;
+  align-items: center;
+
+  padding: 8rpx 0;
+
+  font-size: 28rpx;
+  line-height: 48rpx;
+
+  &__label {
+    flex: 1 0 0;
+  }
+
+  &--left {
+    flex-direction: row-reverse;
+  }
+
+  &--inline {
+    display: inline-flex;
+    width: auto;
+  }
+
+  &--disabled {
+    opacity: 0.6;
+  }
+}
+</style>
