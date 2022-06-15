@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "1.0.0-alpha.26",
+  "version": "1.0.0-alpha.27",
   "scripts": {
     "build": "npm run build-lib",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@frontend/du-button": "workspace:*",
     "@frontend/du-calendar": "workspace:*",
+    "@frontend/du-checkbox": "workspace:*",
     "@frontend/du-form": "workspace:*",
     "@frontend/du-icon": "workspace:*",
     "@frontend/du-input": "workspace:*",
@@ -29,7 +30,6 @@
     "@frontend/du-snackbar": "workspace:*",
     "@frontend/du-steps": "workspace:*",
     "@frontend/du-styles": "workspace:*",
-    "@frontend/du-checkbox": "workspace:*",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

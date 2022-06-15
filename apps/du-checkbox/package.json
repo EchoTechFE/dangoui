@@ -1,9 +1,8 @@
 {
   "name": "@frontend/du-checkbox",
-  "version": "1.0.0-alpha.22",
+  "version": "1.0.0-alpha.27",
   "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
-
   "typings": "typings/index.d.ts",
   "description": "> TODO: description",
   "homepage": "https://github.com/frontend/dumpling#readme",
@@ -22,7 +21,6 @@
   "publishConfig": {
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
-
   "scripts": {
     "build": "vue-cli-service build --target lib --name DuCheckbox --filename index src/index.js",
     "test:unit": "vue-cli-service test:unit"
@@ -33,9 +31,9 @@
     "@vue/composition-api": "~1.4.9",
     "classnames": "~2.3.1",
     "core-js": "^3.6.5",
+    "prettier": "~2.6.2",
     "style-object-to-css-string": "~1.0.1",
-    "vue": "^2.6.11",
-    "prettier": "~2.6.2"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
