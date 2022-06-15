@@ -100,9 +100,9 @@ page {
 }
 .du-icon {
   font-family: 'dumpling-icon' !important;
-
   font-size: var(--du-icon-fz);
   font-style: normal;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

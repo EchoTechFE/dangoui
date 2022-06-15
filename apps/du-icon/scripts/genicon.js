@@ -16,7 +16,7 @@ const START_UNICODE = 0xe000
 // 由于font-carrier每次构建出的文件都不一致，所以用icons md5来作为hash
 // 如果每次都生成新的文件，则每次都会更新，导致CDN资源浪费
 // 改变V可以在构建方式、svg文件没有变化的情况下，构建出新的文件
-const V = 1
+const V = 2
 
 // ref: iconfont.cn
 const CSS_TEMPLATE = `
@@ -110,7 +110,7 @@ async function gen(url) {
 
   const outHash = crypto.createHash('md5')
 
-  for (let index in files) {
+  for (let index = 0; index < files.length; index++) {
     const fileBuffer = fs.readFileSync(files[index])
     const hash = md5(fileBuffer)
     outHash.update(fileBuffer)
@@ -164,4 +164,4 @@ async function gen(url) {
   )
 }
 
-gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_170.b64beaede79897640a92648f53d6ae57.js')
+gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_169.7df946d06017029fee133384a29f611e.js')
