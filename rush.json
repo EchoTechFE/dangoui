@@ -475,6 +475,13 @@
       "shouldPublish": true,
       "versionPolicyName": "du",
       "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-empty",
+      "projectFolder": "apps/du-empty",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }

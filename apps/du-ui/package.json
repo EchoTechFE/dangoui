@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.29",
   "scripts": {
     "build": "npm run build-lib",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
@@ -24,6 +24,7 @@
     "@frontend/du-button": "workspace:*",
     "@frontend/du-calendar": "workspace:*",
     "@frontend/du-checkbox": "workspace:*",
+    "@frontend/du-empty": "workspace:*",
     "@frontend/du-form": "workspace:*",
     "@frontend/du-icon": "workspace:*",
     "@frontend/du-input": "workspace:*",
@@ -44,6 +45,7 @@
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-service": "~4.5.6",
     "@vue/composition-api": "^1.6.2",
+    "aliyun-oss-deploy": "^0.1.5",
     "babel-loader": "^8.2.3",
     "core-js": "~3.23.0",
     "postcss-loader": "4",
@@ -52,9 +54,7 @@
     "sass-loader": "10",
     "vue": "2.6.14",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.14",
-    "aliyun-oss-deploy":"^0.1.5"
-
+    "vue-template-compiler": "^2.6.14"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0",

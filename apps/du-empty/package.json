@@ -1,9 +1,9 @@
 {
-  "name": "@frontend/du-steps",
+  "name": "@frontend/du-empty",
   "version": "1.0.0-alpha.29",
   "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
-  "main": "dist/index.umd.js",
+  "main": "dist/index.umd.min.js",
   "module": "./src/index.js",
   "directories": {
     "lib": "lib",
@@ -20,10 +20,11 @@
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name DuSteps --filename index src/index.js",
-    "test:unit": "echo \"no test specified\" && exit 0"
+    "build": "vue-cli-service build --target lib --name DuEmpty --filename index src/index.js",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@frontend/du-button": "workspace:*",
     "@frontend/du-styles": "workspace:*",
     "classnames": "~2.3.1",
     "style-object-to-css-string": "~1.0.1"
@@ -45,10 +46,6 @@
     "sass-loader": "10",
     "vue": "2.6.14",
     "vue-template-compiler": "^2.6.14"
-  },
-  "peerDependencies": {
-    "@vue/composition-api": "^1.0.0",
-    "vue": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/frontend/dumpling/issues"

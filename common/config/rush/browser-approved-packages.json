@@ -19,6 +19,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@frontend/du-empty",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@frontend/du-form",
       "allowedCategories": [ "internal" ]
     },

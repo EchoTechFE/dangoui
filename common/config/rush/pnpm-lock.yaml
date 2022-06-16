@@ -142,6 +142,51 @@ importers:
       vue: 2.6.14
       vue-template-compiler: 2.6.14
 
+  ../../apps/du-empty:
+    specifiers:
+      '@babel/core': ^7.17.5
+      '@frontend/du-button': workspace:*
+      '@frontend/du-styles': workspace:*
+      '@vue/cli-plugin-babel': '5'
+      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-service': '5'
+      '@vue/composition-api': ^1.6.2
+      '@vue/test-utils': '1'
+      '@vue/vue2-jest': ~27.0.0-alpha.4
+      babel-jest: ~27.5.1
+      classnames: ~2.3.1
+      core-js: ~3.23.0
+      jest: ~27.5.1
+      postcss: ^7.0.39
+      postcss-px-to-viewport: ~1.1.1
+      sass: ^1.26.5
+      sass-loader: '10'
+      style-object-to-css-string: ~1.0.1
+      vue: 2.6.14
+      vue-template-compiler: ^2.6.14
+    dependencies:
+      '@frontend/du-button': link:../du-button
+      '@frontend/du-styles': link:../du-styles
+      classnames: 2.3.1
+      style-object-to-css-string: 1.0.1
+    devDependencies:
+      '@babel/core': 7.17.5
+      '@vue/cli-plugin-babel': 5.0.4_1a7ab14a3c0306b5654c447f15269443
+      '@vue/cli-plugin-unit-jest': 5.0.4_56d87bd26b865591c52e5891c496fdf4
+      '@vue/cli-service': 5.0.4_8cb684b307ec766ada95c0a9a3b3f575
+      '@vue/composition-api': 1.6.2_vue@2.6.14
+      '@vue/test-utils': 1.3.0_9065e7474e033a8e4b95615fc8e6c36c
+      '@vue/vue2-jest': 27.0.0-alpha.4_e8095ecd03569fb863b4acf70e9bba44
+      babel-jest: 27.5.1_@babel+core@7.17.5
+      core-js: 3.23.0
+      jest: 27.5.1
+      postcss: 7.0.39
+      postcss-px-to-viewport: 1.1.1
+      sass: 1.49.9
+      sass-loader: 10.2.1_sass@1.49.9
+      vue: 2.6.14
+      vue-template-compiler: 2.6.14
+
   ../../apps/du-form:
     specifiers:
       '@babel/core': ^7.17.5
@@ -536,6 +581,7 @@ importers:
       '@frontend/du-button': workspace:*
       '@frontend/du-calendar': workspace:*
       '@frontend/du-checkbox': workspace:*
+      '@frontend/du-empty': workspace:*
       '@frontend/du-form': workspace:*
       '@frontend/du-icon': workspace:*
       '@frontend/du-input': workspace:*
@@ -567,6 +613,7 @@ importers:
       '@frontend/du-button': link:../du-button
       '@frontend/du-calendar': link:../du-calendar
       '@frontend/du-checkbox': link:../du-checkbox
+      '@frontend/du-empty': link:../du-empty
       '@frontend/du-form': link:../du-form
       '@frontend/du-icon': link:../du-icon
       '@frontend/du-input': link:../du-input
@@ -5153,7 +5200,7 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.4_8cb684b307ec766ada95c0a9a3b3f575
+      '@vue/cli-service': 5.0.4_0e8c6e5ab788a9d20f19546ba5520602
       '@vue/cli-shared-utils': 5.0.4
     transitivePeerDependencies:
       - encoding
@@ -5177,9 +5224,9 @@ packages:
       '@babel/core': 7.17.5
       '@babel/plugin-transform-modules-commonjs': 7.16.8_@babel+core@7.17.5
       '@types/jest': 27.4.1
-      '@vue/cli-service': 5.0.4_8cb684b307ec766ada95c0a9a3b3f575
+      '@vue/cli-service': 5.0.4_0e8c6e5ab788a9d20f19546ba5520602
       '@vue/cli-shared-utils': 5.0.4
-      '@vue/vue2-jest': 27.0.0-alpha.4_e8095ecd03569fb863b4acf70e9bba44
+      '@vue/vue2-jest': 27.0.0-alpha.4_6cdbb6b4b55ad9da5df430cece3e7cce
       babel-jest: 27.5.1_@babel+core@7.17.5
       deepmerge: 4.2.2
       jest: 27.5.1
@@ -5209,7 +5256,7 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.4_8cb684b307ec766ada95c0a9a3b3f575
+      '@vue/cli-service': 5.0.4_0e8c6e5ab788a9d20f19546ba5520602
     dev: true
 
   /@vue/cli-service/4.5.17_f11403f817a61609eac4cb4fb95cc164:

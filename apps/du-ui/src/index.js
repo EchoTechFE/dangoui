@@ -7,6 +7,7 @@ import { Steps } from '@frontend/du-steps'
 import { Popup } from '@frontend/du-popup'
 import { Snackbar } from '@frontend/du-snackbar'
 import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox'
+import { Empty } from '@frontend/du-empty'
 import { Icon } from '@frontend/du-icon'
 
 const DuButton = Button
@@ -23,6 +24,8 @@ const DuIcon = Icon
 
 const DuCheckbox = Checkbox
 const DuCheckboxGroup = CheckboxGroup
+
+const DuEmpty = Empty
 
 export {
   Button,
@@ -51,4 +54,6 @@ export {
   DuCheckboxGroup,
   Icon,
   DuIcon,
+  Empty,
+  DuEmpty,
 }

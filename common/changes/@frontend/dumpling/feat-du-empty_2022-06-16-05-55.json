@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "add du empty",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}
