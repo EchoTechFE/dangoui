@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { computed, watch, ref, inject, reactive, toRefs, defineComponent } from '@vue/composition-api'
+import { computed, watch, ref, inject, reactive, toRefs, defineComponent, toRaw } from '@vue/composition-api'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
@@ -110,7 +110,7 @@ export default defineComponent({
     watch(
       () => props.value,
       (val) => {
-        if (groupValue.value === GROUP_VALUE_DEFAULT) {
+        if (toRaw(groupValue.value) === GROUP_VALUE_DEFAULT) {
           state.currentVal = val
         }
       },
