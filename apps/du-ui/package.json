@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "1.0.0-alpha.27",
+  "version": "1.0.0-alpha.28",
   "scripts": {
     "build": "npm run build-lib",
     "build-lib": "vue-cli-service build --target lib --name DumplingUI --filename index src/index.js",
@@ -9,6 +9,8 @@
     "test:unit": "echo \"no test specified\" && exit 0",
     "deploy": "aliyun-oss-deploy -p ./storybook-static"
   },
+  "main": "dist/index.umd.js",
+  "module": "./src/index.js",
   "publishConfig": {
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },
@@ -30,9 +32,7 @@
     "@frontend/du-radio": "workspace:*",
     "@frontend/du-snackbar": "workspace:*",
     "@frontend/du-steps": "workspace:*",
-    "@frontend/du-styles": "workspace:*",
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "@frontend/du-styles": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -43,13 +43,21 @@
     "@storybook/vue": "^6.4.19",
     "@vue/cli-plugin-babel": "~4.5.6",
     "@vue/cli-service": "~4.5.6",
+    "@vue/composition-api": "^1.6.2",
     "babel-loader": "^8.2.3",
+    "core-js": "~3.23.0",
     "postcss-loader": "4",
     "postcss-px-to-viewport": "~1.1.1",
     "sass": "^1.26.5",
     "sass-loader": "10",
+    "vue": "2.6.14",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.14",
     "aliyun-oss-deploy":"^0.1.5"
+
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0",
+    "vue": "^2.0.0"
   }
 }

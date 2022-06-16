@@ -1,12 +1,13 @@
-import { Button } from '@frontend/du-button/src/index.js'
-import { Form, FormItem } from '@frontend/du-form/src/index.js'
+import { Button } from '@frontend/du-button'
+import { Form, FormItem } from '@frontend/du-form'
 import { Input } from '@frontend/du-input'
-import { InputNumber } from '@frontend/du-input-number/src/index.js'
-import { Radio, RadioGroup } from '@frontend/du-radio/src/index.js'
-import { Steps } from '@frontend/du-steps/src/index.js'
-import { Popup } from '@frontend/du-popup/src/index.js'
-import { Snackbar } from '@frontend/du-snackbar/src/index.js'
-import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox/src/index.js'
+import { InputNumber } from '@frontend/du-input-number'
+import { Radio, RadioGroup } from '@frontend/du-radio'
+import { Steps } from '@frontend/du-steps'
+import { Popup } from '@frontend/du-popup'
+import { Snackbar } from '@frontend/du-snackbar'
+import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox'
+import { Icon } from '@frontend/du-icon'
 
 const DuButton = Button
 const DuForm = Form
@@ -18,6 +19,7 @@ const DuRadioGroup = RadioGroup
 const DuSteps = Steps
 const DuPopup = Popup
 const DuSnackbar = Snackbar
+const DuIcon = Icon
 
 const DuCheckbox = Checkbox
 const DuCheckboxGroup = CheckboxGroup
@@ -47,4 +49,6 @@ export {
   CheckboxGroup,
   DuCheckbox,
   DuCheckboxGroup,
+  Icon,
+  DuIcon,
 }

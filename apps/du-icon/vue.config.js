@@ -1,4 +1,11 @@
-
 module.exports = {
-  outputDir: 'dist/'
+  outputDir: 'dist/',
+  chainWebpack: (config) => {
+    config.merge({
+      externals: ['vue', '@vue/composition-api'],
+    })
+  },
+  css: {
+    extract: false,
+  },
 }
