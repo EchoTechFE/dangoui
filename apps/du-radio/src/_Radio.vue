@@ -1,17 +1,10 @@
 <template>
   <div :class="['du-radio__radio', { 'du-radio__radio--checked': checked }]">
     <!-- TODO: 需要一些工具函数来转换rpx -->
-    <DuIcon
-      :extStyle="{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-      }"
-      v-if="checked"
-      name="check"
-      color="#fff"
-      size="16rpx"
+    <img
+      v-show="checked"
+      src="https://cdn.qiandaoapp.com/admins/1094c5afbcb6ae86323605a326536769.svg"
+      class="du-radio__radio-check"
     />
   </div>
 </template>
@@ -44,9 +37,17 @@ export default defineComponent({
     border-radius: 50%;
     position: relative;
     --du-icon-fz: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &--checked {
       background: var(--du-color-main);
     }
+  }
+
+  &__radio-check {
+    width: 32rpx;
+    height: 32rpx;
   }
 }
 </style>
