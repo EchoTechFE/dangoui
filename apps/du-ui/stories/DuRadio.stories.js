@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
-import { DuRadio, DuRadioGroup } from '@frontend/du-radio/src/index.js'
+import { DuRadio, DuRadioGroup, DuRadioIcon } from '@frontend/du-radio/src/index.js'
 
 import '@frontend/du-styles/styles/index.scss'
 
@@ -17,7 +17,7 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { DuRadio, DuRadioGroup },
+  components: { DuRadio, DuRadioGroup, DuRadioIcon },
   template: `
     <div>
       <div>
@@ -48,6 +48,10 @@ const Template = (args, { argTypes }) => ({
       <div>
         <h3>todo: 自定义</h3>
         <DuRadio v-bind="$props" label="lbb">lbb</DuRadio>
+      </div>
+      <div>
+        <h3>内部使用的图标</h3>
+        <DuRadioIcon checked size="100px" />
       </div>
     </div>
   `,
