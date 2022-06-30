@@ -273,6 +273,10 @@ export default defineComponent({
         margin-left: 8rpx;
       }
     }
+
+    &.du-button--square {
+      border-radius: 8rpx;
+    }
   }
   &--mini {
     height: 48rpx;
@@ -290,6 +294,10 @@ export default defineComponent({
         margin-right: 0;
         margin-left: 8rpx;
       }
+    }
+
+    &.du-button--square {
+      border-radius: 8rpx;
     }
   }
 

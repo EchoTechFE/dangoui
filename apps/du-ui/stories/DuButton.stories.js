@@ -107,6 +107,7 @@ const TemplateAll = (args, { argTypes }) => ({
       <div>
         <h3>square:</h3>
         <p><DuButton v-bind="$props" square size="normal" @click="onClick">normal</DuButton></p>
+        <p><DuButton v-bind="$props" square size="mini" @click="onClick">normal</DuButton></p>
       </div>
       <div style="background: #726B5C;color: #fff;">
         <h3>ghost:</h3>
