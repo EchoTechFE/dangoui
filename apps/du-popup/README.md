@@ -10,6 +10,7 @@
 | type |bottom,center | false | center | 居中/底部 |
 | visible |Boolean| false | false | 是否打开|
 | maskClick |Boolean| false | true |是否点击遮罩关闭|
+| closable |Boolean| false | true |是否显示关闭按钮|
 
 ### emit 事件
 
