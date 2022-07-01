@@ -4,7 +4,7 @@
     <div :style="style" :class="className">
       <div class="du-popup__header" v-if="headerVisible">
         <div class="du-popup__title">{{ title }}</div>
-        <div class="du-popup__close" @click="handleClose" />
+        <div v-if="closable" class="du-popup__close" @click="handleClose" />
       </div>
       <slot />
     </div>
@@ -50,6 +50,11 @@ export default {
     },
 
     maskClick: {
+      type: Boolean,
+      default: true,
+    },
+
+    closable: {
       type: Boolean,
       default: true,
     },
