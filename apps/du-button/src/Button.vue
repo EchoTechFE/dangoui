@@ -24,7 +24,7 @@
       <img v-else class="du-button__icon du-button__icon--right" :src="icon" alt="du-button-icon" />
     </template>
     <div v-if="arrowRight" class="du-button__arrow-right">
-      <DuIcon name="arrow-right" />
+      <DuIcon name="arrow-heavy-right" />
     </div>
   </button>
 </template>
