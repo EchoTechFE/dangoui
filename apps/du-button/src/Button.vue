@@ -110,7 +110,7 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    square: {
+    round: {
       type: Boolean,
       default: false,
     },
@@ -129,7 +129,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const className = computed(() => {
-      const { size, type, ghost, loading, full, square, disabled, extClass } = props
+      const { size, type, ghost, loading, full, round, disabled, extClass } = props
       return classNames(
         ['du-button', 'du-button--' + size, 'du-button--' + type],
         {
@@ -137,7 +137,7 @@ export default defineComponent({
           'du-button--ghost': ghost,
           'du-button--loading': loading,
           'du-button--full': full,
-          'du-button--square': square,
+          'du-button--round': round,
         },
         extClass,
       )
@@ -177,13 +177,13 @@ export default defineComponent({
   border: var(--du-bt- + $type + -border);
 }
 .du-button {
+  $c: &;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   font-weight: 600;
-
-  border-radius: 40rpx;
 
   &__icon {
     display: inline-block;
@@ -211,6 +211,8 @@ export default defineComponent({
     padding: 0 32rpx;
 
     font-size: 28rpx;
+    border-radius: 16rpx;
+
     & > .du-button__icon {
       width: 40rpx;
       height: 40rpx;
@@ -226,7 +228,7 @@ export default defineComponent({
   &--medium {
     height: 72rpx;
     padding: 0 28rpx;
-
+    border-radius: 16rpx;
     font-size: 28rpx;
     & > .du-button__icon {
       width: 32rpx;
@@ -243,7 +245,7 @@ export default defineComponent({
   &--normal {
     height: 64rpx;
     padding: 0 28rpx;
-
+    border-radius: 8rpx;
     font-size: 28rpx;
     & > .du-button__icon {
       width: 32rpx;
@@ -262,6 +264,7 @@ export default defineComponent({
     padding: 0 24rpx;
 
     font-size: 24rpx;
+    border-radius: 8rpx;
     & > .du-button__icon {
       width: 24rpx;
       height: 24rpx;
@@ -284,6 +287,7 @@ export default defineComponent({
 
     font-size: 24rpx;
     line-height: 48rpx;
+    border-radius: 8rpx;
     & > .du-button__icon {
       width: 24rpx;
       height: 24rpx;
@@ -299,6 +303,10 @@ export default defineComponent({
     &.du-button--square {
       border-radius: 8rpx;
     }
+  }
+
+  &--round {
+    border-radius: 40rpx;
   }
 
   &--primary {
@@ -360,10 +368,6 @@ export default defineComponent({
 
   &--full {
     width: 100%;
-  }
-
-  &--square {
-    border-radius: 16rpx;
   }
 
   &--loading {
