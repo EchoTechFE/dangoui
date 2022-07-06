@@ -1,11 +1,8 @@
 import { shallowMount, mount } from '@vue/test-utils'
 
-import CompositionApi, { ref } from '@vue/composition-api'
-import Vue from 'vue'
+import { ref } from 'vue'
 
 import { DuCheckbox, DuCheckboxGroup } from '../src/index.js'
-
-Vue.use(CompositionApi)
 
 describe('@frontend/du-checkbox checkbox', () => {
   const checkboxWrapperFactory = (values) =>
@@ -21,7 +18,7 @@ describe('@frontend/du-checkbox checkbox', () => {
     const wrapper = mount({
       template: `
         <div>
-          <du-checkbox v-model="checkStatus"></du-checkbox>
+          <du-checkbox v-model:value="checkStatus"></du-checkbox>
         </div>
       `,
       components: {
@@ -37,9 +34,9 @@ describe('@frontend/du-checkbox checkbox', () => {
     const checkboxComp = wrapper.find('.du-checkbox')
 
     await checkboxComp.trigger('click')
-    expect(wrapper.vm.$data.checkStatus).toBe(true)
+    expect(wrapper.vm.checkStatus).toBe(true)
     await checkboxComp.trigger('click')
-    expect(wrapper.vm.$data.checkStatus).toBe(false)
+    expect(wrapper.vm.checkStatus).toBe(false)
   })
 
   it('emit property value ', async () => {
@@ -57,7 +54,7 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
   it('test DuRadioGroup v-model disabled', async () => {
     const wrapper = mount({
       template: `
-          <du-checkbox-group v-model="checkboxGroupValue">
+          <du-checkbox-group v-model:value="checkboxGroupValue">
               <du-checkbox inline label="Jack">Jack</du-checkbox>
               <du-checkbox label="Queen">Queen</du-checkbox>
               <du-checkbox label="King" disabled>King</du-checkbox>
@@ -73,12 +70,12 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
         }
       },
     })
-    const [c1, c2, c3] = wrapper.findAllComponents(DuCheckbox).wrappers
+    const [c1, c2, c3] = wrapper.findAllComponents(DuCheckbox)
     await c1.trigger('click')
     await c1.trigger('click')
     await c2.trigger('click')
     await c3.trigger('click')
-    expect(wrapper.vm.$data.checkboxGroupValue).toEqual(['Queen'])
+    expect(wrapper.vm.checkboxGroupValue).toEqual(['Queen'])
   })
 
   it('test option generate checkboxGroup', async () => {
@@ -93,14 +90,14 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
       },
     })
 
-    await Vue.nextTick()
-    const [c1, c2, c3] = wrapper.findAllComponents(DuCheckbox).wrappers
+    await wrapper.vm.$nextTick()
+    const [c1, c2, c3] = wrapper.findAllComponents(DuCheckbox)
 
     expect(c1.text()).toBe('红色')
     await c2.trigger('click')
     await c3.trigger('click')
 
     expect(c2.emitted().input[0]).toEqual([true])
-    expect(c3.vm.$data.currentVal).toBe(false)
+    expect(c3.vm.currentVal).toBe(false)
   })
 })

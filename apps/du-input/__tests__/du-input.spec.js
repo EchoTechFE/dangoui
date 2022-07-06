@@ -1,11 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
 
-import CompositionApi from '@vue/composition-api'
 import Vue from 'vue'
 
 import { DuInput } from '../src/index.js'
-
-Vue.use(CompositionApi)
 
 describe('@frontend/du-input', () => {
   it('test input hello', async () => {

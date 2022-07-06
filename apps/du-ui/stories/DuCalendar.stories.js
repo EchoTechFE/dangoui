@@ -1,14 +1,9 @@
-import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
 import { DuCalendar } from '@frontend/du-calendar/src/index.js';
 import ScrollView from '../components/ScrollView.vue';
 import  DuButton from '@frontend/du-button/src/Button.vue'
 
 import '@frontend/du-styles/styles/index.scss';
 import './theme.scss';
-
-Vue.use(VueCompositionApi);
-Vue.component('scroll-view', ScrollView);
 
 export default {
   title: 'Calendar',

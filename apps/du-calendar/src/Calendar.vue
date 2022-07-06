@@ -9,7 +9,11 @@
   >
     <div class="du-calendarendar--main">
       <div class="du-calendarendar--flex du-calendarendar--week">
-        <div v-for="(item, index) in weekList" :key="index" class="du-cal-flex-item">
+        <div
+          v-for="(item, index) in weekList"
+          :key="index"
+          class="du-cal-flex-item"
+        >
           <div class="du-cal-flex-item__week">{{ item }}</div>
         </div>
       </div>
@@ -19,44 +23,84 @@
         @scrolltolower="scrolltolower"
         @scrolltoupper="scrolltoupper"
       >
-        <div v-for="(item, index) in calendarList" :key="index" class="du-cal-list">
-          <div class="du-cal-list__month">{{ item.year }}.{{ transMonFilter(item.month) }}</div>
+        <div
+          v-for="(item, index) in calendarList"
+          :key="index"
+          class="du-cal-list"
+        >
+          <div class="du-cal-list__month">
+            {{ item?.year }}.{{ transMonFilter(item?.month) }}
+          </div>
           <div class="du-calendarendar--flex du-cal-list-day">
             <!-- 补齐日期空格 -->
-            <div class="du-cal-flex-item" v-for="space in item.spaceDay" :key="space.id"></div>
+            <div
+              class="du-cal-flex-item"
+              v-for="space in item.spaceDay"
+              :key="space?.id"
+            ></div>
             <!-- 遍历日期 -->
-            <div class="du-cal-flex-item" v-for="(date, dateIdx) in item.day" :key="dateIdx">
+            <div
+              class="du-cal-flex-item"
+              v-for="(date, dateIdx) in item.day"
+              :key="dateIdx"
+            >
               <div
                 :class="[
                   'du-cal-flex-item__day',
                   {
-                    'du-cal-list-day__disable': showDisable(item.year, item.month, dateIdx + 1),
+                    'du-cal-list-day__disable': showDisable(
+                      item?.year,
+                      item?.month,
+                      dateIdx + 1
+                    ),
                     'du-cal-list-day-actived':
-                      !showDisable(item.year, item.month, dateIdx + 1) &&
-                      isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
+                      !showDisable(item?.year, item?.month, dateIdx + 1) &&
+                      isSelected(
+                        item?.year,
+                        item?.month,
+                        dateIdx + 1,
+                        selectedDateList
+                      ),
                     'du-cal-list-day__undisable':
-                      !showDisable(item.year, item.month, dateIdx + 1) &&
-                      !isSelected(item.year, item.month, dateIdx + 1, selectedDateList),
+                      !showDisable(item?.year, item?.month, dateIdx + 1) &&
+                      !isSelected(
+                        item?.year,
+                        item?.month,
+                        dateIdx + 1,
+                        selectedDateList
+                      ),
                   },
                 ]"
                 @click="changeSelectDate(item, dateIdx + 1)"
               >
                 <div
                   v-if="
-                    !showDisable(item.year, item.month, dateIdx + 1) &&
-                    isSelected(item.year, item.month, dateIdx + 1, selectedDateList)
+                    !showDisable(item?.year, item?.month, dateIdx + 1) &&
+                    isSelected(
+                      item?.year,
+                      item?.month,
+                      dateIdx + 1,
+                      selectedDateList
+                    )
                   "
                   class="du-cal-main-bg"
                 ></div>
                 <div class="actived-icon__bg">{{ dateIdx + 1 }}</div>
                 <div
                   v-if="
-                    !showDisable(item.year, item.month, dateIdx + 1) &&
-                    isSelected(item.year, item.month, dateIdx + 1, selectedDateList)
+                    !showDisable(item?.year, item?.month, dateIdx + 1) &&
+                    isSelected(
+                      item?.year,
+                      item?.month,
+                      dateIdx + 1,
+                      selectedDateList
+                    )
                   "
                   class="actived__icon"
                 >
-                  <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
+                  <img
+                    src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png"
+                  />
                 </div>
               </div>
             </div>
@@ -83,7 +127,8 @@
 </template>
 
 <script>
-import { computed, toRefs, ref, onMounted, watch } from '@vue/composition-api'
+
+import { computed, toRefs, ref, onMounted, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuPopup from '@frontend/du-popup/src/Popup.vue'
@@ -160,7 +205,15 @@ export default {
     },
   },
   setup(props, { emit }) {
-    const { type, title, confirmText, minDate, maxDate, selectedDate, selectableCount } = toRefs(props)
+    const {
+      type,
+      title,
+      confirmText,
+      minDate,
+      maxDate,
+      selectedDate,
+      selectableCount,
+    } = toRefs(props)
 
     const calendarVisible = ref(props.visible)
 
@@ -197,7 +250,9 @@ export default {
         if (type.value === 'single') {
           return '确定'
         } else if (type.value === 'multiple') {
-          return selectedDateList.value.length > 0 ? `确定(${selectedDateList.value.length})` : '确定'
+          return selectedDateList.value.length > 0
+            ? `确定(${selectedDateList.value.length})`
+            : '确定'
         }
       }
     })
@@ -274,7 +329,11 @@ export default {
      * @param {Object} startObj 起始日期
      * @returns {Array} 新的数据
      */
-    const getNewDate = (type = 'new', startObj = { year: null, month: null }, monthCount = 6) => {
+    const getNewDate = (
+      type = 'new',
+      startObj = { year: null, month: null },
+      monthCount = 6
+    ) => {
       let year = startObj.year
       let month = startObj.month
       let list = []
@@ -323,13 +382,14 @@ export default {
       if (yearInstance === 0) {
         monthInstance = maxDateObj.value.month - minDateObj.value.month
       } else {
-        monthInstance = yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month
+        monthInstance =
+          yearInstance * 12 - minDateObj.value.month + maxDateObj.value.month
       }
 
       const list = getNewDate(
         'new',
         { year: minDateObj.value.year, month: minDateObj.value.month },
-        monthInstance + 1,
+        monthInstance + 1
       )
       calendarList.value = [...list]
     }
@@ -372,7 +432,10 @@ export default {
     // 动态判断是否被禁用
     const showDisable = (year, month, date) => {
       const itemTimeStamp = dateToTimeStamp(year, month, date)
-      if (minDateObj.value.timeStamp <= itemTimeStamp && itemTimeStamp <= maxDateObj.value.timeStamp) {
+      if (
+        minDateObj.value.timeStamp <= itemTimeStamp &&
+        itemTimeStamp <= maxDateObj.value.timeStamp
+      ) {
         return false
       }
       return true
@@ -392,7 +455,12 @@ export default {
         return
       }
       // 遍历该数据在已选数据中是否已存在
-      const saved = isSelected(item.year, item.month, date, selectedDateList.value)
+      const saved = isSelected(
+        item.year,
+        item.month,
+        date,
+        selectedDateList.value
+      )
 
       if (type.value === 'single') {
         if (saved) {
@@ -443,7 +511,13 @@ export default {
 
       if (type.value === 'single') {
         confirmDate = selectedDateList.value[0]
-        emit('confirm', { value: new Date(confirmDate.year, confirmDate.month, confirmDate.date) })
+        emit('confirm', {
+          value: new Date(
+            confirmDate.year,
+            confirmDate.month,
+            confirmDate.date
+          ),
+        })
       } else if (type.value === 'multiple') {
         confirmList = selectedDateList.value.map((item) => {
           return new Date(item.year, item.month, item.date)
@@ -455,7 +529,9 @@ export default {
     // 触底加载更多
     const scrolltolower = () => {
       const startDate =
-        calendarList.value.length > 0 ? calendarList.value[calendarList.value.length - 1] : null
+        calendarList.value.length > 0
+          ? calendarList.value[calendarList.value.length - 1]
+          : null
       if (!startDate) {
         return
       }
@@ -471,7 +547,8 @@ export default {
 
     // 上拉加载更多
     const scrolltoupper = () => {
-      const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null
+      const startDate =
+        calendarList.value.length > 0 ? calendarList.value[0] : null
       if (!startDate) {
         return
       }
@@ -500,7 +577,7 @@ export default {
           calendarVisible.value = false
           calendarList.value = []
         }
-      },
+      }
     )
 
     return {

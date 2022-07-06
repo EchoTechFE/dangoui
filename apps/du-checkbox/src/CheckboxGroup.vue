@@ -1,7 +1,12 @@
 <template>
   <div v-if="options" :class="className" :style="style">
-    <du-checkbox v-for="op in options" :key="op.value" :label="op.value" :disabled="op.disabled">
-      {{ op.label || op.value }}
+    <du-checkbox
+      v-for="op in options"
+      :key="op?.value"
+      :label="op?.value"
+      :disabled="op?.disabled"
+    >
+      {{ op?.label || op?.value }}
     </du-checkbox>
   </div>
   <div v-else :class="className" :style="style">
@@ -10,10 +15,11 @@
 </template>
 
 <script>
-import { computed, provide, ref } from '@vue/composition-api'
+
+import { computed, provide, ref } from 'vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
-import DuCheckbox from './Checkbox'
+import DuCheckbox from './Checkbox.vue'
 
 export default {
   name: 'du-checkbox-group',
@@ -49,7 +55,7 @@ export default {
   components: {
     DuCheckbox,
   },
-  emits: ['input'],
+  emits: ['input', 'update:value'],
   setup(props, { emit }) {
     const className = computed(() => {
       const { extClass } = props
@@ -60,7 +66,9 @@ export default {
     const style = computed(() => {
       const { extStyle } = props
 
-      return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
+      return typeof extStyle === 'string'
+        ? extStyle
+        : styleToCss({ ...extStyle })
     })
 
     const groupConfig = computed(() => {
@@ -77,6 +85,7 @@ export default {
 
     function setGroupValue(value) {
       emit('input', value)
+      emit('update:value', value)
       groupValue.value = value
     }
 
@@ -91,5 +100,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss"></style>

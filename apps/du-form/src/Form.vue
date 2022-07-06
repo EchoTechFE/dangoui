@@ -5,28 +5,28 @@
 </template>
 
 <script>
-import { computed, provide } from "@vue/composition-api";
-import styleToCss from "style-object-to-css-string";
-import classNames from "classnames";
+import { computed, provide } from 'vue'
+import styleToCss from 'style-object-to-css-string'
+import classNames from 'classnames'
 
 export default {
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: "",
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: "",
+      default: '',
     },
 
     labelSize: {
       type: String,
-      default: "120rpx",
+      default: '120rpx',
     },
     labelAlign: {
       type: String,
-      default: "left",
+      default: 'left',
     },
     options: {
       type: Object,
@@ -38,40 +38,40 @@ export default {
       const { extStyle, extClass, labelSize, labelAlign } = {
         ...props,
         ...props.options,
-      };
+      }
 
       return Object.freeze({
         labelSize,
         labelAlign,
         extStyle,
         extClass,
-      });
-    });
+      })
+    })
 
     const className = computed(() => {
-      const { extClass } = config.value;
-      return classNames("du-form", extClass);
-    });
+      const { extClass } = config.value
+      return classNames('du-form', extClass)
+    })
 
     const style = computed(() => {
-      const { extStyle } = config.value;
-      return typeof extStyle === "string"
+      const { extStyle } = config.value
+      return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
             ...extStyle,
-          });
-    });
+          })
+    })
 
-    provide("formLabelSize", config.value.labelSize);
-    provide("formLabelAlign", config.value.labelAlign);
+    provide('formLabelSize', config.value.labelSize)
+    provide('formLabelAlign', config.value.labelAlign)
 
     return {
       className,
       style,
       config,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss">

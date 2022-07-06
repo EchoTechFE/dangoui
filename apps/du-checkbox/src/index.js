@@ -1,7 +1,5 @@
-import CheckboxComponent from "./Checkbox.vue"
-import CheckboxGroupComponent from "./CheckboxGroup.vue";
-
-
+import CheckboxComponent from './Checkbox.vue'
+import CheckboxGroupComponent from './CheckboxGroup.vue'
 
 export const Checkbox = CheckboxComponent
 export const DuCheckbox = CheckboxComponent

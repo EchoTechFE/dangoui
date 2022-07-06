@@ -1,11 +1,7 @@
-import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
 import { DuSteps } from '@frontend/du-steps/src/index.js';
 import './theme.scss';
 
 import '@frontend/du-styles/styles/index.scss';
-
-Vue.use(VueCompositionApi);
 
 export default {
   title: 'Step',

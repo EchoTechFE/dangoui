@@ -62,7 +62,7 @@
 
 <script>
 import { DuCheckbox, DuCheckboxGroup } from './src'
-import { reactive, toRefs } from '@vue/composition-api'
+import { reactive, toRefs } from '@vue'
 export default {
   components: {
     DuCheckbox,

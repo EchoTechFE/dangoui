@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { computed, ref, watch, provide } from '@vue/composition-api'
+
+import { computed, ref, watch, provide } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
@@ -51,7 +52,7 @@ export default {
 
     value: {},
   },
-  emits: ['input'],
+  emits: ['input', 'update:value'],
   setup(props, { emit }) {
     const config = computed(() => {
       const { extStyle, extClass } = {
@@ -88,16 +89,17 @@ export default {
       },
       {
         immediate: true,
-      },
+      }
     )
 
     function updateValue(value) {
       groupValue.value = value
       emit('input', value)
+      emit('update:value', value)
     }
 
     const groupConfig = computed(() => {
-      const { inline, cancel, shape, custom ,cell} = {
+      const { inline, cancel, shape, custom, cell } = {
         ...props,
         ...props.options,
       }
@@ -107,7 +109,7 @@ export default {
         cancel,
         shape,
         custom,
-        cell
+        cell,
       }
     })
 

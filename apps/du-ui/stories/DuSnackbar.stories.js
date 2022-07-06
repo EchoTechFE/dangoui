@@ -1,30 +1,26 @@
-import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
-import { DuButton } from '@frontend/du-button/src/index';
-import Snackbar, { DuSnackbar } from "@frontend/du-snackbar/src/index";
-import '@frontend/du-styles/styles/index.scss';
-import './theme.scss';
-
-Vue.use(VueCompositionApi);
+import { DuButton } from '@frontend/du-button/src/index'
+import { DuSnackbar, Snackbar } from '@frontend/du-snackbar/src/index'
+import '@frontend/du-styles/styles/index.scss'
+import './theme.scss'
 
 export default {
-    title: 'Snackbar',
-    component: DuSnackbar,
-    argTypes: {},
-};
+  title: 'Snackbar',
+  component: DuSnackbar,
+  argTypes: {},
+}
 
 const Template = (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
-    components: {
-        DuButton,
-        DuSnackbar
-    },
-    data() {
-        return {
-            showSnackbar: true
-        }
-    },
-    template: `
+  props: Object.keys(argTypes),
+  components: {
+    DuButton,
+    DuSnackbar,
+  },
+  data() {
+    return {
+      showSnackbar: true,
+    }
+  },
+  template: `
         <div>
             <DuButton
               text="点我触发snackbar"
@@ -46,28 +42,28 @@ const Template = (args, { argTypes }) => ({
             />
         </div>
     `,
-    methods: {
-        closeSnackbar() {
-            this.showSnackbar = false
+  methods: {
+    closeSnackbar() {
+      this.showSnackbar = false
+    },
+    dispatchAction() {
+      console.log('Snackbar的button被点击了')
+    },
+    toastS() {
+      Snackbar({
+        content: '我是toast形式的snackbar',
+        showClose: true,
+        buttonProps: {
+          text: '点我触发action',
         },
-        dispatchAction() {
-             console.log('Snackbar的button被点击了')
+        onAction() {
+          console.log('toast形式的snackbar的button被点击了')
         },
-        toastS() {
-            Snackbar({
-                content: '我是toast形式的snackbar',
-                showClose: true,
-                buttonProps: {
-                    text: '点我触发action'
-                },
-                onAction() {
-                    console.log('toast形式的snackbar的button被点击了')
-                }
-            })
-        }
-    }
-});
+      })
+    },
+  },
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {}

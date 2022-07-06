@@ -1,11 +1,7 @@
-import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
 import { DuForm, DuFormItem } from '@frontend/du-form/src/index.js';
 import { DuInput } from '@frontend/du-input';
 
 import '@frontend/du-styles/styles/index.scss';
-
-Vue.use(VueCompositionApi);
 
 export default {
   title: 'Form',

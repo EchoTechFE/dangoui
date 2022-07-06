@@ -1,10 +1,6 @@
-import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
 import { DuInputNumber } from '@frontend/du-input-number/src/index.js';
 
 import '@frontend/du-styles/styles/index.scss';
-
-Vue.use(VueCompositionApi);
 
 export default {
   title: 'InputNumber',

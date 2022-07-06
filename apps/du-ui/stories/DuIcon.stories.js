@@ -1,13 +1,9 @@
-import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
 import DuIcon from '@frontend/du-icon/src/Icon.vue'
 import '@frontend/du-icon/src/iconfont.css'
 import iconConfig from '@frontend/du-icon/src/iconfont-config.json'
 
 import '@frontend/du-styles/styles/index.scss'
 import './theme.scss'
-
-Vue.use(VueCompositionApi)
 
 export default {
   title: 'Icon',

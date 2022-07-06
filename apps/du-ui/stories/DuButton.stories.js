@@ -1,11 +1,7 @@
-import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
 import DuButton from '@frontend/du-button/src/Button.vue'
 
 import '@frontend/du-styles/styles/index.scss'
 import './theme.scss'
-
-Vue.use(VueCompositionApi)
 
 export default {
   title: 'Button',

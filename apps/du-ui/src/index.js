@@ -9,6 +9,7 @@ import { Snackbar } from '@frontend/du-snackbar'
 import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox'
 import { Empty } from '@frontend/du-empty'
 import { Icon } from '@frontend/du-icon'
+import './test.scss'
 
 const DuButton = Button
 const DuForm = Form

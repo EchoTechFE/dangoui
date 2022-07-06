@@ -6,12 +6,19 @@
       `du-checkbox__checkbox--${shape}`,
     ]"
   >
-    <DuIcon extClass="du-checkbox__checkbox__icon" v-if="selected" name="check" color="#fff" size="20rpx" />
+    <DuIcon
+      extClass="du-checkbox__checkbox__icon"
+      v-if="selected"
+      name="check"
+      color="#fff"
+      size="20rpx"
+    />
   </div>
 </template>
 
 <script>
-import DuIcon from '@frontend/du-icon/src/Icon'
+
+import DuIcon from '@frontend/du-icon/src/Icon.vue'
 
 export default {
   name: 'checkbox-icon',

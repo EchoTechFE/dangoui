@@ -3,14 +3,11 @@
   <div class="du-input-number">
     <img
       class="du-input-number__item"
-      :src="mValue > min ? icon.minus : icon.minusDisabled"
+      :src="mValue > min ? icon?.minus : icon?.minusDisabled"
       alt
       @click.stop="minus"
-    >
-    <div
-      v-if="input"
-      class="du-input-number__input"
-    >
+    />
+    <div v-if="input" class="du-input-number__input">
       <DuInput
         :value="mValue"
         :prefix="inputPrefix"
@@ -20,24 +17,22 @@
       />
     </div>
 
-    <div
-      v-else
-      class="du-input-number__value"
-    >
+    <div v-else class="du-input-number__value">
       {{ mValue }}
     </div>
 
     <img
       class="du-input-number__item"
-      :src="mValue < max ? icon.add : icon.addDisabled"
+      :src="mValue < max ? icon?.add : icon?.addDisabled"
       alt
       @click.stop="add"
-    >
+    />
   </div>
 </template>
 
 <script>
-import { ref, watch } from '@vue/composition-api'
+
+import { ref, watch } from 'vue'
 
 import DuInput from '@frontend/du-input/src/Input.vue'
 const ICONS = {
@@ -47,45 +42,45 @@ const ICONS = {
     'https://cdn.qiandaoapp.com/admins/7a42dab4cc6f6b6f6be4fc79f0287df1.png',
   add: 'https://cdn.qiandaoapp.com/admins/c8baffc5ffdc0c42f2e6120c31934867.png',
   addDisabled:
-    'https://cdn.qiandaoapp.com/admins/65665d81f293a99bea9fafc600f0b32c.png'
+    'https://cdn.qiandaoapp.com/admins/65665d81f293a99bea9fafc600f0b32c.png',
 }
 
 export default {
   components: {
-    DuInput
+    DuInput,
   },
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: Infinity
+      default: Infinity,
     },
     input: {
       type: Boolean,
-      default: false
+      default: false,
     },
     inputPrefix: {
       type: String,
-      default: ''
+      default: '',
     },
     inputSuffix: {
       type: String,
-      default: ''
+      default: '',
     },
     step: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
-  emits: ['input', 'change'],
-  setup (props, { emit }) {
+  emits: ['input', 'change', 'update:value'],
+  setup(props, { emit }) {
     const mValue = ref(props.min)
 
     watch(
@@ -99,10 +94,11 @@ export default {
 
     watch(mValue, (val) => {
       emit('input', val)
+      emit('update:value', val)
       emit('change', val)
     })
 
-    function minus () {
+    function minus() {
       const { step, min } = props
       const nVal = mValue.value - step
       if (nVal >= min) {
@@ -110,7 +106,7 @@ export default {
       }
     }
 
-    function add () {
+    function add() {
       const { step, max } = props
       const nVal = mValue.value + step
       if (nVal <= max) {
@@ -118,7 +114,7 @@ export default {
       }
     }
 
-    function onInput (val) {
+    function onInput(val) {
       mValue.value = Number(val)
     }
 
@@ -127,9 +123,9 @@ export default {
       mValue,
       minus,
       add,
-      onInput
+      onInput,
     }
-  }
+  },
 }
 </script>
 

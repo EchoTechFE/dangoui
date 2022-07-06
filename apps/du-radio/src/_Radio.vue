@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed } from 'vue'
 import DuIcon from '@frontend/du-icon/src/Icon.vue'
 import styleToCss from 'style-object-to-css-string'
 

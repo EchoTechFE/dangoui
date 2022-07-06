@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import { computed, defineComponent } from '@vue/composition-api'
+
+import { computed, defineComponent } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 

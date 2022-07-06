@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { computed, watch, ref } from '@vue/composition-api'
+
+import { computed, watch, ref } from 'vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
 
@@ -125,7 +126,7 @@ export default {
       },
       {
         immediate: true,
-      },
+      }
     )
 
     return {

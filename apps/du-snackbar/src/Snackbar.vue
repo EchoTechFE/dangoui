@@ -1,14 +1,7 @@
 <template>
   <transition name="fade">
-    <div
-      :style="style"
-      :class="className"
-      v-if="show"
-    >
-      <div
-        v-if="showClose"
-        class="du-snackbar__close"
-      >
+    <div :style="style" :class="className" v-if="show">
+      <div v-if="showClose" class="du-snackbar__close">
         <DuIcon
           @click="emitClose"
           extClass="du-snackbar__close__icon"
@@ -16,15 +9,15 @@
         />
         <div class="du-snackbar__close__bgc"></div>
       </div>
-      {{content}}
+      {{ content }}
       <DuButton
-        :text="mergedProps.text"
-        :type="mergedProps.type"
-        :size="mergedProps.size"
-        :ghost="mergedProps.ghost"
-        :round="mergedProps.round"
-        :extClass="mergedProps.extClass"
-        :extStyle="mergedProps.extStyle"
+        :text="mergedProps?.text"
+        :type="mergedProps?.type"
+        :size="mergedProps?.size"
+        :ghost="mergedProps?.ghost"
+        :round="mergedProps?.round"
+        :extClass="mergedProps?.extClass"
+        :extStyle="mergedProps?.extStyle"
         @click="emitAction"
         :style="{ flex: 'none', marginLeft: 'auto' }"
       />
@@ -33,7 +26,8 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+
+import { computed } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
@@ -42,87 +36,90 @@ import DuIcon from '@frontend/du-icon/src/Icon.vue'
 export default {
   components: {
     DuButton,
-    DuIcon
+    DuIcon,
   },
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: ''
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: ''
+      default: '',
     },
     offset: {
       type: Number,
-      default: 0
+      default: 0,
     },
     offsetPosition: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
     },
     duration: {
       type: Number,
-      default: 0
+      default: 0,
     },
     content: {
       type: String,
-      default: ''
+      default: '',
     },
     show: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showClose: {
       type: Boolean,
-      default: false
+      default: false,
     },
     buttonProps: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     revertColor: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   emits: ['close', 'action'],
   setup(props, { emit }) {
     const className = computed(() => {
-      const { extClass, revertColor } = props;
-      return classNames('du-snackbar', extClass, { 'revert-color': revertColor })
-    });
+      const { extClass, revertColor } = props
+      return classNames('du-snackbar', extClass, {
+        'revert-color': revertColor,
+      })
+    })
     const style = computed(() => {
-      const { extStyle, offset, offsetPosition } = props;
-      const vw = offset / 7.5;
-      const defaultStyle = offset > 0
-        ? {
-            position: 'fixed',
-            left: 0,
-            right: 0,
-            [offsetPosition]: `${vw}vw`,
-          }
-        : {};
-      const defaultStyleString = styleToCss(defaultStyle);
+      const { extStyle, offset, offsetPosition } = props
+      const vw = offset / 7.5
+      const defaultStyle =
+        offset > 0
+          ? {
+              position: 'fixed',
+              left: 0,
+              right: 0,
+              [offsetPosition]: `${vw}vw`,
+            }
+          : {}
+      const defaultStyleString = styleToCss(defaultStyle)
       return typeof extStyle === 'string'
         ? `${extStyle};${defaultStyleString}`
         : styleToCss({
             ...defaultStyle,
-            ...extStyle
+            ...extStyle,
           })
-    });
+    })
     const mergedProps = computed(() => {
-      const { buttonProps } = props;
+      const { buttonProps } = props
       const extClass = classNames('du-snackbar__action', buttonProps.extClass)
       return {
         size: 'mini',
         ...buttonProps,
-        extClass
+        extClass,
       }
-    });
-    const emitClose = () => emit('close');
-    const emitAction = () => emit('action');
-    const { duration } = props;
+    })
+    const emitClose = () => emit('close')
+    const emitAction = () => emit('action')
+    const { duration } = props
     if (duration > 0) {
       setTimeout(emitClose, duration * 1000)
     }
@@ -131,12 +128,12 @@ export default {
       style,
       mergedProps,
       emitClose,
-      emitAction
+      emitAction,
     }
   },
   options: {
-    styleIsolation: 'shared'
-  }
+    styleIsolation: 'shared',
+  },
 }
 </script>
 
@@ -187,7 +184,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 .fade-enter,
 .fade-leave-to {

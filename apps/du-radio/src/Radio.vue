@@ -1,13 +1,18 @@
 <template>
-  <div v-if="config.custom" :class="className" :styles="style" @click="handleClick">
+  <div
+    v-if="config?.custom"
+    :class="className"
+    :styles="style"
+    @click="handleClick"
+  >
     <slot />
   </div>
   <div v-else :class="className" :styles="style" @click="handleClick">
-    <template v-if="config.shape === 'normal'">
-      <template v-if="config.cell">
+    <template v-if="config?.shape === 'normal'">
+      <template v-if="config?.cell">
         <div class="du-radio__label">
           <slot>
-            {{ config.label }}
+            {{ config?.label }}
           </slot>
         </div>
         <RadioIcon :checked="checked" />
@@ -16,22 +21,36 @@
         <RadioIcon :checked="checked" />
         <div class="du-radio__label">
           <slot>
-            {{ config.label }}
+            {{ config?.label }}
           </slot>
         </div>
       </template>
     </template>
 
-    <DuButton v-else-if="config.shape === 'button'" size="mini" :type="checked ? 'primary' : 'info'">
+    <DuButton
+      v-else-if="config.shape === 'button'"
+      size="mini"
+      :type="checked ? 'primary' : 'info'"
+    >
       <slot>
-        {{ config.label }}
+        {{ config?.label }}
       </slot>
     </DuButton>
   </div>
 </template>
 
 <script>
-import { computed, watch, ref, inject, reactive, toRefs, defineComponent, toRaw } from '@vue/composition-api'
+
+import {
+  computed,
+  watch,
+  ref,
+  inject,
+  reactive,
+  toRefs,
+  defineComponent,
+  toRaw,
+} from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
@@ -84,7 +103,7 @@ export default defineComponent({
     },
     value: {},
   },
-  emits: ['click', 'input'],
+  emits: ['click', 'input', 'update:value', 'input'],
   setup(props, { emit }) {
     const GROUP_VALUE_DEFAULT = {}
     const groupConfig = inject('groupConfig', null)
@@ -104,7 +123,7 @@ export default defineComponent({
       },
       {
         immediate: true,
-      },
+      }
     )
 
     watch(
@@ -116,11 +135,21 @@ export default defineComponent({
       },
       {
         immediate: true,
-      },
+      }
     )
 
     const config = computed(() => {
-      const { extStyle, extClass, label, inline, cancel, custom, disabled, shape, cell } = {
+      const {
+        extStyle,
+        extClass,
+        label,
+        inline,
+        cancel,
+        custom,
+        disabled,
+        shape,
+        cell,
+      } = {
         ...props,
         ...props.options,
       }
@@ -148,7 +177,7 @@ export default defineComponent({
           'du-radio--disabled': disabled,
           'du-radio--cell': cell,
         },
-        extClass,
+        extClass
       )
     })
 
@@ -173,6 +202,7 @@ export default defineComponent({
         groupUpdateValue(val)
       }
       emit('input', val)
+      emit('update:value', val)
     }
 
     function handleClick() {

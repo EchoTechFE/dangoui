@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
 import { DuPopup } from '@frontend/du-popup/src/index.js'
 import DuButton from '@frontend/du-button/src/Button.vue'
 import ScrollView from '../components/ScrollView.vue'
@@ -7,7 +6,6 @@ import './theme.scss'
 
 import '@frontend/du-styles/styles/index.scss'
 
-Vue.use(VueCompositionApi)
 Vue.component('scroll-view', ScrollView)
 
 export default {

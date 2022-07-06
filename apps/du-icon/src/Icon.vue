@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+
+import { computed } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import iconConfig from './iconfont-config.json'

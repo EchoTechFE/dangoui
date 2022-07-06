@@ -5,55 +5,55 @@
         :class="[
           'du-form-item__label',
           {
-            'du-form-item__label--right': config.labelAlign === 'right',
+            'du-form-item__label--right': config?.labelAlign === 'right',
           },
         ]"
         :style="{
-          width: config.slotNextLine ? '100%' : config.labelSize,
+          width: config?.slotNextLine ? '100%' : config?.labelSize,
         }"
       >
-        {{ config.label }}
-        <span v-if="config.required" class="du-form-item__label__required">
+        {{ config?.label }}
+        <span v-if="config?.required" class="du-form-item__label__required">
           *
         </span>
 
         <img
-          v-if="config.info"
+          v-if="config?.info"
           class="du-form-item__label__info"
           src="https://cdn.qiandaoapp.com/admins/13d2521b24ec1f305671e4a5cb29877c.png"
           @click="handleInfoTap"
         />
-        <span class="du-form-item__label__dirty" v-if="config.isDirty">
+        <span class="du-form-item__label__dirty" v-if="config?.isDirty">
           已修改
         </span>
       </div>
-      <div v-if="!config.slotNextLine" class="du-form-item__slot">
+      <div v-if="!config?.slotNextLine" class="du-form-item__slot">
         <div>
           <slot />
         </div>
         <slot name="tips">
           <div
-            v-if="config.tips"
+            v-if="config?.tips"
             class="du-form-item__tips"
             selectable
             user-select
           >
-            {{ config.tips }}
+            {{ config?.tips }}
           </div>
         </slot>
       </div>
     </div>
-    <div v-if="config.slotNextLine" class="du-form-item__slot">
+    <div v-if="config?.slotNextLine" class="du-form-item__slot">
       <slot />
       <div>
         <slot name="tips">
           <text
-            v-if="config.tips"
+            v-if="config?.tips"
             class="du-form-item__tips"
             selectable
             user-select
           >
-            {{ config.tips }}
+            {{ config?.tips }}
           </text>
         </slot>
       </div>
@@ -62,37 +62,32 @@
 </template>
 
 <script>
-import {
-  ref,
-  computed,
-  provide,
-  inject,
-  onBeforeUnmount,
-} from "@vue/composition-api";
-import styleToCss from "style-object-to-css-string";
-import classNames from "classnames";
+
+import { ref, computed, provide, inject, onBeforeUnmount } from 'vue'
+import styleToCss from 'style-object-to-css-string'
+import classNames from 'classnames'
 
 export default {
   props: {
     extClass: {
       type: [String, Array, Object],
-      default: "",
+      default: '',
     },
     extStyle: {
       type: [String, Object],
-      default: "",
+      default: '',
     },
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     labelAlign: {
       type: String,
-      default: "",
+      default: '',
     },
     labelSize: {
       type: String,
-      default: "",
+      default: '',
     },
     slotNextLine: {
       type: Boolean,
@@ -100,7 +95,7 @@ export default {
     },
     tips: {
       type: String,
-      default: "",
+      default: '',
     },
     required: {
       type: Boolean,
@@ -120,10 +115,10 @@ export default {
     },
   },
   setup(props) {
-    const formLabelSize = inject("formLabelSize", "");
-    const formLabelAlign = inject("formLabelAlign", "");
+    const formLabelSize = inject('formLabelSize', '')
+    const formLabelAlign = inject('formLabelAlign', '')
 
-    const onClickListeners = ref([]);
+    const onClickListeners = ref([])
 
     const config = computed(() => {
       const {
@@ -140,7 +135,7 @@ export default {
       } = {
         ...props,
         ...props.options,
-      };
+      }
 
       return Object.freeze({
         label,
@@ -153,48 +148,48 @@ export default {
         extClass,
         slotNextLine,
         isDirty,
-      });
-    });
+      })
+    })
 
     const style = computed(() => {
-      const { extStyle } = config.value;
-      return typeof extStyle === "string"
+      const { extStyle } = config.value
+      return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
             ...extStyle,
-          });
-    });
+          })
+    })
 
     const className = computed(() => {
-      const { extClass, slotNextLine } = config.value;
+      const { extClass, slotNextLine } = config.value
       return classNames(
-        "du-form-item",
+        'du-form-item',
         {
-          "du-form-item--slot-next-line": slotNextLine,
+          'du-form-item--slot-next-line': slotNextLine,
         },
         extClass
-      );
-    });
+      )
+    })
 
     onBeforeUnmount(() => {
-      onClickListeners.value = null;
-    });
+      onClickListeners.value = null
+    })
 
     function onClick() {
       onClickListeners.value.forEach((fn) => {
-        typeof fn === "function" && fn();
-      });
+        typeof fn === 'function' && fn()
+      })
     }
 
     function listenOnClick(listener) {
-      onClickListeners.value.push(listener);
+      onClickListeners.value.push(listener)
     }
 
     function handleInfoTap() {
       // todo:
     }
 
-    provide("listenFormItemOnClick", listenOnClick);
+    provide('listenFormItemOnClick', listenOnClick)
 
     return {
       className,
@@ -203,9 +198,9 @@ export default {
       onClick,
       listenOnClick,
       handleInfoTap,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss">

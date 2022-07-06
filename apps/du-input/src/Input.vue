@@ -1,48 +1,49 @@
 <template>
   <div class="du-input" :style="style" :class="className">
-    <div v-if="config.prefix" class="du-input__prefix">
-      {{ config.prefix }}
+    <div v-if="config?.prefix" class="du-input__prefix">
+      {{ config?.prefix }}
     </div>
     <input
       :class="[
         'du-input__input',
         {
-          'du-input__input--align-right': config.inputAlign === 'right',
-          'du-input__input--align-center': config.inputAlign === 'center',
-          'du-input__input--disabled': config.disabled,
-          'du-input__input--without-border': config.withoutBorder,
+          'du-input__input--align-right': config?.inputAlign === 'right',
+          'du-input__input--align-center': config?.inputAlign === 'center',
+          'du-input__input--disabled': config?.disabled,
+          'du-input__input--without-border': config?.withoutBorder,
         },
       ]"
       placeholder-class="du-input__input--placeholder"
-      :type="config.type"
-      :placeholder="config.placeholder"
-      :disabled="config.disabled"
-      :maxlength="config.maxlength"
+      :type="config?.type"
+      :placeholder="config?.placeholder"
+      :disabled="config?.disabled"
+      :maxlength="config?.maxlength"
       :focus="focus"
-      :password="config.password"
-      :cursor-spacing="config.cursorSpacing"
-      :confirm-type="config.confirmType"
-      :always-embed="config.alwaysEmbed"
-      :confirm-hold="config.confirmHold"
-      :selection-start="config.selectionStart"
-      :selection-end="config.selectionEnd"
-      :adjust-position="config.adjustPosition"
+      :password="config?.password"
+      :cursor-spacing="config?.cursorSpacing"
+      :confirm-type="config?.confirmType"
+      :always-embed="config?.alwaysEmbed"
+      :confirm-hold="config?.confirmHold"
+      :selection-start="config?.selectionStart"
+      :selection-end="config?.selectionEnd"
+      :adjust-position="config?.adjustPosition"
       :value="mValue"
-      :autofocus="config.autofocus"
+      :autofocus="config?.autofocus"
       @input="onInnerInput"
       @focus="onFocus"
       @blur="onBlur"
       @confirm="onConfirm"
       @keyboardheightchange="onKeyboardHeightChange"
     />
-    <div v-if="config.suffix" class="du-input__suffix">
-      {{ config.suffix }}
+    <div v-if="config?.suffix" class="du-input__suffix">
+      {{ config?.suffix }}
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed, watch, inject, defineComponent } from '@vue/composition-api'
+
+import { ref, computed, watch, inject, defineComponent } from 'vue'
 
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
@@ -65,7 +66,15 @@ export default defineComponent({
         // 'number', 'idcard', 'digit', 'safe-password', 'nickname' 为小程序特有
         // 'password' web特有
         return (
-          ['text', 'password', 'number', 'idcard', 'digit', 'safe-password', 'nickname'].indexOf(value) !== -1
+          [
+            'text',
+            'password',
+            'number',
+            'idcard',
+            'digit',
+            'safe-password',
+            'nickname',
+          ].indexOf(value) !== -1
         )
       },
     },
@@ -156,7 +165,15 @@ export default defineComponent({
     },
     //todo: 小程序safe-password相关
   },
-  emits: ['input', 'change', 'focus', 'blur', 'confirm', 'keyboardheightchange'],
+  emits: [
+    'input',
+    'change',
+    'focus',
+    'blur',
+    'confirm',
+    'keyboardheightchange',
+    'update:value',
+  ],
   setup(props, { emit }) {
     const mValue = ref('')
     const focus = ref('')
@@ -194,7 +211,7 @@ export default defineComponent({
       },
       {
         immediate: true,
-      },
+      }
     )
 
     watch(
@@ -204,12 +221,13 @@ export default defineComponent({
       },
       {
         immediate: true,
-      },
+      }
     )
 
     watch(mValue, (val) => {
       if (val !== props.value) {
         emit('input', val)
+        emit('update:value', val)
         emit('change', val)
       }
     })

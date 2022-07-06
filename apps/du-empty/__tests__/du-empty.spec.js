@@ -1,11 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import CompositionApi from '@vue/composition-api'
-import Vue from 'vue'
-
 import { DuEmpty } from '../src/index.js'
-
-Vue.use(CompositionApi)
 
 describe('@frontend/du-empty', () => {
   it('test empty', () => {

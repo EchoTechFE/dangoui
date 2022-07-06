@@ -1,10 +1,6 @@
-import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
 import { DuCheckbox, DuCheckboxGroup } from '@frontend/du-checkbox/src/index.js'
 
 import '@frontend/du-styles/styles/index.scss'
-
-Vue.use(VueCompositionApi)
 
 export default {
   title: 'Checkbox',
@@ -66,20 +62,20 @@ const Template = (args, { argTypes }) => ({
           <du-checkbox label="coat">大衣</du-checkbox>
         </du-checkbox-group>
       </div>
-      
+
       <div>
         <h3>使用options生成的checkbox</h3>
         <du-checkbox-group :options="options" v-model="optionsGroupValue" position="left" />
       </div>
-      
-      
+
+
       <div>
         <h3>单个多选</h3>
         <du-checkbox :ext-style="singleStyle"  label="single-check" :value="singleCheckboxValue" @click="onCheckboxClick" >
           这是单个多选器
         </du-checkbox>
       </div>
-      
+
     </div>
   `,
 })

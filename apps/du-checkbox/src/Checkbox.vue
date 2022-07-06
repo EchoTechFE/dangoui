@@ -6,12 +6,20 @@
     <div class="du-checkbox__label">
       <slot>{{ content }}</slot>
     </div>
-    <checkbox-icon :selected="selected" :shape="config.shape" />
+    <checkbox-icon :selected="selected" :shape="config?.shape" />
   </div>
 </template>
 
 <script>
-import { reactive, computed, inject, ref, getCurrentInstance, toRefs } from '@vue/composition-api'
+
+import {
+  reactive,
+  computed,
+  inject,
+  ref,
+  getCurrentInstance,
+  toRefs,
+} from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import CheckboxIcon from './CheckboxIcon.vue'
@@ -72,13 +80,16 @@ export default {
       default: 'right',
     },
   },
-  emits: ['click', 'input'],
+  emits: ['click', 'input', 'update:value', 'input'],
   setup(props, { emit }) {
     const state = reactive({
       currentVal: false,
     })
 
-    const parentGroup = findComponentUpward(getCurrentInstance(), 'du-checkbox-group')
+    const parentGroup = findComponentUpward(
+      getCurrentInstance(),
+      'du-checkbox-group'
+    )
 
     const groupConfig = parentGroup ? inject('groupConfig') : ref({})
     const groupValue = parentGroup ? inject('groupValue') : ref([])
@@ -111,8 +122,22 @@ export default {
     // )
 
     const config = computed(() => {
-      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position } = props
-      const { shape: gShape, inline: gInline, position: gPosition } = groupConfig.value
+      const {
+        extClass,
+        extStyle,
+        shape,
+        inline,
+        disabled,
+        label,
+        value,
+        custom,
+        position,
+      } = props
+      const {
+        shape: gShape,
+        inline: gInline,
+        position: gPosition,
+      } = groupConfig.value
 
       return Object.freeze({
         extClass,
@@ -135,13 +160,15 @@ export default {
           'du-checkbox--disabled': disabled,
           'du-checkbox--inline': inline,
         },
-        extClass,
+        extClass
       )
     })
 
     const style = computed(() => {
       const { extStyle } = config.value
-      return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
+      return typeof extStyle === 'string'
+        ? extStyle
+        : styleToCss({ ...extStyle })
     })
 
     const selected = computed(() => {
@@ -163,6 +190,8 @@ export default {
       emit('click', state.currentVal)
       emit('input', state.currentVal)
 
+      emit('update:value', state.currentVal)
+
       if (groupValue.value && setGroupValue) {
         let gv
         if (state.currentVal) {
@@ -174,7 +203,15 @@ export default {
       }
     }
 
-    return { style, className, config, selected, content, onClick, ...toRefs(state) }
+    return {
+      style,
+      className,
+      config,
+      selected,
+      content,
+      onClick,
+      ...toRefs(state),
+    }
   },
 }
 </script>
