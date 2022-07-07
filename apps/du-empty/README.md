@@ -27,6 +27,9 @@
 9. contentDeleted: 内容已删除
 10. contentInvisible: 内容已下架
 11. notFound: 内容不存在
+12. verifying: 审核中
+13. verifySucceeded: 审核成功
+14. verifyFailed: 审核失败
 
 ### emit 事件
 

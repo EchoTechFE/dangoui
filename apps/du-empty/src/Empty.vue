@@ -2,46 +2,33 @@
   <div :class="className" :style="style">
     <img class="du-empty__img" :src="emptyImg" />
     <div class="du-empty__text">{{ text }}</div>
-    <DuButton
-      v-if="buttonText"
-      type="secondary"
-      @click="handleBtnClick"
-      :extStyle="buttonStyle"
-      >{{ buttonText }}</DuButton
-    >
+    <DuButton v-if="buttonText" type="secondary" @click="handleBtnClick" :extStyle="buttonStyle">{{
+      buttonText
+    }}</DuButton>
   </div>
 </template>
 
 <script>
-
 import { computed } from 'vue'
 import DuButton from '@frontend/du-button/src/Button.vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
 const EMPTY_IMGS = {
-  networkError:
-    'https://cdn.qiandaoapp.com/admins/289067294fdf43de41e1f996021c5d73.png',
-  offline:
-    'https://cdn.qiandaoapp.com/admins/c712b6f407895e52fcce0b92497ab557.png',
-  serviceError:
-    'https://cdn.qiandaoapp.com/admins/6359b06f0b089c2ce8cb26c9af6cb5c2.png',
-  loadError:
-    'https://cdn.qiandaoapp.com/admins/25e1cc3b209a3e8bea72a951c2a1149b.png',
-  success:
-    'https://cdn.qiandaoapp.com/admins/c5725e0cceb165232a7e7544302bb919.png',
-  error:
-    'https://cdn.qiandaoapp.com/admins/9ef7e8e31c6defd954932cb4015409d8.png',
-  empty:
-    'https://cdn.qiandaoapp.com/admins/438d469aaf9f771eaa3b2ffb054c2a68.png',
-  searchEmpty:
-    'https://cdn.qiandaoapp.com/admins/28c1ee429a239e8f8d4155c162d95e00.png',
-  contentDeleted:
-    'https://cdn.qiandaoapp.com/admins/efe2db4b53268df530806bcb70c787b0.png',
-  contentInvisible:
-    'https://cdn.qiandaoapp.com/admins/909f214c5c5d96143d5a238907a1b54d.png',
-  notFound:
-    'https://cdn.qiandaoapp.com/admins/a45c87c7e9beb5ef47cd81459afe6723.png',
+  networkError: 'https://cdn.qiandaoapp.com/admins/289067294fdf43de41e1f996021c5d73.png',
+  offline: 'https://cdn.qiandaoapp.com/admins/c712b6f407895e52fcce0b92497ab557.png',
+  serviceError: 'https://cdn.qiandaoapp.com/admins/6359b06f0b089c2ce8cb26c9af6cb5c2.png',
+  loadError: 'https://cdn.qiandaoapp.com/admins/25e1cc3b209a3e8bea72a951c2a1149b.png',
+  success: 'https://cdn.qiandaoapp.com/admins/c5725e0cceb165232a7e7544302bb919.png',
+  error: 'https://cdn.qiandaoapp.com/admins/9ef7e8e31c6defd954932cb4015409d8.png',
+  empty: 'https://cdn.qiandaoapp.com/admins/438d469aaf9f771eaa3b2ffb054c2a68.png',
+  searchEmpty: 'https://cdn.qiandaoapp.com/admins/28c1ee429a239e8f8d4155c162d95e00.png',
+  contentDeleted: 'https://cdn.qiandaoapp.com/admins/efe2db4b53268df530806bcb70c787b0.png',
+  contentInvisible: 'https://cdn.qiandaoapp.com/admins/909f214c5c5d96143d5a238907a1b54d.png',
+  notFound: 'https://cdn.qiandaoapp.com/admins/a45c87c7e9beb5ef47cd81459afe6723.png',
+  verifying: 'https://cdn.qiandaoapp.com/admins/b12c6d466d3d575d6f50f61a9b323f9b.png',
+  verifySucceeded: 'https://cdn.qiandaoapp.com/admins/ff3994b2eb9df1347ac45f2eb35e78b2.png',
+  verifyFailed: 'https://cdn.qiandaoapp.com/admins/6427d68de587f0cd9eff94a036723403.png',
 }
 
 export default {
@@ -52,7 +39,7 @@ export default {
   props: {
     image: {
       type: String,
-      default: '',
+      default: 'empty',
     },
 
     text: {
