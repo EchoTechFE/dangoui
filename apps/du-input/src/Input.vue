@@ -240,13 +240,11 @@ export default defineComponent({
     }
 
     function onFocus(...args) {
-      console.log('focus')
       switchFocus(true)
       emit('focus', ...args)
     }
 
     function onBlur(...args) {
-      console.log('blur')
       switchFocus(false)
       emit('blur', ...args)
     }

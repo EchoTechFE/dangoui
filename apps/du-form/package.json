@@ -1,11 +1,11 @@
 {
   "name": "@frontend/du-form",
-  "version": "2.0.0-alpha.12",
+  "version": "2.0.0",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {
     "build": "vue-cli-service build --target lib --name DuForm --filename index src/index.js",
-    "test:unit": "echo \"no test specified\" && exit 0"
+    "test:unit": "vue-cli-service test:unit"
   },
   "typings": "types/index.d.ts",
   "dependencies": {

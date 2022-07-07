@@ -13,9 +13,7 @@
         }"
       >
         {{ config?.label }}
-        <span v-if="config?.required" class="du-form-item__label__required">
-          *
-        </span>
+        <span v-if="config?.required" class="du-form-item__label__required"> * </span>
 
         <img
           v-if="config?.info"
@@ -23,21 +21,14 @@
           src="https://cdn.qiandaoapp.com/admins/13d2521b24ec1f305671e4a5cb29877c.png"
           @click="handleInfoTap"
         />
-        <span class="du-form-item__label__dirty" v-if="config?.isDirty">
-          已修改
-        </span>
+        <span class="du-form-item__label__dirty" v-if="config?.isDirty"> 已修改 </span>
       </div>
       <div v-if="!config?.slotNextLine" class="du-form-item__slot">
         <div>
           <slot />
         </div>
         <slot name="tips">
-          <div
-            v-if="config?.tips"
-            class="du-form-item__tips"
-            selectable
-            user-select
-          >
+          <div v-if="config?.tips" class="du-form-item__tips" selectable user-select>
             {{ config?.tips }}
           </div>
         </slot>
@@ -47,12 +38,7 @@
       <slot />
       <div>
         <slot name="tips">
-          <text
-            v-if="config?.tips"
-            class="du-form-item__tips"
-            selectable
-            user-select
-          >
+          <text v-if="config?.tips" class="du-form-item__tips" selectable user-select>
             {{ config?.tips }}
           </text>
         </slot>
@@ -62,7 +48,6 @@
 </template>
 
 <script>
-
 import { ref, computed, provide, inject, onBeforeUnmount } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
@@ -102,7 +87,7 @@ export default {
       default: false,
     },
     info: {
-      type: Boolean,
+      type: [String, Boolean],
       default: false,
     },
     isDirty: {
@@ -114,7 +99,8 @@ export default {
       default: () => ({}),
     },
   },
-  setup(props) {
+  emits: ['showInfo'],
+  setup(props, { emit }) {
     const formLabelSize = inject('formLabelSize', '')
     const formLabelAlign = inject('formLabelAlign', '')
 
@@ -167,7 +153,7 @@ export default {
         {
           'du-form-item--slot-next-line': slotNextLine,
         },
-        extClass
+        extClass,
       )
     })
 
@@ -186,7 +172,7 @@ export default {
     }
 
     function handleInfoTap() {
-      // todo:
+      emit('showInfo', config.value.info)
     }
 
     provide('listenFormItemOnClick', listenOnClick)

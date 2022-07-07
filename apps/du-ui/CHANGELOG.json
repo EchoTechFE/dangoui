@@ -1,0 +1,47 @@
+{
+  "name": "@frontend/dumpling",
+  "entries": [
+    {
+      "version": "2.0.0",
+      "tag": "@frontend/dumpling_v2.0.0",
+      "date": "Thu, 07 Jul 2022 06:24:14 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "button支持arrow-right属性"
+          },
+          {
+            "comment": "add du empty"
+          },
+          {
+            "comment": "使用gitlab registry"
+          },
+          {
+            "comment": "radio 支持 cell 属性"
+          },
+          {
+            "comment": "update icon"
+          },
+          {
+            "comment": "update icon"
+          },
+          {
+            "comment": "update icon"
+          },
+          {
+            "comment": "input组件更新"
+          },
+          {
+            "comment": "fix find icon"
+          },
+          {
+            "comment": "FormItem抛出showInfo事件"
+          },
+          {
+            "comment": "尝试修复radio icon在小程序的显示"
+          }
+        ]
+      }
+    }
+  ]
+}

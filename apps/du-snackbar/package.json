@@ -1,9 +1,8 @@
 {
   "name": "@frontend/du-snackbar",
-  "version": "2.0.0-alpha.12",
+  "version": "2.0.0",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
-
   "scripts": {
     "build": "vue-cli-service build --target lib --name DuSnackbar --filename index src/index.js",
     "test:unit": "echo \"no test specified\" && exit 0"
