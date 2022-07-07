@@ -31,18 +31,14 @@
 </template>
 
 <script>
-
 import { ref, watch } from 'vue'
 
 import DuInput from '@frontend/du-input/src/Input.vue'
 const ICONS = {
-  minus:
-    'https://cdn.qiandaoapp.com/admins/2cdeaab50e4e21960d680fe9243f5d4b.png',
-  minusDisabled:
-    'https://cdn.qiandaoapp.com/admins/7a42dab4cc6f6b6f6be4fc79f0287df1.png',
+  minus: 'https://cdn.qiandaoapp.com/admins/2cdeaab50e4e21960d680fe9243f5d4b.png',
+  minusDisabled: 'https://cdn.qiandaoapp.com/admins/7a42dab4cc6f6b6f6be4fc79f0287df1.png',
   add: 'https://cdn.qiandaoapp.com/admins/c8baffc5ffdc0c42f2e6120c31934867.png',
-  addDisabled:
-    'https://cdn.qiandaoapp.com/admins/65665d81f293a99bea9fafc600f0b32c.png',
+  addDisabled: 'https://cdn.qiandaoapp.com/admins/65665d81f293a99bea9fafc600f0b32c.png',
 }
 
 export default {
@@ -81,7 +77,7 @@ export default {
   },
   emits: ['input', 'change', 'update:value'],
   setup(props, { emit }) {
-    const mValue = ref(props.min)
+    const mValue = ref(props.value)
 
     watch(
       () => props.value,
@@ -89,7 +85,7 @@ export default {
         if (mValue.value !== val) {
           mValue.value = val
         }
-      }
+      },
     )
 
     watch(mValue, (val) => {
