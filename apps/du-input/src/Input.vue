@@ -161,7 +161,7 @@ export default defineComponent({
     },
     adjustPosition: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     //todo: 小程序safe-password相关
   },

@@ -12,8 +12,8 @@
   {
     "policyName": "du",
     "definitionName": "lockStepVersion",
-    "version": "2.1.0",
-    "nextBump": "minor",
+    "version": "2.1.1",
+    "nextBump": "patch",
     "mainProject": "@frontend/dumpling"
   }
   // {

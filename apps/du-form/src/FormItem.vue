@@ -19,7 +19,7 @@
           v-if="config?.info"
           class="du-form-item__label__info"
           src="https://cdn.qiandaoapp.com/admins/13d2521b24ec1f305671e4a5cb29877c.png"
-          @click="handleInfoTap"
+          @click.stop="handleInfoTap"
         />
         <span class="du-form-item__label__dirty" v-if="config?.isDirty"> 已修改 </span>
       </div>
