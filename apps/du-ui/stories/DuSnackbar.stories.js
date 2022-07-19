@@ -9,11 +9,13 @@ export default {
   argTypes: {},
 }
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: {
     DuButton,
     DuSnackbar,
+  },
+  setup() {
+    return { args }
   },
   data() {
     return {

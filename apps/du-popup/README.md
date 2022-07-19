@@ -39,7 +39,7 @@ const Template = (args, { argTypes }) => ({
         <div>这是内容</div>
         <div>这是内容</div>
       </DuPopup>
-      <DuPopup :visible.sync="centerVisible" title="选择日期（最多可选30天）" type="center" extStyle="width: 300px;" :maskClick="false">
+      <DuPopup v-model:visible="centerVisible" title="选择日期（最多可选30天）" type="center" extStyle="width: 300px;" :maskClick="false">
         <div style="padding: 8px;">
           <div>这是内容</div>
           <div>这是内容</div>

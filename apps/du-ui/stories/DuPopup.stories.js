@@ -1,12 +1,8 @@
-import Vue from 'vue'
 import { DuPopup } from '@frontend/du-popup/src/index.js'
 import DuButton from '@frontend/du-button/src/Button.vue'
-import ScrollView from '../components/ScrollView.vue'
 import './theme.scss'
 
 import '@frontend/du-styles/styles/index.scss'
-
-Vue.component('scroll-view', ScrollView)
 
 export default {
   title: 'Popup',
@@ -14,7 +10,6 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
   components: { DuPopup, DuButton },
   data() {
     return {
@@ -22,6 +17,9 @@ const Template = (args, { argTypes }) => ({
       centerVisible: false,
       topVisible: false,
     }
+  },
+  setup() {
+    return { args }
   },
   template: `
     <div style="margin-top: 18px; background: #fff;">
@@ -32,13 +30,13 @@ const Template = (args, { argTypes }) => ({
         <div>这是内容</div>
         <div>这是内容</div>
       </DuPopup>
-      <DuPopup :visible.sync="centerVisible" title="选择日期（最多可选30天）" type="center" extStyle="width: 300px;" :maskClick="false">
+      <DuPopup v-model:visible="centerVisible" title="选择日期（最多可选30天）" type="center" extStyle="width: 300px;" :maskClick="false">
         <div style="padding: 8px;">
           <div>这是内容</div>
           <div>这是内容</div>
         </div>
       </DuPopup>
-      <DuPopup :visible.sync="topVisible" title="选择日期（最多可选30天）" type="top" :headerVisible="false">
+      <DuPopup v-model:visible="topVisible" title="选择日期（最多可选30天）" type="top" :headerVisible="false">
         <div style="padding: 8px;">
           <div>这是内容</div>
           <div>这是内容</div>
@@ -48,10 +46,12 @@ const Template = (args, { argTypes }) => ({
   `,
   methods: {
     handleOpen() {
+      console.log('open open')
       this.visible = true
     },
 
     handleClose() {
+      console.log('???')
       this.visible = false
     },
 

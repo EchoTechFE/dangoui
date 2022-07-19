@@ -1,19 +1,21 @@
-import { DuCalendar } from '@frontend/du-calendar/src/index.js';
-import ScrollView from '../components/ScrollView.vue';
-import  DuButton from '@frontend/du-button/src/Button.vue'
+import { DuCalendar } from '@frontend/du-calendar/src/index.js'
+import ScrollView from '../components/ScrollView.vue'
+import DuButton from '@frontend/du-button/src/Button.vue'
 
-import '@frontend/du-styles/styles/index.scss';
-import './theme.scss';
+import '@frontend/du-styles/styles/index.scss'
+import './theme.scss'
 
 export default {
   title: 'Calendar',
   component: DuCalendar,
   argTypes: {},
-};
+}
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: { DuCalendar, DuButton },
+  setup() {
+    return { args }
+  },
   data() {
     return {
       singleVisible: false,
@@ -23,9 +25,14 @@ const Template = (args, { argTypes }) => ({
       minSelectDate: new Date('2021-10-21'),
       maxSelectDate: new Date('2022-04-20'),
       defaultDateArray: [
-        new Date('2021-10-21'), new Date('2022-01-15'), new Date('2022-01-20'),
-        new Date('2022-01-29'), new Date('2022-02-16'), new Date(),
-        new Date('2022-03-20'), new Date('2022-04-20'),
+        new Date('2021-10-21'),
+        new Date('2022-01-15'),
+        new Date('2022-01-20'),
+        new Date('2022-01-29'),
+        new Date('2022-02-16'),
+        new Date(),
+        new Date('2022-03-20'),
+        new Date('2022-04-20'),
       ],
     }
   },
@@ -59,10 +66,10 @@ const Template = (args, { argTypes }) => ({
   `,
   methods: {
     handleSingleOpen(type) {
-      this.singleVisible = true;
+      this.singleVisible = true
     },
     handleMultipleOpen(type) {
-      this.multipleVisible = true;
+      this.multipleVisible = true
     },
     handleClose() {
       this.singleVisible = false
@@ -77,8 +84,8 @@ const Template = (args, { argTypes }) => ({
       this.multipleVisible = false
     },
   },
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {};
+Default.args = {}

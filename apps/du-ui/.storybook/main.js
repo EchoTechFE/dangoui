@@ -20,7 +20,6 @@ module.exports = {
       ...config,
       define: {
         ...config.define,
-        global: 'window',
       },
     }
   },

@@ -11,13 +11,15 @@ export default {
   argTypes: {},
 }
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: { DuIcon },
+  setup() {
+    return { args }
+  },
   template: `
     <div>
       <div style="margin-bottom: 16px;">
-        <DuIcon v-bind="$props"></DuIcon>
+        <DuIcon v-bind="args"></DuIcon>
       </div>
       图标数量: ${Object.keys(iconConfig.icons).length}
       <div>
@@ -48,7 +50,7 @@ const Template = (args, { argTypes }) => ({
         </div>
         <div style="padding-top: 24px;">可以用带下划线的名字</div>
         <div style="display:flex;flex-wrap: wrap;">
-          <DuIcon name="arrow_right""></DuIcon>
+          <DuIcon name="arrow_right"></DuIcon>
           <DuIcon name="video-play" extStyle="color:var(--color-main);"></DuIcon>
         </div>
       </div>

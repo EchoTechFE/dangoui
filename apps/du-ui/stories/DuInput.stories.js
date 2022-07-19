@@ -9,15 +9,17 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
   components: { DuInput },
+  setup() {
+    return { args }
+  },
   template: `
     <div>
-      <DuInput v-bind="$props" placeholder="自动聚焦，请输入金额" prefix="￥"  suffix="精确到整数" autofocus/>
+      <DuInput v-bind="args" placeholder="自动聚焦，请输入金额" prefix="￥"  suffix="精确到整数" autofocus/>
       <div style="height: 10px" />
-      <DuInput v-bind="$props" :maxlength="10" placeholder="maxlength 10"/>
+      <DuInput v-bind="args" :maxlength="10" placeholder="maxlength 10"/>
       <div style="height: 10px" />
-      <DuInput v-bind="$props" inputAlign="right" placeholder="inputAlign='right'" />
+      <DuInput v-bind="args" inputAlign="right" placeholder="inputAlign='right'" />
       <div style="height: 10px" />
       <DuInput value="被禁用了哦" disabled />
       <div style="height: 10px" />

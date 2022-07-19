@@ -11,8 +11,11 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { DuEmpty },
+  setup() {
+    return { args }
+  },
   template: `
-    <DuEmpty v-bind="$props" />
+    <DuEmpty v-bind="args" />
   `,
 })
 

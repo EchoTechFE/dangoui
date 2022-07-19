@@ -11,9 +11,11 @@ export default {
   },
 }
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: { DuRadio, DuRadioGroup, DuRadioIcon },
+  setup() {
+    return { args }
+  },
   template: `
     <div>
       <div>
@@ -43,7 +45,7 @@ const Template = (args, { argTypes }) => ({
       </div>
       <div>
         <h3>todo: 自定义</h3>
-        <DuRadio v-bind="$props" label="lbb">lbb</DuRadio>
+        <DuRadio v-bind="args" label="lbb">lbb</DuRadio>
       </div>
       <div>
         <h3>内部使用的图标</h3>

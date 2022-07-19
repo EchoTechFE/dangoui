@@ -1,6 +1,6 @@
-import { DuInputNumber } from '@frontend/du-input-number/src/index.js';
+import { DuInputNumber } from '@frontend/du-input-number/src/index.js'
 
-import '@frontend/du-styles/styles/index.scss';
+import '@frontend/du-styles/styles/index.scss'
 
 export default {
   title: 'InputNumber',
@@ -8,11 +8,13 @@ export default {
   argTypes: {
     onChange: { action: 'changed' },
   },
-};
+}
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: { DuInputNumber },
+  setup() {
+    return { args }
+  },
   template: `
     <div>
       <div>
@@ -27,8 +29,8 @@ const Template = (args, { argTypes }) => ({
       </div>
     </div>
   `,
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {};
+Default.args = {}

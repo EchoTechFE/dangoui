@@ -1,7 +1,7 @@
-import { DuForm, DuFormItem } from '@frontend/du-form/src/index.js';
-import { DuInput } from '@frontend/du-input';
+import { DuForm, DuFormItem } from '@frontend/du-form/src/index.js'
+import { DuInput } from '@frontend/du-input'
 
-import '@frontend/du-styles/styles/index.scss';
+import '@frontend/du-styles/styles/index.scss'
 
 export default {
   title: 'Form',
@@ -11,17 +11,19 @@ export default {
       action: 'click',
     },
   },
-};
+}
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = (args) => ({
   components: { DuForm, DuFormItem, DuInput },
+  setup() {
+    return { args }
+  },
   template: `
     <div>
       <DuForm>
         <DuFormItem label="价格：" info required tips="金额不能小于5元">
           <DuInput
-            v-bind="$props"
+            v-bind="args"
             placeholder="请输入金额"
             :trim="true"
             prefix="￥"
@@ -36,7 +38,7 @@ const Template = (args, { argTypes }) => ({
           tips="金额不能小于5元"
         >
           <DuInput
-            v-bind="$props"
+            v-bind="args"
             placeholder="请输入金额"
             :trim="true"
             suffix="精确到整数"
@@ -50,7 +52,7 @@ const Template = (args, { argTypes }) => ({
           tips="金额不能小于5元"
         >
           <DuInput
-            v-bind="$props"
+            v-bind="args"
             placeholder="请输入金额"
             :trim="true"
             suffix="精确到整数"
@@ -59,8 +61,8 @@ const Template = (args, { argTypes }) => ({
       </DuForm>
     </div>
   `,
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
-Default.args = {};
+Default.args = {}
