@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.1",
+  "version": "2.1.3",
   "scripts": {
     "build": "vite build",
     "storybook": "start-storybook -p 6006",
