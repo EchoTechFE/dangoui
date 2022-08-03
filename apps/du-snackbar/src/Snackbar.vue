@@ -119,10 +119,14 @@ export default {
     })
     const emitClose = () => emit('close')
     const emitAction = () => emit('action')
-    const { duration } = props
-    if (duration > 0) {
-      setTimeout(emitClose, duration * 1000)
-    }
+    watch(() => props.show, show => {
+      const { duration } = props
+      if (show && duration > 0) {
+        setTimeout(emitClose, duration * 1000)
+      }
+    }, {
+      immediate: true
+    })
     return {
       className,
       style,
