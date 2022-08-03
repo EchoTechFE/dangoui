@@ -27,7 +27,7 @@
 
 <script>
 
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
