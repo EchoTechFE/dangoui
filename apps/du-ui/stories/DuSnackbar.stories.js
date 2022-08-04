@@ -19,14 +19,14 @@ const Template = (args) => ({
   },
   data() {
     return {
-      showSnackbar: true,
+      showSnackbar: false,
     }
   },
   template: `
         <div>
             <DuButton
               text="点我触发snackbar"
-              @click="toastS"
+              @click="showSnackbar = true"
             />
             <DuSnackbar
               content="风格都十分广泛的是高大上收费的"
