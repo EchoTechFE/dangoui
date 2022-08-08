@@ -162,6 +162,7 @@ pnpm run storybook
 
 - `rush change`
 - `rush version --bump` or `rush version --override-bump BUMPTYPE`
+- `rush build`
 - `rush publish --include-all -t TAG -p`
 
 ## 为什么使用 rush + pnpm

@@ -11,7 +11,7 @@ importers:
       '@frontend/du-icon': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -33,7 +33,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -52,7 +52,7 @@ importers:
       '@frontend/du-popup': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -74,7 +74,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -93,7 +93,7 @@ importers:
       '@frontend/du-icon': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -117,7 +117,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -136,7 +136,7 @@ importers:
       '@frontend/du-button': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -158,7 +158,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -176,7 +176,7 @@ importers:
       '@babel/core': ^7.12.16
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -197,7 +197,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -215,7 +215,7 @@ importers:
       '@babel/core': ^7.12.16
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -244,7 +244,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -266,7 +266,7 @@ importers:
       '@babel/core': ^7.12.16
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -287,7 +287,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -306,7 +306,7 @@ importers:
       '@frontend/du-input': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -328,7 +328,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -346,7 +346,7 @@ importers:
       '@babel/core': ^7.12.16
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -367,7 +367,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -387,7 +387,7 @@ importers:
       '@frontend/du-icon': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -410,7 +410,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -430,7 +430,7 @@ importers:
       '@frontend/du-icon': workspace:*
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -453,7 +453,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -471,7 +471,7 @@ importers:
       '@babel/core': ^7.12.16
       '@frontend/du-styles': workspace:*
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -492,7 +492,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2_vue@3.2.37
       '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
@@ -509,7 +509,7 @@ importers:
     specifiers:
       '@babel/core': ^7.12.16
       '@vue/cli-plugin-babel': ^5.0.1
-      '@vue/cli-plugin-unit-jest': ~5.0.4
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       '@vue/cli-service': ^5.0.1
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': ~27.0.0-alpha.4
@@ -520,7 +520,7 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@vue/cli-plugin-babel': 5.0.7_@vue+cli-service@5.0.7
-      '@vue/cli-plugin-unit-jest': 5.0.7_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
       '@vue/test-utils': 2.0.2
       '@vue/vue3-jest': 27.0.0_deaf5677e306abd427c4618fe2d3d9e1
@@ -562,6 +562,7 @@ importers:
       '@storybook/preview-web': ~6.5.9
       '@storybook/vue3': ^6.5.9
       '@vitejs/plugin-vue': ^2.3.3
+      '@vue/cli-plugin-unit-jest': ~5.0.8
       aliyun-oss-deploy: ^0.1.5
       babel-loader: ^8.2.3
       core-js: ^3.8.3
@@ -608,6 +609,7 @@ importers:
       '@storybook/preview-web': 6.5.9_react-dom@18.2.0+react@18.2.0
       '@storybook/vue3': 6.5.9_c549c0384c4e0061510eff64a085834d
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.13+vue@3.2.37
+      '@vue/cli-plugin-unit-jest': 5.0.8
       aliyun-oss-deploy: 0.1.5
       babel-loader: 8.2.5_@babel+core@7.18.6
       core-js: 3.23.3
@@ -4980,8 +4982,43 @@ packages:
       - encoding
     dev: true
 
-  /@vue/cli-plugin-unit-jest/5.0.7_a935842a56781aa0717fb13fa134d79e:
-    resolution: {integrity: sha512-ptaUJajzjwAbHWG3S0ptebkeshALLxLxDl2yJUjyk9G1gVwCqnna+uZoWXyBjg3b/OTK2m6VLKq0Q762vUMelA==}
+  /@vue/cli-plugin-unit-jest/5.0.8:
+    resolution: {integrity: sha512-8aTmXUxEUdhJEjMHHoHI1wgi2SHzVRgCQQWIn5lgCAV2xJnXng09+wv8Ap0dhO4Z5vOOA/7xnubMQ9pDLqiskg==}
+    peerDependencies:
+      '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
+      '@vue/vue2-jest': ^27.0.0-alpha.3
+      '@vue/vue3-jest': ^27.0.0-alpha.3
+      ts-jest: ^27.0.4
+    peerDependenciesMeta:
+      '@vue/vue2-jest':
+        optional: true
+      '@vue/vue3-jest':
+        optional: true
+      ts-jest:
+        optional: true
+    dependencies:
+      '@babel/core': 7.18.6
+      '@babel/plugin-transform-modules-commonjs': 7.18.6_@babel+core@7.18.6
+      '@types/jest': 27.5.2
+      '@vue/cli-shared-utils': 5.0.8
+      babel-jest: 27.5.1_@babel+core@7.18.6
+      deepmerge: 4.2.2
+      jest: 27.5.1
+      jest-serializer-vue: 2.0.2
+      jest-transform-stub: 2.0.0
+      jest-watch-typeahead: 1.1.0_jest@27.5.1
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - encoding
+      - node-notifier
+      - supports-color
+      - ts-node
+      - utf-8-validate
+    dev: true
+
+  /@vue/cli-plugin-unit-jest/5.0.8_a935842a56781aa0717fb13fa134d79e:
+    resolution: {integrity: sha512-8aTmXUxEUdhJEjMHHoHI1wgi2SHzVRgCQQWIn5lgCAV2xJnXng09+wv8Ap0dhO4Z5vOOA/7xnubMQ9pDLqiskg==}
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
       '@vue/vue2-jest': ^27.0.0-alpha.3
@@ -4999,7 +5036,7 @@ packages:
       '@babel/plugin-transform-modules-commonjs': 7.18.6_@babel+core@7.18.6
       '@types/jest': 27.5.2
       '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
-      '@vue/cli-shared-utils': 5.0.7
+      '@vue/cli-shared-utils': 5.0.8
       '@vue/vue3-jest': 27.0.0_deaf5677e306abd427c4618fe2d3d9e1
       babel-jest: 27.5.1_@babel+core@7.18.6
       deepmerge: 4.2.2
@@ -5129,6 +5166,25 @@ packages:
 
   /@vue/cli-shared-utils/5.0.7:
     resolution: {integrity: sha512-SzpqSExsp31gg7w+UAsqdrFyZGxKNTIE8MVwcfkevEx4BgugpLcmUxgcelgDktMs7GGykxluPIm0ZHDk3ytXeg==}
+    dependencies:
+      '@achrinza/node-ipc': 9.2.5
+      chalk: 4.1.2
+      execa: 1.0.0
+      joi: 17.6.0
+      launch-editor: 2.4.0
+      lru-cache: 6.0.0
+      node-fetch: 2.6.7
+      open: 8.4.0
+      ora: 5.4.1
+      read-pkg: 5.2.0
+      semver: 7.3.7
+      strip-ansi: 6.0.1
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
+  /@vue/cli-shared-utils/5.0.8:
+    resolution: {integrity: sha512-uK2YB7bBVuQhjOJF+O52P9yFMXeJVj7ozqJkwYE9PlMHL1LMHjtCYm4cSdOebuPzyP+/9p0BimM/OqxsevIopQ==}
     dependencies:
       '@achrinza/node-ipc': 9.2.5
       chalk: 4.1.2

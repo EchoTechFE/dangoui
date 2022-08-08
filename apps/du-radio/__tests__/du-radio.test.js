@@ -67,4 +67,47 @@ describe('@frontend/du-radio DuRadio with DuRadioGroup', () => {
     expect(radio1.vm.checked).toBe(true)
     expect(radio2.vm.checked).toBe(false)
   })
+
+  it('test radio with labelKey', async () => {
+    const wrapper = mount({
+      template: `
+            <DuRadioGroup v-model:value="value">
+                <DuRadio v-for="i in options" :key="i.id" :label="i" labelKey="id">{{i.name}}</DuRadio>
+            </DuRadioGroup>
+          `,
+      components: {
+        DuRadio,
+        DuRadioGroup,
+      },
+      setup() {
+        return {
+          value: {
+            id: '1',
+            name: '',
+          },
+          groupConfig: {
+            cancel: true,
+          },
+          options: [
+            {
+              id: '1',
+              name: 'lbb',
+            },
+            {
+              id: '2',
+              name: 'lbb_fake',
+            },
+          ],
+        }
+      },
+    })
+    const [radio1, radio2] = wrapper.findAllComponents(DuRadio)
+    await wrapper.vm.$nextTick()
+    expect(radio1.vm.checked).toBe(true)
+    radio2.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(radio1.vm.checked).toBe(false)
+    expect(radio2.vm.checked).toBe(true)
+    console.log(wrapper.value)
+  })
 })

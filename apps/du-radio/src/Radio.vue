@@ -1,10 +1,5 @@
 <template>
-  <div
-    v-if="config?.custom"
-    :class="className"
-    :styles="style"
-    @click="handleClick"
-  >
+  <div v-if="config?.custom" :class="className" :styles="style" @click="handleClick">
     <slot />
   </div>
   <div v-else :class="className" :styles="style" @click="handleClick">
@@ -27,11 +22,7 @@
       </template>
     </template>
 
-    <DuButton
-      v-else-if="config.shape === 'button'"
-      size="mini"
-      :type="checked ? 'primary' : 'info'"
-    >
+    <DuButton v-else-if="config.shape === 'button'" size="mini" :type="checked ? 'primary' : 'info'">
       <slot>
         {{ config?.label }}
       </slot>
@@ -40,17 +31,7 @@
 </template>
 
 <script>
-
-import {
-  computed,
-  watch,
-  ref,
-  inject,
-  reactive,
-  toRefs,
-  defineComponent,
-  toRaw,
-} from 'vue'
+import { computed, watch, ref, inject, reactive, toRefs, defineComponent, toRaw } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuButton from '@frontend/du-button/src/Button.vue'
@@ -73,6 +54,10 @@ export default defineComponent({
     },
     label: {
       default: true,
+    },
+    labelKey: {
+      type: String,
+      default: '',
     },
     shape: {
       type: String,
@@ -123,7 +108,7 @@ export default defineComponent({
       },
       {
         immediate: true,
-      }
+      },
     )
 
     watch(
@@ -135,21 +120,11 @@ export default defineComponent({
       },
       {
         immediate: true,
-      }
+      },
     )
 
     const config = computed(() => {
-      const {
-        extStyle,
-        extClass,
-        label,
-        inline,
-        cancel,
-        custom,
-        disabled,
-        shape,
-        cell,
-      } = {
+      const { extStyle, extClass, label, inline, cancel, custom, disabled, shape, cell, labelKey } = {
         ...props,
         ...props.options,
       }
@@ -164,10 +139,12 @@ export default defineComponent({
         disabled,
         shape,
         cell,
+        labelKey,
 
         ...(groupConfig ? groupConfig.value : {}),
       })
     })
+
     const className = computed(() => {
       const { inline, disabled, extClass, cell } = config.value
       return classNames(
@@ -177,7 +154,7 @@ export default defineComponent({
           'du-radio--disabled': disabled,
           'du-radio--cell': cell,
         },
-        extClass
+        extClass,
       )
     })
 
@@ -191,9 +168,9 @@ export default defineComponent({
     })
 
     const checked = computed(() => {
-      const { label } = config.value
+      const { label, labelKey } = config.value
 
-      return label === state.currentVal
+      return labelKey ? label[labelKey] === state.currentVal[labelKey] : label === state.currentVal
     })
 
     function update(val) {

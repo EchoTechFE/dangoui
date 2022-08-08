@@ -12,7 +12,7 @@
   {
     "policyName": "du",
     "definitionName": "lockStepVersion",
-    "version": "2.1.9",
+    "version": "2.1.10",
     "nextBump": "patch",
     "mainProject": "@frontend/dumpling"
   }

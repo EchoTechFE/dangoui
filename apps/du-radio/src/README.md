@@ -9,6 +9,7 @@
 | Name | Type | Required | Default | 备注 |
 | ---- | ---- | -------- | ------- | ---- |
 | label |  | false | true | radio的label & 选中时的值 |
+| labelKey |  | false | '' | 使用label中的哪个字段进行值是否相同的对比 |
 | value |  | false | false | 选中的值，可以使用v-model |
 | cancel | Boolean | false | false | 选中后是否可以取消选中 |
 | disabled | Boolean | false | false | 禁用 |
