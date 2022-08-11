@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import { computed } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
@@ -61,6 +60,9 @@ export default {
       })
     })
     const unicode = computed(() => {
+      if (!props.name) {
+        iconConfig.icons['question-circle-filled']
+      }
       let config = iconConfig.icons[props.name]
       if (!config && props.name.indexOf('_') > -1) {
         config = iconConfig.icons[props.name.replace(/_/g, '-')]

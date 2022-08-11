@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-form",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {
