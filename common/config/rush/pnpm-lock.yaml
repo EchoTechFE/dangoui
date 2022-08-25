@@ -423,6 +423,47 @@ importers:
       sass-loader: 10.3.0_sass@1.53.0
       vue: 3.2.37
 
+  ../../apps/du-rate:
+    specifiers:
+      '@babel/core': ^7.12.16
+      '@frontend/du-icon': workspace:*
+      '@frontend/du-styles': workspace:*
+      '@vue/cli-plugin-babel': ^5.0.1
+      '@vue/cli-plugin-unit-jest': ~5.0.8
+      '@vue/cli-service': ^5.0.1
+      '@vue/test-utils': 2.0.2
+      '@vue/vue3-jest': ~27.0.0-alpha.4
+      babel-jest: ~27.5.1
+      classnames: ~2.3.1
+      core-js: ^3.8.3
+      jest: ~27.5.1
+      postcss: ^7.0.39
+      postcss-px-to-viewport: ~1.1.1
+      sass: ^1.26.5
+      sass-loader: '10'
+      style-object-to-css-string: ~1.0.1
+      vue: ^3.0.0
+    dependencies:
+      '@frontend/du-icon': link:../du-icon
+      '@frontend/du-styles': link:../du-styles
+      classnames: 2.3.1
+      style-object-to-css-string: 1.0.1
+    devDependencies:
+      '@babel/core': 7.18.6
+      '@vue/cli-plugin-babel': 5.0.7_9662def7432400d72cdab9eb7aecbe92
+      '@vue/cli-plugin-unit-jest': 5.0.8_a935842a56781aa0717fb13fa134d79e
+      '@vue/cli-service': 5.0.7_d503fb2491e54d96a63965440a63fd4a
+      '@vue/test-utils': 2.0.2_vue@3.2.37
+      '@vue/vue3-jest': 27.0.0_6f6f872997440d0bad2a22e82fc2cc4b
+      babel-jest: 27.5.1_@babel+core@7.18.6
+      core-js: 3.23.3
+      jest: 27.5.1
+      postcss: 7.0.39
+      postcss-px-to-viewport: 1.1.1
+      sass: 1.53.0
+      sass-loader: 10.3.0_sass@1.53.0
+      vue: 3.2.37
+
   ../../apps/du-snackbar:
     specifiers:
       '@babel/core': ^7.12.16
@@ -542,6 +583,7 @@ importers:
       '@frontend/du-input-number': workspace:*
       '@frontend/du-popup': workspace:*
       '@frontend/du-radio': workspace:*
+      '@frontend/du-rate': workspace:*
       '@frontend/du-snackbar': workspace:*
       '@frontend/du-steps': workspace:*
       '@frontend/du-styles': workspace:*
@@ -587,6 +629,7 @@ importers:
       '@frontend/du-input-number': link:../du-input-number
       '@frontend/du-popup': link:../du-popup
       '@frontend/du-radio': link:../du-radio
+      '@frontend/du-rate': link:../du-rate
       '@frontend/du-snackbar': link:../du-snackbar
       '@frontend/du-steps': link:../du-steps
       '@frontend/du-styles': link:../du-styles

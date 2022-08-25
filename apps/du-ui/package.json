@@ -38,7 +38,8 @@
     "@frontend/du-radio": "workspace:*",
     "@frontend/du-snackbar": "workspace:*",
     "@frontend/du-steps": "workspace:*",
-    "@frontend/du-styles": "workspace:*"
+    "@frontend/du-styles": "workspace:*",
+    "@frontend/du-rate": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

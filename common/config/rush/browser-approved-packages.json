@@ -47,6 +47,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@frontend/du-rate",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@frontend/du-snackbar",
       "allowedCategories": [ "internal" ]
     },

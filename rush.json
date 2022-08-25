@@ -482,6 +482,13 @@
       "shouldPublish": true,
       "versionPolicyName": "du",
       "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-rate",
+      "projectFolder": "apps/du-rate",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }
