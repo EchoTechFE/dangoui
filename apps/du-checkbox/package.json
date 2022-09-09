@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-checkbox",
-  "version": "2.1.13",
+  "version": "2.1.15",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "typings": "typings/index.d.ts",

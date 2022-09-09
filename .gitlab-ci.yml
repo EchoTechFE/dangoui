@@ -21,6 +21,8 @@ stages:
 
 job_test:
   stage: test
+  tags:
+    - k8s
   rules:
     - !reference [.rule_if_pr, rules]
   script:
