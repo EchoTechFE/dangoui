@@ -2,7 +2,7 @@
   <div class="du-popup" v-if="innerVisible">
     <div :class="maskClassName" @click="handleMaskClick" />
     <div :style="style" :class="className">
-      <div class="du-popup__header" v-if="headerVisible">
+      <div :class="['du-popup__header', `du-popup__header--${titleAlign}`]" v-if="headerVisible">
         <div class="du-popup__title">{{ title }}</div>
         <div v-if="closable" class="du-popup__close" @click="handleClose" />
       </div>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 import { computed, watch, ref } from 'vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
@@ -22,6 +21,11 @@ export default {
     title: {
       type: String,
       default: '',
+    },
+
+    titleAlign: {
+      type: String,
+      default: 'default',
     },
 
     headerVisible: {
@@ -126,7 +130,7 @@ export default {
       },
       {
         immediate: true,
-      }
+      },
     )
 
     return {
@@ -209,8 +213,16 @@ export default {
   &__header {
     padding: 30rpx;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    &--default {
+      justify-content: flex-start;
+    }
+
+    &--center {
+      justify-content: center;
+    }
   }
 
   &__title {
@@ -225,6 +237,10 @@ export default {
     background-repeat: no-repeat;
     width: 32rpx;
     height: 32rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 </style>

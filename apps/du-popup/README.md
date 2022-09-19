@@ -11,6 +11,7 @@
 | visible |Boolean| false | false | 是否打开|
 | maskClick |Boolean| false | true |是否点击遮罩关闭|
 | closable |Boolean| false | true |是否显示关闭按钮|
+| titleAlign |default,center| false | default |标题对齐|
 
 ### emit 事件
 

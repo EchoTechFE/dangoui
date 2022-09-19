@@ -26,7 +26,7 @@ const Template = (args, { argTypes }) => ({
       <DuButton @click="handleOpen">打开</DuButton>
       <DuButton @click="handleOpenCenter">打开居中</DuButton>
       <DuButton @click="handleOpenTop">打开顶部</DuButton>
-      <DuPopup :visible="visible" title="选择日期（最多可选30天）" @update:visible="handleClose" type="bottom">
+      <DuPopup :visible="visible" title="选择日期（最多可选30天）" titleAlign="center" @update:visible="handleClose" type="bottom">
         <div>这是内容</div>
         <div>这是内容</div>
       </DuPopup>
