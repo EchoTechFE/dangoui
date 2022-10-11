@@ -21,39 +21,39 @@ const TemplateAll = (args) => ({
   template: `
     <div>
       <div>
-        <h3>type:</h3>
-        <p><DuButton v-bind="args" type="primary" @click="onClick">primary</DuButton></p>
-        <p><DuButton v-bind="args" type="secondary" @click="onClick">secondary</DuButton></p>
-        <p><DuButton v-bind="args" type="recommend" @click="onClick">recommend</DuButton></p>
-        <p><DuButton v-bind="args" type="info" @click="onClick">info</DuButton></p>
-        <p><DuButton v-bind="args" type="text" @click="onClick">text</DuButton></p>
-        <p><DuButton v-bind="args" type="text-primary" @click="onClick">text-primary</DuButton></p>
-        <p><DuButton v-bind="args" disabled @click="onClick">disabled</DuButton></p>
-        <p><DuButton v-bind="args" type="text" disabled @click="onClick"> text disabled</DuButton></p>
+        <h3>Type</h3>
+        <span><DuButton v-bind="args" type="primary" @click="onClick">primary</DuButton></span>
+        <span><DuButton v-bind="args" type="secondary" @click="onClick">secondary</DuButton></span>
+        <span><DuButton v-bind="args" type="recommend" @click="onClick">recommend</DuButton></span>
+        <span><DuButton v-bind="args" type="info" @click="onClick">info</DuButton></span>
+        <span><DuButton v-bind="args" type="text" @click="onClick">text</DuButton></span>
+        <span><DuButton v-bind="args" type="text-primary" @click="onClick">text-primary</DuButton></span>
+        <span><DuButton v-bind="args" disabled @click="onClick">disabled</DuButton></span>
+        <span><DuButton v-bind="args" type="text" disabled @click="onClick"> text disabled</DuButton></span>
       </div>
 
       <div>
         <h3>Size</h3>
-        <p><DuButton v-bind="args" size="large" @click="onClick">large</DuButton></p>
-        <p><DuButton v-bind="args" size="medium" @click="onClick">medium</DuButton></p>
-        <p><DuButton v-bind="args" size="normal" @click="onClick">normal</DuButton></p>
-        <p><DuButton v-bind="args" size="small" @click="onClick">small</DuButton></p>
-        <p><DuButton v-bind="args" size="mini" @click="onClick">mini</DuButton></p>
+        <span><DuButton v-bind="args" size="large" @click="onClick">large</DuButton></span>
+        <span><DuButton v-bind="args" size="medium" @click="onClick">medium</DuButton></span>
+        <span><DuButton v-bind="args" size="normal" @click="onClick">normal</DuButton></span>
+        <span><DuButton v-bind="args" size="small" @click="onClick">small</DuButton></span>
+        <span><DuButton v-bind="args" size="mini" @click="onClick">mini</DuButton></span>
       </div>
       <div>
         <h3>Disabled</h3>
-        <p><DuButton v-bind="args" type="secondary" disabled @click="onClick">disabled</DuButton></p>
+        <span><DuButton v-bind="args" type="secondary" disabled @click="onClick">disabled</DuButton></span>
       </div>
 
       <div>
         <h3>arrowRight</h3>
-        <p><DuButton v-bind="args" arrowRight  @click="onClick">arrowRight</DuButton></p>
+        <span><DuButton v-bind="args" arrowRight  @click="onClick">arrowRight</DuButton></span>
       </div>
 
       <div>
         <h3>Icon</h3>
-        <p><DuButton v-bind="args" type="secondary" loading @click="onClick">loading</DuButton></p>
-        <p>
+        <span><DuButton v-bind="args" type="secondary" loading @click="onClick">loading</DuButton></span>
+        <span>
           <DuButton
             v-bind="args"
             icon="https://cdn.qiandaoapp.com/admins/ad46c9877c13f283bd28bda924131d69.png"
@@ -63,13 +63,13 @@ const TemplateAll = (args) => ({
           >
             url icon
           </DuButton>
-        </p>
-        <p>
+        </span>
+        <span>
           <DuButton v-bind="args" icon="alarm" type="secondary" disabled @click="onClick">
             使用icon组件的name icon="alarm"
           </DuButton>
-        </p>
-        <p>
+        </span>
+        <span>
           <DuButton
             v-bind="args"
             icon="alarm"
@@ -80,43 +80,43 @@ const TemplateAll = (args) => ({
           >
             iconPosition="right"
           </DuButton>
-        </p>
+        </span>
       </div>
-      <p>
+      <span>
         <DuButton v-bind="args" size="normal" type="recommend" extStyle="width: 200px" @click="onClick">
           固定宽度200px
         </DuButton>
-      </p>
-      <p style="width: 300px">
+      </span>
+      <span style="width: 300px">
         <DuButton v-bind="args" size="normal" type="recommend" @click="onClick" full
           >撑满父容器300px</DuButton
         >
-      </p>
-      <p style="width: 300px; display: flex; height: 100px; align-items: center; justify-content: center">
+      </span>
+      <span style="width: 300px; display: flex; height: 100px; align-items: center; justify-content: center">
         <DuButton v-bind="args" size="normal" type="recommend" @click="onClick" full
           >撑满父容器flex300px</DuButton
         >
-      </p>
-      <p>
+      </span>
+      <span>
         <DuButton v-bind="args" size="medium" type="primary" :extClass="['theme--pay']" @click="onClick">
           替换主题
         </DuButton>
-      </p>
+      </span>
       <div>
         <h3>square:</h3>
-        <p><DuButton v-bind="args" square size="normal" @click="onClick">normal</DuButton></p>
-        <p><DuButton v-bind="args" square size="mini" @click="onClick">normal</DuButton></p>
+        <span><DuButton v-bind="args" square size="normal" @click="onClick">normal</DuButton></span>
+        <span><DuButton v-bind="args" square size="mini" @click="onClick">normal</DuButton></span>
       </div>
       <div style="background: #726B5C;color: #fff;">
         <h3>ghost:</h3>
-        <p><DuButton v-bind="args" ghost type="primary" @click="onClick">primary</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="secondary" @click="onClick">secondary</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="recommend" @click="onClick">recommend</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="info" @click="onClick">info</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="text" @click="onClick">text</DuButton></p>
-        <p><DuButton v-bind="args" type="text-primary" @click="onClick">text-primary</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="info" disabled @click="onClick">disabled</DuButton></p>
-        <p><DuButton v-bind="args" ghost type="text" disabled @click="onClick">text disabled</DuButton></p>
+        <span><DuButton v-bind="args" ghost type="primary" @click="onClick">primary</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="secondary" @click="onClick">secondary</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="recommend" @click="onClick">recommend</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="info" @click="onClick">info</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="text" @click="onClick">text</DuButton></span>
+        <span><DuButton v-bind="args" type="text-primary" @click="onClick">text-primary</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="info" disabled @click="onClick">disabled</DuButton></span>
+        <span><DuButton v-bind="args" ghost type="text" disabled @click="onClick">text disabled</DuButton></span>
       </div>
     </div>
   `,
@@ -134,8 +134,9 @@ export const Default = TemplateAll.bind({})
 
 Default.args = {
   text: '自动宽度',
-  //   icon:
-  //     'https://cdn.qiandaoapp.com/admins/ad46c9877c13f283bd28bda924131d69.png',
+  extStyle: {
+    margin: '6px',
+  },
 }
 
 export const TypePrimary = Template.bind({})

@@ -30,7 +30,6 @@
 </template>
 
 <script>
-
 import { computed, defineComponent } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
@@ -211,8 +210,9 @@ export default defineComponent({
     height: 80rpx;
     padding: 0 32rpx;
 
-    font-size: 28rpx;
+    font-size: 32rpx;
     border-radius: 16rpx;
+    line-height: 48rpx;
 
     & > .du-button__icon {
       width: 40rpx;
@@ -229,8 +229,9 @@ export default defineComponent({
   &--medium {
     height: 72rpx;
     padding: 0 28rpx;
-    border-radius: 16rpx;
+    border-radius: 12rpx;
     font-size: 28rpx;
+    line-height: 44rpx;
     & > .du-button__icon {
       width: 32rpx;
       height: 32rpx;
@@ -245,9 +246,10 @@ export default defineComponent({
   }
   &--normal {
     height: 64rpx;
-    padding: 0 28rpx;
+    padding: 0 24rpx;
     border-radius: 8rpx;
     font-size: 28rpx;
+    line-height: 44rpx;
     & > .du-button__icon {
       width: 32rpx;
       height: 32rpx;
@@ -262,9 +264,10 @@ export default defineComponent({
   }
   &--small {
     height: 56rpx;
-    padding: 0 24rpx;
+    padding: 0 20rpx;
 
     font-size: 24rpx;
+    line-height: 36rpx;
     border-radius: 8rpx;
     & > .du-button__icon {
       width: 24rpx;
@@ -284,10 +287,10 @@ export default defineComponent({
   }
   &--mini {
     height: 48rpx;
-    padding: 0 20rpx;
+    padding: 0 16rpx;
 
     font-size: 24rpx;
-    line-height: 48rpx;
+    line-height: 36rpx;
     border-radius: 8rpx;
     & > .du-button__icon {
       width: 24rpx;
