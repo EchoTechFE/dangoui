@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-empty",
-  "version": "2.1.19",
+  "version": "2.1.20",
   "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "main": "dist/index.umd.js",
