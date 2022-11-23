@@ -11,7 +11,9 @@
 | visible |Boolean| false | false | 是否打开|
 | maskClick |Boolean| false | true |是否点击遮罩关闭|
 | closable |Boolean| false | true |是否显示关闭按钮|
-| titleAlign |default,center| false | default |标题对齐|
+| titleAlign |String| false | center |标题对齐|
+| maskClass |String, Array, Object| false | '' |蒙层类名|
+| maskStyle |String, Object| false | '' |蒙层样式|
 
 ### emit 事件
 

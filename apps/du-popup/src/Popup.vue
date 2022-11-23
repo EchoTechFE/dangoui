@@ -1,6 +1,6 @@
 <template>
   <div class="du-popup" v-if="innerVisible">
-    <div :class="maskClassName" @click="handleMaskClick" />
+    <div :class="maskClassName" :style="maskStyleFormat" @click="handleMaskClick" />
     <div :style="style" :class="className">
       <div :class="['du-popup__header', `du-popup__header--${titleAlign}`]" v-if="headerVisible">
         <div class="du-popup__title">{{ title }}</div>
@@ -63,6 +63,16 @@ export default {
       type: Boolean,
       default: true,
     },
+    
+    maskClass: {
+      type: [String, Array, Object],
+      default: '',
+    },
+
+    maskStyle: {
+      type: [String, Object],
+      default: '',
+    },
   },
   setup(props, { emit }) {
     const innerVisible = ref(props.visible)
@@ -86,8 +96,18 @@ export default {
       })
     })
 
+    const maskStyleFormat = computed(() => {
+      const { maskStyle } = props
+      return typeof maskStyle === 'string'
+        ? maskStyle
+        : styleToCss({
+            ...maskStyle,
+          })
+    })
+
     const maskClassName = computed(() => {
-      return classNames('du-popup__mask', {
+      const { maskClass } = props
+      return classNames('du-popup__mask', maskClass, {
         'du-popup__mask--open': openAni.value,
       })
     })
@@ -137,6 +157,7 @@ export default {
       innerVisible,
       style,
       className,
+      maskStyleFormat,
       maskClassName,
       handleMaskClick,
       handleClose,
