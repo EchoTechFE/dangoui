@@ -1,6 +1,6 @@
 <template>
   <div :class="className" :style="style">
-    <img class="du-empty__img" :src="emptyImg" />
+    <img v-if="emptyImg" class="du-empty__img" :src="emptyImg" />
     <div class="du-empty__text">{{ text }}</div>
     <DuButton v-if="buttonText" type="secondary" @click="handleBtnClick" :extStyle="buttonStyle">{{
       buttonText
