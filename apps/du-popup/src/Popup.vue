@@ -63,7 +63,7 @@ export default {
       type: Boolean,
       default: true,
     },
-    
+
     maskClass: {
       type: [String, Array, Object],
       default: '',
@@ -177,7 +177,7 @@ export default {
     bottom: 0;
     opacity: 0;
     transition: all 0.3s;
-    z-index: 9998;
+    z-index: 99998;
 
     &--open {
       opacity: 1;
@@ -188,7 +188,7 @@ export default {
     background-color: #fff;
     position: fixed;
     transition: all 0.3s;
-    z-index: 9999;
+    z-index: 99999;
   }
 
   &--top {
