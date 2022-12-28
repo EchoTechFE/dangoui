@@ -78,10 +78,6 @@ export default defineComponent({
       type: [String, Object],
       default: '',
     },
-    iconSize: {
-      type: String,
-      default: ''
-    },
     type: {
       type: String,
       default: 'primary',
@@ -97,6 +93,10 @@ export default defineComponent({
     icon: {
       type: String,
       default: '',
+    },
+    iconSize: {
+      type: String,
+      default: ''
     },
     iconPosition: {
       type: String,
