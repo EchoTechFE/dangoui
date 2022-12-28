@@ -96,7 +96,7 @@ export default defineComponent({
     },
     iconSize: {
       type: String,
-      default: ''
+      default: '',
     },
     iconPosition: {
       type: String,
@@ -155,8 +155,6 @@ export default defineComponent({
             ...extStyle,
           })
     })
-
-    const
 
     const isIconC = computed(() => !!findIcon(props.icon))
 

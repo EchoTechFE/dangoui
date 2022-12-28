@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@frontend/dumpling",
+      "comment": "button support icon size",
+      "type": "none"
+    }
+  ],
+  "packageName": "@frontend/dumpling"
+}
