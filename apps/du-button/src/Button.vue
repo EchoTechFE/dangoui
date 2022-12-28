@@ -10,7 +10,7 @@
     <div v-if="loading" class="du-button__icon du-button__loading" />
     <template v-if="iconPosition === 'left' && icon">
       <div v-if="isIconC" class="du-button__icon">
-        <DuIcon :name="icon" />
+        <DuIcon :name="icon" :size="iconSize" />
       </div>
       <img v-else class="du-button__icon" :src="icon" alt="du-button-icon" />
     </template>
@@ -19,12 +19,12 @@
     </slot>
     <template v-if="iconPosition === 'right' && icon">
       <div v-if="isIconC" class="du-button__icon du-button__icon--right">
-        <DuIcon :name="icon" />
+        <DuIcon :name="icon" :size="iconSize" />
       </div>
       <img v-else class="du-button__icon du-button__icon--right" :src="icon" alt="du-button-icon" />
     </template>
     <div v-if="arrowRight" class="du-button__arrow-right">
-      <DuIcon name="arrow-heavy-right" />
+      <DuIcon name="arrow-heavy-right" :size="iconSize" />
     </div>
   </button>
 </template>
@@ -77,6 +77,10 @@ export default defineComponent({
     extStyle: {
       type: [String, Object],
       default: '',
+    },
+    iconSize: {
+      type: String,
+      default: ''
     },
     type: {
       type: String,
@@ -151,6 +155,8 @@ export default defineComponent({
             ...extStyle,
           })
     })
+
+    const
 
     const isIconC = computed(() => !!findIcon(props.icon))
 
