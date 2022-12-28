@@ -34,7 +34,7 @@
      * The default value is false to avoid legacy compatibility issues.
      * It is strongly recommended to set strictPeerDependencies=true.
      */
-//    "strictPeerDependencies": true,
+    //    "strictPeerDependencies": true,
 
     /**
      * Configures the strategy used to select versions during installation.
@@ -233,7 +233,7 @@
   },
 
   "repository": {
-    "url": "https://github.com/echoingtech/dumpling",
+    "url": "https://g.echo.tech/frontend/dumpling",
     "defaultBranch": "master",
     "defaultRemote": "origin"
   },
