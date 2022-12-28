@@ -1,6 +1,13 @@
 # Change Log - @frontend/dumpling
 
-This log was last generated on Wed, 28 Dec 2022 05:01:30 GMT and should not be manually modified.
+This log was last generated on Wed, 28 Dec 2022 05:11:40 GMT and should not be manually modified.
+
+## 2.1.25
+Wed, 28 Dec 2022 05:11:40 GMT
+
+### Updates
+
+- button support icon size
 
 ## 2.1.24
 Wed, 28 Dec 2022 05:01:30 GMT

@@ -2,6 +2,18 @@
   "name": "@frontend/dumpling",
   "entries": [
     {
+      "version": "2.1.25",
+      "tag": "@frontend/dumpling_v2.1.25",
+      "date": "Wed, 28 Dec 2022 05:11:40 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "button support icon size"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.1.24",
       "tag": "@frontend/dumpling_v2.1.24",
       "date": "Wed, 28 Dec 2022 05:01:30 GMT",

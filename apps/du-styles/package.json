@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-styles",
-  "version": "2.1.24",
+  "version": "2.1.25",
   "main": "dist/index.css",
   "module": "./src/index.vue",
   "description": "> TODO: description",
