@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 import { ref } from 'vue'
 
@@ -101,3 +101,5 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
     expect(c3.vm.currentVal).toBe(false)
   })
 })
+
+

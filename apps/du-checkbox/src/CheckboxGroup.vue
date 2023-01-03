@@ -1,11 +1,6 @@
 <template>
   <div v-if="options" :class="className" :style="style">
-    <du-checkbox
-      v-for="op in options"
-      :key="op?.value"
-      :label="op?.value"
-      :disabled="op?.disabled"
-    >
+    <du-checkbox v-for="op in options" :key="op?.value" :label="op?.value" :disabled="op?.disabled">
       {{ op?.label || op?.value }}
     </du-checkbox>
   </div>
@@ -15,8 +10,7 @@
 </template>
 
 <script>
-
-import { computed, provide, ref } from 'vue'
+import { computed, provide, ref, watch } from 'vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
 import DuCheckbox from './Checkbox.vue'
@@ -66,9 +60,7 @@ export default {
     const style = computed(() => {
       const { extStyle } = props
 
-      return typeof extStyle === 'string'
-        ? extStyle
-        : styleToCss({ ...extStyle })
+      return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
     })
 
     const groupConfig = computed(() => {
@@ -82,6 +74,16 @@ export default {
     })
 
     const groupValue = ref([])
+
+    watch(
+      () => props.value,
+      (v) => {
+        groupValue.value = v
+      },
+      {
+        immediate: true,
+      },
+    )
 
     function setGroupValue(value) {
       emit('input', value)

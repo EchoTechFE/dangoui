@@ -6,20 +6,12 @@
     <div class="du-checkbox__label">
       <slot>{{ content }}</slot>
     </div>
-    <checkbox-icon :selected="selected" :shape="config?.shape" />
+    <checkbox-icon :selected="selected" :shape="config?.shape" :size="config.size" />
   </div>
 </template>
 
 <script>
-
-import {
-  reactive,
-  computed,
-  inject,
-  ref,
-  getCurrentInstance,
-  toRefs,
-} from 'vue'
+import { reactive, computed, inject, ref, getCurrentInstance, toRefs, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import CheckboxIcon from './CheckboxIcon.vue'
@@ -79,6 +71,10 @@ export default {
       type: String,
       default: 'right',
     },
+    size: {
+      type: String,
+      default: '40rpx',
+    },
   },
   emits: ['click', 'input', 'update:value', 'input'],
   setup(props, { emit }) {
@@ -86,58 +82,35 @@ export default {
       currentVal: false,
     })
 
-    const parentGroup = findComponentUpward(
-      getCurrentInstance(),
-      'du-checkbox-group'
+    const groupConfig = inject('groupConfig', ref({}))
+    const groupValue = inject('groupValue', ref([]))
+    const setGroupValue = inject('setGroupValue', () => {})
+
+    watch(
+      () => props.value,
+      (val) => {
+        state.currentVal = val
+      },
+      {
+        immediate: true,
+      },
     )
 
-    const groupConfig = parentGroup ? inject('groupConfig') : ref({})
-    const groupValue = parentGroup ? inject('groupValue') : ref([])
-    const setGroupValue = parentGroup ? inject('setGroupValue') : () => {}
+    watch(
+      groupValue,
+      (gvList) => {
+        if (gvList.length === 0) return
 
-    // watch(
-    //   () => props.value,
-    //   (val) => {
-    //     state.currentVal = val
-    //   },
-    //   {
-    //     immediate: true,
-    //   },
-    // )
+        const { value } = props
 
-    // watch(
-    //   () => groupValue,
-    //   (gvList) => {
-    //     if (!gvList?.value) return
-    //
-    //     const { value } = props
-    //
-    //     console.log('gvList', gvList.value)
-    //
-    //     if (gvList.value?.find((gv) => gv === value)) {
-    //       state.currentVal = gv
-    //     }
-    //   },
-    //   { immediate: true },
-    // )
+        state.currentVal = !!gvList?.find((gv) => gv === value)
+      },
+      { immediate: true },
+    )
 
     const config = computed(() => {
-      const {
-        extClass,
-        extStyle,
-        shape,
-        inline,
-        disabled,
-        label,
-        value,
-        custom,
-        position,
-      } = props
-      const {
-        shape: gShape,
-        inline: gInline,
-        position: gPosition,
-      } = groupConfig.value
+      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position } = props
+      const { shape: gShape, inline: gInline, position: gPosition } = groupConfig.value
 
       return Object.freeze({
         extClass,
@@ -160,19 +133,17 @@ export default {
           'du-checkbox--disabled': disabled,
           'du-checkbox--inline': inline,
         },
-        extClass
+        extClass,
       )
     })
 
     const style = computed(() => {
       const { extStyle } = config.value
-      return typeof extStyle === 'string'
-        ? extStyle
-        : styleToCss({ ...extStyle })
+      return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
     })
 
     const selected = computed(() => {
-      return state.currentVal === true
+      return !!state.currentVal
     })
 
     const content = computed(() => {
@@ -194,7 +165,7 @@ export default {
 
       if (groupValue.value && setGroupValue) {
         let gv
-        if (state.currentVal) {
+        if (state.currentVal && !groupValue.value?.find((g) => g === label)) {
           gv = [...groupValue.value, label || value]
         } else {
           gv = groupValue.value.filter((item) => item !== (label || value))

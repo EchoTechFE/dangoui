@@ -2,29 +2,26 @@
   <div
     :class="[
       'du-checkbox__checkbox',
-      { 'du-checkbox__checkbox--selected': selected },
+      selected ? `du-checkbox__checkbox--selected` : '',
       `du-checkbox__checkbox--${shape}`,
     ]"
+    :style="{
+      width: size,
+      height: size,
+    }"
   >
-    <DuIcon
-      extClass="du-checkbox__checkbox__icon"
+    <img
       v-if="selected"
-      name="check"
-      color="#fff"
-      size="20rpx"
+      :style="imageStyle"
+      src="https://cdn.qiandaoapp.com/admins/1094c5afbcb6ae86323605a326536769.svg"
     />
   </div>
 </template>
 
 <script>
-
-import DuIcon from '@frontend/du-icon/src/Icon.vue'
-
+import { computed } from 'vue'
 export default {
   name: 'checkbox-icon',
-  components: {
-    DuIcon,
-  },
   props: {
     selected: {
       type: Boolean,
@@ -34,32 +31,46 @@ export default {
       type: String,
       default: 'round',
     },
+    size: {
+      type: String,
+      default: '40rpx',
+    },
   },
-  setup(props) {},
+  setup(props) {
+    const imageStyle = computed(() => {
+      const { size } = props
+
+      return {
+        width: size,
+        height: size,
+      }
+    })
+
+    return {
+      imageStyle,
+    }
+  },
 }
 </script>
 
 <style lang="scss">
 .du-checkbox__checkbox {
+  box-sizing: border-box;
   position: relative;
-  width: 40rpx;
-  height: 40rpx;
   border-radius: 50%;
-  background-color: #20242633;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2rpx solid rgba(0, 0, 0, 0.24);
 
   &--selected {
+    border: none;
     background-color: var(--du-color-main);
   }
 
   &--square {
     border-radius: 0;
-  }
-
-  &__icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 </style>
