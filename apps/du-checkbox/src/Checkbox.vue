@@ -148,7 +148,7 @@ export default {
 
     const content = computed(() => {
       const { label, value } = config.value
-      return label || value || ''
+      return label || ''
     })
 
     function onClick() {
