@@ -1,6 +1,11 @@
 # Change Log - @frontend/dumpling
 
-This log was last generated on Sun, 29 Jan 2023 10:19:59 GMT and should not be manually modified.
+This log was last generated on Wed, 22 Feb 2023 09:48:36 GMT and should not be manually modified.
+
+## 2.1.29
+Wed, 22 Feb 2023 09:48:36 GMT
+
+_Version update only_
 
 ## 2.1.28
 Sun, 29 Jan 2023 10:19:59 GMT

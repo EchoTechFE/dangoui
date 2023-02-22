@@ -1,5 +1,6 @@
 <template>
   <button
+    :id="buttonId"
     :class="className"
     :style="style"
     hoverClass=""
@@ -70,6 +71,10 @@ export default defineComponent({
     DuIcon,
   },
   props: {
+    buttonId: {
+      type: String,
+      default: '',
+    },
     extClass: {
       type: [String, Array, Object],
       default: '',
