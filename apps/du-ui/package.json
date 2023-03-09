@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.29",
+  "version": "2.1.31",
   "scripts": {
     "build": "vite build",
     "storybook": "start-storybook -p 6006",
@@ -9,13 +9,6 @@
     "deploy": "aliyun-oss-deploy -p ./storybook-static"
   },
   "main": "dist/index.umd.js",
-  "module": "./src/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/my-component-lib.es.js",
-      "require": "./dist/my-component-lib.umd.js"
-    }
-  },
   "publishConfig": {
     "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   },

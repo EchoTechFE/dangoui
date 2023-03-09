@@ -70,6 +70,7 @@ export default defineComponent({
   components: {
     DuIcon,
   },
+  emits: ['click', 'getUserInfo'],
   props: {
     buttonId: {
       type: String,
