@@ -1,23 +1,28 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.31",
-  "scripts": {
-    "build": "vite build",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "test:unit": "echo \"no test specified\" && exit 0",
-    "deploy": "aliyun-oss-deploy -p ./storybook-static"
+  "version": "2.1.37",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./style": "./dist/style.css"
   },
-  "main": "dist/index.umd.js",
-  "publishConfig": {
-    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
-  },
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
   "files": [
     "dist/*",
     "packages",
     "package.json",
     "README.md"
   ],
+  "scripts": {
+    "build": "vite build",
+    "build-storybook": "build-storybook",
+    "deploy": "aliyun-oss-deploy -p ./storybook-static",
+    "storybook": "start-storybook -p 6006",
+    "test:unit": "echo \"no test specified\" && exit 0"
+  },
   "dependencies": {
     "@frontend/du-button": "workspace:*",
     "@frontend/du-calendar": "workspace:*",
@@ -70,5 +75,8 @@
   },
   "peerDependencies": {
     "vue": "^3.0.0"
+  },
+  "publishConfig": {
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   }
 }
