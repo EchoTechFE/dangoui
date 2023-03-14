@@ -1,11 +1,10 @@
 {
   "name": "@frontend/du-icon",
-  "version": "2.1.38",
+  "version": "2.1.39",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {
-    "prebuild": "npm run genicon",
-    "build": "vue-cli-service build --target lib --name DuIcon --filename index src/index.js",
+    "build": "npm run genicon && vue-cli-service build --target lib --name DuIcon --filename index src/index.js",
     "genicon": "node ./scripts/genicon.js",
     "test:unit": "echo \"no test specified\" && exit 0"
   },

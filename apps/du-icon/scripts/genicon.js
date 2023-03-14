@@ -165,4 +165,4 @@ async function gen(url) {
 }
 
 // https://iconpark.oceanengine.com/projects/7443/detail
-gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_198.672744bd120d4f71687006e215e34ab6.js')
+gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_198.88a64fb58cecacc954ed9ba6ff38c808.js')

@@ -601,6 +601,7 @@ importers:
       '@storybook/channel-postmessage': ~6.5.9
       '@storybook/channel-websocket': ~6.5.9
       '@storybook/client-api': ~6.5.9
+      '@storybook/node-logger': ~6.5.16
       '@storybook/preview-web': ~6.5.9
       '@storybook/vue3': ^6.5.9
       '@vitejs/plugin-vue': ^2.3.3
@@ -645,10 +646,11 @@ importers:
       '@storybook/addon-outline': 6.5.9_react-dom@18.2.0+react@18.2.0
       '@storybook/addon-postcss': 2.0.0
       '@storybook/addons': 6.5.9_react-dom@18.2.0+react@18.2.0
-      '@storybook/builder-vite': 0.1.38_9f08f0638ecb2b7539ff1757ebff52d1
+      '@storybook/builder-vite': 0.1.38_0e2d52b0bf1c9b011f8ca0ded52d4b04
       '@storybook/channel-postmessage': 6.5.9
       '@storybook/channel-websocket': 6.5.9
       '@storybook/client-api': 6.5.9_react-dom@18.2.0+react@18.2.0
+      '@storybook/node-logger': 6.5.16
       '@storybook/preview-web': 6.5.9_react-dom@18.2.0+react@18.2.0
       '@storybook/vue3': 6.5.9_c549c0384c4e0061510eff64a085834d
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.13+vue@3.2.37
@@ -3329,7 +3331,7 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/builder-vite/0.1.38_9f08f0638ecb2b7539ff1757ebff52d1:
+  /@storybook/builder-vite/0.1.38_0e2d52b0bf1c9b011f8ca0ded52d4b04:
     resolution: {integrity: sha512-aCBuVP3phWGpT4548dCjSWC9X4TOhzVOt+jq8BVbzZ/Cyou8UFN45Z5kMxtpVsVnJEQ0abC/BdkRuRtGEL/vJQ==}
     peerDependencies:
       '@storybook/core-common': '>=6.4.3 || >=6.5.0-alpha.0'
@@ -3342,6 +3344,7 @@ packages:
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.4_vite@2.9.13
       '@storybook/mdx1-csf': 0.0.4_@babel+core@7.18.6+react@18.2.0
+      '@storybook/node-logger': 6.5.16
       '@storybook/source-loader': 6.5.9_react-dom@18.2.0+react@18.2.0
       '@vitejs/plugin-react': 1.3.2
       ast-types: 0.14.2
@@ -4063,6 +4066,16 @@ packages:
       - '@babel/core'
       - react
       - supports-color
+    dev: true
+
+  /@storybook/node-logger/6.5.16:
+    resolution: {integrity: sha512-YjhBKrclQtjhqFNSO+BZK+RXOx6EQypAELJKoLFaawg331e8VUfvUuRCNB3fcEWp8G9oH13PQQte0OTjLyyOYg==}
+    dependencies:
+      '@types/npmlog': 4.1.4
+      chalk: 4.1.2
+      core-js: 3.23.3
+      npmlog: 5.0.1
+      pretty-hrtime: 1.0.3
     dev: true
 
   /@storybook/node-logger/6.5.9:
