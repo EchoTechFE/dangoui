@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.39",
+  "version": "2.1.40",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -55,6 +55,7 @@
     "@storybook/channel-postmessage": "~6.5.9",
     "@storybook/channel-websocket": "~6.5.9",
     "@storybook/client-api": "~6.5.9",
+    "@storybook/node-logger": "~6.5.16",
     "@storybook/preview-web": "~6.5.9",
     "@storybook/vue3": "^6.5.9",
     "@vitejs/plugin-vue": "^2.3.3",
@@ -71,8 +72,7 @@
     "vite": "^2.9.12",
     "vite-plugin-externals": "~0.5.0",
     "vue": "^3.0.0",
-    "vue-loader": "^16.8.3",
-    "@storybook/node-logger": "~6.5.16"
+    "vue-loader": "^16.8.3"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
