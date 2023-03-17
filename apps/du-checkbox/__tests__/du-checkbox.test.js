@@ -55,9 +55,9 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
     const wrapper = mount({
       template: `
           <du-checkbox-group v-model:value="checkboxGroupValue">
-              <du-checkbox inline label="Jack">Jack</du-checkbox>
-              <du-checkbox label="Queen">Queen</du-checkbox>
-              <du-checkbox label="King" disabled>King</du-checkbox>
+              <du-checkbox inline value="Jack">Jack</du-checkbox>
+              <du-checkbox value="Queen">Queen</du-checkbox>
+              <du-checkbox value="King" disabled>King</du-checkbox>
           </du-checkbox-group>
         `,
       components: {
@@ -83,8 +83,8 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
       propsData: {
         options: [
           { label: '红色', value: 'red' },
-          { label: '绿色', value: 'green' },
-          { label: '蓝色', value: 'blue', disabled: true },
+          { label: '绿色', value: 'green', disabled: true },
+          { label: '蓝色', value: 'blue' },
         ],
         'v-model': ref([]),
       },
@@ -94,12 +94,11 @@ describe('@frontend/du-checkbox with du-checkbox-group', () => {
     const [c1, c2, c3] = wrapper.findAllComponents(DuCheckbox)
 
     expect(c1.text()).toBe('红色')
+
     await c2.trigger('click')
+
     await c3.trigger('click')
 
-    expect(c2.emitted().input[0]).toEqual([true])
-    expect(c3.vm.currentVal).toBe(false)
+    expect(wrapper.emitted()['update:value'][0]).toEqual([['blue']])
   })
 })
-
-

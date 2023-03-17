@@ -1,7 +1,7 @@
 <template>
   <div v-if="options" :class="className" :style="style">
-    <du-checkbox v-for="op in options" :key="op?.value" :label="op?.value" :disabled="op?.disabled">
-      {{ op?.label || op?.value }}
+    <du-checkbox v-for="op in options" :key="op?.value" :value="op?.value" :disabled="op?.disabled">
+      {{ op?.label }}
     </du-checkbox>
   </div>
   <div v-else :class="className" :style="style">
@@ -88,7 +88,6 @@ export default {
     function setGroupValue(value) {
       emit('input', value)
       emit('update:value', value)
-      groupValue.value = value
     }
 
     provide('groupConfig', groupConfig)

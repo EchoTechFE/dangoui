@@ -11,24 +11,10 @@
 </template>
 
 <script>
-import { reactive, computed, inject, ref, getCurrentInstance, toRefs, watch } from 'vue'
+import { reactive, computed, inject, ref, toRefs, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import CheckboxIcon from './CheckboxIcon.vue'
-
-function findComponentUpward(component, parentName) {
-  const parent = component.parent
-
-  if (parent) {
-    if (parent.proxy.className === parentName) {
-      return parent
-    } else {
-      return findComponentUpward(parent, parentName)
-    }
-  } else {
-    return null
-  }
-}
 
 export default {
   name: 'du-checkbox',
@@ -60,7 +46,7 @@ export default {
       type: [String, Number],
     },
     value: {
-      type: Boolean,
+      type: [Boolean, Number, String],
       default: false,
     },
     custom: {
@@ -83,13 +69,15 @@ export default {
     })
 
     const groupConfig = inject('groupConfig', ref({}))
-    const groupValue = inject('groupValue', ref([]))
+    const groupValue = inject('groupValue', ref(undefined))
     const setGroupValue = inject('setGroupValue', () => {})
 
     watch(
       () => props.value,
       (val) => {
-        state.currentVal = val
+        if (!groupValue.value) {
+          state.currentVal = val
+        }
       },
       {
         immediate: true,
@@ -98,12 +86,11 @@ export default {
 
     watch(
       groupValue,
-      (gvList) => {
-        if (gvList.length === 0) return
-
+      () => {
         const { value } = props
+        if (!groupValue.value) return
 
-        state.currentVal = !!gvList?.find((gv) => gv === value)
+        state.currentVal = !!groupValue.value?.find((gv) => gv === value)
       },
       { immediate: true },
     )
@@ -147,30 +134,29 @@ export default {
     })
 
     const content = computed(() => {
-      const { label, value } = config.value
+      const { label } = config.value
       return label || ''
     })
 
     function onClick() {
       if (props.disabled) return
 
-      const { label, value } = config.value
-
-      state.currentVal = !state.currentVal
-
-      emit('click', state.currentVal)
-      emit('input', state.currentVal)
-
-      emit('update:value', state.currentVal)
+      const { value } = config.value
 
       if (groupValue.value && setGroupValue) {
         let gv
-        if (state.currentVal && !groupValue.value?.find((g) => g === label)) {
-          gv = [...groupValue.value, label || value]
+        if (!groupValue.value?.find((g) => g === value)) {
+          gv = [...groupValue.value, value]
         } else {
-          gv = groupValue.value.filter((item) => item !== (label || value))
+          gv = groupValue.value.filter((item) => item !== value)
         }
+
         setGroupValue(gv)
+      } else {
+        emit('click', !state.currentVal)
+        emit('input', !state.currentVal)
+
+        emit('update:value', !state.currentVal)
       }
     }
 
