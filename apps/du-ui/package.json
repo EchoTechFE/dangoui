@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.41",
+  "version": "2.1.42",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -19,7 +19,7 @@
   "scripts": {
     "build": "vite build",
     "build-storybook": "build-storybook",
-    "deploy": "aliyun-oss-deploy -p ./storybook-static",
+    "deploy": "npm run build-storybook && aliyun-oss-deploy -p ./storybook-static",
     "storybook": "start-storybook -p 6006",
     "test:unit": "echo \"no test specified\" && exit 0"
   },
