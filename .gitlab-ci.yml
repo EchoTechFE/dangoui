@@ -1,5 +1,3 @@
-image: node:16
-
 include:
   - project: 'frontend/ci-templates'
     file: 'common/rules.yml'
@@ -8,13 +6,15 @@ include:
     file: 'common/registries.yml'
     ref: master
 
-before_script:
-  - npm config set registry https://registry.npmmirror.com
-  - npm config set httpProxy http://10.18.252.1:6152
-  - npm config set httpsProxy http://10.18.252.1:6152
-  - npm instal -g pnpm @microsoft/rush
-  - !reference [.registry_echo_gitlab_auth, script]
-  - rush update
+default:
+  image: node:16
+  before_script:
+    - npm config set registry https://registry.npmmirror.com
+    - npm config set httpProxy http://10.18.252.1:6152
+    - npm config set httpsProxy http://10.18.252.1:6152
+    - npm instal -g pnpm @microsoft/rush
+    - !reference [.registry_echo_gitlab_auth, script]
+    - rush update
 
 stages:
   - test
@@ -22,7 +22,7 @@ stages:
 job_test:
   stage: test
   tags:
-    - k8s-ha
+    - wx-docker
   rules:
     - !reference [.rule_if_pr, rules]
   script:
