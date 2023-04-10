@@ -1,13 +1,11 @@
 <template>
-  <div :class="['du-radio__radio', { 'du-radio__radio--checked': checked }]" :style="sizeStyle">
-    <!-- TODO: 需要一些工具函数来转换rpx -->
-    <img
-      v-show="checked"
-      src="https://cdn.qiandaoapp.com/admins/1094c5afbcb6ae86323605a326536769.svg"
-      class="du-radio__radio-check"
-      :style="sizeStyle"
-    />
-  </div>
+  <div
+    :class="[
+      'du-radio__radio',
+      { 'du-radio__radio--checked': checked, 'du-radio__radio--disabled': disabled },
+    ]"
+    :style="sizeStyle"
+  ></div>
 </template>
 
 <script>
@@ -21,6 +19,10 @@ export default defineComponent({
   },
   props: {
     checked: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
@@ -49,25 +51,32 @@ export default defineComponent({
 <style lang="scss">
 .du-radio {
   &__radio {
-    width: 32rpx;
-    height: 32rpx;
+    width: 40rpx;
+    height: 40rpx;
     overflow: hidden;
-
-    background: rgba(32, 36, 38, 0.1);
+    background-color: #fff;
     border-radius: 50%;
-    position: relative;
-    --du-icon-fz: 20rpx;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: content-box;
+    border: 1px solid rgba(0, 0, 0, 0.12);
     &--checked {
-      background: var(--du-color-main);
+      border-color: var(--du-color-main);
+      &::after {
+        // 用 absolute 视觉上会有一点偏差
+        width: 28rpx;
+        height: 28rpx;
+        border-radius: 50%;
+        display: block;
+        content: '';
+        background: var(--du-color-main);
+      }
     }
-  }
-
-  &__radio-check {
-    width: 32rpx;
-    height: 32rpx;
+    &--disabled {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
   }
 }
 </style>

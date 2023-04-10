@@ -19,10 +19,6 @@ const Template = (args) => ({
   template: `
     <div>
       <div>
-        <h3>可取消</h3>
-        <DuRadio label="lbb" cancel>lbb</DuRadio>
-      </div>
-      <div>
         <h3>默认样式</h3>
         <DuRadioGroup>
           <DuRadio label="lbb">lbb</DuRadio>
@@ -44,12 +40,22 @@ const Template = (args) => ({
         </DuRadioGroup>
       </div>
       <div>
+        <h3>禁用</h3>
+        <DuRadio label="lbb" disabled>lbb</DuRadio>
+      </div>
+      <div>
+        <h3>可取消</h3>
+        <DuRadio label="lbb" cancel>lbb</DuRadio>
+      </div>
+      <div>
         <h3>todo: 自定义</h3>
         <DuRadio v-bind="args" label="lbb">lbb</DuRadio>
       </div>
       <div>
         <h3>内部使用的图标</h3>
-        <DuRadioIcon checked size="100px" />
+        <DuRadioIcon />
+        <DuRadioIcon checked />
+        <DuRadioIcon disabled />
       </div>
     </div>
   `,

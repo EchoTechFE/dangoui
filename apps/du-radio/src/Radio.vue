@@ -13,7 +13,7 @@
         <RadioIcon :checked="checked" />
       </template>
       <template v-else>
-        <RadioIcon :checked="checked" />
+        <RadioIcon :checked="checked" :disabled="disabled" />
         <div class="du-radio__label">
           <slot>
             {{ config?.label }}
@@ -211,9 +211,9 @@ export default defineComponent({
   width: 100%;
   padding: 8rpx 0;
 
-  color: rgba(32, 36, 38, 1);
+  color: #000;
   font-size: 28rpx;
-  line-height: 48rpx;
+  line-height: 44rpx;
   $c: &;
   &__label {
     margin-left: 12rpx;
@@ -233,7 +233,7 @@ export default defineComponent({
     }
   }
   &--disabled {
-    opacity: 0.6;
+    color: rgba(0, 0, 0, 0.16);
   }
 }
 </style>
