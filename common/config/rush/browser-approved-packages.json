@@ -119,6 +119,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@storybook/node-logger",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@storybook/preset-scss",
       "allowedCategories": [ "internal" ]
     },
