@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "2.1.44",
+  "version": "2.1.45",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
