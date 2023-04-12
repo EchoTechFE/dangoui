@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-popup",
-  "version": "2.1.45",
+  "version": "2.1.46",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {

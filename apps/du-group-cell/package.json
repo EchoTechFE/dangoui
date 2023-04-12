@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-group-cell",
-  "version": "2.1.45",
+  "version": "2.1.46",
   "homepage": "https://github.com/frontend/dumpling#readme",
   "license": "ISC",
   "main": "dist/index.umd.js",
