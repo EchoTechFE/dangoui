@@ -1,8 +1,8 @@
 <template>
   <div class="du-group-cell" :style="style" :class="className">
-    <div class="du-group-cell__header">
+    <div class="du-group-cell__header" v-if="showHeader">
       <div class="du-group-cell__left">
-        <div class="du-group-cell__title">{{ title }}</div>
+        <div :class="['du-group-cell__title', `du-group-cell__title--${size}`]">{{ title }}</div>
         <slot name="left" />
         <div class="du-group-cell__subtitle">{{ subtitle }}</div>
       </div>
@@ -94,6 +94,11 @@ const props = defineProps({
     type: [String, Object],
     default: '',
   },
+
+  showHeader: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const emit = defineEmits(['guideTap', 'infoTap', 'actionTap', 'toggleOpen'])
@@ -167,6 +172,7 @@ const arrowStyle = computed(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 16rpx;
   }
 
   &__left {
@@ -222,10 +228,6 @@ const arrowStyle = computed(() => {
     font-weight: 500;
     font-size: 24rpx;
     color: #2b263b;
-  }
-
-  &__content {
-    margin-top: 16rpx;
   }
 }
 </style>

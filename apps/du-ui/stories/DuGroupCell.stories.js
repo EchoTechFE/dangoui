@@ -68,6 +68,20 @@ const Template = (args, { argTypes }) => ({
         </template>
         <div>受控</div>
       </DuGroupCell>
+
+      <DuGroupCell v-bind="args" title="标题" ext-style="margin-bottom: 2.66vw;" mode="collapse" size="large" open>
+        <template #right>
+          <DuButton size="mini" type="info">右侧自定义 slot</DuButton>
+        </template>
+        <div>受控</div>
+      </DuGroupCell>
+
+      <DuGroupCell v-bind="args" title="标题" ext-style="margin-bottom: 2.66vw;" size="large" :show-header="false">
+        <template #right>
+          <DuButton size="mini" type="info">右侧自定义 slot</DuButton>
+        </template>
+        <div>受控</div>
+      </DuGroupCell>
     </div>
   `,
 })
