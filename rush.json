@@ -489,6 +489,13 @@
       "shouldPublish": true,
       "versionPolicyName": "du",
       "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-group-cell",
+      "projectFolder": "apps/du-group-cell",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }

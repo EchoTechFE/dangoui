@@ -27,6 +27,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@frontend/du-group-cell",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@frontend/du-icon",
       "allowedCategories": [ "internal" ]
     },

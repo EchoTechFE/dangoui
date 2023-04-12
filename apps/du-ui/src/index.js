@@ -10,6 +10,7 @@ import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox'
 import { Empty } from '@frontend/du-empty'
 import { Icon } from '@frontend/du-icon'
 import { Rate } from '@frontend/du-rate'
+import { GroupCell } from '@frontend/du-group-cell'
 
 import './test.scss'
 
@@ -24,6 +25,7 @@ const DuSteps = Steps
 const DuPopup = Popup
 const DuSnackbar = Snackbar
 const DuIcon = Icon
+const DuGroupCell = GroupCell
 
 const DuCheckbox = Checkbox
 const DuCheckboxGroup = CheckboxGroup
@@ -60,5 +62,7 @@ export {
   Empty,
   DuEmpty,
   Rate,
-  DuRate
+  DuRate,
+  GroupCell,
+  DuGroupCell,
 }

@@ -37,6 +37,7 @@
     "@frontend/du-rate": "workspace:*",
     "@frontend/du-snackbar": "workspace:*",
     "@frontend/du-steps": "workspace:*",
+    "@frontend/du-group-cell": "workspace:*",
     "@frontend/du-styles": "workspace:*"
   },
   "devDependencies": {
