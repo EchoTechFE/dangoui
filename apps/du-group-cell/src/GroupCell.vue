@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="du-group-cell__content" :style="{ display: realOpen ? 'block' : 'none' }">
+    <div class="du-group-cell__content" :style="finalContentStyle">
       <slot />
     </div>
   </div>
@@ -95,6 +95,11 @@ const props = defineProps({
     default: '',
   },
 
+  contentStyle: {
+    type: [String, Object],
+    default: '',
+  },
+
   showHeader: {
     type: Boolean,
     default: true,
@@ -156,6 +161,20 @@ const arrowStyle = computed(() => {
     return `transform: rotate(${realOpen.value ? '90' : '0'}deg)`
   }
   return ''
+})
+
+const finalContentStyle = computed(() => {
+  const defaultStyle = { display: realOpen ? 'block' : 'none' }
+  if (!props.contentStyle) {
+    return styleToCss(defaultStyle)
+  }
+  if (typeof props.contentStyle === 'string') {
+    return styleToCss(defaultStyle) + props.contentStyle
+  }
+  return styleToCss({
+    ...defaultStyle,
+    ...props.contentStyle,
+  })
 })
 </script>
 
