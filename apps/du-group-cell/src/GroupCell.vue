@@ -165,6 +165,11 @@ const arrowStyle = computed(() => {
 
 const finalContentStyle = computed(() => {
   const defaultStyle = { display: realOpen ? 'block' : 'none' }
+
+  if (!props.showHeader) {
+    defaultStyle.paddingTop = `${(24 * 100) / 750}vw`
+  }
+
   if (!props.contentStyle) {
     return styleToCss(defaultStyle)
   }
@@ -182,7 +187,6 @@ const finalContentStyle = computed(() => {
 .du-group-cell {
   box-sizing: border-box;
   width: 730rpx;
-  padding: 24rpx;
   background: #fff;
   margin: 0 10rpx;
   border-radius: 8rpx;
@@ -192,6 +196,7 @@ const finalContentStyle = computed(() => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16rpx;
+    padding: 24rpx 24rpx 0 24rpx;
   }
 
   &__left {
@@ -247,6 +252,10 @@ const finalContentStyle = computed(() => {
     font-weight: 500;
     font-size: 24rpx;
     color: #2b263b;
+  }
+
+  &__content {
+    padding: 0 24rpx 24rpx 24rpx;
   }
 }
 </style>
