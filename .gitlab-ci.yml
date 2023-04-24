@@ -7,7 +7,7 @@ include:
     ref: master
 
 default:
-  image: node:16
+  image: docker-register-registry-vpc.cn-shanghai.cr.aliyuncs.com/well-known/node:16
   before_script:
     - npm config set registry https://registry.npmmirror.com
     - npm config set httpProxy http://10.18.252.1:6152
