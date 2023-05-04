@@ -5,12 +5,13 @@
         <DuIcon
           @click="emitClose"
           extClass="du-snackbar__close__icon"
-          name="close_circle_filled"
+          :name="leftIcon"
         />
         <div class="du-snackbar__close__bgc"></div>
       </div>
       {{ content }}
       <DuButton
+        v-if="showActionBtn"
         :text="mergedProps?.text"
         :type="mergedProps?.type"
         :size="mergedProps?.size"
@@ -78,6 +79,14 @@ export default {
     revertColor: {
       type: Boolean,
       default: false,
+    },
+    showActionBtn: {
+      type: Boolean,
+      default: true,
+    },
+    leftIcon: {
+      type: String,
+      default: 'close_circle_filled',
     },
   },
   emits: ['close', 'action'],

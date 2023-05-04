@@ -39,6 +39,8 @@ const Template = (args) => ({
               }"
               :showClose="true"
               :show="showSnackbar"
+              :showActionBtn="false"
+              leftIcon="complete-circle-filled"
               @close="closeSnackbar"
               @action="dispatchAction"
             />
