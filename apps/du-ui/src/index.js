@@ -11,7 +11,7 @@ import { Empty } from '@frontend/du-empty'
 import { Icon } from '@frontend/du-icon'
 import { Rate } from '@frontend/du-rate'
 import { GroupCell } from '@frontend/du-group-cell'
-
+import { Modal } from '@frontend/du-modal'
 import './test.scss'
 
 const DuButton = Button
@@ -32,6 +32,8 @@ const DuCheckboxGroup = CheckboxGroup
 
 const DuEmpty = Empty
 const DuRate = Rate
+
+const DuModal = Modal
 export {
   Button,
   DuButton,
@@ -65,4 +67,5 @@ export {
   DuRate,
   GroupCell,
   DuGroupCell,
+  DuModal
 }

@@ -496,6 +496,13 @@
       "shouldPublish": true,
       "versionPolicyName": "du",
       "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-modal",
+      "projectFolder": "apps/du-modal",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }

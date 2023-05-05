@@ -43,6 +43,10 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@frontend/du-modal",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@frontend/du-popup",
       "allowedCategories": [ "internal" ]
     },

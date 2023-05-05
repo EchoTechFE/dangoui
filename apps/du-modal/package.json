@@ -1,0 +1,52 @@
+{
+  "name": "@frontend/du-modal",
+  "version": "2.1.47",
+  "main": "dist/index.umd.js",
+  "module": "./src/index.js",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name DuModal --filename index src/index.js",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "typings": "typings/index.d.ts",
+  "description": "> TODO: description",
+  "author": "onelong <love@onelong.org>",
+  "homepage": "https://github.com/frontend/dumpling#readme",
+  "license": "ISC",
+  "files": [
+    "dist/*",
+    "src/*",
+    "typings/*",
+    "package.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
+  },
+  "dependencies": {
+    "@frontend/du-icon": "workspace:*",
+    "@frontend/du-styles": "workspace:*",
+    "@frontend/du-button": "workspace:*",
+    "@frontend/du-input": "workspace:*",
+    "classnames": "~2.3.1",
+    "style-object-to-css-string": "~1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "@vue/cli-plugin-unit-jest": "~5.0.8",
+    "@vue/cli-service": "^5.0.1",
+    "@vue/test-utils": "2.0.2",
+    "@vue/vue3-jest": "~27.0.0-alpha.4",
+    "babel-jest": "~27.5.1",
+    "core-js": "^3.8.3",
+    "jest": "~27.5.1",
+    "postcss": "^7.0.39",
+    "postcss-px-to-viewport": "~1.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "10",
+    "vue": "^3.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

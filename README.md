@@ -109,7 +109,7 @@ $ mkdir ./apps/du-hello
 然后执行
 
 ```bash
-rush update
+rush update[README.md](README.md)
 ```
 
 此时新组件目录会多 node_modules 和 .rush 文件夹
