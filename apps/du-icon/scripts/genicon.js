@@ -165,4 +165,4 @@ async function gen(url) {
 }
 
 // https://iconpark.oceanengine.com/projects/7443/detail
-gen('https://lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_7443_204.26fdc61a75226789704c3414c45f87cf.js')
+gen(fs.readFileSync(path.resolve(__dirname, '../icon-url'), 'utf-8'))
