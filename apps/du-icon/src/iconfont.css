@@ -1,10 +1,10 @@
 
 @font-face {
   font-family: 'dumpling-icon';
-  src: url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.eot'); /* IE9 */
-  src: url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.eot#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.woff2') format('woff2'),
-    url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.woff') format('woff'),
-    url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.ttf') format('truetype'),
-    url('https://cdn.qiandaoapp.com/icons/7468353eabd5521d79238fac90a129c1.svg#iconfont') format('svg');
+  src: url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.eot'); /* IE9 */
+  src: url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.eot#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.woff2') format('woff2'),
+    url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.woff') format('woff'),
+    url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.ttf') format('truetype'),
+    url('https://cdn.qiandaoapp.com/icons/4264e205f427e3131b19de5ea88ba5ec.svg#iconfont') format('svg');
 }
