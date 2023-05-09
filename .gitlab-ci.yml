@@ -47,7 +47,8 @@ job_update_icon:
   script:
     - git config user.email "${GITLAB_USER_NAME}"
     - git config user.name "${GITLAB_USER_EMAIL}"
-    - BRANCH_NAME=feat-update-icons-$(date +%Y%m%d%H%M)
+    - TIME=$(date +%Y%m%d%H%M)
+    - BRANCH_NAME=feat-update-icons-$TIME
     - git checkout -b $BRANCH_NAME
     - $ICONPARK_URL == $(cat ./apps/du-icon/icon-url) && exit 0
     - echo $ICONPARK_URL > ./apps/du-icon/icon-url
@@ -55,5 +56,5 @@ job_update_icon:
     - pnpm run genicon
     - cd -
     - git add .
-    - git commit -m "feat:\ update icon"
+    - 'git commit -m "feat(du-icon): update icons ${TIME}"'
     - git push https://ci:$GITLAB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git $BRANCH_NAME -o merge_request.create -o merge_request.target=master
