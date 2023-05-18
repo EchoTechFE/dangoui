@@ -1,5 +1,5 @@
 <template>
-  <div :class="className" :style="style">
+  <div :class="[className, `du-sort-tab__${mode}`]" :style="style">
     <DuIcon
       v-if="mode === 'level1'"
       name="search"
@@ -127,6 +127,9 @@ export default defineComponent({
   align-items: center;
   font-size: 0;
   padding: 0 0 0 30rpx;
+  &__level1,&__level2,&__level3 {
+    background: #fff;
+  }
   &__left {
     display: flex;
     align-items: center;
