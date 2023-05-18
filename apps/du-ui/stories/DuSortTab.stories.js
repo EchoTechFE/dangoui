@@ -25,6 +25,9 @@ const Template = (args) => ({
         {
           label: '文本'
         },
+        {
+          label: '文本1'
+        },
       ],
       options: [
         {

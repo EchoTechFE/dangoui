@@ -25,44 +25,37 @@ const Template = (args) => ({
         {
           label: '文本'
         },
-      ],
-      options: [
         {
-          label: '选项1',
+          label: '文本2'
         },
         {
-          label: '选项2',
-        }
+          label: '文本3'
+        },
+        {
+          label: '文本4'
+        },
+        {
+          label: '文本5'
+        },
       ],
     }
   },
   methods: {
-    handleTabTap({index, item}) {
-      console.log(`=====点击了tab${index}======`, item)
+    handleTabTap(tab) {
+      console.log(`=====点击了tab======`, tab)
     },
-    handleOptionTap({index, item}) {
-      console.log(`=====点击了option${index}======`, item)
+    handleChannelTap() {
+      console.log(`=====handleChannelTap======`)
     },
-    handleSearchTap() {
-      console.log('======search=======')
-    }
   },
   template: `
     <div>
-      <h3>一级</h3>
-      <DuSortTab :tabs="tabs" :options="options" mode="level1" @handleTabTap="handleTabTap" @handleOptionTap="handleOptionTap" @handleSearchTap="handleSearchTap"/>
+      <h3>level1</h3>
+      <DuTopTab :tabs="tabs"  mode="level1" @handleTabTap="handleTabTap" @handleChannelTap="handleChannelTap" />
     </div>
     <div>
-      <h3>二级</h3>
-      <DuSortTab :tabs="tabs" :options="options" mode="level2" @handleTabTap="handleTabTap" @handleOptionTap="handleOptionTap"/>
-    </div>
-    <div>
-      <h3>三级</h3>
-      <DuSortTab :tabs="tabs" :options="options" mode="level3" @handleTabTap="handleTabTap" @handleOptionTap="handleOptionTap" />
-    </div>
-    <div>
-      <h3>四级</h3>
-      <DuSortTab :tabs="tabs" :options="options" mode="level4" @handleTabTap="handleTabTap" @handleOptionTap="handleOptionTap"/>
+      <h3>level2</h3>
+      <DuTopTab :tabs="tabs"  mode="level2" @handleTabTap="handleTabTap" />
     </div>
   `,
 })

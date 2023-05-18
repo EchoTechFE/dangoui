@@ -1,24 +1,44 @@
 <template>
-  <div :class="className" :style="style">
-    <div class="du-sort-tab__left">
-      
+  <div :class="[className, `du-top-tab__${mode}`]" :style="style">
+    <div class="du-top-tab-left">
+      <span
+        :class="[
+          'du-top-tab-left-item',
+          `du-top-tab-left-item__${mode}`,
+          tab.label === currentTab.label
+            ? `du-top-tab-left-item__${mode}__selected`
+            : `du-top-tab-left-item__${mode}__unselected`,
+        ]"
+        v-for="(tab, index) in tabs"
+        :key="index"
+        @click.stop="handleTabTap(tab)"
+      >
+        {{ tab.label }}
+      </span>
     </div>
-    <div class="du-sort-tab__right">
-
+    <div class="du-top-tab-right" v-if="mode === 'level1'" @click="handleChannelTap">
+      <img
+        class="du-top-tab-right__shadow"
+        src="https://cdn.qiandaoapp.com/interior/images/22a4648695ac1bc084d123a168dc31b9.png"
+        alt=""
+      />
+      <img
+        class="du-top-tab-right__icon"
+        src="https://cdn.qiandaoapp.com/ued/10fb6c2a56579c3d36e243bc35b970e0.png"
+        alt=""
+      />
+      频道
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, toRefs, reactive } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
-import DuIcon from '@frontend/du-icon/src/Icon.vue'
 
 export default defineComponent({
-  components: {
-    DuIcon,
-  },
+  components: {},
   props: {
     extClass: {
       type: [String, Array, Object],
@@ -32,16 +52,15 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
-    options: {
-      type: Array,
-      default: () => [],
-    },
     mode: {
-      type: String, // level1,level2,level3,level4
+      type: String, // level1,level2,
       default: 'level1',
-    }
+    },
   },
   setup(props, { emit }) {
+    const state = reactive({
+      currentTab: props.currentTab || props.tabs?.[0],
+    })
     const style = computed(() => {
       const { extStyle } = props
       return typeof extStyle === 'string'
@@ -52,42 +71,136 @@ export default defineComponent({
     })
 
     const className = computed(() => {
-      return classNames('du-sort-tab', props.extClass)
+      return classNames('du-top-tab', props.extClass)
     })
 
-    const handleTabTap = () => {
-
+    const handleTabTap = (tab) => {
+      if (tab.label === state.currentTab.label) return
+      state.currentTab = tab
+      emit('handleTabTap', tab)
     }
 
-    const handleOptionTap = () => {
-
+    const handleChannelTap = () => {
+      emit('handleChannelTap')
     }
 
-    const handleSearchTap = () => {
-      emit('handleSearchTap')
-    }
     return {
+      ...toRefs(state),
       style,
       className,
       handleTabTap,
-      handleOptionTap,
-      handleSearchTap,
+      handleChannelTap,
     }
   },
-  emits: ['handleTabTap', 'handleOptionTap', 'handleSearchTap'],
+  emits: ['handleTabTap', 'handleChannelTap'],
 })
 </script>
 
 <style lang="scss">
-.du-sort-tab {
+.du-top-tab {
   display: flex;
-  width: 100vw;
+  align-items: center;
   font-size: 0;
-  &__left{
-    
+  &__level1 {
+    background: #fff;
+    padding: 0 0 0 30rpx;
   }
-  &__right{
-
+  &__level2 {
+    background: #ff812c;
+    padding: 0 0 0 24rpx;
   }
+  &-left {
+    display: flex;
+    align-items: center;
+    column-gap: 40rpx;
+    overflow-x: auto;
+    &-item {
+      font-size: 36rpx;
+      white-space: nowrap;
+      &__level1 {
+        position: relative;
+        line-height: 86rpx;
+        &:last-child {
+          margin-right: 30rpx;
+        }
+        &__selected {
+          font-weight: 500;
+          color: #000000;
+          &::after {
+            position: absolute;
+            bottom: 2rpx;
+            left: 50%;
+            display: block;
+            width: 50rpx;
+            height: 10rpx;
+            background: #7c66ff;
+            margin-left: -25rpx;
+            border-radius: 10rpx 2rpx 10rpx 2rpx;
+            content: '';
+            transition: all 0.5s;
+          }
+        }
+        &__unselected {
+          color: rgba(0, 0, 0, 0.64);
+          &::after {
+            width: 0;
+            content: '';
+          }
+        }
+      }
+      &__level2 {
+        position: relative;
+        line-height: 88rpx;
+        &:last-child {
+          margin-right: 24rpx;
+        }
+        &__selected {
+          font-weight: 500;
+          color: #fff;
+          &::after {
+            position: absolute;
+            bottom: 6rpx;
+            left: 50%;
+            display: block;
+            width: 31rpx;
+            height: 11rpx;
+            background-image: url(https://cdn.qiandaoapp.com/interior/images/701f576909b0db06fc78b713f3044784.png);
+            background-size: 100% 100%;
+            margin-left: -15.5rpx;
+            content: '';
+          }
+        }
+        &__unselected {
+          color: rgba(255, 255, 255, 0.88);
+        }
+      }
+    }
+  }
+  &-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 86rpx;
+    font-size: 32rpx;
+    color: rgba(0, 0, 0, 0.64);
+    column-gap: 8rpx;
+    white-space: nowrap;
+    &__shadow {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2rpx;
+      height: 56rpx;
+    }
+    &__icon {
+      width: 32rpx;
+      height: 32rpx;
+      padding: 0 16rpx;
+    }
+  }
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>
