@@ -36,10 +36,13 @@
     "@frontend/du-radio": "workspace:*",
     "@frontend/du-rate": "workspace:*",
     "@frontend/du-snackbar": "workspace:*",
+    "@frontend/du-sort-tab": "workspace:*",
     "@frontend/du-steps": "workspace:*",
     "@frontend/du-group-cell": "workspace:*",
     "@frontend/du-styles": "workspace:*",
-    "@frontend/du-modal": "workspace:*"
+    "@frontend/du-modal": "workspace:*",
+    "@frontend/du-top-tab": "workspace:*",
+    "@frontend/du-segmented-control": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

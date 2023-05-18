@@ -503,6 +503,27 @@
       "shouldPublish": true,
       "versionPolicyName": "du",
       "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-sort-tab",
+      "projectFolder": "apps/du-sort-tab",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-segmented-control",
+      "projectFolder": "apps/du-segmented-control",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@frontend/du-top-tab",
+      "projectFolder": "apps/du-top-tab",
+      "shouldPublish": true,
+      "versionPolicyName": "du",
+      "reviewCategory": "internal"
     }
   ]
 }

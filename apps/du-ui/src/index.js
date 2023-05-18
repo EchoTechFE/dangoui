@@ -10,8 +10,10 @@ import { Checkbox, CheckboxGroup } from '@frontend/du-checkbox'
 import { Empty } from '@frontend/du-empty'
 import { Icon } from '@frontend/du-icon'
 import { Rate } from '@frontend/du-rate'
+import { SortTab } from '@frontend/du-sort-tab'
 import { GroupCell } from '@frontend/du-group-cell'
 import { Modal } from '@frontend/du-modal'
+import { SegmentedControl } from '@frontend/du-segmented-control'
 import './test.scss'
 
 const DuButton = Button
@@ -32,6 +34,8 @@ const DuCheckboxGroup = CheckboxGroup
 
 const DuEmpty = Empty
 const DuRate = Rate
+const DuSortTab = SortTab
+const DuSegmentedControl = SegmentedControl
 
 const DuModal = Modal
 export {
@@ -65,7 +69,12 @@ export {
   DuEmpty,
   Rate,
   DuRate,
+  SortTab,
+  DuSortTab,
   GroupCell,
   DuGroupCell,
-  DuModal
+  Modal,
+  DuModal,
+  SegmentedControl,
+  DuSegmentedControl,
 }

@@ -59,7 +59,15 @@
       "allowedCategories": [ "internal" ]
     },
     {
+      "name": "@frontend/du-segmented-control",
+      "allowedCategories": [ "internal" ]
+    },
+    {
       "name": "@frontend/du-snackbar",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-sort-tab",
       "allowedCategories": [ "internal" ]
     },
     {
@@ -68,6 +76,10 @@
     },
     {
       "name": "@frontend/du-styles",
+      "allowedCategories": [ "internal" ]
+    },
+    {
+      "name": "@frontend/du-top-tab",
       "allowedCategories": [ "internal" ]
     },
     {
