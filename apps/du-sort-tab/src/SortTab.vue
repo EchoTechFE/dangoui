@@ -1,5 +1,5 @@
 <template>
-  <div :class="[className, `du-sort-tab__${mode}`]" :style="style">
+  <div :class="[className, `du-sort-tab--${mode}`]" :style="style">
     <DuIcon
       v-if="mode === 'level1'"
       name="search"
@@ -8,15 +8,15 @@
       extStyle="margin-right: 16px; transform: translateY(3px);"
       @click.stop="handleSearchTap"
     />
-    <div :class="['du-sort-tab__left', `du-sort-tab__left__${mode}`]">
+    <div :class="['du-sort-tab__left', `du-sort-tab__left--${mode}`]">
       <span
         :class="[
-          'du-sort-tab__left-tab-item',
-          `du-sort-tab__left-tab-item__${mode}`,
+          'du-sort-tab__left__tab-item',
+          `du-sort-tab__left__tab-item--${mode}`,
           currentTab.label === tab.label
-            ? `du-sort-tab__left-tab-item__${mode}__selected`
-            : `du-sort-tab__left-tab-item__${mode}__unselected`,
-          index !== tabs.length - 1 ? `du-sort-tab__left-tab-item__${mode}__line` : '',
+            ? `du-sort-tab__left__tab-item--${mode}--selected`
+            : `du-sort-tab__left__tab-item--${mode}--unselected`,
+          index !== tabs.length - 1 ? `du-sort-tab__left__tab-item--${mode}--line` : '',
         ]"
         v-for="(tab, index) in tabs"
         :key="index"
@@ -25,7 +25,7 @@
         {{ tab.label }}
       </span>
     </div>
-    <div :class="['du-sort-tab__right', `du-sort-tab__right__${mode}`]" v-if="options.length > 0">
+    <div :class="['du-sort-tab__right', `du-sort-tab__right--${mode}`]" v-if="options.length > 0">
       <img
         src="https://cdn.qiandaoapp.com/interior/images/dedd52b806c5ac81b391948056be57f7.png"
         alt=""
@@ -33,8 +33,8 @@
       />
       <span
         :class="[
-          'du-sort-tab__right-item',
-          { 'du-sort-tab__right-item__line': index !== options.length - 1 },
+          'du-sort-tab__right__item',
+          { 'du-sort-tab__right__item--line': index !== options.length - 1 },
         ]"
         v-for="(option, index) in options"
         :key="index"
@@ -132,40 +132,40 @@ export default defineComponent({
   align-items: center;
   font-size: 0;
   padding: 0 0 0 30rpx;
-  &__level1,
-  &__level2,
-  &__level3 {
+  &--level1,
+  &--level2,
+  &--level3 {
     background: #fff;
   }
   &__left {
     display: flex;
     align-items: center;
     overflow-x: auto;
-    &__level1,
-    &__level2 {
+    &--level1,
+    &--level2 {
       column-gap: 40rpx;
       padding-right: 20rpx;
     }
-    &__level3 {
+    &--level3 {
       column-gap: 16rpx;
       padding-top: 10rpx;
       padding-bottom: 10rpx;
       padding-right: 8rpx;
     }
-    &__level4 {
+    &--level4 {
       column-gap: 50rpx;
       padding-right: 25rpx;
     }
-    &-tab-item {
+    &__tab-item {
       position: relative;
       white-space: nowrap;
       box-sizing: border-box;
-      &__level1 {
+      &--level1 {
         font-size: 32rpx;
         line-height: 48rpx;
         padding-top: 24rpx;
         padding-bottom: 16rpx;
-        &__selected {
+        &--selected {
           color: #000;
           font-weight: 500;
           &::after {
@@ -175,25 +175,25 @@ export default defineComponent({
             display: block;
             width: 40rpx;
             height: 8rpx;
-            background: #2b263b;
+            background: var(--du-sort-tab-item-selected-bottom-line-color);
             margin-left: -23rpx;
             border-radius: 8rpx 2rpx 8rpx 2rpx;
             content: '';
             transition: all 0.5s;
           }
         }
-        &__unselected {
-          color: rgba(0, 0, 0, 0.64);
+        &--unselected {
+          color: var(--du-sort-tab-item-unselect-color);
           &::after {
             width: 0;
             content: '';
           }
         }
       }
-      &__level2 {
+      &--level2 {
         font-size: 28rpx;
         line-height: 44rpx;
-        &__selected {
+        &--selected {
           font-weight: 500;
           color: #000;
           padding-top: 12rpx;
@@ -205,42 +205,42 @@ export default defineComponent({
             display: block;
             width: 40rpx;
             height: 8rpx;
-            background: #2b263b;
+            background: var(--du-sort-tab-item-selected-bottom-line-color);
             margin-left: -22rpx;
             border-radius: 8rpx 2rpx 8rpx 2rpx;
             content: '';
             transition: all 0.5s;
           }
         }
-        &__unselected {
-          color: rgba(0, 0, 0, 0.64);
+        &--unselected {
+          color: var(--du-sort-tab-item-unselect-color);
           &::after {
             width: 0;
             content: '';
           }
         }
       }
-      &__level3 {
+      &--level3 {
         padding: 0 16rpx;
         font-size: 24rpx;
         line-height: 48rpx;
-        &__selected {
+        &--selected {
           background: #f2f0ff;
           border-radius: 4rpx;
-          color: #7c66ff;
+          color: var(--du-sort-tab-item-selected-color);
         }
-        &__unselected {
-          color: rgba(0, 0, 0, 0.64);
+        &--unselected {
+          color: var(--du-sort-tab-item-unselect-color);
           background: #f7f7f9;
           border-radius: 4rpx;
         }
       }
-      &__level4 {
+      &--level4 {
         position: relative;
         padding: 0 16rpx;
         font-size: 24rpx;
         line-height: 36rpx;
-        &__line {
+        &--line {
           &::after {
             position: absolute;
             top: 7rpx;
@@ -248,15 +248,15 @@ export default defineComponent({
             display: block;
             width: 2rpx;
             height: 24rpx;
-            background: rgba(0, 0, 0, 0.12);
+            background: var();
             content: '';
           }
         }
-        &__selected {
-          color: #7c66ff;
+        &--selected {
+          color: var(--du-sort-tab-item-selected-color);
         }
-        &__unselected {
-          color: rgba(0, 0, 0, 0.64);
+        &--unselected {
+          color: var(--du-sort-tab-item-unselect-color);
         }
       }
     }
@@ -276,10 +276,10 @@ export default defineComponent({
       width: 2rpx;
       height: 67rpx;
     }
-    &__level1 {
+    &--level1 {
       padding: 30rpx 30rpx 16rpx !important;
     }
-    &-item {
+    &__item {
       position: relative;
       display: flex;
       align-items: center;
@@ -288,6 +288,18 @@ export default defineComponent({
       line-height: 36rpx;
       color: rgba(0, 0, 0, 0.4);
       white-space: nowrap;
+      &--line {
+        &::after {
+          position: absolute;
+          top: 5rpx;
+          right: -20rpx;
+          display: block;
+          width: 2rpx;
+          height: 24rpx;
+          background: var(--du-sort-tab-item-divide-color);
+          content: '';
+        }
+      }
     }
   }
 }

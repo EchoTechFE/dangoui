@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-icon",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {

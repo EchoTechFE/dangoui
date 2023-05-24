@@ -1,13 +1,13 @@
 <template>
-  <div :class="[className, `du-top-tab__${mode}`]" :style="style">
-    <div class="du-top-tab-left">
+  <div :class="[className, `du-top-tab--${mode}`]" :style="style">
+    <div class="du-top-tab__left">
       <span
         :class="[
-          'du-top-tab-left-item',
-          `du-top-tab-left-item__${mode}`,
+          'du-top-tab__left__item',
+          `du-top-tab__left__item--${mode}`,
           tab.label === currentTab.label
-            ? `du-top-tab-left-item__${mode}__selected`
-            : `du-top-tab-left-item__${mode}__unselected`,
+            ? `du-top-tab__left__item--${mode}--selected`
+            : `du-top-tab__left__item--${mode}--unselected`,
         ]"
         v-for="(tab, index) in tabs"
         :key="index"
@@ -16,14 +16,14 @@
         {{ tab.label }}
       </span>
     </div>
-    <div class="du-top-tab-right" v-if="mode === 'level1'" @click="handleChannelTap">
+    <div class="du-top-tab__right" v-if="mode === 'level1'" @click="handleChannelTap">
       <img
-        class="du-top-tab-right__shadow"
+        class="du-top-tab__right__shadow"
         src="https://cdn.qiandaoapp.com/interior/images/22a4648695ac1bc084d123a168dc31b9.png"
         alt=""
       />
       <img
-        class="du-top-tab-right__icon"
+        class="du-top-tab__right__icon"
         src="https://cdn.qiandaoapp.com/ued/10fb6c2a56579c3d36e243bc35b970e0.png"
         alt=""
       />
@@ -101,29 +101,29 @@ export default defineComponent({
   display: flex;
   align-items: center;
   font-size: 0;
-  &__level1 {
+  &--level1 {
     background: #fff;
     padding: 0 0 0 30rpx;
   }
-  &__level2 {
+  &--level2 {
     background: #ff812c;
     padding: 0 0 0 24rpx;
   }
-  &-left {
+  &__left {
     display: flex;
     align-items: center;
     column-gap: 40rpx;
     overflow-x: auto;
-    &-item {
+    &__item {
       font-size: 36rpx;
       white-space: nowrap;
-      &__level1 {
+      &--level1 {
         position: relative;
         line-height: 86rpx;
         &:last-child {
           margin-right: 30rpx;
         }
-        &__selected {
+        &--selected {
           font-weight: 500;
           color: #000000;
           &::after {
@@ -133,28 +133,28 @@ export default defineComponent({
             display: block;
             width: 50rpx;
             height: 10rpx;
-            background: #7c66ff;
+            background: var(--du-top-tab-item-selected-bottom-line-color);
             margin-left: -25rpx;
             border-radius: 10rpx 2rpx 10rpx 2rpx;
             content: '';
             transition: all 0.5s;
           }
         }
-        &__unselected {
-          color: rgba(0, 0, 0, 0.64);
+        &--unselected {
+          color: var(--du-top-tab-item-unselect-color);
           &::after {
             width: 0;
             content: '';
           }
         }
       }
-      &__level2 {
+      &--level2 {
         position: relative;
         line-height: 88rpx;
         &:last-child {
           margin-right: 24rpx;
         }
-        &__selected {
+        &--selected {
           font-weight: 500;
           color: #fff;
           &::after {
@@ -170,19 +170,19 @@ export default defineComponent({
             content: '';
           }
         }
-        &__unselected {
+        &--unselected {
           color: rgba(255, 255, 255, 0.88);
         }
       }
     }
   }
-  &-right {
+  &__right {
     position: relative;
     display: flex;
     align-items: center;
     line-height: 86rpx;
     font-size: 32rpx;
-    color: rgba(0, 0, 0, 0.64);
+    color: var(--du-top-tab-item-unselect-color);
     column-gap: 8rpx;
     white-space: nowrap;
     &__shadow {
