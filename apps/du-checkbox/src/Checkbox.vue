@@ -59,7 +59,7 @@ export default {
     },
     size: {
       type: String,
-      default: '40rpx',
+      default: '20px',
     },
   },
   emits: ['click', 'input', 'update:value', 'input'],
@@ -96,7 +96,7 @@ export default {
     )
 
     const config = computed(() => {
-      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position } = props
+      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position, size } = props
       const { shape: gShape, inline: gInline, position: gPosition } = groupConfig.value
 
       return Object.freeze({
@@ -109,6 +109,7 @@ export default {
         shape: gShape ? gShape : shape,
         inline: gInline ? gInline : inline,
         position: gPosition ? gPosition : position,
+        size,
       })
     })
 

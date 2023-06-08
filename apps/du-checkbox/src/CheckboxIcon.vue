@@ -33,7 +33,7 @@ export default {
     },
     size: {
       type: String,
-      default: '40rpx',
+      default: '20px',
     },
   },
   setup(props) {

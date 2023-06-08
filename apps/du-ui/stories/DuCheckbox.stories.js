@@ -47,31 +47,31 @@ const Template = (args, { argTypes }) => ({
     <div>
       <div>
         <h3>多选组合</h3>
-        <du-checkbox-group  v-model="fruitGroupValue" @input="onGroupInput">
-          <du-checkbox label="apple" >苹果</du-checkbox>
-          <du-checkbox label="banana">香蕉</du-checkbox>
-          <du-checkbox label="orange" >橘子</du-checkbox>
+        <du-checkbox-group v-model:value="fruitGroupValue" @input="onGroupInput">
+          <du-checkbox value="apple" >苹果</du-checkbox>
+          <du-checkbox value="banana">香蕉</du-checkbox>
+          <du-checkbox value="orange" >橘子</du-checkbox>
         </du-checkbox-group>
       </div>
 
       <div>
         <h3>多选组合</h3>
-        <du-checkbox-group v-model="wearGroupValue" inline shape="square">
-          <du-checkbox label="shirt">衬衫</du-checkbox>
-          <du-checkbox position="left">trousers</du-checkbox>
-          <du-checkbox label="coat">大衣</du-checkbox>
+        <du-checkbox-group v-model:value="wearGroupValue" inline shape="square">
+          <du-checkbox size="40px" value="shirt">衬衫</du-checkbox>
+          <du-checkbox value="trousers" position="left">裤子</du-checkbox>
+          <du-checkbox value="coat">大衣</du-checkbox>
         </du-checkbox-group>
       </div>
 
       <div>
         <h3>使用options生成的checkbox</h3>
-        <du-checkbox-group :options="options" v-model="optionsGroupValue" position="left" />
+        <du-checkbox-group :options="options" v-model:value="optionsGroupValue" position="left" />
       </div>
 
 
       <div>
         <h3>单个多选</h3>
-        <du-checkbox :ext-style="singleStyle"  label="single-check" :value="singleCheckboxValue" @click="onCheckboxClick" >
+        <du-checkbox :extStyle="singleStyle" v-model:value="singleCheckboxValue" @click="onCheckboxClick" >
           这是单个多选器
         </du-checkbox>
       </div>
