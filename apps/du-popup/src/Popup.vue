@@ -1,6 +1,8 @@
 <template>
   <div class="du-popup" v-if="innerVisible">
-    <div :class="maskClassName" :style="maskStyleFormat" @click="handleMaskClick" />
+    <div :class="maskClassName" :style="maskStyleFormat" @click="handleMaskClick">
+      <slot name="maskContent" />
+    </div>
     <div :style="style" :class="className">
       <div :class="['du-popup__header', `du-popup__header--${titleAlign}`]" v-if="headerVisible">
         <div class="du-popup__title">{{ title }}</div>
