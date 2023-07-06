@@ -54,12 +54,12 @@ const Template = (args, { argTypes }) => ({
         </du-checkbox-group>
       </div>
 
-      <div>
+      <div style="background:rgba(0,0,0,.2)">
         <h3>多选组合</h3>
         <du-checkbox-group v-model:value="wearGroupValue" inline shape="square">
           <du-checkbox size="40px" value="shirt">衬衫</du-checkbox>
           <du-checkbox value="trousers" position="left">裤子</du-checkbox>
-          <du-checkbox value="coat">大衣</du-checkbox>
+          <du-checkbox value="coat" border="1px solid #fff">大衣</du-checkbox>
         </du-checkbox-group>
       </div>
 

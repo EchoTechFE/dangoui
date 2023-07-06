@@ -2,6 +2,24 @@
   "name": "@frontend/dumpling",
   "entries": [
     {
+      "version": "2.17.0",
+      "tag": "@frontend/dumpling_v2.17.0",
+      "date": "Wed, 05 Jul 2023 08:29:44 GMT",
+      "comments": {}
+    },
+    {
+      "version": "2.16.0",
+      "tag": "@frontend/dumpling_v2.16.0",
+      "date": "Wed, 05 Jul 2023 06:39:02 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "checkbox-icon enable custom border"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.15.0",
       "tag": "@frontend/dumpling_v2.15.0",
       "date": "Mon, 12 Jun 2023 07:08:32 GMT",

@@ -8,6 +8,7 @@
     :style="{
       width: size,
       height: size,
+      border,
     }"
   >
     <img
@@ -34,6 +35,10 @@ export default {
     size: {
       type: String,
       default: '20px',
+    },
+    border: {
+      type: String,
+      default: '',
     },
   },
   setup(props) {

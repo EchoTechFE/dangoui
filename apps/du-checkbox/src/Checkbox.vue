@@ -6,7 +6,7 @@
     <div class="du-checkbox__label">
       <slot>{{ content }}</slot>
     </div>
-    <checkbox-icon :selected="selected" :shape="config?.shape" :size="config.size" />
+    <checkbox-icon :selected="selected" :shape="config?.shape" :size="config.size" :border="config.border" />
   </div>
 </template>
 
@@ -61,6 +61,10 @@ export default {
       type: String,
       default: '20px',
     },
+    border: {
+      type: String,
+      default: '',
+    },
   },
   emits: ['click', 'input', 'update:value', 'input'],
   setup(props, { emit }) {
@@ -96,7 +100,8 @@ export default {
     )
 
     const config = computed(() => {
-      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position, size } = props
+      const { extClass, extStyle, shape, inline, disabled, label, value, custom, position, size, border } =
+        props
       const { shape: gShape, inline: gInline, position: gPosition } = groupConfig.value
 
       return Object.freeze({
@@ -110,6 +115,7 @@ export default {
         inline: gInline ? gInline : inline,
         position: gPosition ? gPosition : position,
         size,
+        border,
       })
     })
 

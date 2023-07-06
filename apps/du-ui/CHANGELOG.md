@@ -1,6 +1,18 @@
 # Change Log - @frontend/dumpling
 
-This log was last generated on Mon, 12 Jun 2023 07:08:32 GMT and should not be manually modified.
+This log was last generated on Wed, 05 Jul 2023 08:29:44 GMT and should not be manually modified.
+
+## 2.17.0
+Wed, 05 Jul 2023 08:29:44 GMT
+
+_Version update only_
+
+## 2.16.0
+Wed, 05 Jul 2023 06:39:02 GMT
+
+### Updates
+
+- checkbox-icon enable custom border
 
 ## 2.15.0
 Mon, 12 Jun 2023 07:08:32 GMT
