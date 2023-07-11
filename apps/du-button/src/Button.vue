@@ -7,6 +7,8 @@
     :openType="openType"
     @getuserinfo="onGetUserInfo"
     @click="onClick"
+    @touchstart="onStart"
+    @touchend="onEnd"
   >
     <div v-if="loading" class="du-button__icon du-button__loading" />
     <template v-if="iconPosition === 'left' && icon">
@@ -27,11 +29,19 @@
     <div v-if="arrowRight" class="du-button__arrow-right">
       <DuIcon name="arrow-heavy-right" :size="iconSize" />
     </div>
+
+    <div
+      v-if="press && isPress"
+      class="du-button__press"
+      :style="{
+        background: pressBackground,
+      }"
+    />
   </button>
 </template>
 
 <script>
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
@@ -136,8 +146,18 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    press: {
+      type: Boolean,
+      default: false
+    },
+    pressBackground: {
+      type: String,
+      default: 'rgba(0, 0, 0, 0.04)',
+    },
   },
   setup(props, { emit }) {
+    const isPress = ref(false)
+    const pressStart = ref(0)
     const className = computed(() => {
       const { size, type, ghost, loading, full, round, disabled, extClass } = props
       return classNames(
@@ -158,23 +178,40 @@ export default defineComponent({
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-            ...extStyle,
-          })
+          ...extStyle,
+        })
     })
 
     const isIconC = computed(() => !!findIcon(props.icon))
+    const allowClick = computed(() => !props.disabled && !props.loading)
 
     function onClick() {
-      if (!props.disabled && !props.loading) {
+      if (!props.press && allowClick.value) {
         emit('click')
       }
     }
-
+    function onStart() {
+      if (props.press && allowClick.value) {
+        isPress.value = true
+        pressStart.value = new Date().getTime()
+      }
+    }
+    function onEnd() {
+      if (props.press) {
+        const minPressTime = 150 - ((new Date().getTime()) - pressStart.value)
+        setTimeout(() => {
+          isPress.value = false
+        }, minPressTime > 0 ? minPressTime : 0);
+        if (allowClick.value) {
+          emit('click')
+        }
+      }
+    }
     function onGetUserInfo(...args) {
       emit('getUserInfo', ...args)
     }
 
-    return { style, className, isIconC, onClick, onGetUserInfo }
+    return { style, className, isIconC, onClick, onStart, onEnd, onGetUserInfo, isPress }
   },
 })
 </script>
@@ -188,7 +225,7 @@ export default defineComponent({
 }
 .du-button {
   $c: &;
-
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -396,6 +433,13 @@ export default defineComponent({
       background: rgba(255, 255, 255, 0.2);
       border: none;
     }
+  }
+  &__press {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
