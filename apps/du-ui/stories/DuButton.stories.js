@@ -22,7 +22,7 @@ const TemplateAll = (args) => ({
     <div>
       <div>
         <h3>Type</h3>
-        <span><DuButton v-bind="args" type="primary" @click="onClick">primary</DuButton></span>
+        <span><DuButton v-bind="args" type="primary" @click="onClick" press>primary</DuButton></span>
         <span><DuButton v-bind="args" type="secondary" @click="onClick">secondary</DuButton></span>
         <span><DuButton v-bind="args" type="recommend" @click="onClick">recommend</DuButton></span>
         <span><DuButton v-bind="args" type="info" @click="onClick">info</DuButton></span>
