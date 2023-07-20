@@ -10,7 +10,7 @@
             {{ config?.label }}
           </slot>
         </div>
-        <RadioIcon :checked="checked" />
+        <RadioIcon :checked="checked" :disabled="disabled" />
       </template>
       <template v-else>
         <RadioIcon :checked="checked" :disabled="disabled" />
@@ -163,8 +163,8 @@ export default defineComponent({
       return typeof extStyle === 'string'
         ? extStyle
         : styleToCss({
-            ...extStyle,
-          })
+          ...extStyle,
+        })
     })
 
     const checked = computed(() => {
