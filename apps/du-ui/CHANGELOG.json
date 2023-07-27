@@ -2,6 +2,12 @@
   "name": "@frontend/dumpling",
   "entries": [
     {
+      "version": "2.20.0",
+      "tag": "@frontend/dumpling_v2.20.0",
+      "date": "Thu, 27 Jul 2023 08:55:51 GMT",
+      "comments": {}
+    },
+    {
       "version": "2.19.0",
       "tag": "@frontend/dumpling_v2.19.0",
       "date": "Thu, 20 Jul 2023 08:35:12 GMT",
