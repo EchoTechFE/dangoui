@@ -198,6 +198,8 @@ export default {
           return '确定'
         } else if (type.value === 'multiple') {
           return selectedDateList.value.length > 0 ? `确定(${selectedDateList.value.length})` : '确定'
+        } else {
+          return '确定'
         }
       }
     })
@@ -362,10 +364,28 @@ export default {
     // 判断某项是否被选中
     const isSelected = (year, month, date, array) => {
       const init = dateToTimeStamp(year, month, date)
+
       const flag = array.some((item) => {
         const timeStamp = dateToTimeStamp(item.year, item.month, item.date)
         return init === timeStamp
       })
+
+      if (flag) {
+        return true
+      }
+
+      if (type.value === 'range') {
+        if (array.length === 2) {
+          console.log(array, array.length)
+          const start = dateToTimeStamp(array[0].year, array[0].month, array[0].date)
+          const end = dateToTimeStamp(array[1].year, array[1].month, array[1].date)
+          if (init >= start && init <= end) {
+            return true
+          }
+          return false
+        }
+      }
+
       return flag
     }
 
@@ -383,6 +403,10 @@ export default {
       if (disabled) {
         return
       }
+      if (selectedDateList.value.length === 2) {
+        selectedDateList.value = []
+      }
+
       if (selectedDateList.value.length === 0) {
         selectedDateList.value.push({
           year: item.year,
@@ -391,6 +415,7 @@ export default {
         })
         return
       }
+
       // 遍历该数据在已选数据中是否已存在
       const saved = isSelected(item.year, item.month, date, selectedDateList.value)
 
@@ -427,6 +452,29 @@ export default {
             date: date,
           })
         }
+      } else if (type.value === 'range') {
+        if (saved) {
+          return
+        }
+
+        const first = dateToTimeStamp(
+          selectedDateList.value[0].year,
+          selectedDateList.value[0].month,
+          selectedDateList.value[0].date,
+        )
+        if (first > dateToTimeStamp(item.year, item.month, date)) {
+          selectedDateList.value.unshift({
+            year: item.year,
+            month: item.month,
+            date: date,
+          })
+        } else {
+          selectedDateList.value.push({
+            year: item.year,
+            month: item.month,
+            date: date,
+          })
+        }
       }
     }
 
@@ -446,7 +494,7 @@ export default {
         emit('confirm', {
           value: new Date(confirmDate.year, confirmDate.month, confirmDate.date),
         })
-      } else if (type.value === 'multiple') {
+      } else if (type.value === 'multiple' || type.value === 'range') {
         confirmList = selectedDateList.value.map((item) => {
           return new Date(item.year, item.month, item.date)
         })

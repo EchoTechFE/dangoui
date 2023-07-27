@@ -20,6 +20,7 @@ const Template = (args) => ({
     return {
       singleVisible: false,
       multipleVisible: false,
+      rangeVisible: false,
       calendarType: 'single',
       defaultDateSingle: new Date(),
       minSelectDate: new Date('2021-10-21'),
@@ -34,6 +35,7 @@ const Template = (args) => ({
         new Date('2022-03-20'),
         new Date('2022-04-20'),
       ],
+      defaultRangeArray: [new Date('2023-07-27'), new Date('2023-07-30')],
     }
   },
   template: `
@@ -62,6 +64,17 @@ const Template = (args) => ({
           @confirm="handleMultipleConfirm"
         />
       </div>
+      <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+      <DuButton @click="handleRangeOpen">范围</DuButton>
+      <div>多选日期数为：{{ rangeDateArray }}</div>
+      <DuCalendar
+        type="range"
+        :visible="rangeVisible"
+        :selectedDate="defaultRangeArray"
+        @close="handleClose"
+        @confirm="handleRangeConfirm"
+      />
+    </div>
     </div>
   `,
   methods: {
@@ -71,9 +84,13 @@ const Template = (args) => ({
     handleMultipleOpen(type) {
       this.multipleVisible = true
     },
+    handleRangeOpen() {
+      this.rangeVisible = true
+    },
     handleClose() {
       this.singleVisible = false
       this.multipleVisible = false
+      this.rangeVisible = false
     },
     handleSingleConfirm(val) {
       this.defaultDateSingle = val.value
@@ -82,6 +99,10 @@ const Template = (args) => ({
     handleMultipleConfirm(val) {
       this.defaultDateArray = [...val.value]
       this.multipleVisible = false
+    },
+    handleRangeConfirm(val) {
+      this.rangeDateArray = [...val.value]
+      this.rangeVisible = false
     },
   },
 })
