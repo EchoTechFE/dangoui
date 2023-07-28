@@ -49,15 +49,6 @@
                   class="du-cal-main-bg"
                 ></div>
                 <div class="actived-icon__bg">{{ dateIdx + 1 }}</div>
-                <div
-                  v-if="
-                    !showDisable(item?.year, item?.month, dateIdx + 1) &&
-                    isSelected(item?.year, item?.month, dateIdx + 1, selectedDateList)
-                  "
-                  class="actived__icon"
-                >
-                  <img src="https://cdn.qiandaoapp.com/admins/e4322e313bab92c19e287976ff80ffbd.png" />
-                </div>
               </div>
             </div>
           </div>
