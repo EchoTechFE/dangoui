@@ -658,25 +658,6 @@ export default {
           position: absolute;
           z-index: 20;
         }
-
-        .actived__icon {
-          position: absolute;
-          z-index: 50;
-          bottom: 0;
-          right: 0;
-          width: 24rpx;
-          height: 18rpx;
-          background: var(--du-calendar-primary);
-          border-radius: 8rpx 0 0 0;
-          line-height: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          img {
-            width: 14rpx;
-            height: 10rpx;
-          }
-        }
       }
     }
   }
