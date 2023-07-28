@@ -376,7 +376,6 @@ export default {
 
       if (type.value === 'range') {
         if (array.length === 2) {
-          console.log(array, array.length)
           const start = dateToTimeStamp(array[0].year, array[0].month, array[0].date)
           const end = dateToTimeStamp(array[1].year, array[1].month, array[1].date)
           if (init >= start && init <= end) {
