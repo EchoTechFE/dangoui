@@ -10,7 +10,9 @@
     <div class="du-calendarendar--main">
       <div class="du-calendarendar--flex du-calendarendar--week">
         <div v-for="(item, index) in weekList" :key="index" class="du-cal-flex-item">
-          <div class="du-cal-flex-item__week">{{ item }}</div>
+          <div :class="['du-cal-flex-item__week', { 'du-cal-flex-item__week--highlight': item.highlight }]">
+            {{ item.name }}
+          </div>
         </div>
       </div>
       <scroll-view
@@ -149,6 +151,13 @@ export default {
       type: [String, Number],
       default: 30,
     },
+    /**
+     * @description: 0-6 0代表周日
+     */
+    weekStart: {
+      type: Number,
+      default: 0,
+    },
   },
   setup(props, { emit }) {
     const { type, title, confirmText, minDate, maxDate, selectedDate, selectableCount } = toRefs(props)
@@ -255,8 +264,34 @@ export default {
       return list
     })
 
-    const weekList = ref(['日', '一', '二', '三', '四', '五', '六'])
+    const weekList = computed(() => {
+      const { weekStart } = props
+      const initList = [
+        { name: '日', highlight: true },
+        { name: '一', highlight: false },
+        { name: '二', highlight: false },
+        { name: '三', highlight: false },
+        { name: '四', highlight: false },
+        { name: '五', highlight: false },
+        { name: '六', highlight: true },
+      ]
+
+      const list = initList.map((l, index) => {
+        return {
+          ...l,
+          index: (index + (7 - weekStart)) % 7,
+        }
+      })
+
+      console.log('__list', list)
+
+      return [...list].sort((a, b) => a.index - b.index)
+    })
+
     let calendarList = ref([])
+
+    console.log('weekList', weekList)
+
     let selectedDateList = ref([...echoDefault.value])
 
     /**
@@ -268,13 +303,14 @@ export default {
      * @returns {Array} 新的数据
      */
     const getNewDate = (type = 'new', startObj = { year: null, month: null }, monthCount = 6) => {
+      const { weekStart } = props
       let year = startObj.year
       let month = startObj.month
       let list = []
       for (let i = 0; i < monthCount; i++) {
         // 获得新的月份
         if (type === 'new') {
-          const spaceDay = new Date(year, month, 1).getDay()
+          const spaceDay = (7 - weekStart + new Date(year, month, 1).getDay()) % 7
           list.push({
             year: Number(year),
             month: Number(month),
@@ -290,7 +326,7 @@ export default {
           }
         } else if (type === 'old') {
           // 获得之前的月份
-          const spaceDay = new Date(year, month, 1).getDay()
+          const spaceDay = (7 - weekStart + new Date(year, month, 1).getDay()) % 7
           list.unshift({
             year: Number(year),
             month: Number(month),
@@ -589,7 +625,7 @@ export default {
 
     .du-cal-flex-item {
       margin-bottom: 24rpx;
-      flex: 0 0 (78rpx * 7 + 24rpx * 6) / 7;
+      flex: 0 0 calc((78rpx * 7 + 24rpx * 6) / 7);
       &__week {
         margin: 0 auto;
         width: 78rpx;
@@ -597,6 +633,10 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &--highlight {
+          color: var(--du-calendar-active-text-color);
+        }
       }
 
       &__day {
