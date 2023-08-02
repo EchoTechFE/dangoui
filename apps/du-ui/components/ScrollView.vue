@@ -33,7 +33,6 @@ export default {
     //滚动事件
     getScroll(e) {
       let wScrollY = e.target.scrollTop // 当前滚动条位置
-      console.log(wScrollY)
       this.scrollTop = wScrollY
       let wInnerH = e.target.clientHeight // 设备窗口的高度（不会变）
       let bScrollH = e.target.scrollHeight // 元素总高度

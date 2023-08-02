@@ -25,16 +25,7 @@ const Template = (args) => ({
       defaultDateSingle: new Date(),
       minSelectDate: new Date('2021-10-21'),
       maxSelectDate: new Date('2022-04-20'),
-      defaultDateArray: [
-        new Date('2021-10-21'),
-        new Date('2022-01-15'),
-        new Date('2022-01-20'),
-        new Date('2022-01-29'),
-        new Date('2022-02-16'),
-        new Date(),
-        new Date('2022-03-20'),
-        new Date('2022-04-20'),
-      ],
+      defaultDateArray: [new Date()],
       defaultRangeArray: [new Date('2023-07-27'), new Date('2023-07-30')],
     }
   },

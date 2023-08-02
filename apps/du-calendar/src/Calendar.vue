@@ -57,19 +57,14 @@
         </div>
       </scroll-view>
       <div class="du-calendarendar--button">
-        <div class="du-cal-button-cancle" @click="handleClose">取消</div>
-        <div
-          :class="[
-            'du-cal-button-public',
-            {
-              'du-cal-button-confirm': !buttonDisabled,
-              'du-cal-button-confirm__disabled': buttonDisabled,
-            },
-          ]"
+        <DuButton
+          type="primary"
+          size="large"
+          full
+          :disabled="!!buttonDisabled"
           @click="handleConfirm"
-        >
-          {{ buttonConfirmText }}
-        </div>
+          :text="buttonConfirmText"
+        />
       </div>
     </div>
   </DuPopup>
@@ -80,6 +75,7 @@ import { computed, toRefs, ref, onMounted, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuPopup from '@frontend/du-popup/src/Popup.vue'
+import DuButton from '@frontend/du-button/src/Button.vue'
 
 // 获取最大选择日期
 const getMaxDate = (date, instance = 6) => {
@@ -102,7 +98,7 @@ const getMaxDate = (date, instance = 6) => {
 }
 
 export default {
-  components: { DuPopup },
+  components: { DuPopup, DuButton },
   props: {
     extClass: {
       type: [String, Array, Object],
@@ -283,14 +279,10 @@ export default {
         }
       })
 
-      console.log('__list', list)
-
       return [...list].sort((a, b) => a.index - b.index)
     })
 
     let calendarList = ref([])
-
-    console.log('weekList', weekList)
 
     let selectedDateList = ref([...echoDefault.value])
 
@@ -429,7 +421,8 @@ export default {
       if (disabled) {
         return
       }
-      if (selectedDateList.value.length === 2) {
+
+      if (selectedDateList.value.length === 2 && props.type === 'range') {
         selectedDateList.value = []
       }
 
@@ -546,7 +539,7 @@ export default {
     }
 
     // 上拉加载更多
-    const scrolltoupper = () => {
+    const scrolltoupper = (value) => {
       const startDate = calendarList.value.length > 0 ? calendarList.value[0] : null
       if (!startDate) {
         return
@@ -611,6 +604,7 @@ export default {
 
   &--main {
     position: relative;
+    padding-bottom: 60rpx;
   }
 
   &--week {
@@ -704,9 +698,6 @@ export default {
 
   &--button {
     padding: 10rpx 30rpx 0 30rpx;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
     .du-cal-button-cancle {
       color: var(--du-calendar-cancle-button-text-color);
