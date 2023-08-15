@@ -50,7 +50,15 @@
                   "
                   class="du-cal-main-bg"
                 ></div>
-                <div class="actived-icon__bg">{{ dateIdx + 1 }}</div>
+                <div class="actived-icon__bg">
+                  <div v-if="isToday(item, dateIdx + 1)" style="color: var(--du-calendar-active-text-color)">
+                    今
+                  </div>
+
+                  <template v-else>
+                    {{ dateIdx + 1 }}
+                  </template>
+                </div>
               </div>
             </div>
           </div>
@@ -153,6 +161,10 @@ export default {
     weekStart: {
       type: Number,
       default: 0,
+    },
+    ignoreDisable: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props, { emit }) {
@@ -282,6 +294,18 @@ export default {
       return [...list].sort((a, b) => a.index - b.index)
     })
 
+    function isToday(item, date) {
+      const now = new Date()
+      const nowYear = now.getFullYear()
+      const nowMonth = now.getMonth()
+      const nowDate = now.getDate()
+
+      if (date === nowDate && item.month === nowMonth && item.year === nowYear) {
+        return true
+      }
+      return false
+    }
+
     let calendarList = ref([])
 
     let selectedDateList = ref([...echoDefault.value])
@@ -352,6 +376,7 @@ export default {
         { year: minDateObj.value.year, month: minDateObj.value.month },
         monthInstance + 1,
       )
+
       calendarList.value = [...list]
     }
 
@@ -410,7 +435,10 @@ export default {
     // 动态判断是否被禁用
     const showDisable = (year, month, date) => {
       const itemTimeStamp = dateToTimeStamp(year, month, date)
-      if (minDateObj.value.timeStamp <= itemTimeStamp && itemTimeStamp <= maxDateObj.value.timeStamp) {
+      if (
+        (minDateObj.value.timeStamp <= itemTimeStamp && itemTimeStamp <= maxDateObj.value.timeStamp) ||
+        props.ignoreDisable
+      ) {
         return false
       }
       return true
@@ -550,7 +578,7 @@ export default {
         month = month + 1
         year = year - 1
       }
-      const topList = getNewDate('old', { year: year, month: month }, 3)
+      const topList = getNewDate('old', { year: year, month: month }, 1)
       calendarList.value = [...topList, ...calendarList.value]
     }
 
@@ -593,6 +621,7 @@ export default {
       isSelected,
       handleConfirm,
       showDisable,
+      isToday,
     }
   },
 }
@@ -604,7 +633,6 @@ export default {
 
   &--main {
     position: relative;
-    padding-bottom: 60rpx;
   }
 
   &--week {
@@ -618,7 +646,7 @@ export default {
     font-size: 28rpx;
 
     .du-cal-flex-item {
-      margin-bottom: 24rpx;
+      margin-bottom: 16rpx;
       flex: 0 0 calc((78rpx * 7 + 24rpx * 6) / 7);
       &__week {
         margin: 0 auto;
@@ -635,8 +663,8 @@ export default {
 
       &__day {
         margin: 0 auto;
-        width: 78rpx;
-        height: 78rpx;
+        width: 84rpx;
+        height: 84rpx;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -674,8 +702,6 @@ export default {
         position: relative;
         border-radius: 8rpx;
         box-sizing: border-box;
-        border: 1px solid;
-        border-color: var(--du-calendar-primary);
         overflow: hidden;
         color: var(--du-calendar-active-text-color);
 
@@ -685,7 +711,6 @@ export default {
           width: 100%;
           height: 100%;
           background: var(--du-calendar-primary);
-          opacity: 0.2;
         }
 
         .actived-icon__bg {

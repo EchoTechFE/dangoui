@@ -36,6 +36,7 @@ const Template = (args) => ({
         <div>单选日期为：{{ defaultDateSingle }}</div>
         <DuCalendar
           type="single"
+          ignoreDisable
           :visible="singleVisible"
           :selectedDate="defaultDateSingle"
           @close="handleClose"

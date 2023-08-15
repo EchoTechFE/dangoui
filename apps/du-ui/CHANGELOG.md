@@ -1,6 +1,37 @@
 # Change Log - @frontend/dumpling
 
-This log was last generated on Wed, 02 Aug 2023 08:40:07 GMT and should not be manually modified.
+This log was last generated on Tue, 15 Aug 2023 07:03:56 GMT and should not be manually modified.
+
+## 2.32.0
+Tue, 15 Aug 2023 07:03:56 GMT
+
+_Version update only_
+
+## 2.31.0
+Mon, 14 Aug 2023 11:24:50 GMT
+
+_Version update only_
+
+## 2.30.0
+Mon, 14 Aug 2023 09:38:05 GMT
+
+### Updates
+
+- update calendar ui
+
+## 2.29.0
+Mon, 14 Aug 2023 09:15:03 GMT
+
+### Updates
+
+- update du-calendar ui
+
+## 2.28.0
+Mon, 14 Aug 2023 08:13:05 GMT
+
+### Updates
+
+- update calendar disable
 
 ## 2.27.0
 Wed, 02 Aug 2023 08:40:07 GMT
