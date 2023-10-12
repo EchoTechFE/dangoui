@@ -1,6 +1,6 @@
 {
   "name": "@frontend/du-top-tab",
-  "version": "2.32.0",
+  "version": "2.33.0",
   "main": "dist/index.umd.js",
   "module": "./src/index.js",
   "scripts": {
