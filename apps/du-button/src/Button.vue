@@ -126,6 +126,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    disabledType: {
+      type: String,
+      default: 'default',
+    },
     full: {
       type: Boolean,
       default: false,
@@ -159,11 +163,10 @@ export default defineComponent({
     const isPress = ref(false)
     const pressStart = ref(0)
     const className = computed(() => {
-      const { size, type, ghost, loading, full, round, disabled, extClass } = props
+      const { size, type, ghost, loading, full, round, disabled, extClass, disabledType } = props
       return classNames(
-        ['du-button', 'du-button--' + size, 'du-button--' + type],
+        ['du-button', 'du-button--' + size, 'du-button--' + type, disabled && disabledType ? `du-button--disabled--${disabledType}` : ''],
         {
-          'du-button--disabled': disabled,
           'du-button--ghost': ghost,
           'du-button--loading': loading,
           'du-button--full': full,
@@ -219,7 +222,6 @@ export default defineComponent({
 <style lang="scss">
 @mixin typeTheme($type) {
   color: var(--du-bt- + $type + -color);
-
   background: var(--du-bt- + $type + -bg);
   border: var(--du-bt- + $type + -border);
 }
@@ -427,11 +429,18 @@ export default defineComponent({
 
   &--disabled {
     @include typeTheme('disabled');
+
     &.du-button--ghost {
       color: rgba(255, 255, 255, 0.5);
 
       background: rgba(255, 255, 255, 0.2);
       border: none;
+    }
+    &--default {
+      @include typeTheme('disabled');
+    }
+    &--temp {
+      @include typeTheme('disabled-temp');
     }
   }
   &__press {

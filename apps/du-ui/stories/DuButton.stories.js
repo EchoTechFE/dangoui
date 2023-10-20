@@ -42,9 +42,9 @@ const TemplateAll = (args) => ({
       </div>
       <div>
         <h3>Disabled</h3>
-        <span><DuButton v-bind="args" type="secondary" disabled @click="onClick">disabled</DuButton></span>
+        <span><DuButton v-bind="args" type="secondary" disabled @click="onClick">default</DuButton></span>
+        <span><DuButton v-bind="args" type="secondary" disabled disabledType="temp" @click="onClick">temp</DuButton></span>
       </div>
-
       <div>
         <h3>arrowRight</h3>
         <span><DuButton v-bind="args" arrowRight  @click="onClick">arrowRight</DuButton></span>
