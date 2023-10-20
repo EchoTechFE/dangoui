@@ -151,6 +151,10 @@ rush version bump
 rush publish --include-all -t latest -p
 ```
 
+去 config 后台：https://admin.echo.tech/config/app/frontend
+
+在 baymax.yaml 中，更新 `@frontend/dumpling` 里的版本为 `^${更新图标后的版本号}`
+
 ### 提交
 
 组件开发完以后，应当完善 storybook，以 storybook 来做初步的文档、示例、手动测试
