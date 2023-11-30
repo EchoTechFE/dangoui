@@ -37,6 +37,7 @@
           <div class="du-calendar__dates">
             <div
               class="du-calendar__item"
+              v-if="month[0].day() - weekStart > 0"
               v-for="i in month[0].day() - weekStart"
               :key="i"
             ></div>
