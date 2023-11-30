@@ -27,6 +27,7 @@
     "./src/*": "./src/*",
     "./theme.css": "./dist/theme.css",
     "./style.css": "./dist/style.css",
+    "./mp/theme.css": "./dist/mp/theme.css",
     "./mp/style.css": "./dist/mp/style.css",
     "./iconfont-config.json": "./src/icon/iconfont-config.json"
   },

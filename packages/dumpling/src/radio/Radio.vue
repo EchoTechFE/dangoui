@@ -80,6 +80,7 @@ const emit = defineEmits<{
   (e: 'click'): void
   (e: 'input', value: { checked: boolean; value: any | undefined }): void
   (e: 'update:value', value: { checked: boolean; value: any | undefined }): void
+  (e: 'update:checked', value: boolean): void
 }>()
 
 const groupConfig = inject(groupConfigInjectionKey)
@@ -159,6 +160,7 @@ function update(value: string | number) {
   }
   emit('input', { checked: true, value })
   emit('update:value', { checked: true, value })
+  emit('update:checked', true)
 }
 
 function handleClick() {
@@ -172,6 +174,7 @@ function handleClick() {
     if (!props.checked) {
       emit('input', { checked: true, value: config.value.value })
       emit('update:value', { checked: true, value: config.value.value })
+      emit('update:checked', true)
     }
   } else {
     const { value } = config.value

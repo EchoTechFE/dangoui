@@ -94,7 +94,7 @@ const props = withDefaults(
     type?: 'single' | 'multiple' | 'range'
     title?: string
     confirmText?: string
-    selectedDate?: dayjs.Dayjs[]
+    selectedDate?: dayjs.Dayjs | dayjs.Dayjs[]
     min?: dayjs.Dayjs
     max?: dayjs.Dayjs
     selectableCount?: number
@@ -118,7 +118,14 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'confirm', value: { value: dayjs.Dayjs[] }): void
+  (
+    e: 'confirm',
+    value: {
+      value: dayjs.Dayjs | dayjs.Dayjs[]
+      dates: dayjs.Dayjs[]
+      date: dayjs.Dayjs
+    },
+  ): void
   (e: 'close'): void
   (e: 'update:visible', visible: boolean): void
 }>()
@@ -304,16 +311,29 @@ const handleConfirm = () => {
     return
   }
 
-  emit('confirm', {
-    value: innerSelected.value,
-  })
+  if (props.type === 'single') {
+    emit('confirm', {
+      value: innerSelected.value[0],
+      date: innerSelected.value[0],
+      dates: innerSelected.value,
+    })
+  } else {
+    emit('confirm', {
+      value: innerSelected.value,
+      date: innerSelected.value[0],
+      dates: innerSelected.value,
+    })
+  }
 }
 
 watch(
   () => props.visible,
   (val) => {
     if (val) {
-      innerSelected.value = props.selectedDate.map((d) => d.clone())
+      const dates = Array.isArray(props.selectedDate)
+        ? props.selectedDate
+        : [props.selectedDate]
+      innerSelected.value = dates.map((d) => d.clone())
     }
   },
 )
