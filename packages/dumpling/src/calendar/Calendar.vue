@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuPopup from '../popup/Popup.vue'
@@ -141,8 +141,14 @@ const innerSelected = ref<dayjs.Dayjs[]>([])
 
 const instanceId = getInstanceId()
 
-const todayMonthId = computed(() => {
-  return `du-calendar-${instanceId}-${dayjs().format('YYYY-MM')}`
+const todayMonthId = ref('')
+
+onMounted(() => {
+  setTimeout(() => {
+    todayMonthId.value = `du-calendar-${instanceId}-${dayjs().format(
+      'YYYY-MM',
+    )}`
+  }, 0)
 })
 
 const className = computed(() => {
