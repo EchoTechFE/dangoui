@@ -7,6 +7,7 @@ import Checkbox from './checkbox/Checkbox.vue'
 import CheckboxGroup from './checkbox/CheckboxGroup.vue'
 import Radio from './radio/Radio.vue'
 import RadioGroup from './radio/RadioGroup.vue'
+import RadioIcon from './radio/RadioIcon.vue'
 import Calendar from './calendar/Calendar.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
@@ -27,6 +28,7 @@ const DuCheckbox = Checkbox
 const DuCheckboxGroup = CheckboxGroup
 const DuRadio = Radio
 const DuRadioGroup = RadioGroup
+const DuRadioIcon = RadioIcon
 const DuCalendar = Calendar
 const DuForm = Form
 const DuFormItem = FormItem
@@ -54,6 +56,8 @@ export {
   Radio,
   DuRadio,
   RadioGroup,
+  RadioIcon,
+  DuRadioIcon,
   DuRadioGroup,
   Calendar,
   DuCalendar,
