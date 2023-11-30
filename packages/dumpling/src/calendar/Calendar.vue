@@ -342,10 +342,14 @@ watch(
   () => props.visible,
   (val) => {
     if (val) {
-      const dates = Array.isArray(props.selectedDate)
-        ? props.selectedDate
-        : [props.selectedDate]
-      innerSelected.value = dates.map((d) => d.clone())
+      if (!props.selectedDate) {
+        innerSelected.value = []
+      } else {
+        const dates = Array.isArray(props.selectedDate)
+          ? props.selectedDate
+          : [props.selectedDate]
+        innerSelected.value = dates.map((d) => d.clone())
+      }
     }
   },
 )
