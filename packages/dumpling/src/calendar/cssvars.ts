@@ -1,5 +1,5 @@
 export default {
-  '--du-calendar-primary': 'var(--du-color-main-opacity)',
+  '--du-calendar-primary': 'var(--du-c-bg-primary)',
   '--du-calendar-container-bg-color': 'rgba(32, 36, 38, 0.06)',
   '--du-calendar-normal-text-color': '#202426',
   '--du-calendar-main-container-bg-color': '#fff',
