@@ -24,6 +24,7 @@
         "default": "./dist/cssvars.mjs"
       }
     },
+    "./src/*": "./src/*",
     "./theme.css": "./dist/theme.css",
     "./style.css": "./dist/style.css",
     "./mp/style.css": "./dist/mp/style.css",
