@@ -29,14 +29,17 @@ const emit = defineEmits<{
   (e: 'scrolltoupper'): void
 }>()
 
-onMounted(() => {
-  if (props.scrollIntoView) {
-    const el = document.getElementById(props.scrollIntoView)
-    if (el) {
-      el.scrollIntoView()
+watch(
+  () => props.scrollIntoView,
+  (id) => {
+    if (id) {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
     }
-  }
-})
+  },
+)
 
 function getScroll(e: any) {
   let wScrollY = e.target.scrollTop // 当前滚动条位置

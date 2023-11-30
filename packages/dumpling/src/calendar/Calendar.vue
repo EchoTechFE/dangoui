@@ -24,6 +24,7 @@
         :scroll-y="true"
         class="du-calendar__container"
         :scroll-into-view="todayMonthId"
+        scroll-with-animation
       >
         <div
           v-for="(month, index) in displayDates"
@@ -106,7 +107,6 @@ const props = withDefaults(
     max?: dayjs.Dayjs
     selectableCount?: number
     weekStart?: number
-    ignoreDisable?: boolean
   }>(),
   {
     extClass: '',
@@ -120,7 +120,6 @@ const props = withDefaults(
     max: () => dayjs().startOf('month').add(12, 'month').endOf('month'),
     selectableCount: 30,
     weekStart: 0,
-    ignoreDisable: false,
   },
 )
 
@@ -266,7 +265,10 @@ const isSelected = (d: dayjs.Dayjs) => {
 
 // 动态判断是否被禁用
 const isDisabled = (d: dayjs.Dayjs) => {
-  if ((props.min.isBefore(d) && props.max.isAfter(d)) || props.ignoreDisable) {
+  if (
+    (props.min.isBefore(d) || props.min.isSame(d, 'day')) &&
+    (props.max.isAfter(d) || props.max.isSame(d, 'day'))
+  ) {
     return false
   }
 
