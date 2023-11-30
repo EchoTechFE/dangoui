@@ -1,0 +1,76 @@
+.du-radio {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  color: #000;
+  font-size: 14px;
+  line-height: 22px;
+
+  &__label {
+    margin-left: 6px;
+  }
+
+  &--inline {
+    display: inline-flex;
+    width: max-content;
+    margin: 0 8px 0 0;
+  }
+  &--cell {
+    justify-content: space-between;
+    .du-radio__label {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+  }
+  &--disabled {
+    color: rgba(0, 0, 0, 0.16);
+  }
+}
+
+.du-radio-group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  &--inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    row-gap: 0;
+  }
+}
+
+.du-radio {
+  &__radio {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    &--checked {
+      border-color: var(--du-color-main);
+      &::after {
+        // 用 absolute 视觉上会有一点偏差
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: block;
+        content: '';
+        background: var(--du-color-main);
+      }
+    }
+
+    &--disabled {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+}

@@ -1,0 +1,169 @@
+<template>
+  <div class="du-group-cell" :style="style" :class="className">
+    <div class="du-group-cell__header" v-if="showHeader">
+      <div class="du-group-cell__left">
+        <div :class="['du-group-cell__title', `du-group-cell__title--${size}`]">
+          {{ title }}
+        </div>
+        <slot name="left" />
+        <div class="du-group-cell__subtitle">{{ subtitle }}</div>
+      </div>
+      <div class="du-group-cell__right">
+        <slot name="right" />
+        <div
+          class="du-group-cell__info"
+          v-if="infoText"
+          @click="$emit('infoTap')"
+        >
+          <DuIcon name="info-circle" :size="infoIconSize" />
+          <div class="du-group-cell__info-text">{{ infoText }}</div>
+        </div>
+        <div
+          class="du-group-cell__action"
+          v-if="actionIcon"
+          @click="$emit('actionTap')"
+        >
+          <DuIcon :name="actionIcon" :size="infoIconSize" color="#918B9F" />
+        </div>
+        <div
+          class="du-group-cell__guide"
+          v-if="guideText"
+          @click="handleGuideTap"
+        >
+          <div class="du-group-cell__guide-text">{{ guideText }}</div>
+          <DuIcon
+            name="arrow-heavy-right"
+            :size="iconSize"
+            color="rgba(0, 0, 0, 0.4)"
+            :extStyle="arrowStyle"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="du-group-cell__content" :style="finalContentStyle">
+      <slot />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import DuIcon from '../icon/Icon.vue'
+import styleToCss from 'style-object-to-css-string'
+
+const props = withDefaults(
+  defineProps<{
+    title: string
+    subtitle: string
+    guideText: string
+    infoText: string
+    actionIcon: string
+    mode: 'normal' | 'collapse'
+    size: 'normal' | 'large'
+    defaultOpen: boolean | null
+    open: boolean | null
+    extClass: string | string[] | Record<string, boolean>
+    extStyle: string | Record<string, string>
+    contentStyle: string | Record<string, string>
+    showHeader: boolean
+  }>(),
+  {
+    title: '',
+    subtitle: '',
+    guideText: '查看更多',
+    infoText: '',
+    actionIcon: '',
+    mode: 'normal',
+    size: 'normal',
+    defaultOpen: null,
+    open: null,
+    extClass: '',
+    extStyle: '',
+    contentStyle: '',
+    showHeader: true,
+  },
+)
+
+const emit = defineEmits<{
+  (e: 'guideTap'): void
+  (e: 'infoTap'): void
+  (e: 'actionTap'): void
+  (e: 'toggleOpen', open: boolean): void
+}>()
+
+const iconSize = ((16 * 100) / 750).toFixed(4) + 'vw'
+
+const infoIconSize = ((24 * 100) / 750).toFixed(4) + 'vw'
+
+const style = computed(() => {
+  const { extStyle } = props
+  return typeof extStyle === 'string'
+    ? extStyle
+    : styleToCss({
+        ...extStyle,
+      })
+})
+
+const className = computed(() => {
+  const { extClass } = props
+
+  return extClass
+})
+
+const innerOpen = ref(true)
+
+if (props.defaultOpen != null) {
+  innerOpen.value = props.defaultOpen
+}
+
+const realOpen = computed(() => {
+  if (props.mode !== 'collapse') {
+    return true
+  }
+
+  if (props.open != null) {
+    return props.open
+  }
+
+  return innerOpen.value
+})
+
+const handleGuideTap = () => {
+  if (props.mode === 'collapse') {
+    emit('toggleOpen', !realOpen.value)
+    if (props.open == null) {
+      innerOpen.value = !realOpen.value
+    }
+  } else {
+    emit('guideTap')
+  }
+}
+
+const arrowStyle = computed(() => {
+  if (props.mode === 'collapse') {
+    return `transform: rotate(${realOpen.value ? '90' : '0'}deg)`
+  }
+  return ''
+})
+
+const finalContentStyle = computed(() => {
+  const defaultStyle: Record<string, string> = {
+    display: realOpen ? 'block' : 'none',
+  }
+
+  if (!props.showHeader) {
+    defaultStyle.paddingTop = `${(24 * 100) / 750}vw`
+  }
+
+  if (!props.contentStyle) {
+    return styleToCss(defaultStyle)
+  }
+  if (typeof props.contentStyle === 'string') {
+    return styleToCss(defaultStyle) + props.contentStyle
+  }
+  return styleToCss({
+    ...defaultStyle,
+    ...props.contentStyle,
+  })
+})
+</script>

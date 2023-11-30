@@ -1,0 +1,41 @@
+.du-snackbar {
+  --du-bt-primary-bg: var(--du-snakbar-btn-bg);
+  --du-bt-primary-color: var(--du-snakbar-btn-color);
+  width: 365px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #fff;
+  background-color: var(--du-snackbar-primary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__content {
+    flex: auto;
+  }
+
+  &__close {
+    line-height: 1;
+    margin-right: 8px;
+    position: relative;
+
+    &__icon {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    &__bgc {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background-color: var(--du-snackbar-primary);
+      z-index: -1;
+    }
+  }
+}

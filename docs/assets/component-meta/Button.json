@@ -1,0 +1,177 @@
+{
+    "props": [
+        {
+            "name": "text",
+            "description": "按钮文本",
+            "required": false,
+            "type": "string",
+            "default": "\"\""
+        },
+        {
+            "name": "buttonId",
+            "description": "id 属性，可用 CSS id 选择器获取到对应组件",
+            "required": false,
+            "type": "string",
+            "default": "\"\""
+        },
+        {
+            "name": "extClass",
+            "description": "自定义 class",
+            "required": false,
+            "type": "string | Record<string, boolean> | string[]",
+            "default": "\"\""
+        },
+        {
+            "name": "extStyle",
+            "description": "自定义 style",
+            "required": false,
+            "type": "string | Record<string, string | number>",
+            "default": "\"\""
+        },
+        {
+            "name": "type",
+            "description": "按钮类型",
+            "required": false,
+            "type": "\"primary\" | \"secondary\" | \"recommend\" | \"info\" | \"text\" | \"text-primary\"",
+            "default": "\"primary\""
+        },
+        {
+            "name": "size",
+            "description": "按钮大小",
+            "required": false,
+            "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+            "default": "\"normal\""
+        },
+        {
+            "name": "icon",
+            "description": "按钮附带图标",
+            "required": false,
+            "type": "string",
+            "default": "\"\""
+        },
+        {
+            "name": "iconSize",
+            "description": "图标大小",
+            "required": false,
+            "type": "string",
+            "default": "\"\""
+        },
+        {
+            "name": "iconPosition",
+            "description": "图标位置",
+            "required": false,
+            "type": "\"left\" | \"right\"",
+            "default": "\"left\""
+        },
+        {
+            "name": "arrowRight",
+            "description": "按钮右侧箭头",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "disabled",
+            "description": "是否禁用状态",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "disabledType",
+            "description": "临时禁用还是永久禁用",
+            "required": false,
+            "type": "\"default\" | \"temp\"",
+            "default": "\"default\""
+        },
+        {
+            "name": "full",
+            "description": "全宽",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "loading",
+            "description": "加载中",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "openType",
+            "description": "小程序 open-type https://developers.weixin.qq.com/miniprogram/dev/component/button.html",
+            "required": false,
+            "type": "string",
+            "default": "\"\""
+        },
+        {
+            "name": "ghost",
+            "description": "半透明按钮",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "press",
+            "description": "点击触发事件改为长按",
+            "required": false,
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "pressBackground",
+            "description": "长按时候背景",
+            "required": false,
+            "type": "string",
+            "default": "\"rgba(0, 0, 0, 0.04)\""
+        }
+    ],
+    "events": [
+        {
+            "name": "click",
+            "type": "[]",
+            "signature": "(event: \"click\"): void",
+            "declarations": [
+                {
+                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                    "range": [
+                        4388,
+                        4423
+                    ]
+                }
+            ],
+            "schema": []
+        },
+        {
+            "name": "getUserInfo",
+            "type": "any[]",
+            "signature": "(event: \"getUserInfo\", ...args: any[]): void",
+            "declarations": [
+                {
+                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                    "range": [
+                        4388,
+                        4423
+                    ]
+                }
+            ],
+            "schema": [
+                "any"
+            ]
+        }
+    ],
+    "slots": [
+        {
+            "name": "default",
+            "type": "{}",
+            "description": "",
+            "declarations": [],
+            "schema": {
+                "kind": "object",
+                "type": "{}",
+                "schema": {}
+            }
+        }
+    ]
+}

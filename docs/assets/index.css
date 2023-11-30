@@ -1,0 +1,43 @@
+:root {
+  --doc-layout-max-w: 1440px;
+
+  --doc-sidebar-w: 250px;
+  --doc-sidebar-padding: 8px;
+
+  --doc-header-h: 64px;
+
+  --doc-outline-w: 250px;
+}
+
+:root {
+  --du-color-main-rgb: 124, 102, 255;
+  --du-color-main: rgb(var(--du-color-main-rgb));
+  --du-color-main-opacity: rgba(var(--du-color-main-rgb), 0.2);
+}
+
+:root {
+  --du-bt-primary-bg: var(--du-color-main);
+  --du-bt-primary-color: #fff;
+  --du-bt-primary-border: none;
+  --du-bt-secondary-bg: rgba(var(--du-color-main-rgb), 0.1);
+  --du-bt-secondary-color: var(--du-color-main);
+  --du-bt-secondary-border: none;
+  --du-bt-recommend-bg: none;
+  --du-bt-recommend-color: var(--du-color-main);
+  --du-bt-recommend-border: 1px var(--du-color-main) solid;
+  --du-bt-info-bg: none;
+  --du-bt-info-color: rgba(32, 36, 38, 0.6);
+  --du-bt-info-border: 1px rgba(32, 36, 38, 0.2) solid;
+  --du-bt-text-bg: none;
+  --du-bt-text-color: rgba(32, 36, 38, 0.6);
+  --du-bt-text-border: none;
+  --du-bt-text-primary-bg: none;
+  --du-bt-text-primary-color: var(--du-color-main);
+  --du-bt-text-primary-border: none;
+  --du-bt-disabled-bg: rgba(32, 36, 38, 0.06);
+  --du-bt-disabled-color: rgba(32, 36, 38, 0.2);
+  --du-bt-disabled-border: none;
+  --du-bt-disabled-temp-bg: #c7b8ff;
+  --du-bt-disabled-temp-color: #fff;
+  --du-bt-disabled-temp-border: none;
+}

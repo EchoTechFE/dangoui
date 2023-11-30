@@ -1,0 +1,3162 @@
+{
+    "Button": {
+        "props": [
+            {
+                "name": "text",
+                "description": "按钮文本",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "buttonId",
+                "description": "id 属性，可用 CSS id 选择器获取到对应组件",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "色彩",
+                "required": false,
+                "type": "\"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\"",
+                "default": "\"primary\""
+            },
+            {
+                "name": "type",
+                "description": "按钮类型",
+                "required": false,
+                "type": "\"primary\" | \"secondary\" | \"recommend\" | \"info\" | \"text\" | \"text-primary\"",
+                "default": "\"primary\""
+            },
+            {
+                "name": "size",
+                "description": "按钮大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "icon",
+                "description": "按钮附带图标",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "iconSize",
+                "description": "图标大小",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "iconPosition",
+                "description": "图标位置",
+                "required": false,
+                "type": "\"left\" | \"right\"",
+                "default": "\"left\""
+            },
+            {
+                "name": "arrowRight",
+                "description": "按钮右侧箭头",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "disabled",
+                "description": "是否禁用状态",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "disabledType",
+                "description": "临时禁用还是永久禁用",
+                "required": false,
+                "type": "\"default\" | \"temp\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "full",
+                "description": "全宽",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "loading",
+                "description": "加载中",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "openType",
+                "description": "小程序 [open-type](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "ghost",
+                "description": "半透明按钮",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "press",
+                "description": "点击触发事件改为长按",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "pressBackground",
+                "description": "长按时候背景",
+                "required": false,
+                "type": "string",
+                "default": "\"rgba(0, 0, 0, 0.04)\""
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "getUserInfo",
+                "type": "any[]",
+                "signature": "(event: \"getUserInfo\", ...args: any[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Calendar": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"multiple\" | \"single\" | \"range\"",
+                "default": "\"multiple\""
+            },
+            {
+                "name": "visible",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "title",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "confirmText",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "selectedDate",
+                "description": "",
+                "required": false,
+                "type": "Dayjs[]",
+                "default": "[]"
+            },
+            {
+                "name": "min",
+                "description": "",
+                "required": false,
+                "type": "Dayjs",
+                "default": "dayjs().startOf(\"month\")"
+            },
+            {
+                "name": "max",
+                "description": "",
+                "required": false,
+                "type": "Dayjs",
+                "default": "dayjs().startOf(\"month\").add(6, \"month\").endOf(\"month\")"
+            },
+            {
+                "name": "selectableCount",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "30"
+            },
+            {
+                "name": "weekStart",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "ignoreDisable",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "[value: { value: Dayjs[]; }]",
+                "signature": "(event: \"confirm\", value: { value: Dayjs[]; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ value: Dayjs[]; }",
+                        "schema": {
+                            "value": {
+                                "name": "value",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "Dayjs[]",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/calendar/Calendar.vue",
+                                        "range": [
+                                            3323,
+                                            3343
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "array",
+                                    "type": "Dayjs[]",
+                                    "schema": [
+                                        {
+                                            "kind": "object",
+                                            "type": "Dayjs",
+                                            "schema": {
+                                                "clone": {
+                                                    "name": "clone",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                898,
+                                                                912
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): Dayjs"
+                                                    }
+                                                },
+                                                "isValid": {
+                                                    "name": "isValid",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => boolean",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                918,
+                                                                936
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): boolean"
+                                                    }
+                                                },
+                                                "year": {
+                                                    "name": "year",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                942,
+                                                                956
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                962,
+                                                                988
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "month": {
+                                                    "name": "month",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                994,
+                                                                1009
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1015,
+                                                                1042
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "date": {
+                                                    "name": "date",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1048,
+                                                                1062
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1068,
+                                                                1094
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "day": {
+                                                    "name": "day",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1100,
+                                                                1113
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1119,
+                                                                1144
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "hour": {
+                                                    "name": "hour",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1150,
+                                                                1164
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1170,
+                                                                1196
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "minute": {
+                                                    "name": "minute",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1202,
+                                                                1218
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1224,
+                                                                1252
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "second": {
+                                                    "name": "second",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1258,
+                                                                1274
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1280,
+                                                                1308
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "millisecond": {
+                                                    "name": "millisecond",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): number; (value: number): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1314,
+                                                                1335
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1341,
+                                                                1374
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): number; (value: number): Dayjs; }"
+                                                },
+                                                "set": {
+                                                    "name": "set",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(unit: UnitType, value: number) => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1380,
+                                                                1421
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(unit: UnitType, value: number): Dayjs",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "get": {
+                                                    "name": "get",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(unit: UnitType) => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1427,
+                                                                1454
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(unit: UnitType): number",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "add": {
+                                                    "name": "add",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(value: number, unit: OpUnitType) => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1460,
+                                                                1503
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(value: number, unit: OpUnitType): Dayjs",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "subtract": {
+                                                    "name": "subtract",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(value: number, unit: OpUnitType) => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1509,
+                                                                1557
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(value: number, unit: OpUnitType): Dayjs",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "startOf": {
+                                                    "name": "startOf",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(unit: OpUnitType) => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1563,
+                                                                1595
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(unit: OpUnitType): Dayjs",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "endOf": {
+                                                    "name": "endOf",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(unit: OpUnitType) => Dayjs",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1601,
+                                                                1631
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(unit: OpUnitType): Dayjs",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "format": {
+                                                    "name": "format",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(template?: string | undefined) => string",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1637,
+                                                                1670
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(template?: string | undefined): string",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "diff": {
+                                                    "name": "diff",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(date: ConfigType, unit?: \"M\" | \"millisecond\" | \"second\" | \"minute\" | \"hour\" | \"day\" | \"month\" | \"year\" | \"date\" | \"d\" | \"y\" | \"h\" | \"m\" | \"s\" | \"ms\" | \"week\" | \"w\" | \"quarter\" | \"Q\" | undefined, float?: boolean | undefined) => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1676,
+                                                                1754
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(date: ConfigType, unit?: \"M\" | \"millisecond\" | \"second\" | \"minute\" | \"hour\" | \"day\" | \"month\" | \"year\" | \"date\" | \"d\" | \"y\" | \"h\" | \"m\" | \"s\" | \"ms\" | \"week\" | \"w\" | \"quarter\" | \"Q\" | undefined, float?: boolean | undefined): number",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "valueOf": {
+                                                    "name": "valueOf",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1760,
+                                                                1777
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): number"
+                                                    }
+                                                },
+                                                "unix": {
+                                                    "name": "unix",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1783,
+                                                                1797
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): number"
+                                                    }
+                                                },
+                                                "daysInMonth": {
+                                                    "name": "daysInMonth",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1803,
+                                                                1824
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): number"
+                                                    }
+                                                },
+                                                "toDate": {
+                                                    "name": "toDate",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => Date",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1830,
+                                                                1844
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): Date"
+                                                    }
+                                                },
+                                                "toJSON": {
+                                                    "name": "toJSON",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => string",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1850,
+                                                                1866
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): string"
+                                                    }
+                                                },
+                                                "toISOString": {
+                                                    "name": "toISOString",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => string",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1872,
+                                                                1893
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): string"
+                                                    }
+                                                },
+                                                "toString": {
+                                                    "name": "toString",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => string",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1899,
+                                                                1917
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): string"
+                                                    }
+                                                },
+                                                "utcOffset": {
+                                                    "name": "utcOffset",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "() => number",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1923,
+                                                                1942
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(): number"
+                                                    }
+                                                },
+                                                "isBefore": {
+                                                    "name": "isBefore",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                1948,
+                                                                2002
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "isSame": {
+                                                    "name": "isSame",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                2008,
+                                                                2060
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "isAfter": {
+                                                    "name": "isAfter",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                2066,
+                                                                2119
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": {
+                                                        "kind": "event",
+                                                        "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
+                                                        "schema": []
+                                                    }
+                                                },
+                                                "locale": {
+                                                    "name": "locale",
+                                                    "global": false,
+                                                    "description": "",
+                                                    "tags": [],
+                                                    "required": true,
+                                                    "type": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }",
+                                                    "declarations": [
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                2125,
+                                                                2141
+                                                            ]
+                                                        },
+                                                        {
+                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "range": [
+                                                                2147,
+                                                                2213
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "schema": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "close",
+                "type": "[]",
+                "signature": "(event: \"close\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "update:visible",
+                "type": "[visible: boolean]",
+                "signature": "(event: \"update:visible\", visible: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": []
+    },
+    "Checkbox": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"20px\""
+            },
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "name",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "shape",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"round\""
+            },
+            {
+                "name": "inline",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "custom",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "position",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"right\""
+            },
+            {
+                "name": "border",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "label",
+                "description": "",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[value: boolean]",
+                "signature": "(event: \"click\", value: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "input",
+                "type": "[value: boolean]",
+                "signature": "(event: \"input\", value: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: boolean]",
+                "signature": "(event: \"update:value\", value: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "CheckboxGroup": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "shape",
+                "description": "",
+                "required": false,
+                "type": "\"round\" | \"square\"",
+                "default": "\"round\""
+            },
+            {
+                "name": "inline",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string[]",
+                "default": "[] as any"
+            },
+            {
+                "name": "position",
+                "description": "",
+                "required": false,
+                "type": "\"left\" | \"right\"",
+                "default": "\"right\""
+            }
+        ],
+        "events": [
+            {
+                "name": "input",
+                "type": "[value: string[]]",
+                "signature": "(event: \"input\", value: string[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "array",
+                        "type": "string[]",
+                        "schema": [
+                            "string"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string[]]",
+                "signature": "(event: \"update:value\", value: string[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "array",
+                        "type": "string[]",
+                        "schema": [
+                            "string"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "CheckboxIcon": {
+        "props": [
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"20px\""
+            },
+            {
+                "name": "shape",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"round\""
+            },
+            {
+                "name": "border",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "selected",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "Empty": {
+        "props": [
+            {
+                "name": "text",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "image",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"empty\""
+            },
+            {
+                "name": "buttonText",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            }
+        ],
+        "events": [
+            {
+                "name": "buttonClick",
+                "type": "[]",
+                "signature": "(event: \"buttonClick\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": []
+    },
+    "Form": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "labelSize",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"60px\""
+            },
+            {
+                "name": "labelAlign",
+                "description": "",
+                "required": false,
+                "type": "\"left\" | \"right\"",
+                "default": "\"left\""
+            },
+            {
+                "name": "options",
+                "description": "",
+                "required": false,
+                "type": "{ labelSize: string; labelAlign: \"left\" | \"right\"; }",
+                "default": "undefined"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "FormItem": {
+        "props": [
+            {
+                "name": "info",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "required",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "label",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "labelSize",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "labelAlign",
+                "description": "",
+                "required": false,
+                "type": "\"left\" | \"right\"",
+                "default": "\"left\""
+            },
+            {
+                "name": "options",
+                "description": "",
+                "required": false,
+                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; slotNextLine: boolean; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | Record<string, boolean> | string[]; extStyle: string | Record<...>; }",
+                "default": "undefined"
+            },
+            {
+                "name": "slotNextLine",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "tips",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "isDirty",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "showInfo",
+                "type": "[info: string | boolean]",
+                "signature": "(event: \"showInfo\", info: string | boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "string | boolean",
+                        "schema": [
+                            "string",
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "tips",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "GroupCell": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "title",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "subtitle",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "guideText",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u67E5\\u770B\\u66F4\\u591A\""
+            },
+            {
+                "name": "infoText",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "actionIcon",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "mode",
+                "description": "",
+                "required": false,
+                "type": "\"normal\" | \"collapse\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "defaultOpen",
+                "description": "",
+                "required": false,
+                "type": "boolean | null",
+                "default": "null"
+            },
+            {
+                "name": "open",
+                "description": "",
+                "required": false,
+                "type": "boolean | null",
+                "default": "null"
+            },
+            {
+                "name": "contentStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "showHeader",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            }
+        ],
+        "events": [
+            {
+                "name": "guideTap",
+                "type": "[]",
+                "signature": "(event: \"guideTap\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "infoTap",
+                "type": "[]",
+                "signature": "(event: \"infoTap\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "actionTap",
+                "type": "[]",
+                "signature": "(event: \"actionTap\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "toggleOpen",
+                "type": "[open: boolean]",
+                "signature": "(event: \"toggleOpen\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "left",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "right",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Icon": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "图标颜色",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "图标大小",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "name",
+                "description": "图标名称",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Input": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"number\" | \"text\" | \"idcard\" | \"digit\" | \"safe-password\" | \"nickname\" | \"password\"",
+                "default": "\"text\""
+            },
+            {
+                "name": "disabled",
+                "description": "禁用",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "password",
+                "description": "是否是密码类型",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "placeholder",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "maxlength",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "-1"
+            },
+            {
+                "name": "inputAlign",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"left\""
+            },
+            {
+                "name": "withoutBorder",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "prefix",
+                "description": "前缀文本",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "trim",
+                "description": "自动去除输入的空格",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "suffix",
+                "description": "后缀文本",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "autofocus",
+                "description": "自动聚焦，拉起键盘",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "cursorSpacing",
+                "description": "cursorSpacing",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "confirmType",
+                "description": "confirmType",
+                "required": false,
+                "type": "string",
+                "default": "\"done\""
+            },
+            {
+                "name": "alwaysEmbed",
+                "description": "alwaysEmbed",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "confirmHold",
+                "description": "confirmHold",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "cursor",
+                "description": "cursor",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "selectionStart",
+                "description": "selectionStart",
+                "required": false,
+                "type": "number",
+                "default": "-1"
+            },
+            {
+                "name": "selectionEnd",
+                "description": "selectionEnd",
+                "required": false,
+                "type": "number",
+                "default": "-1"
+            },
+            {
+                "name": "adjustPosition",
+                "description": "adjustPosition",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "[value: { detail: { value: string; }; }]",
+                "signature": "(event: \"confirm\", value: { detail: { value: string; }; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ detail: { value: string; }; }",
+                        "schema": {
+                            "detail": {
+                                "name": "detail",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "{ value: string; }",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "range": [
+                                            3851,
+                                            3876
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "object",
+                                    "type": "{ value: string; }",
+                                    "schema": {
+                                        "value": {
+                                            "name": "value",
+                                            "global": false,
+                                            "description": "",
+                                            "tags": [],
+                                            "required": true,
+                                            "type": "string",
+                                            "declarations": [
+                                                {
+                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "range": [
+                                                        3861,
+                                                        3874
+                                                    ]
+                                                }
+                                            ],
+                                            "schema": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "input",
+                "type": "[value: string]",
+                "signature": "(event: \"input\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string]",
+                "signature": "(event: \"update:value\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            },
+            {
+                "name": "change",
+                "type": "[value: string]",
+                "signature": "(event: \"change\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            },
+            {
+                "name": "focus",
+                "type": "[value: { detail: { height: number; }; }]",
+                "signature": "(event: \"focus\", value: { detail: { height: number; }; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ detail: { height: number; }; }",
+                        "schema": {
+                            "detail": {
+                                "name": "detail",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "{ height: number; }",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "range": [
+                                            3746,
+                                            3772
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "object",
+                                    "type": "{ height: number; }",
+                                    "schema": {
+                                        "height": {
+                                            "name": "height",
+                                            "global": false,
+                                            "description": "",
+                                            "tags": [],
+                                            "required": true,
+                                            "type": "number",
+                                            "declarations": [
+                                                {
+                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "range": [
+                                                        3756,
+                                                        3770
+                                                    ]
+                                                }
+                                            ],
+                                            "schema": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "blur",
+                "type": "[value: { detail: {}; }]",
+                "signature": "(event: \"blur\", value: { detail: {}; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ detail: {}; }",
+                        "schema": {
+                            "detail": {
+                                "name": "detail",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "{}",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "range": [
+                                            3805,
+                                            3815
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "object",
+                                    "type": "{}",
+                                    "schema": {}
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "keyboardheightchange",
+                "type": "[value: { detail: { height: number; duration: number; }; }]",
+                "signature": "(event: \"keyboardheightchange\", value: { detail: { height: number; duration: number; }; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ detail: { height: number; duration: number; }; }",
+                        "schema": {
+                            "detail": {
+                                "name": "detail",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "{ height: number; duration: number; }",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "range": [
+                                            3934,
+                                            3978
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "object",
+                                    "type": "{ height: number; duration: number; }",
+                                    "schema": {
+                                        "height": {
+                                            "name": "height",
+                                            "global": false,
+                                            "description": "",
+                                            "tags": [],
+                                            "required": true,
+                                            "type": "number",
+                                            "declarations": [
+                                                {
+                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "range": [
+                                                        3944,
+                                                        3959
+                                                    ]
+                                                }
+                                            ],
+                                            "schema": "number"
+                                        },
+                                        "duration": {
+                                            "name": "duration",
+                                            "global": false,
+                                            "description": "",
+                                            "tags": [],
+                                            "required": true,
+                                            "type": "number",
+                                            "declarations": [
+                                                {
+                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "range": [
+                                                        3960,
+                                                        3976
+                                                    ]
+                                                }
+                                            ],
+                                            "schema": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "slots": []
+    },
+    "InputNumber": {
+        "props": [
+            {
+                "name": "min",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "max",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "Infinity"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "input",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "inputPrefix",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "inputSuffix",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "step",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "1"
+            }
+        ],
+        "events": [
+            {
+                "name": "input",
+                "type": "[val: number]",
+                "signature": "(event: \"input\", val: number): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "number"
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[val: number]",
+                "signature": "(event: \"update:value\", val: number): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "number"
+                ]
+            },
+            {
+                "name": "change",
+                "type": "[val: number]",
+                "signature": "(event: \"change\", val: number): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "number"
+                ]
+            }
+        ],
+        "slots": []
+    },
+    "Popup": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "extClass",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "extStyle",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "type",
+                "description": "弹出框位置",
+                "required": false,
+                "type": "\"center\" | \"top\" | \"bottom\"",
+                "default": "\"center\""
+            },
+            {
+                "name": "visible",
+                "description": "是否显示",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "title",
+                "description": "标题",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "titleAlign",
+                "description": "标题对齐方式，default 为左对齐",
+                "required": false,
+                "type": "\"default\" | \"center\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "headerVisible",
+                "description": "是否展示内置的头部栏",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClick",
+                "description": "点击遮罩层是否关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "closable",
+                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClass",
+                "description": "maskClass",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "maskStyle",
+                "description": "maskStyle",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            }
+        ],
+        "events": [
+            {
+                "name": "close",
+                "type": "[]",
+                "signature": "(event: \"close\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "update:visible",
+                "type": "[visible: boolean]",
+                "signature": "(event: \"update:visible\", visible: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "maskContent",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Radio": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "shape",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"normal\""
+            },
+            {
+                "name": "inline",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "custom",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "cell",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "label",
+                "description": "",
+                "required": true,
+                "type": "string | number",
+                "default": "unknown"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "any",
+                "default": "unknown"
+            },
+            {
+                "name": "valueKey",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "checked",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "input",
+                "type": "[value: { checked: boolean; value: string | number | undefined; }]",
+                "signature": "(event: \"input\", value: { checked: boolean; value: string | number | undefined; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ checked: boolean; value: string | number | undefined; }",
+                        "schema": {
+                            "checked": {
+                                "name": "checked",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "boolean",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "range": [
+                                            1893,
+                                            1910
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "boolean",
+                                    "schema": [
+                                        "false",
+                                        "true"
+                                    ]
+                                }
+                            },
+                            "value": {
+                                "name": "value",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "string | number | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "range": [
+                                            1911,
+                                            1945
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "string | number | undefined",
+                                    "schema": [
+                                        "undefined",
+                                        "string",
+                                        "number"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: { checked: boolean; value: string | number | undefined; }]",
+                "signature": "(event: \"update:value\", value: { checked: boolean; value: string | number | undefined; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ checked: boolean; value: string | number | undefined; }",
+                        "schema": {
+                            "checked": {
+                                "name": "checked",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "boolean",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "range": [
+                                            1999,
+                                            2016
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "boolean",
+                                    "schema": [
+                                        "false",
+                                        "true"
+                                    ]
+                                }
+                            },
+                            "value": {
+                                "name": "value",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "string | number | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "range": [
+                                            2017,
+                                            2051
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "string | number | undefined",
+                                    "schema": [
+                                        "undefined",
+                                        "string",
+                                        "number"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "RadioGroup": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "shape",
+                "description": "",
+                "required": false,
+                "type": "\"normal\" | \"button\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "inline",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "undefined"
+            },
+            {
+                "name": "custom",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "cell",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "input",
+                "type": "[value: string | number | undefined]",
+                "signature": "(event: \"input\", value: string | number | undefined): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "string | number | undefined",
+                        "schema": [
+                            "undefined",
+                            "string",
+                            "number"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string | number | undefined]",
+                "signature": "(event: \"update:value\", value: string | number | undefined): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "string | number | undefined",
+                        "schema": [
+                            "undefined",
+                            "string",
+                            "number"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "RadioIcon": {
+        "props": [
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "\"\""
+            },
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "checked",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "Snackbar": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
+                "name": "offset",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "offsetPosition",
+                "description": "",
+                "required": false,
+                "type": "\"top\" | \"bottom\"",
+                "default": "\"bottom\""
+            },
+            {
+                "name": "duration",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "show",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "showClose",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "buttonProps",
+                "description": "",
+                "required": false,
+                "type": "{ text: string; }",
+                "default": "undefined"
+            },
+            {
+                "name": "showActionBtn",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "leftIcon",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"close-circle-filled\""
+            }
+        ],
+        "events": [
+            {
+                "name": "close",
+                "type": "[]",
+                "signature": "(event: \"close\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "action",
+                "type": "[]",
+                "signature": "(event: \"action\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "StepCheck": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
+    "Steps": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"default\" | \"ghost\" | \"opacity\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "activeIndex",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "status",
+                "description": "process 暂时用不到 status",
+                "required": false,
+                "type": "string",
+                "default": "\"process\""
+            },
+            {
+                "name": "steps",
+                "description": "",
+                "required": false,
+                "type": "{ title: string; }[]",
+                "default": "[]"
+            }
+        ],
+        "events": [],
+        "slots": []
+    }
+}

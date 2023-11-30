@@ -1,0 +1,36 @@
+.du-input-number {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  &__input {
+    width: 70px;
+    margin: 0 8px;
+
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__value {
+    min-width: 40px;
+    margin: 0 8px;
+
+    color: rgba(32, 36, 38, 1);
+    color: #202426;
+    font-size: 16px;
+    line-height: 24px;
+
+    text-align: center;
+  }
+  &__item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+  }
+}

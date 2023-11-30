@@ -1,193 +1,58 @@
+du-calendar
+du-checkbox
+du-empty
+du-form
+du-group-cell
+du-icon
+du-input
+du-input-number
+du-modal 写了，没在用
+du-popup
+du-radio
+du-rate 写了没在用，暂时不放
+du-segmented-control 写了，没在用
+du-snackbar
+du-sort-tab 写了，没在用
+du-steps
+du-top-tab 写了，没在用
 
-# Dumpling 组件库
+checkbox group 非兼容更新：
+value 只能是 string 数组
+下面的 checkbox 需要传 name，原来有歧义
+去掉自带的 padding: 4px 0;
 
-## Preview
+Input: 要看一下 uniapp 有没有弥合差异，event 事件是什么样子的
+Icon: 去掉了 --du-icon-fz
 
-http://ec-components.echoing.tech/
+Input: 结构更改
 
-## Install
+FormItem：提示偏移问题
+增加 Layout horizontal vertical 替代 nextSlotLine
 
-```bash
-npm install @frontend/dumpling
-```
+Form
+增加 layout horizontal
 
-## Usage
 
-```javascript
-// vue.config.js
-export default {
-  chainWebpack: (config) => {
-    config.module
-      .rule('dumpling')
-      .test(/\.vue$/)
-      .use('uniapp-import-loader')
-      .loader('uniapp-import-loader')
-      .tap(() => {
-        return {
-          name: '@frontend/dumpling',
-          path: (name) => {
-            const files = fs.readdirSync(path.resolve(__dirname, './node_modules/@frontend'))
-            let pkgName = name.replace(/\B([A-Z])/g, '-$1').toLowerCase()
-            if (!pkgName.startsWith('du')) pkgName = 'du-' + pkgName
-            let pkg = ''
-            pkg = files.find((file) => file === pkgName)
-            if (!pkg) {
-              pkg = files.find((file) => pkgName.startsWith(file))
-            }
+vue tyep 如果同时是 string | boolean 好像短写法不行
 
-            return `@frontend/${pkg}/src/${name.replace('Du', '')}`
-          },
-        }
-      })
-  },
-}
-```
+Radio
+去掉 labelKey 的用，去掉 value 支持传对象（还是支持吧，使用 valueKey）
+去掉 cancel
+判定值不使用 label，使用 value
+Radio 事件变更 { checked, value }
+去掉自带的 padding: 4px 0;
 
-```javascript
-//main.js
-import '@frontend/du-styles/styles/index.scss'
-```
+Calendar
+整体变成数组的方式，confirm
+minDate -> min
+maxDate -> max
 
-```javascript
-// in your components
-import { DuButton, DuInput } from '@frontend/dumpling'
-```
+再抽象出 DatePicker
 
-## Develop
+Snackbar
+content -> slot
+去掉 revert color
 
-1. 克隆仓库到本地
-2. 全局安装 rush
-3. rush update
+待做：
 
-rush 文档 <https://rushjs.io/pages/intro/welcome/>
-
-### 给自己的组件安装依赖
-
-```bash
-# 例子：给 du-button 组件库安装 vue 依赖
-$ cd ./apps/du-button
-$ rush add --package vue
-```
-
-### 添加一个新组件（临时）
-
-```bash
-# 例子：假设创建一个叫 du-hello 的组件
-$ mkdir ./apps/du-hello
-# 把 du-button 中必要的文件复制一份到 du-hello 里面
-# __tests__, src, typings, .browserslistrc,
-# babel.config.js, package.json, postcss.config.js, vue.config.js
-# 修改 package.json 的 name 字段为 @frontend/du-hello，修改 build 命令中的 --name 字段
-```
-
-操作完之后目录结构大概是这样
-
-```
-.
-├── README.md
-├── __tests__
-├── babel.config.js
-├── package.json
-├── postcss.config.js
-├── src
-│   ├── Hello.vue
-│   └── index.js
-└── vue.config.js
-```
-
-修改 rush.json，projects 字段下增加包：
-
-```json
-{
-  "packageName": "@frontend/du-hello",
-  "projectFolder": "apps/du-hello",
-  "shouldPublish": true,
-  "versionPolicyName": "du"
-}
-```
-
-然后执行
-
-```bash
-rush update[README.md](README.md)
-```
-
-此时新组件目录会多 node_modules 和 .rush 文件夹
-
-接着，你就可以在 du-ui/stories 增加对应的组件 demo，在 src/index.js 中引入导出 du-hello，在 du-ui/package.json 中的 dependencies 下面增加 @frontend/du-hello 的依赖
-
-查看自己开发的组件：
-
-```bash
-# 然后在 du-ui 目录下执行
-pnpm run storybook
-```
-
-**依赖有问题的时候就跑一下 rush update 重新更新一下依赖**
-
-更多信息请好好阅读一下 rush 的文档：<https://rushjs.io/pages/intro/welcome/>
-
-### 编写组件的须知
-
-> !非常重要
-
-- extClass，extStyle 应在每个组件做保留属性或实现
-- 组件需要使用 vue-composition-api 的写法，页面使用 H5 标签，应同时考虑 Uniapp 和 h5 的使用，严禁使用 Uniapp 的 view 等组件
-  .js 文件导出
-- 注意小程序与浏览器的差异，比如浏览器中没有 scroll-view，开发时可以在 stories 中注册为浏览器编写的模拟 scroll-view 组件：<https://github.com/echoingtech/dumpling/blob/master/apps/du-ui/stories/DuPopup.stories.js#L11>
-
-### 更新图标
-
-我们在 https://iconpark.oceanengine.com/projects/7443/detail 上管理图标，当图标发生变化后，重新生成链接，然后选择 SVG Symbol 链接
-
-更改 `apps/du-icon/icon-url` 中的链接为最新链接
-
-然后运行 `npm run genicon`
-
-提交更改，更新版本，然后发新版：
-
-```bash
-rush version bump
-rush publish --include-all -t latest -p
-```
-
-去 config 后台：https://admin.echo.tech/config/app/frontend
-
-在 baymax.yaml 中，更新 `@frontend/dumpling` 里的版本为 `^${更新图标后的版本号}`
-
-### 提交
-
-组件开发完以后，应当完善 storybook，以 storybook 来做初步的文档、示例、手动测试
-
-### Review
-
-对于 RFC
-
-- 创建 PR 后需要经过至少两位参与讨论的同事 + 一位其它同事 review
-
-其它
-
-- 创建 PR 后需要经过至少两位同事 review
-
-### publish
-
-在根目录下创建`.alioss.json`文件，并配置（用于icon图标上传）
-
-```json
-{
-  "accessKeyId": "",
-  "accessKeySecret": ""
-}
-
-```
- 
-- `rush change`
-- `rush version --bump` or `rush version --override-bump BUMPTYPE`
-- `rush build`
-- `rush publish --include-all -t TAG -p`
-
-## 为什么使用 rush + pnpm
-
-- lerna 和 yarn 有两套命令
-- pnpm 本身的优势
-- 依赖问题(todo: 搞明白解释)
+原则：属性名统一，比如 visible、show 怎么选取？

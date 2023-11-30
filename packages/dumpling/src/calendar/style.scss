@@ -1,0 +1,94 @@
+.du-calendar {
+  font-size: 14px;
+
+  &__main {
+    position: relative;
+    background: #fff;
+  }
+
+  &__week {
+    display: flex;
+    column-gap: 8px;
+    padding: 0 15px;
+    height: 38px;
+    margin-bottom: 8px;
+  }
+
+  &__week-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    &--highlight {
+      color: var(--du-calendar-active-text-color);
+    }
+  }
+
+  &__item {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+  }
+
+  &__item-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+
+    &--selected {
+      background: #f2f0ff;
+      color: var(--du-color-main);
+    }
+
+    &--disabled {
+      color: rgba(16, 16, 16, 0.16);
+      font-weight: 400;
+    }
+  }
+
+  &__month {
+    background: rgba(16, 16, 16, 0.04);
+    color: rgba(16, 16, 16, 0.64);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 0 15px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &__container {
+    width: auto;
+    overflow: auto;
+    height: 427px;
+    background: #fff;
+  }
+
+  &__month-container {
+    margin-bottom: 8px;
+  }
+
+  &__dates {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0 15px;
+  }
+
+  &--button {
+    padding: 5px 15px 0 15px;
+  }
+}

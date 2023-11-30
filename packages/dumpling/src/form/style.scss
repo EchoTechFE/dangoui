@@ -1,0 +1,80 @@
+.du-form {
+  background: #fff;
+}
+
+.du-form-item {
+  &__content {
+    display: flex;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    margin-right: 15px;
+    overflow: hidden;
+    position: relative;
+
+    color: #202426;
+    font-size: 14px;
+    line-height: 22px;
+
+    &__required {
+      color: rgba(255, 64, 122, 1);
+    }
+
+    &__info {
+      font-size: 12px;
+      margin-left: 4px;
+      color: rgba(12, 12, 12, 0.6);
+    }
+
+    &__dirty {
+      display: block;
+      color: var(--du-color-main);
+      font-size: 10px;
+      position: absolute;
+      top: 27px;
+    }
+  }
+
+  &__slot {
+    flex: 1 0 0;
+  }
+
+  &__slot-inner {
+    padding: 11px 0;
+    min-height: 44px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__bottom-line {
+    height: 1px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.08);
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+  }
+
+  &__tips {
+    margin-top: 2px;
+    padding-bottom: 8px;
+
+    color: rgba(32, 36, 38, 0.4);
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &--slot-next-line {
+    margin-bottom: 8px;
+
+    .du-form-item__label {
+      display: flex;
+      height: auto;
+      margin-right: 0px;
+      align-items: center;
+    }
+  }
+}
