@@ -43,5 +43,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox } from 'dumpling'
+import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox } from '@frontend/dumpling'
 </script>

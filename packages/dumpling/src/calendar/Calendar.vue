@@ -20,11 +20,16 @@
           {{ item.name }}
         </div>
       </div>
-      <scroll-view :scroll-y="true" class="du-calendar__container">
+      <scroll-view
+        :scroll-y="true"
+        class="du-calendar__container"
+        :scroll-into-view="todayMonthId"
+      >
         <div
           v-for="(month, index) in displayDates"
           :key="index"
           class="du-calendar__month-container"
+          :id="`du-calendar-${instanceId}-${month[0].format('YYYY-MM')}`"
         >
           <div class="du-calendar__month">
             {{ month[0].year() }}.{{ month[0].month() + 1 }}
@@ -84,6 +89,7 @@ import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import DuPopup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
+import { getInstanceId } from './helpers'
 import dayjs from 'dayjs'
 
 const props = withDefaults(
@@ -110,7 +116,7 @@ const props = withDefaults(
     confirmText: '',
     selectedDate: () => [],
     min: () => dayjs().startOf('month'),
-    max: () => dayjs().startOf('month').add(6, 'month').endOf('month'),
+    max: () => dayjs().startOf('month').add(12, 'month').endOf('month'),
     selectableCount: 30,
     weekStart: 0,
     ignoreDisable: false,
@@ -131,6 +137,12 @@ const emit = defineEmits<{
 }>()
 
 const innerSelected = ref<dayjs.Dayjs[]>([])
+
+const instanceId = getInstanceId()
+
+const todayMonthId = computed(() => {
+  return `du-calendar-${instanceId}-${dayjs().format('YYYY-MM')}`
+})
 
 const className = computed(() => {
   const { extClass } = props

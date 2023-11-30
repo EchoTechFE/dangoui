@@ -18,11 +18,29 @@ const props = withDefaults(
   defineProps<{
     extClass?: string | string[] | Record<string, boolean>
     extStyle?: string | Record<string, string | number>
+    /**
+     * 是否为行内展示
+     */
     inline?: boolean
+    /**
+     * 形状，圆形还是按钮形式
+     */
     shape?: 'normal' | 'button'
+    /**
+     * 开启后，label 与 radio 呈左右两边排布
+     */
     cell?: boolean
+    /**
+     * 自定义子节点
+     */
     custom?: boolean
+    /**
+     * 选中的值
+     */
     value?: any
+    /**
+     * 如果值为对象，进行选中值相等判断时，会取该对象的 valueKey 属性值进行判断
+     */
     valueKey?: string
   }>(),
   {
@@ -55,6 +73,7 @@ const className = computed(() => {
     'du-radio-group',
     {
       'du-radio-group--inline': props.inline,
+      'du-radio-group--custom': props.custom,
     },
     extClass,
   )

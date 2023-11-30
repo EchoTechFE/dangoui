@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuSteps } from 'dumpling'
+import { DuSteps } from '@frontend/dumpling'
 
 const basicSteps = [
   { title: '等待支付' },

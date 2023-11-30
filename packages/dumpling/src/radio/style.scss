@@ -17,6 +17,7 @@
     width: max-content;
     margin: 0 8px 0 0;
   }
+
   &--cell {
     justify-content: space-between;
     .du-radio__label {
@@ -24,6 +25,7 @@
       margin-right: 6px;
     }
   }
+
   &--disabled {
     color: rgba(0, 0, 0, 0.16);
   }
@@ -39,6 +41,10 @@
     flex-direction: row;
     align-items: center;
     row-gap: 0;
+  }
+
+  &--custom {
+    display: block;
   }
 }
 

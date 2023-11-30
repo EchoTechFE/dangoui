@@ -18,5 +18,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuSnackbar } from 'dumpling'
+import { DuSnackbar } from '@frontend/dumpling'
 </script>

@@ -42,5 +42,5 @@
 </template>
 
 <script lang="ts" setup>
-import { DuButton, DuGroupCell } from 'dumpling'
+import { DuButton, DuGroupCell } from '@frontend/dumpling'
 </script>

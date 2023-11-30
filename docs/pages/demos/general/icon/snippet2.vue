@@ -15,6 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { DuIcon } from 'dumpling'
-import iconConfig from 'dumpling/iconfont-config.json'
+import { DuIcon } from '@frontend/dumpling'
+import iconConfig from '@frontend/dumpling/iconfont-config.json'
 </script>

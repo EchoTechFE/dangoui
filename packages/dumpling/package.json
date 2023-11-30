@@ -34,7 +34,7 @@
   "scripts": {
     "gen:icon": "node ./scripts/genicon.cjs",
     "dts": "vue-tsc -p tsconfig.declaration.json --declaration --emitDeclarationOnly",
-    "build": "pnpm run dts && vite build && node ./scripts/gen-theme.mjs && gulp",
+    "build": "pnpm run dts && vite build && gulp && node ./scripts/gen-theme.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

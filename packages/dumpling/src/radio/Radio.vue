@@ -55,7 +55,7 @@ const props = withDefaults(
   defineProps<{
     extClass?: string | string[] | Record<string, boolean>
     extStyle?: string | Record<string, string | number>
-    label: string | number
+    label: string
     shape?: string
     custom?: boolean
     inline?: boolean

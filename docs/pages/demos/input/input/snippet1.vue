@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuInput } from 'dumpling'
+import { DuInput } from '@frontend/dumpling'
 </script>

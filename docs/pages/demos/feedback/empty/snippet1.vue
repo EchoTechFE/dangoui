@@ -48,5 +48,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuEmpty } from 'dumpling'
+import { DuEmpty } from '@frontend/dumpling'
 </script>

@@ -15,39 +15,38 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    scrollX: {
-      type: [String, Boolean],
-      default: false,
-    },
+<script lang="ts" setup>
+const props = defineProps<{
+  scrollX?: string | boolean
+  scrollY?: string | boolean
+  scrollIntoView?: string
+}>()
 
-    scrollY: {
-      type: [String, Boolean],
-      default: false,
-    },
-  },
+const scrollTop = ref(0)
 
-  data() {
-    return {
-      scrollTop: 0,
+const emit = defineEmits<{
+  (e: 'scrolltolower'): void
+  (e: 'scrolltoupper'): void
+}>()
+
+onMounted(() => {
+  if (props.scrollIntoView) {
+    const el = document.getElementById(props.scrollIntoView)
+    if (el) {
+      el.scrollIntoView()
     }
-  },
+  }
+})
 
-  methods: {
-    //滚动事件
-    getScroll(e) {
-      let wScrollY = e.target.scrollTop // 当前滚动条位置
-      this.scrollTop = wScrollY
-      let wInnerH = e.target.clientHeight // 设备窗口的高度（不会变）
-      let bScrollH = e.target.scrollHeight // 元素总高度
-      if (wScrollY + wInnerH + 10 >= bScrollH) {
-        this.$emit('scrolltolower')
-      } else if (wScrollY < 10) {
-        this.$emit('scrolltoupper')
-      }
-    },
-  },
+function getScroll(e: any) {
+  let wScrollY = e.target.scrollTop // 当前滚动条位置
+  scrollTop.value = wScrollY
+  let wInnerH = e.target.clientHeight // 设备窗口的高度（不会变）
+  let bScrollH = e.target.scrollHeight // 元素总高度
+  if (wScrollY + wInnerH + 10 >= bScrollH) {
+    emit('scrolltolower')
+  } else if (wScrollY < 10) {
+    emit('scrolltoupper')
+  }
 }
 </script>

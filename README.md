@@ -18,7 +18,7 @@ du-top-tab 写了，没在用
 
 checkbox group 非兼容更新：
 value 只能是 string 数组
-下面的 checkbox 需要传 name，原来有歧义
+下面的 checkbox 需要传 value，原来有歧义
 去掉自带的 padding: 4px 0;
 
 Input: 要看一下 uniapp 有没有弥合差异，event 事件是什么样子的
@@ -33,7 +33,7 @@ Form
 增加 layout horizontal
 
 
-vue tyep 如果同时是 string | boolean 好像短写法不行
+vue type 如果同时是 string | boolean 好像短写法不行
 
 Radio
 去掉 labelKey 的用，去掉 value 支持传对象（还是支持吧，使用 valueKey）

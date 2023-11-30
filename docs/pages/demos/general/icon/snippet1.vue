@@ -15,5 +15,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuIcon } from 'dumpling'
+import { DuIcon } from '@frontend/dumpling'
 </script>

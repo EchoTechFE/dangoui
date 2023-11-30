@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRadioGroup, DuRadio } from 'dumpling'
+import { DuRadioGroup, DuRadio } from '@frontend/dumpling'
 
 const items = ['月卡', '季卡', '年卡']
 const selected = ref('')

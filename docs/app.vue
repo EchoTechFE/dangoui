@@ -9,6 +9,6 @@ import '@unocss/reset/tailwind-compat.css'
 import 'overlayscrollbars/overlayscrollbars.css'
 import '@/assets/index.css'
 import '@/assets/github-markdown-light.css'
-import 'dumpling/style.css'
-import 'dumpling/theme.css'
+import '@frontend/dumpling/style.css'
+import '@frontend/dumpling/theme.css'
 </script>

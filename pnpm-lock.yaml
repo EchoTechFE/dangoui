@@ -32,21 +32,24 @@ importers:
 
   docs:
     dependencies:
+      '@frontend/dumpling':
+        specifier: workspace:*
+        version: link:../packages/dumpling
       '@iconify-json/mdi':
         specifier: ^1.1.55
         version: 1.1.55
       '@nuxt/content':
         specifier: npm:@nuxt/content-edge@latest
-        version: /@nuxt/content-edge@2.9.0-28344318.76dc891(nuxt@3.8.1)(vue@3.3.8)
+        version: /@nuxt/content-edge@2.9.0-28352846.746cfce(nuxt@3.8.1)(vue@3.3.8)
       '@nuxt/kit':
         specifier: ^3.8.2
         version: 3.8.2
       '@unocss/reset':
         specifier: ^0.57.7
         version: 0.57.7
-      dumpling:
-        specifier: workspace:*
-        version: link:../packages/dumpling
+      dayjs:
+        specifier: ^1.9.1
+        version: 1.9.1
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1275,8 +1278,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@nuxt/content-edge@2.9.0-28344318.76dc891(nuxt@3.8.1)(vue@3.3.8):
-    resolution: {integrity: sha512-SAHt3nJ2bLkz2nCMkxl8bB/vtkAhfsfDiuqyGW4Hye4U0B2HmIBeK7hGqTEI07kk7UoUkzgTOqjdea0DSgm6Kw==}
+  /@nuxt/content-edge@2.9.0-28352846.746cfce(nuxt@3.8.1)(vue@3.3.8):
+    resolution: {integrity: sha512-St697qMBMYVzbNJpsLaMDOeq0Rx3m7T3FIf/Xohx8U1/ZimvNRIB49hYXud+wDsk67JK9pIkUa+hPfN55VHEuw==}
     dependencies:
       '@nuxt/kit': 3.8.2
       '@nuxtjs/mdc': 0.2.8
