@@ -46,7 +46,7 @@
     font-weight: 500;
 
     &--selected {
-      background: #f2f0ff;
+      background: var(--du-calendar-primary);
       color: var(--du-calendar-active-text-color);
     }
 

@@ -143,12 +143,16 @@ const instanceId = getInstanceId()
 
 const todayMonthId = ref('')
 
-onMounted(() => {
+function setMonthId() {
   setTimeout(() => {
     todayMonthId.value = `du-calendar-${instanceId}-${dayjs().format(
       'YYYY-MM',
     )}`
-  }, 0)
+  }, 500)
+}
+
+onMounted(() => {
+  setMonthId()
 })
 
 const className = computed(() => {
@@ -349,6 +353,7 @@ watch(
   () => props.visible,
   (val) => {
     if (val) {
+      setMonthId()
       if (!props.selectedDate) {
         innerSelected.value = []
       } else {
@@ -357,6 +362,8 @@ watch(
           : [props.selectedDate]
         innerSelected.value = dates.map((d) => d.clone())
       }
+    } else {
+      todayMonthId.value = ''
     }
   },
 )
