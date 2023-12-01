@@ -1,6 +1,9 @@
 <template>
   <main class="doc-content flex mt-$doc-header-h px-32px items-start">
-    <ContentDoc class="prose prose-neutral flex-1 !max-w-full text-14px" />
+    <ContentDoc
+      class="prose prose-neutral flex-1 !max-w-full text-14px"
+      :path="$route.path === '/' ? '/get-started/introduction' : $route.path"
+    />
   </main>
   <div
     class="doc-outline fixed top-0 right-0 mt-$doc-header-h w-$doc-outline-w text-14px pl-16px border-l border-l-solid border-l-gray-200"
@@ -25,6 +28,8 @@ definePageMeta({
 const route = useRoute()
 
 const { data: md } = await useAsyncData(route.path, () =>
-  queryContent(route.path).findOne(),
+  queryContent(
+    route.path === '/' ? '/get-started/introduction' : route.path,
+  ).findOne(),
 )
 </script>

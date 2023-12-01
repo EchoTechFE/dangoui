@@ -1,5 +1,10 @@
 <template>
-  <OverlayScrollbarsComponent>
+  <OverlayScrollbarsComponent
+    :options="{
+      scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+      overflow: { x: 'scroll', y: 'scroll' },
+    }"
+  >
     <table class="w-full !table">
       <thead>
         <tr class="text-left">

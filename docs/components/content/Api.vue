@@ -1,6 +1,11 @@
 <template>
   <h3>{{ withPrefix ? `${component} 属性` : '属性' }}</h3>
-  <OverlayScrollbarsComponent>
+  <OverlayScrollbarsComponent
+    :options="{
+      scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+      overflow: { x: 'scroll', y: 'scroll' },
+    }"
+  >
     <table class="w-full !table">
       <thead>
         <tr class="text-left">
@@ -24,7 +29,12 @@
   </OverlayScrollbarsComponent>
   <template v-if="doc.slots && doc.slots.length > 0">
     <h3>{{ withPrefix ? `${component} 插槽` : '插槽' }}</h3>
-    <OverlayScrollbarsComponent>
+    <OverlayScrollbarsComponent
+      :options="{
+        scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+        overflow: { x: 'scroll', y: 'scroll' },
+      }"
+    >
       <table class="w-full !table">
         <thead>
           <tr class="text-left">
@@ -41,7 +51,12 @@
   </template>
   <template v-if="doc.events && doc.events.length > 0">
     <h3>{{ withPrefix ? `${component} 事件` : '事件' }}</h3>
-    <OverlayScrollbarsComponent>
+    <OverlayScrollbarsComponent
+      :options="{
+        scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+        overflow: { x: 'scroll', y: 'scroll' },
+      }"
+    >
       <table class="w-full !table">
         <thead>
           <tr class="text-left">

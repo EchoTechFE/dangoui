@@ -238,14 +238,14 @@
                 "name": "min",
                 "description": "",
                 "required": false,
-                "type": "Dayjs",
+                "type": "number | Dayjs",
                 "default": "dayjs().startOf(\"month\")"
             },
             {
                 "name": "max",
                 "description": "",
                 "required": false,
-                "type": "Dayjs",
+                "type": "number | Dayjs",
                 "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
             },
             {
@@ -293,8 +293,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3572,
-                                            3606
+                                            3590,
+                                            3624
                                         ]
                                     }
                                 ],
@@ -1006,8 +1006,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3613,
-                                            3633
+                                            3631,
+                                            3651
                                         ]
                                     }
                                 ],
@@ -1024,8 +1024,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3640,
-                                            3657
+                                            3658,
+                                            3675
                                         ]
                                     }
                                 ],
@@ -1532,15 +1532,8 @@
                 "name": "options",
                 "description": "",
                 "required": false,
-                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; slotNextLine: boolean; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | Record<string, boolean> | string[]; extStyle: string | Record<...>; }",
+                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | Record<string, boolean> | string[]; extStyle: string | Record<...>; }",
                 "default": "undefined"
-            },
-            {
-                "name": "slotNextLine",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "tips",
@@ -2048,6 +2041,20 @@
                 "required": false,
                 "type": "boolean",
                 "default": "true"
+            },
+            {
+                "name": "rightIcon",
+                "description": "rightIcon",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "rightIconSize",
+                "description": "rightIconSize",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -2080,8 +2087,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3918,
-                                            3943
+                                            4204,
+                                            4229
                                         ]
                                     }
                                 ],
@@ -2100,8 +2107,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3928,
-                                                        3941
+                                                        4214,
+                                                        4227
                                                     ]
                                                 }
                                             ],
@@ -2194,8 +2201,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3813,
-                                            3839
+                                            4099,
+                                            4125
                                         ]
                                     }
                                 ],
@@ -2214,8 +2221,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3823,
-                                                        3837
+                                                        4109,
+                                                        4123
                                                     ]
                                                 }
                                             ],
@@ -2257,8 +2264,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3872,
-                                            3882
+                                            4158,
+                                            4168
                                         ]
                                     }
                                 ],
@@ -2301,8 +2308,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4001,
-                                            4045
+                                            4287,
+                                            4331
                                         ]
                                     }
                                 ],
@@ -2321,8 +2328,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4011,
-                                                        4026
+                                                        4297,
+                                                        4312
                                                     ]
                                                 }
                                             ],
@@ -2339,8 +2346,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4027,
-                                                        4043
+                                                        4313,
+                                                        4329
                                                     ]
                                                 }
                                             ],

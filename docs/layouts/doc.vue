@@ -3,6 +3,7 @@
     class="h-$doc-header-h fixed top-0 left-0 flex items-center justify-between w-full"
   >
     <div class="doc-logo pl-8px flex items-center">
+      <Logo />
       <div class="fw-500">Dumpling</div>
       <div class="bg-orange c-white rounded-4px text-sm px-4px ml-4px">
         Beta
