@@ -47,7 +47,6 @@ const props = withDefaults(
     extClass: '',
     extStyle: '',
     inline: false,
-    shape: 'normal',
     cell: false,
     custom: false,
   },

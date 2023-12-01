@@ -56,6 +56,11 @@ const props = withDefaults(
     extClass?: string | string[] | Record<string, boolean>
     extStyle?: string | Record<string, string | number>
     label: string
+    /**
+     * 形状
+     *
+     * @default "normal"
+     */
     shape?: string
     custom?: boolean
     inline?: boolean
@@ -68,7 +73,6 @@ const props = withDefaults(
   {
     extClass: '',
     extStyle: '',
-    shape: 'normal',
     custom: false,
     inline: false,
     disabled: false,
@@ -98,6 +102,7 @@ const config = computed(() => {
     shape,
     cell,
     value,
+    valueKey,
   } = {
     ...props,
   }
@@ -106,13 +111,13 @@ const config = computed(() => {
     extStyle,
     extClass,
     label,
-    inline,
-    custom,
+    inline: inline || groupConfig?.value.inline || false,
+    custom: custom || groupConfig?.value.custom || false,
     disabled,
-    shape,
-    cell,
+    shape: shape || groupConfig?.value.shape || 'normal',
+    cell: cell || groupConfig?.value.cell || false,
     value,
-    ...(groupConfig?.value ?? {}),
+    valueKey: valueKey || groupConfig?.value.valueKey || '',
   }
 })
 
