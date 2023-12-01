@@ -1,13 +1,31 @@
 @import './button/style.scss';
+
 @import './calendar/style.scss';
-@import './checkbox/style.scss';
+
+@import './checkbox/Checkbox.scss';
+@import './checkbox/CheckboxGroup.scss';
+@import './checkbox/CheckboxIcon.scss';
+
 @import './empty/style.scss';
-@import './form/style.scss';
+
+@import './form/Form.scss';
+@import './form//FormItem.scss';
+
 @import './group-cell/style.scss';
+
 @import './icon/style.scss';
+
 @import './input/style.scss';
+
 @import './input-number/style.scss';
+
 @import './popup/style.scss';
-@import './radio/style.scss';
+
+@import './radio/Radio.scss';
+@import './radio/RadioGroup.scss';
+@import './radio//RadioIcon.scss';
+
 @import './snackbar/style.scss';
-@import './steps/style.scss';
+
+@import './steps/StepCheck.scss';
+@import './steps/Steps.scss';

@@ -1,0 +1,19 @@
+.du-checkbox__checkbox {
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.24);
+
+  &--selected {
+    border: none;
+    background-color: var(--du-color-main);
+  }
+
+  &--square {
+    border-radius: 0;
+  }
+}

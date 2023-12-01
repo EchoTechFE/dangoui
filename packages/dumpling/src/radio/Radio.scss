@@ -1,0 +1,32 @@
+.du-radio {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  color: #000;
+  font-size: 14px;
+  line-height: 22px;
+
+  &__label {
+    margin-left: 6px;
+  }
+
+  &--inline {
+    display: inline-flex;
+    width: max-content;
+    margin: 0 8px 0 0;
+  }
+
+  &--cell {
+    justify-content: space-between;
+    .du-radio__label {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+  }
+
+  &--disabled {
+    color: rgba(0, 0, 0, 0.16);
+  }
+}

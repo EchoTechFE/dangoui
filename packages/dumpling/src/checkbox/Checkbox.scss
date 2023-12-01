@@ -1,0 +1,25 @@
+.du-checkbox {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  &__label {
+    flex: 1 0 0;
+  }
+
+  &--left {
+    flex-direction: row-reverse;
+  }
+
+  &--inline {
+    display: inline-flex;
+    width: auto;
+  }
+
+  &--disabled {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,19 @@
+.du-step-check {
+  transform: scaleX(-1) rotate(-45deg);
+  margin-bottom: 1px;
+
+  &__vertical {
+    width: 2px;
+    height: 7px;
+    background: var(--du-steps-circle-inner-color);
+    border-bottom-left-radius: 1px;
+  }
+
+  &__horizontal {
+    height: 2px;
+    width: 4px;
+    background: var(--du-steps-circle-inner-color);
+    border-bottom-left-radius: 1px;
+    margin-top: -2px;
+  }
+}
