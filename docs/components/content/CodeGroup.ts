@@ -41,9 +41,9 @@ export default defineComponent({
                   )
                 }),
               ),
-              h('div', { class: '' }, [
-                h('div', { class: 'i-mdi-content-copy' }),
-              ]),
+              // h('div', { class: '' }, [
+              //   h('div', { class: 'i-mdi-content-copy' }),
+              // ]),
             ],
           ),
           h(

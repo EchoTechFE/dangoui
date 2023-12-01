@@ -15,6 +15,7 @@
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxt/kit": "^3.8.2",
     "@unocss/reset": "^0.57.7",
+    "@vueuse/core": "^10.6.1",
     "dayjs": "^1.9.1",
     "lodash-es": "^4.17.21",
     "overlayscrollbars": "^2.4.4",

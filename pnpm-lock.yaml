@@ -47,6 +47,9 @@ importers:
       '@unocss/reset':
         specifier: ^0.57.7
         version: 0.57.7
+      '@vueuse/core':
+        specifier: ^10.6.1
+        version: 10.6.1(vue@3.3.8)
       dayjs:
         specifier: ^1.9.1
         version: 1.9.1
