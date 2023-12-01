@@ -84,10 +84,6 @@ const props = withDefaults(
     label: string
     labelAlign: 'left' | 'right'
     labelSize: string
-    /**
-     * @deprecated
-     */
-    slotNextLine: boolean
     layout?: 'vertical' | 'horizontal'
     tips: string
     required: boolean
@@ -98,7 +94,6 @@ const props = withDefaults(
       label: string
       labelAlign: 'left' | 'right'
       labelSize: string
-      slotNextLine: boolean
       tips: string
       required: boolean
       info: string
@@ -113,7 +108,6 @@ const props = withDefaults(
     label: '',
     labelAlign: 'left',
     labelSize: '',
-    slotNextLine: false,
     tips: '',
     required: false,
     info: '',
@@ -144,15 +138,9 @@ const config = computed(() => {
     extStyle,
     extClass,
     isDirty,
-    slotNextLine,
   } = {
     ...props,
     ...props.options,
-  }
-
-  let layout = props.layout || formItemLayout
-  if (!layout) {
-    layout = slotNextLine ? 'vertical' : 'horizontal'
   }
 
   return {
@@ -161,7 +149,7 @@ const config = computed(() => {
     required,
     labelSize: labelSize || formLabelSize,
     labelAlign: labelAlign || formLabelAlign,
-    layout: layout || formItemLayout,
+    layout: props.layout || formItemLayout || 'horizontal',
     info,
     extStyle,
     extClass,
