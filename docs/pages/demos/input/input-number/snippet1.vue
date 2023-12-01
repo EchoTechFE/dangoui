@@ -1,0 +1,13 @@
+
+<template>
+  <PreviewBlock title="基本">
+    <InputNumber />
+  </PreviewBlock>
+  <PreviewBlock title="可以手动输入数字">
+    <InputNumber input />
+  </PreviewBlock>
+</template>
+
+<script setup lang="ts">
+import { InputNumber } from '@frontend/dumpling'
+</script>

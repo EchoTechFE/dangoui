@@ -58,13 +58,13 @@ const props = withDefaults(
     extStyle: string | Record<string, string | number>
     activeIndex: number
     /**
-     * process 暂时用不到 status
+     * 当前进度的状态：进行中、已完成
      */
-    status: string
+    status: 'process' | 'success'
     steps: Array<{
       title: string
     }>
-    type: 'default' | 'opacity' | 'ghost'
+    type: 'default' | 'ghost'
   }>(),
   {
     extClass: '',

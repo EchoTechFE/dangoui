@@ -13,7 +13,9 @@
         v-if="headerVisible"
       >
         <div class="du-popup__title">{{ title }}</div>
-        <div v-if="closable" class="du-popup__close" @click="handleClose" />
+        <div v-if="closable" class="du-popup__close" @click="handleClose">
+          <DuIcon name="close" />
+        </div>
       </div>
       <slot />
     </div>
@@ -22,6 +24,7 @@
 
 <script setup lang="ts">
 import { computed, watch, ref } from 'vue'
+import DuIcon from '../icon/Icon.vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
 

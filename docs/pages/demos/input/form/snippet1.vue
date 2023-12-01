@@ -22,6 +22,9 @@
             :trim="true"
           />
         </DuFormItem>
+        <DuFormItem label="限购" required>
+          <DuInputNumber />
+        </DuFormItem>
         <DuFormItem label="发货模式" required :show-border="false">
           <DuRadioGroup :value="1">
             <DuRadio label="直接物流" :value="1" />
@@ -43,5 +46,16 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox } from '@frontend/dumpling'
+import {
+  DuButton,
+  DuForm,
+  DuFormItem,
+  DuInput,
+  DuGroupCell,
+  DuRadioGroup,
+  DuRadio,
+  DuCheckboxGroup,
+  DuCheckbox,
+  DuInputNumber,
+} from '@frontend/dumpling'
 </script>

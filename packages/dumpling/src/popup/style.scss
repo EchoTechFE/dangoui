@@ -84,9 +84,11 @@
   }
 
   &__close {
-    background-image: url(https://cdn.qiandaoapp.com/admins/69ff82160144b481dbd58958cd66172b.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #918b9f;
     width: 16px;
     height: 16px;
     position: absolute;

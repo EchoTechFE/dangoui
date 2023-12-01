@@ -39,6 +39,12 @@
       <div v-if="props.suffix" class="du-input__suffix">
         {{ props.suffix }}
       </div>
+      <DuIcon
+        v-if="rightIcon"
+        :name="rightIcon"
+        :size="rightIconSize"
+        color="#918b9f"
+      />
     </div>
     <div v-if="!isInFormItem" class="du-input__bottom-line" />
   </div>
@@ -49,6 +55,7 @@ import { ref, computed, watch, inject } from 'vue'
 
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
+import DuIcon from '../icon/Icon.vue'
 import { listenFormItemClickInjectionKey } from '../form/helpers'
 
 const props = withDefaults(
@@ -133,6 +140,14 @@ const props = withDefaults(
      * @available wx
      */
     adjustPosition: boolean
+    /**
+     * rightIcon
+     */
+    rightIcon?: string
+    /**
+     * rightIconSize
+     */
+    rightIconSize?: string
   }>(),
   {
     extClass: '',

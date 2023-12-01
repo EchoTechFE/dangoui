@@ -142,7 +142,7 @@
                 "signature": "(event: \"click\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -157,7 +157,7 @@
                 "signature": "(event: \"getUserInfo\", ...args: any[]): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -231,7 +231,7 @@
                 "name": "selectedDate",
                 "description": "",
                 "required": false,
-                "type": "Dayjs[]",
+                "type": "Dayjs | Dayjs[]",
                 "default": "[]"
             },
             {
@@ -246,7 +246,7 @@
                 "description": "",
                 "required": false,
                 "type": "Dayjs",
-                "default": "dayjs().startOf(\"month\").add(6, \"month\").endOf(\"month\")"
+                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
             },
             {
                 "name": "selectableCount",
@@ -261,23 +261,16 @@
                 "required": false,
                 "type": "number",
                 "default": "0"
-            },
-            {
-                "name": "ignoreDisable",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             }
         ],
         "events": [
             {
                 "name": "confirm",
-                "type": "[value: { value: Dayjs[]; }]",
-                "signature": "(event: \"confirm\", value: { value: Dayjs[]; }): void",
+                "type": "[value: { value: Dayjs | Dayjs[]; dates: Dayjs[]; date: Dayjs; }]",
+                "signature": "(event: \"confirm\", value: { value: Dayjs | Dayjs[]; dates: Dayjs[]; date: Dayjs; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -287,7 +280,7 @@
                 "schema": [
                     {
                         "kind": "object",
-                        "type": "{ value: Dayjs[]; }",
+                        "type": "{ value: Dayjs | Dayjs[]; dates: Dayjs[]; date: Dayjs; }",
                         "schema": {
                             "value": {
                                 "name": "value",
@@ -295,19 +288,19 @@
                                 "description": "",
                                 "tags": [],
                                 "required": true,
-                                "type": "Dayjs[]",
+                                "type": "Dayjs | Dayjs[]",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/calendar/Calendar.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3323,
-                                            3343
+                                            3572,
+                                            3606
                                         ]
                                     }
                                 ],
                                 "schema": {
-                                    "kind": "array",
-                                    "type": "Dayjs[]",
+                                    "kind": "enum",
+                                    "type": "Dayjs | Dayjs[]",
                                     "schema": [
                                         {
                                             "kind": "object",
@@ -322,7 +315,7 @@
                                                     "type": "() => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 898,
                                                                 912
@@ -343,7 +336,7 @@
                                                     "type": "() => boolean",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 918,
                                                                 936
@@ -364,14 +357,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 942,
                                                                 956
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 962,
                                                                 988
@@ -389,14 +382,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 994,
                                                                 1009
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1015,
                                                                 1042
@@ -414,14 +407,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1048,
                                                                 1062
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1068,
                                                                 1094
@@ -439,14 +432,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1100,
                                                                 1113
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1119,
                                                                 1144
@@ -464,14 +457,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1150,
                                                                 1164
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1170,
                                                                 1196
@@ -489,14 +482,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1202,
                                                                 1218
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1224,
                                                                 1252
@@ -514,14 +507,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1258,
                                                                 1274
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1280,
                                                                 1308
@@ -539,14 +532,14 @@
                                                     "type": "{ (): number; (value: number): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1314,
                                                                 1335
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1341,
                                                                 1374
@@ -564,7 +557,7 @@
                                                     "type": "(unit: UnitType, value: number) => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1380,
                                                                 1421
@@ -586,7 +579,7 @@
                                                     "type": "(unit: UnitType) => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1427,
                                                                 1454
@@ -608,7 +601,7 @@
                                                     "type": "(value: number, unit: OpUnitType) => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1460,
                                                                 1503
@@ -630,7 +623,7 @@
                                                     "type": "(value: number, unit: OpUnitType) => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1509,
                                                                 1557
@@ -652,7 +645,7 @@
                                                     "type": "(unit: OpUnitType) => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1563,
                                                                 1595
@@ -674,7 +667,7 @@
                                                     "type": "(unit: OpUnitType) => Dayjs",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1601,
                                                                 1631
@@ -696,7 +689,7 @@
                                                     "type": "(template?: string | undefined) => string",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1637,
                                                                 1670
@@ -718,7 +711,7 @@
                                                     "type": "(date: ConfigType, unit?: \"M\" | \"millisecond\" | \"second\" | \"minute\" | \"hour\" | \"day\" | \"month\" | \"year\" | \"date\" | \"d\" | \"y\" | \"h\" | \"m\" | \"s\" | \"ms\" | \"week\" | \"w\" | \"quarter\" | \"Q\" | undefined, float?: boolean | undefined) => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1676,
                                                                 1754
@@ -740,7 +733,7 @@
                                                     "type": "() => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1760,
                                                                 1777
@@ -761,7 +754,7 @@
                                                     "type": "() => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1783,
                                                                 1797
@@ -782,7 +775,7 @@
                                                     "type": "() => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1803,
                                                                 1824
@@ -803,7 +796,7 @@
                                                     "type": "() => Date",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1830,
                                                                 1844
@@ -824,7 +817,7 @@
                                                     "type": "() => string",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1850,
                                                                 1866
@@ -845,7 +838,7 @@
                                                     "type": "() => string",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1872,
                                                                 1893
@@ -866,7 +859,7 @@
                                                     "type": "() => string",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1899,
                                                                 1917
@@ -887,7 +880,7 @@
                                                     "type": "() => number",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1923,
                                                                 1942
@@ -908,7 +901,7 @@
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 1948,
                                                                 2002
@@ -930,7 +923,7 @@
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 2008,
                                                                 2060
@@ -952,7 +945,7 @@
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 2066,
                                                                 2119
@@ -974,14 +967,14 @@
                                                     "type": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }",
                                                     "declarations": [
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 2125,
                                                                 2141
                                                             ]
                                                         },
                                                         {
-                                                            "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
+                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
                                                             "range": [
                                                                 2147,
                                                                 2213
@@ -991,9 +984,52 @@
                                                     "schema": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }"
                                                 }
                                             }
+                                        },
+                                        {
+                                            "kind": "array",
+                                            "type": "Dayjs[]",
+                                            "schema": [
+                                                "Dayjs"
+                                            ]
                                         }
                                     ]
                                 }
+                            },
+                            "dates": {
+                                "name": "dates",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "Dayjs[]",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
+                                        "range": [
+                                            3613,
+                                            3633
+                                        ]
+                                    }
+                                ],
+                                "schema": "Dayjs[]"
+                            },
+                            "date": {
+                                "name": "date",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "Dayjs",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
+                                        "range": [
+                                            3640,
+                                            3657
+                                        ]
+                                    }
+                                ],
+                                "schema": "Dayjs"
                             }
                         }
                     }
@@ -1005,7 +1041,7 @@
                 "signature": "(event: \"close\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1020,7 +1056,7 @@
                 "signature": "(event: \"update:visible\", visible: boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1072,13 +1108,6 @@
                 "default": "false"
             },
             {
-                "name": "name",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
                 "name": "shape",
                 "description": "",
                 "required": false,
@@ -1121,69 +1150,43 @@
                 "default": "unknown"
             },
             {
+                "name": "checked",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
                 "name": "value",
                 "description": "",
-                "required": true,
-                "type": "boolean",
+                "required": false,
+                "type": "string",
                 "default": "unknown"
             }
         ],
         "events": [
             {
                 "name": "click",
-                "type": "[value: boolean]",
-                "signature": "(event: \"click\", value: boolean): void",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
                         ]
                     }
                 ],
-                "schema": [
-                    {
-                        "kind": "enum",
-                        "type": "boolean",
-                        "schema": [
-                            "false",
-                            "true"
-                        ]
-                    }
-                ]
+                "schema": []
             },
             {
-                "name": "input",
+                "name": "update:checked",
                 "type": "[value: boolean]",
-                "signature": "(event: \"input\", value: boolean): void",
+                "signature": "(event: \"update:checked\", value: boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
-                "schema": [
-                    {
-                        "kind": "enum",
-                        "type": "boolean",
-                        "schema": [
-                            "false",
-                            "true"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "update:value",
-                "type": "[value: boolean]",
-                "signature": "(event: \"update:value\", value: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1251,14 +1254,14 @@
                 "description": "",
                 "required": false,
                 "type": "string[]",
-                "default": "[] as any"
+                "default": "[]"
             },
             {
                 "name": "position",
                 "description": "",
                 "required": false,
                 "type": "\"left\" | \"right\"",
-                "default": "\"right\""
+                "default": "\"left\""
             }
         ],
         "events": [
@@ -1268,7 +1271,7 @@
                 "signature": "(event: \"input\", value: string[]): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1291,7 +1294,7 @@
                 "signature": "(event: \"update:value\", value: string[]): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1402,7 +1405,7 @@
                 "signature": "(event: \"buttonClick\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1443,6 +1446,13 @@
                 "required": false,
                 "type": "\"left\" | \"right\"",
                 "default": "\"left\""
+            },
+            {
+                "name": "layout",
+                "description": "",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
             },
             {
                 "name": "options",
@@ -1545,6 +1555,20 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "showBorder",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "layout",
+                "description": "",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -1554,7 +1578,7 @@
                 "signature": "(event: \"showInfo\", info: string | boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1700,7 +1724,7 @@
                 "signature": "(event: \"guideTap\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1715,7 +1739,7 @@
                 "signature": "(event: \"infoTap\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1730,7 +1754,7 @@
                 "signature": "(event: \"actionTap\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1745,7 +1769,7 @@
                 "signature": "(event: \"toggleOpen\", open: boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -1845,7 +1869,7 @@
                 "signature": "(event: \"click\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2033,7 +2057,7 @@
                 "signature": "(event: \"confirm\", value: { detail: { value: string; }; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2054,10 +2078,10 @@
                                 "type": "{ value: string; }",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3851,
-                                            3876
+                                            3918,
+                                            3943
                                         ]
                                     }
                                 ],
@@ -2074,10 +2098,10 @@
                                             "type": "string",
                                             "declarations": [
                                                 {
-                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3861,
-                                                        3874
+                                                        3928,
+                                                        3941
                                                     ]
                                                 }
                                             ],
@@ -2096,7 +2120,7 @@
                 "signature": "(event: \"input\", value: string): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2113,7 +2137,7 @@
                 "signature": "(event: \"update:value\", value: string): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2130,7 +2154,7 @@
                 "signature": "(event: \"change\", value: string): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2147,7 +2171,7 @@
                 "signature": "(event: \"focus\", value: { detail: { height: number; }; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2168,10 +2192,10 @@
                                 "type": "{ height: number; }",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3746,
-                                            3772
+                                            3813,
+                                            3839
                                         ]
                                     }
                                 ],
@@ -2188,10 +2212,10 @@
                                             "type": "number",
                                             "declarations": [
                                                 {
-                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3756,
-                                                        3770
+                                                        3823,
+                                                        3837
                                                     ]
                                                 }
                                             ],
@@ -2210,7 +2234,7 @@
                 "signature": "(event: \"blur\", value: { detail: {}; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2231,10 +2255,10 @@
                                 "type": "{}",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3805,
-                                            3815
+                                            3872,
+                                            3882
                                         ]
                                     }
                                 ],
@@ -2254,7 +2278,7 @@
                 "signature": "(event: \"keyboardheightchange\", value: { detail: { height: number; duration: number; }; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2275,10 +2299,10 @@
                                 "type": "{ height: number; duration: number; }",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            3934,
-                                            3978
+                                            4001,
+                                            4045
                                         ]
                                     }
                                 ],
@@ -2295,10 +2319,10 @@
                                             "type": "number",
                                             "declarations": [
                                                 {
-                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3944,
-                                                        3959
+                                                        4011,
+                                                        4026
                                                     ]
                                                 }
                                             ],
@@ -2313,10 +2337,10 @@
                                             "type": "number",
                                             "declarations": [
                                                 {
-                                                    "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/input/Input.vue",
+                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        3960,
-                                                        3976
+                                                        4027,
+                                                        4043
                                                     ]
                                                 }
                                             ],
@@ -2391,7 +2415,7 @@
                 "signature": "(event: \"input\", val: number): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2408,7 +2432,7 @@
                 "signature": "(event: \"update:value\", val: number): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2425,7 +2449,7 @@
                 "signature": "(event: \"change\", val: number): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2526,7 +2550,7 @@
                 "signature": "(event: \"close\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2541,7 +2565,7 @@
                 "signature": "(event: \"update:visible\", visible: boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2640,7 +2664,14 @@
                 "name": "label",
                 "description": "",
                 "required": true,
-                "type": "string | number",
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "checked",
+                "description": "",
+                "required": false,
+                "type": "boolean",
                 "default": "unknown"
             },
             {
@@ -2656,13 +2687,6 @@
                 "required": false,
                 "type": "string",
                 "default": "unknown"
-            },
-            {
-                "name": "checked",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "unknown"
             }
         ],
         "events": [
@@ -2672,7 +2696,7 @@
                 "signature": "(event: \"click\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2682,12 +2706,36 @@
                 "schema": []
             },
             {
-                "name": "input",
-                "type": "[value: { checked: boolean; value: string | number | undefined; }]",
-                "signature": "(event: \"input\", value: { checked: boolean; value: string | number | undefined; }): void",
+                "name": "update:checked",
+                "type": "[value: boolean]",
+                "signature": "(event: \"update:checked\", value: boolean): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "input",
+                "type": "[value: { checked: boolean; value: any; }]",
+                "signature": "(event: \"input\", value: { checked: boolean; value: any; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2697,7 +2745,7 @@
                 "schema": [
                     {
                         "kind": "object",
-                        "type": "{ checked: boolean; value: string | number | undefined; }",
+                        "type": "{ checked: boolean; value: any; }",
                         "schema": {
                             "checked": {
                                 "name": "checked",
@@ -2708,10 +2756,10 @@
                                 "type": "boolean",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1893,
-                                            1910
+                                            1875,
+                                            1892
                                         ]
                                     }
                                 ],
@@ -2730,25 +2778,17 @@
                                 "description": "",
                                 "tags": [],
                                 "required": true,
-                                "type": "string | number | undefined",
+                                "type": "any",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1911,
-                                            1945
+                                            1893,
+                                            1915
                                         ]
                                     }
                                 ],
-                                "schema": {
-                                    "kind": "enum",
-                                    "type": "string | number | undefined",
-                                    "schema": [
-                                        "undefined",
-                                        "string",
-                                        "number"
-                                    ]
-                                }
+                                "schema": "any"
                             }
                         }
                     }
@@ -2756,11 +2796,11 @@
             },
             {
                 "name": "update:value",
-                "type": "[value: { checked: boolean; value: string | number | undefined; }]",
-                "signature": "(event: \"update:value\", value: { checked: boolean; value: string | number | undefined; }): void",
+                "type": "[value: { checked: boolean; value: any; }]",
+                "signature": "(event: \"update:value\", value: { checked: boolean; value: any; }): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2770,7 +2810,7 @@
                 "schema": [
                     {
                         "kind": "object",
-                        "type": "{ checked: boolean; value: string | number | undefined; }",
+                        "type": "{ checked: boolean; value: any; }",
                         "schema": {
                             "checked": {
                                 "name": "checked",
@@ -2781,10 +2821,10 @@
                                 "type": "boolean",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1999,
-                                            2016
+                                            1956,
+                                            1973
                                         ]
                                     }
                                 ],
@@ -2803,25 +2843,17 @@
                                 "description": "",
                                 "tags": [],
                                 "required": true,
-                                "type": "string | number | undefined",
+                                "type": "any",
                                 "declarations": [
                                     {
-                                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/packages/dumpling/src/radio/Radio.vue",
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2017,
-                                            2051
+                                            1974,
+                                            1996
                                         ]
                                     }
                                 ],
-                                "schema": {
-                                    "kind": "enum",
-                                    "type": "string | number | undefined",
-                                    "schema": [
-                                        "undefined",
-                                        "string",
-                                        "number"
-                                    ]
-                                }
+                                "schema": "any"
                             }
                         }
                     }
@@ -2860,38 +2892,45 @@
             },
             {
                 "name": "shape",
-                "description": "",
+                "description": "形状，圆形还是按钮形式",
                 "required": false,
                 "type": "\"normal\" | \"button\"",
                 "default": "\"normal\""
             },
             {
                 "name": "inline",
-                "description": "",
+                "description": "是否为行内展示",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
-                "name": "value",
-                "description": "",
-                "required": false,
-                "type": "string | number",
-                "default": "undefined"
-            },
-            {
                 "name": "custom",
-                "description": "",
+                "description": "自定义子节点",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "cell",
-                "description": "",
+                "description": "开启后，label 与 radio 呈左右两边排布",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "value",
+                "description": "选中的值",
+                "required": false,
+                "type": "any",
+                "default": "unknown"
+            },
+            {
+                "name": "valueKey",
+                "description": "如果值为对象，进行选中值相等判断时，会取该对象的 valueKey 属性值进行判断",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -2901,7 +2940,7 @@
                 "signature": "(event: \"input\", value: string | number | undefined): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -2926,7 +2965,7 @@
                 "signature": "(event: \"update:value\", value: string | number | undefined): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -3067,7 +3106,7 @@
                 "signature": "(event: \"close\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -3082,7 +3121,7 @@
                 "signature": "(event: \"action\"): void",
                 "declarations": [
                     {
-                        "file": "/Users/zhuliangzhen/dev/learning/dumpling-next/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
                         "range": [
                             4388,
                             4423
@@ -3131,7 +3170,7 @@
                 "name": "type",
                 "description": "",
                 "required": false,
-                "type": "\"default\" | \"ghost\" | \"opacity\"",
+                "type": "\"default\" | \"ghost\"",
                 "default": "\"default\""
             },
             {
@@ -3143,9 +3182,9 @@
             },
             {
                 "name": "status",
-                "description": "process 暂时用不到 status",
+                "description": "当前进度的状态：进行中、已完成",
                 "required": false,
-                "type": "string",
+                "type": "\"success\" | \"process\"",
                 "default": "\"process\""
             },
             {
