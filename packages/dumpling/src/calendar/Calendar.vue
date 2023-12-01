@@ -103,8 +103,8 @@ const props = withDefaults(
     title?: string
     confirmText?: string
     selectedDate?: dayjs.Dayjs | dayjs.Dayjs[]
-    min?: dayjs.Dayjs
-    max?: dayjs.Dayjs
+    min?: dayjs.Dayjs | number
+    max?: dayjs.Dayjs | number
     selectableCount?: number
     weekStart?: number
   }>(),
@@ -136,6 +136,22 @@ const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
 }>()
 
+const resolvedMin = computed(() => {
+  if (typeof props.min === 'number') {
+    return dayjs(props.min)
+  } else {
+    return props.min
+  }
+})
+
+const resolvedMax = computed(() => {
+  if (typeof props.max === 'number') {
+    return dayjs(props.max)
+  } else {
+    return props.max
+  }
+})
+
 const innerSelected = ref<dayjs.Dayjs[]>([])
 
 const instanceId = getInstanceId()
@@ -151,7 +167,9 @@ function setMonthId() {
 }
 
 onMounted(() => {
-  setMonthId()
+  if (props.visible) {
+    setMonthId()
+  }
 })
 
 const className = computed(() => {
@@ -222,9 +240,8 @@ const weekList = computed(() => {
 })
 
 const displayDates = computed(() => {
-  const { min, max } = props
-  const start = min.startOf('month')
-  const end = max.endOf('month')
+  const start = resolvedMin.value.startOf('month')
+  const end = resolvedMax.value.endOf('month')
 
   const monthGroups: dayjs.Dayjs[][] = []
   let currentMonth = start
@@ -266,8 +283,8 @@ const isSelected = (d: dayjs.Dayjs) => {
 // 动态判断是否被禁用
 const isDisabled = (d: dayjs.Dayjs) => {
   if (
-    (props.min.isBefore(d) || props.min.isSame(d, 'day')) &&
-    (props.max.isAfter(d) || props.max.isSame(d, 'day'))
+    (resolvedMin.value.isBefore(d) || resolvedMin.value.isSame(d, 'day')) &&
+    (resolvedMax.value.isAfter(d) || resolvedMax.value.isSame(d, 'day'))
   ) {
     return false
   }
