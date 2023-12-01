@@ -18,17 +18,30 @@ const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
     extStyle: string | Record<string, string>
-    shape: 'round' | 'square'
-    inline: boolean
-    position: 'left' | 'right'
+    /**
+     * 形状
+     */
+    shape?: 'round' | 'square'
+    /**
+     * 是否一行展示
+     */
+    inline?: boolean
+    /**
+     * 对勾图标位置
+     */
+    position?: 'left' | 'right'
+    /**
+     * 当前选中的值
+     */
     value: Array<string>
+    /**
+     * custom
+     */
+    custom?: boolean
   }>(),
   {
     extClass: '',
     extStyle: '',
-    shape: 'round',
-    inline: false,
-    position: 'left',
     value: () => [],
   },
 )
@@ -45,6 +58,7 @@ const className = computed(() => {
     'du-checkbox-group',
     {
       'du-checkbox-group--inline': props.inline,
+      'du-checkbox-group--custom': props.custom,
     },
     extClass,
   )

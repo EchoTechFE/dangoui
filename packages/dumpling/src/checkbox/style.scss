@@ -36,6 +36,11 @@
     row-gap: 0;
     column-gap: 6px;
   }
+
+  &--custom {
+    display: block;
+    align-items: start;
+  }
 }
 
 .du-checkbox__checkbox {

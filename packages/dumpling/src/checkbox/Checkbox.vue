@@ -30,25 +30,58 @@ const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
     extStyle: string | Record<string, string>
-    shape: string
+    /**
+     * 形状
+     *
+     * @default "round"
+     */
+    shape: 'round' | 'square'
+    /**
+     * 行内元素
+     *
+     * @default false
+     */
     inline: boolean
+    /**
+     * 是否禁用
+     */
     disabled: boolean
+    /**
+     * label，如果使用 `default slot`，可以不传
+     */
     label: string
+    /**
+     * 是否选中，独立使用 `Checkbox` 时使用
+     */
     checked?: boolean
+    /**
+     * 值，配合 `CheckboxGroup` 使用
+     */
     value?: string
+    /**
+     * 自定义展示
+     */
     custom: boolean
-    position: string
+    /**
+     * 对勾图标位置
+     *
+     * @default "right"
+     */
+    position: 'left' | 'right'
+    /**
+     * 对勾图标大小
+     */
     size: string
+    /**
+     * 对勾边框
+     */
     border: string
   }>(),
   {
     extClass: '',
     extStyle: '',
-    shape: 'round',
-    inline: false,
     disabled: false,
     custom: false,
-    position: 'right',
     size: '20px',
     border: '',
   },
@@ -114,10 +147,10 @@ const config = computed(() => {
     disabled,
     label,
     value,
-    custom,
-    shape: groupConfig?.value.shape ?? shape,
-    inline: groupConfig?.value.inline ?? inline,
-    position: groupConfig?.value.position ?? position,
+    custom: custom || groupConfig?.value.custom || false,
+    shape: shape || groupConfig?.value.shape || 'round',
+    inline: inline || groupConfig?.value.inline || false,
+    position: position || groupConfig?.value.position || 'right',
     size,
     border,
     checked,
