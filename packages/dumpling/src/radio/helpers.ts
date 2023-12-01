@@ -1,10 +1,10 @@
 import type { Ref, InjectionKey } from 'vue'
 
 type RadioGroupConfig = {
-  inline: boolean
-  shape: 'normal' | 'button'
-  custom: boolean
-  cell: boolean
+  inline?: boolean
+  shape?: 'normal' | 'button'
+  custom?: boolean
+  cell?: boolean
   valueKey?: string
 }
 

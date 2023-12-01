@@ -148,9 +148,7 @@ const innerChecked = computed(() => {
     return props.checked
   }
 
-  const { value } = config.value
-
-  const valueKey = props.valueKey || groupConfig?.value.valueKey
+  const { value, valueKey } = config.value
 
   if (valueKey) {
     return value?.[valueKey] === groupValue?.value?.[valueKey]
