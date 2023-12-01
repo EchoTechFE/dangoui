@@ -15,5 +15,13 @@ Object.keys(cssvars)
     })
   })
 
-fs.writeFileSync('./dist/theme.css', `:root {\n${result.join('\n')}\n}`)
-fs.writeFileSync('./dist/mp/theme.css', `page {\n${result.join('\n')}\n}`)
+const iconfont = fs.readFileSync('./src/icon/iconfont.css', 'utf-8')
+
+fs.writeFileSync(
+  './dist/theme.css',
+  `:root {\n${result.join('\n')}\n}\n${iconfont}`,
+)
+fs.writeFileSync(
+  './dist/mp/theme.css',
+  `page {\n${result.join('\n')}\n}\n${iconfont}`,
+)

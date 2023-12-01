@@ -163,7 +163,7 @@ async function gen(url) {
   )
 
   fs.writeFileSync(
-    path.resolve(__dirname, '../src/icon/iconfont.scss'),
+    path.resolve(__dirname, '../src/icon/iconfont.css'),
     templateStringRender(CSS_TEMPLATE, {
       ttf: getCDNPath(iconConfig.CDN, iconConfig.font.ttf),
       eot: getCDNPath(iconConfig.CDN, iconConfig.font.eot),
