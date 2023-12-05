@@ -15,6 +15,7 @@ import FormItem from './form/FormItem.vue'
 
 import GroupCell from './group-cell/GroupCell.vue'
 import Steps from './steps/Steps.vue'
+import Image from './image/Image.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -39,6 +40,7 @@ const DuFormItem = FormItem
 
 const DuGroupCell = GroupCell
 const DuSteps = Steps
+const DuImage = Image
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -75,6 +77,8 @@ export {
   DuGroupCell,
   Steps,
   DuSteps,
+  Image,
+  DuImage,
   Popup,
   DuPopup,
   Snackbar,

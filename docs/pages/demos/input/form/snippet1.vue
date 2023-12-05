@@ -2,6 +2,9 @@
 <template>
   <DuGroupCell class="!mt-4px" title="创建商品" guide-text="">
       <DuForm label-size="80px">
+        <DuFormItem label="商品图片" required :show-border="false">
+          <DuUpload :value="productImages" />
+        </DuFormItem>
         <DuFormItem label="商品名称" required>
           <DuInput
             placeholder="请输入商品名称"
@@ -46,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
   DuButton,
   DuForm,
@@ -57,5 +61,24 @@ import {
   DuCheckboxGroup,
   DuCheckbox,
   DuInputNumber,
+  DuUpload,
 } from '@frontend/dumpling'
+
+const productImages = ref([
+  {
+    uid: 1,
+    url: '',
+    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+  },
+  {
+    uid: 2,
+    url: '',
+    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+  },
+  {
+    uid: 3,
+    url: '',
+    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+  },
+])
 </script>

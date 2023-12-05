@@ -71,7 +71,7 @@ const props = withDefaults(
     /**
      * 默认表单中文件字段名称，在 `beforeUpload` 中可以进行改写
      */
-    name?: string
+    name: string
     /**
      * 默认请求头，在 `beforeUpload` 中可以进行改写
      */
@@ -120,6 +120,13 @@ const props = withDefaults(
     beforeResponse: (f: UploadFile) => UploadFile | Promise<UploadFile>
   }>(),
   {
+    size: 'normal',
+    value: () => [],
+    name: 'file',
+    headers: () => ({}),
+    data: () => ({}),
+    scene: '',
+    badge: '',
     uploadText: '上传',
     beforeResponse: (f: UploadFile) => f,
   },

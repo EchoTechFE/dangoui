@@ -21,5 +21,23 @@ export default defineNuxtPlugin((nuxtApp) => {
         return file
       },
     },
+    image: {
+      providers: [
+        {
+          test: /^https:\/\/cdn\.qiandaoapp\.com/,
+          getImage(src, options) {
+            if (options.modifiers.width < 300) {
+              return {
+                url: src + '!lfit_w240_jpg',
+              }
+            }
+
+            return {
+              url: src,
+            }
+          },
+        },
+      ],
+    },
   })
 })

@@ -20,6 +20,15 @@ type GlobalConfig = {
      */
     beforeResponse?: (f: UploadFile) => UploadFile | Promise<UploadFile>
   }
+  image?: {
+    providers: Array<{
+      test: RegExp
+      getImage: (
+        src: string,
+        opts: { modifiers: { width: number; height: number; dpr: number } },
+      ) => { url: string }
+    }>
+  }
 }
 
 export default {

@@ -41,6 +41,15 @@
               :href="item._path"
             >
               {{ item.title }}
+              <IconsFlask
+                v-if="item.stage === 'alpha'"
+                :class="[
+                  'ml-4px',
+                  isNavItemActive(item)
+                    ? 'ml-4px c-qd-purple-600'
+                    : 'c-neutral-500',
+                ]"
+              />
             </NuxtLink>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <NuxtLayout :name="route.path.startsWith('/demos') ? 'demo' : 'doc'">
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -11,4 +11,6 @@ import '@/assets/index.css'
 import '@/assets/github-markdown-light.css'
 import '@frontend/dumpling/style.css'
 import '@frontend/dumpling/theme.css'
+
+const route = useRoute()
 </script>
