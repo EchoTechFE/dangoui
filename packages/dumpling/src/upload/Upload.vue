@@ -118,6 +118,26 @@ const props = withDefaults(
      * @param f
      */
     beforeResponse: (f: UploadFile) => UploadFile | Promise<UploadFile>
+    /**
+     * mediaType 小程序
+     */
+    mediaType?: Array<'image' | 'video'>
+    /**
+     * sourceType 小程序
+     */
+    sourceType?: Array<'album' | 'camera'>
+    /**
+     * maxDuration
+     */
+    maxDuration?: number
+    /**
+     * sizeType
+     */
+    sizeType?: Array<'original' | 'compressed'>
+    /**
+     * camera
+     */
+    camera?: 'back' | 'front'
   }>(),
   {
     size: 'normal',
@@ -128,7 +148,7 @@ const props = withDefaults(
     scene: '',
     badge: '',
     uploadText: '上传',
-    beforeResponse: (f: UploadFile) => f,
+    beforeResponse: (uploadFile: UploadFile) => uploadFile,
   },
 )
 
@@ -205,6 +225,15 @@ async function uniUpload(f: UploadFile) {
         name: f.name,
         header: f.headers,
         formData: f.formData,
+        ...Object.fromEntries(
+          Object.entries({
+            fileType: props.mediaType,
+            sourceType: props.sourceType,
+            maxDuration: props.maxDuration,
+            sizeType: props.sizeType,
+            camera: props.camera,
+          }).filter(([, value]) => value != null),
+        ),
         async success(res: { statusCode: number; data: string }) {
           resolve(res)
         },
@@ -240,11 +269,10 @@ function uniAdd() {
           identifier: '',
           status: 'uploading',
           percent: 0,
-          name: file.name,
+          name: props.name,
           filePath: file.tempFilePath,
           headers: props.headers,
           formData: props.data,
-          file,
           scene: props.scene,
           action: props.action ?? '',
         }
@@ -279,6 +307,13 @@ function webAdd() {
   if (!fileInputRef.value) {
     const fileInput = document.createElement('input')
     fileInput.type = 'file'
+    if (props.mediaType) {
+      fileInput.accept = props.mediaType
+        .map((type) => {
+          return type + '/*'
+        })
+        .join(',')
+    }
     fileInput.style.display = 'none'
     fileInput.addEventListener('change', async () => {
       const file = fileInput.files?.[0]
@@ -291,9 +326,10 @@ function webAdd() {
           identifier: '',
           status: 'uploading',
           percent: 0,
-          name: 'name',
+          name: props.name,
           filePath: '',
-          formData: {},
+          headers: props.headers,
+          formData: props.data,
           file,
           scene: props.scene,
           action: props.action ?? '',

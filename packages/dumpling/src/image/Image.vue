@@ -6,12 +6,14 @@
       :mode="mode"
       class="du-image__image"
       :style="imageStyle"
+      :show-menu-by-longpress="showMenuByLongPress"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import {
+  watch,
   ref,
   computed,
   getCurrentInstance,
@@ -31,6 +33,26 @@ const props = withDefaults(
      */
     src: string
     /**
+     * 缩放模式
+     */
+    mode: 'aspectFit' | 'aspectFill' | 'widthFix'
+    /**
+     * 宽度，如果能知道占据的宽度，最好设置，可以优化性能
+     */
+    width: number | string
+    /**
+     * 高度，如果能知道占据的高度，最好设置，可以优化性能
+     */
+    height: number | string
+    /**
+     * 圆角
+     */
+    radius?: number | string
+    /**
+     * showMenuByLongPress 微信小程序
+     */
+    showMenuByLongPress: boolean
+    /**
      * 自定义 class
      */
     extClass?: string | string[] | Record<string, boolean>
@@ -38,13 +60,11 @@ const props = withDefaults(
      * 自定义 style
      */
     extStyle: Record<string, string | number>
-    mode: 'aspectFit' | 'aspectFill' | 'widthFix'
-    width: number | string
-    height: number | string
   }>(),
   {
     width: '100%',
     height: '100%',
+    showMenuByLongPress: false,
     mode: 'aspectFill',
     extStyle: () => ({}),
   },
@@ -58,6 +78,8 @@ const globalConfig = inject(GlobalConfigKey)
 
 const displaySrc = ref('')
 
+const size = ref<{ width: number; height: number }>()
+
 let observer: { disconnect: () => void } | undefined
 
 onMounted(() => {
@@ -66,25 +88,12 @@ onMounted(() => {
       if (entries[0].isIntersecting) {
         const { width, height } = entries[0].boundingClientRect
 
-        const provider = globalConfig?.image?.providers?.find((provider) => {
-          return provider.test.test(props.src)
-        })
-
-        if (provider) {
-          const src = provider.getImage(props.src, {
-            modifiers: {
-              width,
-              height,
-              dpr: 2,
-            },
-          })
-          displaySrc.value = src.url
-        } else {
-          displaySrc.value = props.src
+        size.value = {
+          width,
+          height,
         }
 
-        intersectionObserver.disconnect()
-        observer = undefined
+        setDisplaySrc()
       }
     })
     intersectionObserver.observe(document.getElementById(id.value)!)
@@ -98,37 +107,62 @@ onMounted(() => {
     ).createIntersectionObserver()
     intersectionObserver
       .relativeToViewport({ bottom: 150 })
-      .observer(`#${id}`, (res: any) => {
+      .observe(`#${id.value}`, (res: any) => {
         const { width, height } = res.boundingClientRect
 
-        const provider = globalConfig?.image?.providers?.find((provider) => {
-          return provider.test.test(props.src)
-        })
-
-        if (provider) {
-          const src = provider.getImage(props.src, {
-            modifiers: {
-              width,
-              height,
-              // TODO:
-              dpr: 2,
-            },
-          })
-          displaySrc.value = src.url
-        } else {
-          displaySrc.value = props.src
+        size.value = {
+          width,
+          height,
         }
 
-        intersectionObserver.disconnect()
-        observer = undefined
+        setDisplaySrc()
       })
     observer = intersectionObserver
+  } else {
+    size.value = {
+      width: 1080,
+      height: 1080,
+    }
+    setDisplaySrc()
   }
 })
 
 onUnmounted(() => {
   observer?.disconnect()
 })
+
+function setDisplaySrc() {
+  const provider = globalConfig?.image?.providers?.find((provider) => {
+    return provider.test.test(props.src)
+  })
+
+  if (provider) {
+    const src = provider.getImage(props.src, {
+      modifiers: {
+        width: size.value?.width ?? 1080,
+        height: size.value?.height ?? 1080,
+        dpr: 2,
+      },
+    })
+    displaySrc.value = src.url
+  } else {
+    displaySrc.value = props.src
+  }
+
+  if (observer) {
+    observer.disconnect()
+    observer = undefined
+  }
+}
+
+watch(
+  () => props.src,
+  () => {
+    if (size.value) {
+      setDisplaySrc()
+    }
+  },
+)
 
 const className = computed(() => {
   return classNames(['du-image'], props.extClass)
@@ -161,6 +195,7 @@ const style = computed(() => {
     : styleToCss({
         width: props.width,
         height: props.height,
+        borderRadius: props.radius,
         ...extStyle,
       })
 })
