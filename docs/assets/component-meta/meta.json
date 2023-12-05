@@ -1921,24 +1921,31 @@
             },
             {
                 "name": "mode",
-                "description": "",
+                "description": "缩放模式",
                 "required": false,
                 "type": "\"aspectFill\" | \"aspectFit\" | \"widthFix\"",
                 "default": "\"aspectFill\""
             },
             {
                 "name": "width",
-                "description": "",
+                "description": "宽度，如果能知道占据的宽度，最好设置，可以优化性能",
                 "required": false,
                 "type": "string | number",
                 "default": "\"100%\""
             },
             {
                 "name": "height",
-                "description": "",
+                "description": "高度，如果能知道占据的高度，最好设置，可以优化性能",
                 "required": false,
                 "type": "string | number",
                 "default": "\"100%\""
+            },
+            {
+                "name": "showMenuByLongPress",
+                "description": "showMenuByLongPress 微信小程序",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "extClass",
@@ -1952,6 +1959,13 @@
                 "description": "src",
                 "required": true,
                 "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "radius",
+                "description": "圆角",
+                "required": false,
+                "type": "string | number",
                 "default": "unknown"
             }
         ],
@@ -3385,7 +3399,7 @@
                 "description": "在上传完成响应返回之后，可以对 `UploadFile` 对象进行改写",
                 "required": false,
                 "type": "((f: UploadFile) => UploadFile | Promise<UploadFile>)",
-                "default": "f"
+                "default": "uploadFile"
             },
             {
                 "name": "disabled",
@@ -3402,6 +3416,13 @@
                 "default": "unknown"
             },
             {
+                "name": "camera",
+                "description": "camera",
+                "required": false,
+                "type": "\"back\" | \"front\"",
+                "default": "unknown"
+            },
+            {
                 "name": "maxCount",
                 "description": "最大上传数量",
                 "required": false,
@@ -3413,6 +3434,34 @@
                 "description": "在执行上传之前，可以对 `UploadFile` 对象进行改写",
                 "required": false,
                 "type": "((f: UploadFile) => UploadFile | Promise<UploadFile>)",
+                "default": "unknown"
+            },
+            {
+                "name": "mediaType",
+                "description": "mediaType 小程序",
+                "required": false,
+                "type": "(\"image\" | \"video\")[]",
+                "default": "unknown"
+            },
+            {
+                "name": "sourceType",
+                "description": "sourceType 小程序",
+                "required": false,
+                "type": "(\"album\" | \"camera\")[]",
+                "default": "unknown"
+            },
+            {
+                "name": "maxDuration",
+                "description": "maxDuration",
+                "required": false,
+                "type": "number",
+                "default": "unknown"
+            },
+            {
+                "name": "sizeType",
+                "description": "sizeType",
+                "required": false,
+                "type": "(\"original\" | \"compressed\")[]",
                 "default": "unknown"
             }
         ],
