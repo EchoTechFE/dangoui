@@ -1095,72 +1095,72 @@
             },
             {
                 "name": "size",
-                "description": "",
+                "description": "对勾图标大小",
                 "required": false,
                 "type": "string",
                 "default": "\"20px\""
             },
             {
                 "name": "disabled",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "shape",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"round\""
-            },
-            {
-                "name": "inline",
-                "description": "",
+                "description": "是否禁用",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "custom",
-                "description": "",
+                "description": "自定义展示",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
-                "name": "position",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"right\""
-            },
-            {
                 "name": "border",
-                "description": "",
+                "description": "对勾边框",
                 "required": false,
                 "type": "string",
                 "default": "\"\""
             },
             {
+                "name": "shape",
+                "description": "形状",
+                "required": true,
+                "type": "\"round\" | \"square\"",
+                "default": "unknown"
+            },
+            {
+                "name": "inline",
+                "description": "行内元素",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
                 "name": "label",
-                "description": "",
+                "description": "label，如果使用 `default slot`，可以不传",
                 "required": true,
                 "type": "string",
                 "default": "unknown"
             },
             {
                 "name": "checked",
-                "description": "",
+                "description": "是否选中，独立使用 `Checkbox` 时使用",
                 "required": false,
                 "type": "boolean",
                 "default": "unknown"
             },
             {
                 "name": "value",
-                "description": "",
+                "description": "值，配合 `CheckboxGroup` 使用",
                 "required": false,
                 "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "position",
+                "description": "对勾图标位置",
+                "required": true,
+                "type": "\"left\" | \"right\"",
                 "default": "unknown"
             }
         ],
@@ -1236,32 +1236,39 @@
                 "default": "\"\""
             },
             {
-                "name": "shape",
-                "description": "",
-                "required": false,
-                "type": "\"round\" | \"square\"",
-                "default": "\"round\""
-            },
-            {
-                "name": "inline",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "value",
-                "description": "",
+                "description": "当前选中的值",
                 "required": false,
                 "type": "string[]",
                 "default": "[]"
             },
             {
+                "name": "shape",
+                "description": "形状",
+                "required": false,
+                "type": "\"round\" | \"square\"",
+                "default": "unknown"
+            },
+            {
+                "name": "inline",
+                "description": "是否一行展示",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "custom",
+                "description": "custom",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
                 "name": "position",
-                "description": "",
+                "description": "对勾图标位置",
                 "required": false,
                 "type": "\"left\" | \"right\"",
-                "default": "\"left\""
+                "default": "unknown"
             }
         ],
         "events": [
@@ -1359,6 +1366,23 @@
         ],
         "events": [],
         "slots": []
+    },
+    "Divider": {
+        "props": [],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
     },
     "Empty": {
         "props": [
@@ -1885,6 +1909,40 @@
                 }
             }
         ]
+    },
+    "Image": {
+        "props": [
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | Record<string, string | number>",
+                "default": "\"\""
+            },
+            {
+                "name": "mode",
+                "description": "",
+                "required": false,
+                "type": "\"aspectFill\" | \"aspectFit\" | \"widthFix\"",
+                "default": "\"aspectFill\""
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | Record<string, boolean> | string[]",
+                "default": "unknown"
+            },
+            {
+                "name": "src",
+                "description": "src",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": []
     },
     "Input": {
         "props": [
@@ -2640,13 +2698,6 @@
                 "default": "false"
             },
             {
-                "name": "shape",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"normal\""
-            },
-            {
                 "name": "inline",
                 "description": "",
                 "required": false,
@@ -2666,6 +2717,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "shape",
+                "description": "形状",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             },
             {
                 "name": "label",
@@ -2765,8 +2823,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1875,
-                                            1892
+                                            1912,
+                                            1929
                                         ]
                                     }
                                 ],
@@ -2790,8 +2848,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1893,
-                                            1915
+                                            1930,
+                                            1952
                                         ]
                                     }
                                 ],
@@ -2830,8 +2888,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1956,
-                                            1973
+                                            1993,
+                                            2010
                                         ]
                                     }
                                 ],
@@ -2855,8 +2913,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1974,
-                                            1996
+                                            2011,
+                                            2033
                                         ]
                                     }
                                 ],
@@ -2898,13 +2956,6 @@
                 "default": "\"\""
             },
             {
-                "name": "shape",
-                "description": "形状，圆形还是按钮形式",
-                "required": false,
-                "type": "\"normal\" | \"button\"",
-                "default": "\"normal\""
-            },
-            {
                 "name": "inline",
                 "description": "是否为行内展示",
                 "required": false,
@@ -2924,6 +2975,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "shape",
+                "description": "形状，圆形还是按钮形式",
+                "required": false,
+                "type": "\"normal\" | \"button\"",
+                "default": "unknown"
             },
             {
                 "name": "value",
@@ -3203,6 +3261,689 @@
             }
         ],
         "events": [],
+        "slots": []
+    },
+    "Switch": {
+        "props": [
+            {
+                "name": "disabled",
+                "description": "",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:value",
+                "type": "[on: boolean]",
+                "signature": "(event: \"update:value\", on: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": []
+    },
+    "Upload": {
+        "props": [
+            {
+                "name": "uploadText",
+                "description": "",
+                "required": false,
+                "type": "string | ((params: { value: UploadFile[]; maxCount?: number; }) => string) | undefined",
+                "default": "\"\\u4E0A\\u4F20\""
+            },
+            {
+                "name": "beforeResponse",
+                "description": "在上传完成响应返回之后，可以对 `UploadFile` 对象进行改写",
+                "required": false,
+                "type": "((f: UploadFile) => UploadFile | Promise<UploadFile>)",
+                "default": "f"
+            },
+            {
+                "name": "size",
+                "description": "大小",
+                "required": true,
+                "type": "\"normal\" | \"large\"",
+                "default": "unknown"
+            },
+            {
+                "name": "disabled",
+                "description": "是否禁用",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "value",
+                "description": "上传文件列表",
+                "required": true,
+                "type": "UploadFile[]",
+                "default": "unknown"
+            },
+            {
+                "name": "name",
+                "description": "默认表单中文件字段名称，在 `beforeUpload` 中可以进行改写",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "action",
+                "description": "默认上传地址，在 `beforeUpload` 中可以进行改写",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "headers",
+                "description": "默认请求头，在 `beforeUpload` 中可以进行改写",
+                "required": true,
+                "type": "Record<string, string>",
+                "default": "unknown"
+            },
+            {
+                "name": "data",
+                "description": "默认请求数据，在 `beforeUpload` 中可以进行改写",
+                "required": true,
+                "type": "Record<string, string>",
+                "default": "unknown"
+            },
+            {
+                "name": "scene",
+                "description": "场景值，在我们实践中，一个项目中可能会有多个上传场景，比如头像上传、商品图片上传等\n\n可以在 `UploadFile` 对象中拿到这个值，我们根据这种场景可以进行不同的上传策略\n\n如果对你来说没有这个需求，可以忽略",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "badge",
+                "description": "第一张图的标签",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "maxCount",
+                "description": "最大上传数量",
+                "required": false,
+                "type": "number",
+                "default": "unknown"
+            },
+            {
+                "name": "beforeUpload",
+                "description": "在执行上传之前，可以对 `UploadFile` 对象进行改写",
+                "required": false,
+                "type": "((f: UploadFile) => UploadFile | Promise<UploadFile>)",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:value",
+                "type": "[value: UploadFile[]]",
+                "signature": "(event: \"update:value\", value: UploadFile[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "array",
+                        "type": "UploadFile[]",
+                        "schema": [
+                            {
+                                "kind": "object",
+                                "type": "UploadFile",
+                                "schema": {
+                                    "uid": {
+                                        "name": "uid",
+                                        "global": false,
+                                        "description": "自动生成的 ID",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "number",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    55,
+                                                    66
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "number"
+                                    },
+                                    "url": {
+                                        "name": "url",
+                                        "global": false,
+                                        "description": "资源下载",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    91,
+                                                    102
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "thumbUrl": {
+                                        "name": "thumbUrl",
+                                        "global": false,
+                                        "description": "缩略图链接，默认与 url 一致",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    139,
+                                                    155
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "identifier": {
+                                        "name": "identifier",
+                                        "global": false,
+                                        "description": "代表上传后代表文件的唯一标识\n默认为上传后的 URL，你可以根据自己的场景来定义\n比如可以是文件的 path，或者你们自己的抽象的 xxx",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    255,
+                                                    273
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "status": {
+                                        "name": "status",
+                                        "global": false,
+                                        "description": "状态",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "\"error\" | \"done\" | \"uploading\"",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    296,
+                                                    334
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "\"error\" | \"done\" | \"uploading\"",
+                                            "schema": [
+                                                "\"error\"",
+                                                "\"done\"",
+                                                "\"uploading\""
+                                            ]
+                                        }
+                                    },
+                                    "percent": {
+                                        "name": "percent",
+                                        "global": false,
+                                        "description": "上传百分比",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "number",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    360,
+                                                    375
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "number"
+                                    },
+                                    "name": {
+                                        "name": "name",
+                                        "global": false,
+                                        "description": "上传文件对应的字段",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    405,
+                                                    417
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "filePath": {
+                                        "name": "filePath",
+                                        "global": false,
+                                        "description": "文件路径（小程序）",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    447,
+                                                    463
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "file": {
+                                        "name": "file",
+                                        "global": false,
+                                        "description": "文件（浏览器）",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "File | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    491,
+                                                    502
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "File | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                {
+                                                    "kind": "object",
+                                                    "type": "File",
+                                                    "schema": {
+                                                        "lastModified": {
+                                                            "name": "lastModified",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/File/lastModified)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "number",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        337853,
+                                                                        337883
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": "number"
+                                                        },
+                                                        "name": {
+                                                            "name": "name",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/File/name)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "string",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        337969,
+                                                                        337991
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": "string"
+                                                        },
+                                                        "webkitRelativePath": {
+                                                            "name": "webkitRelativePath",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/File/webkitRelativePath)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "string",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        338091,
+                                                                        338127
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": "string"
+                                                        },
+                                                        "size": {
+                                                            "name": "size",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/size)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "number",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101270,
+                                                                        101292
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": "number"
+                                                        },
+                                                        "type": {
+                                                            "name": "type",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/type)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "string",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101378,
+                                                                        101400
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": "string"
+                                                        },
+                                                        "arrayBuffer": {
+                                                            "name": "arrayBuffer",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/arrayBuffer)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "() => Promise<ArrayBuffer>",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101493,
+                                                                        101529
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": {
+                                                                "kind": "event",
+                                                                "type": "(): Promise<ArrayBuffer>"
+                                                            }
+                                                        },
+                                                        "slice": {
+                                                            "name": "slice",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/slice)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "(start?: number | undefined, end?: number | undefined, contentType?: string | undefined) => Blob",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101616,
+                                                                        101680
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": {
+                                                                "kind": "event",
+                                                                "type": "(start?: number | undefined, end?: number | undefined, contentType?: string | undefined): Blob",
+                                                                "schema": []
+                                                            }
+                                                        },
+                                                        "stream": {
+                                                            "name": "stream",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/stream)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "() => ReadableStream<Uint8Array>",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101768,
+                                                                        101805
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": {
+                                                                "kind": "event",
+                                                                "type": "(): ReadableStream<Uint8Array>"
+                                                            }
+                                                        },
+                                                        "text": {
+                                                            "name": "text",
+                                                            "global": false,
+                                                            "description": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/text)",
+                                                            "tags": [],
+                                                            "required": true,
+                                                            "type": "() => Promise<string>",
+                                                            "declarations": [
+                                                                {
+                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
+                                                                    "range": [
+                                                                        101891,
+                                                                        101915
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "schema": {
+                                                                "kind": "event",
+                                                                "type": "(): Promise<string>"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "headers": {
+                                        "name": "headers",
+                                        "global": false,
+                                        "description": "headers",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "Record<string, string> | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    530,
+                                                    562
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "Record<string, string> | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "Record<string, string>"
+                                            ]
+                                        }
+                                    },
+                                    "formData": {
+                                        "name": "formData",
+                                        "global": false,
+                                        "description": "除了文件字段外，其他上传表单中的字段",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "Record<string, string> | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    601,
+                                                    634
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "Record<string, string> | undefined"
+                                    },
+                                    "statusCode": {
+                                        "name": "statusCode",
+                                        "global": false,
+                                        "description": "statusCode",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "number | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    665,
+                                                    684
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "number | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "number"
+                                            ]
+                                        }
+                                    },
+                                    "responseText": {
+                                        "name": "responseText",
+                                        "global": false,
+                                        "description": "responseText",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "string | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    717,
+                                                    738
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "string | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "string"
+                                            ]
+                                        }
+                                    },
+                                    "chain": {
+                                        "name": "chain",
+                                        "global": false,
+                                        "description": "是否进一步交给下一个处理函数（全局函数）处理",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "boolean | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    781,
+                                                    796
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "boolean | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "false",
+                                                "true"
+                                            ]
+                                        }
+                                    },
+                                    "scene": {
+                                        "name": "scene",
+                                        "global": false,
+                                        "description": "场景值",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    820,
+                                                    833
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "action": {
+                                        "name": "action",
+                                        "global": false,
+                                        "description": "action",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
+                                                "range": [
+                                                    860,
+                                                    874
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "slots": []
     }
 }

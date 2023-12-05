@@ -9,6 +9,7 @@ import Radio from './radio/Radio.vue'
 import RadioGroup from './radio/RadioGroup.vue'
 import RadioIcon from './radio/RadioIcon.vue'
 import Calendar from './calendar/Calendar.vue'
+import Upload from './upload/Upload.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -18,6 +19,8 @@ import Steps from './steps/Steps.vue'
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
 import Empty from './empty/Empty.vue'
+
+import globalConfig from './plugins/globalConfig'
 
 const DuButton = Button
 const DuIcon = Icon
@@ -30,6 +33,7 @@ const DuRadio = Radio
 const DuRadioGroup = RadioGroup
 const DuRadioIcon = RadioIcon
 const DuCalendar = Calendar
+const DuUpload = Upload
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -61,6 +65,8 @@ export {
   DuRadioGroup,
   Calendar,
   DuCalendar,
+  Upload,
+  DuUpload,
   Form,
   DuForm,
   FormItem,
@@ -75,4 +81,5 @@ export {
   DuSnackbar,
   Empty,
   DuEmpty,
+  globalConfig,
 }
