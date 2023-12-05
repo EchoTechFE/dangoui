@@ -1916,8 +1916,8 @@
                 "name": "extStyle",
                 "description": "自定义 style",
                 "required": false,
-                "type": "string | Record<string, string | number>",
-                "default": "\"\""
+                "type": "Record<string, string | number>",
+                "default": "{}"
             },
             {
                 "name": "mode",
@@ -1925,6 +1925,20 @@
                 "required": false,
                 "type": "\"aspectFill\" | \"aspectFit\" | \"widthFix\"",
                 "default": "\"aspectFill\""
+            },
+            {
+                "name": "width",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "\"100%\""
+            },
+            {
+                "name": "height",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "\"100%\""
             },
             {
                 "name": "extClass",
@@ -3311,8 +3325,57 @@
     "Upload": {
         "props": [
             {
+                "name": "size",
+                "description": "大小",
+                "required": false,
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "value",
+                "description": "上传文件列表",
+                "required": false,
+                "type": "UploadFile[]",
+                "default": "[]"
+            },
+            {
+                "name": "name",
+                "description": "默认表单中文件字段名称，在 `beforeUpload` 中可以进行改写",
+                "required": false,
+                "type": "string",
+                "default": "\"file\""
+            },
+            {
+                "name": "headers",
+                "description": "默认请求头，在 `beforeUpload` 中可以进行改写",
+                "required": false,
+                "type": "Record<string, string>",
+                "default": "{}"
+            },
+            {
+                "name": "data",
+                "description": "默认请求数据，在 `beforeUpload` 中可以进行改写",
+                "required": false,
+                "type": "Record<string, string>",
+                "default": "{}"
+            },
+            {
+                "name": "scene",
+                "description": "场景值，在我们实践中，一个项目中可能会有多个上传场景，比如头像上传、商品图片上传等\n\n可以在 `UploadFile` 对象中拿到这个值，我们根据这种场景可以进行不同的上传策略\n\n如果对你来说没有这个需求，可以忽略",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "badge",
+                "description": "第一张图的标签",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
                 "name": "uploadText",
-                "description": "",
+                "description": "上传按钮中的文案",
                 "required": false,
                 "type": "string | ((params: { value: UploadFile[]; maxCount?: number; }) => string) | undefined",
                 "default": "\"\\u4E0A\\u4F20\""
@@ -3325,13 +3388,6 @@
                 "default": "f"
             },
             {
-                "name": "size",
-                "description": "大小",
-                "required": true,
-                "type": "\"normal\" | \"large\"",
-                "default": "unknown"
-            },
-            {
                 "name": "disabled",
                 "description": "是否禁用",
                 "required": false,
@@ -3339,51 +3395,9 @@
                 "default": "unknown"
             },
             {
-                "name": "value",
-                "description": "上传文件列表",
-                "required": true,
-                "type": "UploadFile[]",
-                "default": "unknown"
-            },
-            {
-                "name": "name",
-                "description": "默认表单中文件字段名称，在 `beforeUpload` 中可以进行改写",
-                "required": false,
-                "type": "string",
-                "default": "unknown"
-            },
-            {
                 "name": "action",
                 "description": "默认上传地址，在 `beforeUpload` 中可以进行改写",
                 "required": false,
-                "type": "string",
-                "default": "unknown"
-            },
-            {
-                "name": "headers",
-                "description": "默认请求头，在 `beforeUpload` 中可以进行改写",
-                "required": true,
-                "type": "Record<string, string>",
-                "default": "unknown"
-            },
-            {
-                "name": "data",
-                "description": "默认请求数据，在 `beforeUpload` 中可以进行改写",
-                "required": true,
-                "type": "Record<string, string>",
-                "default": "unknown"
-            },
-            {
-                "name": "scene",
-                "description": "场景值，在我们实践中，一个项目中可能会有多个上传场景，比如头像上传、商品图片上传等\n\n可以在 `UploadFile` 对象中拿到这个值，我们根据这种场景可以进行不同的上传策略\n\n如果对你来说没有这个需求，可以忽略",
-                "required": true,
-                "type": "string",
-                "default": "unknown"
-            },
-            {
-                "name": "badge",
-                "description": "第一张图的标签",
-                "required": true,
                 "type": "string",
                 "default": "unknown"
             },
