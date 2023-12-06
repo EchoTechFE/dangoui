@@ -1,0 +1,36 @@
+.du-tag {
+  font-weight: 500;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  &--primary {
+    background-color: var(--du-c-bg-primary);
+    color: var(--du-c-primary);
+  }
+
+  &--default {
+    background-color: var(--du-c-bg-2);
+    color: var(--du-c-text-3);
+  }
+
+  &--small {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 3px 8px;
+    height: 24px;
+  }
+
+  &--medium {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 5px 12px;
+    height: 28px;
+  }
+
+  &--large {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 9px 12px;
+    height: 40px;
+  }
+}

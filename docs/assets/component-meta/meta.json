@@ -1077,6 +1077,11 @@
         ],
         "slots": []
     },
+    "Cascader": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Checkbox": {
         "props": [
             {
@@ -3335,6 +3340,193 @@
             }
         ],
         "slots": []
+    },
+    "Tab": {
+        "props": [
+            {
+                "name": "name",
+                "description": "",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "TabPane": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
+    "Tabs": {
+        "props": [
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"default\" | \"text\" | \"tag\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:value",
+                "type": "[name: string]",
+                "signature": "(event: \"update:value\", name: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "left",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "right",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Tag": {
+        "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "\"small\" | \"medium\" | \"large\"",
+                "default": "\"medium\""
+            },
+            {
+                "name": "round",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "bordered",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
     },
     "Upload": {
         "props": [

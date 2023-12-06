@@ -4,8 +4,9 @@
     <div
       :class="[
         showSection
-          ? 'px-8px py-16px flex flex-wrap gap-x-8px gap-y-16px bg-white'
+          ? 'px-8px py-16px flex-wrap gap-x-8px gap-y-16px bg-white'
           : '',
+        type,
       ]"
     >
       <slot />
@@ -18,10 +19,12 @@ withDefaults(
   defineProps<{
     title: string
     showSection: boolean
+    type: 'flex' | 'block'
   }>(),
   {
     title: '',
     showSection: true,
+    type: 'flex',
   },
 )
 </script>

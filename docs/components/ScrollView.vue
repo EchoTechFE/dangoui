@@ -1,15 +1,11 @@
 <template>
   <div
+    class="scroll-view"
     @scroll="getScroll"
+    ref="scrollViewRef"
     :style="`${
-      scrollX === 'true' || scrollX === true
-        ? 'overflow-x:scroll; overflow-y:hidden'
-        : ''
-    };${
-      scrollY === 'true' || scrollY === true
-        ? 'overflow-x:hidden; overflow-y:scroll'
-        : ''
-    };`"
+      scrollX === true ? 'overflow-x:scroll; overflow-y:hidden' : ''
+    };${scrollY === true ? 'overflow-x:hidden; overflow-y:scroll' : ''};`"
   >
     <slot></slot>
   </div>
@@ -17,12 +13,16 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  scrollX?: string | boolean
-  scrollY?: string | boolean
+  scrollX?: boolean
+  scrollY?: boolean
   scrollIntoView?: string
+  scrollTop?: number
+  scrollLeft?: number
 }>()
 
 const scrollTop = ref(0)
+
+const scrollViewRef = ref<HTMLDivElement>()
 
 const emit = defineEmits<{
   (e: 'scrolltolower'): void
@@ -38,6 +38,16 @@ watch(
         el.scrollIntoView({ behavior: 'smooth' })
       }
     }
+  },
+)
+
+watch(
+  () => props.scrollLeft,
+  () => {
+    scrollViewRef.value?.scrollTo({
+      left: props.scrollLeft,
+      behavior: 'smooth',
+    })
   },
 )
 

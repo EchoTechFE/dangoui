@@ -16,6 +16,11 @@ import FormItem from './form/FormItem.vue'
 import GroupCell from './group-cell/GroupCell.vue'
 import Steps from './steps/Steps.vue'
 import Image from './image/Image.vue'
+import Tabs from './tabs/Tabs.vue'
+import Tab from './tabs/Tab.vue'
+import TabPane from './tabs/TabPane.vue'
+import Divider from './divider/Divider.vue'
+import Tag from './tag/Tag.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -41,6 +46,11 @@ const DuFormItem = FormItem
 const DuGroupCell = GroupCell
 const DuSteps = Steps
 const DuImage = Image
+const DuTabs = Tabs
+const DuTab = Tab
+const DuTabPane = TabPane
+const DuDivider = Divider
+const DuTag = Tag
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -79,6 +89,16 @@ export {
   DuSteps,
   Image,
   DuImage,
+  DuTabs,
+  Tabs,
+  DuTab,
+  Tab,
+  DuTabPane,
+  TabPane,
+  Divider,
+  DuDivider,
+  Tag,
+  DuTag,
   Popup,
   DuPopup,
   Snackbar,

@@ -1,0 +1,112 @@
+<template>
+  <div
+    :id="id"
+    :class="[
+      'du-tabs',
+      {
+        'du-tabs--default-large': size === 'large' && type === 'default',
+        'du-tabs--default': size === 'normal' && type === 'default',
+      },
+    ]"
+  >
+    <slot name="left" />
+    <scroll-view
+      class="du-tabs__content-wrapper"
+      scroll-x
+      :scroll-left="scrollViewLeft"
+    >
+      <div :class="['du-tabs__content', `du-tabs__content--${type}-${size}`]">
+        <slot />
+      </div>
+    </scroll-view>
+    <div
+      :class="[
+        'du-tabs__right-wrapper',
+        `du-tabs__right-wrapper--${type}-${size}`,
+        {
+          'du-tabs__right-wrapper--more': hasRight,
+        },
+      ]"
+    >
+      <slot name="right" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, provide, toRef, ref, onMounted } from 'vue'
+import { TabsInjectionKey, getInstanceId } from './helpers'
+
+const props = withDefaults(
+  defineProps<{
+    type: 'default' | 'tag' | 'text'
+    value: string
+    size: 'normal' | 'large'
+  }>(),
+  {
+    size: 'normal',
+    type: 'default',
+  },
+)
+
+const emit = defineEmits<{
+  (e: 'update:value', name: string): void
+}>()
+
+const id = `du-tabs-${getInstanceId()}`
+
+const readonlyValue = computed(() => props.value)
+
+const hasRight = ref(false)
+
+const scrollViewLeft = ref(0)
+
+onMounted(() => {
+  const rightWrapperRect = document
+    .querySelector(`#${id} .du-tabs__right-wrapper`)
+    ?.getBoundingClientRect()
+  if (rightWrapperRect?.width && rightWrapperRect.width < 1) {
+    hasRight.value = false
+  } else {
+    hasRight.value = true
+  }
+})
+
+// @ts-ignore
+const isScrollToEnd = computed(() => {
+  return true
+})
+
+function setValue(name: string, tabId: string) {
+  emit('update:value', name)
+  // TODO:
+  const tabsEl = document.getElementById(id)
+  if (tabsEl) {
+    const scrollView = tabsEl.querySelector('.du-tabs__content-wrapper')
+    console.log(scrollView)
+    const tabEl = tabsEl.querySelector('#' + tabId)
+    console.log(tabEl)
+    const scrollViewRect = scrollView!.getBoundingClientRect()
+    const tabElRect = tabEl!.getBoundingClientRect()
+
+    let scrollLeft =
+      scrollView!.scrollLeft +
+      tabElRect.x +
+      tabElRect.width / 2 -
+      (scrollViewRect.x + scrollViewRect.width / 2)
+
+    if (scrollLeft < 0) {
+      scrollLeft = 0
+    }
+
+    scrollViewLeft.value = scrollLeft
+  }
+}
+
+provide(TabsInjectionKey, {
+  size: toRef(props, 'size'),
+  type: toRef(props, 'type'),
+  value: readonlyValue,
+  setValue,
+})
+</script>

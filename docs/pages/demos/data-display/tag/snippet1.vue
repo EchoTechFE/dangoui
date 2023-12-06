@@ -1,23 +1,4 @@
----
-head:
-  meta:
-    - name: 'stage'
-      content: 'alpha'
-navigation:
-  stage: 'alpha'
----
 
-# Tag 标签
-
-:stage{type="alpha"}
-
-Forget about the Price Tag
-
-## 示例
-
-::demo
-#snippet
-```vue
 <template>
   <PreviewBlock title="简单">
     <DuTag size="small">标签</DuTag>
@@ -29,5 +10,3 @@ Forget about the Price Tag
 <script setup lang="ts">
 import { DuTag } from '@frontend/dumpling'
 </script>
-```
-::

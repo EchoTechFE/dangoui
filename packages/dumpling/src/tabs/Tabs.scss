@@ -1,0 +1,94 @@
+.du-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-left: 15px;
+
+  &__content {
+    display: flex;
+    column-gap: 20px;
+
+    &--default-large {
+      padding-top: 12px;
+    }
+
+    &--default-normal {
+      padding-top: 6px;
+    }
+
+    &--tag-large {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      column-gap: 8px;
+    }
+
+    &--tag-normal {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      column-gap: 8px;
+    }
+
+    &--text-normal {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      column-gap: 12px;
+      height: 34px;
+    }
+
+    &--text-large {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      column-gap: 12px;
+      height: 38px;
+    }
+  }
+
+  &__right-wrapper {
+    box-sizing: content-box;
+    padding-left: 8px;
+    padding-right: 15px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    height: 18px;
+    flex: none;
+    position: relative;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+
+    &--default-large {
+      padding-top: 15px;
+      padding-bottom: 11px;
+    }
+
+    &--default-normal {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &--tag-large {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &--tag-normal {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &--text-large {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &--text-normal {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+}

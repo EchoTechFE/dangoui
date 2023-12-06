@@ -1,0 +1,16 @@
+.du-divider {
+  flex: none;
+
+  &--vertical {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+    height: calc(100% - 6px);
+    margin-top: 3px;
+  }
+
+  &--horizontal {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
