@@ -41,6 +41,9 @@
             <DuCheckbox label="微信" name="2" />
           </DuCheckboxGroup>
         </DuFormItem>
+        <DuFormItem label="极速模式" :show-border="false" required>
+          <DuSwitch :on="true" />
+        </DuFormItem>
         <DuButton full size="large" ext-class="!mt-8px">
           发布
         </DuButton>
@@ -62,6 +65,7 @@ import {
   DuCheckbox,
   DuInputNumber,
   DuUpload,
+  DuSwitch,
 } from '@frontend/dumpling'
 
 const productImages = ref([

@@ -1,0 +1,38 @@
+.du-switch {
+  width: 42px;
+  height: 24px;
+  background: #fff;
+  border: 2px solid var(--du-c-b-2);
+  border-radius: 1000px;
+  overflow: hidden;
+
+  &--disabled {
+    background: var(--du-c-bg-4);
+  }
+
+  &--on {
+    background: var(--du-c-primary);
+    border: 2px solid var(--du-c-primary);
+  }
+
+  &--on-disabled {
+    // TODO: 使用变量
+    background: #c7b8ff;
+    border: 2px solid #c7b8ff;
+  }
+
+  &__button {
+    width: 20px;
+    height: 20px;
+    border-radius: 1000px;
+    background-color: #fff;
+    box-shadow:
+      0px 2px 1px rgba(0, 0, 0, 0.06),
+      0px 0px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+
+    &--on {
+      transform: translateX(18px);
+    }
+  }
+}

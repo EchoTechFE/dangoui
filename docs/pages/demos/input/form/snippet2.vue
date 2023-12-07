@@ -35,6 +35,9 @@
             <DuCheckbox label="微信" name="2" />
           </DuCheckboxGroup>
         </DuFormItem>
+        <DuFormItem label="极速模式" required>
+          <DuSwitch :on="true" />
+        </DuFormItem>
         <DuButton full size="large" ext-class="!mt-8px">
           发布
         </DuButton>
@@ -43,5 +46,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox } from '@frontend/dumpling'
+import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox, DuSwitch } from '@frontend/dumpling'
 </script>
