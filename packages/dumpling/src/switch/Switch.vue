@@ -38,6 +38,13 @@ const emit = defineEmits<{
 
 function toggle() {
   if (props.disabled) return
+  // @ts-ignore
+  if (typeof uni !== 'undefined') {
+    // @ts-ignore
+    uni.vibrateShort({
+      type: 'light',
+    })
+  }
   emit('update:on', !props.on)
 }
 </script>
