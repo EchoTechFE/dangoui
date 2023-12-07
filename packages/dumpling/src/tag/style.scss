@@ -55,6 +55,11 @@
     align-items: center;
   }
 
+  &__close--mini {
+    margin-left: 2px;
+    height: 12px;
+  }
+
   &__close--small {
     height: 12px;
   }
@@ -73,6 +78,11 @@
     align-items: center;
   }
 
+  &__icon--mini {
+    margin-right: 2px;
+    height: 11px;
+  }
+
   &__icon--small {
     height: 12px;
   }
@@ -83,6 +93,13 @@
 
   &__icon--large {
     height: 14px;
+  }
+
+  &--mini {
+    font-size: 10px;
+    line-height: 11px;
+    padding: 2px;
+    height: 15px;
   }
 
   &--small {

@@ -48,7 +48,7 @@ const props = withDefaults(
     round: boolean
     bordered: boolean
     ghost: boolean
-    size: 'small' | 'medium' | 'large'
+    size: 'mini' | 'small' | 'medium' | 'large'
     closeable: boolean
     icon?: string
   }>(),

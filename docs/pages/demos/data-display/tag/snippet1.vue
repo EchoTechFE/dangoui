@@ -1,6 +1,7 @@
 
 <template>
   <PreviewBlock title="简单">
+    <DuTag size="mini" @click="handleClick">标签</DuTag>
     <DuTag size="small" @click="handleClick">标签</DuTag>
     <DuTag @click="handleClick">标签</DuTag>
     <DuTag size="large" @click="handleClick">标签</DuTag>
@@ -11,6 +12,7 @@
     <DuTag bordered ghost>标签</DuTag>
   </PreviewBlock>
   <PreviewBlock title="带图标">
+    <DuTag size="mini" icon="lock">标签</DuTag>
     <DuTag size="small" icon="lock">标签</DuTag>
     <DuTag icon="lock">标签</DuTag>
   </PreviewBlock>
