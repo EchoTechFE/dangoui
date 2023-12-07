@@ -1,0 +1,14 @@
+.du-cascader {
+  &__option {
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__options {
+    height: 300px;
+  }
+}

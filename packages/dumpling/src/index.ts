@@ -10,6 +10,7 @@ import RadioGroup from './radio/RadioGroup.vue'
 import RadioIcon from './radio/RadioIcon.vue'
 import Calendar from './calendar/Calendar.vue'
 import Upload from './upload/Upload.vue'
+import Cascader from './cascader/Cascader.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -40,6 +41,7 @@ const DuRadioGroup = RadioGroup
 const DuRadioIcon = RadioIcon
 const DuCalendar = Calendar
 const DuUpload = Upload
+const DuCascader = Cascader
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -79,6 +81,8 @@ export {
   DuCalendar,
   Upload,
   DuUpload,
+  Cascader,
+  DuCascader,
   Form,
   DuForm,
   FormItem,

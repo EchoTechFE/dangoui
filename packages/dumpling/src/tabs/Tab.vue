@@ -3,10 +3,10 @@
     v-if="type === 'default'"
     :id="id"
     :class="[
-      'du-tab',
+      'du-tab-item',
       {
-        'du-tab--active': isActive,
-        'du-tab--large': size === 'large',
+        'du-tab-item--active': isActive,
+        'du-tab-item--large': size === 'large',
       },
     ]"
     @click="handleClick"
@@ -26,10 +26,10 @@
     v-else-if="type === 'text'"
     :id="id"
     :class="[
-      'du-tab__text',
+      'du-tab-item__text',
       {
-        'du-tab__text--active': isActive,
-        'du-tab__text--large': size === 'large',
+        'du-tab-item__text--active': isActive,
+        'du-tab-item__text--large': size === 'large',
       },
     ]"
     @click="handleClick"
@@ -52,7 +52,7 @@ const emit = defineEmits<{
   (e: 'click'): void
 }>()
 
-const id = `du-tab-${getInstanceId()}`
+const id = `du-tab-item-${getInstanceId()}`
 
 const tabsConfig = inject(TabsInjectionKey)
 
