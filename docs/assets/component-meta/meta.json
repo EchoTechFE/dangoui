@@ -1142,8 +1142,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1259,
-                                                    1272
+                                                    1278,
+                                                    1291
                                                 ]
                                             }
                                         ],
@@ -1160,8 +1160,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1275,
-                                                    1288
+                                                    1294,
+                                                    1307
                                                 ]
                                             }
                                         ],
@@ -1178,8 +1178,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1291,
-                                                    1309
+                                                    1310,
+                                                    1328
                                                 ]
                                             }
                                         ],
@@ -1204,8 +1204,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1312,
-                                                    1339
+                                                    1331,
+                                                    1358
                                                 ]
                                             }
                                         ],
@@ -1275,13 +1275,27 @@
         "slots": [
             {
                 "name": "default",
-                "type": "{}",
+                "type": "{ open: () => void; }",
                 "description": "",
                 "declarations": [],
                 "schema": {
                     "kind": "object",
-                    "type": "{}",
-                    "schema": {}
+                    "type": "{ open: () => void; }",
+                    "schema": {
+                        "open": {
+                            "name": "open",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "() => void",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(): void"
+                            }
+                        }
+                    }
                 }
             }
         ]
@@ -3371,6 +3385,11 @@
         "events": [],
         "slots": []
     },
+    "Rate": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Snackbar": {
         "props": [
             {
@@ -3719,7 +3738,7 @@
                 "name": "color",
                 "description": "",
                 "required": false,
-                "type": "string",
+                "type": "\"default\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\" | `#${string}` | { border: string; text: string; background: string; }",
                 "default": "\"primary\""
             },
             {
@@ -3728,6 +3747,13 @@
                 "required": false,
                 "type": "\"small\" | \"medium\" | \"large\"",
                 "default": "\"medium\""
+            },
+            {
+                "name": "ghost",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "round",
@@ -3742,6 +3768,20 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "closeable",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "icon",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -3749,6 +3789,21 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "close",
+                "type": "[]",
+                "signature": "(event: \"close\"): void",
                 "declarations": [
                     {
                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
