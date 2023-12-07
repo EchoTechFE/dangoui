@@ -9,7 +9,8 @@
   <PreviewBlock title="不同类型">
     <DuTag>标签</DuTag>
     <DuTag bordered>标签</DuTag>
-    <DuTag bordered ghost>标签</DuTag>
+    <DuTag size="small" bordered ghost>标签</DuTag>
+    <DuTag size="mini" bordered ghost>标签</DuTag>
   </PreviewBlock>
   <PreviewBlock title="带图标">
     <DuTag size="mini" icon="lock">标签</DuTag>
