@@ -7,6 +7,7 @@
       {
         'du-tag--ghost': ghost,
         'du-tag--bordered': bordered,
+        'du-tag--round': round,
       },
     ]"
     :style="{

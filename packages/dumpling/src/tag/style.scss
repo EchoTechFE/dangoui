@@ -49,6 +49,10 @@
     border-width: 1px;
   }
 
+  &--round {
+    border-radius: 1000px;
+  }
+
   &__close {
     margin-left: 4px;
     display: flex;
