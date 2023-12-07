@@ -37,6 +37,9 @@ import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色
+     */
     color:
       | 'primary'
       | 'secondary'
@@ -46,11 +49,29 @@ const props = withDefaults(
       | 'default'
       | `#${string}`
       | { border: string; text: string; background: string }
+    /**
+     * 是否为圆角
+     */
     round: boolean
+    /**
+     * 是否带有边框
+     */
     bordered: boolean
+    /**
+     * 是否是透明背景
+     */
     ghost: boolean
+    /**
+     * 大小
+     */
     size: 'mini' | 'small' | 'medium' | 'large'
+    /**
+     * 是否可关闭（显示一个关闭按钮）
+     */
     closeable: boolean
+    /**
+     * 左侧图标
+     */
     icon?: string
   }>(),
   {
