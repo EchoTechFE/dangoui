@@ -4,17 +4,13 @@
       'du-tag',
       `du-tag--${colorName}`,
       `du-tag--${size}`,
+      `du-tag--${bg}`,
       {
-        'du-tag--ghost': ghost,
         'du-tag--bordered': bordered,
         'du-tag--round': round,
       },
     ]"
-    :style="{
-      color: textColor,
-      borderColor: borderColor,
-      backgroundColor: backgroundColor,
-    }"
+    :style="style"
     @click="handleClick"
   >
     <div v-if="icon" :class="`du-tag__icon du-tag__icon--${size}`">
@@ -32,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { StyleValue, computed } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
@@ -51,6 +47,14 @@ const props = withDefaults(
       | `#${string}`
       | { border: string; text: string; background: string }
     /**
+     * 实心、淡色、透明
+     */
+    bg: 'solid' | 'soft' | 'ghost'
+    /**
+     * 大小
+     */
+    size: 'mini' | 'small' | 'medium' | 'large'
+    /**
      * 是否为圆角
      */
     round: boolean
@@ -58,14 +62,6 @@ const props = withDefaults(
      * 是否带有边框
      */
     bordered: boolean
-    /**
-     * 是否是透明背景
-     */
-    ghost: boolean
-    /**
-     * 大小
-     */
-    size: 'mini' | 'small' | 'medium' | 'large'
     /**
      * 是否可关闭（显示一个关闭按钮）
      */
@@ -79,7 +75,7 @@ const props = withDefaults(
     color: 'primary',
     round: false,
     bordered: false,
-    ghost: false,
+    bg: 'soft',
     size: 'medium',
     closeable: false,
   },
@@ -96,41 +92,32 @@ const colorName = computed(() => {
   }
 })
 
-const textColor = computed(() => {
+const style = computed(() => {
   if (typeof props.color === 'string') {
     if (props.color.startsWith('#')) {
-      return props.color
+      return {
+        '--du-c-tag': props.color,
+        '--du-c-tag-soft-bg': props.color + '33',
+        // 目前没有自动感知背景色亮暗的能力
+        '--du-c-tag-solid-text': '#fff',
+      }
+    } else {
+      return {
+        '--du-c-tag': `var(--du-c-${props.color}-tag)`,
+        '--du-c-tag-soft-bg': `var(--du-c-${props.color}-tag-soft-bg)`,
+        '--du-c-tag-solid-text': `var(--du-c-${props.color}-tag-solid-text)`,
+      }
     }
   } else {
-    return props.color.text
-  }
-})
-
-const borderColor = computed(() => {
-  if (!props.bordered) {
-    return undefined
-  }
-
-  if (typeof props.color === 'string') {
-    if (props.color.startsWith('#')) {
-      return props.color
+    const s: StyleValue = {}
+    s.color = props.color.text
+    if (props.bg !== 'ghost') {
+      s.background = props.color.background
     }
-  } else {
-    return props.color.border
-  }
-})
-
-const backgroundColor = computed(() => {
-  if (props.ghost) {
-    return undefined
-  }
-
-  if (typeof props.color === 'string') {
-    if (props.color.startsWith('#') && props.color.length === 7) {
-      return props.color + '33'
+    if (props.bordered) {
+      s.border = `1px solid ${props.color.border}`
     }
-  } else {
-    return props.color.background
+    return s
   }
 })
 

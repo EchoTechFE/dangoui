@@ -1,48 +1,51 @@
 .du-tag {
+  // TODO: 这些应该可以通过色板配置自动生成
+  --du-c-primary-tag: var(--du-c-primary);
+  --du-c-primary-tag-soft-bg: var(--du-c-bg-primary);
+  --du-c-primary-tag-solid-text: #fff;
+
+  --du-c-secondary-tag: var(--du-c-2);
+  --du-c-secondary-tag-soft-bg: var(--du-c-bg-2);
+  --du-c-primary-tag-solid-text: #fff;
+
+  --du-c-success-tag: var(--du-c-success);
+  --du-c-success-tag-soft-bg: var(--du-c-bg-success);
+  --du-c-success-tag-solid-text: #fff;
+
+  --du-c-warning-tag: var(--du-c-warning);
+  --du-c-warning-tag-soft-bg: var(--du-c-bg-warning);
+  --du-c-warning-tag-solid-text: #fff;
+
+  --du-c-error-tag: var(--du-c-error);
+  --du-c-error-tag-soft-bg: var(--du-c-bg-error);
+  --du-c-error-tag-solid-text: #fff;
+
+  --du-c-default-tag: var(--du-c-text-3);
+  --du-c-default-tag-soft-bg: var(--du-c-bg-2);
+  --du-c-default-tag-solid-text: #fff;
+
   font-weight: 500;
   border-radius: 4px;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
 
-  &--primary {
-    background-color: var(--du-c-bg-primary);
-    color: var(--du-c-primary);
-    border: 0 solid var(--du-c-primary);
+  &--solid {
+    background: var(--du-c-tag);
+    color: var(--du-c-tag-solid-text);
+    border: 0 solid var(--du-c-tag);
   }
 
-  &--secondary {
-    background-color: var(--du-c-bg-2);
-    color: var(--du-c-2);
-    border: 0 solid var(--du-c-2);
-  }
-
-  &--success {
-    background-color: var(--du-c-bg-success);
-    color: var(--du-c-success);
-    border: 0 solid var(--du-c-success);
-  }
-
-  &--warning {
-    background-color: var(--du-c-bg-warning);
-    color: var(--du-c-warning);
-    border: 0 solid var(--du-c-warning);
-  }
-
-  &--error {
-    background-color: var(--du-c-bg-error);
-    color: var(--du-c-error);
-    border: 0 solid var(--du-c-error);
-  }
-
-  &--default {
-    background-color: var(--du-c-bg-2);
-    color: var(--du-c-text-3);
-    border: 0 solid var(--du-c-text-3);
+  &--soft {
+    background: var(--du-c-tag-soft-bg);
+    color: var(--du-c-tag);
+    border: 0 solid var(--du-c-tag);
   }
 
   &--ghost {
     background-color: transparent;
+    color: var(--du-c-tag);
+    border: 1px solid var(--du-c-tag);
   }
 
   &--bordered {

@@ -3869,18 +3869,18 @@
                 "default": "\"medium\""
             },
             {
-                "name": "ghost",
-                "description": "是否是透明背景",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "round",
                 "description": "是否为圆角",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "bg",
+                "description": "实心、淡色、透明",
+                "required": false,
+                "type": "\"ghost\" | \"soft\" | \"solid\"",
+                "default": "\"soft\""
             },
             {
                 "name": "bordered",

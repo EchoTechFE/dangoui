@@ -1,6 +1,6 @@
 
 <template>
-  <PreviewBlock title="简单">
+  <PreviewBlock title="大小">
     <DuTag size="mini" @click="handleClick">标签</DuTag>
     <DuTag size="small" @click="handleClick">标签</DuTag>
     <DuTag @click="handleClick">标签</DuTag>
@@ -8,11 +8,13 @@
   </PreviewBlock>
   <PreviewBlock title="不同类型">
     <DuTag>标签</DuTag>
+    <DuTag bg="solid" icon="lock">标签</DuTag>
     <DuTag round>标签</DuTag>
     <DuTag bordered>标签</DuTag>
-    <DuTag size="small" bordered ghost>标签</DuTag>
-    <DuTag size="mini" bordered ghost>标签</DuTag>
-    <DuTag size="mini" bordered ghost round>标签</DuTag>
+    <DuTag size="small" bordered bg="ghost" icon="lock">标签</DuTag>
+    <DuTag size="mini" bordered bg="ghost">标签</DuTag>
+    <DuTag size="mini" bordered bg="ghost" round>标签</DuTag>
+    <DuTag size="mini" bg="solid">标签</DuTag>
   </PreviewBlock>
   <PreviewBlock title="带图标">
     <DuTag size="mini" icon="lock">标签</DuTag>
@@ -34,7 +36,8 @@
   <PreviewBlock title="自定义颜色">
     <DuTag color="#B2D600" icon="lock" closeable>标签</DuTag>
     <DuTag color="#B2D600" icon="lock" bordered closeable>标签</DuTag>
-    <DuTag color="#B2D600" icon="lock" bordered ghost closeable>标签</DuTag>
+    <DuTag color="#B2D600" icon="lock" bordered bg="ghost" closeable>标签</DuTag>
+    <DuTag color="#B2D600" icon="lock" bordered bg="solid" closeable>标签</DuTag>
   </PreviewBlock>
 </template>
 
