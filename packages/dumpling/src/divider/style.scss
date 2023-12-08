@@ -1,5 +1,7 @@
 .du-divider {
   flex: none;
+  display: flex;
+  align-items: center;
 
   &--vertical {
     width: 1px;
@@ -9,8 +11,31 @@
   }
 
   &--horizontal {
-    width: 100%;
+    width: calc(100% - 6px);
+    margin-left: 3px;
+  }
+
+  &__left {
+    flex: auto;
     height: 1px;
     background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &__right {
+    flex: auto;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &__content {
+    padding: 0 12px;
+    color: var(--du-c-text-3);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+
+    &:empty {
+      display: none;
+    }
   }
 }
