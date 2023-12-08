@@ -1,5 +1,5 @@
 <template>
-  <div class="du-badge">
+  <div class="du-badge" :style="style">
     <slot></slot>
     <div
       v-if="displayText || alwaysShow"
@@ -15,6 +15,14 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    color:
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'warning'
+      | 'error'
+      | 'default'
+      | `#${string}`
     /**
      * 是否只显示小圆点
      */
@@ -33,6 +41,7 @@ const props = withDefaults(
     alwaysShow: boolean
   }>(),
   {
+    color: 'error',
     dot: false,
     value: '',
     max: undefined,
@@ -51,6 +60,17 @@ const displayText = computed(() => {
     return `${props.value}`
   } else {
     return props.value
+  }
+})
+
+const style = computed(() => {
+  if (props.color.startsWith('#')) {
+    return {
+      '--du-c-badge-color': props.color,
+    }
+  }
+  return {
+    '--du-c-badge-color': `var(--du-c-${props.color})`,
   }
 })
 </script>

@@ -18,6 +18,7 @@ export default {
     '--du-color-main-opacity': 'rgba(var(--du-color-main-rgb), 0.2)',
     '--du-c-primary': 'rgb(124,102,255)',
     '--du-c-2': '#1a1866',
+    '--du-c-secondary': '#1a1866',
     '--du-c-warning': '#fc7e22',
     '--du-c-success': '#52ba5c',
     '--du-c-error': '#d94a4e',

@@ -2,6 +2,13 @@
     "Badge": {
         "props": [
             {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "\"default\" | \"error\" | `#${string}` | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "default": "\"error\""
+            },
+            {
                 "name": "dot",
                 "description": "是否只显示小圆点",
                 "required": false,
@@ -48,6 +55,13 @@
     "Button": {
         "props": [
             {
+                "name": "color",
+                "description": "色彩",
+                "required": false,
+                "type": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "default": "\"primary\""
+            },
+            {
                 "name": "type",
                 "description": "按钮类型",
                 "required": false,
@@ -81,13 +95,6 @@
                 "required": false,
                 "type": "string | Record<string, string | number>",
                 "default": "\"\""
-            },
-            {
-                "name": "color",
-                "description": "色彩",
-                "required": false,
-                "type": "\"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\"",
-                "default": "\"primary\""
             },
             {
                 "name": "size",
@@ -2161,6 +2168,13 @@
     "Icon": {
         "props": [
             {
+                "name": "color",
+                "description": "图标颜色",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -2172,13 +2186,6 @@
                 "description": "",
                 "required": false,
                 "type": "string | Record<string, string | number>",
-                "default": "\"\""
-            },
-            {
-                "name": "color",
-                "description": "图标颜色",
-                "required": false,
-                "type": "string",
                 "default": "\"\""
             },
             {
@@ -3851,7 +3858,7 @@
                 "name": "color",
                 "description": "颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色\nTODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展",
                 "required": false,
-                "type": "\"default\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\" | `#${string}` | { border: string; text: string; background: string; }",
+                "type": "\"default\" | \"error\" | `#${string}` | \"primary\" | \"secondary\" | \"success\" | \"warning\" | { border: string; text: string; background: string; }",
                 "default": "\"primary\""
             },
             {
@@ -4178,7 +4185,7 @@
                                         "description": "状态",
                                         "tags": [],
                                         "required": true,
-                                        "type": "\"done\" | \"error\" | \"uploading\"",
+                                        "type": "\"error\" | \"done\" | \"uploading\"",
                                         "declarations": [
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
@@ -4190,10 +4197,10 @@
                                         ],
                                         "schema": {
                                             "kind": "enum",
-                                            "type": "\"done\" | \"error\" | \"uploading\"",
+                                            "type": "\"error\" | \"done\" | \"uploading\"",
                                             "schema": [
-                                                "\"done\"",
                                                 "\"error\"",
+                                                "\"done\"",
                                                 "\"uploading\""
                                             ]
                                         }
