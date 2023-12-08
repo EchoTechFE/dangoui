@@ -1,6 +1,59 @@
 {
+    "Badge": {
+        "props": [
+            {
+                "name": "dot",
+                "description": "是否只显示小圆点",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "value",
+                "description": "如果为数字 0 或者空字符的时候会隐藏红点",
+                "required": false,
+                "type": "string | number",
+                "default": "\"\""
+            },
+            {
+                "name": "max",
+                "description": "如果传入的 value 是数字，超过 max 会显示 {max}+",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "alwaysShow",
+                "description": "总是显示",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "Button": {
         "props": [
+            {
+                "name": "type",
+                "description": "按钮类型",
+                "required": false,
+                "type": "\"primary\" | \"secondary\" | \"recommend\" | \"info\" | \"text\" | \"text-primary\"",
+                "default": "\"primary\""
+            },
             {
                 "name": "text",
                 "description": "按钮文本",
@@ -19,7 +72,7 @@
                 "name": "extClass",
                 "description": "自定义 class",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -34,13 +87,6 @@
                 "description": "色彩",
                 "required": false,
                 "type": "\"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\"",
-                "default": "\"primary\""
-            },
-            {
-                "name": "type",
-                "description": "按钮类型",
-                "required": false,
-                "type": "\"primary\" | \"secondary\" | \"recommend\" | \"info\" | \"text\" | \"text-primary\"",
                 "default": "\"primary\""
             },
             {
@@ -186,6 +232,20 @@
     "Calendar": {
         "props": [
             {
+                "name": "max",
+                "description": "",
+                "required": false,
+                "type": "number | Dayjs",
+                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
+            },
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"multiple\" | \"single\" | \"range\"",
+                "default": "\"multiple\""
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -198,13 +258,6 @@
                 "required": false,
                 "type": "string | Record<string, string>",
                 "default": "\"\""
-            },
-            {
-                "name": "type",
-                "description": "",
-                "required": false,
-                "type": "\"multiple\" | \"single\" | \"range\"",
-                "default": "\"multiple\""
             },
             {
                 "name": "visible",
@@ -240,13 +293,6 @@
                 "required": false,
                 "type": "number | Dayjs",
                 "default": "dayjs().startOf(\"month\")"
-            },
-            {
-                "name": "max",
-                "description": "",
-                "required": false,
-                "type": "number | Dayjs",
-                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
             },
             {
                 "name": "selectableCount",
@@ -1080,6 +1126,13 @@
     "Cascader": {
         "props": [
             {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string[]",
+                "default": "[]"
+            },
+            {
                 "name": "title",
                 "description": "",
                 "required": false,
@@ -1092,13 +1145,6 @@
                 "required": false,
                 "type": "boolean",
                 "default": "undefined"
-            },
-            {
-                "name": "value",
-                "description": "",
-                "required": false,
-                "type": "string[]",
-                "default": "[]"
             },
             {
                 "name": "options",
@@ -1306,7 +1352,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -1445,10 +1491,17 @@
     "CheckboxGroup": {
         "props": [
             {
+                "name": "value",
+                "description": "当前选中的值",
+                "required": false,
+                "type": "string[]",
+                "default": "[]"
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -1457,13 +1510,6 @@
                 "required": false,
                 "type": "string | Record<string, string>",
                 "default": "\"\""
-            },
-            {
-                "name": "value",
-                "description": "当前选中的值",
-                "required": false,
-                "type": "string[]",
-                "default": "[]"
             },
             {
                 "name": "shape",
@@ -1607,6 +1653,11 @@
             }
         ]
     },
+    "Dropdown": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Empty": {
         "props": [
             {
@@ -1620,7 +1671,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -1670,7 +1721,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -1770,6 +1821,13 @@
     "FormItem": {
         "props": [
             {
+                "name": "required",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "info",
                 "description": "",
                 "required": false,
@@ -1780,7 +1838,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -1791,17 +1849,10 @@
                 "default": "\"\""
             },
             {
-                "name": "required",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "options",
                 "description": "",
                 "required": false,
-                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | Record<string, boolean> | string[]; extStyle: string | Record<...>; }",
+                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | string[] | Record<string, boolean>; extStyle: string | Record<...>; }",
                 "default": "undefined"
             },
             {
@@ -1912,7 +1963,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -2113,7 +2164,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -2217,7 +2268,7 @@
                 "name": "extClass",
                 "description": "自定义 class",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "unknown"
             },
             {
@@ -2241,17 +2292,10 @@
     "Input": {
         "props": [
             {
-                "name": "extClass",
+                "name": "value",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "",
-                "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string",
                 "default": "\"\""
             },
             {
@@ -2262,18 +2306,25 @@
                 "default": "\"text\""
             },
             {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
+            },
+            {
                 "name": "disabled",
                 "description": "禁用",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
-            },
-            {
-                "name": "value",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
             },
             {
                 "name": "placeholder",
@@ -2718,7 +2769,7 @@
     "InputNumber": {
         "props": [
             {
-                "name": "min",
+                "name": "value",
                 "description": "",
                 "required": false,
                 "type": "number",
@@ -2732,7 +2783,7 @@
                 "default": "Infinity"
             },
             {
-                "name": "value",
+                "name": "min",
                 "description": "",
                 "required": false,
                 "type": "number",
@@ -2822,13 +2873,72 @@
         ],
         "slots": []
     },
+    "NavigationBar": {
+        "props": [
+            {
+                "name": "share",
+                "description": "",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "left",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "right",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "NoticeBar": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Popup": {
         "props": [
+            {
+                "name": "type",
+                "description": "弹出框位置",
+                "required": false,
+                "type": "\"center\" | \"top\" | \"bottom\"",
+                "default": "\"center\""
+            },
             {
                 "name": "extClass",
                 "description": "extClass",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -2837,13 +2947,6 @@
                 "required": false,
                 "type": "string | Record<string, string>",
                 "default": "\"\""
-            },
-            {
-                "name": "type",
-                "description": "弹出框位置",
-                "required": false,
-                "type": "\"center\" | \"top\" | \"bottom\"",
-                "default": "\"center\""
             },
             {
                 "name": "visible",
@@ -2891,7 +2994,7 @@
                 "name": "maskClass",
                 "description": "maskClass",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -2974,7 +3077,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -3239,7 +3342,7 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -3390,13 +3493,23 @@
         "events": [],
         "slots": []
     },
+    "Search": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
+    "ShareSheet": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Snackbar": {
         "props": [
             {
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -3517,10 +3630,17 @@
     "Steps": {
         "props": [
             {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"default\" | \"ghost\"",
+                "default": "\"default\""
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, boolean> | string[]",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
@@ -3529,13 +3649,6 @@
                 "required": false,
                 "type": "string | Record<string, string | number>",
                 "default": "\"\""
-            },
-            {
-                "name": "type",
-                "description": "",
-                "required": false,
-                "type": "\"default\" | \"ghost\"",
-                "default": "\"default\""
             },
             {
                 "name": "activeIndex",
@@ -3565,14 +3678,14 @@
     "Switch": {
         "props": [
             {
-                "name": "disabled",
+                "name": "on",
                 "description": "",
-                "required": true,
+                "required": false,
                 "type": "boolean",
-                "default": "unknown"
+                "default": "false"
             },
             {
-                "name": "value",
+                "name": "disabled",
                 "description": "",
                 "required": true,
                 "type": "boolean",
@@ -3581,9 +3694,9 @@
         ],
         "events": [
             {
-                "name": "update:value",
+                "name": "update:on",
                 "type": "[on: boolean]",
-                "signature": "(event: \"update:value\", on: boolean): void",
+                "signature": "(event: \"update:on\", on: boolean): void",
                 "declarations": [
                     {
                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
@@ -3736,49 +3849,49 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色\nTODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展",
                 "required": false,
                 "type": "\"default\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"error\" | `#${string}` | { border: string; text: string; background: string; }",
                 "default": "\"primary\""
             },
             {
                 "name": "size",
-                "description": "",
+                "description": "大小",
                 "required": false,
-                "type": "\"small\" | \"medium\" | \"large\"",
+                "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
                 "default": "\"medium\""
             },
             {
                 "name": "ghost",
-                "description": "",
+                "description": "是否是透明背景",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "round",
-                "description": "",
+                "description": "是否为圆角",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "bordered",
-                "description": "",
+                "description": "是否带有边框",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "closeable",
-                "description": "",
+                "description": "是否可关闭（显示一个关闭按钮）",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "icon",
-                "description": "",
+                "description": "左侧",
                 "required": false,
                 "type": "string",
                 "default": "unknown"
@@ -3830,21 +3943,26 @@
             }
         ]
     },
+    "TextArea": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Upload": {
         "props": [
-            {
-                "name": "size",
-                "description": "大小",
-                "required": false,
-                "type": "\"normal\" | \"large\"",
-                "default": "\"normal\""
-            },
             {
                 "name": "value",
                 "description": "上传文件列表",
                 "required": false,
                 "type": "UploadFile[]",
                 "default": "[]"
+            },
+            {
+                "name": "size",
+                "description": "大小",
+                "required": false,
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
             },
             {
                 "name": "name",
@@ -4060,7 +4178,7 @@
                                         "description": "状态",
                                         "tags": [],
                                         "required": true,
-                                        "type": "\"error\" | \"done\" | \"uploading\"",
+                                        "type": "\"done\" | \"error\" | \"uploading\"",
                                         "declarations": [
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
@@ -4072,10 +4190,10 @@
                                         ],
                                         "schema": {
                                             "kind": "enum",
-                                            "type": "\"error\" | \"done\" | \"uploading\"",
+                                            "type": "\"done\" | \"error\" | \"uploading\"",
                                             "schema": [
-                                                "\"error\"",
                                                 "\"done\"",
+                                                "\"error\"",
                                                 "\"uploading\""
                                             ]
                                         }

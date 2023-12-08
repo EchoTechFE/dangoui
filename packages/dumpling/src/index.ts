@@ -24,9 +24,12 @@ import TabPane from './tabs/TabPane.vue'
 import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
 
+import NavigationBar from './navigation-bar/NavigationBar.vue'
+
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
 import Empty from './empty/Empty.vue'
+import Badge from './badge/Badge.vue'
 
 import globalConfig from './plugins/globalConfig'
 
@@ -56,9 +59,12 @@ const DuTabPane = TabPane
 const DuDivider = Divider
 const DuTag = Tag
 
+const DuNavigationBar = NavigationBar
+
 const DuPopup = Popup
 const DuSnackbar = Snackbar
 const DuEmpty = Empty
+const DuBadge = Badge
 
 export {
   Button,
@@ -107,11 +113,15 @@ export {
   DuDivider,
   Tag,
   DuTag,
+  NavigationBar,
+  DuNavigationBar,
   Popup,
   DuPopup,
   Snackbar,
   DuSnackbar,
   Empty,
   DuEmpty,
+  Badge,
+  DuBadge,
   globalConfig,
 }

@@ -1,0 +1,31 @@
+.du-badge {
+  --du-c-badge-color: #d94a4e;
+  position: relative;
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 1000px;
+    background-color: var(--du-c-badge-color);
+    position: absolute;
+    right: -4px;
+    top: -4px;
+  }
+
+  &__dot--with-count {
+    width: auto;
+    height: 18px;
+    display: flex;
+    padding: 0 4px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #fff;
+    right: -8px;
+    top: -6px;
+    min-width: 18px;
+    justify-content: center;
+    align-items: center;
+  }
+}

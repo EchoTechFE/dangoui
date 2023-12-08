@@ -39,6 +39,7 @@ const props = withDefaults(
   defineProps<{
     /**
      * 颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色
+     * TODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展
      */
     color:
       | 'primary'
@@ -70,7 +71,7 @@ const props = withDefaults(
      */
     closeable: boolean
     /**
-     * 左侧图标
+     * 左侧
      */
     icon?: string
   }>(),
