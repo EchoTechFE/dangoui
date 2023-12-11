@@ -1,11 +1,13 @@
 <template>
   <div class="du-badge" :style="style">
-    <slot></slot>
+    <div class="du-badge__item">
+      <slot></slot>
+    </div>
     <div
-      v-if="displayText || alwaysShow"
+      v-if="(displayText && displayText !== '0') || alwaysShow"
       :class="['du-badge__dot', !dot && `du-badge__dot--with-count`]"
     >
-      {{ dot ? '' : value }}
+      {{ dot ? '' : displayText }}
     </div>
   </div>
 </template>
@@ -52,7 +54,7 @@ const props = withDefaults(
 const displayText = computed(() => {
   if (typeof props.value === 'number') {
     if (props.value === 0) {
-      return ''
+      return '0'
     }
     if (props.max != null && props.value > props.max) {
       return `${props.max}+`

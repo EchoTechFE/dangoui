@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.0.2",
     "@frontend/dumpling": "workspace:*",
     "@iconify-json/mdi": "^1.1.55",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",

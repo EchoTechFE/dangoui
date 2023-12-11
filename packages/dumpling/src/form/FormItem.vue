@@ -90,6 +90,14 @@ const props = withDefaults(
     info: string
     isDirty: boolean
     showBorder: boolean
+    /**
+     * 内容区域水平位置的对齐方式
+     */
+    justify?: 'start' | 'end'
+    /**
+     * 内容区域的对齐方式，仅在 horizontal 模式下生效
+     */
+    items?: 'start' | 'center'
     options: {
       label: string
       labelAlign: 'left' | 'right'

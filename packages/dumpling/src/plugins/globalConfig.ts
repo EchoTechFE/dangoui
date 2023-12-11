@@ -6,6 +6,12 @@ export const GlobalConfigKey = Symbol(
 ) as InjectionKey<GlobalConfig>
 
 type GlobalConfig = {
+  // 没想好 API
+  unitTransform?: {
+    number?: boolean
+    px?: boolean
+    designWidth: number
+  }
   upload?: {
     /**
      * 在真正上传之前，返回一些参数，作为上传用的参数

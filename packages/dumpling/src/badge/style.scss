@@ -2,6 +2,14 @@
   --du-c-badge-color: #d94a4e;
   position: relative;
 
+  &__item {
+    &:empty + .du-badge__dot {
+      position: relative;
+      right: auto;
+      top: auto;
+    }
+  }
+
   &__dot {
     width: 10px;
     height: 10px;

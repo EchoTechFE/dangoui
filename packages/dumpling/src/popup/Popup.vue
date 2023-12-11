@@ -1,30 +1,33 @@
 <template>
-  <div class="du-popup" v-if="innerVisible">
-    <div
-      :class="maskClassName"
-      :style="maskStyleFormat"
-      @click="handleMaskClick"
-    >
-      <slot name="maskContent" />
-    </div>
-    <div :style="style" :class="className">
+  <DuRootPortal>
+    <div class="du-popup" v-if="innerVisible">
       <div
-        :class="['du-popup__header', `du-popup__header--${titleAlign}`]"
-        v-if="headerVisible"
+        :class="maskClassName"
+        :style="maskStyleFormat"
+        @click="handleMaskClick"
       >
-        <div class="du-popup__title">{{ title }}</div>
-        <div v-if="closable" class="du-popup__close" @click="handleClose">
-          <DuIcon name="close" />
-        </div>
+        <slot name="maskContent" />
       </div>
-      <slot />
+      <div :style="style" :class="className">
+        <div
+          :class="['du-popup__header', `du-popup__header--${titleAlign}`]"
+          v-if="headerVisible"
+        >
+          <div class="du-popup__title">{{ title }}</div>
+          <div v-if="closable" class="du-popup__close" @click="handleClose">
+            <DuIcon name="close" />
+          </div>
+        </div>
+        <slot />
+      </div>
     </div>
-  </div>
+  </DuRootPortal>
 </template>
 
 <script setup lang="ts">
 import { computed, watch, ref } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import DuRootPortal from '../root-portal/RootPortal.vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
 
