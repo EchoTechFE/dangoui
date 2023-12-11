@@ -5,7 +5,7 @@
       <DuNavigationBar share>
         标题
         <template #right>
-          <div class="flex-auto">
+          <div class="flex-auto w-0">
             <DuSearch bg="white" placeholder="Labubu">
               <template #right>
                 <DuIcon name="camera" />
@@ -14,7 +14,6 @@
               </template>
             </DuSearch>
           </div>
-          <DuButton size="small">搜索</DuButton>
         </template>
       </DuNavigationBar>
     </div>

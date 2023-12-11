@@ -22,11 +22,22 @@
 import { CSSProperties, ref } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 
-defineProps<{
-  share: boolean
-}>()
+const props = withDefaults(
+  defineProps<{
+    color: 'primary' | 'secondary' | 'default'
+    share: boolean
+  }>(),
+  {
+    color: 'default',
+    share: false,
+  },
+)
 
-const wrapperStyle = ref<CSSProperties>({})
+const wrapperStyle = ref<CSSProperties>({
+  '--du-c-navigation-bar-bg': `var(--du-c-${props.color}-navigation-bar-bg)`,
+  '--du-c-navigation-bar-text': `var(--du-c-${props.color}-navigation-bar-text)`,
+  '--du-c-navigation-bar-border': `var(--du-c-${props.color}-navigation-bar-border)`,
+})
 
 // @ts-ignore
 if (typeof uni !== 'undefined') {

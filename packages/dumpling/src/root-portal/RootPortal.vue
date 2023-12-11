@@ -2,9 +2,9 @@
   <root-portal v-if="canUseRootPortal">
     <slot />
   </root-portal>
-  <div v-else>
+  <teleport v-else to="body">
     <slot />
-  </div>
+  </teleport>
 </template>
 
 <script setup lang="ts">

@@ -1,8 +1,10 @@
 <template>
   <div class="du-search" :style="style" @click="handleClick">
-    <slot name="left">
-      <DuIcon name="search" />
-    </slot>
+    <div class="du-search__left">
+      <slot name="left">
+        <DuIcon name="search" />
+      </slot>
+    </div>
     <input
       class="du-search__input"
       :value="value"

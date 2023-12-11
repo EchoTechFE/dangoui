@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--du-c-bg-2);
   height: 44px;
   padding: 6px 7px;
   overflow: hidden;
@@ -11,7 +10,7 @@
     display: flex;
     align-items: center;
     font-size: 16px;
-    color: var(--du-c-text-primary);
+    color: var(--du-c-navigation-bar-text);
     column-gap: 8px;
     font-size: 16px;
     font-weight: 500;
@@ -30,13 +29,14 @@
     align-items: center;
     column-gap: 8px;
     justify-content: flex-end;
+    color: var(--du-c-navigation-bar-text);
   }
 
   &__share {
     width: 30px;
     height: 30px;
     // border: 1px solid var(--du-c-b-primary);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--du-c-navigation-bar-border);
     border-radius: 1000px;
     display: flex;
     justify-content: center;
@@ -47,7 +47,19 @@
   }
 
   &__wrapper {
+    --du-c-primary-navigation-bar-text: #fff;
+    --du-c-primary-navigation-bar-bg: var(--du-c-primary);
+    --du-c-primary-navigation-bar-border: rgba(255, 255, 255, 0.12);
+
+    --du-c-secondary-navigation-bar-text: #fff;
+    --du-c-secondary-navigation-bar-bg: var(--du-c-secondary);
+    --du-c-secondary-navigation-bar-border: rgba(255, 255, 255, 0.12);
+
+    --du-c-default-navigation-bar-text: var(--du-c-text-primary);
+    --du-c-default-navigation-bar-bg: var(--du-c-bg-2);
+    --du-c-default-navigation-bar-border: rgba(0, 0, 0, 0.08);
+
     box-sizing: content-box;
-    background-color: var(--du-c-bg-2);
+    background-color: var(--du-c-navigation-bar-bg);
   }
 }
