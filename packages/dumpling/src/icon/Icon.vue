@@ -1,5 +1,6 @@
 <template>
-  <i :class="className" :style="style" @click="onClick">
+  <img v-if="isImageUrl" :src="name" class="du-icon__img" :style="style" />
+  <i v-else :class="className" :style="style" @click="onClick">
     <slot>{{ unicode }}</slot>
   </i>
 </template>
@@ -9,19 +10,20 @@ import { computed } from 'vue'
 import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 import iconConfig from './iconfont-config.json'
+import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
     extStyle: string | Record<string, string | number>
     /**
-     * 图标名称
+     * 图标名称，可以是内置 iconfont 的名字，也可以是图片链接
      */
     name: string
     /**
      * 图标大小
      */
-    size: string
+    size: string | number
     /**
      * 图标颜色
      *
@@ -41,17 +43,28 @@ const emit = defineEmits<{
   (e: 'click'): void
 }>()
 
+const isImageUrl = computed(() => {
+  // TODO: 针对 svg url 提供多彩的功能，问题是如何提供 props 会比较优雅
+  return /^http(s?):\/\//.test(props.name)
+})
+
 const className = computed(() => {
   const { extClass } = props
+  if (isImageUrl.value) {
+    return classNames('du-icon__img', extClass)
+  }
+
   return classNames('du-icon', extClass)
 })
+
+const normalizedSize = useSize(() => props.size)
 
 const style = computed(() => {
   const { extStyle } = props
   if (typeof extStyle === 'string') {
     const segments: string[] = []
-    if (props.size) {
-      segments.push(`font-size:${props.size};`)
+    if (normalizedSize.value) {
+      segments.push(`--du-icon-size:${normalizedSize.value};`)
     }
     if (props.color) {
       segments.push(`color:${props.color};`)
@@ -61,7 +74,7 @@ const style = computed(() => {
   }
 
   return styleToCss({
-    fontSize: props.size || undefined,
+    '--du-icon-size': normalizedSize.value || undefined,
     color: props.color || undefined,
     ...extStyle,
   })

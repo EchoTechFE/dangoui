@@ -26,4 +26,7 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
+  define: {
+    __WEB__: 'true',
+  },
 })

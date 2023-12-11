@@ -21,6 +21,10 @@ export function useSize(size: MaybeRefOrGetter<number | string>) {
       }
     }
 
+    if (typeof s === 'number') {
+      return s + 'px'
+    }
+
     return s
   })
 }

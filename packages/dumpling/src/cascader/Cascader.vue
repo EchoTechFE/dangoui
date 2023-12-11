@@ -24,7 +24,7 @@
             @click="handleSelectOption(opt)"
           >
             <div>{{ opt.label }}</div>
-            <DuIcon name="arrow-heavy-right" size="12px" />
+            <DuIcon name="arrow-heavy-right" :size="12" />
           </div>
         </scroll-view>
       </div>
