@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { TabsInjectionKey } from '../tabs/helpers'
+import { dividerInjectionKey } from './helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -23,17 +23,17 @@ const props = withDefaults(
   },
 )
 
-const tabsConfig = inject(TabsInjectionKey)
+const dividerConfig = inject(dividerInjectionKey)
 
 const config = computed(() => {
   if (props.type) {
     return {
-      type: props.type || 'horizontal',
+      type: props.type,
     } as const
   }
 
   return {
-    type: tabsConfig ? 'vertical' : 'horizontal',
+    type: dividerConfig?.defaultType || 'horizontal',
   } as const
 })
 </script>

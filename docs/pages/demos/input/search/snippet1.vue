@@ -1,23 +1,4 @@
----
-head:
-  meta:
-    - name: 'stage'
-      content: 'alpha'
-navigation:
-  stage: 'alpha'
----
 
-# Search 搜索
-
-:stage{type="alpha"}
-
-搜索东西用的
-
-## 示例
-
-::demo
-#snippet
-```vue
 <template>
   <PreviewBlock title="简单">
     <div class="w-full">
@@ -43,5 +24,3 @@ import { DuSearch, DuIcon, DuDivider } from '@frontend/dumpling'
 
 const keyword = ref('')
 </script>
-```
-::

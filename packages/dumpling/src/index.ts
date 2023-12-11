@@ -12,6 +12,7 @@ import Calendar from './calendar/Calendar.vue'
 import Upload from './upload/Upload.vue'
 import Cascader from './cascader/Cascader.vue'
 import Switch from './switch/Switch.vue'
+import Search from './search/Search.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -47,6 +48,7 @@ const DuCalendar = Calendar
 const DuUpload = Upload
 const DuCascader = Cascader
 const DuSwitch = Switch
+const DuSearch = Search
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -93,6 +95,8 @@ export {
   DuCascader,
   Switch,
   DuSwitch,
+  Search,
+  DuSearch,
   Form,
   DuForm,
   FormItem,

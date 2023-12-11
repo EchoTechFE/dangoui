@@ -1,0 +1,44 @@
+.du-search {
+  --du-icon-size: 16px;
+  background-color: var(--du-c-bg-2);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 1em;
+  height: 32px;
+
+  &__input {
+    height: 18px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    flex: auto;
+    background-color: transparent;
+    outline: none;
+  }
+
+  &__left {
+    flex: none;
+    color: #625e76;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    flex: none;
+    height: 100%;
+    color: #918b9f;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__close {
+    color: #d4d0da;
+  }
+}

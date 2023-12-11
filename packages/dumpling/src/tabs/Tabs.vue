@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import { computed, provide, toRef, ref, onMounted } from 'vue'
 import { TabsInjectionKey, getInstanceId } from './helpers'
+import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -108,5 +109,9 @@ provide(TabsInjectionKey, {
   type: toRef(props, 'type'),
   value: readonlyValue,
   setValue,
+})
+
+provide(dividerInjectionKey, {
+  defaultType: 'vertical',
 })
 </script>
