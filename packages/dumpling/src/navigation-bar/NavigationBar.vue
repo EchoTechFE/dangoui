@@ -38,7 +38,7 @@ if (typeof uni !== 'undefined') {
   const paddingRight = systemInfo.windowWidth - res.left
   const paddingTop = res.top - (44 - res.height) / 2
 
-  wrapperStyle.value.paddingRight = paddingRight
-  wrapperStyle.value.paddingTop = paddingTop
+  wrapperStyle.value.paddingRight = paddingRight + 'px'
+  wrapperStyle.value.paddingTop = paddingTop + 'px'
 }
 </script>
