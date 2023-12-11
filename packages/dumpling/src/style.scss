@@ -47,8 +47,10 @@
 
 @import './switch/style.scss';
 
-@import './navigation-bar/style.scss';
+@import './navigation-bar/NavigationBar.scss';
+@import './navigation-bar/NavigationBarRight.scss';
 
 @import './badge/style.scss';
 
-@import './search/style.scss';
+@import './search/Search.scss';
+@import './search/SearchRight.scss';

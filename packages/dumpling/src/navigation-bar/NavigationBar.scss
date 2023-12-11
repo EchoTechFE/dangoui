@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--du-c-bg-2);
-  height: 32px;
-  box-sizing: content-box;
+  height: 44px;
   padding: 6px 7px;
   overflow: hidden;
 
@@ -44,5 +43,11 @@
     align-items: center;
     font-size: 16px;
     background-color: transparent;
+    flex: none;
+  }
+
+  &__wrapper {
+    box-sizing: content-box;
+    background-color: var(--du-c-bg-2);
   }
 }

@@ -13,6 +13,7 @@ import Upload from './upload/Upload.vue'
 import Cascader from './cascader/Cascader.vue'
 import Switch from './switch/Switch.vue'
 import Search from './search/Search.vue'
+import SearchRight from './search/SearchRight.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -26,6 +27,7 @@ import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
+import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -49,6 +51,7 @@ const DuUpload = Upload
 const DuCascader = Cascader
 const DuSwitch = Switch
 const DuSearch = Search
+const DuSearchRight = SearchRight
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -62,6 +65,7 @@ const DuDivider = Divider
 const DuTag = Tag
 
 const DuNavigationBar = NavigationBar
+const DuNavigationBarRight = NavigationBarRight
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -97,6 +101,8 @@ export {
   DuSwitch,
   Search,
   DuSearch,
+  SearchRight,
+  DuSearchRight,
   Form,
   DuForm,
   FormItem,
@@ -119,6 +125,8 @@ export {
   DuTag,
   NavigationBar,
   DuNavigationBar,
+  NavigationBarRight,
+  DuNavigationBarRight,
   Popup,
   DuPopup,
   Snackbar,

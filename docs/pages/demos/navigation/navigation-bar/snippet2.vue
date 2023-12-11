@@ -1,6 +1,14 @@
 
 <template>
   <div class="min-h-screen bg-white">
+    <div class="mb-16px">
+      <DuNavigationBar share>
+        标题
+        <template #right>
+          <DuButton size="small" type="info" >按钮</DuButton>
+        </template>
+      </DuNavigationBar>
+    </div>
     <div class="mb-8px">
       <DuNavigationBar share>
         标题
@@ -14,7 +22,6 @@
               </template>
             </DuSearch>
           </div>
-          <DuButton size="small">搜索</DuButton>
         </template>
       </DuNavigationBar>
     </div>
@@ -22,12 +29,5 @@
 </template>
 
 <script setup lang="ts">
-import {
-  DuNavigationBar,
-  DuNavigationBarRight,
-  DuButton,
-  DuSearch,
-  DuIcon,
-  DuDivider,
-} from '@frontend/dumpling'
+import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider } from '@frontend/dumpling'
 </script>
