@@ -57,6 +57,10 @@
     position: relative;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
 
+    & > du-tabs-right {
+      height: 100%;
+    }
+
     &--default-large {
       padding-top: 15px;
       padding-bottom: 11px;

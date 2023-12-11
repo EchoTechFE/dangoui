@@ -1,0 +1,10 @@
+.du-tabs-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  column-gap: 8px;
+
+  & > du-divider {
+    height: 100%;
+  }
+}

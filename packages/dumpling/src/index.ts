@@ -23,6 +23,7 @@ import Image from './image/Image.vue'
 import Tabs from './tabs/Tabs.vue'
 import Tab from './tabs/Tab.vue'
 import TabPane from './tabs/TabPane.vue'
+import TabsRight from './tabs/TabsRight.vue'
 import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
 
@@ -61,6 +62,7 @@ const DuImage = Image
 const DuTabs = Tabs
 const DuTab = Tab
 const DuTabPane = TabPane
+const DuTabsRight = TabsRight
 const DuDivider = Divider
 const DuTag = Tag
 
@@ -119,6 +121,8 @@ export {
   Tab,
   DuTabPane,
   TabPane,
+  TabsRight,
+  DuTabsRight,
   Divider,
   DuDivider,
   Tag,
