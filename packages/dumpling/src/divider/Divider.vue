@@ -1,5 +1,5 @@
 <template>
-  <div :class="['du-divider', `du-divider--${config.type}`]">
+  <div :class="['du-divider', `du-divider--${config.type}`]" :style="style">
     <template v-if="config.type === 'horizontal'">
       <div class="du-divider__left" />
       <div class="du-divider__content">
@@ -11,29 +11,49 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { CSSProperties, computed, inject } from 'vue'
 import { dividerInjectionKey } from './helpers'
+import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
     type?: 'horizontal' | 'vertical'
+    length?: number | string
   }>(),
   {
     type: undefined,
+    length: undefined,
   },
 )
 
 const dividerConfig = inject(dividerInjectionKey)
 
 const config = computed(() => {
-  if (props.type) {
-    return {
-      type: props.type,
-    } as const
-  }
+  const type =
+    props.type || dividerConfig?.defaultType || ('horizontal' as const)
+  const length = props.length || dividerConfig?.length?.value
 
   return {
-    type: dividerConfig?.defaultType || 'horizontal',
-  } as const
+    type,
+    length,
+  }
+})
+
+const resolvedLength = useSize(() => config.value.length)
+
+const style = computed(() => {
+  const css: CSSProperties = {}
+
+  const { length } = config.value
+
+  if (config.value.type === 'horizontal' && length) {
+    css.marginLeft = 0
+    css.width = resolvedLength.value
+  } else if (config.value.type === 'vertical' && length) {
+    css.marginTop = 0
+    css.height = resolvedLength.value
+  }
+
+  return css
 })
 </script>

@@ -102,6 +102,7 @@ const emit = defineEmits<{
 
 provide(dividerInjectionKey, {
   defaultType: 'vertical',
+  length: ref(12),
 })
 
 const inputRef = ref<HTMLInputElement>()

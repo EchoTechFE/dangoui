@@ -30,6 +30,14 @@
     column-gap: 8px;
     justify-content: flex-end;
     color: var(--du-c-navigation-bar-text);
+
+    & > view:not([class]) {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      flex: auto;
+      height: 100%;
+    }
   }
 
   &__share {

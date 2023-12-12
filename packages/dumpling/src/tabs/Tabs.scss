@@ -8,6 +8,7 @@
   &__content {
     display: flex;
     column-gap: 20px;
+    align-items: center;
 
     &--default-large {
       padding-top: 12px;
@@ -59,6 +60,13 @@
 
     & > du-tabs-right {
       height: 100%;
+    }
+
+    & > view:not([class]) {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      column-gap: 8px;
     }
 
     &--default-large {

@@ -113,5 +113,6 @@ provide(TabsInjectionKey, {
 
 provide(dividerInjectionKey, {
   defaultType: 'vertical',
+  length: ref(12),
 })
 </script>
