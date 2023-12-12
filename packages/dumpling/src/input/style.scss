@@ -2,6 +2,18 @@
   height: 44px;
   padding: 11px 0 2px 0;
 
+  &--bordered {
+    height: 32px;
+    padding: 5px 8px;
+    border: 1px solid var(--du-c-b-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &--bordered-disabled {
+    background: var(--du-c-bg-2);
+  }
+
   &--next {
     height: 22px;
     padding: 0;
@@ -14,6 +26,10 @@
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 8px;
+
+    &--bordered {
+      margin-bottom: 0;
+    }
 
     &--next {
       margin-bottom: 0;

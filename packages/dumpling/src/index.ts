@@ -14,6 +14,7 @@ import Cascader from './cascader/Cascader.vue'
 import Switch from './switch/Switch.vue'
 import Search from './search/Search.vue'
 import SearchRight from './search/SearchRight.vue'
+import Textarea from './textarea/Textarea.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -53,6 +54,7 @@ const DuCascader = Cascader
 const DuSwitch = Switch
 const DuSearch = Search
 const DuSearchRight = SearchRight
+const DuTextarea = Textarea
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -105,6 +107,8 @@ export {
   DuSearch,
   SearchRight,
   DuSearchRight,
+  Textarea,
+  DuTextarea,
   Form,
   DuForm,
   FormItem,

@@ -1195,8 +1195,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1278,
-                                                    1291
+                                                    1277,
+                                                    1290
                                                 ]
                                             }
                                         ],
@@ -1213,8 +1213,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1294,
-                                                    1307
+                                                    1293,
+                                                    1306
                                                 ]
                                             }
                                         ],
@@ -1231,8 +1231,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1310,
-                                                    1328
+                                                    1309,
+                                                    1327
                                                 ]
                                             }
                                         ],
@@ -1257,8 +1257,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
                                                 "range": [
-                                                    1331,
-                                                    1358
+                                                    1330,
+                                                    1357
                                                 ]
                                             }
                                         ],
@@ -1644,7 +1644,22 @@
         "slots": []
     },
     "Divider": {
-        "props": [],
+        "props": [
+            {
+                "name": "length",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "undefined"
+            },
+            {
+                "name": "type",
+                "description": "",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "undefined"
+            }
+        ],
         "events": [],
         "slots": [
             {
@@ -1909,6 +1924,20 @@
                 "description": "",
                 "required": false,
                 "type": "\"horizontal\" | \"vertical\"",
+                "default": "unknown"
+            },
+            {
+                "name": "justify",
+                "description": "内容区域水平位置的对齐方式",
+                "required": false,
+                "type": "\"start\" | \"end\"",
+                "default": "unknown"
+            },
+            {
+                "name": "items",
+                "description": "内容区域的对齐方式，仅在 horizontal 模式下生效",
+                "required": false,
+                "type": "\"center\" | \"start\"",
                 "default": "unknown"
             }
         ],
@@ -2192,12 +2221,12 @@
                 "name": "size",
                 "description": "图标大小",
                 "required": false,
-                "type": "string",
+                "type": "string | number",
                 "default": "\"\""
             },
             {
                 "name": "name",
-                "description": "图标名称",
+                "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
                 "required": false,
                 "type": "string",
                 "default": "\"\""
@@ -2362,8 +2391,15 @@
                 "default": "\"left\""
             },
             {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "withoutBorder",
-                "description": "",
+                "description": "是否展示底部的分割线，可能想改一下这个名字",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -2497,8 +2533,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4204,
-                                            4229
+                                            4443,
+                                            4468
                                         ]
                                     }
                                 ],
@@ -2517,8 +2553,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4214,
-                                                        4227
+                                                        4453,
+                                                        4466
                                                     ]
                                                 }
                                             ],
@@ -2611,8 +2647,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4099,
-                                            4125
+                                            4338,
+                                            4364
                                         ]
                                     }
                                 ],
@@ -2631,8 +2667,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4109,
-                                                        4123
+                                                        4348,
+                                                        4362
                                                     ]
                                                 }
                                             ],
@@ -2674,8 +2710,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4158,
-                                            4168
+                                            4397,
+                                            4407
                                         ]
                                     }
                                 ],
@@ -2718,8 +2754,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4287,
-                                            4331
+                                            4526,
+                                            4570
                                         ]
                                     }
                                 ],
@@ -2738,8 +2774,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4297,
-                                                        4312
+                                                        4536,
+                                                        4551
                                                     ]
                                                 }
                                             ],
@@ -2756,8 +2792,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4313,
-                                                        4329
+                                                        4552,
+                                                        4568
                                                     ]
                                                 }
                                             ],
@@ -2883,14 +2919,44 @@
     "NavigationBar": {
         "props": [
             {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "\"default\" | \"primary\" | \"secondary\"",
+                "default": "\"default\""
+            },
+            {
                 "name": "share",
                 "description": "",
-                "required": true,
+                "required": false,
                 "type": "boolean",
-                "default": "unknown"
+                "default": "false"
+            },
+            {
+                "name": "back",
+                "description": "在小程序平台无效，近 Web",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
             }
         ],
-        "events": [],
+        "events": [
+            {
+                "name": "share",
+                "type": "[]",
+                "signature": "(event: \"share\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
         "slots": [
             {
                 "name": "left",
@@ -2916,6 +2982,23 @@
             },
             {
                 "name": "right",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "NavigationBarRight": {
+        "props": [],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
                 "type": "{}",
                 "description": "",
                 "declarations": [],
@@ -3500,10 +3583,153 @@
         "events": [],
         "slots": []
     },
-    "Search": {
+    "RootPortal": {
         "props": [],
         "events": [],
-        "slots": []
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Search": {
+        "props": [
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "placeholder",
+                "description": "",
+                "required": false,
+                "type": "string | string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "clearable",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "bg",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "readonly",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "confirm",
+                "type": "[value: string]",
+                "signature": "(event: \"confirm\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string]",
+                "signature": "(event: \"update:value\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "left",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "right",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "SearchRight": {
+        "props": [],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
     },
     "ShareSheet": {
         "props": [],
@@ -3852,6 +4078,23 @@
             }
         ]
     },
+    "TabsRight": {
+        "props": [],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "Tag": {
         "props": [
             {
@@ -3876,18 +4119,18 @@
                 "default": "false"
             },
             {
-                "name": "bg",
-                "description": "实心、淡色、透明",
-                "required": false,
-                "type": "\"ghost\" | \"soft\" | \"solid\"",
-                "default": "\"soft\""
-            },
-            {
                 "name": "bordered",
                 "description": "是否带有边框",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "bg",
+                "description": "实心、淡色、透明",
+                "required": false,
+                "type": "\"ghost\" | \"soft\" | \"solid\"",
+                "default": "\"soft\""
             },
             {
                 "name": "closeable",
@@ -3950,7 +4193,66 @@
             }
         ]
     },
-    "TextArea": {
+    "Textarea": {
+        "props": [
+            {
+                "name": "value",
+                "description": "值",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "placeholder",
+                "description": "占位文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "maxlength",
+                "description": "最多可输入文字数",
+                "required": false,
+                "type": "number",
+                "default": "-1"
+            },
+            {
+                "name": "bordered",
+                "description": "是否是外边框类型",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "showCount",
+                "description": "是否显示字数统计",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:value",
+                "type": "[value: string]",
+                "signature": "(event: \"update:value\", value: string): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "string"
+                ]
+            }
+        ],
+        "slots": []
+    },
+    "ThemeProvider": {
         "props": [],
         "events": [],
         "slots": []

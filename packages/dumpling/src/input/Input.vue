@@ -1,6 +1,12 @@
 <template>
   <div class="du-input" :style="style" :class="className">
-    <div :class="['du-input__inner', isInFormItem && 'du-input__inner--next']">
+    <div
+      :class="[
+        'du-input__inner',
+        isInFormItem && 'du-input__inner--next',
+        bordered && 'du-input__inner--bordered',
+      ]"
+    >
       <div v-if="props.prefix" class="du-input__prefix">
         {{ props.prefix }}
       </div>
@@ -46,7 +52,10 @@
         color="#918b9f"
       />
     </div>
-    <div v-if="!isInFormItem" class="du-input__bottom-line" />
+    <div
+      v-if="!isInFormItem && !props.bordered"
+      class="du-input__bottom-line"
+    />
   </div>
 </template>
 
@@ -78,6 +87,13 @@ const props = withDefaults(
      * 禁用
      */
     disabled: boolean
+    /**
+     * 是否展示外边框
+     */
+    bordered: boolean
+    /**
+     * 是否展示底部的分割线，可能想改一下这个名字
+     */
     withoutBorder: boolean
     /**
      * 前缀文本
@@ -158,6 +174,7 @@ const props = withDefaults(
     maxlength: -1,
     inputAlign: 'left',
     disabled: false,
+    bordered: false,
     withoutBorder: false,
     prefix: '',
     trim: false,
@@ -201,6 +218,8 @@ const className = computed(() => {
     'du-input',
     {
       'du-input--next': isInFormItem,
+      'du-input--bordered': props.bordered,
+      'du-input--bordered-disabled': props.disabled && props.bordered,
     },
     extClass,
   )
