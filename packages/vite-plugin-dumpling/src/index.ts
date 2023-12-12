@@ -45,8 +45,8 @@ export default function plugin(): Plugin {
         ['.vue', '.js', '.ts'].some((ext) => id.endsWith(ext))
       ) {
         const s = new MagicString(code)
-        const imports: { name: string; alias: string }[] = []
         s.replace(importRegex, (_: string, $1: string) => {
+          const imports: { name: string; alias: string }[] = []
           $1.split(',')
             .map((s) => s.trim())
             .forEach((s) => {
