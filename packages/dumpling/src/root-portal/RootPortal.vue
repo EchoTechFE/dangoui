@@ -2,6 +2,9 @@
   <root-portal v-if="canUseRootPortal">
     <slot />
   </root-portal>
+  <div v-else-if="!isWeb">
+    <slot />
+  </div>
   <!--  #ifdef H5 -->
   <teleport v-else to="body">
     <slot />
@@ -19,6 +22,8 @@ function isRootPortalAvailable(): boolean {
     return false
   }
 }
+
+const isWeb = __WEB__
 
 const canUseRootPortal = isRootPortalAvailable()
 </script>
