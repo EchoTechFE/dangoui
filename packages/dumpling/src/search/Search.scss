@@ -16,10 +16,42 @@
     font-weight: 400;
     line-height: 18px;
     flex: auto;
-    background-color: transparent;
-    outline: none;
     width: 0;
+    position: relative;
+  }
+
+  &__input-inner {
+    width: 100%;
+    height: 100%;
+    outline: none;
     color: black;
+    background-color: transparent;
+
+    &--readonly {
+      // TODO: 随便写个颜色
+      color: #625e76;
+    }
+  }
+
+  &__rolling-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    // TODO: 随便写个颜色
+    color: #625e76;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__rolling-text-item {
+    width: 100%;
+    height: 18px;
+    line-height: 18px;
   }
 
   &__left {

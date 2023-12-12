@@ -23,5 +23,5 @@
     "declarationDir": "./typings",
     "emitDeclarationOnly": true
   },
-  "include": ["src/**/*.vue", "src/**/*.ts"]
+  "include": ["src/global.d.ts", "src/**/*.vue", "src/**/*.ts"]
 }

@@ -20,4 +20,6 @@ import { ref } from 'vue'
 import { DuSearch, DuSearchRight, DuIcon, DuDivider } from '@frontend/dumpling'
 
 const keyword = ref('')
+
+const keyword2 = ref('')
 </script>

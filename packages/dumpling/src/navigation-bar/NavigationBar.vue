@@ -2,7 +2,7 @@
   <div class="du-navigation-bar__wrapper" :style="wrapperStyle">
     <div class="du-navigation-bar">
       <div class="du-navigation-bar__left">
-        <div class="du-navigation-bar__back">
+        <div v-if="back" class="du-navigation-bar__back">
           <DuIcon name="arrow-left" />
         </div>
         <slot name="left" />
@@ -10,7 +10,12 @@
       </div>
       <div class="du-navigation-bar__right">
         <slot name="right" />
-        <button v-if="share" class="du-navigation-bar__share">
+        <button
+          v-if="share"
+          open-type="share"
+          class="du-navigation-bar__share"
+          @click="handleShare"
+        >
           <DuIcon name="share-filled" />
         </button>
       </div>
@@ -26,12 +31,21 @@ const props = withDefaults(
   defineProps<{
     color: 'primary' | 'secondary' | 'default'
     share: boolean
+    /**
+     * 在小程序平台无效，近 Web
+     */
+    back: boolean
   }>(),
   {
     color: 'default',
     share: false,
+    back: true,
   },
 )
+
+const emit = defineEmits<{
+  (e: 'share'): void
+}>()
 
 const wrapperStyle = ref<CSSProperties>({
   '--du-c-navigation-bar-bg': `var(--du-c-${props.color}-navigation-bar-bg)`,
@@ -51,5 +65,9 @@ if (typeof uni !== 'undefined') {
 
   wrapperStyle.value.paddingRight = paddingRight + 'px'
   wrapperStyle.value.paddingTop = paddingTop + 'px'
+}
+
+function handleShare() {
+  emit('share')
 }
 </script>
