@@ -14,5 +14,6 @@ export default defineConfig({
     rollupOptions: {
       external: ['magic-string', 'fast-glob', 'fs', 'path'],
     },
+    minify: false,
   },
 })
