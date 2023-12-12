@@ -35,6 +35,7 @@ import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
 import Empty from './empty/Empty.vue'
 import Badge from './badge/Badge.vue'
+import NoticeBar from './notice-bar/NoticeBar.vue'
 
 import globalConfig from './plugins/globalConfig'
 
@@ -75,6 +76,7 @@ const DuPopup = Popup
 const DuSnackbar = Snackbar
 const DuEmpty = Empty
 const DuBadge = Badge
+const DuNoticeBar = NoticeBar
 
 export {
   Button,
@@ -143,5 +145,7 @@ export {
   DuEmpty,
   Badge,
   DuBadge,
+  NoticeBar,
+  DuNoticeBar,
   globalConfig,
 }

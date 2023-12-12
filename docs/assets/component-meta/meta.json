@@ -3011,8 +3011,82 @@
         ]
     },
     "NoticeBar": {
-        "props": [],
-        "events": [],
+        "props": [
+            {
+                "name": "color",
+                "description": "颜色",
+                "required": false,
+                "type": "\"error\" | \"primary\" | \"success\" | \"warning\"",
+                "default": "\"primary\""
+            },
+            {
+                "name": "text",
+                "description": "提示文案",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "layout",
+                "description": "文案与链接的布局关系",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
+            },
+            {
+                "name": "linkText",
+                "description": "链接文案",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "linkIcon",
+                "description": "链接图标",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "closeable",
+                "description": "是否可关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [
+            {
+                "name": "close",
+                "type": "[]",
+                "signature": "(event: \"close\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "link-click",
+                "type": "[]",
+                "signature": "(event: \"link-click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
         "slots": []
     },
     "Popup": {
@@ -4126,18 +4200,18 @@
                 "default": "false"
             },
             {
-                "name": "bg",
-                "description": "实心、淡色、透明",
-                "required": false,
-                "type": "\"ghost\" | \"soft\" | \"solid\"",
-                "default": "\"soft\""
-            },
-            {
                 "name": "closeable",
                 "description": "是否可关闭（显示一个关闭按钮）",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "bg",
+                "description": "实心、淡色、透明",
+                "required": false,
+                "type": "\"ghost\" | \"soft\" | \"solid\"",
+                "default": "\"soft\""
             },
             {
                 "name": "icon",
@@ -4211,7 +4285,7 @@
             },
             {
                 "name": "maxlength",
-                "description": "最多可输入文字数",
+                "description": "最多可输入文字数，为 -1 时没有输入限制",
                 "required": false,
                 "type": "number",
                 "default": "-1"

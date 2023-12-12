@@ -1,0 +1,52 @@
+.du-notice-bar {
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--du-c-notice-bar-bg);
+  color: var(--du-c-notice-bar);
+  column-gap: 8px;
+
+  &__v {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    row-gap: 8px;
+  }
+
+  &__v-close {
+    flex: none;
+  }
+
+  &__left {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+  }
+
+  &__right {
+    flex: none;
+  }
+
+  &__link {
+    font-weight: 500;
+    align-items: center;
+    display: flex;
+    column-gap: 2px;
+  }
+
+  &__text {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 16px;
+  }
+
+  &__text-inner {
+    flex: auto;
+  }
+}
