@@ -50,6 +50,10 @@ export default function plugin(): Plugin {
           $1.split(',')
             .map((s) => s.trim())
             .forEach((s) => {
+              if (s === '') {
+                return
+              }
+
               if (s.includes(' as ')) {
                 const [name, alias] = s.split(' as ').map((item) => item.trim())
                 imports.push({
