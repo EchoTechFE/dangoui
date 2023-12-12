@@ -13,6 +13,14 @@ export default function plugin(): Plugin {
 
   return {
     name: 'vite-plugin-dumpling',
+    config() {
+      return {
+        define: {
+          __WEB__: `${process.env.UNI_PLATFORM === 'h5'}`,
+          __UNI_PLATFORM__: `"${process.env.UNI_PLATFORM || ''}"`,
+        },
+      }
+    },
     transform(code: string, id: string) {
       if (id.startsWith(libraryPath) && id.endsWith('.vue')) {
         const basename = path.basename(id)
