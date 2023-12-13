@@ -1,6 +1,6 @@
 
 <template>
-  <DuGroupCell class="!mt-4px" title="创建商品" guide-text="">
+  <DuGroupCell class="important-mt-4px" title="创建商品" guide-text="">
       <DuForm label-size="80px" layout="vertical">
         <DuFormItem label="商品名称" required>
           <DuInput

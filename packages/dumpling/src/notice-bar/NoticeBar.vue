@@ -5,7 +5,7 @@
         layout === 'horizontal' ? 'du-notice-bar__left' : 'du-notice-bar__v',
       ]"
     >
-      <div class="du-notice-bar__text">
+      <div class="du-notice-bar__text" v-if="text">
         <div class="du-notice-bar__text-inner">{{ text }}</div>
         <div
           v-if="layout === 'vertical' && closeable"
@@ -16,7 +16,7 @@
         </div>
       </div>
       <DuDivider
-        v-if="linkIcon || linkText"
+        v-if="text && (linkIcon || linkText)"
         :type="layout === 'horizontal' ? 'vertical' : 'horizontal'"
         :length="layout === 'horizontal' ? 12 : '100%'"
       />
