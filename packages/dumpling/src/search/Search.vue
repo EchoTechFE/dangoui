@@ -77,10 +77,27 @@ import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 占位文字，如果为长度大于 1 的数组，会每隔一段时间切换文字
+     */
     placeholder: string | string[]
+    /**
+     * 输入框的值
+     */
     value: string
+    /**
+     * 是否可清空
+     */
     clearable: boolean
+    /**
+     * 背景色
+     */
     bg: string
+    /**
+     * 只读
+     *
+     * 你可能想利用这个组件做到点击切换到另一个页面进行搜索
+     */
     readonly: boolean
   }>(),
   {
@@ -95,8 +112,17 @@ const props = withDefaults(
 const isWeb = __WEB__
 
 const emit = defineEmits<{
+  /**
+   * 点击整个元素
+   */
   (e: 'click'): void
+  /**
+   * 输入框的值发生变化
+   */
   (e: 'update:value', value: string): void
+  /**
+   * 确认输入框中的内容（点击键盘的搜索按钮）
+   */
   (e: 'confirm', value: string): void
 }>()
 

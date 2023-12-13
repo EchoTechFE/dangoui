@@ -12,12 +12,16 @@
     <slot name="left" />
     <scroll-view
       class="du-tabs__content-wrapper"
+      scroll-with-animation
       scroll-x
+      enable-flex
       :scroll-left="scrollViewLeft"
     >
+      <div class="du-tabs__padding" />
       <div :class="['du-tabs__content', `du-tabs__content--${type}-${size}`]">
         <slot />
       </div>
+      <div class="du-tabs__padding" />
     </scroll-view>
     <div
       :class="[
@@ -42,7 +46,7 @@ import {
   onMounted,
   getCurrentInstance,
 } from 'vue'
-import { TabsInjectionKey, getInstanceId } from './helpers'
+import { TabConfigOpt, TabsInjectionKey, getInstanceId } from './helpers'
 import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
@@ -89,8 +93,15 @@ const isScrollToEnd = computed(() => {
   return true
 })
 
-function setValue(name: string, tabId: string) {
+function setValue(name: string) {
   emit('update:value', name)
+}
+
+function updateLayout(name: string, tabId: string, opts?: TabConfigOpt) {
+  if (name !== props.value) {
+    return
+  }
+
   if (__WEB__) {
     const tabsEl = document.getElementById(id)
     if (tabsEl) {
@@ -113,11 +124,28 @@ function setValue(name: string, tabId: string) {
     }
   }
 
-  if (__UNI_PLATFORM__ !== 'h5') {
+  if (__UNI_PLATFORM__ !== 'h5' && opts?.rect) {
+    const rect = opts.rect
     // @ts-ignore
     const query = uni.createSelectorQuery().in(instance?.proxy)
-    query.select('.du-tabs__content-wrapper').boundingClientRect()
-    query.select('#' + tabId).boundingClientRect()
+    const scrollViewClass = '.du-tabs__content-wrapper'
+    query.select(scrollViewClass).boundingClientRect()
+    query.select(scrollViewClass).scrollOffset()
+    query.exec((res: any) => {
+      // 异步，可能值已经发生改变
+      if (name !== props.value) {
+        return
+      }
+      let scrollLeft =
+        res[1].scrollLeft +
+        rect.left +
+        rect.width / 2 -
+        (res[0].left + res[0].width / 2)
+      if (scrollLeft < 0) {
+        scrollLeft = 0
+      }
+      scrollViewLeft.value = scrollLeft
+    })
   }
 }
 
@@ -126,6 +154,7 @@ provide(TabsInjectionKey, {
   type: toRef(props, 'type'),
   value: readonlyValue,
   setValue,
+  updateLayout,
 })
 
 provide(dividerInjectionKey, {

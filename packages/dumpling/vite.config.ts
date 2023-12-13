@@ -28,5 +28,6 @@ export default defineConfig({
   plugins: [vue()],
   define: {
     __WEB__: 'true',
+    __UNI_PLATFORM__: '"h5"',
   },
 })

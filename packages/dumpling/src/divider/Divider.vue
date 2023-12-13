@@ -17,7 +17,13 @@ import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 分割线水平或者竖直
+     */
     type?: 'horizontal' | 'vertical'
+    /**
+     * 分割线长度，默认为 100%
+     */
     length?: number | string
   }>(),
   {

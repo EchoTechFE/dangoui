@@ -5,6 +5,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--du-icon-size, 1em);
+  line-height: var(--du-icon-size, 1em);
 
   &__img {
     width: var(--du-icon-size, 1em);

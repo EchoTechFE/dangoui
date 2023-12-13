@@ -21,7 +21,13 @@
           <td>
             <code class="whitespace-break-spaces">{{ prop.type }}</code>
           </td>
-          <td>{{ prop.default === 'unknown' ? '-' : prop.default }}</td>
+          <td>
+            {{
+              prop.default === 'unknown' || prop.default === 'undefined'
+                ? '-'
+                : prop.default
+            }}
+          </td>
           <td>{{ prop.description }}</td>
         </tr>
       </tbody>

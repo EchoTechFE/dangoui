@@ -1,10 +1,22 @@
 import type { InjectionKey, Ref } from 'vue'
 
-type TabsConfig = {
+export type TabConfigOpt = {
+  rect?: {
+    left: number
+    right: number
+    top: number
+    bottom: number
+    width: number
+    height: number
+  }
+}
+
+export type TabsConfig = {
   size: Ref<'normal' | 'large'>
   type: Ref<'default' | 'tag' | 'text'>
   value: Ref<string>
   setValue: (name: string, id: string) => void
+  updateLayout: (name: string, id: string, opts?: TabConfigOpt) => void
 }
 
 export const TabsInjectionKey = Symbol() as InjectionKey<TabsConfig>

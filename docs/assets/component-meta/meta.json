@@ -1647,14 +1647,14 @@
         "props": [
             {
                 "name": "length",
-                "description": "",
+                "description": "分割线长度，默认为 100%",
                 "required": false,
                 "type": "string | number",
                 "default": "undefined"
             },
             {
                 "name": "type",
-                "description": "",
+                "description": "分割线水平或者竖直",
                 "required": false,
                 "type": "\"horizontal\" | \"vertical\"",
                 "default": "undefined"
@@ -2920,21 +2920,21 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "颜色",
                 "required": false,
                 "type": "\"default\" | \"primary\" | \"secondary\"",
                 "default": "\"default\""
             },
             {
                 "name": "share",
-                "description": "",
+                "description": "是否显示分享按钮",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "back",
-                "description": "在小程序平台无效，近 Web",
+                "description": "在小程序平台无效，仅 Web",
                 "required": false,
                 "type": "boolean",
                 "default": "true"
@@ -3678,35 +3678,35 @@
         "props": [
             {
                 "name": "value",
-                "description": "",
+                "description": "输入框的值",
                 "required": false,
                 "type": "string",
                 "default": "\"\""
             },
             {
                 "name": "placeholder",
-                "description": "",
+                "description": "占位文字，如果为长度大于 1 的数组，会每隔一段时间切换文字",
                 "required": false,
                 "type": "string | string[]",
                 "default": "\"\""
             },
             {
                 "name": "clearable",
-                "description": "",
+                "description": "是否可清空",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "bg",
-                "description": "",
+                "description": "背景色",
                 "required": false,
                 "type": "string",
                 "default": "\"\""
             },
             {
                 "name": "readonly",
-                "description": "",
+                "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -3985,18 +3985,18 @@
     "Switch": {
         "props": [
             {
-                "name": "on",
-                "description": "",
+                "name": "disabled",
+                "description": "是否禁用",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
-                "name": "disabled",
-                "description": "",
-                "required": true,
+                "name": "on",
+                "description": "是否打开",
+                "required": false,
                 "type": "boolean",
-                "default": "unknown"
+                "default": "false"
             }
         ],
         "events": [

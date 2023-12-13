@@ -3,15 +3,15 @@
     class="scroll-view"
     @scroll="getScroll"
     ref="scrollViewRef"
-    :style="`${
-      scrollX === true ? 'overflow-x:scroll; overflow-y:hidden' : ''
-    };${scrollY === true ? 'overflow-x:hidden; overflow-y:scroll' : ''};`"
+    :style="style"
   >
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts" setup>
+import type { CSSProperties } from 'vue'
+
 const props = defineProps<{
   scrollX?: boolean
   scrollY?: boolean
@@ -28,6 +28,22 @@ const emit = defineEmits<{
   (e: 'scrolltolower'): void
   (e: 'scrolltoupper'): void
 }>()
+
+const style = computed(() => {
+  const s: CSSProperties = {
+    overflowX: 'hidden',
+    overflowY: 'hidden',
+  }
+
+  if (props.scrollX) {
+    s.overflowX = 'scroll'
+  }
+  if (props.scrollY) {
+    s.overflowY = 'scroll'
+  }
+
+  return s
+})
 
 watch(
   () => props.scrollIntoView,

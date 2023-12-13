@@ -24,11 +24,18 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    /**
+     * 是否打开
+     */
     on: boolean
+    /**
+     * 是否禁用
+     */
     disabled: boolean
   }>(),
   {
     on: false,
+    disabled: false,
   },
 )
 

@@ -39,8 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject } from 'vue'
-import { TabsInjectionKey } from './helpers'
+import { computed, inject, getCurrentInstance } from 'vue'
+import { TabConfigOpt, TabsInjectionKey } from './helpers'
 import { getInstanceId } from './helpers'
 import Tag from '../tag/Tag.vue'
 
@@ -53,6 +53,8 @@ const emit = defineEmits<{
 }>()
 
 const id = `du-tab-item-${getInstanceId()}`
+
+const instance = getCurrentInstance()
 
 const tabsConfig = inject(TabsInjectionKey)
 
@@ -70,8 +72,26 @@ const type = computed(() => {
 
 function handleClick() {
   if (tabsConfig) {
+    const opt: TabConfigOpt = {}
+    if (__WEB__) {
+      setTimeout(() => {
+        tabsConfig.updateLayout(props.name, id)
+      }, 0)
+    }
+
+    if (__UNI_PLATFORM__ !== 'h5') {
+      // @ts-ignore
+      const query = uni.createSelectorQuery().in(instance?.proxy)
+      query.select('#' + id).boundingClientRect((res: any) => {
+        opt.rect = res
+        tabsConfig.updateLayout(props.name, id, opt)
+      })
+      query.exec()
+    }
+
     tabsConfig.setValue(props.name, id)
   }
+
   emit('click')
 }
 </script>

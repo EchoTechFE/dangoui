@@ -3,7 +3,13 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  padding-left: 15px;
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 0;
+    flex: auto;
+  }
 
   &__content {
     display: flex;
@@ -43,6 +49,12 @@
       column-gap: 12px;
       height: 38px;
     }
+  }
+
+  &__padding {
+    width: 15px;
+    height: 1px;
+    flex: none;
   }
 
   &__right-wrapper {

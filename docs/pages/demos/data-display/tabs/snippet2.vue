@@ -1,64 +1,91 @@
 
 <template>
   <PreviewBlock title="默认/带有操作按钮" type="block">
-    <Tabs v-model:value="selectedTab" size="normal">
-      <Tab name="all">全部</Tab>
-      <Tab name="wiki">资料</Tab>
-      <Tab name="community">社区</Tab>
-      <Tab name="trade">转卖</Tab>
-      <Tab name="stock">闪购</Tab>
-      <Tab name="buy">求购</Tab>
-      <Tab name="purchaseway">全网</Tab>
-      <template #right>
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试1</DuButton>
-        <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+    <DuTabs v-model:value="selectedTab" size="normal">
+      <template #left>
+        <DuIcon name="search" :size="20" color="#918b9f" />
       </template>
-    </Tabs>
+      <DuTab name="all">全部</DuTab>
+      <DuTab name="wiki">资料</DuTab>
+      <DuTab name="community">社区</DuTab>
+      <DuTab name="trade">转卖</DuTab>
+      <DuTab name="stock">闪购</DuTab>
+      <DuTab name="buy">求购</DuTab>
+      <DuTab name="purchaseway">全网</DuTab>
+      <template #right>
+        <DuButton
+          type="text"
+          size="small"
+          icon="sort"
+          icon-position="right"
+          @click="handleToolItemClick"
+        >
+          测试1
+        </DuButton>
+        <DuDivider />
+        <DuButton
+          type="text"
+          size="small"
+          icon="sort"
+          icon-position="right"
+          @click="handleToolItemClick"
+        >
+          测试2
+        </DuButton>
+      </template>
+    </DuTabs>
   </PreviewBlock>
   <PreviewBlock title="tag 类型" type="block">
-    <Tabs v-model:value="selectedTab" type="tag">
-      <Tab name="all">全部</Tab>
-      <Tab name="wiki">资料</Tab>
-      <Tab name="community">社区</Tab>
-      <Tab name="trade">转卖</Tab>
-      <Tab name="stock">闪购</Tab>
-      <Tab name="buy">求购</Tab>
-      <Tab name="purchaseway">全网</Tab>
+    <DuTabs v-model:value="selectedTab" type="tag">
+      <DuTab name="all">全部</DuTab>
+      <DuTab name="wiki">资料</DuTab>
+      <DuTab name="community">社区</DuTab>
+      <DuTab name="trade">转卖</DuTab>
+      <DuTab name="stock">闪购</DuTab>
+      <DuTab name="buy">求购</DuTab>
+      <DuTab name="purchaseway">全网</DuTab>
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
         <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
-    </Tabs>
+    </DuTabs>
   </PreviewBlock>
   <PreviewBlock title="文字类型" type="block">
-    <Tabs v-model:value="selectedTab" type="text">
-      <Tab name="all">全部</Tab>
+    <DuTabs v-model:value="selectedTab" type="text">
+      <DuTab name="all">全部</DuTab>
       <DuDivider />
-      <Tab name="wiki">资料</Tab>
+      <DuTab name="wiki">资料</DuTab>
       <DuDivider />
-      <Tab name="community">社区</Tab>
+      <DuTab name="community">社区</DuTab>
       <DuDivider />
-      <Tab name="trade">转卖</Tab>
+      <DuTab name="trade">转卖</DuTab>
       <DuDivider />
-      <Tab name="stock">闪购</Tab>
+      <DuTab name="stock">闪购</DuTab>
       <DuDivider />
-      <Tab name="buy">求购</Tab>
+      <DuTab name="buy">求购</DuTab>
       <DuDivider />
-      <Tab name="purchaseway">全网</Tab>
+      <DuTab name="purchaseway">全网</DuTab>
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
         <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
-    </Tabs>
+    </DuTabs>
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Tabs, Tab, DuButton, DuDivider } from '@frontend/dumpling'
+import { DuTabs, DuTab, DuButton, DuIcon, DuDivider } from '@frontend/dumpling'
 
 const selectedTab = ref('all')
+
+watch(selectedTab, (current) => {
+  console.log('[demo] current tab is', current)
+})
+
+function handleToolItemClick() {
+  console.log('[demo] tool item click')
+}
 </script>

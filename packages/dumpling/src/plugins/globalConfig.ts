@@ -9,7 +9,6 @@ type GlobalConfig = {
   // 没想好 API
   unitTransform?: {
     number?: boolean
-    px?: boolean
     designWidth: number
   }
   upload?: {

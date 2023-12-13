@@ -29,10 +29,16 @@ import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 颜色
+     */
     color: 'primary' | 'secondary' | 'default'
+    /**
+     * 是否显示分享按钮
+     */
     share: boolean
     /**
-     * 在小程序平台无效，近 Web
+     * 在小程序平台无效，仅 Web
      */
     back: boolean
   }>(),
