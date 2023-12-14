@@ -67,6 +67,7 @@ const props = withDefaults(
     showMenuByLongPress: false,
     mode: 'aspectFill',
     extStyle: () => ({}),
+    radius: undefined,
   },
 )
 
