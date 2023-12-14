@@ -289,7 +289,11 @@ function uniAdd() {
         if (uploadFile.chain !== false && globalConfig?.upload?.beforeUpload) {
           uploadFile = await globalConfig.upload.beforeUpload(uploadFile)
         }
-        uploadFile = await uniUpload(uploadFile)
+        if (globalConfig?.upload?.customUpload) {
+          uploadFile = await globalConfig.upload.customUpload(uploadFile)
+        } else {
+          uploadFile = await uniUpload(uploadFile)
+        }
         const idx = props.value.findIndex((f) => f.uid === uploadFile.uid)
         if (idx >= 0) {
           emit(
@@ -341,7 +345,11 @@ function webAdd() {
           uploadFile = await globalConfig.upload.beforeUpload(uploadFile)
         }
         emit('update:value', props.value.concat(uploadFile))
-        uploadFile = await webUpload(uploadFile)
+        if (globalConfig?.upload?.customUpload) {
+          uploadFile = await globalConfig.upload.customUpload(uploadFile)
+        } else {
+          uploadFile = await webUpload(uploadFile)
+        }
         const idx = props.value.findIndex((f) => f.uid === uploadFile.uid)
         if (idx >= 0) {
           emit(

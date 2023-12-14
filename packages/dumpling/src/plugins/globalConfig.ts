@@ -19,6 +19,12 @@ type GlobalConfig = {
      */
     beforeUpload?: (f: UploadFile) => UploadFile | Promise<UploadFile>
     /**
+     * 完全自定义的上传方法，发生在 beforeUpload 之后，beforeResponse 之前
+     * @param f
+     * @returns
+     */
+    customUpload?: (f: UploadFile) => Promise<UploadFile>
+    /**
      *
      * @param f
      * @returns
