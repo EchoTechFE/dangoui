@@ -1,4 +1,4 @@
-import type { InjectionKey, App } from 'vue'
+import type { InjectionKey, App, Ref } from 'vue'
 import { UploadFile } from '../upload/helpers'
 
 export const GlobalConfigKey = Symbol(
@@ -6,7 +6,7 @@ export const GlobalConfigKey = Symbol(
 ) as InjectionKey<GlobalConfig>
 
 type GlobalConfig = {
-  // 没想好 API
+  // TODO: 未完全稳定
   unitTransform?: {
     number?: boolean
     designWidth: number

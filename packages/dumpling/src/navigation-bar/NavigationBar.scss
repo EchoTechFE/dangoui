@@ -70,5 +70,12 @@
 
     box-sizing: content-box;
     background-color: var(--du-c-navigation-bar-bg);
+    width: 100%;
+
+    &--fixed {
+      position: fixed;
+      // TODO: 统一规划 z-index
+      z-index: 9999;
+    }
   }
 }

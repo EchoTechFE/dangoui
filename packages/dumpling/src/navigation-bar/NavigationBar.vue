@@ -1,24 +1,35 @@
 <template>
-  <div class="du-navigation-bar__wrapper" :style="wrapperStyle">
-    <div class="du-navigation-bar">
-      <div class="du-navigation-bar__left">
-        <div v-if="back" class="du-navigation-bar__back">
-          <DuIcon name="arrow-left" />
+  <div>
+    <div
+      :class="[
+        'du-navigation-bar__wrapper',
+        fixed && 'du-navigation-bar__wrapper--fixed',
+      ]"
+      :style="wrapperStyle"
+    >
+      <div class="du-navigation-bar">
+        <div class="du-navigation-bar__left">
+          <div v-if="back" class="du-navigation-bar__back">
+            <DuIcon name="arrow-left" />
+          </div>
+          <slot name="left" />
+          <slot />
         </div>
-        <slot name="left" />
-        <slot />
+        <div class="du-navigation-bar__right">
+          <slot name="right" />
+          <button
+            v-if="share"
+            open-type="share"
+            class="du-navigation-bar__share"
+            @click="handleShare"
+          >
+            <DuIcon name="share-filled" />
+          </button>
+        </div>
       </div>
-      <div class="du-navigation-bar__right">
-        <slot name="right" />
-        <button
-          v-if="share"
-          open-type="share"
-          class="du-navigation-bar__share"
-          @click="handleShare"
-        >
-          <DuIcon name="share-filled" />
-        </button>
-      </div>
+    </div>
+    <div v-if="fixed && placeholder" class="du-navigation-bar_wrapper">
+      <div class="du-navigation-bar" />
     </div>
   </div>
 </template>
@@ -41,6 +52,14 @@ const props = withDefaults(
      * 在小程序平台无效，仅 Web
      */
     back: boolean
+    /**
+     * 是否固定在顶部
+     */
+    fixed: boolean
+    /**
+     * 固定在顶部时候有一个占位
+     */
+    placeholder: boolean
   }>(),
   {
     color: 'default',

@@ -22,11 +22,12 @@
             <code class="whitespace-break-spaces">{{ prop.type }}</code>
           </td>
           <td>
-            {{
-              prop.default === 'unknown' || prop.default === 'undefined'
-                ? '-'
-                : prop.default
-            }}
+            <span
+              v-if="prop.default === 'unknown' || prop.default === 'undefined'"
+            >
+              -
+            </span>
+            <code v-else>{{ prop.default }}</code>
           </td>
           <td>{{ prop.description }}</td>
         </tr>

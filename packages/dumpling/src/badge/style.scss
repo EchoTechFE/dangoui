@@ -1,6 +1,11 @@
+:host {
+  font-size: 0;
+}
+
 .du-badge {
   --du-c-badge-color: #d94a4e;
   position: relative;
+  display: inline-flex;
 
   &__item {
     &:empty + .du-badge__dot {

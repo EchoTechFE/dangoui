@@ -1,0 +1,36 @@
+{
+  "name": "unocss-preset-echo",
+  "version": "1.5.1",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "*.css",
+    "*.d.ts",
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "keywords": [],
+  "author": "zhuscat",
+  "license": "ISC",
+  "dependencies": {
+    "@unocss/core": "^0.57.3",
+    "@unocss/extractor-arbitrary-variants": "^0.57.3",
+    "@unocss/rule-utils": "^0.57.3",
+    "unocss-preset-mp": "^1.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "bun-types": "latest",
+    "prettier": "3.1.0",
+    "std-env": "^3.5.0",
+    "unbuild": "^2.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

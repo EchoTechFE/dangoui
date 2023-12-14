@@ -37,6 +37,8 @@ import Empty from './empty/Empty.vue'
 import Badge from './badge/Badge.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
 
+import Theme from './theme/Theme.vue'
+
 import globalConfig from './plugins/globalConfig'
 
 const DuButton = Button
@@ -77,6 +79,8 @@ const DuSnackbar = Snackbar
 const DuEmpty = Empty
 const DuBadge = Badge
 const DuNoticeBar = NoticeBar
+
+const DuTheme = Theme
 
 export {
   Button,
@@ -147,5 +151,7 @@ export {
   DuBadge,
   NoticeBar,
   DuNoticeBar,
+  Theme,
+  DuTheme,
   globalConfig,
 }

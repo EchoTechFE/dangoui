@@ -38,7 +38,11 @@
         @focus="handleFocus"
         @input="handleInput"
         @confirm="handleConfirm"
-        :placeholder="isFocus ? placeholders?.[0] ?? '' : ''"
+        :placeholder="
+          isFocus || placeholders.length <= 1
+            ? placeholders?.[currentIndex] ?? ''
+            : ''
+        "
       />
       <div
         class="du-search__rolling-text"

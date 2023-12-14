@@ -14,14 +14,15 @@
       class="du-tabs__content-wrapper"
       scroll-with-animation
       scroll-x
-      enable-flex
       :scroll-left="scrollViewLeft"
     >
-      <div class="du-tabs__padding" />
-      <div :class="['du-tabs__content', `du-tabs__content--${type}-${size}`]">
-        <slot />
+      <div class="du-tabs__list">
+        <div class="du-tabs__padding" />
+        <div :class="['du-tabs__content', `du-tabs__content--${type}-${size}`]">
+          <slot />
+        </div>
+        <div class="du-tabs__padding" />
       </div>
-      <div class="du-tabs__padding" />
     </scroll-view>
     <div
       :class="[

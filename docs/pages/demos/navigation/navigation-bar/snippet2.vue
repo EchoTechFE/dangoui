@@ -1,62 +1,33 @@
 
 <template>
-  <div class="min-h-screen bg-white">
-    <div class="mb-16px">
-      <DuNavigationBar share @share="handleShare">
-        标题
-        <template #right>
-          <DuButton size="small" type="info">按钮</DuButton>
-        </template>
-      </DuNavigationBar>
-    </div>
-    <div class="mb-16px">
-      <DuNavigationBar share @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
-            <DuSearch bg="white" :placeholder="placeholders" readonly>
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
-          </div>
-        </template>
-      </DuNavigationBar>
-    </div>
-    <div class="mb-16px">
-      <DuNavigationBar share color="secondary" :back="false" @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
-            <DuSearch bg="white" placeholder="Labubu">
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
-          </div>
-        </template>
-      </DuNavigationBar>
-    </div>
-    <div class="mb-16px">
-      <DuNavigationBar share color="primary" :back="false" @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
-            <DuSearch bg="white" placeholder="Labubu">
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
-          </div>
-        </template>
-      </DuNavigationBar>
-    </div>
+  <DuNavigationBar share fixed placeholder @share="handleShare">
+    标题
+    <template #right>
+      <div class="flex-auto">
+        <DuSearch bg="white" :placeholder="placeholders" readonly>
+          <template #right>
+            <DuIcon name="camera" />
+            <DuDivider />
+            <DuIcon name="scanning" />
+          </template>
+        </DuSearch>
+      </div>
+    </template>
+  </DuNavigationBar>
+  <div class="w-full h-200px bg-red-200 flex justify-center items-center text-48px">
+    1
+  </div>
+  <div class="w-full h-200px bg-orange-200 flex justify-center items-center text-48px">
+    2
+  </div>
+  <div class="w-full h-200px bg-yellow-200 flex justify-center items-center text-48px">
+    3
+  </div>
+  <div class="w-full h-200px bg-green-200 flex justify-center items-center text-48px">
+    4
+  </div>
+  <div class="w-full h-200px bg-blue-200 flex justify-center items-center text-48px">
+    5
   </div>
 </template>
 
