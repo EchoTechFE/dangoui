@@ -49,7 +49,7 @@ const props = withDefaults(
      */
     share: boolean
     /**
-     * 在小程序平台无效，仅 Web
+     * back
      */
     back: boolean
     /**
@@ -76,6 +76,7 @@ const wrapperStyle = ref<CSSProperties>({
   '--du-c-navigation-bar-bg': `var(--du-c-${props.color}-navigation-bar-bg)`,
   '--du-c-navigation-bar-text': `var(--du-c-${props.color}-navigation-bar-text)`,
   '--du-c-navigation-bar-border': `var(--du-c-${props.color}-navigation-bar-border)`,
+  width: '100%',
 })
 
 // @ts-ignore
@@ -90,6 +91,7 @@ if (typeof uni !== 'undefined') {
 
   wrapperStyle.value.paddingRight = paddingRight + 'px'
   wrapperStyle.value.paddingTop = paddingTop + 'px'
+  wrapperStyle.value.width = `calc(100% - ${paddingRight}px)`
 }
 
 function handleShare() {
