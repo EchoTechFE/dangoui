@@ -11,9 +11,8 @@
     </div>
     <div class="mb-16px">
       <DuNavigationBar share @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
+        <div>标题</div>
+          <div class="flex-auto w-0">
             <DuSearch bg="white" :placeholder="placeholders" readonly>
               <template #right>
                 <DuIcon name="camera" />
@@ -22,39 +21,34 @@
               </template>
             </DuSearch>
           </div>
-        </template>
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
       <DuNavigationBar share color="secondary" :back="false" @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
-            <DuSearch bg="white" placeholder="Labubu">
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
+          <div>标题</div>
+          <div class="flex-auto w-0">
+          <DuSearch bg="white" placeholder="Labubu">
+            <template #right>
+              <DuIcon name="camera" />
+              <DuDivider />
+              <DuIcon name="scanning" />
+            </template>
+          </DuSearch>
           </div>
-        </template>
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
       <DuNavigationBar share color="primary" :back="false" @share="handleShare">
-        标题
-        <template #right>
-          <div class="flex-auto">
-            <DuSearch bg="white" placeholder="Labubu">
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
+          <div>标题</div>
+          <div class="flex-auto w-0">
+          <DuSearch bg="white" placeholder="Labubu">
+            <template #right>
+              <DuIcon name="camera" />
+              <DuDivider />
+              <DuIcon name="scanning" />
+            </template>
+          </DuSearch>
           </div>
-        </template>
       </DuNavigationBar>
     </div>
   </div>

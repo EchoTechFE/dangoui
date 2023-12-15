@@ -1,5 +1,6 @@
 import Button from './button/Button.vue'
 import Icon from './icon/Icon.vue'
+import Sticky from './sticky/Sticky.vue'
 
 import Input from './input/Input.vue'
 import InputNumber from './input-number/InputNumber.vue'
@@ -43,6 +44,7 @@ import globalConfig from './plugins/globalConfig'
 
 const DuButton = Button
 const DuIcon = Icon
+const DuSticky = Sticky
 
 const DuInput = Input
 const DuInputNumber = InputNumber
@@ -87,6 +89,8 @@ export {
   DuButton,
   Icon,
   DuIcon,
+  Sticky,
+  DuSticky,
   Input,
   DuInput,
   InputNumber,

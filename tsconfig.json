@@ -25,6 +25,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "packages/dumpling/**/*.vue",
+    "packages/dumpling/**/*.ts",
     "packages/dumpling/src/global.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],

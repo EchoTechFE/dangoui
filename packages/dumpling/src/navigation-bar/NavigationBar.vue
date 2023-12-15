@@ -13,7 +13,9 @@
             <DuIcon name="arrow-left" />
           </div>
           <slot name="left" />
-          <slot />
+          <div class="du-navigation-bar__content">
+            <slot />
+          </div>
         </div>
         <div class="du-navigation-bar__right">
           <slot name="right" />
@@ -28,15 +30,20 @@
         </div>
       </div>
     </div>
-    <div v-if="fixed && placeholder" class="du-navigation-bar_wrapper">
+    <div
+      v-if="fixed && placeholder"
+      class="du-navigation-bar_wrapper"
+      :style="wrapperStyle"
+    >
       <div class="du-navigation-bar" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, ref } from 'vue'
+import { CSSProperties, ref, onMounted, getCurrentInstance } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { setHeightByPage } from './helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -71,6 +78,31 @@ const props = withDefaults(
 const emit = defineEmits<{
   (e: 'share'): void
 }>()
+
+const instance = getCurrentInstance()
+
+onMounted(() => {
+  if (__WEB__) {
+    setHeightByPage(
+      instance?.proxy?.$el
+        .querySelector('.du-navigation-bar__wrapper')
+        .getBoundingClientRect().height,
+    )
+  } else {
+    setTimeout(() => {
+      // @ts-ignore
+      uni
+        .createSelectorQuery()
+        .in(instance?.proxy)
+        .select('.du-navigation-bar__wrapper')
+        .boundingClientRect((res: any) => {
+          // @ts-ignore
+          setHeightByPage(res.height, instance!.proxy!.$root.$scope)
+        })
+        .exec()
+    }, 500)
+  }
+})
 
 const wrapperStyle = ref<CSSProperties>({
   '--du-c-navigation-bar-bg': `var(--du-c-${props.color}-navigation-bar-bg)`,

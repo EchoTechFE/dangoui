@@ -7,7 +7,10 @@ import fg from 'fast-glob'
 export default function plugin(): Plugin {
   const libName = '@frontend/dumpling'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
-  const files = fg.globSync('src/*/**.vue', {
+  const components = fg.globSync('src/*/**.vue', {
+    cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
+  })
+  const composables = fg.globSync('src/composables/*/**.ts', {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
   })
 
@@ -83,7 +86,7 @@ export default function plugin(): Plugin {
                 return `import ${i.alias} from '${libName}/src/plugins/globalConfig.ts';`
               }
 
-              const pkg = files.find((file) => {
+              const pkg = components.find((file) => {
                 const component = file
                   .split('/')!
                   .pop()!
@@ -93,7 +96,24 @@ export default function plugin(): Plugin {
                 }
                 return component === i.name
               })
-              return `import ${i.alias} from '${libName}/${pkg}';`
+              if (pkg) {
+                return `import ${i.alias} from '${libName}/${pkg}';`
+              }
+              const composable = composables.find((file) => {
+                const functionName = file
+                  .split('/')!
+                  .pop()!
+                  .replace(/\.ts$/, '')
+                return functionName === i.name
+              })
+              if (composable) {
+                if (i.alias !== i.name) {
+                  return `import { ${i.name} as ${i.alias} } from '${libName}/${composable}';`
+                }
+                return `import { ${i.name} } from '${libName}/${composable}';`
+              }
+
+              return ''
             })
             .join('\n')
         })

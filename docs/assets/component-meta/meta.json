@@ -2294,6 +2294,13 @@
                 "default": "\"100%\""
             },
             {
+                "name": "radius",
+                "description": "圆角",
+                "required": false,
+                "type": "string | number",
+                "default": "undefined"
+            },
+            {
                 "name": "showMenuByLongPress",
                 "description": "showMenuByLongPress 微信小程序",
                 "required": false,
@@ -2312,13 +2319,6 @@
                 "description": "src",
                 "required": true,
                 "type": "string",
-                "default": "unknown"
-            },
-            {
-                "name": "radius",
-                "description": "圆角",
-                "required": false,
-                "type": "string | number",
                 "default": "unknown"
             }
         ],
@@ -2934,10 +2934,24 @@
             },
             {
                 "name": "back",
-                "description": "在小程序平台无效，仅 Web",
+                "description": "back",
                 "required": false,
                 "type": "boolean",
                 "default": "true"
+            },
+            {
+                "name": "placeholder",
+                "description": "固定在顶部时候有一个占位",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "fixed",
+                "description": "是否固定在顶部",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -3982,6 +3996,45 @@
         "events": [],
         "slots": []
     },
+    "Sticky": {
+        "props": [
+            {
+                "name": "top",
+                "description": "距离上方多少距离开始吸顶",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "z",
+                "description": "z-index",
+                "required": false,
+                "type": "number",
+                "default": "99"
+            },
+            {
+                "name": "relativeTo",
+                "description": "目前只实现了 viewport",
+                "required": false,
+                "type": "\"viewport\"",
+                "default": "\"viewport\""
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "Switch": {
         "props": [
             {
@@ -4326,10 +4379,30 @@
         ],
         "slots": []
     },
-    "ThemeProvider": {
-        "props": [],
+    "Theme": {
+        "props": [
+            {
+                "name": "name",
+                "description": "",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
         "events": [],
-        "slots": []
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
     },
     "Upload": {
         "props": [

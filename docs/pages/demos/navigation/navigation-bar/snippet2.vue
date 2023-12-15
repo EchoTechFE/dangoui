@@ -1,18 +1,16 @@
 
 <template>
   <DuNavigationBar share fixed placeholder @share="handleShare">
-    标题
-    <template #right>
-      <div class="flex-auto">
-        <DuSearch bg="white" :placeholder="placeholders" readonly>
-          <template #right>
-            <DuIcon name="camera" />
-            <DuDivider />
-            <DuIcon name="scanning" />
-          </template>
-        </DuSearch>
-      </div>
-    </template>
+      <div>标题</div>
+          <div class="flex-auto w-0">
+          <DuSearch bg="white" placeholder="Labubu">
+            <template #right>
+              <DuIcon name="camera" />
+              <DuDivider />
+              <DuIcon name="scanning" />
+            </template>
+          </DuSearch>
+          </div>
   </DuNavigationBar>
   <div class="w-full h-200px bg-red-200 flex justify-center items-center text-48px">
     1

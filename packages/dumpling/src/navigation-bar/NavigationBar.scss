@@ -16,16 +16,34 @@
     font-weight: 500;
     line-height: 24px;
     margin-right: 8px;
-    flex: none;
+    flex: auto;
+    width: 0;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex: auto;
+    column-gap: 8px;
+
+    & > view:not([class]) {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      height: 100%;
+      flex: auto;
+    }
   }
 
   &__back {
     font-size: 16px;
+    display: flex;
+    align-items: center;
   }
 
   &__right {
     display: flex;
-    flex: auto;
+    flex: none;
     align-items: center;
     column-gap: 8px;
     justify-content: flex-end;
