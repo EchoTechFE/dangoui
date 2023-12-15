@@ -2952,6 +2952,13 @@
                 "required": true,
                 "type": "boolean",
                 "default": "unknown"
+            },
+            {
+                "name": "appearThreshold",
+                "description": "透明到显示的阈值，只有在 fixed 的时候有效",
+                "required": true,
+                "type": "number",
+                "default": "unknown"
             }
         ],
         "events": [

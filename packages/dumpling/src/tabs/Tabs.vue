@@ -131,6 +131,7 @@ function updateLayout(name: string, tabId: string, opts?: TabConfigOpt) {
     const query = uni.createSelectorQuery().in(instance?.proxy)
     const scrollViewClass = '.du-tabs__content-wrapper'
     query.select(scrollViewClass).boundingClientRect()
+    // @ts-ignore
     query.select(scrollViewClass).scrollOffset()
     query.exec((res: any) => {
       // 异步，可能值已经发生改变

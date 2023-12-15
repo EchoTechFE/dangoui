@@ -5,7 +5,7 @@
         'du-navigation-bar__wrapper',
         fixed && 'du-navigation-bar__wrapper--fixed',
       ]"
-      :style="wrapperStyle"
+      :style="finalWrapperStyle"
     >
       <div class="du-navigation-bar">
         <div class="du-navigation-bar__left">
@@ -13,7 +13,7 @@
             <DuIcon name="arrow-left" />
           </div>
           <slot name="left" />
-          <div class="du-navigation-bar__content">
+          <div v-if="showContent" class="du-navigation-bar__content">
             <slot />
           </div>
         </div>
@@ -41,9 +41,16 @@
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, ref, onMounted, getCurrentInstance } from 'vue'
+import {
+  CSSProperties,
+  ref,
+  onMounted,
+  getCurrentInstance,
+  computed,
+} from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { setHeightByPage } from './helpers'
+import { onPageScroll } from '@dcloudio/uni-app'
 
 const props = withDefaults(
   defineProps<{
@@ -67,6 +74,10 @@ const props = withDefaults(
      * 固定在顶部时候有一个占位
      */
     placeholder: boolean
+    /**
+     * 透明到显示的阈值，只有在 fixed 的时候有效，单位为 px？（没想好）
+     */
+    appearThreshold: number
   }>(),
   {
     color: 'default',
@@ -111,8 +122,7 @@ const wrapperStyle = ref<CSSProperties>({
   width: '100%',
 })
 
-// @ts-ignore
-if (typeof uni !== 'undefined') {
+if (__UNI_PLATFORM__ !== 'h5') {
   // @ts-ignore
   const res = uni.getMenuButtonBoundingClientRect()
   // @ts-ignore
@@ -125,6 +135,48 @@ if (typeof uni !== 'undefined') {
   wrapperStyle.value.paddingTop = paddingTop + 'px'
   wrapperStyle.value.width = `calc(100% - ${paddingRight}px)`
 }
+
+const scrollTop = ref(0)
+
+if (__UNI_PLATFORM__ !== 'h5') {
+  onPageScroll((params) => {
+    scrollTop.value = params.scrollTop
+  })
+}
+if (__WEB__) {
+  window.addEventListener('scroll', () => {
+    scrollTop.value = window.scrollY
+  })
+}
+
+const showContent = computed(() => {
+  if (props.fixed && props.appearThreshold > 0) {
+    if (scrollTop.value > props.appearThreshold) {
+      return true
+    }
+    return false
+  }
+
+  return true
+})
+
+const bgOpacity = computed(() => {
+  if (props.fixed && props.appearThreshold > 0) {
+    if (scrollTop.value > props.appearThreshold) {
+      return '1'
+    }
+    return (scrollTop.value / props.appearThreshold).toFixed(4)
+  }
+
+  return '1'
+})
+
+const finalWrapperStyle = computed(() => {
+  return {
+    ...wrapperStyle.value,
+    '--du-nav-bar-op': bgOpacity.value,
+  }
+})
 
 function handleShare() {
   emit('share')

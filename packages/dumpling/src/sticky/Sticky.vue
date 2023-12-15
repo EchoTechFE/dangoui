@@ -1,7 +1,7 @@
 <template>
   <div class="du-sticky" :style="style">
     <div class="du-sticky__content" :style="contentStyle">
-      <slot />
+      <slot :is-sticky="isFixed" />
     </div>
   </div>
 </template>
