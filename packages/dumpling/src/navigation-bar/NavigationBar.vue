@@ -9,7 +9,7 @@
     >
       <div class="du-navigation-bar">
         <div class="du-navigation-bar__left">
-          <div v-if="back" class="du-navigation-bar__back">
+          <div v-if="back" class="du-navigation-bar__back" @click="handleBack">
             <DuIcon name="arrow-left" />
           </div>
           <slot name="left" />
@@ -180,5 +180,18 @@ const finalWrapperStyle = computed(() => {
 
 function handleShare() {
   emit('share')
+}
+
+function handleBack() {
+  if (__UNI_PLATFORM__ !== 'h5') {
+    uni.navigateBack({
+      fail() {
+        // TODO: 先修复 BUG，全局支持配置这个
+        uni.switchTab({
+          url: '/pages-tab/home/index',
+        })
+      },
+    })
+  }
 }
 </script>
