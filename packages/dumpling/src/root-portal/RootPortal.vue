@@ -1,5 +1,8 @@
 <template>
-  <root-portal v-if="canUseRootPortal">
+  <div v-if="disabled">
+    <slot />
+  </div>
+  <root-portal v-else-if="canUseRootPortal">
     <slot />
   </root-portal>
   <div v-else-if="!isWeb">
@@ -13,6 +16,15 @@
 </template>
 
 <script setup lang="ts">
+withDefaults(
+  defineProps<{
+    disabled: boolean
+  }>(),
+  {
+    disabled: true,
+  },
+)
+
 function isRootPortalAvailable(): boolean {
   // @ts-ignore
   if (typeof uni !== 'undefined') {
