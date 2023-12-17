@@ -1,6 +1,6 @@
 <template>
   <DuRootPortal>
-    <div class="du-popup" v-if="innerVisible">
+    <div class="du-popup g-theme-qd" v-if="innerVisible">
       <div
         :class="maskClassName"
         :style="maskStyleFormat"
