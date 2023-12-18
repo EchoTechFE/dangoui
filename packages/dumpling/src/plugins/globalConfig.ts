@@ -40,6 +40,10 @@ type GlobalConfig = {
       ) => { url: string }
     }>
   }
+  /**
+   * 小程序独有
+   */
+  homePath?: string
 }
 
 export default {
