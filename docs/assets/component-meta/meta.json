@@ -2926,6 +2926,13 @@
                 "default": "\"default\""
             },
             {
+                "name": "center",
+                "description": "内容是否居中，需要自行保证内容不溢出",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "share",
                 "description": "是否显示分享按钮",
                 "required": false,
@@ -2955,7 +2962,7 @@
             },
             {
                 "name": "appearThreshold",
-                "description": "透明到显示的阈值，只有在 fixed 的时候有效",
+                "description": "透明到显示的阈值，只有在 fixed 的时候有效，单位为 px？（没想好）",
                 "required": true,
                 "type": "number",
                 "default": "unknown"
@@ -3679,7 +3686,15 @@
         "slots": []
     },
     "RootPortal": {
-        "props": [],
+        "props": [
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            }
+        ],
         "events": [],
         "slots": [
             {
@@ -4031,13 +4046,31 @@
         "slots": [
             {
                 "name": "default",
-                "type": "{}",
+                "type": "{ isSticky: boolean; }",
                 "description": "",
                 "declarations": [],
                 "schema": {
                     "kind": "object",
-                    "type": "{}",
-                    "schema": {}
+                    "type": "{ isSticky: boolean; }",
+                    "schema": {
+                        "isSticky": {
+                            "name": "isSticky",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "boolean",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "enum",
+                                "type": "boolean",
+                                "schema": [
+                                    "false",
+                                    "true"
+                                ]
+                            }
+                        }
+                    }
                 }
             }
         ]
@@ -4135,6 +4168,13 @@
     },
     "Tabs": {
         "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "\"primary\" | \"secondary\"",
+                "default": "\"primary\""
+            },
             {
                 "name": "type",
                 "description": "",
