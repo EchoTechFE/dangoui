@@ -13,7 +13,13 @@
             <DuIcon name="arrow-left" />
           </div>
           <slot name="left" />
-          <div v-if="showContent" class="du-navigation-bar__content">
+          <div
+            v-if="showContent"
+            :class="[
+              'du-navigation-bar__content',
+              center && 'du-navigation-bar__content--center',
+            ]"
+          >
             <slot />
           </div>
         </div>
@@ -78,11 +84,16 @@ const props = withDefaults(
      * 透明到显示的阈值，只有在 fixed 的时候有效，单位为 px？（没想好）
      */
     appearThreshold: number
+    /**
+     * 内容是否居中，需要自行保证内容不溢出
+     */
+    center: boolean
   }>(),
   {
     color: 'default',
     share: false,
     back: true,
+    center: false,
   },
 )
 

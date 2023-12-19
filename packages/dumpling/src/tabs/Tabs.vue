@@ -8,6 +8,9 @@
         'du-tabs--default': size === 'normal' && type === 'default',
       },
     ]"
+    :style="{
+      '--du-tabs-active-color': `var(--du-c-${color})`,
+    }"
   >
     <slot name="left" />
     <scroll-view
@@ -52,11 +55,13 @@ import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
   defineProps<{
+    color: 'primary' | 'secondary'
     type: 'default' | 'tag' | 'text'
     value: string
     size: 'normal' | 'large'
   }>(),
   {
+    color: 'primary',
     size: 'normal',
     type: 'default',
   },
@@ -155,6 +160,7 @@ provide(TabsInjectionKey, {
   size: toRef(props, 'size'),
   type: toRef(props, 'type'),
   value: readonlyValue,
+  color: toRef(props, 'color'),
   setValue,
   updateLayout,
 })

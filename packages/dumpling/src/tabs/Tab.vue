@@ -17,7 +17,7 @@
     v-else-if="type === 'tag'"
     :id="id"
     :size="size === 'large' ? 'medium' : 'small'"
-    :color="isActive ? 'primary' : 'default'"
+    :color="isActive ? color : 'default'"
     @click="handleClick"
   >
     <slot />
@@ -60,6 +60,10 @@ const tabsConfig = inject(TabsInjectionKey)
 
 const isActive = computed(() => {
   return tabsConfig?.value.value === props.name
+})
+
+const color = computed(() => {
+  return tabsConfig?.color.value ?? 'primary'
 })
 
 const size = computed(() => {

@@ -26,6 +26,12 @@
     flex: auto;
     column-gap: 8px;
 
+    &--center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     & > view:not([class]) {
       display: flex;
       align-items: center;
@@ -97,6 +103,8 @@
 
     box-sizing: content-box;
     background-color: var(--du-c-navigation-bar-bg);
+
+    position: relative;
 
     &--fixed {
       position: fixed;

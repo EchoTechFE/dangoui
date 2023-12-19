@@ -25,7 +25,7 @@
       border-top-right-radius: 1px;
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 1px;
-      background: #000;
+      background: var(--du-tabs-active-color);
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
@@ -44,7 +44,7 @@
     }
 
     &--active {
-      color: var(--du-c-primary);
+      color: var(--du-tabs-active-color);
     }
   }
 }
