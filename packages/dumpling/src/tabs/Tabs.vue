@@ -12,7 +12,9 @@
       '--du-tabs-active-color': `var(--du-c-${color})`,
     }"
   >
-    <slot name="left" />
+    <div class="du-tabs__left">
+      <slot name="left" />
+    </div>
     <scroll-view
       class="du-tabs__content-wrapper"
       scroll-with-animation

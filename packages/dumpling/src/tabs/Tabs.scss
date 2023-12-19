@@ -61,6 +61,13 @@
     flex: none;
   }
 
+  &__left {
+    padding-left: 15px;
+    &:empty {
+      padding-left: 0;
+    }
+  }
+
   &__right-wrapper {
     box-sizing: content-box;
     padding-left: 8px;
