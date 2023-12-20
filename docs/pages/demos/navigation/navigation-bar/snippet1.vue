@@ -10,6 +10,11 @@
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
+      <DuNavigationBar back-icon="room" @share="handleShare">
+        左边是首页按钮
+      </DuNavigationBar>
+    </div>
+    <div class="mb-16px">
       <DuNavigationBar share @share="handleShare">
         <div>标题</div>
           <div class="flex-auto w-0">
@@ -53,7 +58,7 @@
     </div>
     <div class="mb-16px">
       <DuNavigationBar center>
-        <DuTabs value="discovery" size="large">
+        <DuTabs size="large" v-model:value="tab">
           <DuTab name="discovery">发现岛</DuTab>
           <DuTab name="joined">我的岛</DuTab>
         </DuTabs>
@@ -63,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab } from '@frontend/dumpling'
 
 const placeholders = [
@@ -70,6 +76,8 @@ const placeholders = [
   'Labubu',
   'Skullpanda'
 ]
+
+const tab = ref('discovery')
 
 function handleShare() {
   console.log('[demo] share')

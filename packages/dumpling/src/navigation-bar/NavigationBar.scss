@@ -11,13 +11,12 @@
     align-items: center;
     font-size: 16px;
     color: var(--du-c-navigation-bar-text);
-    column-gap: 8px;
-    font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     margin-right: 8px;
     flex: auto;
     width: 0;
+    height: 100%;
   }
 
   &__content {
@@ -45,6 +44,9 @@
     font-size: 16px;
     display: flex;
     align-items: center;
+    padding-right: 8px;
+    height: 100%;
+    cursor: pointer;
   }
 
   &__right {

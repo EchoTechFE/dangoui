@@ -10,7 +10,7 @@
       <div class="du-navigation-bar">
         <div class="du-navigation-bar__left">
           <div v-if="back" class="du-navigation-bar__back" @click="handleBack">
-            <DuIcon name="arrow-left" />
+            <DuIcon :name="icon" />
           </div>
           <slot name="left" />
           <div
@@ -73,6 +73,10 @@ const props = withDefaults(
      */
     back: boolean
     /**
+     * 返回按钮，在小程序平台不指定会根据页面所在层级自动判断
+     */
+    backIcon: string
+    /**
      * 是否固定在顶部
      */
     fixed: boolean
@@ -85,7 +89,7 @@ const props = withDefaults(
      */
     appearThreshold: number
     /**
-     * 内容是否居中，需要自行保证内容不溢出
+     * 内容是否居中，目前需要自行保证内容不溢出
      */
     center: boolean
   }>(),
@@ -124,6 +128,19 @@ onMounted(() => {
         .exec()
     }, 500)
   }
+})
+
+const icon = computed(() => {
+  const arrowLeft = 'arrow-left'
+  if (__UNI_PLATFORM__ !== 'h5') {
+    const pages = getCurrentPages()
+    if (pages?.length > 1) {
+      return arrowLeft
+    } else {
+      return 'room'
+    }
+  }
+  return props.backIcon || arrowLeft
 })
 
 const wrapperStyle = ref<CSSProperties>({

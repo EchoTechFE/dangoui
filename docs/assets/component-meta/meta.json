@@ -2927,7 +2927,7 @@
             },
             {
                 "name": "center",
-                "description": "内容是否居中，需要自行保证内容不溢出",
+                "description": "内容是否居中，目前需要自行保证内容不溢出",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -2951,6 +2951,13 @@
                 "description": "固定在顶部时候有一个占位",
                 "required": true,
                 "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "backIcon",
+                "description": "返回按钮，在小程序平台不指定会根据页面所在层级自动判断",
+                "required": true,
+                "type": "string",
                 "default": "unknown"
             },
             {
