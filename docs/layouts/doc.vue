@@ -73,30 +73,46 @@
           >
             <div class="text-lg font-medium mb-16px">主题定制</div>
             <div class="flex gap-x-24px">
-              <div class="flex flex-col items-center cursor-pointer">
+              <div
+                class="flex flex-col items-center cursor-pointer"
+                @click="handleThemeClick('qd')"
+              >
                 <div
                   class="bg-[rgb(124,102,255)] w-60px h-60px rounded mb-8px"
                 ></div>
                 <div class="c-gray-600 text-sm">千岛紫</div>
               </div>
-              <div class="flex flex-col items-center cursor-pointer">
+              <div
+                class="flex flex-col items-center cursor-pointer"
+                @click="handleThemeClick('qh')"
+              >
                 <div class="bg-[#FF812C] w-60px h-60px rounded mb-8px"></div>
                 <div class="c-gray-600 text-sm">奇货橙</div>
               </div>
-              <div class="flex flex-col items-center cursor-pointer">
+              <div
+                class="flex flex-col items-center cursor-pointer"
+                @click="handleThemeClick('qdm')"
+              >
+                <div class="bg-[#1677FF] w-60px h-60px rounded mb-8px"></div>
+                <div class="c-gray-600 text-sm">商家蓝</div>
+              </div>
+              <div
+                class="flex flex-col items-center cursor-pointer"
+                @click="handleThemeClick('mihua-light')"
+              >
                 <div class="bg-[#AEF056] w-60px h-60px rounded mb-8px"></div>
                 <div class="c-gray-600 text-sm flex flex-col items-center">
                   <div>米花绿</div>
                   <div class="c-gray-500 text-xs">日照</div>
                 </div>
               </div>
-              <div class="flex flex-col items-center cursor-pointer">
+              <!-- <div class="flex flex-col items-center cursor-pointer">
                 <div class="bg-[#AEF056] w-60px h-60px rounded mb-8px"></div>
                 <div class="c-gray-600 text-sm flex flex-col items-center">
                   <div>米花绿</div>
                   <div class="c-gray-500 text-xs">暗黑</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </Teleport>
@@ -237,6 +253,11 @@ const isThemeConfigOpen = ref(false)
 
 function handleThemeConfigClick() {
   isThemeConfigOpen.value = true
+}
+
+function handleThemeClick(theme: string) {
+  globalTheme.value = theme
+  localStorage.setItem('DUMPLING_THEME', theme)
 }
 
 watch(keyword, (kw) => {

@@ -1,6 +1,8 @@
 <template>
-  <div v-if="isHydrated" class="du-theme-qd">
-    <slot />
+  <div v-if="isHydrated">
+    <DuTheme :name="globalTheme">
+      <slot />
+    </DuTheme>
   </div>
   <div
     v-else
@@ -10,4 +12,14 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { DuTheme } from '@frontend/dumpling'
+
+watch(isHydrated, () => {
+  window.addEventListener('message', (message: any) => {
+    if (message.data.type === 'theme') {
+      globalTheme.value = message.data.message
+    }
+  })
+})
+</script>

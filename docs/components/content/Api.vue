@@ -110,7 +110,7 @@ const doc = computed(() => {
 onMounted(() => {
   tippy('.doc-prop-color', {
     content:
-      "<code>'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'trade'</code>",
+      "<code>'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'trade' | 'white' | 'vip'</code>",
     allowHTML: true,
   })
 })

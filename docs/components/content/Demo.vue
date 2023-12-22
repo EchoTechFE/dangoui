@@ -89,6 +89,16 @@ const logs = ref<string[]>([])
 
 const consoleOpen = ref(false)
 
+watch(globalTheme, (theme) => {
+  iframe.value?.contentWindow?.postMessage(
+    {
+      type: 'theme',
+      message: theme,
+    },
+    '*',
+  )
+})
+
 onMounted(() => {
   window.addEventListener('message', (message) => {
     if (message.source !== iframe.value?.contentWindow) {

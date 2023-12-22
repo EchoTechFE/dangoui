@@ -14,4 +14,8 @@ import '@frontend/dumpling/theme.css'
 import 'tippy.js/dist/tippy.css'
 
 const route = useRoute()
+
+onMounted(() => {
+  globalTheme.value = localStorage.getItem('DUMPLING_THEME') ?? ''
+})
 </script>
