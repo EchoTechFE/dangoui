@@ -1,54 +1,4 @@
----
-head:
-  meta:
-    - name: 'stage'
-      content: 'alpha'
-navigation:
-  stage: 'alpha'
----
 
-# Switch 开关
-
-:stage{type="alpha"}
-
-就跟电灯开关一样
-
-```ts
-import { DuSwitch } from '@frontend/dumpling'
-```
-
-## 示例
-
-::demo
----
-title: 基础
----
-#snippet
-```vue
-<template>
-  <PreviewBlock title="简单">
-    <DuSwitch v-model:on="isOn" />
-  </PreviewBlock>
-  <PreviewBlock title="禁用">
-    <DuSwitch v-model:on="isOn" disabled />
-  </PreviewBlock>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { DuSwitch } from '@frontend/dumpling'
-
-const isOn = ref(false)
-</script>
-```
-::
-
-::demo
----
-title: 使用色板颜色
----
-#snippet
-```vue
 <template>
   <PreviewBlock title="secondary">
     <DuSwitch v-model:on="isOn" color="secondary" />
@@ -82,10 +32,3 @@ import { DuSwitch } from '@frontend/dumpling'
 
 const isOn = ref(false)
 </script>
-```
-::
-
-## API
-
-::api{component="Switch"}
-::

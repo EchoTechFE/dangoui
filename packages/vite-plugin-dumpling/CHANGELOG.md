@@ -1,5 +1,14 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.13
+
+### Patch Changes
+
+- switch support color
+- Updated dependencies
+  - @frontend/dumpling@3.0.42
+  - @frontend/dumpling-design-token@1.0.8
+
 ## 1.0.12
 
 ### Patch Changes

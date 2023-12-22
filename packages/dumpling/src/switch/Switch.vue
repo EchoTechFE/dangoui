@@ -2,6 +2,7 @@
   <div
     :class="[
       'du-switch',
+      `du-c-${props.color}-switch`,
       {
         'du-switch--on': on,
         'du-switch--disabled': !on && disabled,
@@ -25,6 +26,10 @@
 const props = withDefaults(
   defineProps<{
     /**
+     * 色板色彩
+     */
+    color: string
+    /**
      * 是否打开
      */
     on: boolean
@@ -34,6 +39,7 @@ const props = withDefaults(
     disabled: boolean
   }>(),
   {
+    color: 'primary',
     on: false,
     disabled: false,
   },

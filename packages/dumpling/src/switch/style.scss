@@ -2,7 +2,7 @@
   width: 42px;
   height: 24px;
   background: #fff;
-  border: 2px solid var(--du-c-b-2);
+  border: 2px solid var(--du-border-2);
   border-radius: 1000px;
   overflow: hidden;
 
@@ -11,13 +11,13 @@
   }
 
   &--on {
-    background: var(--du-primary-solid-bg);
-    border: 2px solid var(--du-primary-solid-bg);
+    background: var(--du-switch-bg);
+    border: 2px solid var(--du-switch-bg);
   }
 
   &--on-disabled {
-    background: var(--du-primary-solid-disabledtemp-bg);
-    border: 2px solid var(--du-primary-solid-disabledtemp-bg);
+    background: var(--du-switch-disabled-bg);
+    border: 2px solid var(--du-switch-disabled-bg);
   }
 
   &__button {

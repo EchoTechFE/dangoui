@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.42
+
+### Patch Changes
+
+- switch support color
+- Updated dependencies
+  - @frontend/dumpling-design-token@1.0.8
+
 ## 3.0.41
 
 ### Patch Changes

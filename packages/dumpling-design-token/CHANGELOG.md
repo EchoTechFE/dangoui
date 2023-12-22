@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.8
+
+### Patch Changes
+
+- switch support color
+
 ## 1.0.7
 
 ### Patch Changes
