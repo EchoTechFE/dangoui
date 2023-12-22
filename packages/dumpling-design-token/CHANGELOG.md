@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.9
+
+### Patch Changes
+
+- fix snackbar button color
+
 ## 1.0.8
 
 ### Patch Changes
