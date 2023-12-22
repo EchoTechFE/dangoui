@@ -421,12 +421,12 @@ export function createThemes(opts: CreateThemeOpts) {
       Object.entries(colors).forEach(([key, value]) => {
         themePlatte[name].colors.add(key)
         Object.entries(value).forEach(([varName, varValue]) => {
-          themePlatte[name].vars[`${key}-${varName}`] = `${varValue}`
+          const fullVarName = `${key}-${varName}`
+          addAlias(fullVarName)
+          themePlatte[name].vars[fullVarName] = `${varValue}`
           if (varName === 'solid-bg') {
             // TODO: 暂时先不考虑变量引用
-            themePlatte[name].vars[`${key}-${varName}-channel`] = chroma(
-              varValue,
-            )
+            themePlatte[name].vars[`${fullVarName}-channel`] = chroma(varValue)
               .rgb()
               .join(',')
           }

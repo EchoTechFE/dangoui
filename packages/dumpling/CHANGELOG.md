@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.41
+
+### Patch Changes
+
+- fix alias
+- Updated dependencies
+  - @frontend/dumpling-design-token@1.0.7
+
 ## 3.0.40
 
 ### Patch Changes
