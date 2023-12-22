@@ -57,7 +57,7 @@ export default function plugin(): Plugin {
               return result.push(`${item[0]}: ${item[1]};`)
             })
           })
-        const legacyCssVars = `:root,page{\n${result.join(',')}\n}`
+        const legacyCssVars = `:root,page{\n${result.join('\n')}\n}`
         const designTokenCss = themeHelper.generateCss()
         return `${legacyCssVars}\n${designTokenCss}\n${iconfont}\n`
       }

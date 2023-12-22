@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.6
+
+### Patch Changes
+
+- fix css gen
+
 ## 1.0.5
 
 ### Patch Changes
