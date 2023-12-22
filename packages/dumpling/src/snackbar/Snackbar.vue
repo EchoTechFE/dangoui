@@ -14,7 +14,7 @@
     <DuButton
       v-if="showActionBtn"
       size="mini"
-      color="secondary"
+      color="white"
       :text="buttonProps?.text"
       @click="emitAction"
       :style="{ flex: 'none' }"
