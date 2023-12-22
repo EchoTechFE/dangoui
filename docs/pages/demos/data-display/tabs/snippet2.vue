@@ -14,6 +14,7 @@
       <DuTab name="purchaseway">全网</DuTab>
       <template #right>
         <DuButton
+          color="default"
           type="text"
           size="small"
           icon="sort"
@@ -24,6 +25,7 @@
         </DuButton>
         <DuDivider />
         <DuButton
+          color="default"
           type="text"
           size="small"
           icon="sort"
@@ -47,7 +49,7 @@
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>
@@ -69,7 +71,7 @@
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>

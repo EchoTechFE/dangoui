@@ -30,7 +30,8 @@
     <DuButton
       v-else-if="config.shape === 'button'"
       size="mini"
-      :type="innerChecked ? 'primary' : 'info'"
+      :color="innerChecked ? 'primary' : 'default'"
+      :type="innerChecked ? 'primary' : 'outline'"
     >
       <slot>
         {{ config.label }}

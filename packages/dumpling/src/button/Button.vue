@@ -67,6 +67,10 @@ import iconConfig from '../icon/iconfont-config.json'
 const props = withDefaults(
   defineProps<{
     /**
+     * 主题
+     */
+    theme?: string
+    /**
      * id 属性，可用 CSS id 选择器获取到对应组件
      */
     buttonId: string
@@ -81,17 +85,11 @@ const props = withDefaults(
     /**
      * 色彩
      */
-    color: 'primary' | 'secondary' | 'success' | 'warning' | 'error'
+    color: string
     /**
      * 按钮类型
      */
-    type:
-      | 'primary'
-      | 'secondary'
-      | 'recommend'
-      | 'info'
-      | 'text'
-      | 'text-primary'
+    type: 'primary' | 'secondary' | 'outline' | 'text'
     /**
      * 按钮大小
      */
@@ -138,10 +136,6 @@ const props = withDefaults(
      */
     openType: string
     /**
-     * 半透明按钮
-     */
-    ghost: boolean
-    /**
      * 点击触发事件改为长按
      */
     press: boolean
@@ -153,7 +147,7 @@ const props = withDefaults(
   {
     buttonId: '',
     extClass: '',
-    extStyle: '',
+    extStyle: () => ({}),
     color: 'primary',
     type: 'primary',
     size: 'normal',
@@ -210,28 +204,27 @@ const isPress = ref(false)
 const pressStart = ref(0)
 
 const className = computed(() => {
-  const { size, type, ghost, loading, full, disabled, extClass, disabledType } =
+  const { size, type, loading, full, disabled, extClass, disabledType, color } =
     props
-
-  function getGhostClassName() {
-    if (disabled) {
-      return `du-button--disabled-${disabledType}-ghost`
-    }
-    return `du-button--${type}-ghost`
-  }
 
   return classNames(
     [
       'du-button',
       'du-button--' + size,
-      'du-button--' + type,
-      disabled && `du-button--disabled-${disabledType}`,
+      disabled && disabledType === 'default'
+        ? `du-button--${type === 'primary' ? 'secondary' : type}`
+        : 'du-button--' + type,
+      disabled && disabledType === 'temp' && `du-button--${type}-disabled-temp`,
+      disabled &&
+        disabledType === 'default' &&
+        `du-button--${type === 'primary' ? 'secondary' : type}-disabled-temp`,
+      props.theme && `du-theme-${props.theme}`,
     ],
     {
-      [getGhostClassName()]: ghost,
       'du-button--loading': loading,
       'du-button--full': full,
     },
+    `du-c-${disabled && disabledType === 'default' ? 'default' : color}-bt`,
     extClass,
   )
 })

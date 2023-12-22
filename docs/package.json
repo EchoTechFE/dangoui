@@ -20,7 +20,8 @@
     "dayjs": "^1.9.1",
     "lodash-es": "^4.17.21",
     "overlayscrollbars": "^2.4.4",
-    "overlayscrollbars-vue": "^0.5.6"
+    "overlayscrollbars-vue": "^0.5.6",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

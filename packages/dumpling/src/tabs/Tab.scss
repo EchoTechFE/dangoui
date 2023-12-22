@@ -3,7 +3,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
-  color: var(--du-c-text-2);
+  color: var(--du-text-2);
   position: relative;
   white-space: nowrap;
 
@@ -14,7 +14,7 @@
   }
 
   &--active {
-    color: var(--du-c-text-primary);
+    color: var(--du-text-1);
 
     &::after {
       content: '';
@@ -33,7 +33,7 @@
   }
 
   &__text {
-    color: var(--du-c-text-2);
+    color: var(--du-text-2);
     font-size: 12px;
     line-height: 18px;
     white-space: nowrap;

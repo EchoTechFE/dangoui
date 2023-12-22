@@ -1,0 +1,26 @@
+{
+  "name": "@frontend/dumpling-design-token",
+  "version": "1.0.4",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "typings/theme.d.ts",
+  "scripts": {
+    "dts": "tsc -p tsconfig.declaration.json --declaration --emitDeclarationOnly",
+    "build": "pnpm run dts && vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "zhuscat",
+  "license": "ISC",
+  "dependencies": {
+    "chroma-js": "^2.4.2",
+    "lodash-es": "^4.17.21"
+  },
+  "publishConfig": {
+    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.4.3"
+  }
+}

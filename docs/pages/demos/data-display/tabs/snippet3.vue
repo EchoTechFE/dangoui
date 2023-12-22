@@ -10,9 +10,9 @@
       <DuTab name="buy">求购</DuTab>
       <DuTab name="purchaseway">全网</DuTab>
       <template #right>
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试1</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试1</DuButton>
         <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>
@@ -28,7 +28,7 @@
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>
@@ -50,7 +50,7 @@
       <template #right>
         <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>

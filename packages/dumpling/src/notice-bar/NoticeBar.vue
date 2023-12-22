@@ -49,7 +49,7 @@ const props = withDefaults(
     /**
      * 颜色
      */
-    color: 'primary' | 'success' | 'warning' | 'error'
+    color: string
     /**
      * 提示文案
      */
@@ -88,8 +88,8 @@ const emit = defineEmits<{
 
 const style = computed(() => {
   return {
-    '--du-c-notice-bar': `var(--du-c-${props.color})`,
-    '--du-c-notice-bar-bg': `var(--du-c-bg-${props.color})`,
+    '--du-c-notice-bar': `var(--du-${props.color}-color)`,
+    '--du-c-notice-bar-bg': `var(--du-${props.color}-soft-bg)`,
   }
 })
 </script>

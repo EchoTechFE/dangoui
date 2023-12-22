@@ -9,7 +9,7 @@
       },
     ]"
     :style="{
-      '--du-tabs-active-color': `var(--du-c-${color})`,
+      '--du-tabs-active-color': `var(--du-${color}-color)`,
     }"
   >
     <div class="du-tabs__left">
@@ -57,7 +57,7 @@ import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
   defineProps<{
-    color: 'primary' | 'secondary'
+    color: string
     type: 'default' | 'tag' | 'text'
     value: string
     size: 'normal' | 'large'

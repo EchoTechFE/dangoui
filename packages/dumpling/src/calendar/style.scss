@@ -21,7 +21,7 @@
     flex: 1;
 
     &--highlight {
-      color: var(--du-calendar-active-text-color);
+      color: var(--du-primary-color);
     }
   }
 
@@ -46,8 +46,8 @@
     font-weight: 500;
 
     &--selected {
-      background: var(--du-calendar-primary);
-      color: var(--du-calendar-active-text-color);
+      background: var(--du-primary-soft-bg);
+      color: var(--du-primary-color);
     }
 
     &--disabled {

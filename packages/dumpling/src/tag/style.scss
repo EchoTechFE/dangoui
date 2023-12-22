@@ -1,27 +1,27 @@
 .du-tag {
   // TODO: 这些应该可以通过色板配置自动生成
-  --du-c-primary-tag: var(--du-c-primary);
-  --du-c-primary-tag-soft-bg: var(--du-c-bg-primary);
+  --du-c-primary-tag: var(--du-primary-color);
+  --du-c-primary-tag-soft-bg: var(--du-primary-soft-bg);
   --du-c-primary-tag-solid-text: #fff;
 
-  --du-c-secondary-tag: var(--du-c-2);
-  --du-c-secondary-tag-soft-bg: var(--du-c-bg-2);
+  --du-c-secondary-tag: var(--du-secondary-color);
+  --du-c-secondary-tag-soft-bg: var(--du-secondary-soft-bg);
   --du-c-primary-tag-solid-text: #fff;
 
-  --du-c-success-tag: var(--du-c-success);
-  --du-c-success-tag-soft-bg: var(--du-c-bg-success);
+  --du-c-success-tag: var(--du-success-color);
+  --du-c-success-tag-soft-bg: var(--du-success-soft-bg);
   --du-c-success-tag-solid-text: #fff;
 
-  --du-c-warning-tag: var(--du-c-warning);
-  --du-c-warning-tag-soft-bg: var(--du-c-bg-warning);
+  --du-c-warning-tag: var(--du-warning-color);
+  --du-c-warning-tag-soft-bg: var(--du-warning-soft-bg);
   --du-c-warning-tag-solid-text: #fff;
 
-  --du-c-error-tag: var(--du-c-error);
-  --du-c-error-tag-soft-bg: var(--du-c-bg-error);
+  --du-c-error-tag: var(--du-error-color);
+  --du-c-error-tag-soft-bg: var(--du-error-soft-bg);
   --du-c-error-tag-solid-text: #fff;
 
-  --du-c-default-tag: var(--du-c-text-3);
-  --du-c-default-tag-soft-bg: var(--du-c-bg-2);
+  --du-c-default-tag: var(--du-default-color);
+  --du-c-default-tag-soft-bg: var(--du-default-soft-bg);
   --du-c-default-tag-solid-text: #fff;
 
   font-weight: 500;

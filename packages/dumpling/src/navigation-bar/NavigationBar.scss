@@ -84,19 +84,19 @@
   &__wrapper {
     --du-c-primary-navigation-bar-text: #fff;
     --du-c-primary-navigation-bar-bg: rgba(
-      var(--du-c-primary-channel),
+      var(--du-primary-solid-bg-channel),
       var(--du-nav-bar-op)
     );
     --du-c-primary-navigation-bar-border: rgba(255, 255, 255, 0.12);
 
     --du-c-secondary-navigation-bar-text: #fff;
     --du-c-secondary-navigation-bar-bg: rgba(
-      var(--du-c-secondary-channel),
+      var(--du-secondary-solid-bg-channel),
       var(--du-nav-bar-op)
     );
     --du-c-secondary-navigation-bar-border: rgba(255, 255, 255, 0.12);
 
-    --du-c-default-navigation-bar-text: var(--du-c-text-primary);
+    --du-c-default-navigation-bar-text: var(--du-text-1);
     --du-c-default-navigation-bar-bg: rgba(
       var(--du-c-bg-2-channel),
       var(--du-nav-bar-op)

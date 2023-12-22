@@ -63,7 +63,7 @@ const props = withDefaults(
     /**
      * 颜色
      */
-    color: 'primary' | 'secondary' | 'default'
+    color: string
     /**
      * 是否显示分享按钮
      */

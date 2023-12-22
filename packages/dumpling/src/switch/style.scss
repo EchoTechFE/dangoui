@@ -11,14 +11,13 @@
   }
 
   &--on {
-    background: var(--du-c-primary);
-    border: 2px solid var(--du-c-primary);
+    background: var(--du-primary-solid-bg);
+    border: 2px solid var(--du-primary-solid-bg);
   }
 
   &--on-disabled {
-    // TODO: 使用变量
-    background: #c7b8ff;
-    border: 2px solid #c7b8ff;
+    background: var(--du-primary-solid-disabledtemp-bg);
+    border: 2px solid var(--du-primary-solid-disabledtemp-bg);
   }
 
   &__button {

@@ -5,7 +5,7 @@
       <DuNavigationBar share @share="handleShare">
         标题
         <template #right>
-          <DuButton size="small" type="info">按钮</DuButton>
+          <DuButton size="small" type="outline" color="default">按钮</DuButton>
         </template>
       </DuNavigationBar>
     </div>

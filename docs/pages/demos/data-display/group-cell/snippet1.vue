@@ -18,7 +18,7 @@
   <PreviewBlock title="自定义右侧 Slot" :show-section="false">
       <DuGroupCell title="款式">
         <template #right>
-          <DuButton size="mini" type="info">我拥有的 8</DuButton>
+          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
         </template>
         <div>内容</div>
       </DuGroupCell>
@@ -26,7 +26,7 @@
     <PreviewBlock title="自定义左侧 Slot" :show-section="false">
       <DuGroupCell title="款式" guide-text="查看所有">
         <template #left>
-          <DuButton size="mini" type="info">我拥有的 8</DuButton>
+          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
         </template>
         <div>内容</div>
       </DuGroupCell>
@@ -34,7 +34,7 @@
       <PreviewBlock title="展开/折叠" :show-section="false">
       <DuGroupCell title="款式" guide-text="查看所有" mode="collapse" :default-open="false">
         <template #left>
-          <DuButton size="mini" type="info">我拥有的 8</DuButton>
+          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
         </template>
         <div>内容</div>
       </DuGroupCell>

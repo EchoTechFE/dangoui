@@ -12,7 +12,7 @@
     border: 1px solid rgba(0, 0, 0, 0.12);
 
     &--checked {
-      border-color: var(--du-color-main);
+      border-color: var(--du-primary-solid-bg);
       &::after {
         // 用 absolute 视觉上会有一点偏差
         width: 14px;
@@ -20,7 +20,7 @@
         border-radius: 50%;
         display: block;
         content: '';
-        background: var(--du-color-main);
+        background: var(--du-primary-solid-bg);
       }
     }
 

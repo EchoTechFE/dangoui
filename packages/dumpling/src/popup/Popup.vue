@@ -1,6 +1,6 @@
 <template>
   <DuRootPortal>
-    <div class="du-popup" v-if="innerVisible">
+    <div :class="['du-popup', themeName]" v-if="innerVisible">
       <div
         :class="maskClassName"
         :style="maskStyleFormat"
@@ -25,11 +25,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, ref } from 'vue'
+import { computed, watch, ref, inject } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
 import classNames from 'classnames'
 import styleToCss from 'style-object-to-css-string'
+import { themeInjectionKey } from '../theme/helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -100,6 +101,19 @@ const emit = defineEmits<{
 
 const innerVisible = ref(props.visible)
 const openAni = ref(false)
+const themeConfig = inject(themeInjectionKey)
+
+const themeName = computed(() => {
+  if (!themeConfig?.name) {
+    return undefined
+  }
+
+  if (typeof themeConfig?.name === 'string') {
+    return themeConfig.name
+  }
+
+  return themeConfig.name.value
+})
 
 const style = computed(() => {
   const { extStyle } = props

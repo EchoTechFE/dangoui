@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -26,7 +26,8 @@
     "src/**/*.vue",
     "packages/dumpling/**/*.vue",
     "packages/dumpling/**/*.ts",
-    "packages/dumpling/src/global.d.ts"
+    "packages/dumpling/src/global.d.ts",
+    "packages/vite-plugin-dumpling/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["**/docs/**"]

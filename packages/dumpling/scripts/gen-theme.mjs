@@ -1,5 +1,9 @@
 import cssvars from '../dist/cssvars.mjs'
 import fs from 'fs'
+import { createThemes } from '@frontend/dumpling-design-token'
+import fromPlatte from '../dist/platte.mjs'
+
+const themeHelper = createThemes({ theme: {}, defaultTheme: 'qd' })
 
 const result = []
 
@@ -15,13 +19,40 @@ Object.keys(cssvars)
     })
   })
 
+const colorSet = new Set()
+Object.keys(themeHelper.themePlatte).forEach((key) => {
+  const theme = themeHelper.themePlatte[key]
+  theme.colors.forEach((c) => {
+    colorSet.add(c)
+  })
+})
+
+const designTokenCss = themeHelper.generateCss()
+
+let componentColorsCss = ''
+
+colorSet.forEach((c) => {
+  Object.values(fromPlatte).forEach((fn) => {
+    const config = fn(c)
+    componentColorsCss =
+      componentColorsCss +
+      `.${config.name} {\n${Object.entries(config.vars)
+        .map(([key, value]) => `--du-${key}:var(--du-${value});`)
+        .join('\n')}\n}\n`
+  })
+})
+
 const iconfont = fs.readFileSync('./src/icon/iconfont.css', 'utf-8')
 
 fs.writeFileSync(
   './dist/theme.css',
-  `:root {\n${result.join('\n')}\n}\n${iconfont}`,
+  `:root {\n${result.join(
+    '\n',
+  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}`,
 )
 fs.writeFileSync(
   './dist/mp/theme.css',
-  `page {\n${result.join('\n')}\n}\n${iconfont}`,
+  `page {\n${result.join(
+    '\n',
+  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}`,
 )

@@ -17,7 +17,15 @@
       </thead>
       <tbody>
         <tr v-for="prop in doc.props ?? []" :key="prop.name">
-          <td>{{ kebabCase(prop.name) }}</td>
+          <td
+            v-if="prop.name === 'color'"
+            class="c-qd-purple underline underline-dashed underline-qd-purple"
+          >
+            <span class="doc-prop-color cursor-pointer">
+              {{ kebabCase(prop.name) }}
+            </span>
+          </td>
+          <td v-else>{{ kebabCase(prop.name) }}</td>
           <td>
             <code class="whitespace-break-spaces">{{ prop.type }}</code>
           </td>
@@ -88,6 +96,7 @@
 import componentMeta from '@/assets/component-meta/meta.json'
 import { kebabCase } from 'lodash-es'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
+import tippy from 'tippy.js'
 
 const props = defineProps<{
   component: string
@@ -96,5 +105,13 @@ const props = defineProps<{
 
 const doc = computed(() => {
   return componentMeta[props.component as keyof typeof componentMeta]
+})
+
+onMounted(() => {
+  tippy('.doc-prop-color', {
+    content:
+      "<code>'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'trade'</code>",
+    allowHTML: true,
+  })
 })
 </script>

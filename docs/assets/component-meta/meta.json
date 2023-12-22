@@ -58,14 +58,14 @@
                 "name": "color",
                 "description": "色彩",
                 "required": false,
-                "type": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "type": "string",
                 "default": "\"primary\""
             },
             {
                 "name": "type",
                 "description": "按钮类型",
                 "required": false,
-                "type": "\"primary\" | \"secondary\" | \"recommend\" | \"info\" | \"text\" | \"text-primary\"",
+                "type": "\"primary\" | \"secondary\" | \"outline\" | \"text\"",
                 "default": "\"primary\""
             },
             {
@@ -94,7 +94,7 @@
                 "description": "自定义 style",
                 "required": false,
                 "type": "string | Record<string, string | number>",
-                "default": "\"\""
+                "default": "{}"
             },
             {
                 "name": "size",
@@ -167,13 +167,6 @@
                 "default": "\"\""
             },
             {
-                "name": "ghost",
-                "description": "半透明按钮",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "press",
                 "description": "点击触发事件改为长按",
                 "required": false,
@@ -186,6 +179,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"rgba(0, 0, 0, 0.04)\""
+            },
+            {
+                "name": "theme",
+                "description": "主题",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -346,8 +346,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3590,
-                                            3624
+                                            3577,
+                                            3611
                                         ]
                                     }
                                 ],
@@ -1059,8 +1059,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3631,
-                                            3651
+                                            3618,
+                                            3638
                                         ]
                                     }
                                 ],
@@ -1077,8 +1077,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3658,
-                                            3675
+                                            3645,
+                                            3662
                                         ]
                                     }
                                 ],
@@ -1850,13 +1850,6 @@
                 "default": "false"
             },
             {
-                "name": "info",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -1900,6 +1893,13 @@
             },
             {
                 "name": "tips",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "info",
                 "description": "",
                 "required": false,
                 "type": "string",
@@ -2922,7 +2922,7 @@
                 "name": "color",
                 "description": "颜色",
                 "required": false,
-                "type": "\"default\" | \"primary\" | \"secondary\"",
+                "type": "string",
                 "default": "\"default\""
             },
             {
@@ -3051,7 +3051,7 @@
                 "name": "color",
                 "description": "颜色",
                 "required": false,
-                "type": "\"error\" | \"primary\" | \"success\" | \"warning\"",
+                "type": "string",
                 "default": "\"primary\""
             },
             {
@@ -3395,8 +3395,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1993,
-                                            2010
+                                            2048,
+                                            2065
                                         ]
                                     }
                                 ],
@@ -3420,8 +3420,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2011,
-                                            2033
+                                            2066,
+                                            2088
                                         ]
                                     }
                                 ],
@@ -3484,8 +3484,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1912,
-                                            1929
+                                            1967,
+                                            1984
                                         ]
                                     }
                                 ],
@@ -3509,8 +3509,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1930,
-                                            1952
+                                            1985,
+                                            2007
                                         ]
                                     }
                                 ],
@@ -4179,7 +4179,7 @@
                 "name": "color",
                 "description": "",
                 "required": false,
-                "type": "\"primary\" | \"secondary\"",
+                "type": "string",
                 "default": "\"primary\""
             },
             {
@@ -4282,7 +4282,7 @@
                 "name": "color",
                 "description": "颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色\nTODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展",
                 "required": false,
-                "type": "\"default\" | \"error\" | `#${string}` | \"primary\" | \"secondary\" | \"success\" | \"warning\" | { border: string; text: string; background: string; }",
+                "type": "string | { border: string; text: string; background: string; }",
                 "default": "\"primary\""
             },
             {

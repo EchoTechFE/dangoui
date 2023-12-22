@@ -59,7 +59,7 @@
               >
                 <div
                   v-if="isToday(date)"
-                  style="color: var(--du-calendar-active-text-color)"
+                  style="color: var(--du-primary-color)"
                 >
                   今
                 </div>

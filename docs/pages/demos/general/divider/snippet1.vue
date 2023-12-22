@@ -9,6 +9,7 @@
   <PreviewBlock title="垂直">
     <div class="flex items-center gap-x-8px">
       <DuButton
+        color="default"
         type="text"
         size="mini"
         icon="multiselection"
@@ -17,6 +18,7 @@
       </DuButton>
       <DuDivider type="vertical" />
       <DuButton
+        color="default"
         type="text"
         size="mini"
         icon="info-circle"
@@ -33,6 +35,7 @@
   <PreviewBlock title="垂直/指定高度">
     <div class="flex items-center gap-x-8px">
       <DuButton
+        color="default"
         type="text"
         size="mini"
         icon="multiselection"
@@ -41,6 +44,7 @@
       </DuButton>
       <DuDivider type="vertical" :length="12" />
       <DuButton
+        color="default"
         type="text"
         size="mini"
         icon="info-circle"

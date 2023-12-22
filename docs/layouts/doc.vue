@@ -56,8 +56,53 @@
         </NuxtLink>
         <div v-else class="py-16px px-8px text-center">没有结果</div>
       </div>
-      <div class="text-24px cursor-not-allowed text-gray-500">
-        <IconsGitHub />
+      <div class="flex items-center gap-x-16px">
+        <div
+          class="text-24px cursor-pointer text-gray-700"
+          @click="handleThemeConfigClick"
+        >
+          <IconsBrush />
+        </div>
+        <Teleport to="body" v-if="isThemeConfigOpen">
+          <div
+            class="fixed w-screen h-screen z-9999 left-0 top-0 bg-black/60"
+            @click="isThemeConfigOpen = false"
+          ></div>
+          <div
+            class="fixed z-99999 w-400px h-screen bg-white right-0 top-0 shadow-lg p-16px"
+          >
+            <div class="text-lg font-medium mb-16px">主题定制</div>
+            <div class="flex gap-x-24px">
+              <div class="flex flex-col items-center cursor-pointer">
+                <div
+                  class="bg-[rgb(124,102,255)] w-60px h-60px rounded mb-8px"
+                ></div>
+                <div class="c-gray-600 text-sm">千岛紫</div>
+              </div>
+              <div class="flex flex-col items-center cursor-pointer">
+                <div class="bg-[#FF812C] w-60px h-60px rounded mb-8px"></div>
+                <div class="c-gray-600 text-sm">奇货橙</div>
+              </div>
+              <div class="flex flex-col items-center cursor-pointer">
+                <div class="bg-[#AEF056] w-60px h-60px rounded mb-8px"></div>
+                <div class="c-gray-600 text-sm flex flex-col items-center">
+                  <div>米花绿</div>
+                  <div class="c-gray-500 text-xs">日照</div>
+                </div>
+              </div>
+              <div class="flex flex-col items-center cursor-pointer">
+                <div class="bg-[#AEF056] w-60px h-60px rounded mb-8px"></div>
+                <div class="c-gray-600 text-sm flex flex-col items-center">
+                  <div>米花绿</div>
+                  <div class="c-gray-500 text-xs">暗黑</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Teleport>
+        <div class="text-24px cursor-not-allowed text-gray-500">
+          <IconsGitHub />
+        </div>
       </div>
     </div>
   </div>
@@ -186,6 +231,12 @@ function handleEnter() {
     router.push(activeSearchItem.value)
     inputRef.value?.blur()
   }
+}
+
+const isThemeConfigOpen = ref(false)
+
+function handleThemeConfigClick() {
+  isThemeConfigOpen.value = true
 }
 
 watch(keyword, (kw) => {

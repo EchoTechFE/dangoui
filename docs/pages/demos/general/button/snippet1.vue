@@ -7,17 +7,11 @@
     <DuButton type="secondary" @click="onClick">
       Secondary
     </DuButton>
-    <DuButton type="recommend" @click="onClick">
-      Info
-    </DuButton>
-    <DuButton type="info" @click="onClick">
-      Info
+    <DuButton type="outline" @click="onClick">
+      Outline
     </DuButton>
     <DuButton type="text" @click="onClick">
       Text
-    </DuButton>
-    <DuButton type="text-primary" @click="onClick">
-      Text Primary
     </DuButton>
   </PreviewBlock>
   <PreviewBlock title="按钮大小">
@@ -53,7 +47,7 @@
       提醒我
     </DuButton>
     <DuButton arrow-right>去发帖</DuButton>
-    <DuButton type="info" icon="wifi" icon-position="right">
+    <DuButton type="outline" icon="wifi" icon-position="right">
       连接 Wifi
     </DuButton>
   </PreviewBlock>
@@ -62,7 +56,7 @@
       占据剩余空间
     </DuButton>
     <div class="w-full flex gap-x-8px">
-      <DuButton class="w-full" type="info" full>
+      <DuButton class="w-full" type="outline" full>
         取消
       </DuButton>
       <DuButton class="w-full" full>

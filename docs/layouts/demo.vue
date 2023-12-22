@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isHydrated">
+  <div v-if="isHydrated" class="du-theme-qd">
     <slot />
   </div>
   <div

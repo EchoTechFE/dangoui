@@ -3,6 +3,8 @@ import path from 'path'
 import fs from 'fs'
 import MagicString from 'magic-string'
 import fg from 'fast-glob'
+import { createThemes } from '@frontend/dumpling-design-token'
+import fromPlatte from '@frontend/dumpling/platte'
 
 export default function plugin(): Plugin {
   const libName = '@frontend/dumpling'
@@ -14,6 +16,10 @@ export default function plugin(): Plugin {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
   })
 
+  const themeHelper = createThemes({ theme: {}, defaultTheme: 'qd' })
+
+  const VIRTUAL_DUMPLING_THEME = 'virtual:dumpling-theme.css'
+
   return {
     name: 'vite-plugin-dumpling',
     config() {
@@ -24,6 +30,25 @@ export default function plugin(): Plugin {
         },
       }
     },
+
+    resolveId(source: string) {
+      if (source === VIRTUAL_DUMPLING_THEME) {
+        return VIRTUAL_DUMPLING_THEME
+      }
+      return null
+    },
+
+    load(id: string) {
+      if (id === VIRTUAL_DUMPLING_THEME) {
+        const iconfont = fs.readFileSync(
+          path.resolve(libraryPath, 'src/icon/iconfont.css'),
+        )
+        const designTokenCss = themeHelper.generateCss()
+        return `${designTokenCss}\n${iconfont}\n`
+      }
+      return null
+    },
+
     transform(code: string, id: string) {
       if (id.startsWith(libraryPath) && id.endsWith('.vue')) {
         const basename = path.basename(id)
@@ -43,6 +68,46 @@ export default function plugin(): Plugin {
             return `${parseFloat(px) * 2}rpx`
           },
         )
+
+        const componentName = basename.replace(/\.vue$/, '')
+        if (fromPlatte[componentName]) {
+          const colorSet = new Set<string>()
+          const themeNames = Object.keys(themeHelper.themePlatte)
+          themeNames.forEach((themeName) => {
+            themeHelper.themePlatte[themeName].colors.forEach((c) => {
+              colorSet.add(c)
+            })
+          })
+          colorSet.forEach((c) => {
+            const config = fromPlatte[componentName](c)
+            Object.entries(config.vars).forEach(([key, value]) => {
+              themeHelper.addAlias(key)
+              themeHelper.addAlias(value)
+            })
+          })
+          styleContent = styleContent.replace(/var\(--du-(.*)\)/g, (_, $1) => {
+            if (themeHelper.hasAlias($1)) {
+              return `var(--dva-${themeHelper.getAlias($1)})`
+            }
+            return _
+          })
+          colorSet.forEach((c) => {
+            const config = fromPlatte[componentName](c)
+            const configCss = Object.entries(config.vars)
+              .map(([key, value]) => {
+                const k = themeHelper.hasAlias(key)
+                  ? `--dva-${themeHelper.getAlias(key)}`
+                  : `--du-${key}`
+                const v = themeHelper.hasAlias(value)
+                  ? `--dva-${themeHelper.getAlias(value)}`
+                  : `--du-${value}`
+                return `${k}: var(${v});`
+              })
+              .join('\n')
+            styleContent += `.${config.name} {\n${configCss}\n}`
+          })
+        }
+
         return code + `\n<style lang="scss">\n${styleContent}\n</style>`
       }
 

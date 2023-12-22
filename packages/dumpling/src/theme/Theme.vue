@@ -1,5 +1,5 @@
 <template>
-  <div :class="name">
+  <div :class="themeName">
     <slot />
   </div>
 </template>
@@ -13,7 +13,8 @@ const props = defineProps<{
 }>()
 
 const themeName = computed(() => {
-  return props.name
+  // g-theme-xxx 是为了兼容，后面全部改成 du-theme
+  return `du-theme-${props.name} g-theme-${props.name}`
 })
 
 provide(themeInjectionKey, {

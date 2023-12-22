@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
@@ -12,7 +11,14 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['magic-string', 'fast-glob', 'fs', 'path'],
+      external: [
+        'magic-string',
+        'fast-glob',
+        'fs',
+        'path',
+        '@frontend/dumpling/platte',
+        '@frontend/dumpling-design-token',
+      ],
     },
     minify: false,
   },

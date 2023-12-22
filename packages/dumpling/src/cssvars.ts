@@ -1,23 +1,13 @@
-import Button from './button/cssvars'
 import Empty from './empty/cssvars'
 import Input from './input/cssvars'
-import Snackbar from './snackbar/cssvars'
-import Steps from './steps/cssvars'
-import Calendar from './calendar/cssvars'
 
 export default {
-  Button,
   Empty,
   Input,
-  Snackbar,
-  Steps,
-  Calendar,
   Global: {
     '--du-color-main-rgb': '124, 102, 255',
     '--du-color-main': 'rgb(var(--du-color-main-rgb))',
     '--du-color-main-opacity': 'rgba(var(--du-color-main-rgb), 0.2)',
-    '--du-c-primary': 'rgb(124,102,255)',
-    '--du-c-primary-channel': '124,102,255',
     '--du-c-2': '#2B263B',
     '--du-c-secondary': '#2B263B',
     '--du-c-secondary-channel': '43,38,59',

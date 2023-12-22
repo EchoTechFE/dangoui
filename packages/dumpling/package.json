@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "3.0.33",
+  "version": "3.0.38",
   "description": "",
   "main": "dist/index.mjs",
   "types": "typings/index.d.ts",
@@ -16,6 +16,16 @@
       "import": {
         "types": "./typings/index.d.ts",
         "default": "./dist/index.mjs"
+      }
+    },
+    "./platte": {
+      "import": {
+        "types": "./typings/platte.d.ts",
+        "default": "./dist/platte.mjs"
+      },
+      "default": {
+        "types": "./typings/platte.d.ts",
+        "default": "./dist/platte.cjs"
       }
     },
     "./cssvars": {
@@ -44,7 +54,8 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.9.1",
     "rollup": "^4.5.1",
-    "style-object-to-css-string": "^1.1.3"
+    "style-object-to-css-string": "^1.1.3",
+    "@frontend/dumpling-design-token": "workspace:*"
   },
   "devDependencies": {
     "@dcloudio/uni-app": "3.0.0-3090620231104002",
