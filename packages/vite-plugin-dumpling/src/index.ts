@@ -5,6 +5,7 @@ import MagicString from 'magic-string'
 import fg from 'fast-glob'
 import { createThemes } from '@frontend/dumpling-design-token'
 import fromPlatte from '@frontend/dumpling/platte'
+import cssvars from '@frontend/dumpling/cssvars'
 
 export default function plugin(): Plugin {
   const libName = '@frontend/dumpling'
@@ -43,8 +44,22 @@ export default function plugin(): Plugin {
         const iconfont = fs.readFileSync(
           path.resolve(libraryPath, 'src/icon/iconfont.css'),
         )
+        const result: string[] = []
+
+        Object.entries(cssvars.Global).map((item) => {
+          return result.push(`${item[0]}: ${item[1]};`)
+        })
+
+        Object.keys(cssvars)
+          .filter((key) => key != 'Global')
+          .map((key) => {
+            Object.entries(cssvars[key]).map((item) => {
+              return result.push(`${item[0]}: ${item[1]};`)
+            })
+          })
+        const legacyCssVars = `:root,page{\n${result.join(',')}\n}`
         const designTokenCss = themeHelper.generateCss()
-        return `${designTokenCss}\n${iconfont}\n`
+        return `${legacyCssVars}\n${designTokenCss}\n${iconfont}\n`
       }
       return null
     },

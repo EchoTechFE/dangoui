@@ -1,5 +1,14 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.10
+
+### Patch Changes
+
+- fix navbar bg
+- Updated dependencies
+  - @frontend/dumpling@3.0.39
+  - @frontend/dumpling-design-token@1.0.5
+
 ## 1.0.9
 
 ### Patch Changes

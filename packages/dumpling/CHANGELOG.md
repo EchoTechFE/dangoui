@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.39
+
+### Patch Changes
+
+- fix navbar bg
+- Updated dependencies
+  - @frontend/dumpling-design-token@1.0.5
+
 ## 3.0.38
 
 ### Patch Changes
