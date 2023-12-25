@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.49
+
+### Patch Changes
+
+- update icon
+
 ## 3.0.48
 
 ### Patch Changes
