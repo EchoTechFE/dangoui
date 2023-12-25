@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.17
+
+### Patch Changes
+
+- fix popup type
+- Updated dependencies
+  - @frontend/dumpling@3.0.46
+
 ## 1.0.16
 
 ### Patch Changes

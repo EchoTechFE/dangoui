@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.46
+
+### Patch Changes
+
+- fix popup type
+
 ## 3.0.45
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.5.4
+
+### Patch Changes
+
+- fix popup type
+
 ## 1.5.3
 
 ### Patch Changes
