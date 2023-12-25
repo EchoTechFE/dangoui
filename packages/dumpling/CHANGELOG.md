@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.44
+
+### Patch Changes
+
+- add g-theme-basic
+
 ## 3.0.43
 
 ### Patch Changes

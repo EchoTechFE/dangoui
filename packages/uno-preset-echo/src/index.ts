@@ -476,7 +476,7 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
       ...(mp.preflights ?? []),
       {
         getCSS: ({ theme }) => `
-          :root, page {
+          :root, page, g-theme-basic {
             ${genCssVars(theme)}
             --du-c-primary: ${((theme as any).colors?.purple)[500]};
             --du-c-2: ${((theme as any).colors?.purple)[900]};

@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.15
+
+### Patch Changes
+
+- add g-theme-basic
+- Updated dependencies
+  - @frontend/dumpling@3.0.44
+
 ## 1.0.14
 
 ### Patch Changes

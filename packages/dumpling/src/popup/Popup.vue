@@ -1,6 +1,6 @@
 <template>
   <DuRootPortal>
-    <div :class="['du-popup', themeName]" v-if="innerVisible">
+    <div class="du-popup" v-if="innerVisible">
       <div
         :class="maskClassName"
         :style="maskStyleFormat"
@@ -78,6 +78,10 @@ const props = withDefaults(
      * maskStyle
      */
     maskStyle: string | Record<string, string>
+    /**
+     * 禁止将 Popup 渲染到根节点
+     */
+    disablePortal: boolean
   }>(),
   {
     title: '',
@@ -105,7 +109,7 @@ const themeConfig = inject(themeInjectionKey)
 
 const themeName = computed(() => {
   if (!themeConfig?.name) {
-    return undefined
+    return 'du-theme-basic g-theme-basic'
   }
 
   if (typeof themeConfig?.name === 'string') {
@@ -127,7 +131,7 @@ const style = computed(() => {
 const className = computed(() => {
   const { extClass } = props
 
-  return classNames('du-popup__content', extClass, {
+  return classNames('du-popup__content', themeName.value, extClass, {
     [`du-popup--${props.type}`]: true,
     [`du-popup--${props.type}-open`]: openAni.value,
   })
