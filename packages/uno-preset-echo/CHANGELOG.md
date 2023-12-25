@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.5.5
+
+### Patch Changes
+
+- fix missing dot
+
 ## 1.5.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.47
+
+### Patch Changes
+
+- fix missing dot
+
 ## 3.0.46
 
 ### Patch Changes

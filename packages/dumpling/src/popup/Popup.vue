@@ -114,10 +114,10 @@ const themeName = computed(() => {
   }
 
   if (typeof themeConfig?.name === 'string') {
-    return themeConfig.name
+    return `du-theme-basic g-theme-basic ${themeConfig.name}`
   }
 
-  return themeConfig.name.value
+  return `du-theme-basic g-theme-basic ${themeConfig.name.value}`
 })
 
 const style = computed(() => {
