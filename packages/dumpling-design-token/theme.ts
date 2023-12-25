@@ -482,7 +482,7 @@ export function createThemes(opts: CreateThemeOpts) {
       .map((theme) => {
         // TODO: .g-theme-xxx 是为了兼容原来应用中的类名，后续会去掉
         const selector = theme.isDefault
-          ? `:root,page,.du-theme-${theme.name},.g-theme-${theme.name}`
+          ? `:root,page,.du-theme-${theme.name},.g-theme-${theme.name},.du-theme-basic,.g-theme-basic`
           : `.du-theme-${theme.name},.g-theme-${theme.name}`
         return `${selector} {\n${Object.entries(theme.vars)
           .map(([key, value]) => `${key}:${value};`)
