@@ -1,5 +1,5 @@
 <template>
-  <DuRootPortal>
+  <DuRootPortal :disabled="disablePortal">
     <div class="du-popup" v-if="innerVisible">
       <div
         :class="maskClassName"
@@ -95,6 +95,7 @@ const props = withDefaults(
     closable: true,
     maskClass: '',
     maskStyle: '',
+    disablePortal: false,
   },
 )
 
