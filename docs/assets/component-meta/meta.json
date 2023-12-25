@@ -3202,6 +3202,13 @@
                 "required": false,
                 "type": "string | Record<string, string>",
                 "default": "\"\""
+            },
+            {
+                "name": "disablePortal",
+                "description": "禁止将 Popup 渲染到根节点",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             }
         ],
         "events": [
@@ -4084,6 +4091,13 @@
     },
     "Switch": {
         "props": [
+            {
+                "name": "color",
+                "description": "色板色彩",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
             {
                 "name": "disabled",
                 "description": "是否禁用",
