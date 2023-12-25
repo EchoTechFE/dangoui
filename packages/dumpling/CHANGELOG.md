@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.45
+
+### Patch Changes
+
+- change access
+
 ## 3.0.44
 
 ### Patch Changes
