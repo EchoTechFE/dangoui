@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.48
+
+### Patch Changes
+
+- add root selector
+- Updated dependencies
+  - @frontend/dumpling-design-token@1.0.10
+
 ## 3.0.47
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.10
+
+### Patch Changes
+
+- add root selector
+
 ## 1.0.9
 
 ### Patch Changes

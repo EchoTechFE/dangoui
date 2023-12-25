@@ -1,5 +1,14 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.19
+
+### Patch Changes
+
+- add root selector
+- Updated dependencies
+  - @frontend/dumpling@3.0.48
+  - @frontend/dumpling-design-token@1.0.10
+
 ## 1.0.18
 
 ### Patch Changes
