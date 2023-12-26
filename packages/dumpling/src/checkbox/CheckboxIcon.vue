@@ -12,40 +12,32 @@
       border,
     }"
   >
-    <img
-      v-if="selected"
-      :style="imageStyle"
-      src="https://cdn.qiandaoapp.com/admins/1094c5afbcb6ae86323605a326536769.svg"
-    />
+    <div class="du-checkbox__icon">
+      <DuIcon v-if="selected" name="check-heavy" :size="size" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import DuIcon from '../icon/Icon.vue'
+import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
     selected: boolean
     shape: string
-    size: string
+    size: string | number
     border: string
     color: string
   }>(),
   {
     selected: false,
     shape: 'round',
-    size: '20px',
+    size: 20,
     border: '',
     color: 'primary',
   },
 )
 
-const imageStyle = computed(() => {
-  const { size } = props
-
-  return {
-    width: size,
-    height: size,
-  }
-})
+const size = useSize(() => props.size)
 </script>

@@ -11,9 +11,14 @@
   &--selected {
     border: none;
     background-color: var(--du-checkbox-bg);
+    color: var(--du-checkbox-color);
   }
 
   &--square {
     border-radius: 0;
   }
+}
+
+.du-checkbox__icon {
+  transform: scale(0.55);
 }
