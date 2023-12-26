@@ -64,6 +64,14 @@
         </DuTabs>
       </DuNavigationBar>
     </div>
+    <div class="mb-16px">
+      <DuNavigationBar center color="white">
+        <DuTabs size="large" v-model:value="tab">
+          <DuTab name="discovery">发现岛</DuTab>
+          <DuTab name="joined">我的岛</DuTab>
+        </DuTabs>
+      </DuNavigationBar>
+    </div>
   </div>
 </template>
 

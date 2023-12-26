@@ -103,6 +103,10 @@
     );
     --du-c-default-navigation-bar-border: rgba(0, 0, 0, 0.08);
 
+    --du-c-white-navigation-bar-text: var(--du-text-1);
+    --du-c-white-navigation-bar-bg: rgba(255, 255, 255, var(--du-nav-bar-op));
+    --du-c-white-navigation-bar-border: rgba(0, 0, 0, 0.08);
+
     box-sizing: content-box;
     background-color: var(--du-c-navigation-bar-bg);
 
