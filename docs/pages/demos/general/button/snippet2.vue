@@ -104,6 +104,18 @@
       <DuButton color="primary" disabled disabled-type="temp" type="text">Text</DuButton>
     </div>
   </PreviewBlock>
+  <PreviewBlock title="米花（暗黑）/secondary" class="du-theme-mihua-dark">
+    <div class="flex flex-wrap gap-x-8px gap-y-16px bg-black p-8px rounded-8px">
+      <DuButton color="secondary">Primary</DuButton>
+      <DuButton color="secondary" type="secondary">Secondary</DuButton>
+      <DuButton color="secondary" type="outline">Outline</DuButton>
+      <DuButton color="secondary" type="text">Text</DuButton>
+      <DuButton color="secondary" disabled disabled-type="temp">Primary</DuButton>
+      <DuButton color="secondary" disabled disabled-type="temp" type="secondary">Secondary</DuButton>
+      <DuButton color="secondary" disabled disabled-type="temp" type="outline">Outline</DuButton>
+      <DuButton color="secondary" disabled disabled-type="temp" type="text">Text</DuButton>
+    </div>
+  </PreviewBlock>
   <PreviewBlock title="奇货/primary" class="du-theme-qh">
     <DuButton color="primary">Primary</DuButton>
     <DuButton color="primary" type="secondary">Secondary</DuButton>

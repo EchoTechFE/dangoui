@@ -65,25 +65,48 @@ const builtinTheme: Record<
   'mihua-dark': {
     primary: {
       'solid-bg': '#AEF056',
-      'solid-disabledtemp-bg': '#C9F590',
+      'solid-disabledtemp-bg': '#437008',
 
       'solid-color': '#000000',
-      'solid-disabledtemp-color': '#00000029',
+      'solid-disabledtemp-color': '#000000',
 
       'text-color': '#AEF056',
-      'text-disabledtemp-color': '#C9F590',
+      'text-disabledtemp-color': '#437008',
 
       border: '#AEF056',
-      'disabledtemp-border': '#C9F590',
+      'disabledtemp-border': '#437008',
 
       'outline-color': '#AEF056',
-      'outline-disabledtemp-color': '#C9F590',
+      'outline-disabledtemp-color': '#437008',
 
       color: '#AEF056',
-      'disabledtemp-color': '#FFFFFF66',
+      'disabledtemp-color': '#437008',
 
       'soft-bg': '#FFFFFF1F',
       'soft-disabledtemp-bg': '#FFFFFF1F',
+    },
+
+    secondary: {
+      'solid-bg': '#FFFFFF',
+      'solid-disabledtemp-bg': '#FFFFFF3D',
+
+      'solid-color': '#000000',
+      'solid-disabledtemp-color': '#000000',
+
+      'text-color': '#FFFFFFE0',
+      'text-disabledtemp-color': '#FFFFFF3D',
+
+      border: '#FFFFFFE0',
+      'disabledtemp-border': '#FFFFFF66',
+
+      'outline-color': '#FFFFFFE0',
+      'outline-disabledtemp-color': '#FFFFFF3D',
+
+      color: '#FFFFFFE0',
+      'disabledtemp-color': '#FFFFFF3D',
+
+      'soft-bg': '#FFFFFF14',
+      'soft-disabledtemp-bg': '#1F1F1F ',
     },
   },
 
