@@ -1,5 +1,12 @@
 # @frontend/dumpling
 
+## 3.0.51
+
+### Patch Changes
+
+- Updated dependencies
+  - @frontend/dumpling-design-token@1.0.11
+
 ## 3.0.50
 
 ### Patch Changes

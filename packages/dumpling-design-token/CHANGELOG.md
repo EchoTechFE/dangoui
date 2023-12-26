@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.11
+
+### Patch Changes
+
+- update mihua dark secondary design token
+
 ## 1.0.10
 
 ### Patch Changes
