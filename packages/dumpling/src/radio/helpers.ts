@@ -6,6 +6,7 @@ type RadioGroupConfig = {
   custom?: boolean
   cell?: boolean
   valueKey?: string
+  color?: string
 }
 
 export const groupConfigInjectionKey = Symbol(

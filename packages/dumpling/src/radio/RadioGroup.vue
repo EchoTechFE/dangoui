@@ -42,6 +42,10 @@ const props = withDefaults(
      * 如果值为对象，进行选中值相等判断时，会取该对象的 valueKey 属性值进行判断
      */
     valueKey?: string
+    /**
+     * 颜色
+     */
+    color?: string
   }>(),
   {
     extClass: '',
@@ -49,6 +53,7 @@ const props = withDefaults(
     inline: false,
     cell: false,
     custom: false,
+    color: undefined,
   },
 )
 
@@ -106,7 +111,7 @@ function updateValue(value: string | number | undefined) {
 }
 
 const groupConfig = computed(() => {
-  const { inline, shape, custom, cell, valueKey } = props
+  const { inline, shape, custom, cell, color, valueKey } = props
 
   return {
     inline,
@@ -114,6 +119,7 @@ const groupConfig = computed(() => {
     custom,
     cell,
     valueKey,
+    color,
   }
 })
 

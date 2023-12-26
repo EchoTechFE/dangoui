@@ -12,7 +12,7 @@
     border: 1px solid rgba(0, 0, 0, 0.12);
 
     &--checked {
-      border-color: var(--du-primary-solid-bg);
+      border-color: var(--du-radio-bg);
       &::after {
         // 用 absolute 视觉上会有一点偏差
         width: 14px;
@@ -20,13 +20,16 @@
         border-radius: 50%;
         display: block;
         content: '';
-        background: var(--du-primary-solid-bg);
+        background: var(--du-radio-bg);
       }
     }
 
     &--disabled {
       background: rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(0, 0, 0, 0.08);
+      &::after {
+        background: var(--du-radio-disabled-bg);
+      }
     }
   }
 }

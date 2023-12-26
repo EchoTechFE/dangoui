@@ -2,6 +2,7 @@
   <div
     :class="[
       'du-radio__radio',
+      `du-c-${color}-radio`,
       {
         'du-radio__radio--checked': checked,
         'du-radio__radio--disabled': disabled,
@@ -20,11 +21,13 @@ const props = withDefaults(
     checked: boolean
     disabled: boolean
     size: string | number
+    color: string
   }>(),
   {
     checked: false,
     disabled: false,
     size: '',
+    color: undefined,
   },
 )
 

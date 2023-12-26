@@ -15,10 +15,18 @@
             {{ config.label }}
           </slot>
         </div>
-        <RadioIcon :checked="innerChecked" :disabled="disabled" />
+        <RadioIcon
+          :color="config.color"
+          :checked="innerChecked"
+          :disabled="disabled"
+        />
       </template>
       <template v-else>
-        <RadioIcon :checked="innerChecked" :disabled="disabled" />
+        <RadioIcon
+          :color="config.color"
+          :checked="innerChecked"
+          :disabled="disabled"
+        />
         <div class="du-radio__label">
           <slot>
             {{ config.label }}
@@ -30,7 +38,7 @@
     <DuButton
       v-else-if="config.shape === 'button'"
       size="mini"
-      :color="innerChecked ? 'primary' : 'default'"
+      :color="innerChecked ? config.color : 'default'"
       :type="innerChecked ? 'primary' : 'outline'"
     >
       <slot>
@@ -70,6 +78,7 @@ const props = withDefaults(
     value?: any
     valueKey?: string
     checked?: boolean
+    color?: string
   }>(),
   {
     extClass: '',
@@ -78,6 +87,7 @@ const props = withDefaults(
     inline: false,
     disabled: false,
     cell: false,
+    color: undefined,
   },
 )
 
@@ -104,6 +114,7 @@ const config = computed(() => {
     cell,
     value,
     valueKey,
+    color,
   } = {
     ...props,
   }
@@ -119,6 +130,7 @@ const config = computed(() => {
     cell: cell || groupConfig?.value.cell || false,
     value,
     valueKey: valueKey || groupConfig?.value.valueKey || '',
+    color: color || groupConfig?.value.color || 'primary',
   }
 })
 
