@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.50
+
+### Patch Changes
+
+- 045c335: radio and checkbox support color mode
+
 ## 3.0.49
 
 ### Patch Changes
