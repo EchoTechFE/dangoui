@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.53
+
+### Patch Changes
+
+- NavigationBar support white color
+
 ## 3.0.52
 
 ### Patch Changes
