@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.52
+
+### Patch Changes
+
+- 4b5dcad: 1. Improve `Icon` `color` prop 2. `Checkbox` now uses `Icon` to render check 3. Remove `style-object-to-css`
+
 ## 3.0.51
 
 ### Patch Changes
