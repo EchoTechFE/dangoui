@@ -10,6 +10,7 @@ import { computed, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import iconConfig from './iconfont-config.json'
 import { useSize } from '../composables/useSize'
+import { isPlatteColor } from '../helpers/index'
 
 const props = withDefaults(
   defineProps<{
@@ -64,23 +65,23 @@ const normalizedSize = useSize(() => props.size)
 
 const style = computed(() => {
   const { extStyle } = props
-  if (typeof extStyle === 'string') {
-    const segments: string[] = []
-    if (normalizedSize.value) {
-      segments.push(`--du-icon-size:${normalizedSize.value};`)
+  const baseStyle: Record<string, string> = {}
+  if (normalizedSize.value) {
+    baseStyle['--du-icon-size'] = normalizedSize.value
+  }
+  if (props.color) {
+    if (isPlatteColor(props.color)) {
+      if (props.color.includes('-')) {
+        baseStyle.color = `var(--du-${props.color})`
+      } else {
+        baseStyle.color = `var(--du-${props.color}-text-color)`
+      }
+    } else {
+      baseStyle.color = props.color
     }
-    if (props.color) {
-      segments.push(`color:${props.color};`)
-    }
-    segments.push(extStyle)
-    return segments.join('')
   }
 
-  return normalizeStyle({
-    '--du-icon-size': normalizedSize.value || undefined,
-    color: props.color || undefined,
-    ...extStyle,
-  })
+  return normalizeStyle([baseStyle, extStyle])
 })
 
 const unicode = computed(() => {
