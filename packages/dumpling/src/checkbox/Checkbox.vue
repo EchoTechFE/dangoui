@@ -7,8 +7,9 @@
       <slot>{{ label }}</slot>
     </div>
     <CheckboxIcon
+      :color="config.color"
       :selected="selected"
-      :shape="config?.shape"
+      :shape="config.shape"
       :size="config.size"
       :border="config.border"
     />
@@ -76,6 +77,10 @@ const props = withDefaults(
      * 对勾边框
      */
     border: string
+    /**
+     * 颜色
+     */
+    color: string
   }>(),
   {
     extClass: '',
@@ -84,6 +89,7 @@ const props = withDefaults(
     custom: false,
     size: '20px',
     border: '',
+    color: undefined,
   },
 )
 
@@ -139,6 +145,7 @@ const config = computed(() => {
     size,
     border,
     checked,
+    color,
   } = props
 
   return {
@@ -151,6 +158,7 @@ const config = computed(() => {
     shape: shape || groupConfig?.value.shape || 'round',
     inline: inline || groupConfig?.value.inline || false,
     position: position || groupConfig?.value.position || 'right',
+    color: color || groupConfig?.value.color || 'primary',
     size,
     border,
     checked,

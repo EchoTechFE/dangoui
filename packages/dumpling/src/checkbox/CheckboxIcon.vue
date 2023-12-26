@@ -2,6 +2,7 @@
   <div
     :class="[
       'du-checkbox__checkbox',
+      `du-c-${props.color}-checkbox`,
       selected ? `du-checkbox__checkbox--selected` : '',
       `du-checkbox__checkbox--${shape}`,
     ]"
@@ -28,12 +29,14 @@ const props = withDefaults(
     shape: string
     size: string
     border: string
+    color: string
   }>(),
   {
     selected: false,
     shape: 'round',
     size: '20px',
     border: '',
+    color: 'primary',
   },
 )
 

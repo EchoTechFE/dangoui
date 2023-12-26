@@ -27,7 +27,7 @@ const props = withDefaults(
     checked: false,
     disabled: false,
     size: '',
-    color: undefined,
+    color: 'primary',
   },
 )
 

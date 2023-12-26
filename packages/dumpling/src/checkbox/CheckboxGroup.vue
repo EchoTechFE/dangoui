@@ -38,11 +38,16 @@ const props = withDefaults(
      * custom
      */
     custom?: boolean
+    /**
+     * 颜色
+     */
+    color: string
   }>(),
   {
     extClass: '',
     extStyle: '',
     value: () => [],
+    color: undefined,
   },
 )
 
@@ -71,12 +76,13 @@ const style = computed(() => {
 })
 
 const groupConfig = computed(() => {
-  const { shape, inline, position } = props
+  const { shape, inline, position, color } = props
 
   return {
     shape,
     inline,
     position,
+    color,
   }
 })
 

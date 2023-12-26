@@ -5,6 +5,7 @@ export type CheckboxGroupConfig = {
   inline?: boolean
   position?: 'left' | 'right'
   custom?: boolean
+  color?: string
 }
 
 export const groupConfigInjectionKey = Symbol(
