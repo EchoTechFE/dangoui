@@ -20,9 +20,9 @@ import {
   inject,
   onMounted,
   onUnmounted,
+  normalizeStyle,
 } from 'vue'
 import classNames from 'classnames'
-import styleToCss from 'style-object-to-css-string'
 import { getInstanceId } from './helpers'
 import { GlobalConfigKey } from '../plugins/globalConfig'
 
@@ -59,7 +59,11 @@ const props = withDefaults(
     /**
      * 自定义 style
      */
-    extStyle: Record<string, string | number>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
   }>(),
   {
     width: '100%',
@@ -191,13 +195,9 @@ const imageStyle = computed(() => {
 const style = computed(() => {
   const { extStyle } = props
 
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        width: props.width,
-        height: props.height,
-        borderRadius: props.radius,
-        ...extStyle,
-      })
+  return normalizeStyle([
+    { width: props.width, height: props.height, borderRadius: props.radius },
+    extStyle,
+  ])
 })
 </script>

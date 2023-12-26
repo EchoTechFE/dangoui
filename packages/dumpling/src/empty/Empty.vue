@@ -14,9 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, normalizeStyle } from 'vue'
 import DuButton from '../button/Button.vue'
-import styleToCss from 'style-object-to-css-string'
 import classNames from 'classnames'
 
 const props = withDefaults(
@@ -25,7 +24,11 @@ const props = withDefaults(
     text: string
     buttonText: string
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
   }>(),
   {
     image: 'empty',
@@ -80,7 +83,7 @@ const emptyImg = computed(() => {
 })
 
 const buttonStyle = computed(() => {
-  return styleToCss({
+  return normalizeStyle({
     marginTop: Math.floor((12 / 375) * 100) + 'vw',
   })
 })
@@ -91,11 +94,8 @@ const handleBtnClick = () => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+
+  return normalizeStyle(extStyle)
 })
 
 const className = computed(() => {

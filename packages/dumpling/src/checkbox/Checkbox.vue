@@ -17,8 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed, inject, watch } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { reactive, computed, inject, watch, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import CheckboxIcon from './CheckboxIcon.vue'
 import {
@@ -30,7 +29,11 @@ import {
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 形状
      *
@@ -179,7 +182,7 @@ const className = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = config.value
-  return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
+  return normalizeStyle(extStyle)
 })
 
 const selected = computed(() => {

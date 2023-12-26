@@ -5,9 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref, watch } from 'vue'
+import { computed, provide, ref, watch, normalizeStyle } from 'vue'
 import classNames from 'classnames'
-import styleToCss from 'style-object-to-css-string'
 import {
   groupConfigInjectionKey,
   groupValueInjectionKey,
@@ -17,7 +16,11 @@ import {
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 形状
      */
@@ -72,7 +75,7 @@ const className = computed(() => {
 const style = computed(() => {
   const { extStyle } = props
 
-  return typeof extStyle === 'string' ? extStyle : styleToCss({ ...extStyle })
+  return normalizeStyle(extStyle)
 })
 
 const groupConfig = computed(() => {

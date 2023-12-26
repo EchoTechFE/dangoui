@@ -23,8 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, watch, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import DuButton from '../button/Button.vue'
 import DuIcon from '../icon/Icon.vue'
@@ -32,7 +31,11 @@ import DuIcon from '../icon/Icon.vue'
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     offset: number
     offsetPosition: 'top' | 'bottom'
     duration: number
@@ -79,13 +82,8 @@ const style = computed(() => {
           [offsetPosition]: `${vw}vw`,
         }
       : {}
-  const defaultStyleString = styleToCss(defaultStyle)
-  return typeof extStyle === 'string'
-    ? `${extStyle};${defaultStyleString}`
-    : styleToCss({
-        ...defaultStyle,
-        ...extStyle,
-      })
+
+  return normalizeStyle([defaultStyle, extStyle])
 })
 
 const emitClose = () => emit('close')

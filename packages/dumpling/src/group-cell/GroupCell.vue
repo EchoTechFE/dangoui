@@ -47,9 +47,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
-import styleToCss from 'style-object-to-css-string'
 
 const props = withDefaults(
   defineProps<{
@@ -63,8 +62,16 @@ const props = withDefaults(
     defaultOpen: boolean | null
     open: boolean | null
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
-    contentStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
+    contentStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     showHeader: boolean
   }>(),
   {
@@ -97,11 +104,7 @@ const infoIconSize = ((24 * 100) / 750).toFixed(4) + 'vw'
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const className = computed(() => {
@@ -155,15 +158,6 @@ const finalContentStyle = computed(() => {
     defaultStyle.paddingTop = `${(24 * 100) / 750}vw`
   }
 
-  if (!props.contentStyle) {
-    return styleToCss(defaultStyle)
-  }
-  if (typeof props.contentStyle === 'string') {
-    return styleToCss(defaultStyle) + props.contentStyle
-  }
-  return styleToCss({
-    ...defaultStyle,
-    ...props.contentStyle,
-  })
+  return normalizeStyle([defaultStyle, props.contentStyle])
 })
 </script>

@@ -47,15 +47,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, normalizeStyle } from 'vue'
 import classNames from 'classnames'
-import styleToCss from 'style-object-to-css-string'
 import StepCheck from './StepCheck.vue'
 
 const props = withDefaults(
   defineProps<{
     extClass: string | Array<string> | Record<string, boolean>
-    extStyle: string | Record<string, string | number>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     activeIndex: number
     /**
      * 当前进度的状态：进行中、已完成
@@ -112,11 +115,7 @@ const fulfilledSteps = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const className = computed(() => {

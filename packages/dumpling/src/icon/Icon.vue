@@ -6,8 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import iconConfig from './iconfont-config.json'
 import { useSize } from '../composables/useSize'
@@ -15,7 +14,11 @@ import { useSize } from '../composables/useSize'
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string | number>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 图标名称，可以是内置 iconfont 的名字，也可以是图片链接
      */
@@ -73,7 +76,7 @@ const style = computed(() => {
     return segments.join('')
   }
 
-  return styleToCss({
+  return normalizeStyle({
     '--du-icon-size': normalizedSize.value || undefined,
     color: props.color || undefined,
     ...extStyle,

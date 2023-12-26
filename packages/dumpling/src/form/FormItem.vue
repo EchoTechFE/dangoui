@@ -66,8 +66,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, provide, inject, onBeforeUnmount } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import {
+  ref,
+  computed,
+  provide,
+  inject,
+  onBeforeUnmount,
+  normalizeStyle,
+} from 'vue'
 import classNames from 'classnames'
 import DuIcon from '../icon/Icon.vue'
 import {
@@ -80,7 +86,11 @@ import {
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     label: string
     labelAlign: 'left' | 'right'
     labelSize: string
@@ -107,7 +117,11 @@ const props = withDefaults(
       info: string
       isDirty: boolean
       extClass: string | string[] | Record<string, boolean>
-      extStyle: string | Record<string, string>
+      extStyle:
+        | string
+        | {
+            [x: string]: string | number
+          }
     }
   }>(),
   {
@@ -167,11 +181,7 @@ const config = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = config.value
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const className = computed(() => {

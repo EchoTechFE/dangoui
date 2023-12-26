@@ -13,8 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, normalizeStyle } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -37,6 +36,6 @@ const sizeStyle = computed(() => {
     style.width = props.size
     style.height = props.size
   }
-  return styleToCss(style)
+  return normalizeStyle(style)
 })
 </script>

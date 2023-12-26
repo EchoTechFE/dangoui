@@ -57,8 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, ref, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 
 import DuIcon from '../icon/Icon.vue'
@@ -81,7 +80,11 @@ const props = withDefaults(
     /**
      * 自定义 style
      */
-    extStyle: string | Record<string, string | number>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 色彩
      */
@@ -231,11 +234,7 @@ const className = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const isIconC = computed(() => !!findIcon(props.icon))

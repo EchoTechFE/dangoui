@@ -60,9 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, inject } from 'vue'
-
-import styleToCss from 'style-object-to-css-string'
+import { ref, computed, watch, inject, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import DuIcon from '../icon/Icon.vue'
 import { listenFormItemClickInjectionKey } from '../form/helpers'
@@ -70,7 +68,11 @@ import { listenFormItemClickInjectionKey } from '../form/helpers'
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     type:
       | 'text'
       | 'number'
@@ -227,11 +229,8 @@ const className = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+
+  return normalizeStyle(extStyle)
 })
 
 watch(

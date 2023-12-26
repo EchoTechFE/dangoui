@@ -25,11 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, ref, inject } from 'vue'
+import { computed, watch, ref, inject, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
 import classNames from 'classnames'
-import styleToCss from 'style-object-to-css-string'
 import { themeInjectionKey } from '../theme/helpers'
 
 const props = withDefaults(
@@ -61,7 +60,11 @@ const props = withDefaults(
     /**
      * extStyle
      */
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 点击遮罩层是否关闭
      */
@@ -77,7 +80,11 @@ const props = withDefaults(
     /**
      * maskStyle
      */
-    maskStyle: string | Record<string, string>
+    maskStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     /**
      * 禁止将 Popup 渲染到根节点
      */
@@ -122,11 +129,7 @@ const themeName = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const className = computed(() => {
@@ -140,11 +143,7 @@ const className = computed(() => {
 
 const maskStyleFormat = computed(() => {
   const { maskStyle } = props
-  return typeof maskStyle === 'string'
-    ? maskStyle
-    : styleToCss({
-        ...maskStyle,
-      })
+  return normalizeStyle(maskStyle)
 })
 
 const maskClassName = computed(() => {

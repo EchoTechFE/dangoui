@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, provide, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import {
   formItemLayoutInjectionKey,
@@ -17,7 +16,11 @@ import {
 const props = withDefaults(
   defineProps<{
     extClass: string | string[] | Record<string, boolean>
-    extStyle: string | Record<string, string>
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
     labelSize: string
     labelAlign: 'left' | 'right'
     layout: 'horizontal' | 'vertical'
@@ -57,11 +60,7 @@ const className = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = config.value
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 provide(formLabelSizeInjectionKey, config.value.labelSize)

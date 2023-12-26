@@ -86,8 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
-import styleToCss from 'style-object-to-css-string'
+import { computed, onMounted, ref, watch, normalizeStyle } from 'vue'
 import classNames from 'classnames'
 import DuPopup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
@@ -97,7 +96,11 @@ import dayjs from 'dayjs'
 const props = withDefaults(
   defineProps<{
     extClass?: string | Array<string> | Record<string, string>
-    extStyle?: string | Record<string, string>
+    extStyle?:
+      | string
+      | {
+          [x: string]: string | number
+        }
     visible?: boolean
     type?: 'single' | 'multiple' | 'range'
     title?: string
@@ -179,11 +182,7 @@ const className = computed(() => {
 
 const style = computed(() => {
   const { extStyle } = props
-  return typeof extStyle === 'string'
-    ? extStyle
-    : styleToCss({
-        ...extStyle,
-      })
+  return normalizeStyle(extStyle)
 })
 
 const calendarTitle = computed(() => {
