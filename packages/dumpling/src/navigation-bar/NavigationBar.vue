@@ -89,6 +89,10 @@ const props = withDefaults(
      */
     appearThreshold: number
     /**
+     * 即使滑动距离小于 `appearThreshold`，也一直显示内容
+     */
+    alwaysShowContent: boolean
+    /**
      * 内容是否居中，目前需要自行保证内容不溢出
      */
     center: boolean
@@ -98,6 +102,7 @@ const props = withDefaults(
     share: false,
     back: true,
     center: false,
+    alwaysShowContent: false,
   },
 )
 
@@ -178,6 +183,10 @@ if (__WEB__) {
 }
 
 const showContent = computed(() => {
+  if (props.alwaysShowContent) {
+    return true
+  }
+
   if (props.fixed && props.appearThreshold > 0) {
     if (scrollTop.value > props.appearThreshold) {
       return true
