@@ -6,6 +6,7 @@
         'du-upload--disabled': disabled,
       },
     ]"
+    :style="style"
   >
     <div
       v-for="(file, idx) in value"
@@ -48,11 +49,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, normalizeStyle, ref } from 'vue'
 import DuImage from '../image/Image.vue'
 import DuIcon from '../icon/Icon.vue'
 import { GlobalConfigKey } from '../plugins/globalConfig'
 import { UploadFile } from './helpers'
+import { formItemLayoutInjectionKey } from '../form/helpers'
+import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
@@ -138,6 +141,11 @@ const props = withDefaults(
      * camera
      */
     camera?: 'back' | 'front'
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
   }>(),
   {
     size: 'normal',
@@ -149,14 +157,30 @@ const props = withDefaults(
     badge: '',
     uploadText: '上传',
     beforeResponse: (uploadFile: UploadFile) => uploadFile,
+    extStyle: '',
   },
 )
+
+const marginYInFormItem = useSize(() => 11)
+
+const style = computed(() => {
+  const styles = [props.extStyle]
+  if (formItemLayout === 'horizontal' && marginYInFormItem.value) {
+    styles.unshift({
+      marginTop: marginYInFormItem.value,
+      marginBottom: marginYInFormItem.value,
+    })
+  }
+  return normalizeStyle(styles)
+})
 
 const emit = defineEmits<{
   (e: 'update:value', value: UploadFile[]): void
 }>()
 
 const globalConfig = inject(GlobalConfigKey)
+
+const formItemLayout = inject(formItemLayoutInjectionKey)
 
 const fileInputRef = ref<HTMLInputElement>()
 
