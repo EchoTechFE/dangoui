@@ -28,8 +28,10 @@
         </span>
       </div>
       <div v-if="config.layout === 'horizontal'" class="du-form-item__slot">
-        <div class="du-form-item__slot-inner">
-          <slot />
+        <div class="du-form-item__slot-inner-wrapper">
+          <div class="du-form-item__slot-inner">
+            <slot />
+          </div>
           <div v-if="showBorder" class="du-form-item__bottom-line" />
         </div>
         <slot name="tips">
@@ -45,8 +47,12 @@
       </div>
     </div>
     <div v-if="config.layout === 'vertical'" class="du-form-item__slot">
-      <div class="du-form-item__slot-inner">
-        <slot />
+      <div
+        class="du-form-item__slot-inner-wrapper du-form-item__slot-inner-wrapper--vertical"
+      >
+        <div class="du-form-item__slot-inner">
+          <slot />
+        </div>
         <div v-if="showBorder" class="du-form-item__bottom-line" />
       </div>
       <div>

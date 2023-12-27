@@ -5,13 +5,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref, watch, normalizeStyle } from 'vue'
+import { computed, provide, ref, watch, normalizeStyle, inject } from 'vue'
 import classNames from 'classnames'
 import {
   groupConfigInjectionKey,
   groupValueInjectionKey,
   setGroupValueInjectionKey,
 } from './helpers'
+import { formItemLayoutInjectionKey } from '../form/helpers'
+import { useSize } from '../composables/useSize'
 
 const props = withDefaults(
   defineProps<{
@@ -72,10 +74,27 @@ const className = computed(() => {
   )
 })
 
+const formItemLayout = inject(formItemLayoutInjectionKey)
+
+const marginYInFormItem = useSize(() => 10)
+
 const style = computed(() => {
   const { extStyle } = props
 
-  return normalizeStyle(extStyle)
+  const styles = [extStyle]
+
+  if (
+    formItemLayout === 'horizontal' &&
+    marginYInFormItem.value &&
+    !props.inline
+  ) {
+    styles.unshift({
+      marginTop: marginYInFormItem.value,
+      marginBottom: marginYInFormItem.value,
+    })
+  }
+
+  return normalizeStyle(styles)
 })
 
 const groupConfig = computed(() => {

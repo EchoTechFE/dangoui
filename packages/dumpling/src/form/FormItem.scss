@@ -38,9 +38,20 @@
     flex: 1 0 0;
   }
 
-  &__slot-inner {
-    padding: 11px 0;
+  &__slot-inner-wrapper {
     min-height: 44px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &--vertical {
+      padding: 11px 0;
+    }
+  }
+
+  &__slot-inner {
+    // padding: 11px 0;
     width: 100%;
     position: relative;
   }
