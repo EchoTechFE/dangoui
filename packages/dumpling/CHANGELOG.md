@@ -1,5 +1,14 @@
 # @frontend/dumpling
 
+## 3.0.54
+
+### Patch Changes
+
+- b551d1f: upload 适配 form item
+- 9c8ddf8: 更改 form item 的布局逻辑
+- 1099e46: navigationbar 支持 always show content
+- 299f8c1: input number 新样式
+
 ## 3.0.53
 
 ### Patch Changes
