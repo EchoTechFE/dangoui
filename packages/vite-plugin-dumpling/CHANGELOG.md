@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.27
+
+### Patch Changes
+
+- e6bc9bb: 临时支持 :host（后面还可能有更改）
+- Updated dependencies [e6bc9bb]
+  - @frontend/dumpling@3.0.56
+
 ## 1.0.26
 
 ### Patch Changes

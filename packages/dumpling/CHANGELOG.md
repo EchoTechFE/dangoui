@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.56
+
+### Patch Changes
+
+- e6bc9bb: 临时支持 :host（后面还可能有更改）
+
 ## 3.0.55
 
 ### Patch Changes
