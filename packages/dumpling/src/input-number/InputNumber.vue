@@ -1,12 +1,21 @@
 <template>
   <!-- add minus 使用click.stop的原因是避免与FormItem组件一起使用时，点击事件冒泡导致DuInput触发聚焦频繁唤起键盘 -->
   <div :class="[`du-input-number`, `du-c-${color}-input-number`]">
-    <div :class="minusItemClass" @click.stop="minus">
+    <div
+      :class="minusItemClass"
+      @click.stop="minus"
+      :style="{
+        visibility: isEmpty && compact ? 'hidden' : 'visible',
+      }"
+    >
       <DuIcon name="reduce-heavy" />
     </div>
     <div
       v-if="input && !disabled"
       :class="['du-input-number__input', `du-input-number__input--${size}`]"
+      :style="{
+        visibility: isEmpty && compact ? 'hidden' : 'visible',
+      }"
     >
       <input
         class="du-input-number__input-el"
@@ -22,6 +31,9 @@
         `du-input-number__value--${size}`,
         disabled && 'du-input-number__value--disabled',
       ]"
+      :style="{
+        visibility: isEmpty && compact ? 'hidden' : 'visible',
+      }"
     >
       {{ inputValue }}
     </div>
@@ -38,19 +50,54 @@ import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 色板颜色
+     */
     color: string
+    /**
+     * 值（数字）
+     */
     value: number
+    /**
+     * 允许的最小值
+     */
     min: number
+    /**
+     * 允许的最大值
+     */
     max: number
+    /**
+     * 是否允许用户直接输入
+     */
     input: boolean
-    inputPrefix: string
-    inputSuffix: string
+    /**
+     * 步长
+     */
     step: number
+    /**
+     * 大小
+     */
     size: 'mini' | 'small' | 'normal' | 'medium' | 'large'
+    /**
+     * 强调增加按钮
+     */
     highlightAdd: boolean
+    /**
+     * 强调较少按钮
+     */
     highlightMinus: boolean
+    /**
+     * 禁用
+     */
     disabled: boolean
+    /**
+     * 允许小数
+     */
     allowDecimal: boolean
+    /**
+     * 紧凑（0 的时候仅显示增加按钮）
+     */
+    compact: boolean
   }>(),
   {
     color: 'primary',
@@ -58,8 +105,6 @@ const props = withDefaults(
     min: 0,
     max: Infinity,
     input: false,
-    inputPrefix: '',
-    inputSuffix: '',
     step: 1,
     size: 'mini',
   },
@@ -206,5 +251,9 @@ const addItemClass = computed(() => {
     classes.push('du-input-number__item--right-with-input')
   }
   return classes
+})
+
+const isEmpty = computed(() => {
+  return !+inputValue.value
 })
 </script>

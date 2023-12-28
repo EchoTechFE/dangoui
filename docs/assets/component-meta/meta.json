@@ -93,7 +93,7 @@
                 "name": "extStyle",
                 "description": "自定义 style",
                 "required": false,
-                "type": "string | Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "{}"
             },
             {
@@ -263,7 +263,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -346,8 +346,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3577,
-                                            3611
+                                            3583,
+                                            3617
                                         ]
                                     }
                                 ],
@@ -1059,8 +1059,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3618,
-                                            3638
+                                            3624,
+                                            3644
                                         ]
                                     }
                                 ],
@@ -1077,8 +1077,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
                                         "range": [
-                                            3645,
-                                            3662
+                                            3651,
+                                            3668
                                         ]
                                     }
                                 ],
@@ -1373,7 +1373,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -1529,7 +1529,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -1636,8 +1636,8 @@
                 "name": "size",
                 "description": "",
                 "required": false,
-                "type": "string",
-                "default": "\"20px\""
+                "type": "string | number",
+                "default": "20"
             },
             {
                 "name": "shape",
@@ -1721,7 +1721,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -1771,7 +1771,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -1881,14 +1881,14 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
                 "name": "options",
                 "description": "",
                 "required": false,
-                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | string[] | Record<string, boolean>; extStyle: string | Record<...>; }",
+                "type": "{ label: string; labelAlign: \"left\" | \"right\"; labelSize: string; tips: string; required: boolean; info: string; isDirty: boolean; extClass: string | string[] | Record<string, boolean>; extStyle: string | { ...; }; }",
                 "default": "undefined"
             },
             {
@@ -2027,7 +2027,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -2097,7 +2097,7 @@
                 "name": "contentStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -2235,7 +2235,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -2290,7 +2290,7 @@
                 "name": "extStyle",
                 "description": "自定义 style",
                 "required": false,
-                "type": "Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "{}"
             },
             {
@@ -2373,7 +2373,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -2554,8 +2554,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4443,
-                                            4468
+                                            4448,
+                                            4473
                                         ]
                                     }
                                 ],
@@ -2574,8 +2574,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4453,
-                                                        4466
+                                                        4458,
+                                                        4471
                                                     ]
                                                 }
                                             ],
@@ -2668,8 +2668,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4338,
-                                            4364
+                                            4343,
+                                            4369
                                         ]
                                     }
                                 ],
@@ -2688,8 +2688,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4348,
-                                                        4362
+                                                        4353,
+                                                        4367
                                                     ]
                                                 }
                                             ],
@@ -2731,8 +2731,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4397,
-                                            4407
+                                            4402,
+                                            4412
                                         ]
                                     }
                                 ],
@@ -2775,8 +2775,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                         "range": [
-                                            4526,
-                                            4570
+                                            4531,
+                                            4575
                                         ]
                                     }
                                 ],
@@ -2795,8 +2795,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4536,
-                                                        4551
+                                                        4541,
+                                                        4556
                                                     ]
                                                 }
                                             ],
@@ -2813,8 +2813,8 @@
                                                 {
                                                     "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
                                                     "range": [
-                                                        4552,
-                                                        4568
+                                                        4557,
+                                                        4573
                                                     ]
                                                 }
                                             ],
@@ -2833,53 +2833,88 @@
     "InputNumber": {
         "props": [
             {
+                "name": "color",
+                "description": "色板颜色",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
+            {
                 "name": "value",
-                "description": "",
+                "description": "值（数字）",
                 "required": false,
                 "type": "number",
                 "default": "0"
             },
             {
                 "name": "max",
-                "description": "",
+                "description": "允许的最大值",
                 "required": false,
                 "type": "number",
                 "default": "Infinity"
             },
             {
+                "name": "size",
+                "description": "大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"mini\""
+            },
+            {
                 "name": "min",
-                "description": "",
+                "description": "允许的最小值",
                 "required": false,
                 "type": "number",
                 "default": "0"
             },
             {
                 "name": "input",
-                "description": "",
+                "description": "是否允许用户直接输入",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
-                "name": "inputPrefix",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "inputSuffix",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
                 "name": "step",
-                "description": "",
+                "description": "步长",
                 "required": false,
                 "type": "number",
                 "default": "1"
+            },
+            {
+                "name": "disabled",
+                "description": "禁用",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "highlightAdd",
+                "description": "强调增加按钮",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "highlightMinus",
+                "description": "强调较少按钮",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "allowDecimal",
+                "description": "允许小数",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "compact",
+                "description": "紧凑（0 的时候仅显示增加按钮）",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -2966,6 +3001,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "true"
+            },
+            {
+                "name": "alwaysShowContent",
+                "description": "即使滑动距离小于 `appearThreshold`，也一直显示内容",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "placeholder",
@@ -3165,7 +3207,7 @@
                 "name": "extStyle",
                 "description": "extStyle",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -3221,7 +3263,7 @@
                 "name": "maskStyle",
                 "description": "maskStyle",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -3318,7 +3360,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -3430,8 +3472,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2212,
-                                            2229
+                                            2209,
+                                            2226
                                         ]
                                     }
                                 ],
@@ -3455,8 +3497,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2230,
-                                            2252
+                                            2227,
+                                            2249
                                         ]
                                     }
                                 ],
@@ -3519,8 +3561,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2131,
-                                            2148
+                                            2128,
+                                            2145
                                         ]
                                     }
                                 ],
@@ -3544,8 +3586,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2149,
-                                            2171
+                                            2146,
+                                            2168
                                         ]
                                     }
                                 ],
@@ -3590,7 +3632,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -3915,7 +3957,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -4046,7 +4088,7 @@
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string | Record<string, string | number>",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
@@ -4522,6 +4564,13 @@
                 "required": false,
                 "type": "UploadFile[]",
                 "default": "[]"
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
             },
             {
                 "name": "size",

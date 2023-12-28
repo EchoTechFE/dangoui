@@ -1,32 +1,35 @@
 
 <template>
   <PreviewBlock title="基本">
-    <InputNumber :min="0" :max="6" highlight-add @change="handleChange" />
+    <DuInputNumber :min="0" :max="6" highlight-add @change="handleChange" />
+  </PreviewBlock>
+  <PreviewBlock title="紧凑（没有值的时候只显示增加）">
+    <DuInputNumber :min="0" :max="6" compact highlight-add @change="handleChange" />
   </PreviewBlock>
   <PreviewBlock title="可以手动输入数字">
-    <InputNumber input :max="100" @change="handleChange" />
+    <DuInputNumber input :max="100" @change="handleChange" />
   </PreviewBlock>
   <PreviewBlock title="允许小数点">
-    <InputNumber input v-model:value="value" :max="100" allow-decimal @change="handleChange" />
+    <DuInputNumber input v-model:value="value" :max="100" allow-decimal @change="handleChange" />
   </PreviewBlock>
   <PreviewBlock title="步长">
-    <InputNumber :step="2" :max="100" @change="handleChange" />
+    <DuInputNumber :step="2" :max="100" @change="handleChange" />
   </PreviewBlock>
   <PreviewBlock title="禁用">
-    <InputNumber input size="mini" disabled />
+    <DuInputNumber input size="mini" disabled />
   </PreviewBlock>
   <PreviewBlock title="不同大小">
-    <InputNumber input size="mini" />
-    <InputNumber input size="small" />
-    <InputNumber input size="normal" />
-    <InputNumber input size="medium" />
-    <InputNumber input size="large" />
+    <DuInputNumber input size="mini" />
+    <DuInputNumber input size="small" />
+    <DuInputNumber input size="normal" />
+    <DuInputNumber input size="medium" />
+    <DuInputNumber input size="large" />
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { InputNumber } from '@frontend/dumpling'
+import { DuInputNumber } from '@frontend/dumpling'
 
 const value = ref(0)
 
