@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.55
+
+### Patch Changes
+
+- b3a3a44: input number compact mode
+
 ## 3.0.54
 
 ### Patch Changes
