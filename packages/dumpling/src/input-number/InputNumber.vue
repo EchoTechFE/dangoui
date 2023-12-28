@@ -117,7 +117,6 @@ const emit = defineEmits<{
 }>()
 
 function isEqual(left: string | number, right: string | number) {
-  console.log(left, right, +left === +right)
   return +left === +right
 }
 

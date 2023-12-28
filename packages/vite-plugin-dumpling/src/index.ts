@@ -84,6 +84,14 @@ export default function plugin(): Plugin {
           },
         )
 
+        if (fs.existsSync(path.resolve(path.dirname(id), 'host.css'))) {
+          const hostCss = fs.readFileSync(
+            path.resolve(path.dirname(id), 'host.css'),
+            'utf-8',
+          )
+          styleContent = `${hostCss}\n${styleContent}`
+        }
+
         const componentName = basename.replace(/\.vue$/, '')
         if (fromPlatte[componentName]) {
           const colorSet = new Set<string>()
