@@ -3,24 +3,86 @@
   flex-shrink: 0;
   align-items: center;
   &__input {
-    width: 70px;
-    margin: 0 8px;
+    width: 44px;
+    padding: 0 8px;
 
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1;
+
+    border-top: 1px solid var(--du-bg-4);
+    border-bottom: 1px solid var(--du-bg-4);
+
+    overflow: hidden;
+
+    &--mini {
+      height: 24px;
+    }
+
+    &--small {
+      height: 28px;
+    }
+
+    &--normal {
+      height: 32px;
+    }
+
+    &--medium {
+      height: 36px;
+    }
+
+    &--large {
+      height: 40px;
+    }
+  }
+
+  &__input-el {
+    outline: none;
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
   }
 
   &__value {
-    min-width: 40px;
-    margin: 0 8px;
-
-    color: rgba(32, 36, 38, 1);
+    min-width: 44px;
+    padding: 0 8px;
+    font-size: 14px;
     color: #202426;
-    font-size: 16px;
-    line-height: 24px;
 
     text-align: center;
+
+    &--disabled {
+      background: var(--du-bg-4);
+    }
+
+    &--mini {
+      height: 24px;
+      line-height: 24px;
+    }
+
+    &--small {
+      height: 28px;
+      line-height: 28px;
+    }
+
+    &--normal {
+      height: 32px;
+      line-height: 32px;
+    }
+
+    &--medium {
+      height: 36px;
+      line-height: 36px;
+    }
+
+    &--large {
+      height: 40px;
+      line-height: 40px;
+    }
   }
+
   &__item {
     position: relative;
 
@@ -31,6 +93,61 @@
     width: 20px;
     height: 20px;
 
-    border-radius: 50%;
+    border-radius: 4px;
+    background: var(--du-bg-4);
+    color: var(--du-icon-1);
+
+    font-size: 8px;
+    user-select: none;
+
+    &--disabled {
+      background: var(--du-bg-4);
+      color: var(--du-icon-disabled);
+    }
+
+    &--mini {
+      width: 24px;
+      height: 24px;
+    }
+
+    &--small {
+      width: 28px;
+      height: 28px;
+    }
+
+    &--normal {
+      width: 32px;
+      height: 32px;
+    }
+
+    &--medium {
+      width: 36px;
+      height: 36px;
+    }
+
+    &--large {
+      width: 40px;
+      height: 40px;
+    }
+
+    &--left-with-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &--right-with-input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &--highlight {
+      background-color: var(--du-in-solid-bg);
+      color: var(--du-in-solid-color);
+    }
+
+    &--highlight-disabled {
+      background-color: var(--du-in-solid-disabledtemp-bg);
+      color: var(--du-in-solid-disabledtemp-color);
+    }
   }
 }

@@ -1,42 +1,44 @@
 <template>
   <!-- add minus 使用click.stop的原因是避免与FormItem组件一起使用时，点击事件冒泡导致DuInput触发聚焦频繁唤起键盘 -->
-  <div class="du-input-number">
-    <img
-      class="du-input-number__item"
-      :src="mValue > min ? ICONS.minus : ICONS.minusDisabled"
-      alt="decrement"
-      @click.stop="minus"
-    />
-    <div v-if="input" class="du-input-number__input">
-      <DuInput
-        :value="`${mValue}`"
-        :prefix="inputPrefix"
-        :suffix="inputSuffix"
-        input-align="center"
+  <div :class="[`du-input-number`, `du-c-${color}-input-number`]">
+    <div :class="minusItemClass" @click.stop="minus">
+      <DuIcon name="reduce-heavy" />
+    </div>
+    <div
+      v-if="input && !disabled"
+      :class="['du-input-number__input', `du-input-number__input--${size}`]"
+    >
+      <input
+        class="du-input-number__input-el"
+        :value="inputValue"
         @input="onInput"
       />
     </div>
 
-    <div v-else class="du-input-number__value">
-      {{ mValue }}
+    <div
+      v-else
+      :class="[
+        'du-input-number__value',
+        `du-input-number__value--${size}`,
+        disabled && 'du-input-number__value--disabled',
+      ]"
+    >
+      {{ inputValue }}
     </div>
 
-    <img
-      class="du-input-number__item"
-      :src="mValue < max ? ICONS.add : ICONS.addDisabled"
-      alt="increment"
-      @click.stop="add"
-    />
+    <div :class="addItemClass" @click.stop="add">
+      <DuIcon name="plus-heavy" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-
-import DuInput from '../input/Input.vue'
+import { computed, ref, watch } from 'vue'
+import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
   defineProps<{
+    color: string
     value: number
     min: number
     max: number
@@ -44,8 +46,14 @@ const props = withDefaults(
     inputPrefix: string
     inputSuffix: string
     step: number
+    size: 'mini' | 'small' | 'normal' | 'medium' | 'large'
+    highlightAdd: boolean
+    highlightMinus: boolean
+    disabled: boolean
+    allowDecimal: boolean
   }>(),
   {
+    color: 'primary',
     value: 0,
     min: 0,
     max: Infinity,
@@ -53,6 +61,7 @@ const props = withDefaults(
     inputPrefix: '',
     inputSuffix: '',
     step: 1,
+    size: 'mini',
   },
 )
 
@@ -62,50 +71,140 @@ const emit = defineEmits<{
   (e: 'update:value', val: number): void
 }>()
 
-const ICONS = {
-  minus:
-    'https://cdn.qiandaoapp.com/admins/2cdeaab50e4e21960d680fe9243f5d4b.png',
-  minusDisabled:
-    'https://cdn.qiandaoapp.com/admins/7a42dab4cc6f6b6f6be4fc79f0287df1.png',
-  add: 'https://cdn.qiandaoapp.com/admins/c8baffc5ffdc0c42f2e6120c31934867.png',
-  addDisabled:
-    'https://cdn.qiandaoapp.com/admins/65665d81f293a99bea9fafc600f0b32c.png',
+function isEqual(left: string | number, right: string | number) {
+  console.log(left, right, +left === +right)
+  return +left === +right
 }
 
-const mValue = ref(props.value)
+const inputValue = ref(`${props.value}`)
 
 watch(
   () => props.value,
   (val) => {
-    if (mValue.value !== val) {
-      mValue.value = val
+    if (!isEqual(inputValue.value, val)) {
+      inputValue.value = `${val}`
     }
   },
 )
 
-watch(mValue, (val) => {
-  emit('input', val)
-  emit('update:value', val)
-  emit('change', val)
+watch(inputValue, (val) => {
+  emit('input', +val)
+  emit('update:value', +val)
+  emit('change', +val)
 })
 
 function minus() {
+  if (props.disabled) {
+    return
+  }
   const { step, min } = props
-  const nVal = mValue.value - step
+  const nVal = +inputValue.value - step
   if (nVal >= min) {
-    mValue.value = nVal
+    inputValue.value = `${nVal}`
   }
 }
 
 function add() {
+  if (props.disabled) {
+    return
+  }
   const { step, max } = props
-  const nVal = mValue.value + step
+  const nVal = +inputValue.value + step
   if (nVal <= max) {
-    mValue.value = nVal
+    inputValue.value = `${nVal}`
   }
 }
 
-function onInput(val: string) {
-  mValue.value = Number(val)
+const isMinusDisabled = computed(() => {
+  const { min } = props
+  return +inputValue.value <= min
+})
+
+const isAddDisabled = computed(() => {
+  const { max } = props
+  return +inputValue.value >= max
+})
+
+function onInput(e: any) {
+  const previousValue = inputValue.value
+
+  let val = e.target.value
+
+  if (props.allowDecimal) {
+    if (val !== '' && !/^\d+(\.\d*)?$/.test(val)) {
+      if (__WEB__) {
+        e.target.value = previousValue
+      }
+      return previousValue
+    }
+  } else {
+    if (val !== '' && !/^\d+$/.test(val)) {
+      if (__WEB__) {
+        e.target.value = previousValue
+      }
+      return previousValue
+    }
+  }
+
+  if (+val > props.max) {
+    if (__WEB__) {
+      e.target.value = `${props.max}`
+    }
+    inputValue.value = `${props.max}`
+  } else if (+val < props.min) {
+    if (__WEB__) {
+      e.target.value = `${props.min}`
+    }
+    inputValue.value = `${props.min}`
+  } else {
+    inputValue.value = val
+  }
+
+  return inputValue.value
 }
+
+const minusItemClass = computed(() => {
+  const classes = [
+    'du-input-number__item',
+    `du-input-number__item--${props.size}`,
+  ]
+  if (props.disabled) {
+    classes.push('du-input-number__item--disabled')
+  } else if (isMinusDisabled.value) {
+    if (props.highlightMinus) {
+      classes.push('du-input-number__item--highlight-disabled')
+    } else {
+      classes.push('du-input-number__item--disabled')
+    }
+  } else if (props.highlightMinus) {
+    classes.push('du-input-number__item--highlight')
+  }
+  if (props.disabled || props.input) {
+    classes.push('du-input-number__item--left-with-input')
+  }
+  return classes
+})
+
+const addItemClass = computed(() => {
+  const classes = [
+    'du-input-number__item',
+    `du-input-number__item--${props.size}`,
+  ]
+  if (props.disabled) {
+    classes.push('du-input-number__item--disabled')
+  } else if (isAddDisabled.value) {
+    if (props.highlightAdd) {
+      classes.push('du-input-number__item--highlight-disabled')
+    } else {
+      classes.push('du-input-number__item--disabled')
+    }
+  } else if (props.highlightAdd) {
+    classes.push('du-input-number__item--highlight')
+  }
+
+  if (props.disabled || props.input) {
+    classes.push('du-input-number__item--right-with-input')
+  }
+  return classes
+})
 </script>

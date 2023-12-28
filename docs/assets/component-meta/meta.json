@@ -1356,6 +1356,13 @@
     "Checkbox": {
         "props": [
             {
+                "name": "color",
+                "description": "颜色",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -1498,6 +1505,13 @@
     "CheckboxGroup": {
         "props": [
             {
+                "name": "color",
+                "description": "颜色",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
+            },
+            {
                 "name": "value",
                 "description": "当前选中的值",
                 "required": false,
@@ -1611,6 +1625,13 @@
     },
     "CheckboxIcon": {
         "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
             {
                 "name": "size",
                 "description": "",
@@ -3280,6 +3301,13 @@
     "Radio": {
         "props": [
             {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -3402,8 +3430,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2048,
-                                            2065
+                                            2212,
+                                            2229
                                         ]
                                     }
                                 ],
@@ -3427,8 +3455,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2066,
-                                            2088
+                                            2230,
+                                            2252
                                         ]
                                     }
                                 ],
@@ -3491,8 +3519,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1967,
-                                            1984
+                                            2131,
+                                            2148
                                         ]
                                     }
                                 ],
@@ -3516,8 +3544,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            1985,
-                                            2007
+                                            2149,
+                                            2171
                                         ]
                                     }
                                 ],
@@ -3544,6 +3572,13 @@
     },
     "RadioGroup": {
         "props": [
+            {
+                "name": "color",
+                "description": "颜色",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
+            },
             {
                 "name": "extClass",
                 "description": "",
@@ -3669,6 +3704,13 @@
     },
     "RadioIcon": {
         "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
             {
                 "name": "size",
                 "description": "",
