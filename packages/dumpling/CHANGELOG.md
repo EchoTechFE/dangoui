@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.57
+
+### Patch Changes
+
+- ab31385: navigationbar 支持配置前景色、支持设置透明
+
 ## 3.0.56
 
 ### Patch Changes
