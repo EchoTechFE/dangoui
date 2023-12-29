@@ -13,18 +13,27 @@
             <DuIcon :name="icon" />
           </div>
           <slot name="left" />
+          <slot name="scoped-left" :opacity="+bgOpacity" />
           <div
-            v-if="showContent"
             :class="[
               'du-navigation-bar__content',
               center && 'du-navigation-bar__content--center',
             ]"
+            :style="{
+              opacity: showContent ? '1' : '0',
+              transform: `translate(${center ? '-50%' : '0'},${
+                showContent ? '0' : '10px'
+              })`,
+              transition: 'transform 0.25s, opacity 0.25s',
+            }"
           >
             <slot />
+            <slot name="scoped-default" :opacity="+bgOpacity" />
           </div>
         </div>
         <div class="du-navigation-bar__right">
           <slot name="right" />
+          <slot name="scoped-right" :opacity="+bgOpacity" />
           <button
             v-if="share"
             open-type="share"
@@ -85,7 +94,16 @@ const props = withDefaults(
      */
     placeholder: boolean
     /**
+     * 前景色
+     */
+    transparentFrontColor: string
+    /**
+     * 是否一直是透明样式
+     */
+    transparent: boolean
+    /**
      * 透明到显示的阈值，只有在 fixed 的时候有效，单位为 px？（没想好）
+     *
      */
     appearThreshold: number
     /**
@@ -198,6 +216,10 @@ const showContent = computed(() => {
 })
 
 const bgOpacity = computed(() => {
+  if (props.transparent) {
+    return '0'
+  }
+
   if (props.fixed && props.appearThreshold > 0) {
     if (scrollTop.value > props.appearThreshold) {
       return '1'
@@ -209,10 +231,14 @@ const bgOpacity = computed(() => {
 })
 
 const finalWrapperStyle = computed(() => {
-  return {
+  const s: Record<string, string | number> = {
     ...wrapperStyle.value,
     '--du-nav-bar-op': bgOpacity.value,
   }
+  if (+bgOpacity.value < 0.8 && props.transparentFrontColor) {
+    s['--du-c-navigation-bar-text'] = props.transparentFrontColor
+  }
+  return s
 })
 
 function handleShare() {

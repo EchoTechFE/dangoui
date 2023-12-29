@@ -28,7 +28,6 @@
     &--center {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
     }
 
     & > view:not([class]) {
@@ -116,6 +115,8 @@
       position: fixed;
       // TODO: 统一规划 z-index
       z-index: 9999;
+      left: 0;
+      top: 0;
     }
   }
 }

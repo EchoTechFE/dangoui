@@ -3031,6 +3031,20 @@
                 "default": "unknown"
             },
             {
+                "name": "transparentFrontColor",
+                "description": "前景色",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "transparent",
+                "description": "是否一直是透明样式",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
                 "name": "appearThreshold",
                 "description": "透明到显示的阈值，只有在 fixed 的时候有效，单位为 px？（没想好）",
                 "required": true,
@@ -3068,6 +3082,28 @@
                 }
             },
             {
+                "name": "scoped-left",
+                "type": "{ opacity: number; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ opacity: number; }",
+                    "schema": {
+                        "opacity": {
+                            "name": "opacity",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "number",
+                            "declarations": [],
+                            "schema": "number"
+                        }
+                    }
+                }
+            },
+            {
                 "name": "default",
                 "type": "{}",
                 "description": "",
@@ -3079,6 +3115,28 @@
                 }
             },
             {
+                "name": "scoped-default",
+                "type": "{ opacity: number; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ opacity: number; }",
+                    "schema": {
+                        "opacity": {
+                            "name": "opacity",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "number",
+                            "declarations": [],
+                            "schema": "number"
+                        }
+                    }
+                }
+            },
+            {
                 "name": "right",
                 "type": "{}",
                 "description": "",
@@ -3087,6 +3145,28 @@
                     "kind": "object",
                     "type": "{}",
                     "schema": {}
+                }
+            },
+            {
+                "name": "scoped-right",
+                "type": "{ opacity: number; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ opacity: number; }",
+                    "schema": {
+                        "opacity": {
+                            "name": "opacity",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "number",
+                            "declarations": [],
+                            "schema": "number"
+                        }
+                    }
                 }
             }
         ]
@@ -3961,18 +4041,18 @@
                 "default": "\"\""
             },
             {
-                "name": "offset",
-                "description": "",
-                "required": false,
-                "type": "number",
-                "default": "0"
-            },
-            {
                 "name": "offsetPosition",
                 "description": "",
                 "required": false,
                 "type": "\"top\" | \"bottom\"",
                 "default": "\"bottom\""
+            },
+            {
+                "name": "offset",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "0"
             },
             {
                 "name": "duration",
