@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.60
+
+### Patch Changes
+
+- b8f4eaf: fix home path
+
 ## 3.0.59
 
 ### Patch Changes
