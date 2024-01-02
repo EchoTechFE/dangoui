@@ -28,6 +28,7 @@ import TabPane from './tabs/TabPane.vue'
 import TabsRight from './tabs/TabsRight.vue'
 import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
+import Tooltip from './tooltip/Tooltip.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
@@ -73,6 +74,7 @@ const DuTabPane = TabPane
 const DuTabsRight = TabsRight
 const DuDivider = Divider
 const DuTag = Tag
+const DuTooltip = Tooltip
 
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
@@ -143,6 +145,8 @@ export {
   DuDivider,
   Tag,
   DuTag,
+  Tooltip,
+  DuTooltip,
   NavigationBar,
   DuNavigationBar,
   NavigationBarRight,

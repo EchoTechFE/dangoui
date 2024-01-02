@@ -1,0 +1,31 @@
+.du-tooltip {
+  display: block;
+  position: relative;
+
+  &__popover {
+    background: #ff753a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 1px 16px;
+    position: absolute;
+    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -26px;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: #ff753a;
+      position: absolute;
+      transform: translateX(-50%) rotate(-45deg);
+      transform-origin: center;
+      bottom: -2px;
+      left: 50%;
+    }
+  }
+}
