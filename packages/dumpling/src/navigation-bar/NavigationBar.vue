@@ -62,10 +62,12 @@ import {
   onMounted,
   getCurrentInstance,
   computed,
+  inject,
 } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { setHeightByPage } from './helpers'
 import { onPageScroll } from '@dcloudio/uni-app'
+import { GlobalConfigKey } from '../plugins/globalConfig'
 
 const props = withDefaults(
   defineProps<{
@@ -129,6 +131,8 @@ const emit = defineEmits<{
 }>()
 
 const instance = getCurrentInstance()
+
+const globalConfig = inject(GlobalConfigKey)
 
 onMounted(() => {
   if (__WEB__) {
@@ -256,7 +260,7 @@ function handleBack() {
       fail() {
         // TODO: 先修复 BUG，全局支持配置这个
         uni.switchTab({
-          url: '/pages-tab/home/index',
+          url: globalConfig?.homePath ?? '/pages-tab/home/index',
         })
       },
     })
