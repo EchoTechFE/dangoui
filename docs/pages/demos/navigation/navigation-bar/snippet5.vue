@@ -1,6 +1,6 @@
 
 <template>
-  <DuNavigationBar share fixed :appear-threshold="150" always-show-content color="white" @share="handleShare" transparent-front-color="#fff">
+  <DuNavigationBar share fixed :appear-threshold="150" always-show-content color="white" @share="handleShare" transparent-front-color="white">
     <div class="flex items-center text-12px font-medium gap-x-4px">
       <div class="w-16px h-16px rd-full overflow-hidden">
         <DuImage src="https://cdn.qiandaoapp.com/interior/images/ce1765477a674788b0f6286d0aba6d9f.jpg" />

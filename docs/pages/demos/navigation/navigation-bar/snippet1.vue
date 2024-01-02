@@ -10,6 +10,14 @@
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
+      <DuNavigationBar share @share="handleShare">
+        标题
+        <template #right>
+          <DuActionButton name="refresh" />
+        </template>
+      </DuNavigationBar>
+    </div>
+    <div class="mb-16px">
       <DuNavigationBar back-icon="room" @share="handleShare">
         左边是首页按钮
       </DuNavigationBar>
@@ -77,7 +85,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab } from '@frontend/dumpling'
+import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab, DuActionButton } from '@frontend/dumpling'
 
 const placeholders = [
   'Molly',

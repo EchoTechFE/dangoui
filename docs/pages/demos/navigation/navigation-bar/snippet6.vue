@@ -1,6 +1,6 @@
 
 <template>
-  <DuNavigationBar share fixed :appear-threshold="150" always-show-content color="white" @share="handleShare" transparent-front-color="#fff">
+  <DuNavigationBar share fixed :appear-threshold="150" always-show-content color="white" @share="handleShare" transparent-front-color="white">
     <template #scoped-default="{ opacity }">
       <div class="flex items-center text-12px font-medium gap-x-4px">
         <div class="w-16px h-16px rd-full overflow-hidden">

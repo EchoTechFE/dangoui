@@ -31,6 +31,7 @@ import Tag from './tag/Tag.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
+import ActionButton from './navigation-bar/ActionButton.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -75,6 +76,7 @@ const DuTag = Tag
 
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
+const DuActionButton = ActionButton
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -145,6 +147,8 @@ export {
   DuNavigationBar,
   NavigationBarRight,
   DuNavigationBarRight,
+  ActionButton,
+  DuActionButton,
   Popup,
   DuPopup,
   Snackbar,

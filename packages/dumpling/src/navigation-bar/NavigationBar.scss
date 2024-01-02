@@ -76,7 +76,8 @@
     align-items: center;
     font-size: 16px;
     // background-color: transparent;
-    background-color: rgba(255, 255, 255, 0.12);
+    // background-color: rgba(255, 255, 255, 0.12);
+    background: none;
     flex: none;
   }
 
@@ -100,11 +101,11 @@
       var(--du-c-bg-2-channel),
       var(--du-nav-bar-op)
     );
-    --du-c-default-navigation-bar-border: rgba(0, 0, 0, 0.08);
+    --du-c-default-navigation-bar-border: rgba(0, 0, 0, 0.12);
 
     --du-c-white-navigation-bar-text: var(--du-text-1);
     --du-c-white-navigation-bar-bg: rgba(255, 255, 255, var(--du-nav-bar-op));
-    --du-c-white-navigation-bar-border: rgba(0, 0, 0, 0.08);
+    --du-c-white-navigation-bar-border: rgba(0, 0, 0, 0.12);
 
     box-sizing: content-box;
     background-color: var(--du-c-navigation-bar-bg);

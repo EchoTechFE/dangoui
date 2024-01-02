@@ -1,7 +1,10 @@
 
 <template>
-  <DuNavigationBar share fixed color="white" @share="handleShare" transparent-front-color="#fff" transparent>
+  <DuNavigationBar fixed color="white" @share="handleShare" transparent-front-color="white" transparent>
     始终透明
+    <template #right>
+      <DuActionButton name="refresh" />
+    </template>
   </DuNavigationBar>
   <div class="w-full h-200px bg-black bg-op-80 flex justify-center items-center text-48px c-white">
     1
@@ -21,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuImage } from '@frontend/dumpling'
+import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuImage, DuActionButton } from '@frontend/dumpling'
 
 const placeholders = [
   'Molly',

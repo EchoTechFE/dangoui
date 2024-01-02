@@ -96,7 +96,7 @@ const props = withDefaults(
     /**
      * 前景色
      */
-    transparentFrontColor: string
+    transparentFrontColor: 'white' | 'black'
     /**
      * 是否一直是透明样式
      */
@@ -237,6 +237,11 @@ const finalWrapperStyle = computed(() => {
   }
   if (+bgOpacity.value < 0.8 && props.transparentFrontColor) {
     s['--du-c-navigation-bar-text'] = props.transparentFrontColor
+    if (props.transparentFrontColor === 'white') {
+      s['--du-c-navigation-bar-border'] = 'rgba(255,255,255,0.12)'
+    } else {
+      s['--du-c-navigation-bar-border'] = 'rgba(0,0,0,0.12)'
+    }
   }
   return s
 })
