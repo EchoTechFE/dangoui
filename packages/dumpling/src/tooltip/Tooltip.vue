@@ -1,7 +1,7 @@
 <template>
   <div class="du-tooltip">
     <slot />
-    <div class="du-tooltip__popover">{{ title }}</div>
+    <div v-if="title" class="du-tooltip__popover">{{ title }}</div>
   </div>
 </template>
 
