@@ -2972,6 +2972,42 @@
         ],
         "slots": []
     },
+    "ActionButton": {
+        "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": true,
+                "type": "\"black\" | \"white\"",
+                "default": "unknown"
+            },
+            {
+                "name": "name",
+                "description": "",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[]",
+                "signature": "(event: \"click\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            }
+        ],
+        "slots": []
+    },
     "NavigationBar": {
         "props": [
             {
@@ -3034,7 +3070,7 @@
                 "name": "transparentFrontColor",
                 "description": "前景色",
                 "required": true,
-                "type": "string",
+                "type": "\"black\" | \"white\"",
                 "default": "unknown"
             },
             {
