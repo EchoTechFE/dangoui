@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.62
+
+### Patch Changes
+
+- e3c0f79: fix tooltip when title empty
+
 ## 3.0.61
 
 ### Patch Changes
