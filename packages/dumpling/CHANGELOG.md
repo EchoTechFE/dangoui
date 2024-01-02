@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.61
+
+### Patch Changes
+
+- 9b68cb6: 增加 tooltip
+
 ## 3.0.60
 
 ### Patch Changes
