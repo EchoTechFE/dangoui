@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.58
+
+### Patch Changes
+
+- 18e15a5: add ActionButton
+
 ## 3.0.57
 
 ### Patch Changes
