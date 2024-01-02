@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.59
+
+### Patch Changes
+
+- 84c670b: fix action button color
+
 ## 3.0.58
 
 ### Patch Changes
