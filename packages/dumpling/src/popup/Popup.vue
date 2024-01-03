@@ -13,7 +13,7 @@
           :class="['du-popup__header', `du-popup__header--${titleAlign}`]"
           v-if="headerVisible"
         >
-          <div class="du-popup__title">{{ title }}</div>
+          <div class="du-popup__title" v-if="title">{{ title }}</div>
           <div v-if="closable" class="du-popup__close" @click="handleClose">
             <DuIcon name="close" />
           </div>
