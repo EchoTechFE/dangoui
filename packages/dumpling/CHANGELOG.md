@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.63
+
+### Patch Changes
+
+- 76eee72: fix popup close position
+
 ## 3.0.62
 
 ### Patch Changes
