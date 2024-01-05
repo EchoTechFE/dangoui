@@ -1,67 +1,67 @@
 
 <template>
   <PreviewBlock title="Large Size" >
-    <du-rate 
+    <DuRate
       size="large"
       :count="7"
       :value="5.3"
     />
   </PreviewBlock>
   <PreviewBlock title="Medium Size" >
-    <du-rate 
+    <DuRate
       size="medium"
     />
   </PreviewBlock>
   <PreviewBlock title="Small Size" >
-    <du-rate 
+    <DuRate
       size="small"
     />
   </PreviewBlock>
   <PreviewBlock title="Mini Size" >
-    <du-rate 
+    <DuRate
       size="mini"
     />
   </PreviewBlock>
   <PreviewBlock title="Disabled" >
-    <du-rate 
+    <DuRate
       size="medium"
       disabled
     />
   </PreviewBlock>
    <PreviewBlock title="Readonly" >
-    <du-rate 
+    <DuRate
       size="medium"
       readonly
     />
   </PreviewBlock>
   <PreviewBlock title="v-modal:value 语法糖" >
-    <du-rate 
+    <DuRate
       size="medium"
       v-model:value="modelValue"
     />
   </PreviewBlock>
   <PreviewBlock title="change" >
-    <du-rate 
+    <DuRate
       size="medium"
       :value="changeValue"
       @change="handleChange"
     />
   </PreviewBlock>
   <PreviewBlock title="animation: fade" >
-    <du-rate 
+    <DuRate
       size="large"
       animation="fade"
     />
   </PreviewBlock>
   <PreviewBlock title="自定义图标" >
-    <du-rate 
+    <DuRate
       size="large"
       :defaultValue="3.7"
       icon="like-normal"
     />
   </PreviewBlock>
     <PreviewBlock title="支持半选" >
-    <du-rate 
+    <DuRate
       size="large"
       v-model:value="percentValue"
       icon="like-normal"
@@ -69,7 +69,7 @@
     />
   </PreviewBlock>
    <PreviewBlock title="默认值" >
-    <du-rate 
+    <DuRate
       size="large"
       v-model:value="percentValue"
       icon="like-normal"
@@ -78,7 +78,7 @@
     />
   </PreviewBlock>
    <PreviewBlock title="受控2" >
-    <du-rate 
+    <DuRate
       size="large"
       :value="controledValue"
       icon="like-normal"
@@ -87,7 +87,7 @@
   
   </PreviewBlock>
    <PreviewBlock title="非受控" >
-    <du-rate 
+    <DuRate
       size="large"
       icon="like-normal"
       half
