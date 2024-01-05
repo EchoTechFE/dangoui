@@ -63,6 +63,7 @@
 <script setup lang="ts">
 import { computed, ref, watch, normalizeStyle, normalizeClass } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { isPlatteColor } from '../helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -131,6 +132,13 @@ const emits = defineEmits<{
   (e: 'change', value: { value: number | undefined }): void
   (e: 'update:value', i: number): void
 }>()
+
+const color = computed(() => {
+  if (isPlatteColor(props.color)) {
+    return `var(--du-${props.color}-color)`
+  }
+  return props.color
+})
 
 const displayValue = ref(props.defaultValue || props.value)
 
