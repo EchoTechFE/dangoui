@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.65
+
+### Patch Changes
+
+- 42bf2cd: 更正 tag 组件在 mini 大小的 border-radius
+
 ## 3.0.64
 
 ### Patch Changes
