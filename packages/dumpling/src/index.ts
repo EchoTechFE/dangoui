@@ -38,6 +38,7 @@ import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
 import Empty from './empty/Empty.vue'
 import Badge from './badge/Badge.vue'
+import Rate from './rate/Rate.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
 
 import Theme from './theme/Theme.vue'
@@ -87,6 +88,8 @@ const DuBadge = Badge
 const DuNoticeBar = NoticeBar
 
 const DuTheme = Theme
+
+const DuRate = Rate
 
 export {
   Button,
@@ -166,4 +169,6 @@ export {
   Theme,
   DuTheme,
   globalConfig,
+  DuRate,
+  Rate,
 }
