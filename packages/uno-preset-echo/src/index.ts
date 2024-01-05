@@ -235,32 +235,80 @@ const colors = {
     800: '#5B9114',
     900: '#437008',
   },
-
+  /**
+   * @deprecated
+   */
   success: 'var(--du-c-success)',
+  /**
+   * @deprecated
+   */
   warning: 'var(--du-c-warning)',
+  /**
+   * @deprecated
+   */
   error: 'var(--du-c-error)',
+  /**
+   * @deprecated
+   */
   'business-info': 'var(--du-c-business-info)',
+  /**
+   * @deprecated
+   */
   'text-primary': 'var(--du-c-text-primary)',
   'text-1': 'var(--du-text-1)',
   'text-2': 'var(--du-c-text-2)',
   'text-3': 'var(--du-c-text-3)',
   'text-disabled': 'var(--du-text-disabled)',
+  /**
+   * @deprecated
+   */
   'text-disable': 'var(--du-c-text-disable)',
+  /**
+   * @deprecated
+   */
   'text-error': 'var(--du-c-text-error)',
+  /**
+   * @deprecated
+   */
   'text-warning': 'var(--du-c-text-warning)',
+  /**
+   * @deprecated
+   */
   primary: 'var(--du-c-primary)',
+  /**
+   * @deprecated
+   */
   secondary: 'var(--du-c-2)',
+  /**
+   * @deprecated
+   */
   third: 'var(--du-c-3)',
+  /**
+   * @deprecated
+   */
   'border-primary': 'var(--du-c-b-primary)',
   'border-1': 'var(--du-border-1)',
   'border-2': 'var(--du-c-b-2)',
   'border-3': 'var(--du-c-b-3)',
+  /**
+   * @deprecated
+   */
   'bg-primary': 'var(--du-c-bg-primary)',
+  'bg-1': 'var(--du-bg-1)',
   'bg-2': 'var(--du-c-bg-2)',
   'bg-3': 'var(--du-c-bg-3)',
   'bg-4': 'var(--du-c-bg-4)',
+  /**
+   * @deprecated
+   */
   'bg-warning': 'var(--du-c-bg-warning)',
+  /**
+   * @deprecated
+   */
   'bg-error': 'var(--du-c-bg-error)',
+  /**
+   * @deprecated
+   */
   'mask-primary': 'var(--du-c-mask-primary)',
   'mask-1': 'var(--du-mask-1)',
   'mask-2': 'var(--du-mask-2)',
