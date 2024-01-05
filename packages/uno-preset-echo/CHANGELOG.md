@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.0
+
+### Minor Changes
+
+- d6cfc46: fix white color
+
 ## 1.6.2
 
 ### Patch Changes
