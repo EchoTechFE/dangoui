@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.6.2
+
+### Patch Changes
+
+- 20ad061: fix platte
+
 ## 1.6.1
 
 ### Patch Changes
