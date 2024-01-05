@@ -3895,8 +3895,158 @@
         "slots": []
     },
     "Rate": {
-        "props": [],
-        "events": [],
+        "props": [
+            {
+                "name": "color",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"#FC7E22\""
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"medium\""
+            },
+            {
+                "name": "icon",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"rate-filled\""
+            },
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "animation",
+                "description": "",
+                "required": false,
+                "type": "\"bounce\" | \"fade\" | null",
+                "default": "\"bounce\""
+            },
+            {
+                "name": "count",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "5"
+            },
+            {
+                "name": "readonly",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "half",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "defaultValue",
+                "description": "\n默认值",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:value",
+                "type": "[i: number]",
+                "signature": "(event: \"update:value\", i: number): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    "number"
+                ]
+            },
+            {
+                "name": "change",
+                "type": "[value: { value: number | undefined; }]",
+                "signature": "(event: \"change\", value: { value: number | undefined; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ value: number | undefined; }",
+                        "schema": {
+                            "value": {
+                                "name": "value",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "number | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/rate/Rate.vue",
+                                        "range": [
+                                            3074,
+                                            3099
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "number | undefined",
+                                    "schema": [
+                                        "undefined",
+                                        "number"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
         "slots": []
     },
     "RootPortal": {
@@ -3941,6 +4091,13 @@
                 "default": "\"\""
             },
             {
+                "name": "readonly",
+                "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "clearable",
                 "description": "是否可清空",
                 "required": false,
@@ -3953,13 +4110,6 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\""
-            },
-            {
-                "name": "readonly",
-                "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             }
         ],
         "events": [
@@ -4655,6 +4805,31 @@
                 "required": true,
                 "type": "string",
                 "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Tooltip": {
+        "props": [
+            {
+                "name": "title",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
             }
         ],
         "events": [],
