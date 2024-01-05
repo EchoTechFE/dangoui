@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.1
+
+### Patch Changes
+
+- 12aa3ba: add bg-1
+
 ## 1.7.0
 
 ### Minor Changes
