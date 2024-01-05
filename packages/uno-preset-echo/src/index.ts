@@ -253,8 +253,10 @@ const colors = {
   error: 'var(--du-c-error)',
   'business-info': 'var(--du-c-business-info)',
   'text-primary': 'var(--du-c-text-primary)',
+  'text-1': 'var(--du-text-1)',
   'text-2': 'var(--du-c-text-2)',
   'text-3': 'var(--du-c-text-3)',
+  'text-disabled': 'var(--du-text-disabled)',
   'text-disable': 'var(--du-c-text-disable)',
   'text-error': 'var(--du-c-text-error)',
   'text-warning': 'var(--du-c-text-warning)',
@@ -262,6 +264,7 @@ const colors = {
   secondary: 'var(--du-c-2)',
   third: 'var(--du-c-3)',
   'border-primary': 'var(--du-c-b-primary)',
+  'border-1': 'var(--du-border-1)',
   'border-2': 'var(--du-c-b-2)',
   'border-3': 'var(--du-c-b-3)',
   'bg-primary': 'var(--du-c-bg-primary)',
@@ -271,10 +274,16 @@ const colors = {
   'bg-warning': 'var(--du-c-bg-warning)',
   'bg-error': 'var(--du-c-bg-error)',
   'mask-primary': 'var(--du-c-mask-primary)',
-  'mask-2': 'var(--du-c-mask-2)',
-  'mask-3': 'var(--du-c-mask-3)',
-  'mask-active': 'var(--du-c-mask-active)',
-  'mask-hover': 'var(--du-c-mask-hover)',
+  'mask-1': 'var(--du-mask-1)',
+  'mask-2': 'var(--du-mask-2)',
+  'mask-3': 'var(--du-mask-3)',
+  'mask-active': 'var(--du-mask-active)',
+  'mask-hover': 'var(--du-mask-hover)',
+
+  'icon-1': 'var(--du-icon-1)',
+  'icon-2': 'var(--du-icon-2)',
+  'icon-3': 'var(--du-icon-3)',
+  'icon-disabled': 'var(--du-icon-disabled)',
 } satisfies Theme['colors']
 
 // assign default color, and color shortcuts
@@ -433,6 +442,50 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
   const themeNames = [...themeSet.values()]
   const themeRegex = new RegExp(`^g-theme-(${themeNames.join('|')})$`)
 
+  const plattes = [
+    'primary',
+    'secondary',
+    // TODO: 移除，放到项目里维护
+    'trade',
+    'white',
+    'default',
+    'success',
+    'warning',
+    'error',
+    // TODO: 移除，放到项目里维护
+    'vip',
+  ]
+
+  const platteColors = Object.fromEntries(
+    plattes.flatMap((c) => {
+      return Object.entries({
+        [`${c}-solid`]: `var(--du-${c}-solid-color)`,
+        [`${c}-solid-bg`]: `var(--du-${c}-solid-bg)`,
+        [`${c}`]: `var(--du-${c}-color)`,
+        [`${c}-soft-bg`]: `var(--du-${c}-soft-bg)`,
+        [`${c}-outline`]: `var(--du-${c}-outline-color)`,
+        [`${c}-border`]: `var(--du-${c}-border)`,
+        [`${c}-text`]: `var(--du-${c}-text-color)`,
+        [`${c}-solid-disabledtemp`]: `var(--du-${c}-solid-disabledtemp-color)`,
+        [`${c}-solid-disabledtemp-bg`]: `var(--du-${c}-solid-disabledtemp-bg)`,
+        [`${c}-disabledtemp`]: `var(--du-${c}-disabledtemp-color)`,
+        [`${c}-soft-disabledtemp-bg`]: `var(--du-${c}-soft-disabledtemp-bg)`,
+        [`${c}-outline-disabledtemp`]: `var(--du-${c}-outline-disabledtemp-color)`,
+        [`${c}-disabledtemp-border`]: `var(--du-${c}-disabledtemp-border)`,
+        [`${c}-text-disabledtemp`]: `var(--du-${c}-text-disabledtemp-color)`,
+        [`${c}-1`]: `var(--du-${c}-1)`,
+        [`${c}-2`]: `var(--du-${c}-2)`,
+        [`${c}-3`]: `var(--du-${c}-3)`,
+        [`${c}-4`]: `var(--du-${c}-4)`,
+        [`${c}-5`]: `var(--du-${c}-5)`,
+        [`${c}-6`]: `var(--du-${c}-6)`,
+        [`${c}-7`]: `var(--du-${c}-7)`,
+        [`${c}-8`]: `var(--du-${c}-8)`,
+        [`${c}-9`]: `var(--du-${c}-9)`,
+      })
+    }),
+  )
+
   return {
     ...mp,
     name: 'unocss-preset-echo',
@@ -471,6 +524,7 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
     theme: {
       ...mp.theme,
       colors,
+      ...platteColors,
     },
     preflights: [
       ...(mp.preflights ?? []),
