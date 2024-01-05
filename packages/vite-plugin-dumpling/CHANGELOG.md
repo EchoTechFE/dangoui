@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.35
+
+### Patch Changes
+
+- Updated dependencies [4d44a11]
+- Updated dependencies [d76b1d1]
+  - @frontend/dumpling@3.0.64
+
 ## 1.0.34
 
 ### Patch Changes

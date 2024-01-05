@@ -1,5 +1,12 @@
 # @frontend/dumpling
 
+## 3.0.64
+
+### Patch Changes
+
+- 4d44a11: rate
+- d76b1d1: rate support platte color
+
 ## 3.0.63
 
 ### Patch Changes
