@@ -3898,14 +3898,14 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "主题颜色",
                 "required": false,
                 "type": "string",
                 "default": "\"#FC7E22\""
             },
             {
                 "name": "value",
-                "description": "",
+                "description": "当前值",
                 "required": false,
                 "type": "number",
                 "default": "undefined"
@@ -3914,71 +3914,64 @@
                 "name": "extClass",
                 "description": "",
                 "required": false,
-                "type": "string",
+                "type": "string | string[] | Record<string, boolean>",
                 "default": "\"\""
             },
             {
                 "name": "extStyle",
                 "description": "",
                 "required": false,
-                "type": "string",
+                "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
             },
             {
                 "name": "size",
-                "description": "",
+                "description": "Rate 组件尺寸",
                 "required": false,
                 "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
                 "default": "\"medium\""
             },
             {
                 "name": "icon",
-                "description": "",
+                "description": "图标，对应 icon 组件的 name",
                 "required": false,
                 "type": "string",
                 "default": "\"rate-filled\""
             },
             {
                 "name": "disabled",
-                "description": "",
+                "description": "是否禁用评分",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
             },
             {
                 "name": "animation",
-                "description": "",
+                "description": "评分改变时触发的过渡动画",
                 "required": false,
                 "type": "\"bounce\" | \"fade\" | null",
                 "default": "\"bounce\""
             },
             {
                 "name": "count",
-                "description": "",
+                "description": "总数",
                 "required": false,
                 "type": "number",
                 "default": "5"
             },
             {
-                "name": "readonly",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "half",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "defaultValue",
-                "description": "\n默认值",
+                "description": "默认值",
                 "required": false,
                 "type": "number",
                 "default": "0"
+            },
+            {
+                "name": "half",
+                "description": "是否支持半选",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             }
         ],
         "events": [
@@ -4028,8 +4021,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/rate/Rate.vue",
                                         "range": [
-                                            3074,
-                                            3099
+                                            3088,
+                                            3113
                                         ]
                                     }
                                 ],

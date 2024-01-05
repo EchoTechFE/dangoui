@@ -8,7 +8,7 @@
         @click="handleClickItem($event, index)"
         :style="{
           opacity: disabled ? 0.5 : 1,
-          cursor: readonly || disabled ? 'not-allowed' : 'pointer',
+          cursor: disabled ? 'not-allowed' : 'pointer',
           animation: `${animation} 0.5s ease-in-out alternate`,
           animationDelay: `${index * 0.02}s`,
         }"
@@ -20,7 +20,7 @@
         @click="handleClickItem($event, Math.ceil(displayValue || 0))"
         :class="`du-rate du-rate__item du-rate__item--${size}`"
         :style="{
-          cursor: readonly || disabled ? 'not-allowed' : 'pointer',
+          cursor: disabled ? 'not-allowed' : 'pointer',
           animation: animation
             ? `${animation} 0.5s ease-in-out  alternate`
             : undefined,
@@ -51,7 +51,7 @@
         class="du-rate du-rate__item"
         @click="handleClickItem($event, Math.ceil(displayValue || 0) + index)"
         :style="{
-          cursor: readonly || disabled ? 'not-allowed' : 'pointer',
+          cursor: disabled ? 'not-allowed' : 'pointer',
         }"
       >
         <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
@@ -63,57 +63,53 @@
 <script setup lang="ts">
 import { computed, ref, watch, normalizeStyle, normalizeClass } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+
 const props = withDefaults(
   defineProps<{
-    /*
-    总数
-   */
-    count?: number
-    /*
-    当前值
-   */
-    value?: number
-    /*
-    Rate 组件尺寸
-   */
-    size?: 'large' | 'medium' | 'small' | 'mini'
-    /*
-    主题颜色
-   */
-    color?: string
-    /*
-    是否禁用评分
-     */
-    disabled?: boolean
-    /*
-  是否只读
-   */
-    readonly?: boolean
-    /*
-  图标，对应 icon 组件的 name
-  */
-    icon?: string
-    /*
-    外部样式
- */
-    extStyle?: string
-    /*
-    外部样式类
- */
-    extClass?: string
-    /*
-    评分改变时触发的过渡动画
-    */
-    animation?: 'bounce' | 'fade' | null | undefined
-    /*
-      是否支持半选
-    */
-    half?: boolean
     /**
-     *
+     * 总数
+     */
+    count: number
+    /**
      * 默认值
      */
-    defaultValue?: number
+    defaultValue: number
+    /**
+     * 当前值
+     */
+    value: number
+    /**
+     * Rate 组件尺寸
+     */
+    size: 'large' | 'medium' | 'small' | 'mini'
+    /**
+     * 主题颜色
+     */
+    color: string
+    /**
+     * 是否禁用评分
+     */
+    disabled: boolean
+    /**
+     * 图标，对应 icon 组件的 name
+     */
+    icon: string
+
+    extClass: string | string[] | Record<string, boolean>
+
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
+    /**
+     * 评分改变时触发的过渡动画
+     */
+    animation: 'bounce' | 'fade' | null | undefined
+    /**
+     * 是否支持半选
+     */
+    half: boolean
   }>(),
   {
     count: 5,
@@ -150,10 +146,9 @@ const percent = computed(() => {
 const className = computed(() => {
   return normalizeClass(props.extClass)
 })
+
 const style = computed(() => {
-  return typeof props.extStyle === 'string'
-    ? props.extStyle
-    : normalizeStyle(props.extStyle)
+  return normalizeStyle(props.extStyle)
 })
 
 const iconSize = computed(() => {
@@ -211,7 +206,7 @@ function ifHalfSupported(e: any, i: number) {
 }
 
 function handleClickItem(e: Event, i: number) {
-  if (props.disabled || props.readonly) return
+  if (props.disabled) return
 
   let index = i
 

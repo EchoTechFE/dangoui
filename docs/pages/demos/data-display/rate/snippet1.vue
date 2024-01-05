@@ -1,53 +1,31 @@
 
 <template>
-  <PreviewBlock title="Large Size" >
-    <DuRate
-      size="large"
-      :count="7"
-      :value="5.3"
-    />
+  <PreviewBlock title="不同大小" >
+    <div>
+      <DuRate
+        size="large"
+        :count="7"
+        :value="5.3"
+      />
+      <DuRate
+        size="medium"
+      />
+      <DuRate
+        size="small"
+      />
+      <DuRate
+        size="mini"
+      />
+    </div>
   </PreviewBlock>
-  <PreviewBlock title="Medium Size" >
-    <DuRate
-      size="medium"
-    />
-  </PreviewBlock>
-  <PreviewBlock title="Small Size" >
-    <DuRate
-      size="small"
-    />
-  </PreviewBlock>
-  <PreviewBlock title="Mini Size" >
-    <DuRate
-      size="mini"
-    />
-  </PreviewBlock>
-  <PreviewBlock title="Disabled" >
+  <PreviewBlock title="改变值" >
     <DuRate
       size="medium"
-      disabled
+      :value="value"
+      @update:value="handleUpdate"
     />
   </PreviewBlock>
-   <PreviewBlock title="Readonly" >
-    <DuRate
-      size="medium"
-      readonly
-    />
-  </PreviewBlock>
-  <PreviewBlock title="v-modal:value 语法糖" >
-    <DuRate
-      size="medium"
-      v-model:value="modelValue"
-    />
-  </PreviewBlock>
-  <PreviewBlock title="change" >
-    <DuRate
-      size="medium"
-      :value="changeValue"
-      @change="handleChange"
-    />
-  </PreviewBlock>
-  <PreviewBlock title="animation: fade" >
+  <PreviewBlock title="动画效果" >
     <DuRate
       size="large"
       animation="fade"
@@ -68,24 +46,6 @@
       half
     />
   </PreviewBlock>
-   <PreviewBlock title="默认值" >
-    <DuRate
-      size="large"
-      v-model:value="percentValue"
-      icon="like-normal"
-      half
-      defaultValue="3"
-    />
-  </PreviewBlock>
-   <PreviewBlock title="受控2" >
-    <DuRate
-      size="large"
-      :value="controledValue"
-      icon="like-normal"
-      half
-    />
-  
-  </PreviewBlock>
    <PreviewBlock title="非受控" >
     <DuRate
       size="large"
@@ -93,28 +53,22 @@
       half
       defaultValue="3"
     />
-  
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { DuRate, DuIcon } from '@frontend/dumpling'
-const modelValue = ref(1.8)
-const changeValue = ref(1.5)
-const percentValue = ref(1.5)
-const controledValue = ref(3)
 
-watch(modelValue, (v) => {
-  console.log(v)
-})
+const value = ref(1.5)
+const percentValue = ref(1.5)
 
 watch(percentValue, (v) => {
   console.log(v)
 })
 
-function handleChange(e) {
-  changeValue.value = e.value
+function handleUpdate(v: number) {
+  value.value = v
 }
 
 </script>
