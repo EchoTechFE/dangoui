@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.6.1
+
+### Patch Changes
+
+- 79e8a2d: fix platte colors
+
 ## 1.6.0
 
 ### Minor Changes
