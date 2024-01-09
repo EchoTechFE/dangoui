@@ -6,8 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import { computed, normalizeStyle, normalizeClass } from 'vue'
 import iconConfig from './iconfont-config.json'
 import { useSize } from '../composables/useSize'
 import { isPlatteColor } from '../helpers/index'
@@ -55,10 +54,10 @@ const isImageUrl = computed(() => {
 const className = computed(() => {
   const { extClass } = props
   if (isImageUrl.value) {
-    return classNames('du-icon__img', extClass)
+    return normalizeClass(['du-icon__img', extClass])
   }
 
-  return classNames('du-icon', extClass)
+  return normalizeClass(['du-icon', extClass])
 })
 
 const normalizedSize = useSize(() => props.size)

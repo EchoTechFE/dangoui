@@ -79,8 +79,8 @@ import {
   inject,
   onBeforeUnmount,
   normalizeStyle,
+  normalizeClass,
 } from 'vue'
-import classNames from 'classnames'
 import DuIcon from '../icon/Icon.vue'
 import {
   formItemLayoutInjectionKey,
@@ -192,13 +192,13 @@ const style = computed(() => {
 
 const className = computed(() => {
   const { extClass, layout } = config.value
-  return classNames(
+  return normalizeClass([
     'du-form-item',
     {
       'du-form-item--slot-next-line': layout === 'vertical',
     },
     extClass,
-  )
+  ])
 })
 
 onBeforeUnmount(() => {

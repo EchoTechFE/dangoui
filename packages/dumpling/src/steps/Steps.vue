@@ -47,8 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import { computed, normalizeStyle, normalizeClass } from 'vue'
 import StepCheck from './StepCheck.vue'
 
 const props = withDefaults(
@@ -108,7 +107,10 @@ const fulfilledSteps = computed(() => {
       ...item,
       title,
       type,
-      textClassName: classNames('du-steps__text', `du-steps__text-${type}`),
+      textClassName: normalizeClass([
+        'du-steps__text',
+        `du-steps__text-${type}`,
+      ]),
     }
   })
 })
@@ -121,7 +123,7 @@ const style = computed(() => {
 const className = computed(() => {
   const { extClass } = props
   if (props.type === 'ghost') {
-    return classNames('du-steps-theme-opacity', extClass)
+    return normalizeClass(['du-steps-theme-opacity', extClass])
   }
   return extClass
 })

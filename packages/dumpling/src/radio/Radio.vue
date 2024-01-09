@@ -49,8 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import { computed, inject, normalizeStyle, normalizeClass } from 'vue'
 import DuButton from '../button/Button.vue'
 import RadioIcon from './RadioIcon.vue'
 import {
@@ -139,7 +138,7 @@ const config = computed(() => {
 
 const className = computed(() => {
   const { inline, disabled, extClass, cell } = config.value
-  return classNames(
+  return normalizeClass([
     'du-radio',
     {
       'du-radio--inline': inline,
@@ -147,7 +146,7 @@ const className = computed(() => {
       'du-radio--cell': cell,
     },
     extClass,
-  )
+  ])
 })
 
 const style = computed(() => {

@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import { computed, provide, normalizeStyle, normalizeClass } from 'vue'
 import {
   formItemLayoutInjectionKey,
   formLabelAlignInjectionKey,
@@ -55,7 +54,7 @@ const config = computed(() => {
 
 const className = computed(() => {
   const { extClass } = config.value
-  return classNames('du-form', extClass)
+  return normalizeClass(['du-form', extClass])
 })
 
 const style = computed(() => {

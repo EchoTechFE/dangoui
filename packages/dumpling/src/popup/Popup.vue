@@ -25,10 +25,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, ref, inject, normalizeStyle } from 'vue'
+import {
+  computed,
+  watch,
+  ref,
+  inject,
+  normalizeStyle,
+  normalizeClass,
+} from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
-import classNames from 'classnames'
 import { themeInjectionKey } from '../theme/helpers'
 
 const props = withDefaults(
@@ -135,10 +141,15 @@ const style = computed(() => {
 const className = computed(() => {
   const { extClass } = props
 
-  return classNames('du-popup__content', themeName.value, extClass, {
-    [`du-popup--${props.type}`]: true,
-    [`du-popup--${props.type}-open`]: openAni.value,
-  })
+  return normalizeClass([
+    'du-popup__content',
+    themeName.value,
+    extClass,
+    {
+      [`du-popup--${props.type}`]: true,
+      [`du-popup--${props.type}-open`]: openAni.value,
+    },
+  ])
 })
 
 const maskStyleFormat = computed(() => {
@@ -148,9 +159,13 @@ const maskStyleFormat = computed(() => {
 
 const maskClassName = computed(() => {
   const { maskClass } = props
-  return classNames('du-popup__mask', maskClass, {
-    'du-popup__mask--open': openAni.value,
-  })
+  return normalizeClass([
+    'du-popup__mask',
+    maskClass,
+    {
+      'du-popup__mask--open': openAni.value,
+    },
+  ])
 })
 
 const handleMaskClick = () => {

@@ -21,8 +21,8 @@ import {
   onMounted,
   onUnmounted,
   normalizeStyle,
+  normalizeClass,
 } from 'vue'
-import classNames from 'classnames'
 import { getInstanceId } from './helpers'
 import { GlobalConfigKey } from '../plugins/globalConfig'
 
@@ -170,7 +170,7 @@ watch(
 )
 
 const className = computed(() => {
-  return classNames(['du-image'], props.extClass)
+  return normalizeClass(['du-image', props.extClass])
 })
 
 const imageStyle = computed(() => {

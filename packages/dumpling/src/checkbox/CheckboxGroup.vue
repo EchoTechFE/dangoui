@@ -5,8 +5,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref, watch, normalizeStyle, inject } from 'vue'
-import classNames from 'classnames'
+import {
+  computed,
+  provide,
+  ref,
+  watch,
+  normalizeStyle,
+  inject,
+  normalizeClass,
+} from 'vue'
 import {
   groupConfigInjectionKey,
   groupValueInjectionKey,
@@ -64,14 +71,14 @@ const emit = defineEmits<{
 const className = computed(() => {
   const { extClass } = props
 
-  return classNames(
+  return normalizeClass([
     'du-checkbox-group',
     {
       'du-checkbox-group--inline': props.inline,
       'du-checkbox-group--custom': props.custom,
     },
     extClass,
-  )
+  ])
 })
 
 const formItemLayout = inject(formItemLayoutInjectionKey)

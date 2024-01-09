@@ -60,8 +60,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, inject, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import {
+  ref,
+  computed,
+  watch,
+  inject,
+  normalizeStyle,
+  normalizeClass,
+} from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { listenFormItemClickInjectionKey } from '../form/helpers'
 
@@ -216,7 +222,7 @@ const isInFormItem = !!listenFormItemOnClick
 
 const className = computed(() => {
   const { extClass } = props
-  return classNames(
+  return normalizeClass([
     'du-input',
     {
       'du-input--next': isInFormItem,
@@ -224,7 +230,7 @@ const className = computed(() => {
       'du-input--bordered-disabled': props.disabled && props.bordered,
     },
     extClass,
-  )
+  ])
 })
 
 const style = computed(() => {

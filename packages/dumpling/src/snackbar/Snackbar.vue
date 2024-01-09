@@ -23,8 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import { computed, watch, normalizeStyle, normalizeClass } from 'vue'
 import DuButton from '../button/Button.vue'
 import DuIcon from '../icon/Icon.vue'
 
@@ -68,7 +67,7 @@ const emit = defineEmits<{
 
 const className = computed(() => {
   const { extClass } = props
-  return classNames('du-snackbar', extClass)
+  return normalizeClass(['du-snackbar', extClass])
 })
 const style = computed(() => {
   const { extStyle, offset, offsetPosition } = props

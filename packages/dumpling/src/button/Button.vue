@@ -57,9 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, normalizeStyle } from 'vue'
-import classNames from 'classnames'
-
+import { computed, ref, normalizeStyle, normalizeClass } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import iconConfig from '../icon/iconfont-config.json'
 
@@ -210,7 +208,7 @@ const className = computed(() => {
   const { size, type, loading, full, disabled, extClass, disabledType, color } =
     props
 
-  return classNames(
+  return normalizeClass([
     [
       'du-button',
       'du-button--' + size,
@@ -229,7 +227,7 @@ const className = computed(() => {
     },
     `du-c-${disabled && disabledType === 'default' ? 'default' : color}-bt`,
     extClass,
-  )
+  ])
 })
 
 const style = computed(() => {

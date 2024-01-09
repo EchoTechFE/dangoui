@@ -86,8 +86,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import {
+  computed,
+  onMounted,
+  ref,
+  watch,
+  normalizeStyle,
+  normalizeClass,
+} from 'vue'
 import DuPopup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
 import { getInstanceId } from './helpers'
@@ -177,7 +183,7 @@ onMounted(() => {
 
 const className = computed(() => {
   const { extClass } = props
-  return classNames(['du-calendar'], extClass)
+  return normalizeClass(['du-calendar', extClass])
 })
 
 const style = computed(() => {

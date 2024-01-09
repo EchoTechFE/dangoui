@@ -17,8 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed, inject, watch, normalizeStyle } from 'vue'
-import classNames from 'classnames'
+import {
+  reactive,
+  computed,
+  inject,
+  watch,
+  normalizeStyle,
+  normalizeClass,
+} from 'vue'
 import CheckboxIcon from './CheckboxIcon.vue'
 import {
   groupConfigInjectionKey,
@@ -170,14 +176,14 @@ const config = computed(() => {
 
 const className = computed(() => {
   const { extClass, inline, disabled, position } = config.value
-  return classNames(
+  return normalizeClass([
     ['du-checkbox', 'du-checkbox--' + position],
     {
       'du-checkbox--disabled': disabled,
       'du-checkbox--inline': inline,
     },
     extClass,
-  )
+  ])
 })
 
 const style = computed(() => {

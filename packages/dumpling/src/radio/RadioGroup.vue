@@ -5,8 +5,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, provide, normalizeStyle, inject } from 'vue'
-import classNames from 'classnames'
+import {
+  computed,
+  ref,
+  watch,
+  provide,
+  normalizeStyle,
+  inject,
+  normalizeClass,
+} from 'vue'
 import {
   groupConfigInjectionKey,
   groupValueInjectionKey,
@@ -80,14 +87,14 @@ const formItemLayout = inject(formItemLayoutInjectionKey)
 
 const className = computed(() => {
   const { extClass } = config.value
-  return classNames(
+  return normalizeClass([
     'du-radio-group',
     {
       'du-radio-group--inline': props.inline,
       'du-radio-group--custom': props.custom,
     },
     extClass,
-  )
+  ])
 })
 
 const marginYInFormItem = useSize(() => 11)

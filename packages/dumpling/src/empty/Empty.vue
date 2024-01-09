@@ -14,9 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, normalizeStyle } from 'vue'
+import { computed, normalizeStyle, normalizeClass } from 'vue'
 import DuButton from '../button/Button.vue'
-import classNames from 'classnames'
 
 const props = withDefaults(
   defineProps<{
@@ -99,6 +98,6 @@ const style = computed(() => {
 })
 
 const className = computed(() => {
-  return classNames('du-empty', props.extClass)
+  return normalizeClass(['du-empty', props.extClass])
 })
 </script>
