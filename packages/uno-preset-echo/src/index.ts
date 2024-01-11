@@ -562,6 +562,10 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
       colors: {
         ...colors,
         ...platteColors,
+        'white-text-color-2': `var(--du-white-text-color-2)`,
+        'white-text-color-3': `var(--du-white-text-color-3)`,
+        'white-border-2': `var(--du-white-border-2)`,
+        'white-border-3': `var(--du-white-border-3)`,
       },
     },
     preflights: [
