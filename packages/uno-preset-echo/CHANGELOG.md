@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.2
+
+### Patch Changes
+
+- 3c00859: add mihua platte
+
 ## 1.7.1
 
 ### Patch Changes

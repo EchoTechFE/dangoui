@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.66
+
+### Patch Changes
+
+- 3c00859: add mihua platte
+- Updated dependencies [3c00859]
+  - @frontend/dumpling-design-token@1.0.12
+
 ## 3.0.65
 
 ### Patch Changes

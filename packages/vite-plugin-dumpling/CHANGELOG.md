@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.37
+
+### Patch Changes
+
+- Updated dependencies [3c00859]
+  - @frontend/dumpling@3.0.66
+  - @frontend/dumpling-design-token@1.0.12
+
 ## 1.0.36
 
 ### Patch Changes

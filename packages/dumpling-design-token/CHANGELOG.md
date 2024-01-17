@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.12
+
+### Patch Changes
+
+- 3c00859: add mihua platte
+
 ## 1.0.11
 
 ### Patch Changes
