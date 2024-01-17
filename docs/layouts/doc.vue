@@ -72,7 +72,7 @@
             class="fixed z-99999 w-400px h-screen bg-white right-0 top-0 shadow-lg p-16px"
           >
             <div class="text-lg font-medium mb-16px">主题定制</div>
-            <div class="flex gap-x-24px">
+            <div class="flex gap-x-24px flex-wrap">
               <div
                 class="flex flex-col items-center cursor-pointer"
                 @click="handleThemeClick('qd')"
@@ -106,13 +106,16 @@
                   <div class="c-gray-500 text-xs">日照</div>
                 </div>
               </div>
-              <!-- <div class="flex flex-col items-center cursor-pointer">
+              <div
+                class="flex flex-col items-center cursor-pointer"
+                @click="handleThemeClick('mihua-dark')"
+              >
                 <div class="bg-[#AEF056] w-60px h-60px rounded mb-8px"></div>
                 <div class="c-gray-600 text-sm flex flex-col items-center">
                   <div>米花绿</div>
                   <div class="c-gray-500 text-xs">暗黑</div>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
         </Teleport>

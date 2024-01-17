@@ -1,17 +1,18 @@
 .du-input {
   height: 44px;
   padding: 11px 0 2px 0;
+  color: var(--du-text-1);
 
   &--bordered {
     height: 32px;
     padding: 5px 8px;
-    border: 1px solid var(--du-c-b-2);
+    border: 1px solid var(--du-border-2);
     border-radius: 4px;
     overflow: hidden;
   }
 
   &--bordered-disabled {
-    background: var(--du-c-bg-2);
+    background: var(--du-bg-2);
   }
 
   &--next {
@@ -39,7 +40,7 @@
   &__bottom-line {
     width: 100%;
     height: 1px;
-    background-color: rgba(32, 36, 38, 0.06);
+    background-color: var(--du-border-2);
   }
 
   &__prefix {
@@ -79,13 +80,13 @@
       }
     }
     &--disabled {
-      color: var(--du-input-disabled-color);
+      color: var(--du-text-3);
     }
     &--placeholder {
-      color: var(--du-input-placeholder-color);
+      color: var(--du-text-3);
     }
     &::placeholder {
-      color: var(--du-input-placeholder-color);
+      color: var(--du-text-3);
     }
   }
 }

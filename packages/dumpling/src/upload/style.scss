@@ -27,7 +27,7 @@
     left: 0;
     padding: 4px;
     padding-right: 5px;
-    color: #fff;
+    color: var(--du-primary-solid-color);
     font-size: 10px;
     line-height: 10px;
     font-weight: 500;
@@ -51,7 +51,7 @@
     width: 72px;
     height: 72px;
     border-radius: 4px;
-    border: 1px dashed rgba(0, 0, 0, 0.08);
+    border: 1px dashed var(--du-border-2);
 
     &--large {
       width: 96px;
@@ -62,11 +62,11 @@
   &__item-add-plus {
     font-size: 24px;
     line-height: 24px;
-    color: #918b9f;
+    color: var(--du-icon-3);
   }
 
   &__item-add-text {
-    color: rgba(0, 0, 0, 0.4);
+    color: var(--du-text-3);
     font-size: 12px;
     line-height: 18px;
   }

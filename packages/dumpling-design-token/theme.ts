@@ -1,6 +1,7 @@
 import { kebabCase } from 'lodash-es'
 import chroma from 'chroma-js'
 import themes from './platte.json' assert { type: 'json' }
+import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
 
 type CreateThemeOpts = {
   theme: Record<string, Record<string, Record<string, string | number>>>
@@ -37,78 +38,78 @@ const builtinTheme: Record<
     },
   },
 
-  'mihua-light': {
-    primary: {
-      'solid-bg': '#AEF056',
-      'solid-disabledtemp-bg': '#C9F590',
+  // 'mihua-light': {
+  //   primary: {
+  //     'solid-bg': '#AEF056',
+  //     'solid-disabledtemp-bg': '#C9F590',
 
-      'solid-color': '#000000',
-      'solid-disabledtemp-color': '#00000029',
+  //     'solid-color': '#000000',
+  //     'solid-disabledtemp-color': '#00000029',
 
-      'text-color': '#74B027',
-      'text-disabledtemp-color': '#C9F590',
+  //     'text-color': '#74B027',
+  //     'text-disabledtemp-color': '#C9F590',
 
-      border: '#74B027',
-      'disabledtemp-border': '#C9F590',
+  //     border: '#74B027',
+  //     'disabledtemp-border': '#C9F590',
 
-      'outline-color': '#AEF056',
-      'outline-disabledtemp-color': '#C9F590',
+  //     'outline-color': '#AEF056',
+  //     'outline-disabledtemp-color': '#C9F590',
 
-      color: '#74B027',
-      'disabledtemp-color': '#C9F590',
+  //     color: '#74B027',
+  //     'disabledtemp-color': '#C9F590',
 
-      'soft-bg': '#E9FCD0',
-      'soft-disabledtemp-bg': '#E9FCD0',
-    },
-  },
+  //     'soft-bg': '#E9FCD0',
+  //     'soft-disabledtemp-bg': '#E9FCD0',
+  //   },
+  // },
 
-  'mihua-dark': {
-    primary: {
-      'solid-bg': '#AEF056',
-      'solid-disabledtemp-bg': '#437008',
+  // 'mihua-dark': {
+  //   primary: {
+  //     'solid-bg': '#AEF056',
+  //     'solid-disabledtemp-bg': '#437008',
 
-      'solid-color': '#000000',
-      'solid-disabledtemp-color': '#000000',
+  //     'solid-color': '#000000',
+  //     'solid-disabledtemp-color': '#000000',
 
-      'text-color': '#AEF056',
-      'text-disabledtemp-color': '#437008',
+  //     'text-color': '#AEF056',
+  //     'text-disabledtemp-color': '#437008',
 
-      border: '#AEF056',
-      'disabledtemp-border': '#437008',
+  //     border: '#AEF056',
+  //     'disabledtemp-border': '#437008',
 
-      'outline-color': '#AEF056',
-      'outline-disabledtemp-color': '#437008',
+  //     'outline-color': '#AEF056',
+  //     'outline-disabledtemp-color': '#437008',
 
-      color: '#AEF056',
-      'disabledtemp-color': '#437008',
+  //     color: '#AEF056',
+  //     'disabledtemp-color': '#437008',
 
-      'soft-bg': '#FFFFFF1F',
-      'soft-disabledtemp-bg': '#FFFFFF1F',
-    },
+  //     'soft-bg': '#FFFFFF1F',
+  //     'soft-disabledtemp-bg': '#FFFFFF1F',
+  //   },
 
-    secondary: {
-      'solid-bg': '#FFFFFF',
-      'solid-disabledtemp-bg': '#FFFFFF3D',
+  //   secondary: {
+  //     'solid-bg': '#FFFFFF',
+  //     'solid-disabledtemp-bg': '#FFFFFF3D',
 
-      'solid-color': '#000000',
-      'solid-disabledtemp-color': '#000000',
+  //     'solid-color': '#000000',
+  //     'solid-disabledtemp-color': '#000000',
 
-      'text-color': '#FFFFFFE0',
-      'text-disabledtemp-color': '#FFFFFF3D',
+  //     'text-color': '#FFFFFFE0',
+  //     'text-disabledtemp-color': '#FFFFFF3D',
 
-      border: '#FFFFFFE0',
-      'disabledtemp-border': '#FFFFFF66',
+  //     border: '#FFFFFFE0',
+  //     'disabledtemp-border': '#FFFFFF66',
 
-      'outline-color': '#FFFFFFE0',
-      'outline-disabledtemp-color': '#FFFFFF3D',
+  //     'outline-color': '#FFFFFFE0',
+  //     'outline-disabledtemp-color': '#FFFFFF3D',
 
-      color: '#FFFFFFE0',
-      'disabledtemp-color': '#FFFFFF3D',
+  //     color: '#FFFFFFE0',
+  //     'disabledtemp-color': '#FFFFFF3D',
 
-      'soft-bg': '#FFFFFF14',
-      'soft-disabledtemp-bg': '#1F1F1F ',
-    },
-  },
+  //     'soft-bg': '#FFFFFF14',
+  //     'soft-disabledtemp-bg': '#1F1F1F ',
+  //   },
+  // },
 
   qh: {
     primary: {
@@ -364,6 +365,32 @@ export function createThemes(opts: CreateThemeOpts) {
     if (theme.mode.name === '千岛') {
       theme.mode.name = 'qd'
     }
+    if (theme.mode.name === '千岛暗黑') {
+      theme.mode.name = 'qd-dark'
+    }
+  })
+  mihuaThemes.forEach((theme) => {
+    if (theme.mode.name === '米花') {
+      theme.mode.name = 'mihua-light'
+    }
+    if (theme.mode.name === '米花暗黑') {
+      theme.mode.name = 'mihua-dark'
+      // TODO: 先强制把 secondary 给 default
+      // TODO: 后面设计弄好了要把这里删掉
+      theme.color.forEach((c) => {
+        if (c.name.startsWith('default/')) {
+          const candidate = theme.color.find(
+            (candidate) =>
+              candidate.name === c.name.replace('default', 'secondary'),
+          )
+          if (candidate) {
+            c.color = candidate.color
+            c.rootAlias = candidate.rootAlias
+            c.var = candidate.var
+          }
+        }
+      })
+    }
   })
 
   // 小程序里极致优化包体积使用
@@ -385,7 +412,7 @@ export function createThemes(opts: CreateThemeOpts) {
     return alias[name]
   }
 
-  themes.forEach((theme) => {
+  ;[...themes, ...mihuaThemes].forEach((theme) => {
     themePlatte[theme.mode.name] = {
       colors: new Set(),
       vars: {},
@@ -419,9 +446,15 @@ export function createThemes(opts: CreateThemeOpts) {
         // }
         themePlatte[theme.mode.name].vars[name] = color.color
       } else if (color.var) {
-        themePlatte[theme.mode.name].vars[name] = `${kebabCase(
-          color.var.replace(/\//g, '-'),
-        )}`
+        // TODO: 暂时不采用引用模式，但可能留坑
+        // 下面是原来的代码
+        // themePlatte[theme.mode.name].vars[name] = `${kebabCase(
+        //   color.var.replace(/\//g, '-'),
+        // )}`
+
+        themePlatte[theme.mode.name].vars[name] = color.color
+      } else {
+        themePlatte[theme.mode.name].vars[name] = color.color
       }
       if (name.endsWith('solid-bg')) {
         themePlatte[theme.mode.name].vars[name + '-channel'] = chroma(
@@ -466,32 +499,49 @@ export function createThemes(opts: CreateThemeOpts) {
     }[] = []
 
     const themeNames = Object.keys(themePlatte)
+    const defaultThemeConfig = themePlatte[opts.defaultTheme]
+
     themeNames.forEach((themeName) => {
       const themeConfig = themePlatte[themeName]
       const vars: Record<string, string> = {}
       const colorSet = new Set<string>()
       const themeAlias: Record<string, string> = {}
-      Object.entries(themeConfig.vars).forEach(([key, value]) => {
-        if (alias[key]) {
-          themeAlias[alias[key]] = key
-        }
-      })
+
       Object.entries(themeConfig.vars).forEach(([key, value]) => {
         const prefix = key.split('-')[0]
         if (!['text', 'bg', 'mask', 'icon', 'border'].includes(prefix)) {
           colorSet.add(prefix)
         }
+
+        if (
+          themeName !== opts.defaultTheme &&
+          defaultThemeConfig.vars[key] === value
+        ) {
+          return
+        }
+
+        // TODO: 暂时不采用引用模式
         // 一个引用
-        if (themeConfig.vars[value]) {
-          vars[`--du-${key}`] = `var(--du-${value})`
-        } else {
-          vars[`--du-${key}`] = value
+        // if (themeConfig.vars[value]) {
+        //   vars[`--du-${key}`] = `var(--du-${value})`
+        // } else {
+        //   vars[`--du-${key}`] = value
+        // }
+
+        vars[`--du-${key}`] = value
+      })
+
+      Object.entries(themeConfig.vars).forEach(([key, value]) => {
+        if (alias[key] && vars[`--du-${key}`]) {
+          themeAlias[alias[key]] = key
         }
       })
 
       Object.entries(themeAlias).forEach(([key, value]) => {
+        // TODO: 暂时不采用引用模式
         // 一个引用
-        vars[`--dva-${key}`] = `var(--du-${value})`
+        // vars[`--dva-${key}`] = `var(--du-${value})`
+        vars[`--dva-${key}`] = vars[`--du-${value}`]
       })
 
       cssVarsByTheme.push({
@@ -522,59 +572,4 @@ export function createThemes(opts: CreateThemeOpts) {
     hasAlias,
     getAlias,
   }
-
-  // const basePlatteCss = `:root,.du-base-platte {\n${basePlatte.join('\n')}\n}`
-
-  // const themeAlias: Record<string, Record<string, string>> = {}
-  // const alias: Record<string, string> = {}
-
-  // Object.entries(themePlatte).forEach(([name, colors]) => {
-  //   themeAlias[name] = {}
-
-  //   Object.entries(colors).forEach(([prop]) => {
-  //     if (!alias[prop]) {
-  //       alias[prop] = nextVarName()
-  //     }
-  //     themeAlias[name][alias[prop]] = `var(--du-${prop})`
-  //   })
-  // })
-
-  // const themePlatteCss = Object.entries(themePlatte)
-  //   .map(([name, colors]) => {
-  //     const selectorName =
-  //       name === opts.defaultTheme
-  //         ? `:root,.du-theme-base,.du-theme-${name},.g-theme-${name}`
-  //         : `.du-theme-${name},.g-theme-${name}`
-
-  //     const css = Object.entries(colors)
-  //       .map(([key, value]) => {
-  //         return `--du-${key}: ${value};`
-  //       })
-  //       .join('\n')
-  //     return `${selectorName} {\n${css}\n}`
-  //   })
-  //   .join('\n')
-
-  // const themeAliasCss = Object.entries(themeAlias)
-  //   .map(([name, colors]) => {
-  //     const selectorName =
-  //       name === opts.defaultTheme
-  //         ? `:root,.du-theme-base,.du-theme-${name},.g-theme-${name}`
-  //         : `.du-theme-${name},.g-theme-${name}`
-
-  //     const css = Object.entries(colors)
-  //       .map(([key, value]) => {
-  //         return `--du-${key}: ${value};`
-  //       })
-  //       .join('\n')
-  //     return `${selectorName} {\n${css}\n}`
-  //   })
-  //   .join('\n')
-
-  // return {
-  //   css: `${basePlatteCss}\n${themePlatteCss}\n${themeAliasCss}`,
-  //   themePlatte,
-  //   themeAlias,
-  //   nextVarName,
-  // }
 }

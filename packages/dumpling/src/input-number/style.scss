@@ -2,6 +2,8 @@
   display: flex;
   flex-shrink: 0;
   align-items: center;
+  color: var(--du-text-1);
+
   &__input {
     width: 44px;
     padding: 0 8px;
@@ -49,7 +51,7 @@
     min-width: 44px;
     padding: 0 8px;
     font-size: 14px;
-    color: #202426;
+    color: var(--du-text-1);
 
     text-align: center;
 
