@@ -21,6 +21,7 @@
     transition: all 0.3s;
     z-index: 99999;
     min-height: 50px;
+    overflow: hidden;
   }
 
   &--top {
