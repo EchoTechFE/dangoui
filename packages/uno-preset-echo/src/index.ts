@@ -361,7 +361,9 @@ function genCssVars(theme: Theme) {
         })
       } else {
         return levels.map((level) => {
-          return `--du-c-${item}: ${((theme as any).colors?.[item])[level]};`
+          return `--du-c-${item}-${level}: ${
+            ((theme as any).colors?.[item])[level]
+          };`
         })
       }
     })
