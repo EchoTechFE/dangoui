@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.3
+
+### Patch Changes
+
+- a2442ac: fix color var
+
 ## 1.7.2
 
 ### Patch Changes
