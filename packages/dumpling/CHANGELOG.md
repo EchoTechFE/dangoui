@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.67
+
+### Patch Changes
+
+- 4dd09d0: divider support color
+
 ## 3.0.66
 
 ### Patch Changes
