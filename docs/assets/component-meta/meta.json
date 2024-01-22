@@ -56,7 +56,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "色彩",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -1357,7 +1357,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "颜色",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "undefined"
@@ -1506,7 +1506,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "颜色",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "undefined"
@@ -1627,7 +1627,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -1682,7 +1682,7 @@
             },
             {
                 "name": "color",
-                "description": "色彩",
+                "description": "色彩，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 primary-solid-color）",
                 "required": false,
                 "type": "string",
                 "default": "unknown"
@@ -2226,7 +2226,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "图标颜色",
+                "description": "图标颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
                 "required": false,
                 "type": "string",
                 "default": "\"\""
@@ -3235,7 +3235,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "颜色",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -3467,7 +3467,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "undefined"
@@ -3595,8 +3595,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2189,
-                                            2206
+                                            2234,
+                                            2251
                                         ]
                                     }
                                 ],
@@ -3620,8 +3620,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2207,
-                                            2229
+                                            2252,
+                                            2274
                                         ]
                                     }
                                 ],
@@ -3684,8 +3684,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2108,
-                                            2125
+                                            2153,
+                                            2170
                                         ]
                                     }
                                 ],
@@ -3709,8 +3709,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2126,
-                                            2148
+                                            2171,
+                                            2193
                                         ]
                                     }
                                 ],
@@ -3739,7 +3739,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "颜色",
+                "description": "颜色，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "undefined"
@@ -3871,7 +3871,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -4443,7 +4443,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "色板色彩",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -4541,7 +4541,7 @@
         "props": [
             {
                 "name": "color",
-                "description": "",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
