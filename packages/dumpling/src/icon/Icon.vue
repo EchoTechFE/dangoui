@@ -28,7 +28,7 @@ const props = withDefaults(
      */
     size: string | number
     /**
-     * 图标颜色
+     * 图标颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）
      *
      */
     color: string

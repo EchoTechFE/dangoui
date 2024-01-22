@@ -20,6 +20,9 @@ const props = withDefaults(
     checked: boolean
     disabled: boolean
     size: string | number
+    /**
+     * 色彩，可以使用色板中的颜色名
+     */
     color: string
   }>(),
   {

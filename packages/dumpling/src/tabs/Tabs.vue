@@ -57,6 +57,9 @@ import { dividerInjectionKey } from '../divider/helpers'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 色彩，可以使用色板中的颜色名
+     */
     color: string
     type: 'default' | 'tag' | 'text'
     value: string

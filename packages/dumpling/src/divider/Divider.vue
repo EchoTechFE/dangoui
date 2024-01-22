@@ -19,7 +19,8 @@ import { isPlatteColor } from '../helpers'
 const props = withDefaults(
   defineProps<{
     /**
-     * 色彩
+     * 色彩，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 primary-solid-color）
+     *
      */
     color?: string
     /**

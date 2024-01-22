@@ -28,6 +28,9 @@ const props = withDefaults(
     shape: string
     size: string | number
     border: string
+    /**
+     * 色彩，可以使用色板中的颜色名
+     */
     color: string
   }>(),
   {
