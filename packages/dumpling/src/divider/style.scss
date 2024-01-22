@@ -2,10 +2,11 @@
   flex: none;
   display: flex;
   align-items: center;
+  color: rgba(0, 0, 0, 0.05);
 
   &--vertical {
     width: 1px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: currentColor;
     height: calc(100% - 6px);
     margin-top: 3px;
   }
@@ -18,13 +19,13 @@
   &__left {
     flex: auto;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: currentColor;
   }
 
   &__right {
     flex: auto;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: currentColor;
   }
 
   &__content {

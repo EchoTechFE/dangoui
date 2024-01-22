@@ -14,9 +14,14 @@
 import { CSSProperties, computed, inject } from 'vue'
 import { dividerInjectionKey } from './helpers'
 import { useSize } from '../composables/useSize'
+import { isPlatteColor } from '../helpers'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 色彩
+     */
+    color?: string
     /**
      * 分割线水平或者竖直
      */
@@ -58,6 +63,16 @@ const style = computed(() => {
   } else if (config.value.type === 'vertical' && length) {
     css.marginTop = 0
     css.height = resolvedLength.value
+  }
+
+  if (props.color) {
+    if (isPlatteColor(props.color)) {
+      if (props.color.includes('-')) {
+        css.color = `var(--du-${props.color})`
+      }
+    } else {
+      css.color = props.color
+    }
   }
 
   return css
