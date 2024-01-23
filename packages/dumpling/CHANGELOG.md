@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.68
+
+### Patch Changes
+
+- 62f8344: 添加 select 组件
+
 ## 3.0.67
 
 ### Patch Changes
