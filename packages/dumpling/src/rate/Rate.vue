@@ -190,14 +190,14 @@ function ifHalfSupported(e: any, i: number) {
   let position = 0
   let index = 0
   if (__UNI_PLATFORM__ !== 'h5') {
-    let eleWidth = iconSize.value
-    let halfWidth = eleWidth / 2
-    let x = e.touches[0].clientX - e.currentTarget.offsetLeft
+    const eleWidth = iconSize.value
+    const halfWidth = eleWidth / 2
+    const x = e.touches[0].clientX - e.currentTarget.offsetLeft
     position = x < halfWidth ? -1 : 1
   } else {
-    let clickedElement = e.target
-    let elementWidth = clickedElement.offsetWidth
-    let clickX = e.clientX - clickedElement.getBoundingClientRect().left
+    const clickedElement = e.target
+    const elementWidth = clickedElement.offsetWidth
+    const clickX = e.clientX - clickedElement.getBoundingClientRect().left
     if (clickX < elementWidth / 2) {
       position = -1
     } else {
