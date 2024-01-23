@@ -84,7 +84,6 @@ const visible = computed({
     return props.open ?? internalOpen.value
   },
   set(val) {
-    console.log(val, props.open)
     if (props.open == null) {
       internalOpen.value = val
     }
@@ -205,16 +204,13 @@ function handleSelectOption(opt: CascaderOption) {
   const idx = +tabIndex.value
   internalValue.value.length = idx
   internalValue.value[idx - 1] = opt.value
-  console.log('internalValue', internalValue.value)
 
   if (opt.children) {
     tabIndex.value = `${idx + 1}`
   } else {
-    console.log('confirm', [...internalValue.value])
     emit('update:value', [...internalValue.value])
     emit('confirm', getOptionsFromValue(internalValue.value))
     visible.value = false
   }
-  console.log('tab Index', tabIndex.value)
 }
 </script>

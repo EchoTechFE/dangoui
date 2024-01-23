@@ -16,6 +16,7 @@ import Switch from './switch/Switch.vue'
 import Search from './search/Search.vue'
 import SearchRight from './search/SearchRight.vue'
 import Textarea from './textarea/Textarea.vue'
+import Select from './select/Select.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
@@ -29,6 +30,7 @@ import TabsRight from './tabs/TabsRight.vue'
 import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
 import Tooltip from './tooltip/Tooltip.vue'
+import TagsPanel from './tags-panel/TagsPanel.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
@@ -63,6 +65,7 @@ const DuSwitch = Switch
 const DuSearch = Search
 const DuSearchRight = SearchRight
 const DuTextarea = Textarea
+const DuSelect = Select
 const DuForm = Form
 const DuFormItem = FormItem
 
@@ -76,6 +79,7 @@ const DuTabsRight = TabsRight
 const DuDivider = Divider
 const DuTag = Tag
 const DuTooltip = Tooltip
+const DuTagsPanel = TagsPanel
 
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
@@ -126,6 +130,8 @@ export {
   DuSearchRight,
   Textarea,
   DuTextarea,
+  Select,
+  DuSelect,
   Form,
   DuForm,
   FormItem,
@@ -150,6 +156,8 @@ export {
   DuTag,
   Tooltip,
   DuTooltip,
+  TagsPanel,
+  DuTagsPanel,
   NavigationBar,
   DuNavigationBar,
   NavigationBarRight,

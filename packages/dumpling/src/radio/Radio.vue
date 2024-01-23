@@ -2,12 +2,12 @@
   <div
     v-if="config.custom"
     :class="className"
-    :styles="style"
+    :style="style"
     @click="handleClick"
   >
     <slot />
   </div>
-  <div v-else :class="className" :styles="style" @click="handleClick">
+  <div v-else :class="className" :style="style" @click="handleClick">
     <template v-if="config.shape === 'normal'">
       <template v-if="config.cell">
         <div class="du-radio__label">
@@ -66,7 +66,7 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
-    label: string
+    label?: string
     /**
      * 形状
      *

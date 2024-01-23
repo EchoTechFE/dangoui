@@ -45,13 +45,13 @@ const props = withDefaults(
      *
      * @default "round"
      */
-    shape: 'round' | 'square'
+    shape?: 'round' | 'square'
     /**
      * 行内元素
      *
      * @default false
      */
-    inline: boolean
+    inline?: boolean
     /**
      * 是否禁用
      */
@@ -59,7 +59,7 @@ const props = withDefaults(
     /**
      * label，如果使用 `default slot`，可以不传
      */
-    label: string
+    label?: string
     /**
      * 是否选中，独立使用 `Checkbox` 时使用
      */
@@ -71,13 +71,13 @@ const props = withDefaults(
     /**
      * 自定义展示
      */
-    custom: boolean
+    custom?: boolean
     /**
      * 对勾图标位置
      *
      * @default "right"
      */
-    position: 'left' | 'right'
+    position?: 'left' | 'right'
     /**
      * 对勾图标大小
      */

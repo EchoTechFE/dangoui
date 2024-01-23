@@ -1414,21 +1414,21 @@
             {
                 "name": "shape",
                 "description": "形状",
-                "required": true,
+                "required": false,
                 "type": "\"round\" | \"square\"",
                 "default": "unknown"
             },
             {
                 "name": "inline",
                 "description": "行内元素",
-                "required": true,
+                "required": false,
                 "type": "boolean",
                 "default": "unknown"
             },
             {
                 "name": "label",
                 "description": "label，如果使用 `default slot`，可以不传",
-                "required": true,
+                "required": false,
                 "type": "string",
                 "default": "unknown"
             },
@@ -1442,7 +1442,7 @@
             {
                 "name": "position",
                 "description": "对勾图标位置",
-                "required": true,
+                "required": false,
                 "type": "\"left\" | \"right\"",
                 "default": "unknown"
             }
@@ -3531,7 +3531,7 @@
             {
                 "name": "label",
                 "description": "",
-                "required": true,
+                "required": false,
                 "type": "string",
                 "default": "unknown"
             },
@@ -3595,8 +3595,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2234,
-                                            2251
+                                            2233,
+                                            2250
                                         ]
                                     }
                                 ],
@@ -3620,8 +3620,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2252,
-                                            2274
+                                            2251,
+                                            2273
                                         ]
                                     }
                                 ],
@@ -3684,8 +3684,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2153,
-                                            2170
+                                            2152,
+                                            2169
                                         ]
                                     }
                                 ],
@@ -3709,8 +3709,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
                                         "range": [
-                                            2171,
-                                            2193
+                                            2170,
+                                            2192
                                         ]
                                     }
                                 ],
@@ -4191,6 +4191,226 @@
     "SearchRight": {
         "props": [],
         "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "Select": {
+        "props": [
+            {
+                "name": "value",
+                "description": "选中的值",
+                "required": false,
+                "type": "string | number | string[] | number[]",
+                "default": "[]"
+            },
+            {
+                "name": "title",
+                "description": "placeholder（如果在 form item 中）和标题",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u8BF7\\u9009\\u62E9\""
+            },
+            {
+                "name": "open",
+                "description": "如果打开 popup",
+                "required": false,
+                "type": "boolean",
+                "default": "undefined"
+            },
+            {
+                "name": "formItem",
+                "description": "如果为 true，当作为 `DuFormItem` 的子元素时，会自动显示表单项，如果为 false，则不会显示",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "options",
+                "description": "选项列表",
+                "required": true,
+                "type": "SelectOption[]",
+                "default": "unknown"
+            },
+            {
+                "name": "mode",
+                "description": "不提供为单选，multiple 为多选",
+                "required": false,
+                "type": "\"multiple\"",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "[value: SelectOption[]]",
+                "signature": "(event: \"confirm\", value: SelectOption[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "array",
+                        "type": "SelectOption[]",
+                        "schema": [
+                            {
+                                "kind": "object",
+                                "type": "SelectOption",
+                                "schema": {
+                                    "label": {
+                                        "name": "label",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
+                                                "range": [
+                                                    1639,
+                                                    1652
+                                                ]
+                                            }
+                                        ],
+                                        "schema": "string"
+                                    },
+                                    "value": {
+                                        "name": "value",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string | number",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
+                                                "range": [
+                                                    1655,
+                                                    1677
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "string | number",
+                                            "schema": [
+                                                "string",
+                                                "number"
+                                            ]
+                                        }
+                                    },
+                                    "disabled": {
+                                        "name": "disabled",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "boolean | undefined",
+                                        "declarations": [
+                                            {
+                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
+                                                "range": [
+                                                    1680,
+                                                    1698
+                                                ]
+                                            }
+                                        ],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "boolean | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "false",
+                                                "true"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:open",
+                "type": "[open: boolean]",
+                "signature": "(event: \"update:open\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string | number | string[] | number[]]",
+                "signature": "(event: \"update:value\", value: string | number | string[] | number[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "string | number | string[] | number[]",
+                        "schema": [
+                            "string",
+                            "number",
+                            {
+                                "kind": "array",
+                                "type": "string[]",
+                                "schema": [
+                                    "string"
+                                ]
+                            },
+                            {
+                                "kind": "array",
+                                "type": "number[]",
+                                "schema": [
+                                    "number"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "slots": [
             {
                 "name": "default",
@@ -4737,6 +4957,82 @@
                 }
             }
         ]
+    },
+    "TagsPanel": {
+        "props": [
+            {
+                "name": "tags",
+                "description": "",
+                "required": false,
+                "type": "{ text: string; value: string | number; }[]",
+                "default": "[]"
+            }
+        ],
+        "events": [
+            {
+                "name": "add",
+                "type": "[]",
+                "signature": "(event: \"add\"): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": []
+            },
+            {
+                "name": "remove",
+                "type": "[payload: { value: string | number; }]",
+                "signature": "(event: \"remove\", payload: { value: string | number; }): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "{ value: string | number; }",
+                        "schema": {
+                            "value": {
+                                "name": "value",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "string | number",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/tags-panel/TagsPanel.vue",
+                                        "range": [
+                                            935,
+                                            957
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "string | number",
+                                    "schema": [
+                                        "string",
+                                        "number"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "slots": []
     },
     "Textarea": {
         "props": [
