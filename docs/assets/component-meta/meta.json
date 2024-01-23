@@ -4975,11 +4975,32 @@
     "TagsPanel": {
         "props": [
             {
-                "name": "tags",
-                "description": "",
+                "name": "addText",
+                "description": "添加按钮文案",
                 "required": false,
-                "type": "{ text: string; value: string | number; }[]",
+                "type": "string",
+                "default": "\"\\u6DFB\\u52A0\""
+            },
+            {
+                "name": "tags",
+                "description": "标签，value 是唯一标识符，没有 canRemove 字段的话默认可以删除",
+                "required": false,
+                "type": "{ text: string; value: string | number; canRemove?: boolean; }[] | undefined",
                 "default": "[]"
+            },
+            {
+                "name": "canToggle",
+                "description": "可以收起",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "collapseCount",
+                "description": "多少个的时候显示展开按钮",
+                "required": false,
+                "type": "number",
+                "default": "10"
             }
         ],
         "events": [
@@ -5027,8 +5048,8 @@
                                     {
                                         "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/tags-panel/TagsPanel.vue",
                                         "range": [
-                                            935,
-                                            957
+                                            1430,
+                                            1452
                                         ]
                                     }
                                 ],
@@ -5046,7 +5067,19 @@
                 ]
             }
         ],
-        "slots": []
+        "slots": [
+            {
+                "name": "add",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
     },
     "Textarea": {
         "props": [
