@@ -4284,8 +4284,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
                                                 "range": [
-                                                    1639,
-                                                    1652
+                                                    1658,
+                                                    1671
                                                 ]
                                             }
                                         ],
@@ -4302,8 +4302,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
                                                 "range": [
-                                                    1655,
-                                                    1677
+                                                    1674,
+                                                    1696
                                                 ]
                                             }
                                         ],
@@ -4327,8 +4327,8 @@
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
                                                 "range": [
-                                                    1680,
-                                                    1698
+                                                    1699,
+                                                    1717
                                                 ]
                                             }
                                         ],
@@ -4414,13 +4414,27 @@
         "slots": [
             {
                 "name": "default",
-                "type": "{}",
+                "type": "{ open: () => void; }",
                 "description": "",
                 "declarations": [],
                 "schema": {
                     "kind": "object",
-                    "type": "{}",
-                    "schema": {}
+                    "type": "{ open: () => void; }",
+                    "schema": {
+                        "open": {
+                            "name": "open",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "() => void",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(): void"
+                            }
+                        }
+                    }
                 }
             }
         ]
@@ -5120,6 +5134,20 @@
     },
     "Tooltip": {
         "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
             {
                 "name": "title",
                 "description": "",
