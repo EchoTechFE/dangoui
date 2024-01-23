@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.70
+
+### Patch Changes
+
+- d0e582e: 增加 tags panel 文档
+
 ## 3.0.69
 
 ### Patch Changes
