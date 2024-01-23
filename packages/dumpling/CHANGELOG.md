@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.69
+
+### Patch Changes
+
+- d23f2d8: tooltip add extClass and extStyle
+
 ## 3.0.68
 
 ### Patch Changes
