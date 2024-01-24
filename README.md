@@ -1,58 +1,27 @@
-du-calendar
-du-checkbox
-du-empty
-du-form
-du-group-cell
-du-icon
-du-input
-du-input-number
-du-modal 写了，没在用
-du-popup
-du-radio
-du-rate 写了没在用，暂时不放
-du-segmented-control 写了，没在用
-du-snackbar
-du-sort-tab 写了，没在用
-du-steps
-du-top-tab 写了，没在用
+<div align="center"><a name="readme-top"></a>
 
-checkbox group 非兼容更新：
-value 只能是 string 数组
-下面的 checkbox 需要传 value，原来有歧义
-去掉自带的 padding: 4px 0;
+<img height="166" src="https://cdn.qiandaoapp.com/interior/images/928db35e88a094cd3bd77f03d5c01867.svg">
 
-Input: 要看一下 uniapp 有没有弥合差异，event 事件是什么样子的
-Icon: 去掉了 --du-icon-fz
+<h1>Dumpling</h1>
 
-Input: 结构更改
+一套适用于 uni-app 小程序和 Web 的 Vue 3 移动端组件库
 
-FormItem：提示偏移问题
-增加 Layout horizontal vertical 替代 nextSlotLine
+</div>
 
-Form
-增加 layout horizontal
+## 特性
 
+- 多平台兼容，uni-app、Web 都可以使用
+- 默认就很好看，业务上久经考验
+- 🚧 易于扩展主题，满足定制需求（开发中）
 
-vue type 如果同时是 string | boolean 好像短写法不行
+## 安装
 
-Radio
-去掉 labelKey 的用，去掉 value 支持传对象（还是支持吧，使用 valueKey）
-去掉 cancel
-判定值不使用 label，使用 value
-Radio 事件变更 { checked, value }
-去掉自带的 padding: 4px 0;
+```bash
+npm install @frontend/dumpling
+yarn add @frontend/dumpling@next
+pnpm add @frontend/dumpling@next
+```
 
-Calendar
-整体变成数组的方式，confirm
-minDate -> min
-maxDate -> max
+## 链接
 
-再抽象出 DatePicker
-
-Snackbar
-content -> slot
-去掉 revert color
-
-待做：
-
-原则：属性名统一，比如 visible、show 怎么选取？
+- [Dumpling 文档](https://dumpling.echo.tech/)
