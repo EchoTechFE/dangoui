@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.71
+
+### Patch Changes
+
+- a246a16: select 支持搜索
+- 79181a0: 重命名 group cell 为 card
+- a743101: 修复 button 不同类型宽度可能不同的问题
+
 ## 3.0.70
 
 ### Patch Changes

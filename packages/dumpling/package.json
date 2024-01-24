@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "3.0.70",
+  "version": "3.0.71",
   "description": "",
   "main": "dist/index.mjs",
   "types": "typings/index.d.ts",
