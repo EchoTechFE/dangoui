@@ -5,9 +5,11 @@
       :class="[
         showSection ? 'py-16px flex-wrap gap-x-8px gap-y-16px' : '',
         type,
-        globalTheme.endsWith('dark')
-          ? 'bg-hex-101010 rd-8px mx-4px px-8px'
-          : 'bg-white rd-8px mx-4px px-8px',
+        showSection
+          ? globalTheme.endsWith('dark')
+            ? 'bg-hex-101010 rd-8px mx-4px px-8px'
+            : 'bg-white rd-8px mx-4px px-8px'
+          : undefined,
       ]"
     >
       <slot />

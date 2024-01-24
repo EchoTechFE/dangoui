@@ -1,6 +1,6 @@
 
 <template>
-  <DuGroupCell class="important-mt-4px" title="创建商品" guide-text="">
+  <DuCard class="important-mt-4px" title="创建商品" guide-text="">
       <DuForm label-size="80px" layout="vertical">
         <DuFormItem label="商品名称" required>
           <DuInput
@@ -42,9 +42,9 @@
           发布
         </DuButton>
       </DuForm>
-  </DuGroupCell>
+  </DuCard>
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuForm, DuFormItem, DuInput, DuGroupCell, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox, DuSwitch } from '@frontend/dumpling'
+import { DuButton, DuForm, DuFormItem, DuInput, DuCard, DuRadioGroup, DuRadio, DuCheckboxGroup, DuCheckbox, DuSwitch } from '@frontend/dumpling'
 </script>

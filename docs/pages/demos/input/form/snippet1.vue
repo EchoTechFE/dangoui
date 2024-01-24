@@ -1,6 +1,6 @@
 
 <template>
-  <DuGroupCell class="important-mt-4px" title="创建商品" guide-text="">
+  <DuCard class="important-mt-4px" title="创建商品" guide-text="">
       <DuForm label-size="80px">
         <DuFormItem label="商品图片" required :show-border="false">
           <DuUpload :value="productImages" />
@@ -54,7 +54,7 @@
           发布
         </DuButton>
       </DuForm>
-  </DuGroupCell>
+  </DuCard>
 </template>
 
 <script setup lang="ts">
@@ -64,7 +64,7 @@ import {
   DuForm,
   DuFormItem,
   DuInput,
-  DuGroupCell,
+  DuCard,
   DuRadioGroup,
   DuRadio,
   DuCheckboxGroup,

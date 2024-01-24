@@ -1,36 +1,28 @@
 <template>
-  <div class="du-group-cell" :style="style" :class="className">
-    <div class="du-group-cell__header" v-if="showHeader">
-      <div class="du-group-cell__left">
-        <div :class="['du-group-cell__title', `du-group-cell__title--${size}`]">
+  <div class="du-card" :style="style" :class="className">
+    <div class="du-card__header" v-if="showHeader">
+      <div class="du-card__left">
+        <div :class="['du-card__title', `du-card__title--${size}`]">
           {{ title }}
         </div>
         <slot name="left" />
-        <div class="du-group-cell__subtitle">{{ subtitle }}</div>
+        <div class="du-card__subtitle">{{ subtitle }}</div>
       </div>
-      <div class="du-group-cell__right">
+      <div class="du-card__right">
         <slot name="right" />
-        <div
-          class="du-group-cell__info"
-          v-if="infoText"
-          @click="$emit('infoTap')"
-        >
+        <div class="du-card__info" v-if="infoText" @click="$emit('infoTap')">
           <DuIcon name="info-circle" :size="infoIconSize" />
-          <div class="du-group-cell__info-text">{{ infoText }}</div>
+          <div class="du-card__info-text">{{ infoText }}</div>
         </div>
         <div
-          class="du-group-cell__action"
+          class="du-card__action"
           v-if="actionIcon"
           @click="$emit('actionTap')"
         >
           <DuIcon :name="actionIcon" :size="infoIconSize" color="#918B9F" />
         </div>
-        <div
-          class="du-group-cell__guide"
-          v-if="guideText"
-          @click="handleGuideTap"
-        >
-          <div class="du-group-cell__guide-text">{{ guideText }}</div>
+        <div class="du-card__guide" v-if="guideText" @click="handleGuideTap">
+          <div class="du-card__guide-text">{{ guideText }}</div>
           <DuIcon
             name="arrow-heavy-right"
             :size="iconSize"
@@ -40,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="du-group-cell__content" :style="finalContentStyle">
+    <div class="du-card__content" :style="finalContentStyle">
       <slot />
     </div>
   </div>

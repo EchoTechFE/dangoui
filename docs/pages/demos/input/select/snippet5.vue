@@ -1,17 +1,17 @@
 
 <template>
-  <DuGroupCell class="important-mt-4px" title="创建商品" guide-text="">
+  <DuCard class="important-mt-4px" title="创建商品" guide-text="">
     <DuForm label-size="80px">
       <DuFormItem label="退货原因" required :show-border="false" items="start">
         <DuSelect :options="options" v-model:value="value" mode="multiple" />
       </DuFormItem>
     </DuForm>
-  </DuGroupCell>
+  </DuCard>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSelect, DuButton, DuGroupCell, DuForm, DuFormItem } from '@frontend/dumpling'
+import { DuSelect, DuButton, DuCard, DuForm, DuFormItem } from '@frontend/dumpling'
 
 const open = ref(false)
 

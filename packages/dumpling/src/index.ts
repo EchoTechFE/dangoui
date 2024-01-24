@@ -20,7 +20,7 @@ import Select from './select/Select.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 
-import GroupCell from './group-cell/GroupCell.vue'
+import Card from './card/Card.vue'
 import Steps from './steps/Steps.vue'
 import Image from './image/Image.vue'
 import Tabs from './tabs/Tabs.vue'
@@ -69,7 +69,7 @@ const DuSelect = Select
 const DuForm = Form
 const DuFormItem = FormItem
 
-const DuGroupCell = GroupCell
+const DuCard = Card
 const DuSteps = Steps
 const DuImage = Image
 const DuTabs = Tabs
@@ -136,8 +136,8 @@ export {
   DuForm,
   FormItem,
   DuFormItem,
-  GroupCell,
-  DuGroupCell,
+  Card,
+  DuCard,
   Steps,
   DuSteps,
   Image,
