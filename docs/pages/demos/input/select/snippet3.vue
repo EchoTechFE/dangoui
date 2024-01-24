@@ -1,21 +1,19 @@
 
 <template>
-  <DuGroupCell class="important-mt-4px" title="创建商品" guide-text="">
-    <DuForm label-size="80px">
-      <DuFormItem label="退货原因" required>
-        <DuSelect :options="options" v-model:value="value" />
-      </DuFormItem>
-    </DuForm>
-  </DuGroupCell>
+  <PreviewBlock title="单组作为弹出组件">
+    <DuButton @click="handleOpen">打开选择</DuButton>
+    <div>{{ value }}</div>
+    <DuSelect :options="options" v-model:value="value" v-model:open="open" mode="multiple" filterable />
+  </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSelect, DuButton, DuGroupCell, DuForm, DuFormItem } from '@frontend/dumpling'
+import { DuSelect, DuButton } from '@frontend/dumpling'
 
 const open = ref(false)
 
-const value = ref(null)
+const value = ref([])
 
 const options = [
   { label: '商品质量问题', value: 'a' },

@@ -18,9 +18,12 @@
       </div>
     </slot>
     <Popup :title="title" v-model:visible="visible" type="bottom">
+      <div class="du-select__search" v-if="filterable">
+        <Search :placeholder="filterPlaceholder" v-model:value="keyword" />
+      </div>
       <scroll-view class="du-select__options" scroll-y>
         <div
-          v-for="opt in options"
+          v-for="opt in displayOptions"
           :key="opt.value"
           :class="[
             'du-select__option',
@@ -54,6 +57,7 @@ import Checkbox from '../checkbox/Checkbox.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import Radio from '../radio/Radio.vue'
 import TagsPanel from '../tags-panel/TagsPanel.vue'
+import Search from '../search/Search.vue'
 
 export type SelectOption = {
   label: string
@@ -87,12 +91,22 @@ const props = withDefaults(
      * 如果为 true，当作为 `DuFormItem` 的子元素时，会自动显示表单项，如果为 false，则不会显示
      */
     formItem: boolean
+    /**
+     * 可过滤的
+     */
+    filterable: boolean
+    /**
+     * 搜索框的 placeholder
+     */
+    filterPlaceholder: string
   }>(),
   {
     open: undefined,
     title: '请选择',
     value: () => [],
     formItem: true,
+    filterable: false,
+    filterPlaceholder: '输入关键词搜索...',
   },
 )
 
@@ -104,6 +118,8 @@ const emit = defineEmits<{
    */
   (e: 'confirm', value: SelectOption[]): void
 }>()
+
+const keyword = ref('')
 
 const formItemLayout = inject(formItemLayoutInjectionKey)
 
@@ -192,4 +208,13 @@ function isSelected(opt: SelectOption) {
     return props.value === opt.value
   }
 }
+
+const displayOptions = computed(() => {
+  if (keyword.value) {
+    return props.options.filter((opt) =>
+      opt.label.includes(keyword.value.trim()),
+    )
+  }
+  return props.options
+})
 </script>
