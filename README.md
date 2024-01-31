@@ -29,4 +29,4 @@ pnpm add @frontend/dumpling@next
 ## 发布
 
 1. 做出更改后，`git add`，然后执行 `npx changeset`，并把变更提交到仓库
-2. 准备发布,`npx changest version`、`npx changeset publish`
+2. 准备发布,`npx changest version`、`pnpm run build`、`npx changeset publish`
