@@ -1,5 +1,5 @@
 import { definePreset } from '@unocss/core'
-import presetMp from 'unocss-preset-mp'
+import presetMp, { PresetMpOptions } from 'unocss-preset-mp'
 import { entriesToCss } from '@unocss/core'
 import type { Theme } from './types'
 
@@ -459,11 +459,13 @@ function getBuiltInTheme(theme: Theme) {
 type PresetEchoOptions = {
   theme?: Record<string, Record<string, string | number>>
   prefix?: string
+  unit?: PresetMpOptions['unit']
 }
 
 export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
   const mp = presetMp({
     prefix: options.prefix,
+    unit: options.unit ?? 'rpx',
   })
   const themeSet = new Set([
     'qd',
