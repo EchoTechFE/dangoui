@@ -25,3 +25,8 @@ pnpm add @frontend/dumpling@next
 ## 链接
 
 - [Dumpling 文档](https://dumpling.echo.tech/)
+
+## 发布
+
+1. 做出更改后，`git add`，然后执行 `npx changeset`，并把变更提交到仓库
+2. 准备发布,`npx changest version`、`npx changeset publish`
