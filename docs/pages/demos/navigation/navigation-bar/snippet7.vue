@@ -2,7 +2,7 @@
 <template>
   <DuNavigationBar share fixed :appear-threshold="150" always-show-content color="white" @share="handleShare" transparent-front-color="white">
     <template #scoped-default="{ opacity }">
-      <view v-if="opacity < 0.8">一起来看电影吧{{opacity}}</view>
+      <view v-if="opacity < 0.8">一起来看电影吧</view>
       <DuTransition v-else>
         <div class="flex items-center text-12px font-medium gap-x-4px">
           <div class="w-16px h-16px rd-full overflow-hidden">
