@@ -3,7 +3,7 @@
     :style="{
       opacity: innerShow ? '1' : '0',
       transform: `translate(0,${innerShow ? '0' : '10px'})`,
-      transition: 'transform 0.25s, opacity 0.25s',
+      transition: innerShow ? 'transform 0.25s, opacity 0.25s' : 'none',
     }"
   >
     <slot />
