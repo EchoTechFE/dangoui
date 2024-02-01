@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.73
+
+### Patch Changes
+
+- d31b83b: fix transition style
+
 ## 3.0.72
 
 ### Patch Changes
