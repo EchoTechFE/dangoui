@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.5
+
+### Patch Changes
+
+- 61b3826: add transition
+
 ## 1.7.3
 
 ### Patch Changes

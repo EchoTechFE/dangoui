@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.72
+
+### Patch Changes
+
+- 61b3826: add transition
+
 ## 3.0.71
 
 ### Patch Changes

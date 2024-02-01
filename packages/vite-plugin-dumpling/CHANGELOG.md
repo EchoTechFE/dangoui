@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.43
+
+### Patch Changes
+
+- 61b3826: add transition
+- Updated dependencies [61b3826]
+  - @frontend/dumpling@3.0.72
+
 ## 1.0.42
 
 ### Patch Changes
