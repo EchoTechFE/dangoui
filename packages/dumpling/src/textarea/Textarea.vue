@@ -1,12 +1,5 @@
 <template>
-  <div
-    :class="[
-      'du-textarea',
-      {
-        'du-textarea--bordered': bordered,
-      },
-    ]"
-  >
+  <div :class="className" :style="style">
     <textarea
       class="du-textarea__inner"
       :value="value"
@@ -28,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, normalizeStyle, normalizeClass } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -52,6 +45,18 @@ const props = withDefaults(
      * 是否是外边框类型
      */
     bordered: boolean
+    /**
+     * 自定义 class
+     */
+    extClass: string | string[] | Record<string, boolean>
+    /**
+     * 自定义 style
+     */
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
   }>(),
   {
     maxlength: -1,
@@ -61,6 +66,20 @@ const props = withDefaults(
     bordered: false,
   },
 )
+
+const style = computed(() => {
+  return normalizeStyle(props.extStyle)
+})
+
+const className = computed(() => {
+  return normalizeClass([
+    'du-textarea',
+    {
+      'du-textarea--bordered': props.bordered,
+    },
+    props.extClass,
+  ])
+})
 
 const emit = defineEmits<{
   (e: 'update:value', value: string): void
