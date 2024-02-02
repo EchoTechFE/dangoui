@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.45
+
+### Patch Changes
+
+- 698601e: textarea support extStyle and extClass
+- Updated dependencies [698601e]
+  - @frontend/dumpling@3.0.74
+
 ## 1.0.44
 
 ### Patch Changes

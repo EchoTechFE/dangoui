@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.6
+
+### Patch Changes
+
+- 698601e: textarea support extStyle and extClass
+
 ## 1.7.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling",
-  "version": "3.0.73",
+  "version": "3.0.74",
   "description": "",
   "main": "dist/index.mjs",
   "types": "typings/index.d.ts",
@@ -68,7 +68,7 @@
     "postcss": "^8.4.31",
     "sass": "^1.69.5",
     "unocss": "^0.57.7",
-    "unocss-preset-echo": "^1.7.5",
+    "unocss-preset-echo": "^1.7.6",
     "vue-tsc": "^1.8.22"
   },
   "publishConfig": {

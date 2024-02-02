@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.74
+
+### Patch Changes
+
+- 698601e: textarea support extStyle and extClass
+
 ## 3.0.73
 
 ### Patch Changes
