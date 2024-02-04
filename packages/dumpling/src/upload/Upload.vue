@@ -284,6 +284,7 @@ async function uniUpload(f: UploadFile) {
 function uniAdd() {
   // @ts-ignore
   uni.chooseMedia({
+    mediaType: props.mediaType,
     async success(res: any) {
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
         const f: UploadFile = {
