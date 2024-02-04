@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.75
+
+### Patch Changes
+
+- 8e7d880: fix upload media type
+
 ## 3.0.74
 
 ### Patch Changes
