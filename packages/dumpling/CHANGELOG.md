@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.76
+
+### Patch Changes
+
+- bc7d936: update icon
+
 ## 3.0.75
 
 ### Patch Changes
