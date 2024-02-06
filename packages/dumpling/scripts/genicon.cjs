@@ -44,7 +44,7 @@ const ossClient = new OSS({
   region: 'oss-cn-shanghai',
   accessKeyId: aliossConfig.accessKeyId,
   accessKeySecret: aliossConfig.accessKeySecret,
-  bucket: 'echoing-svc-upload',
+  bucket: 'qd-sf-assets',
 })
 
 async function upload(filename, fileBuffer) {
@@ -103,7 +103,7 @@ async function gen(url) {
   const font = fontCarrier.create()
 
   const iconConfig = {
-    CDN: 'https://cdn.qiandaoapp.com/icons',
+    CDN: 'https://assets.qiandaocdn.com/icons',
     font: {},
     icons: {},
   }
