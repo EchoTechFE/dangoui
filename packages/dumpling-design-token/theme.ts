@@ -1,166 +1,104 @@
-import { kebabCase } from 'lodash-es'
 import chroma from 'chroma-js'
-import themes from './platte.json' assert { type: 'json' }
+import { kebabCase } from 'lodash-es'
 import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
+import themes from './platte.json' assert { type: 'json' }
+
+type ThemeConfig = {
+  name: string
+  colors: Record<string, Record<string, string | number>>
+}
 
 type CreateThemeOpts = {
-  theme: Record<string, Record<string, Record<string, string | number>>>
+  theme: Array<ThemeConfig | 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark'>
   defaultTheme: string
 }
 
 // 后面抽离出去，目前先做迁移工作
-const builtinTheme: Record<
-  string,
-  Record<string, Record<string, string | number>>
-> = {
-  qd: {
-    vip: {
-      'solid-bg': '#000',
-      'solid-disabledtemp-bg': '#0000001F',
+const builtinTheme: ThemeConfig[] = [
+  {
+    name: 'qd',
+    colors: {
+      vip: {
+        'solid-bg': '#000',
+        'solid-disabledtemp-bg': '#0000001F',
 
-      'solid-color': '#FFBF8F',
-      'solid-disabledtemp-color': '#FFFFFF',
+        'solid-color': '#FFBF8F',
+        'solid-disabledtemp-color': '#FFFFFF',
 
-      'text-color': '#800C00',
-      'text-disabledtemp-color': '#FBAFA6',
+        'text-color': '#800C00',
+        'text-disabledtemp-color': '#FBAFA6',
 
-      border: '#800C00',
-      'disabledtemp-border': '#FFC299',
+        border: '#800C00',
+        'disabledtemp-border': '#FFC299',
 
-      'outline-color': '#800C00',
-      'outline-disabledtemp-color': '#FFC299',
+        'outline-color': '#800C00',
+        'outline-disabledtemp-color': '#FFC299',
 
-      color: '#800C00',
-      'disabledtemp-color': '#FBAFA6',
+        color: '#800C00',
+        'disabledtemp-color': '#FBAFA6',
 
-      'soft-bg': '#FFD7B8',
-      'soft-disabledtemp-bg': '#FFEADB',
+        'soft-bg': '#FFD7B8',
+        'soft-disabledtemp-bg': '#FFEADB',
+      },
     },
   },
 
-  // 'mihua-light': {
-  //   primary: {
-  //     'solid-bg': '#AEF056',
-  //     'solid-disabledtemp-bg': '#C9F590',
+  {
+    name: 'qh',
+    colors: {
+      primary: {
+        'solid-bg': '#FF812C',
+        'solid-disabledtemp-bg': '#FFBF8F',
 
-  //     'solid-color': '#000000',
-  //     'solid-disabledtemp-color': '#00000029',
+        'solid-color': '#fff',
+        'solid-disabledtemp-color': '#fff',
 
-  //     'text-color': '#74B027',
-  //     'text-disabledtemp-color': '#C9F590',
+        'text-color': '#FF812C',
+        'text-disabledtemp-color': '#FFBF8F',
 
-  //     border: '#74B027',
-  //     'disabledtemp-border': '#C9F590',
+        border: '#FF812C',
+        'disabledtemp-border': '#FFBF8F',
 
-  //     'outline-color': '#AEF056',
-  //     'outline-disabledtemp-color': '#C9F590',
+        'outline-color': '#FF812C',
+        'outline-disabledtemp-color': '#FFBF8F',
 
-  //     color: '#74B027',
-  //     'disabledtemp-color': '#C9F590',
+        color: '#FF812C',
+        'disabledtemp-color': '#FFBF8F',
 
-  //     'soft-bg': '#E9FCD0',
-  //     'soft-disabledtemp-bg': '#E9FCD0',
-  //   },
-  // },
-
-  // 'mihua-dark': {
-  //   primary: {
-  //     'solid-bg': '#AEF056',
-  //     'solid-disabledtemp-bg': '#437008',
-
-  //     'solid-color': '#000000',
-  //     'solid-disabledtemp-color': '#000000',
-
-  //     'text-color': '#AEF056',
-  //     'text-disabledtemp-color': '#437008',
-
-  //     border: '#AEF056',
-  //     'disabledtemp-border': '#437008',
-
-  //     'outline-color': '#AEF056',
-  //     'outline-disabledtemp-color': '#437008',
-
-  //     color: '#AEF056',
-  //     'disabledtemp-color': '#437008',
-
-  //     'soft-bg': '#FFFFFF1F',
-  //     'soft-disabledtemp-bg': '#FFFFFF1F',
-  //   },
-
-  //   secondary: {
-  //     'solid-bg': '#FFFFFF',
-  //     'solid-disabledtemp-bg': '#FFFFFF3D',
-
-  //     'solid-color': '#000000',
-  //     'solid-disabledtemp-color': '#000000',
-
-  //     'text-color': '#FFFFFFE0',
-  //     'text-disabledtemp-color': '#FFFFFF3D',
-
-  //     border: '#FFFFFFE0',
-  //     'disabledtemp-border': '#FFFFFF66',
-
-  //     'outline-color': '#FFFFFFE0',
-  //     'outline-disabledtemp-color': '#FFFFFF3D',
-
-  //     color: '#FFFFFFE0',
-  //     'disabledtemp-color': '#FFFFFF3D',
-
-  //     'soft-bg': '#FFFFFF14',
-  //     'soft-disabledtemp-bg': '#1F1F1F ',
-  //   },
-  // },
-
-  qh: {
-    primary: {
-      'solid-bg': '#FF812C',
-      'solid-disabledtemp-bg': '#FFBF8F',
-
-      'solid-color': '#fff',
-      'solid-disabledtemp-color': '#fff',
-
-      'text-color': '#FF812C',
-      'text-disabledtemp-color': '#FFBF8F',
-
-      border: '#FF812C',
-      'disabledtemp-border': '#FFBF8F',
-
-      'outline-color': '#FF812C',
-      'outline-disabledtemp-color': '#FFBF8F',
-
-      color: '#FF812C',
-      'disabledtemp-color': '#FFBF8F',
-
-      'soft-bg': '#FFEADB',
-      'soft-disabledtemp-bg': '#FFEADB',
+        'soft-bg': '#FFEADB',
+        'soft-disabledtemp-bg': '#FFEADB',
+      },
     },
   },
 
-  qdm: {
-    primary: {
-      'solid-bg': '#1677FF',
-      'solid-disabledtemp-bg': '#91CAFF',
+  {
+    name: 'qdm',
+    colors: {
+      primary: {
+        'solid-bg': '#1677FF',
+        'solid-disabledtemp-bg': '#91CAFF',
 
-      'solid-color': '#fff',
-      'solid-disabledtemp-color': '#fff',
+        'solid-color': '#fff',
+        'solid-disabledtemp-color': '#fff',
 
-      'text-color': '#1677FF',
-      'text-disabledtemp-color': '#91CAFF',
+        'text-color': '#1677FF',
+        'text-disabledtemp-color': '#91CAFF',
 
-      border: '#1677FF',
-      'disabledtemp-border': '#91CAFF',
+        border: '#1677FF',
+        'disabledtemp-border': '#91CAFF',
 
-      'outline-color': '#1677FF',
-      'outline-disabledtemp-color': '#91CAFF',
+        'outline-color': '#1677FF',
+        'outline-disabledtemp-color': '#91CAFF',
 
-      color: '#1677FF',
-      'disabledtemp-color': '#91CAFF',
+        color: '#1677FF',
+        'disabledtemp-color': '#91CAFF',
 
-      'soft-bg': '#E6F4FF',
-      'soft-disabledtemp-bg': '#E6F4FF',
+        'soft-bg': '#E6F4FF',
+        'soft-disabledtemp-bg': '#E6F4FF',
+      },
     },
   },
-}
+]
 
 let i = 0
 function nextVarName() {
@@ -341,6 +279,14 @@ const base: Record<string, Record<string | number, string>> = {
 }
 
 export function createThemes(opts: CreateThemeOpts) {
+  const filteredBuiltinThemes = opts.theme.filter(
+    (theme): theme is 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark' =>
+      typeof theme === 'string',
+  )
+  const filteredThemeConfigs = opts.theme.filter(
+    (theme): theme is ThemeConfig => typeof theme === 'object',
+  )
+
   // 为了兼容现有项目中的变量名，后续也许不需要这个写到全局的 CSS 里面
   const basePlatte = Object.fromEntries(
     Object.entries(base).flatMap(([name, colors]) => {
@@ -369,6 +315,7 @@ export function createThemes(opts: CreateThemeOpts) {
       theme.mode.name = 'qd-dark'
     }
   })
+
   mihuaThemes.forEach((theme) => {
     if (theme.mode.name === '米花') {
       theme.mode.name = 'mihua-light'
@@ -413,6 +360,10 @@ export function createThemes(opts: CreateThemeOpts) {
   }
 
   ;[...themes, ...mihuaThemes].forEach((theme) => {
+    if (!filteredBuiltinThemes.find((t) => t === theme.mode.name)) {
+      return
+    }
+
     themePlatte[theme.mode.name] = {
       colors: new Set(),
       vars: {},
@@ -465,31 +416,31 @@ export function createThemes(opts: CreateThemeOpts) {
       }
     })
   })
-  ;[...Object.entries(opts.theme), ...Object.entries(builtinTheme)].forEach(
-    ([name, colors]) => {
-      if (!themePlatte[name]) {
-        themePlatte[name] = {
-          vars: {},
-          colors: new Set(),
-        }
-      }
 
-      Object.entries(colors).forEach(([key, value]) => {
-        themePlatte[name].colors.add(key)
-        Object.entries(value).forEach(([varName, varValue]) => {
-          const fullVarName = `${key}-${varName}`
-          addAlias(fullVarName)
-          themePlatte[name].vars[fullVarName] = `${varValue}`
-          if (varName === 'solid-bg') {
-            // TODO: 暂时先不考虑变量引用
-            themePlatte[name].vars[`${fullVarName}-channel`] = chroma(varValue)
-              .rgb()
-              .join(',')
-          }
-        })
+  // TODO: 和 builtin 要分开
+  ;[...filteredThemeConfigs, ...builtinTheme].forEach(({ name, colors }) => {
+    if (!themePlatte[name]) {
+      themePlatte[name] = {
+        vars: {},
+        colors: new Set(),
+      }
+    }
+
+    Object.entries(colors).forEach(([key, value]) => {
+      themePlatte[name].colors.add(key)
+      Object.entries(value).forEach(([varName, varValue]) => {
+        const fullVarName = `${key}-${varName}`
+        addAlias(fullVarName)
+        themePlatte[name].vars[fullVarName] = `${varValue}`
+        if (varName === 'solid-bg') {
+          // TODO: 暂时先不考虑变量引用
+          themePlatte[name].vars[`${fullVarName}-channel`] = chroma(varValue)
+            .rgb()
+            .join(',')
+        }
       })
-    },
-  )
+    })
+  })
 
   function generateCss() {
     const cssVarsByTheme: {

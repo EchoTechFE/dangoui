@@ -3,7 +3,10 @@ import fs from 'fs'
 import { createThemes } from '@frontend/dumpling-design-token'
 import fromPlatte from '../dist/platte.mjs'
 
-const themeHelper = createThemes({ theme: {}, defaultTheme: 'qd' })
+const themeHelper = createThemes({
+  theme: ['qd', 'qdm', 'mihua-dark', 'mihua-light', 'qh'],
+  defaultTheme: 'qd',
+})
 
 const result = []
 

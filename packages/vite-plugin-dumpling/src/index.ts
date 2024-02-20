@@ -17,7 +17,10 @@ export default function plugin(): Plugin {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
   })
 
-  const themeHelper = createThemes({ theme: {}, defaultTheme: 'qd' })
+  const themeHelper = createThemes({
+    theme: ['qd', 'qh', 'qdm', 'mihua-dark', 'mihua-light'],
+    defaultTheme: 'qd',
+  })
 
   const VIRTUAL_DUMPLING_THEME = 'virtual:dumpling-theme.css'
 
