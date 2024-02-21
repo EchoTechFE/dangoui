@@ -1,5 +1,16 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.48
+
+### Patch Changes
+
+- 55f9d5e: 重构主题生成
+- Updated dependencies [e0eab20]
+- Updated dependencies [250d7cb]
+- Updated dependencies [55f9d5e]
+  - @frontend/dumpling@3.0.77
+  - @frontend/dumpling-design-token@1.0.13
+
 ## 1.0.47
 
 ### Patch Changes

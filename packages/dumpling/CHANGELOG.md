@@ -1,5 +1,15 @@
 # @frontend/dumpling
 
+## 3.0.77
+
+### Patch Changes
+
+- e0eab20: add picker component
+- 250d7cb: support show form field in form
+- 55f9d5e: 重构主题生成
+- Updated dependencies [55f9d5e]
+  - @frontend/dumpling-design-token@1.0.13
+
 ## 3.0.76
 
 ### Patch Changes

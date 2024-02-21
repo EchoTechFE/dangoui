@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.13
+
+### Patch Changes
+
+- 55f9d5e: 重构主题生成
+
 ## 1.0.12
 
 ### Patch Changes
