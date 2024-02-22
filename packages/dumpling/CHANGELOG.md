@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.78
+
+### Patch Changes
+
+- fa0508c: checkbox shape add card
+
 ## 3.0.77
 
 ### Patch Changes
