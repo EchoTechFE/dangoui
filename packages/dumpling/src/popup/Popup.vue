@@ -95,6 +95,10 @@ const props = withDefaults(
      * 禁止将 Popup 渲染到根节点
      */
     disablePortal: boolean
+    /**
+     * 是否自带 safe area
+     */
+    safeArea: boolean
   }>(),
   {
     title: '',
@@ -109,6 +113,7 @@ const props = withDefaults(
     maskClass: '',
     maskStyle: '',
     disablePortal: false,
+    safeArea: true,
   },
 )
 
@@ -148,6 +153,7 @@ const className = computed(() => {
     {
       [`du-popup--${props.type}`]: true,
       [`du-popup--${props.type}-open`]: openAni.value,
+      [`du-popup--${props.type}-safe-area`]: props.safeArea,
     },
   ])
 })
