@@ -16,7 +16,7 @@
     <div>
       <DuCheckbox v-model:checked="spuChecked" shape="card">
         <div class="w-81px h-108px object-contain">
-          <img src="https://cdn.qiandaoapp.com/interior/images/J3hfXCaguhe3nlHBM0o8vuhslb8nkbVi.png!lfit_w540_png" />
+          <img src="https://cdn.qiandaoapp.com/interior/images/J3hfXCaguhe3nlHBM0o8vuhslb8nkbVi.png!lfit_w180_png" />
         </div>
       </DuCheckbox>
     </div>
@@ -24,7 +24,7 @@
     <div>
       <DuCheckbox v-model:checked="tagChecked" shape="card">
         <div class="w-56px h-56px object-cover">
-          <img src="https://cdn.qiandaoapp.com/treasure/images/uxaghFufnnoainMavlsnoDnqWnM07afZ.png!lfit_w540_png" />
+          <img src="https://cdn.qiandaoapp.com/treasure/images/uxaghFufnnoainMavlsnoDnqWnM07afZ.png!lfit_w180_png" />
         </div>
       </DuCheckbox>
     </div>
