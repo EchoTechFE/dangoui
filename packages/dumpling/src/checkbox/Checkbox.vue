@@ -2,6 +2,29 @@
   <div v-if="custom" :class="className" :style="style" @click="onClick">
     <slot />
   </div>
+  <div v-else-if="config.shape === 'card'" :class="className" @click="onClick">
+    <div class="du-checkbox__card-inner">
+      <slot>
+        <div class="du-checkbox__card-label">
+          {{ label }}
+        </div>
+      </slot>
+    </div>
+    <div
+      :class="[
+        'du-checkbox__card-icon',
+        `du-checkbox__card-icon--${config.position}`,
+      ]"
+    >
+      <CheckboxIcon
+        :color="config.color"
+        :selected="selected"
+        :shape="config.shape"
+        :size="config.size"
+        :border="config.border"
+      />
+    </div>
+  </div>
   <div v-else :class="className" :style="style" @click="onClick">
     <div class="du-checkbox__label">
       <slot>{{ label }}</slot>
@@ -45,7 +68,7 @@ const props = withDefaults(
      *
      * @default "round"
      */
-    shape?: 'round' | 'square'
+    shape?: 'round' | 'square' | 'card'
     /**
      * 行内元素
      *
@@ -174,8 +197,24 @@ const config = computed(() => {
   }
 })
 
+const selected = computed(() => {
+  return !!state.currentVal
+})
+
 const className = computed(() => {
-  const { extClass, inline, disabled, position } = config.value
+  const { extClass, inline, disabled, position, shape } = config.value
+
+  if (shape === 'card') {
+    return normalizeClass([
+      ['du-checkbox__card'],
+      {
+        'du-checkbox--inline': inline,
+        'du-checkbox__card--selected': selected.value,
+      },
+      extClass,
+    ])
+  }
+
   return normalizeClass([
     ['du-checkbox', 'du-checkbox--' + position],
     {
@@ -189,10 +228,6 @@ const className = computed(() => {
 const style = computed(() => {
   const { extStyle } = config.value
   return normalizeStyle(extStyle)
-})
-
-const selected = computed(() => {
-  return !!state.currentVal
 })
 
 function onClick() {

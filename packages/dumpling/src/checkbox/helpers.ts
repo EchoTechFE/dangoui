@@ -1,7 +1,7 @@
 import type { InjectionKey, Ref } from 'vue'
 
 export type CheckboxGroupConfig = {
-  shape?: 'round' | 'square'
+  shape?: 'round' | 'square' | 'card'
   inline?: boolean
   position?: 'left' | 'right'
   custom?: boolean

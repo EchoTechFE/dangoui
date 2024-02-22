@@ -1616,7 +1616,7 @@
                 "name": "shape",
                 "description": "形状",
                 "required": false,
-                "type": "\"round\" | \"square\"",
+                "type": "\"round\" | \"square\" | \"card\"",
                 "default": "unknown"
             },
             {
@@ -1737,7 +1737,7 @@
                 "name": "shape",
                 "description": "形状",
                 "required": false,
-                "type": "\"round\" | \"square\"",
+                "type": "\"round\" | \"square\" | \"card\"",
                 "default": "unknown"
             },
             {
@@ -3311,9 +3311,112 @@
         "slots": []
     },
     "Picker": {
-        "props": [],
-        "events": [],
-        "slots": []
+        "props": [
+            {
+                "name": "title",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u8BF7\\u9009\\u62E9\""
+            },
+            {
+                "name": "open",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "undefined"
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": true,
+                "type": "string[]",
+                "default": "unknown"
+            },
+            {
+                "name": "columns",
+                "description": "",
+                "required": true,
+                "type": "{ label: string; value: string; }[][]",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:open",
+                "type": "[open: boolean]",
+                "signature": "(event: \"update:open\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: string[]]",
+                "signature": "(event: \"update:value\", value: string[]): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "array",
+                        "type": "string[]",
+                        "schema": [
+                            "string"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{ open: () => void; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ open: () => void; }",
+                    "schema": {
+                        "open": {
+                            "name": "open",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "() => void",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(): void"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
     },
     "Popup": {
         "props": [

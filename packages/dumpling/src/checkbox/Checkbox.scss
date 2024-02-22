@@ -16,10 +16,45 @@
 
   &--inline {
     display: inline-flex;
+    flex-wrap: wrap;
     width: auto;
   }
 
   &--disabled {
     opacity: 0.6;
+  }
+
+  &__card {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    padding: 2px;
+    overflow: hidden;
+
+    &--selected {
+      border: 1px solid var(--du-primary-4);
+    }
+  }
+
+  &__card-inner {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__card-label {
+    padding: 16px;
+  }
+
+  &__card-icon {
+    position: absolute;
+    top: 4px;
+
+    &--right {
+      right: 4px;
+    }
+
+    &--left {
+      left: 4px;
+    }
   }
 }

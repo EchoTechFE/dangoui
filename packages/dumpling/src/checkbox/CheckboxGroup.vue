@@ -33,7 +33,7 @@ const props = withDefaults(
     /**
      * 形状
      */
-    shape?: 'round' | 'square'
+    shape?: 'round' | 'square' | 'card'
     /**
      * 是否一行展示
      */
