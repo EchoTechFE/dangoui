@@ -24,7 +24,7 @@ watch(isHydrated, () => {
 })
 
 onMounted(() => {
-  import('hammer-touchemulator').then(({ default: TouchEmulator }) => {
+  import('../libs/touch-emulator').then(({ default: TouchEmulator }) => {
     TouchEmulator()
   })
 })
