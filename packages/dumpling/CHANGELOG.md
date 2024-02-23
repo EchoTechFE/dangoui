@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.80
+
+### Patch Changes
+
+- bdf0814: 修复 picker 在微信小程序中会使页面滚动的 BUG
+
 ## 3.0.79
 
 ### Patch Changes
