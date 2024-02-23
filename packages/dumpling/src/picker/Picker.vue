@@ -39,8 +39,9 @@
             transition: isMoving && movingIdx === colIdx ? 'none' : 'all 0.25s',
           }"
           @touchstart="handleTouchStart(colIdx, $event)"
-          @touchmove="handleTouchMove"
+          @touchmove.stop.prevent="handleTouchMove"
           @touchend="handleTouchEnd"
+          @touchcancel="handleTouchEnd"
         >
           <div
             v-for="(item, idx) in col"
@@ -111,13 +112,16 @@ const movingIdx = ref(-1)
 const selectedIdx = ref<number[]>([])
 
 const transformY = computed(() => {
+  // TODO: WEB 应该也支持基于 vw 的布局，这里的逻辑需要优化
   return props.columns.map((_, idx) => {
     if (isMoving.value && movingIdx.value === idx) {
-      return `${
+      const offset =
         currentY.value - originalY.value - (selectedIdx.value[idx] ?? 0) * 44
-      }px`
+      const offsetWithUnit = __WEB__ ? `${offset}px` : `${offset * 2}rpx`
+      return offsetWithUnit
     }
-    return `${-(selectedIdx.value[idx] ?? 0) * 44}px`
+    const UNIT = __WEB__ ? 'px' : 'rpx'
+    return `${-(selectedIdx.value[idx] ?? 0) * 44 * (__WEB__ ? 1 : 2)}${UNIT}`
   })
 })
 
