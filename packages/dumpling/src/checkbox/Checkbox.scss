@@ -30,6 +30,7 @@
     border: 1px solid transparent;
     padding: 2px;
     overflow: hidden;
+    transition: border 0.2s;
 
     &--selected {
       border: 1px solid var(--du-primary-4);
