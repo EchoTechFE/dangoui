@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.14
+
+### Patch Changes
+
+- 5c0c976: 更新缺失的颜色
+
 ## 1.0.13
 
 ### Patch Changes
