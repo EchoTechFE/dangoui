@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div
+      v-if="isWeb"
+      ref="placeholder"
+      class="du-picker__item"
+      style="position: absolute; visibility: hidden"
+    />
     <slot :open="handleOpen">
       <div v-if="isInFormItem">
         <FormField
@@ -66,7 +72,9 @@ import DuButton from '../button/Button.vue'
 import FormField from '../form/FormField.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 
-import { computed, inject, ref } from 'vue'
+import { computed, inject, onMounted, ref } from 'vue'
+
+const isWeb = __WEB__
 
 const props = withDefaults(
   defineProps<{
@@ -85,6 +93,19 @@ const emit = defineEmits<{
   (e: 'update:value', value: string[]): void
   (e: 'update:open', open: boolean): void
 }>()
+
+const placeholder = ref<HTMLDivElement | null>(null)
+
+const itemHeight = ref(44)
+
+onMounted(() => {
+  if (__WEB__) {
+    itemHeight.value = placeholder.value!.getBoundingClientRect().height
+  } else {
+    const systemInfo = uni.getSystemInfoSync()
+    itemHeight.value = (systemInfo.windowWidth * 44) / 375
+  }
+})
 
 const formItemLayout = inject(formItemLayoutInjectionKey)
 
@@ -112,16 +133,15 @@ const movingIdx = ref(-1)
 const selectedIdx = ref<number[]>([])
 
 const transformY = computed(() => {
-  // TODO: WEB 应该也支持基于 vw 的布局，这里的逻辑需要优化
   return props.columns.map((_, idx) => {
     if (isMoving.value && movingIdx.value === idx) {
       const offset =
-        currentY.value - originalY.value - (selectedIdx.value[idx] ?? 0) * 44
-      const offsetWithUnit = __WEB__ ? `${offset}px` : `${offset * 2}rpx`
-      return offsetWithUnit
+        currentY.value -
+        originalY.value -
+        (selectedIdx.value[idx] ?? 0) * itemHeight.value
+      return `${offset}px`
     }
-    const UNIT = __WEB__ ? 'px' : 'rpx'
-    return `${-(selectedIdx.value[idx] ?? 0) * 44 * (__WEB__ ? 1 : 2)}${UNIT}`
+    return `${-(selectedIdx.value[idx] ?? 0) * itemHeight.value}px`
   })
 })
 
@@ -138,7 +158,7 @@ function handleTouchMove(e: TouchEvent) {
 
 function handleTouchEnd() {
   const delta = currentY.value - originalY.value
-  const idx = Math.round(-delta / 44)
+  const idx = Math.round(-delta / itemHeight.value)
   selectedIdx.value[movingIdx.value] =
     (selectedIdx.value[movingIdx.value] ?? 0) + idx
   if (
