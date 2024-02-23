@@ -1,5 +1,12 @@
 # @frontend/dumpling
 
+## 3.0.79
+
+### Patch Changes
+
+- 5dc2590: Popup 支持指定是否带有 safe area（默认有）
+- c0ab5e7: checkbox 适配深色底的情况
+
 ## 3.0.78
 
 ### Patch Changes
