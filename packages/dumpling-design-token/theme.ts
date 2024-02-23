@@ -47,6 +47,15 @@ const builtinTheme: ThemeConfig[] = [
     name: 'qh',
     colors: {
       primary: {
+        1: '#ffeadb',
+        2: '#ffd7b8',
+        3: '#ffbf8f',
+        4: '#ffa35c',
+        5: '#ff812c',
+        6: '#db6b1f',
+        7: '#b85512',
+        8: '#99440b',
+        9: '#753104',
         'solid-bg': '#FF812C',
         'solid-disabledtemp-bg': '#FFBF8F',
 
@@ -75,6 +84,15 @@ const builtinTheme: ThemeConfig[] = [
     name: 'qdm',
     colors: {
       primary: {
+        1: '#e6f4ff',
+        2: '#bae0ff',
+        3: '#91caff',
+        4: '#69b1ff',
+        5: '#4096ff',
+        6: '#1677ff',
+        7: '#0958d9',
+        8: '#003eb3',
+        9: '#002c8c',
         'solid-bg': '#1677FF',
         'solid-disabledtemp-bg': '#91CAFF',
 
