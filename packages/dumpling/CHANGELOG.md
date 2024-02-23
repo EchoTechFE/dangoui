@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.81
+
+### Patch Changes
+
+- 458ed14: 优化 picker 在多平台的实现
+
 ## 3.0.80
 
 ### Patch Changes
