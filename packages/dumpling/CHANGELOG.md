@@ -1,5 +1,12 @@
 # @frontend/dumpling
 
+## 3.0.83
+
+### Patch Changes
+
+- 10c046a: 修复 Search 在小程序中 input 不居中的问题
+- 6e69645: 初步增加 ActionSheet 组件
+
 ## 3.0.82
 
 ### Patch Changes
