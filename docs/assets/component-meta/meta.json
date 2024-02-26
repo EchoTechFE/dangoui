@@ -1,4 +1,157 @@
 {
+    "ActionSheet": {
+        "props": [
+            {
+                "name": "type",
+                "description": "列表还是宫格",
+                "required": false,
+                "type": "\"list\" | \"grid\"",
+                "default": "\"list\""
+            },
+            {
+                "name": "open",
+                "description": "是否打开分享面板",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "items",
+                "description": "分享面板元素，`icon` 值可以是 `DuIcon` 中的所有图标，或者 `wechat-colorful`（彩色的微信图标）",
+                "required": true,
+                "type": "ActionSheetItem[]",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:open",
+                "type": "[open: boolean]",
+                "signature": "(event: \"update:open\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "select",
+                "type": "[item: ActionSheetItem]",
+                "signature": "(event: \"select\", item: ActionSheetItem): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "object",
+                        "type": "ActionSheetItem",
+                        "schema": {
+                            "key": {
+                                "name": "key",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": false,
+                                "type": "string | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
+                                        "range": [
+                                            1946,
+                                            1958
+                                        ]
+                                    }
+                                ],
+                                "schema": {
+                                    "kind": "enum",
+                                    "type": "string | undefined",
+                                    "schema": [
+                                        "undefined",
+                                        "string"
+                                    ]
+                                }
+                            },
+                            "label": {
+                                "name": "label",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": true,
+                                "type": "string",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
+                                        "range": [
+                                            1961,
+                                            1974
+                                        ]
+                                    }
+                                ],
+                                "schema": "string"
+                            },
+                            "icon": {
+                                "name": "icon",
+                                "global": false,
+                                "description": "",
+                                "tags": [],
+                                "required": false,
+                                "type": "string | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
+                                        "range": [
+                                            1977,
+                                            1990
+                                        ]
+                                    }
+                                ],
+                                "schema": "string | undefined"
+                            },
+                            "openType": {
+                                "name": "openType",
+                                "global": false,
+                                "description": "小程序按钮的 open-type，比如 share",
+                                "tags": [],
+                                "required": false,
+                                "type": "string | undefined",
+                                "declarations": [
+                                    {
+                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
+                                        "range": [
+                                            2036,
+                                            2053
+                                        ]
+                                    }
+                                ],
+                                "schema": "string | undefined"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "slots": []
+    },
     "Badge": {
         "props": [
             {
@@ -55,17 +208,17 @@
     "Button": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "type",
                 "description": "按钮类型",
                 "required": false,
                 "type": "\"primary\" | \"secondary\" | \"outline\" | \"text\"",
+                "default": "\"primary\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
                 "default": "\"primary\""
             },
             {
@@ -239,18 +392,18 @@
     "Calendar": {
         "props": [
             {
-                "name": "max",
-                "description": "",
-                "required": false,
-                "type": "number | Dayjs",
-                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
-            },
-            {
                 "name": "type",
                 "description": "",
                 "required": false,
                 "type": "\"multiple\" | \"single\" | \"range\"",
                 "default": "\"multiple\""
+            },
+            {
+                "name": "max",
+                "description": "",
+                "required": false,
+                "type": "number | Dayjs",
+                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
             },
             {
                 "name": "extClass",
@@ -1133,6 +1286,13 @@
     "Card": {
         "props": [
             {
+                "name": "open",
+                "description": "",
+                "required": false,
+                "type": "boolean | null",
+                "default": "null"
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -1197,13 +1357,6 @@
             },
             {
                 "name": "defaultOpen",
-                "description": "",
-                "required": false,
-                "type": "boolean | null",
-                "default": "null"
-            },
-            {
-                "name": "open",
                 "description": "",
                 "required": false,
                 "type": "boolean | null",
@@ -1334,6 +1487,13 @@
     "Cascader": {
         "props": [
             {
+                "name": "open",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "undefined"
+            },
+            {
                 "name": "value",
                 "description": "",
                 "required": false,
@@ -1348,13 +1508,6 @@
                 "default": "\"\\u8BF7\\u9009\\u62E9\""
             },
             {
-                "name": "open",
-                "description": "",
-                "required": false,
-                "type": "boolean",
-                "default": "undefined"
-            },
-            {
                 "name": "options",
                 "description": "",
                 "required": true,
@@ -1363,6 +1516,30 @@
             }
         ],
         "events": [
+            {
+                "name": "update:open",
+                "type": "[open: boolean]",
+                "signature": "(event: \"update:open\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
             {
                 "name": "confirm",
                 "type": "[value: CascaderOption[]]",
@@ -1474,30 +1651,6 @@
                                     }
                                 }
                             }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "update:open",
-                "type": "[open: boolean]",
-                "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
-                "schema": [
-                    {
-                        "kind": "enum",
-                        "type": "boolean",
-                        "schema": [
-                            "false",
-                            "true"
                         ]
                     }
                 ]
@@ -1868,17 +2021,17 @@
     "Divider": {
         "props": [
             {
-                "name": "length",
-                "description": "分割线长度，默认为 100%",
-                "required": false,
-                "type": "string | number",
-                "default": "undefined"
-            },
-            {
                 "name": "type",
                 "description": "分割线水平或者竖直",
                 "required": false,
                 "type": "\"horizontal\" | \"vertical\"",
+                "default": "undefined"
+            },
+            {
+                "name": "length",
+                "description": "分割线长度，默认为 100%",
+                "required": false,
+                "type": "string | number",
                 "default": "undefined"
             },
             {
@@ -2149,6 +2302,13 @@
                 "default": "true"
             },
             {
+                "name": "items",
+                "description": "内容区域的对齐方式，仅在 horizontal 模式下生效",
+                "required": false,
+                "type": "\"center\" | \"start\"",
+                "default": "unknown"
+            },
+            {
                 "name": "layout",
                 "description": "",
                 "required": false,
@@ -2160,13 +2320,6 @@
                 "description": "内容区域水平位置的对齐方式",
                 "required": false,
                 "type": "\"start\" | \"end\"",
-                "default": "unknown"
-            },
-            {
-                "name": "items",
-                "description": "内容区域的对齐方式，仅在 horizontal 模式下生效",
-                "required": false,
-                "type": "\"center\" | \"start\"",
                 "default": "unknown"
             }
         ],
@@ -2356,18 +2509,18 @@
     "Input": {
         "props": [
             {
-                "name": "value",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
                 "name": "type",
                 "description": "",
                 "required": false,
                 "type": "\"number\" | \"text\" | \"idcard\" | \"digit\" | \"safe-password\" | \"nickname\" | \"password\"",
                 "default": "\"text\""
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
             },
             {
                 "name": "extClass",
@@ -3313,18 +3466,18 @@
     "Picker": {
         "props": [
             {
-                "name": "title",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\\u8BF7\\u9009\\u62E9\""
-            },
-            {
                 "name": "open",
                 "description": "",
                 "required": false,
                 "type": "boolean",
                 "default": "undefined"
+            },
+            {
+                "name": "title",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u8BF7\\u9009\\u62E9\""
             },
             {
                 "name": "value",
@@ -3503,6 +3656,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "safeArea",
+                "description": "是否自带 safe area",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
             }
         ],
         "events": [
@@ -4316,6 +4476,13 @@
     "Select": {
         "props": [
             {
+                "name": "open",
+                "description": "如果打开 popup",
+                "required": false,
+                "type": "boolean",
+                "default": "undefined"
+            },
+            {
                 "name": "value",
                 "description": "选中的值",
                 "required": false,
@@ -4328,13 +4495,6 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\\u8BF7\\u9009\\u62E9\""
-            },
-            {
-                "name": "open",
-                "description": "如果打开 popup",
-                "required": false,
-                "type": "boolean",
-                "default": "undefined"
             },
             {
                 "name": "formItem",
@@ -4373,6 +4533,30 @@
             }
         ],
         "events": [
+            {
+                "name": "update:open",
+                "type": "[open: boolean]",
+                "signature": "(event: \"update:open\", open: boolean): void",
+                "declarations": [
+                    {
+                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+                        "range": [
+                            4388,
+                            4423
+                        ]
+                    }
+                ],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
             {
                 "name": "confirm",
                 "type": "[value: SelectOption[]]",
@@ -4471,30 +4655,6 @@
                 ]
             },
             {
-                "name": "update:open",
-                "type": "[open: boolean]",
-                "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
-                "schema": [
-                    {
-                        "kind": "enum",
-                        "type": "boolean",
-                        "schema": [
-                            "false",
-                            "true"
-                        ]
-                    }
-                ]
-            },
-            {
                 "name": "update:value",
                 "type": "[value: string | number | string[] | number[]]",
                 "signature": "(event: \"update:value\", value: string | number | string[] | number[]): void",
@@ -4560,11 +4720,6 @@
                 }
             }
         ]
-    },
-    "ShareSheet": {
-        "props": [],
-        "events": [],
-        "slots": []
     },
     "Snackbar": {
         "props": [
@@ -4896,18 +5051,18 @@
     "Tabs": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "type",
                 "description": "",
                 "required": false,
                 "type": "\"default\" | \"text\" | \"tag\"",
                 "default": "\"default\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "size",
@@ -5609,7 +5764,7 @@
                                         "description": "状态",
                                         "tags": [],
                                         "required": true,
-                                        "type": "\"error\" | \"done\" | \"uploading\"",
+                                        "type": "\"done\" | \"error\" | \"uploading\"",
                                         "declarations": [
                                             {
                                                 "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
@@ -5621,10 +5776,10 @@
                                         ],
                                         "schema": {
                                             "kind": "enum",
-                                            "type": "\"error\" | \"done\" | \"uploading\"",
+                                            "type": "\"done\" | \"error\" | \"uploading\"",
                                             "schema": [
-                                                "\"error\"",
                                                 "\"done\"",
+                                                "\"error\"",
                                                 "\"uploading\""
                                             ]
                                         }

@@ -44,6 +44,7 @@ import Empty from './empty/Empty.vue'
 import Badge from './badge/Badge.vue'
 import Rate from './rate/Rate.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
+import ActionSheet from './action-sheet/ActionSheet.vue'
 
 import Theme from './theme/Theme.vue'
 
@@ -94,6 +95,7 @@ const DuSnackbar = Snackbar
 const DuEmpty = Empty
 const DuBadge = Badge
 const DuNoticeBar = NoticeBar
+const DuActionSheet = ActionSheet
 
 const DuTheme = Theme
 
@@ -182,6 +184,8 @@ export {
   DuBadge,
   NoticeBar,
   DuNoticeBar,
+  ActionSheet,
+  DuActionSheet,
   Theme,
   DuTheme,
   globalConfig,

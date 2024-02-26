@@ -1,0 +1,83 @@
+.du-action-sheet {
+  &__grid-wrapper {
+    padding: 0 3px;
+  }
+
+  &__grid {
+    padding: 16px 0 4px 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 20px;
+  }
+
+  &__item {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 1000px;
+    background: var(--du-bg-2);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  &__icon-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--du-text-1);
+  }
+
+  &__cacnel {
+    padding: 1px 0 13px 0;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--du-text-2);
+    text-align: center;
+  }
+
+  &__divider {
+    padding: 12px;
+  }
+
+  &__list-item-wrapper {
+    all: unset;
+    display: block;
+    width: 100%;
+  }
+
+  &__list-item {
+    all: unset;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &--cancel {
+      color: var(--du-text-2);
+    }
+  }
+
+  &__list-divider {
+    background: var(--du-bg-2);
+    height: 8px;
+  }
+}
