@@ -33,10 +33,12 @@ import Divider from './divider/Divider.vue'
 import Tag from './tag/Tag.vue'
 import Tooltip from './tooltip/Tooltip.vue'
 import TagsPanel from './tags-panel/TagsPanel.vue'
+import Swiper from './swiper/Swiper.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
 import ActionButton from './navigation-bar/ActionButton.vue'
+import Sidebar from './sidebar/Sidebar.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -85,10 +87,12 @@ const DuDivider = Divider
 const DuTag = Tag
 const DuTooltip = Tooltip
 const DuTagsPanel = TagsPanel
+const DuSwiper = Swiper
 
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
 const DuActionButton = ActionButton
+const DuSidebar = Sidebar
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -168,10 +172,14 @@ export {
   DuTooltip,
   TagsPanel,
   DuTagsPanel,
+  Swiper,
+  DuSwiper,
   NavigationBar,
   DuNavigationBar,
   NavigationBarRight,
   DuNavigationBarRight,
+  Sidebar,
+  DuSidebar,
   ActionButton,
   DuActionButton,
   Popup,

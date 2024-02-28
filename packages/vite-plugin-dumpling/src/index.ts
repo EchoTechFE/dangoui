@@ -80,12 +80,21 @@ export default function plugin(): Plugin {
         }
 
         let styleContent = fs.readFileSync(stylepath, 'utf-8')
-        styleContent = styleContent.replace(
-          /(\d+(\.\d+)?|\.\d+)px/g,
-          (_, px) => {
-            return `${parseFloat(px) * 2}rpx`
-          },
-        )
+        if (stylepath.includes('switch')) {
+          styleContent = styleContent.replace(
+            /(\d+(\.\d+)?|\.\d+)px/g,
+            (_, px) => {
+              return `${((parseFloat(px) * 100) / 375).toFixed(8)}vw`
+            },
+          )
+        } else {
+          styleContent = styleContent.replace(
+            /(\d+(\.\d+)?|\.\d+)px/g,
+            (_, px) => {
+              return `${parseFloat(px) * 2}rpx`
+            },
+          )
+        }
 
         if (fs.existsSync(path.resolve(path.dirname(id), 'host.css'))) {
           const hostCss = fs.readFileSync(

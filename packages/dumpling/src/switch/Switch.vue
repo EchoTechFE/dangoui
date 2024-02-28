@@ -9,6 +9,7 @@
         'du-switch--on-disabled': on && disabled,
       },
     ]"
+    @click="toggle"
   >
     <div
       :class="[
@@ -17,7 +18,6 @@
           'du-switch__button--on': on,
         },
       ]"
-      @click="toggle"
     />
   </div>
 </template>
