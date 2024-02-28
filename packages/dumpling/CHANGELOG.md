@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.84
+
+### Patch Changes
+
+- 6700f2b: 修复 switch 的样式和交互问题
+
 ## 3.0.83
 
 ### Patch Changes

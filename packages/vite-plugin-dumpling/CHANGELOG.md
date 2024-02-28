@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.55
+
+### Patch Changes
+
+- 6700f2b: 修复 switch 的样式和交互问题
+- Updated dependencies [6700f2b]
+  - @frontend/dumpling@3.0.84
+
 ## 1.0.54
 
 ### Patch Changes
