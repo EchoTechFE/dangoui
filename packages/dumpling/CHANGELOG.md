@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.87
+
+### Patch Changes
+
+- 0d87d2a: 处理 swiper item 数量变化
+
 ## 3.0.86
 
 ### Patch Changes
