@@ -15,17 +15,17 @@
       <slot />
     </div>
     <template v-if="count > 1">
-      <div v-if="navType === 'number'" class="du-swiper__num-indicator">
+      <div v-if="indicatorType === 'number'" class="du-swiper__num-indicator">
         {{ logicalIndex }}/{{ count }}
       </div>
       <div
         v-else
-        :class="`du-swiper__indicator du-swiper__indicator--${navType}`"
+        :class="`du-swiper__indicator du-swiper__indicator--${indicatorType}`"
       >
         <div
           v-for="idx in count"
           :class="[
-            `du-swiper__indicator-item du-swiper__indicator-item--${navType}`,
+            `du-swiper__indicator-item du-swiper__indicator-item--${indicatorType}`,
             (idx - 1 === currentIndex ||
               (currentIndex === -1 && idx === count) ||
               (currentIndex === count && idx === 1)) &&
@@ -61,8 +61,14 @@ import { swiperInjectionKey } from './helpers'
 
 const props = withDefaults(
   defineProps<{
-    navType: 'bar-full' | 'bar' | 'number'
+    /**
+     * 指示条类型
+     */
+    indicatorType: 'bar-full' | 'bar' | 'number'
     extClass: string | string[] | Record<string, boolean>
+    /**
+     * 自动轮播
+     */
     autoplay: boolean
     extStyle:
       | string
@@ -71,7 +77,7 @@ const props = withDefaults(
         }
   }>(),
   {
-    navType: 'bar',
+    indicatorType: 'bar',
     extClass: '',
     autoplay: false,
     extStyle: '',

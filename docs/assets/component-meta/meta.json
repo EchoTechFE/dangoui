@@ -4721,6 +4721,11 @@
             }
         ]
     },
+    "Sidebar": {
+        "props": [],
+        "events": [],
+        "slots": []
+    },
     "Snackbar": {
         "props": [
             {
@@ -4946,6 +4951,69 @@
                             }
                         }
                     }
+                }
+            }
+        ]
+    },
+    "Swiper": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "indicatorType",
+                "description": "指示条类型",
+                "required": false,
+                "type": "\"number\" | \"bar\" | \"bar-full\"",
+                "default": "\"bar\""
+            },
+            {
+                "name": "autoplay",
+                "description": "自动轮播",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "SwiperItem": {
+        "props": [],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
                 }
             }
         ]
