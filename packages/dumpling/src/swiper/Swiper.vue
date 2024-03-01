@@ -1,10 +1,5 @@
 <template>
-  <div
-    :class="className"
-    :style="{
-      '--du-swiper-offset': `-${width * count}px`,
-    }"
-  >
+  <div :class="className" :style="style">
     <div
       v-if="inited"
       class="du-swiper__wrapper"
@@ -59,15 +54,29 @@ import {
   onMounted,
   computed,
   normalizeClass,
+  normalizeStyle,
   watch,
 } from 'vue'
 import { swiperInjectionKey } from './helpers'
 
-const props = defineProps<{
-  navType: 'bar-full' | 'bar' | 'number'
-  extClass: string | string[] | Record<string, boolean>
-  autoplay: boolean
-}>()
+const props = withDefaults(
+  defineProps<{
+    navType: 'bar-full' | 'bar' | 'number'
+    extClass: string | string[] | Record<string, boolean>
+    autoplay: boolean
+    extStyle:
+      | string
+      | {
+          [x: string]: string | number
+        }
+  }>(),
+  {
+    navType: 'bar',
+    extClass: '',
+    autoplay: false,
+    extStyle: '',
+  },
+)
 
 const className = computed(() => {
   return normalizeClass([
@@ -79,6 +88,16 @@ const className = computed(() => {
       count.value > 1 &&
       'du-swiper--last',
     props.extClass,
+  ])
+})
+
+const style = computed(() => {
+  const { extStyle } = props
+  return normalizeStyle([
+    {
+      '--du-swiper-offset': `-${width.value * count.value}px`,
+    },
+    extStyle,
   ])
 })
 
@@ -226,6 +245,7 @@ function handleTouchEnd() {
   if (count.value <= 1) {
     return
   }
+  isDragging.value = false
   const duration = Date.now() - start
   if (Math.abs(delta.value) / duration > 1000) {
     if (delta.value > 0) {
@@ -245,7 +265,6 @@ function handleTouchEnd() {
   }
 
   isMoving.value = false
-  isDragging.value = false
   originalX.value = 0
   currentX.value = 0
 }
