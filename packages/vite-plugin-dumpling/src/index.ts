@@ -47,6 +47,9 @@ export default function plugin(): Plugin {
         const iconfont = fs.readFileSync(
           path.resolve(libraryPath, 'src/icon/iconfont.css'),
         )
+        const globalCss = fs.readFileSync(
+          path.resolve(libraryPath, 'src/global.css'),
+        )
         const result: string[] = []
 
         Object.entries(cssvars.Global).map((item) => {
@@ -62,7 +65,7 @@ export default function plugin(): Plugin {
           })
         const legacyCssVars = `:root,page{\n${result.join('\n')}\n}`
         const designTokenCss = themeHelper.generateCss()
-        return `${legacyCssVars}\n${designTokenCss}\n${iconfont}\n`
+        return `${legacyCssVars}\n${designTokenCss}\n${iconfont}\n${globalCss}\n`
       }
       return null
     },

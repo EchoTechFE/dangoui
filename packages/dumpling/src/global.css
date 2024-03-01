@@ -1,0 +1,7 @@
+.du-swiper--first .du-swiper__item:last-child {
+  transform: translateX(var(--du-swiper-offset, 0));
+}
+
+.du-swiper--last .du-swiper__item:first-child {
+  transform: translateX(calc(-1 * var(--du-swiper-offset, 0)));
+}

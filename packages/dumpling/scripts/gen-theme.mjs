@@ -47,15 +47,17 @@ colorSet.forEach((c) => {
 
 const iconfont = fs.readFileSync('./src/icon/iconfont.css', 'utf-8')
 
+const globalCss = fs.readFileSync('./src/global.css', 'utf-8')
+
 fs.writeFileSync(
   './dist/theme.css',
   `:root {\n${result.join(
     '\n',
-  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}`,
+  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}\n${globalCss}`,
 )
 fs.writeFileSync(
   './dist/mp/theme.css',
   `page {\n${result.join(
     '\n',
-  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}`,
+  )}\n}\n${designTokenCss}\n${componentColorsCss}\n${iconfont}\n${globalCss}`,
 )

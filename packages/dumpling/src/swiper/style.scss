@@ -1,3 +1,54 @@
 .du-swiper {
-  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+    display: inline-flex;
+  }
+
+  &__indicator {
+    display: flex;
+    column-gap: 4px;
+    bottom: 8px;
+    position: absolute;
+    right: 8px;
+
+    &--bar-full {
+      left: 8px;
+    }
+  }
+
+  &__indicator-item {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: var(--du-white-text-color-3);
+    height: 4px;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.06);
+    transition: background 0.25s;
+
+    &--bar-full {
+      flex: 1;
+    }
+
+    &--bar {
+      width: 12px;
+    }
+
+    &--active {
+      background-color: #fff;
+    }
+  }
+
+  &__num-indicator {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.64);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+    padding: 1px 12px;
+    border-radius: 100px;
+  }
 }

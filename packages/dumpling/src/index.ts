@@ -34,6 +34,7 @@ import Tag from './tag/Tag.vue'
 import Tooltip from './tooltip/Tooltip.vue'
 import TagsPanel from './tags-panel/TagsPanel.vue'
 import Swiper from './swiper/Swiper.vue'
+import SwiperItem from './swiper/SwiperItem.vue'
 
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
@@ -88,6 +89,7 @@ const DuTag = Tag
 const DuTooltip = Tooltip
 const DuTagsPanel = TagsPanel
 const DuSwiper = Swiper
+const DuSwiperItem = SwiperItem
 
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
@@ -174,6 +176,8 @@ export {
   DuTagsPanel,
   Swiper,
   DuSwiper,
+  SwiperItem,
+  DuSwiperItem,
   NavigationBar,
   DuNavigationBar,
   NavigationBarRight,
