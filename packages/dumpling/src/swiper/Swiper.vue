@@ -175,6 +175,10 @@ watch(
   },
 )
 
+watch(count, () => {
+  currentIndex.value = 0
+})
+
 const logicalIndex = computed(() => {
   if (currentIndex.value >= count.value) {
     return 1
