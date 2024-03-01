@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.86
+
+### Patch Changes
+
+- 374af8b: fix timeoutId
+
 ## 3.0.85
 
 ### Patch Changes
