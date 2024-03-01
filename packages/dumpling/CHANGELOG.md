@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.85
+
+### Patch Changes
+
+- 691a1ac: 添加 Swiper 初版
+- 2323539: swiper 添加 ext-style
+- 947effa: 更改 navType 为 indicatorType
+
 ## 3.0.84
 
 ### Patch Changes

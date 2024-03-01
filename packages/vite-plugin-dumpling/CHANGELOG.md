@@ -1,5 +1,15 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.56
+
+### Patch Changes
+
+- 691a1ac: 添加 Swiper 初版
+- Updated dependencies [691a1ac]
+- Updated dependencies [2323539]
+- Updated dependencies [947effa]
+  - @frontend/dumpling@3.0.85
+
 ## 1.0.55
 
 ### Patch Changes
