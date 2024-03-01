@@ -162,7 +162,7 @@ watch(
         goNext()
         timeoutId = setTimeout(tick, 3000)
       }
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         tick()
       }, 3000)
     }
