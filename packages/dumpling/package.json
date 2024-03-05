@@ -51,9 +51,9 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
+    "@frontend/dumpling-design-token": "workspace:^",
     "dayjs": "^1.9.1",
-    "rollup": "^4.5.1",
-    "@frontend/dumpling-design-token": "workspace:^"
+    "rollup": "^4.5.1"
   },
   "devDependencies": {
     "@dcloudio/uni-app": "3.0.0-3090620231104002",
@@ -64,6 +64,7 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
+    "happy-dom": "^13.6.2",
     "md5": "^2.3.0",
     "postcss": "^8.4.31",
     "sass": "^1.69.5",
