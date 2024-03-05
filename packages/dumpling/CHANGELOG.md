@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.88
+
+### Patch Changes
+
+- 2b63a8d: 更新空状态图片
+
 ## 3.0.87
 
 ### Patch Changes
