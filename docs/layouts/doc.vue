@@ -46,6 +46,10 @@
         :style="{
           ...floatingStyles,
           visibility: openSearchResult ? 'visible' : 'hidden',
+          transform: openSearchResult
+            ? floatingStyles.transform + ' scale(1)'
+            : floatingStyles.transform + ' scale(0.85)',
+          transition: 'transform 0.25s',
         }"
         class="w-300px border border-gray-200 rounded-4px bg-white text-14px c-neutral-800 flex flex-col overflow-hidden shadow-sm"
       >
