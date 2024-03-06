@@ -7,7 +7,14 @@ import { createThemes } from '@frontend/dumpling-design-token'
 import fromPlatte from '@frontend/dumpling/platte'
 import cssvars from '@frontend/dumpling/cssvars'
 
-export default function plugin(): Plugin {
+type PluginOptions = {
+  /**
+   * 开启虚拟化组件节点
+   */
+  virtualHost: boolean | ((path: string) => boolean)
+}
+
+export default function plugin(options: PluginOptions): Plugin {
   const libName = '@frontend/dumpling'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
   const components = fg.globSync('src/*/**.vue', {
@@ -146,7 +153,30 @@ export default function plugin(): Plugin {
           })
         }
 
-        return code + `\n<style lang="scss">\n${styleContent}\n</style>`
+        code += `\n<style lang="scss">\n${styleContent}\n</style>`
+
+        let virtualHostOn = false
+
+        if (typeof options.virtualHost === 'function') {
+          virtualHostOn = options.virtualHost(id)
+        } else {
+          virtualHostOn = !!options.virtualHost
+        }
+
+        if (virtualHostOn && !code.includes('virtualHost')) {
+          const virtualHostScript = `
+<script lang="ts">
+export default {
+  options: {
+    virtualHost: true,
+  },
+}
+</script>
+`
+          code += `\n${virtualHostScript}`
+        }
+
+        return code
       }
 
       const importRegex = new RegExp(
