@@ -13,15 +13,16 @@
     </div>
     <div class="doc-header-right flex flex-auto items-center justify-between">
       <div
-        class="ml-16px border border-gray-200 rounded-4px py-4px px-8px text-14px flex items-center gap-x-8px text-neutral-800 cursor-pointer w-200px"
+        class="ml-16px border border-gray-200 rounded-4px py-4px px-8px text-14px flex items-center gap-x-8px text-neutral-800 cursor-pointer"
         ref="searchbar"
       >
-        <IconsSearch />
+        <IconsSearch class="text-16px" />
         <input
           ref="inputRef"
-          placeholder="搜索"
-          class="outline-none"
+          placeholder="搜索..."
+          class="outline-none w-200px"
           v-model="keyword"
+          @keydown.esc="handleKeyEsc"
           @keydown.up.prevent
           @keydown.down.prevent
           @keyup.up="handleKeyUp"
@@ -30,6 +31,15 @@
           @focus="handleInputFocus"
           @blur="handleInputBlur"
         />
+        <div class="flex items-center gap-x-4px">
+          <div
+            v-for="k in shortcuts"
+            :key="k"
+            class="rounded-4px bg-slate-50 border border-slate-300 c-neutral-600 flex-none min-w-24px min-h-24px flex items-center justify-center shadow-sm px-8px"
+          >
+            {{ k }}
+          </div>
+        </div>
       </div>
       <div
         ref="searchResult"
@@ -175,6 +185,7 @@
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 import { useFloating, offset } from '@floating-ui/vue'
+import hotkeys from 'hotkeys-js'
 
 const { data: navigation } = await useAsyncData('navigation', () =>
   fetchContentNavigation(),
@@ -189,6 +200,45 @@ const searchResult = ref<HTMLDivElement>()
 const { floatingStyles } = useFloating(searchbar, searchResult, {
   placement: 'bottom-start',
   middleware: [offset(4)],
+})
+
+const shortcuts = ref(['⌘', 'K'])
+
+function getOS() {
+  var userAgent = window.navigator.userAgent,
+    platform = window.navigator.platform,
+    macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+    windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+    iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+    os = null
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'Mac OS'
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS'
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows'
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android'
+  } else if (!os && /Linux/.test(platform)) {
+    os = 'Linux'
+  }
+
+  return os
+}
+
+onMounted(() => {
+  const os = getOS()
+  if (os === 'Windows') {
+    shortcuts.value = ['ctrl', 'k']
+  }
+  hotkeys('command+k, ctrl+k', () => {
+    inputRef.value?.focus()
+  })
+})
+
+onUnmounted(() => {
+  hotkeys.unbind('command+k, ctrl+')
 })
 
 const inputRef = ref<HTMLInputElement>()
@@ -211,6 +261,10 @@ function handleInputBlur() {
   setTimeout(() => {
     openSearchResult.value = false
   }, 200)
+}
+
+function handleKeyEsc() {
+  inputRef.value?.blur()
 }
 
 function handleKeyUp() {
@@ -263,22 +317,29 @@ function handleThemeClick(theme: string) {
   localStorage.setItem('DUMPLING_THEME', theme)
 }
 
-watch(keyword, (kw) => {
-  const items =
-    navigation.value
-      ?.flatMap((item) => item.children ?? [])
-      .filter((item) => {
-        return item.title.toLowerCase().includes(kw.toLowerCase())
-      })
-      .slice(0, 5) ?? []
-  result.value = items
-  if (
-    result.value.length > 0 &&
-    !result.value.find((item) => item._path === activeSearchItem.value)
-  ) {
-    activeSearchItem.value = result.value[0]._path!
-  }
-})
+watch(
+  keyword,
+  (kw) => {
+    const items =
+      navigation.value
+        ?.flatMap((item) => item.children ?? [])
+        .filter((item) => {
+          return item.title.toLowerCase().includes(kw.toLowerCase())
+        })
+        .slice(0, 5) ?? []
+    result.value = items
+    console.log(result.value)
+    if (
+      result.value.length > 0 &&
+      !result.value.find((item) => item._path === activeSearchItem.value)
+    ) {
+      activeSearchItem.value = result.value[0]._path!
+    }
+  },
+  {
+    immediate: true,
+  },
+)
 
 const isNavItemActive = (navItem: NavItem) => {
   return navItem._path === route.path

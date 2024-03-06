@@ -19,6 +19,7 @@
     "@vueuse/core": "^10.6.1",
     "dayjs": "^1.9.1",
     "hammer-touchemulator": "^0.0.2",
+    "hotkeys-js": "^3.13.7",
     "lodash-es": "^4.17.21",
     "overlayscrollbars": "^2.4.4",
     "overlayscrollbars-vue": "^0.5.6",
