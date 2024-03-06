@@ -328,7 +328,6 @@ watch(
         })
         .slice(0, 5) ?? []
     result.value = items
-    console.log(result.value)
     if (
       result.value.length > 0 &&
       !result.value.find((item) => item._path === activeSearchItem.value)
