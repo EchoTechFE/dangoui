@@ -282,9 +282,14 @@ async function uniUpload(f: UploadFile) {
 }
 
 function uniAdd() {
+  let count: number | undefined
+  if (props.maxCount) {
+    count = Math.max(0, props.maxCount - props.value.length)
+  }
   // @ts-ignore
   uni.chooseMedia({
     mediaType: props.mediaType,
+    count,
     async success(res: any) {
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
         const f: UploadFile = {
