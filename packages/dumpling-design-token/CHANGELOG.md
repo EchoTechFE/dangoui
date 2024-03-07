@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.15
+
+### Patch Changes
+
+- b89e06d: update platte
+
 ## 1.0.14
 
 ### Patch Changes

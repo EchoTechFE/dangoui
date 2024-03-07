@@ -1,5 +1,13 @@
 # @frontend/dumpling
 
+## 3.0.91
+
+### Patch Changes
+
+- b89e06d: update platte
+- Updated dependencies [b89e06d]
+  - @frontend/dumpling-design-token@1.0.15
+
 ## 3.0.90
 
 ### Patch Changes
