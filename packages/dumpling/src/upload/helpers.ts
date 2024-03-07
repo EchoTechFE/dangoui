@@ -66,3 +66,9 @@ export type UploadFile = {
    */
   action: string
 }
+
+let idx = 1
+
+export function getNextUid() {
+  return idx++
+}

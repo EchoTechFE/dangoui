@@ -53,7 +53,7 @@ import { computed, inject, normalizeStyle, ref } from 'vue'
 import DuImage from '../image/Image.vue'
 import DuIcon from '../icon/Icon.vue'
 import { GlobalConfigKey } from '../plugins/globalConfig'
-import { UploadFile } from './helpers'
+import { UploadFile, getNextUid } from './helpers'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
 
@@ -288,7 +288,7 @@ function uniAdd() {
     async success(res: any) {
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
         const f: UploadFile = {
-          uid: Date.now(),
+          uid: getNextUid(),
           url: '',
           thumbUrl: file.thumbTempFilePath || file.tempFilePath,
           identifier: '',
@@ -349,7 +349,7 @@ function webAdd() {
       if (file) {
         const url = await getLocalImagePreviewUrl(file)
         let uploadFile: UploadFile = {
-          uid: Date.now(),
+          uid: getNextUid(),
           url: '',
           thumbUrl: url,
           identifier: '',
