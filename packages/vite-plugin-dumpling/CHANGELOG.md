@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.60
+
+### Patch Changes
+
+- eeabec0: 支持配置 virtualHost
+- Updated dependencies [66b9852]
+  - @frontend/dumpling@3.0.89
+
 ## 1.0.59
 
 ### Patch Changes
