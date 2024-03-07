@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.90
+
+### Patch Changes
+
+- 6de1aea: fix count
+
 ## 3.0.89
 
 ### Patch Changes
