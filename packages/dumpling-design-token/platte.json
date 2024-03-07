@@ -109,9 +109,9 @@
       },
       {
         "name": "default/color",
-        "color": "#00000066",
-        "var": "default/6",
-        "rootAlias": "Main/neutral_06"
+        "color": "#000000a3",
+        "var": "default/7",
+        "rootAlias": "Main/neutral_07"
       },
       {
         "name": "default/disabledtempBorder",
