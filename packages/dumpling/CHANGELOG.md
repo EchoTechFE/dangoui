@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.93
+
+### Patch Changes
+
+- 413608d: add toast
+
 ## 3.0.92
 
 ### Patch Changes
