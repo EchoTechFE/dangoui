@@ -1,0 +1,29 @@
+.du-toast {
+  &__mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+  }
+
+  &__message {
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    transition: all 0.25s;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    max-width: 200px;
+
+    &--open {
+      opacity: 1;
+    }
+  }
+}

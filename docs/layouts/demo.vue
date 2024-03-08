@@ -1,7 +1,9 @@
 <template>
   <div v-if="isHydrated">
     <DuTheme :name="globalTheme">
-      <slot />
+      <DuToastProvider>
+        <slot />
+      </DuToastProvider>
     </DuTheme>
   </div>
   <div
@@ -13,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuTheme } from '@frontend/dumpling'
+import { DuTheme, DuToastProvider } from '@frontend/dumpling'
 
 watch(isHydrated, () => {
   window.addEventListener('message', (message: any) => {
