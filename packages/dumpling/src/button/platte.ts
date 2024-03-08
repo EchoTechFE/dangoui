@@ -15,6 +15,7 @@ export function fromPlatte(color: string) {
       'bt-outline-disabledtemp-color': `${color}-outline-disabledtemp-color`,
       'bt-disabledtemp-border': `${color}-disabledtemp-border`,
       'bt-text-color': `${color}-text-color`,
+      'bt-text-disabledtemp-color': `${color}-text-disabledtemp-color`,
     },
   }
 }
