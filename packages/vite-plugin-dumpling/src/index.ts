@@ -11,10 +11,10 @@ type PluginOptions = {
   /**
    * 开启虚拟化组件节点
    */
-  virtualHost: boolean | ((path: string) => boolean)
+  virtualHost?: boolean | ((path: string) => boolean)
 }
 
-export default function plugin(options: PluginOptions): Plugin {
+export default function plugin(options: PluginOptions = {}): Plugin {
   const libName = '@frontend/dumpling'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
   const components = fg.globSync('src/*/**.vue', {
