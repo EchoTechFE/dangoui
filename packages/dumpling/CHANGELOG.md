@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.92
+
+### Patch Changes
+
+- 3c4aaa2: 使用 text disabledtemp color
+
 ## 3.0.91
 
 ### Patch Changes
