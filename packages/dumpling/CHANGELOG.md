@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.95
+
+### Patch Changes
+
+- cb0f25b: 优化 sticky
+
 ## 3.0.94
 
 ### Patch Changes
