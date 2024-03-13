@@ -56,6 +56,7 @@ import { GlobalConfigKey } from '../plugins/globalConfig'
 import { UploadFile, getNextUid } from './helpers'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
+import { useToast } from '../composables/useToast'
 
 const props = withDefaults(
   defineProps<{
@@ -161,6 +162,7 @@ const props = withDefaults(
   },
 )
 
+const toast = useToast()
 const marginYInFormItem = useSize(() => 11)
 
 const style = computed(() => {
@@ -350,8 +352,15 @@ function webAdd() {
     }
     fileInput.style.display = 'none'
     fileInput.addEventListener('change', async () => {
-      const file = fileInput.files?.[0]
-      if (file) {
+      const len = fileInput.files?.length ?? 0
+      if (props.maxCount && len + props.value.length > props.maxCount) {
+        toast.show({
+          message: '最多上传' + props.maxCount + '个文件',
+        })
+        return
+      }
+
+      for (const file of fileInput.files ?? []) {
         const url = await getLocalImagePreviewUrl(file)
         let uploadFile: UploadFile = {
           uid: getNextUid(),
@@ -401,9 +410,7 @@ function handleAdd() {
     return
   }
 
-  // TODO: 编译优化，剔除平台不需要的
-  // @ts-ignore
-  if (typeof uni === 'undefined') {
+  if (__WEB__) {
     webAdd()
   } else {
     uniAdd()
