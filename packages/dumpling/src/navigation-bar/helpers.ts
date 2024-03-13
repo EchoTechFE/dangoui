@@ -16,7 +16,9 @@ export function setHeightByPage(value: number, page?: object) {
     height.value = value
   }
   if (__UNI_PLATFORM__ !== 'h5') {
-    getHeightByPage(page!).value = value
+    if (getHeightByPage(page!).value !== value) {
+      getHeightByPage(page!).value = value
+    }
   }
 }
 

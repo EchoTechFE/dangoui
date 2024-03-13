@@ -10,3 +10,22 @@ export function isPlatteColor(color: string) {
 
   return false
 }
+
+export function tryCall(
+  fn: () => Promise<void>,
+  { duration, count }: { duration: number; count: number },
+): Promise<void> {
+  const callAgain = () => {
+    const nextCount = count - 1
+    if (nextCount === 0) {
+      return
+    }
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, duration)
+    }).then(() => tryCall(fn, { duration, count: nextCount }))
+  }
+
+  return fn().then(callAgain).catch(callAgain)
+}

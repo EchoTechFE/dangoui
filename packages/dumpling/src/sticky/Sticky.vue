@@ -17,6 +17,7 @@ import {
 } from 'vue'
 import type { CSSProperties } from 'vue'
 import { useNavigationBarHeight } from '../navigation-bar/helpers'
+import { tryCall } from '../helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -69,7 +70,12 @@ const contentStyle = computed(() => {
 })
 
 watch(
-  [() => props.top, () => props.relativeTo, () => navbarHeight.value],
+  [
+    () => props.top,
+    () => props.relativeTo,
+    () => navbarHeight.value,
+    () => height.value,
+  ],
   () => {
     if (!height.value) {
       return
@@ -80,18 +86,39 @@ watch(
 
 onMounted(() => {
   if (__UNI_PLATFORM__ !== 'h5') {
-    setTimeout(() => {
-      // @ts-ignore
-      uni
-        .createSelectorQuery()
-        .in(instance?.proxy)
-        .select('.du-sticky__content')
-        .boundingClientRect((res: any) => {
-          height.value = (res as any).height
-          initObserver()
+    tryCall(
+      () => {
+        return new Promise<void>((resolve, reject) => {
+          uni
+            .createSelectorQuery()
+            .in(instance?.proxy)
+            .select('.du-sticky__content')
+            .boundingClientRect((res) => {
+              if (!res) {
+                reject(new Error('Retry'))
+                return
+              }
+              if (res.top <= navbarHeight.value + props.top) {
+                isFixed.value = true
+              } else {
+                isFixed.value = false
+              }
+              if (height.value === (res as UniApp.NodeInfo).height) {
+                resolve()
+                return
+              }
+              height.value = (res as UniApp.NodeInfo).height!
+              initObserver()
+              resolve()
+            })
+            .exec()
         })
-        .exec()
-    }, 500)
+      },
+      {
+        duration: 100,
+        count: 5,
+      },
+    )
   }
 
   if (__WEB__) {
@@ -130,10 +157,8 @@ function initObserver() {
   }
 
   if (__WEB__) {
-    console.log('rootMargin', navbarHeight.value + props.top)
     observer = new IntersectionObserver(
       (entries) => {
-        console.log('web trigger', entries)
         if (
           entries[0].boundingClientRect.top <=
           navbarHeight.value + props.top
@@ -150,7 +175,6 @@ function initObserver() {
         }px 0px 0px 0px`,
       },
     )
-    console.log('hey ===', instance?.proxy?.$el)
     observer.observe(instance?.proxy?.$el)
   }
 }

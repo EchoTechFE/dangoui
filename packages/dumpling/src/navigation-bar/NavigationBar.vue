@@ -68,6 +68,7 @@ import DuIcon from '../icon/Icon.vue'
 import { setHeightByPage } from './helpers'
 import { onPageScroll } from '@dcloudio/uni-app'
 import { GlobalConfigKey } from '../plugins/globalConfig'
+import { tryCall } from '../helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -142,18 +143,30 @@ onMounted(() => {
         .getBoundingClientRect().height,
     )
   } else {
-    setTimeout(() => {
-      // @ts-ignore
-      uni
-        .createSelectorQuery()
-        .in(instance?.proxy)
-        .select('.du-navigation-bar__wrapper')
-        .boundingClientRect((res: any) => {
-          // @ts-ignore
-          setHeightByPage(res.height, instance!.proxy!.$root.$scope)
+    tryCall(
+      () => {
+        return new Promise((resolve) => {
+          uni
+            .createSelectorQuery()
+            .in(instance?.proxy)
+            .select('.du-navigation-bar__wrapper')
+            .boundingClientRect((res: any) => {
+              if (!res) {
+                resolve()
+                return
+              }
+              // @ts-ignore
+              setHeightByPage(res.height, instance!.proxy!.$root.$scope)
+              resolve()
+            })
+            .exec()
         })
-        .exec()
-    }, 500)
+      },
+      {
+        duration: 100,
+        count: 5,
+      },
+    )
   }
 })
 
