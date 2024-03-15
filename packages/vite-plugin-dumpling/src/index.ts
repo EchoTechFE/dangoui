@@ -252,6 +252,36 @@ export default function plugin(options: PluginOptions = {}): Plugin {
               .join('\n')
             styleContent += `.${config.name} {\n${configCss}\n}`
           })
+
+          // TODO: 测试 Button 组件
+          if (componentName === 'Button') {
+            Object.entries(themeHelper.themePlatte).forEach(
+              ([themeName, theme]) => {
+                const groups: Record<string, string[]> = {}
+                Object.entries(theme.vars)
+                  .filter(([key]) => {
+                    return key.includes('-bt-')
+                  })
+                  .forEach(([key, value]) => {
+                    const color = key.split('-')[0]
+                    if (!groups[color]) {
+                      groups[color] = []
+                    }
+                    let buttonVarName = key.split('-').slice(1).join('-')
+                    buttonVarName = themeHelper.hasAlias(buttonVarName)
+                      ? `--dva-${themeHelper.getAlias(buttonVarName)}`
+                      : `--du-${buttonVarName}`
+
+                    groups[color].push(`${buttonVarName}: ${value};`)
+                  })
+                Object.entries(groups).forEach(([color, vars]) => {
+                  styleContent += `.${themeName} .du-c-${color}-bt {\n${vars.join(
+                    '\n',
+                  )}\n}`
+                })
+              },
+            )
+          }
         }
 
         code += `\n<style lang="scss">\n${styleContent}\n</style>`
