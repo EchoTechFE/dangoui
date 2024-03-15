@@ -39,5 +39,28 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
       ],
     },
+    themes: [
+      {
+        name: 'qd',
+        colors: {
+          gradient: {
+            button: {
+              solidBg: 'linear-gradient(151deg, #2B1AC0 0%, #7247DC 100%)',
+              solidColor: '#fff',
+            },
+          },
+        },
+      },
+      {
+        name: 'linjie',
+        colors: {
+          primary: {
+            button: {
+              solidBg: 'linear-gradient(151deg, #2B1AC0 0%, #7247DC 100%)',
+            },
+          },
+        },
+      },
+    ],
   })
 })

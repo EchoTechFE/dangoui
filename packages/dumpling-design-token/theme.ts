@@ -13,6 +13,28 @@ type CreateThemeOpts = {
   defaultTheme: string
 }
 
+function merge(target: any, source: any) {
+  if (typeof target !== 'object' || target === null) {
+    return source
+  }
+
+  const result: any = { ...target }
+
+  for (const key in source) {
+    if (result.hasOwnProperty(key)) {
+      if (typeof source[key] === 'object' && source[key] !== null) {
+        result[key] = merge(result[key], source[key])
+      } else {
+        result[key] = source[key]
+      }
+    } else {
+      result[key] = source[key]
+    }
+  }
+
+  return result
+}
+
 // 后面抽离出去，目前先做迁移工作
 const builtinTheme: ThemeConfig[] = [
   {
@@ -296,12 +318,37 @@ const base: Record<string, Record<string | number, string>> = {
   },
 }
 
+export function combineThemes(...themesList: ThemeConfig[][]) {
+  const combined: ThemeConfig[] = []
+  themesList.forEach((themes) => {
+    themes.forEach((theme) => {
+      const idx = combined.findIndex((t) => t.name === theme.name)
+      if (idx >= 0) {
+        combined[idx] = merge(combined[idx], theme) as any
+      } else {
+        combined.push(theme)
+      }
+    })
+  })
+  return combined
+}
+
+// 直接使用内置主题
+// 1. ['qd']
+// 这也是一种方案，直接覆盖内置的主题
+// 2. [{ name: 'qd', colors: {}, override: true }]
+// 也可以提供新主题
+// 3. ['qd', { name: 'linjie', colors: {}}]
+// 也可以拓展内置主题（默认是 extend）
+// 4. [{ name: 'qd', colors: {} }]
 export function createThemes(opts: CreateThemeOpts) {
+  // 以字符串形式提供的内置主题
   const filteredBuiltinThemes = opts.theme.filter(
     (theme): theme is 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark' =>
       typeof theme === 'string',
   )
-  const filteredThemeConfigs = opts.theme.filter(
+  // 以对象形式提供的
+  let filteredThemeConfigs = opts.theme.filter(
     (theme): theme is ThemeConfig => typeof theme === 'object',
   )
 
@@ -435,8 +482,9 @@ export function createThemes(opts: CreateThemeOpts) {
     })
   })
 
-  // TODO: 和 builtin 要分开
-  ;[...filteredThemeConfigs, ...builtinTheme].forEach(({ name, colors }) => {
+  const allThemes = combineThemes(builtinTheme, filteredThemeConfigs)
+
+  allThemes.forEach(({ name, colors }) => {
     if (!themePlatte[name]) {
       themePlatte[name] = {
         vars: {},

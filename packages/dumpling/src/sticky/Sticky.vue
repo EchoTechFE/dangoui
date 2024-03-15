@@ -93,7 +93,7 @@ onMounted(() => {
             .createSelectorQuery()
             .in(instance?.proxy)
             .select('.du-sticky__content')
-            .boundingClientRect((res) => {
+            .boundingClientRect((res: any) => {
               if (!res) {
                 reject(new Error('Retry'))
                 return

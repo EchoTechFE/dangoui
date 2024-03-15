@@ -44,10 +44,131 @@ type GlobalConfig = {
    * 小程序独有
    */
   homePath?: string
+
+  /**
+   * 主题配置
+   *
+   * 该配置仅在 Web 平台生效
+   *
+   * 在小程序平台，请使用 `vite-plugin-dumpling` 指定主题
+   */
+  themes?: {
+    name: string
+    colors: Record<
+      string,
+      {
+        solidBg?: string
+        solidDisabledtempBg?: string
+        solidColor?: string
+        solidDisabledTempColor?: string
+        textColor?: string
+        textDisabledtempColor?: string
+        border?: string
+        disabledTempBorder?: string
+        outlineColor?: string
+        outlineDisabledtempColor?: string
+        color?: string
+        disabledtempColor?: string
+        softBg?: string
+        softDisabledtempBg?: string
+        button?: {
+          solidBg?: string
+          solidDisabledtempBg?: string
+          solidColor?: string
+          solidDisabledTempColor?: string
+          textColor?: string
+          textDisabledtempColor?: string
+          border?: string
+          disabledTempBorder?: string
+          outlineColor?: string
+          outlineDisabledtempColor?: string
+          color?: string
+          disabledtempColor?: string
+          softBg?: string
+          softDisabledtempBg?: string
+        }
+      }
+    >
+  }[]
 }
 
 export default {
   install(app: App, config: GlobalConfig) {
     app.provide(GlobalConfigKey, config)
+
+    if (__WEB__) {
+      function kebab(str: string) {
+        return str
+          .replace(/([a-z])([A-Z])/g, '$1-$2')
+          .replace(/\B([A-Z]+)/g, '-$1')
+          .toLowerCase()
+      }
+
+      function getComponentClassName(name: string) {
+        switch (name) {
+          case 'button':
+            return 'bt'
+          default:
+            return name
+        }
+      }
+
+      const themes = config.themes ?? []
+
+      const styles: Record<string, string[]> = {}
+
+      themes.forEach((theme) => {
+        Object.entries(theme.colors).forEach(([color, vars]) => {
+          Object.entries(vars).forEach(([name, value]) => {
+            if (typeof value === 'string') {
+              const selector = `.du-theme-${theme.name}`
+              if (!styles[selector]) {
+                styles[selector] = []
+              }
+              styles[selector].push(`--du-${color}-${kebab(name)}: ${value};`)
+            } else {
+              const selector = `.du-theme-${
+                theme.name
+              } .du-c-${color}-${getComponentClassName(name)}`
+              if (!styles[selector]) {
+                styles[selector] = []
+              }
+              Object.entries(value).forEach(([subname, subvalue]) => {
+                styles[selector].push(
+                  `--du-${getComponentClassName(name)}-${kebab(
+                    subname,
+                  )}: ${subvalue};`,
+                )
+              })
+            }
+          })
+        })
+      })
+
+      if (typeof document !== 'undefined') {
+        const css = Object.entries(styles)
+          .map(([selector, rules]): string => {
+            return `${selector} {\n${rules.join('\n')}\n}\n`
+          })
+          .join('\n')
+
+        console.log(css, 'css is')
+
+        const previousStyleElement = document.querySelector(
+          'style[data-dumpling-theme]',
+        ) as HTMLStyleElement | null
+
+        if (previousStyleElement && previousStyleElement.textContent !== css) {
+          previousStyleElement.textContent = css
+        } else {
+          const styleElement = document.createElement('style')
+          styleElement.textContent = css
+          styleElement.setAttribute('type', 'text/css')
+          styleElement.setAttribute('data-dumpling-theme', '')
+
+          document.head.appendChild(styleElement)
+        }
+      }
+    }
   },
 }

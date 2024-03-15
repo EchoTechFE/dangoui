@@ -7,11 +7,107 @@ import { createThemes } from '@frontend/dumpling-design-token'
 import fromPlatte from '@frontend/dumpling/platte'
 import cssvars from '@frontend/dumpling/cssvars'
 
+function kebab(str: string) {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/\B([A-Z]+)/g, '-$1')
+    .toLowerCase()
+}
+
 type PluginOptions = {
   /**
    * 开启虚拟化组件节点
    */
   virtualHost?: boolean | ((path: string) => boolean)
+  /**
+   * 指定主题，与 globalConfig 中保持一致
+   *
+   * ？？如果么有动态需求，并且希望性能更加好，可以使用 globalConfig
+   */
+  themes?: (
+    | {
+        name: string
+        colors: Record<
+          string,
+          {
+            solidBg?: string
+            solidDisabledtempBg?: string
+            solidColor?: string
+            solidDisabledTempColor?: string
+            textColor?: string
+            textDisabledtempColor?: string
+            border?: string
+            disabledTempBorder?: string
+            outlineColor?: string
+            outlineDisabledtempColor?: string
+            color?: string
+            disabledtempColor?: string
+            softBg?: string
+            softDisabledtempBg?: string
+            button?: {
+              solidBg?: string
+              solidDisabledtempBg?: string
+              solidColor?: string
+              solidDisabledTempColor?: string
+              textColor?: string
+              textDisabledtempColor?: string
+              border?: string
+              disabledTempBorder?: string
+              outlineColor?: string
+              outlineDisabledtempColor?: string
+              color?: string
+              disabledtempColor?: string
+              softBg?: string
+              softDisabledtempBg?: string
+            }
+          }
+        >
+      }
+    | 'qd'
+    | 'qh'
+    | 'qdm'
+    | 'mihua-dark'
+    | 'mihua-light'
+  )[]
+}
+
+export function resolveThemes(themes: PluginOptions['themes'] = []) {
+  return themes.map((t) => {
+    if (typeof t === 'string') {
+      return t
+    }
+
+    const colors: Record<string, Record<string, string | number>> = {}
+
+    function getComponentName(name: string) {
+      switch (name) {
+        case 'button':
+          return 'bt'
+        default:
+          return name
+      }
+    }
+
+    Object.entries(t.colors).forEach(([colorName, colorSet]) => {
+      colors[colorName] = {}
+      Object.entries(colorSet).forEach(([varName, varVal]) => {
+        if (typeof varVal === 'string') {
+          colors[colorName][kebab(varName)] = varVal
+        } else {
+          Object.entries(varVal).forEach(([subVarName, subVarVal]) => {
+            colors[colorName][
+              `${getComponentName(varName)}-${kebab(subVarName)}`
+            ] = subVarVal
+          })
+        }
+      })
+    })
+
+    return {
+      name: t.name,
+      colors,
+    }
+  })
 }
 
 export default function plugin(options: PluginOptions = {}): Plugin {
@@ -24,8 +120,13 @@ export default function plugin(options: PluginOptions = {}): Plugin {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
   })
 
+  const themes = resolveThemes(
+    options.themes ??
+      (['qd', 'qh', 'qdm', 'mihua-dark', 'mihua-light'] as const),
+  )
+
   const themeHelper = createThemes({
-    theme: ['qd', 'qh', 'qdm', 'mihua-dark', 'mihua-light'],
+    theme: themes,
     defaultTheme: 'qd',
   })
 
