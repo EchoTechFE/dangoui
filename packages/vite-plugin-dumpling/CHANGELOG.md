@@ -1,5 +1,11 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.2
+
+### Patch Changes
+
+- 278b70c: fix theme
+
 ## 1.0.67-alpha.1
 
 ### Patch Changes

@@ -5,11 +5,12 @@
     "@frontend/dumpling": "3.0.96-alpha.0",
     "@frontend/dumpling-design-token": "1.0.16-alpha.0",
     "unocss-preset-echo": "1.7.6",
-    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.0"
+    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.1"
   },
   "changesets": [
     "beige-students-hug",
     "heavy-bears-happen",
-    "silent-olives-wonder"
+    "silent-olives-wonder",
+    "wise-falcons-appear"
   ]
 }
