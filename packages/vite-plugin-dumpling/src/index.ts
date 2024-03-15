@@ -250,8 +250,8 @@ export default function plugin(options: PluginOptions = {}): Plugin {
             const config = fromPlatte[componentName](c, themeHelper.themePlatte)
             if (Array.isArray(config)) {
               config.forEach((cfg) => {
-                const configCss = Object.entries(cfg.vars).map(
-                  ([key, value]) => {
+                const configCss = Object.entries(cfg.vars)
+                  .map(([key, value]) => {
                     const k = themeHelper.hasAlias(key)
                       ? `--dva-${themeHelper.getAlias(key)}`
                       : `--du-${key}`
@@ -259,8 +259,8 @@ export default function plugin(options: PluginOptions = {}): Plugin {
                       ? `--dva-${themeHelper.getAlias(value)}`
                       : `--du-${value}`
                     return `${k}: var(${v});`
-                  },
-                )
+                  })
+                  .join('\n')
                 if (cfg.theme) {
                   styleContent += `.du-theme-${cfg.theme} .${cfg.name} {\n${configCss}\n}`
                 } else {
