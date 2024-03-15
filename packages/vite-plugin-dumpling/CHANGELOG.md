@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.3
+
+### Patch Changes
+
+- 9a45ea7: fix theme
+- Updated dependencies [9a45ea7]
+  - @frontend/dumpling@3.0.96-alpha.1
+
 ## 1.0.67-alpha.2
 
 ### Patch Changes
