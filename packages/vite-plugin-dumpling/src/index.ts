@@ -275,7 +275,7 @@ export default function plugin(options: PluginOptions = {}): Plugin {
                     groups[color].push(`${buttonVarName}: ${value};`)
                   })
                 Object.entries(groups).forEach(([color, vars]) => {
-                  styleContent += `.${themeName} .du-c-${color}-bt {\n${vars.join(
+                  styleContent += `.du-theme-${themeName} .du-c-${color}-bt {\n${vars.join(
                     '\n',
                   )}\n}`
                 })
