@@ -1,5 +1,11 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.5
+
+### Patch Changes
+
+- e3fd0a6: fix join
+
 ## 1.0.67-alpha.4
 
 ### Patch Changes
