@@ -225,11 +225,20 @@ export default function plugin(options: PluginOptions = {}): Plugin {
             })
           })
           colorSet.forEach((c) => {
-            const config = fromPlatte[componentName](c)
-            Object.entries(config.vars).forEach(([key, value]) => {
-              themeHelper.addAlias(key)
-              themeHelper.addAlias(value)
-            })
+            const config = fromPlatte[componentName](c, themeHelper.themePlatte)
+            if (Array.isArray(config)) {
+              config.forEach((c) => {
+                Object.entries(c.vars).forEach(([key, value]) => {
+                  themeHelper.addAlias(key)
+                  themeHelper.addAlias(value)
+                })
+              })
+            } else {
+              Object.entries(config.vars).forEach(([key, value]) => {
+                themeHelper.addAlias(key)
+                themeHelper.addAlias(value)
+              })
+            }
           })
           styleContent = styleContent.replace(/var\(--du-(.*)\)/g, (_, $1) => {
             if (themeHelper.hasAlias($1)) {
@@ -238,50 +247,41 @@ export default function plugin(options: PluginOptions = {}): Plugin {
             return _
           })
           colorSet.forEach((c) => {
-            const config = fromPlatte[componentName](c)
-            const configCss = Object.entries(config.vars)
-              .map(([key, value]) => {
-                const k = themeHelper.hasAlias(key)
-                  ? `--dva-${themeHelper.getAlias(key)}`
-                  : `--du-${key}`
-                const v = themeHelper.hasAlias(value)
-                  ? `--dva-${themeHelper.getAlias(value)}`
-                  : `--du-${value}`
-                return `${k}: var(${v});`
+            const config = fromPlatte[componentName](c, themeHelper.themePlatte)
+            if (Array.isArray(config)) {
+              config.forEach((cfg) => {
+                const configCss = Object.entries(cfg.vars).map(
+                  ([key, value]) => {
+                    const k = themeHelper.hasAlias(key)
+                      ? `--dva-${themeHelper.getAlias(key)}`
+                      : `--du-${key}`
+                    const v = themeHelper.hasAlias(value)
+                      ? `--dva-${themeHelper.getAlias(value)}`
+                      : `--du-${value}`
+                    return `${k}: var(${v});`
+                  },
+                )
+                if (cfg.theme) {
+                  styleContent += `.du-theme-${cfg.theme} .${cfg.name} {\n${configCss}\n}`
+                } else {
+                  styleContent += `.${cfg.name} {\n${configCss}\n}`
+                }
               })
-              .join('\n')
-            styleContent += `.${config.name} {\n${configCss}\n}`
-          })
-
-          // TODO: 测试 Button 组件
-          if (componentName === 'Button') {
-            Object.entries(themeHelper.themePlatte).forEach(
-              ([themeName, theme]) => {
-                const groups: Record<string, string[]> = {}
-                Object.entries(theme.vars)
-                  .filter(([key]) => {
-                    return key.includes('-bt-')
-                  })
-                  .forEach(([key, value]) => {
-                    const color = key.split('-')[0]
-                    if (!groups[color]) {
-                      groups[color] = []
-                    }
-                    let buttonVarName = key.split('-').slice(1).join('-')
-                    buttonVarName = themeHelper.hasAlias(buttonVarName)
-                      ? `--dva-${themeHelper.getAlias(buttonVarName)}`
-                      : `--du-${buttonVarName}`
-
-                    groups[color].push(`${buttonVarName}: ${value};`)
-                  })
-                Object.entries(groups).forEach(([color, vars]) => {
-                  styleContent += `.du-theme-${themeName} .du-c-${color}-bt {\n${vars.join(
-                    '\n',
-                  )}\n}`
+            } else {
+              const configCss = Object.entries(config.vars)
+                .map(([key, value]) => {
+                  const k = themeHelper.hasAlias(key)
+                    ? `--dva-${themeHelper.getAlias(key)}`
+                    : `--du-${key}`
+                  const v = themeHelper.hasAlias(value)
+                    ? `--dva-${themeHelper.getAlias(value)}`
+                    : `--du-${value}`
+                  return `${k}: var(${v});`
                 })
-              },
-            )
-          }
+                .join('\n')
+              styleContent += `.${config.name} {\n${configCss}\n}`
+            }
+          })
         }
 
         code += `\n<style lang="scss">\n${styleContent}\n</style>`

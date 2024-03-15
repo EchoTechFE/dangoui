@@ -4,10 +4,15 @@ import { fromPlatte as fromRadioIconPlatte } from './radio/RadioIconPlatte'
 import { fromPlatte as fromCheckboxPlatte } from './checkbox/CheckboxPlatte'
 import { fromPlatte as fromInputNumberPlatte } from './input-number/platte'
 
-type FromPlatteFn = (color: string) => {
-  name: string
-  vars: Record<string, string>
-}
+type FromPlatteFn = (
+  color: string,
+  ctx: Record<string, { vars: Record<string, string> }>,
+) =>
+  | {
+      name: string
+      vars: Record<string, string>
+    }
+  | { name: string; vars: Record<string, string>; theme?: string }[]
 
 const fromPlatte: Record<string, FromPlatteFn> = {
   Button: fromButtonPlatte,
