@@ -1,5 +1,11 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.6
+
+### Patch Changes
+
+- c47177b: fix
+
 ## 1.0.67-alpha.5
 
 ### Patch Changes
