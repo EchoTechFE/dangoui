@@ -1,6 +1,6 @@
 export function fromPlatte(
   color: string,
-  ctx: Record<string, { vars: Record<string, string> }>,
+  ctx?: Record<string, { vars: Record<string, string> }>,
 ) {
   const mappings: {
     name: string
@@ -27,6 +27,10 @@ export function fromPlatte(
       } as Record<string, string>,
     },
   ]
+
+  if (!ctx) {
+    return mappings[0]
+  }
 
   Object.entries(ctx).forEach(([theme, { vars }]) => {
     Object.entries(vars).forEach(([k]) => {

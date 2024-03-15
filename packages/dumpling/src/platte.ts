@@ -6,7 +6,7 @@ import { fromPlatte as fromInputNumberPlatte } from './input-number/platte'
 
 type FromPlatteFn = (
   color: string,
-  ctx: Record<string, { vars: Record<string, string> }>,
+  ctx?: Record<string, { vars: Record<string, string> }>,
 ) =>
   | {
       name: string
