@@ -1,5 +1,14 @@
 # @frontend/dumpling
 
+## 3.0.96-alpha.0
+
+### Patch Changes
+
+- 40bbb2a: 优化 Upload 组件文件超过最大数量时候的提示
+- 19427f4: 支持自定义主题
+- Updated dependencies [19427f4]
+  - @frontend/dumpling-design-token@1.0.16-alpha.0
+
 ## 3.0.95
 
 ### Patch Changes

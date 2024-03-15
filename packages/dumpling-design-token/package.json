@@ -1,6 +1,6 @@
 {
   "name": "@frontend/dumpling-design-token",
-  "version": "1.0.15",
+  "version": "1.0.16-alpha.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

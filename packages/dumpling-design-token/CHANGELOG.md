@@ -1,5 +1,11 @@
 # @frontend/dumpling-design-token
 
+## 1.0.16-alpha.0
+
+### Patch Changes
+
+- 19427f4: 支持自定义主题
+
 ## 1.0.15
 
 ### Patch Changes

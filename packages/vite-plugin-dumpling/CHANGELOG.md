@@ -1,5 +1,15 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.0
+
+### Patch Changes
+
+- 19427f4: 支持自定义主题
+- Updated dependencies [40bbb2a]
+- Updated dependencies [19427f4]
+  - @frontend/dumpling@3.0.96-alpha.0
+  - @frontend/dumpling-design-token@1.0.16-alpha.0
+
 ## 1.0.66
 
 ### Patch Changes

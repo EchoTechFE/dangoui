@@ -1,0 +1,14 @@
+{
+  "mode": "exit",
+  "tag": "alpha",
+  "initialVersions": {
+    "@frontend/dumpling": "3.0.95",
+    "@frontend/dumpling-design-token": "1.0.15",
+    "unocss-preset-echo": "1.7.6",
+    "@frontend/vite-plugin-dumpling": "1.0.66"
+  },
+  "changesets": [
+    "beige-students-hug",
+    "silent-olives-wonder"
+  ]
+}
