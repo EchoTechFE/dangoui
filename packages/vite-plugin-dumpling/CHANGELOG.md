@@ -1,5 +1,11 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.1
+
+### Patch Changes
+
+- cb6a3b7: test button css compile
+
 ## 1.0.67-alpha.0
 
 ### Patch Changes
