@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.96-alpha.2
+
+### Patch Changes
+
+- c1bbcd4: fix theme
+
 ## 3.0.96-alpha.1
 
 ### Patch Changes
