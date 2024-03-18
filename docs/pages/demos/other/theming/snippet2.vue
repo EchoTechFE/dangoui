@@ -1,6 +1,6 @@
 
 <template>
-  <PreviewBlock title="传递 success">
+  <PreviewBlock title="渐变色按钮">
     <DuTheme name="qd">
       <DuButton color="gradient">完成</DuButton>
     </DuTheme>
