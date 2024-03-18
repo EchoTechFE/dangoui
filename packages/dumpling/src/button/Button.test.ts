@@ -39,15 +39,14 @@ test('should not emit click event when disabled', () => {
 })
 
 test('button from platte', () => {
-  expect(
-    fromPlatte('primary', {
-      linjie: {
-        vars: {
-          'primary-bt-solid-bg': 'blue',
-        },
+  const ctx = {
+    linjie: {
+      vars: {
+        'primary-bt-solid-bg': 'blue',
       },
-    }),
-  ).toEqual({
+    },
+  }
+  expect(fromPlatte('primary', ctx)).toEqual({
     name: `du-c-primary-bt`,
     vars: {
       'bt-solid-color': `primary-solid-color`,
@@ -64,6 +63,26 @@ test('button from platte', () => {
       'bt-disabledtemp-border': `primary-disabledtemp-border`,
       'bt-text-color': `primary-text-color`,
       'bt-text-disabledtemp-color': `primary-text-disabledtemp-color`,
-    } as Record<string, string | string[]>,
+    },
+  })
+
+  expect(fromPlatte('secondary', ctx)).toEqual({
+    name: `du-c-secondary-bt`,
+    vars: {
+      'bt-solid-color': `secondary-solid-color`,
+      'bt-solid-bg': `secondary-solid-bg`,
+      'bt-solid-disabledtemp-color': `secondary-solid-disabledtemp-color`,
+      'bt-solid-disabledtemp-bg': `secondary-solid-disabledtemp-bg`,
+      'bt-color': `secondary-color`,
+      'bt-soft-bg': `secondary-soft-bg`,
+      'bt-disabledtemp-color': `secondary-disabledtemp-color`,
+      'bt-soft-disabledtemp-bg': `secondary-soft-disabledtemp-bg`,
+      'bt-outline-color': `secondary-outline-color`,
+      'bt-border': `secondary-border`,
+      'bt-outline-disabledtemp-color': `secondary-outline-disabledtemp-color`,
+      'bt-disabledtemp-border': `secondary-disabledtemp-border`,
+      'bt-text-color': `secondary-text-color`,
+      'bt-text-disabledtemp-color': `secondary-text-disabledtemp-color`,
+    },
   })
 })

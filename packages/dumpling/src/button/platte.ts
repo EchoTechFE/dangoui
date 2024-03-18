@@ -25,7 +25,7 @@ export function fromPlatte(
   if (ctx) {
     Object.values(ctx).forEach(({ vars }) => {
       Object.keys(vars).forEach((k) => {
-        if (k.includes('-bt-')) {
+        if (k.includes(`${color}-bt-`)) {
           const cmpVarName = k.split('-').slice(1).join('-')
           if (mappings.vars[cmpVarName]) {
             mappings.vars[cmpVarName] = [
