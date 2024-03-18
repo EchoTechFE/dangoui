@@ -73,10 +73,10 @@ type PluginOptions = {
 
 export function combineVars(vars: string[]): string {
   if (vars.length === 1) {
-    return `var(--${vars[0]})`
+    return `var(${vars[0]})`
   }
 
-  return `var(--${vars[0]}, ${combineVars(vars.slice(1))})`
+  return `var(${vars[0]}, ${combineVars(vars.slice(1))})`
 }
 
 export function resolveThemes(themes: PluginOptions['themes'] = []) {
