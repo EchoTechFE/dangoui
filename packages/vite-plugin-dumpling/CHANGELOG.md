@@ -1,5 +1,11 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.8
+
+### Patch Changes
+
+- 1682ffc: fix combine vars
+
 ## 1.0.67-alpha.7
 
 ### Patch Changes
