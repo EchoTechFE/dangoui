@@ -1,5 +1,13 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67-alpha.7
+
+### Patch Changes
+
+- 6020671: new theme generate
+- Updated dependencies [6020671]
+  - @frontend/dumpling@3.0.96-alpha.3
+
 ## 1.0.67-alpha.6
 
 ### Patch Changes

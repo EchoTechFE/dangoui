@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.96-alpha.3
+
+### Patch Changes
+
+- 6020671: new theme generate
+
 ## 3.0.96-alpha.2
 
 ### Patch Changes
