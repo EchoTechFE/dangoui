@@ -1,4 +1,4 @@
-import { resolveThemes } from '.'
+import { resolveThemes, combineVars } from '.'
 
 import { expect, test } from 'vitest'
 
@@ -52,4 +52,10 @@ test('resolve themes correctly', () => {
       },
     },
   ])
+})
+
+test('combine vars', () => {
+  expect(combineVars(['a', 'b'])).toEqual('var(--a, var(--b))')
+  expect(combineVars(['a'])).toEqual('var(--a)')
+  expect(combineVars(['a', 'b', 'c'])).toEqual('var(--a, var(--b, var(--c)))')
 })

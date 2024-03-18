@@ -7,12 +7,10 @@ import { fromPlatte as fromInputNumberPlatte } from './input-number/platte'
 type FromPlatteFn = (
   color: string,
   ctx?: Record<string, { vars: Record<string, string> }>,
-) =>
-  | {
-      name: string
-      vars: Record<string, string>
-    }
-  | { name: string; vars: Record<string, string>; theme?: string }[]
+) => {
+  name: string
+  vars: Record<string, string | string[]>
+}
 
 const fromPlatte: Record<string, FromPlatteFn> = {
   Button: fromButtonPlatte,

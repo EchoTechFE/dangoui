@@ -71,6 +71,14 @@ type PluginOptions = {
   )[]
 }
 
+export function combineVars(vars: string[]): string {
+  if (vars.length === 1) {
+    return `var(--${vars[0]})`
+  }
+
+  return `var(--${vars[0]}, ${combineVars(vars.slice(1))})`
+}
+
 export function resolveThemes(themes: PluginOptions['themes'] = []) {
   return themes.map((t) => {
     if (typeof t === 'string') {
@@ -224,63 +232,48 @@ export default function plugin(options: PluginOptions = {}): Plugin {
               colorSet.add(c)
             })
           })
+
           colorSet.forEach((c) => {
             const config = fromPlatte[componentName](c, themeHelper.themePlatte)
-            if (Array.isArray(config)) {
-              config.forEach((c) => {
-                Object.entries(c.vars).forEach(([key, value]) => {
-                  themeHelper.addAlias(key)
-                  themeHelper.addAlias(value)
+            Object.entries(config.vars).forEach(([key, value]) => {
+              themeHelper.addAlias(key)
+              if (Array.isArray(value)) {
+                value.forEach((v) => {
+                  themeHelper.addAlias(v)
                 })
-              })
-            } else {
-              Object.entries(config.vars).forEach(([key, value]) => {
-                themeHelper.addAlias(key)
+              } else {
                 themeHelper.addAlias(value)
-              })
-            }
+              }
+            })
           })
+
           styleContent = styleContent.replace(/var\(--du-(.*)\)/g, (_, $1) => {
             if (themeHelper.hasAlias($1)) {
               return `var(--dva-${themeHelper.getAlias($1)})`
             }
             return _
           })
+
           colorSet.forEach((c) => {
             const config = fromPlatte[componentName](c, themeHelper.themePlatte)
-            if (Array.isArray(config)) {
-              config.forEach((cfg) => {
-                const configCss = Object.entries(cfg.vars)
-                  .map(([key, value]) => {
-                    const k = themeHelper.hasAlias(key)
-                      ? `--dva-${themeHelper.getAlias(key)}`
-                      : `--du-${key}`
-                    const v = themeHelper.hasAlias(value)
-                      ? `--dva-${themeHelper.getAlias(value)}`
-                      : `--du-${value}`
-                    return `${k}: var(${v});`
-                  })
-                  .join('\n')
-                if (cfg.theme) {
-                  styleContent += `.du-theme-${cfg.theme} .${cfg.name} {\n${configCss}\n}`
-                } else {
-                  styleContent += `.${cfg.name} {\n${configCss}\n}`
-                }
-              })
-            } else {
-              const configCss = Object.entries(config.vars)
-                .map(([key, value]) => {
-                  const k = themeHelper.hasAlias(key)
-                    ? `--dva-${themeHelper.getAlias(key)}`
-                    : `--du-${key}`
-                  const v = themeHelper.hasAlias(value)
-                    ? `--dva-${themeHelper.getAlias(value)}`
-                    : `--du-${value}`
-                  return `${k}: var(${v});`
+
+            const configCss = Object.entries(config.vars)
+              .map(([key, value]): string => {
+                const k = themeHelper.hasAlias(key)
+                  ? `--dva-${themeHelper.getAlias(key)}`
+                  : `--du-${key}`
+                let vars = Array.isArray(value) ? value : [value]
+                vars = vars.map((v) => {
+                  return themeHelper.hasAlias(v)
+                    ? `--dva-${themeHelper.getAlias(v)}`
+                    : `--du-${v}`
                 })
-                .join('\n')
-              styleContent += `.${config.name} {\n${configCss}\n}`
-            }
+
+                return `${k}: ${combineVars(vars)};`
+              })
+              .join('\n')
+
+            styleContent += `.${config.name} {\n${configCss}\n}`
           })
         }
 
