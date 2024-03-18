@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.96-alpha.4
+
+### Patch Changes
+
+- 4d865b8: 优化生成 theme 的大小
+
 ## 3.0.96-alpha.3
 
 ### Patch Changes

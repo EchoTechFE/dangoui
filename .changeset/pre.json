@@ -5,10 +5,11 @@
     "@frontend/dumpling": "3.0.96-alpha.3",
     "@frontend/dumpling-design-token": "1.0.16-alpha.0",
     "unocss-preset-echo": "1.7.6",
-    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.7"
+    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.8"
   },
   "changesets": [
     "beige-students-hug",
+    "dull-chicken-fold",
     "few-impalas-stare",
     "heavy-bears-happen",
     "lemon-actors-hunt",
