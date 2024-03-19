@@ -1,6 +1,6 @@
 <template>
   <div :class="className" :style="style">
-    <img v-if="emptyImg" class="du-empty__img" :src="emptyImg" />
+    <img v-if="emptyImg" class="du-empty__img" :src="emptyImg" webp />
     <div class="du-empty__text">{{ text }}</div>
     <DuButton
       v-if="buttonText"
@@ -45,25 +45,30 @@ const emit = defineEmits<{
 const PREFIX = 'https://assets.qiandaocdn.com/dumpling/v3/assets'
 
 const EMPTY_IMGS: Record<string, string> = {
-  networkError: `${PREFIX}/network.svg`,
-  offline: `${PREFIX}/network.svg`,
-  serviceError: `${PREFIX}/404.svg`,
-  loadError: `${PREFIX}/failed.svg`,
-  success: `${PREFIX}/success.svg`,
-  error: `${PREFIX}/failed.svg`,
-  empty: `${PREFIX}/empty.svg`,
-  searchEmpty: `${PREFIX}/empty.svg`,
-  contentDeleted: `${PREFIX}/deleted.svg`,
-  contentInvisible: `${PREFIX}/removed.svg`,
-  notFound: `${PREFIX}/empty.svg`,
-  verifying: `${PREFIX}/verify.svg`,
-  verifySucceeded: `${PREFIX}/success.svg`,
-  verifyFailed: `${PREFIX}/failed.svg`,
+  networkError: `${PREFIX}/network.png`,
+  offline: `${PREFIX}/network.png`,
+  serviceError: `${PREFIX}/404.png`,
+  loadError: `${PREFIX}/failed.png`,
+  success: `${PREFIX}/success.png`,
+  error: `${PREFIX}/failed.png`,
+  empty: `${PREFIX}/empty.png`,
+  searchEmpty: `${PREFIX}/empty.png`,
+  contentDeleted: `${PREFIX}/deleted.png`,
+  contentInvisible: `${PREFIX}/removed.png`,
+  notFound: `${PREFIX}/empty.png`,
+  verifying: `${PREFIX}/verify.png`,
+  verifySucceeded: `${PREFIX}/success.png`,
+  verifyFailed: `${PREFIX}/failed.png`,
 }
 
 const emptyImg = computed(() => {
   if (EMPTY_IMGS[props.image]) {
-    return EMPTY_IMGS[props.image]
+    return (
+      EMPTY_IMGS[props.image] +
+      `?x-oss-process=${encodeURIComponent(
+        'image/auto-orient,1/resize,m_lfit,w_1080,h_1080/format,webp',
+      )}`
+    )
   }
 
   return props.image

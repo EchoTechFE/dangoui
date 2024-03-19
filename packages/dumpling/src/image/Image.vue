@@ -7,6 +7,7 @@
       class="du-image__image"
       :style="imageStyle"
       :show-menu-by-longpress="showMenuByLongPress"
+      webp
     />
   </div>
 </template>
