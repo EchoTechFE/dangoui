@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.97
+
+### Patch Changes
+
+- 0e12733: emit confirm
+
 ## 3.0.96
 
 ### Patch Changes
