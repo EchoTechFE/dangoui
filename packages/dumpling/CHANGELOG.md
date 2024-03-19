@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.98
+
+### Patch Changes
+
+- bfa02a1: bump version
+
 ## 3.0.97
 
 ### Patch Changes
