@@ -2,16 +2,17 @@
   "mode": "exit",
   "tag": "alpha",
   "initialVersions": {
-    "@frontend/dumpling": "3.0.96-alpha.3",
+    "@frontend/dumpling": "3.0.96-alpha.4",
     "@frontend/dumpling-design-token": "1.0.16-alpha.0",
     "unocss-preset-echo": "1.7.6",
-    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.8"
+    "@frontend/vite-plugin-dumpling": "1.0.67-alpha.9"
   },
   "changesets": [
     "beige-students-hug",
     "dull-chicken-fold",
     "few-impalas-stare",
     "heavy-bears-happen",
+    "lazy-brooms-nail",
     "lemon-actors-hunt",
     "shy-deers-rush",
     "silent-olives-wonder",

@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.96-alpha.5
+
+### Patch Changes
+
+- 8088654: fix empty image format
+
 ## 3.0.96-alpha.4
 
 ### Patch Changes
