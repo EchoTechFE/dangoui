@@ -212,6 +212,7 @@ function handleInput(e: any) {
 
 function handleClear() {
   emit('update:value', '')
+  emit('confirm', '')
 }
 
 function handleClick() {
