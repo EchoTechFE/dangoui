@@ -1,5 +1,27 @@
 # @frontend/vite-plugin-dumpling
 
+## 1.0.67
+
+### Patch Changes
+
+- 1682ffc: fix combine vars
+- cb6a3b7: test button css compile
+- 6020671: new theme generate
+- c47177b: fix
+- 19427f4: 支持自定义主题
+- 9a45ea7: fix theme
+- e3fd0a6: fix join
+- 278b70c: fix theme
+- Updated dependencies [40bbb2a]
+- Updated dependencies [4d865b8]
+- Updated dependencies [8088654]
+- Updated dependencies [6020671]
+- Updated dependencies [19427f4]
+- Updated dependencies [9a45ea7]
+- Updated dependencies [c1bbcd4]
+  - @frontend/dumpling@3.0.96
+  - @frontend/dumpling-design-token@1.0.16
+
 ## 1.0.67-alpha.10
 
 ### Patch Changes

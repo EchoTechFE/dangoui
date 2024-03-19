@@ -1,5 +1,19 @@
 # @frontend/dumpling
 
+## 3.0.96
+
+### Patch Changes
+
+- 40bbb2a: 优化 Upload 组件文件超过最大数量时候的提示
+- 4d865b8: 优化生成 theme 的大小
+- 8088654: fix empty image format
+- 6020671: new theme generate
+- 19427f4: 支持自定义主题
+- 9a45ea7: fix theme
+- c1bbcd4: fix theme
+- Updated dependencies [19427f4]
+  - @frontend/dumpling-design-token@1.0.16
+
 ## 3.0.96-alpha.5
 
 ### Patch Changes
