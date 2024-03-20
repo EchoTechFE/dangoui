@@ -39,7 +39,6 @@ import SwiperItem from './swiper/SwiperItem.vue'
 import NavigationBar from './navigation-bar/NavigationBar.vue'
 import NavigationBarRight from './navigation-bar/NavigationBarRight.vue'
 import ActionButton from './navigation-bar/ActionButton.vue'
-import Sidebar from './sidebar/Sidebar.vue'
 
 import Popup from './popup/Popup.vue'
 import Snackbar from './snackbar/Snackbar.vue'
@@ -97,7 +96,6 @@ const DuSwiperItem = SwiperItem
 const DuNavigationBar = NavigationBar
 const DuNavigationBarRight = NavigationBarRight
 const DuActionButton = ActionButton
-const DuSidebar = Sidebar
 
 const DuPopup = Popup
 const DuSnackbar = Snackbar
@@ -186,8 +184,6 @@ export {
   DuNavigationBar,
   NavigationBarRight,
   DuNavigationBarRight,
-  Sidebar,
-  DuSidebar,
   ActionButton,
   DuActionButton,
   Popup,
