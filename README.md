@@ -19,9 +19,9 @@
 ## 安装
 
 ```bash
-npm install @frontend/dumpling@next
-yarn add @frontend/dumpling@next
-pnpm add @frontend/dumpling@next
+npm install @frontend/dumpling
+yarn add @frontend/dumpling
+pnpm add @frontend/dumpling
 ```
 
 ## 链接
