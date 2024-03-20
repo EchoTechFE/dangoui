@@ -1,5 +1,11 @@
 # @frontend/dumpling
 
+## 3.0.100
+
+### Patch Changes
+
+- 6e61cb6: update du tag size
+
 ## 3.0.99
 
 ### Patch Changes
