@@ -8,6 +8,8 @@
 
 </div>
 
+## 🚧🚧 This repo is under heavy development 🚧🚧
+
 ## 特性
 
 - 多平台兼容，uni-app、Web 都可以使用
