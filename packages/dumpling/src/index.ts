@@ -21,6 +21,7 @@ import Select from './select/Select.vue'
 import Picker from './picker/Picker.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
+import FormField from './form/FormField.vue'
 
 import Card from './card/Card.vue'
 import Steps from './steps/Steps.vue'
@@ -78,6 +79,7 @@ const DuSelect = Select
 const DuPicker = Picker
 const DuForm = Form
 const DuFormItem = FormItem
+const DuFormField = FormField
 
 const DuCard = Card
 const DuSteps = Steps
@@ -154,6 +156,8 @@ export {
   DuForm,
   FormItem,
   DuFormItem,
+  FormField,
+  DuFormField,
   Card,
   DuCard,
   Steps,
