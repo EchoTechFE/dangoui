@@ -28,15 +28,7 @@
                 "name": "update:open",
                 "type": "[open: boolean]",
                 "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -52,15 +44,7 @@
                 "name": "select",
                 "type": "[item: ActionSheetItem]",
                 "signature": "(event: \"select\", item: ActionSheetItem): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -73,15 +57,7 @@
                                 "tags": [],
                                 "required": false,
                                 "type": "string | undefined",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
-                                        "range": [
-                                            1946,
-                                            1958
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "string | undefined",
@@ -98,15 +74,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "string",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
-                                        "range": [
-                                            1961,
-                                            1974
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "string"
                             },
                             "icon": {
@@ -116,15 +84,7 @@
                                 "tags": [],
                                 "required": false,
                                 "type": "string | undefined",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
-                                        "range": [
-                                            1977,
-                                            1990
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "string | undefined"
                             },
                             "openType": {
@@ -134,15 +94,7 @@
                                 "tags": [],
                                 "required": false,
                                 "type": "string | undefined",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/action-sheet/ActionSheet.vue",
-                                        "range": [
-                                            2036,
-                                            2053
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "string | undefined"
                             }
                         }
@@ -346,30 +298,14 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "getUserInfo",
                 "type": "any[]",
                 "signature": "(event: \"getUserInfo\", ...args: any[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "any"
                 ]
@@ -474,15 +410,7 @@
                 "name": "confirm",
                 "type": "[value: { value: Dayjs | Dayjs[]; dates: Dayjs[]; date: Dayjs; }]",
                 "signature": "(event: \"confirm\", value: { value: Dayjs | Dayjs[]; dates: Dayjs[]; date: Dayjs; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -495,15 +423,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "Dayjs | Dayjs[]",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
-                                        "range": [
-                                            3576,
-                                            3610
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "Dayjs | Dayjs[]",
@@ -519,15 +439,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                898,
-                                                                912
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): Dayjs"
@@ -540,15 +452,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => boolean",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                918,
-                                                                936
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): boolean"
@@ -561,22 +465,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                942,
-                                                                956
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                962,
-                                                                988
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "month": {
@@ -586,22 +475,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                994,
-                                                                1009
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1015,
-                                                                1042
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "date": {
@@ -611,22 +485,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1048,
-                                                                1062
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1068,
-                                                                1094
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "day": {
@@ -636,22 +495,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1100,
-                                                                1113
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1119,
-                                                                1144
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "hour": {
@@ -661,22 +505,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1150,
-                                                                1164
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1170,
-                                                                1196
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "minute": {
@@ -686,22 +515,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1202,
-                                                                1218
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1224,
-                                                                1252
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "second": {
@@ -711,22 +525,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1258,
-                                                                1274
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1280,
-                                                                1308
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "millisecond": {
@@ -736,22 +535,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): number; (value: number): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1314,
-                                                                1335
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1341,
-                                                                1374
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): number; (value: number): Dayjs; }"
                                                 },
                                                 "set": {
@@ -761,15 +545,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(unit: UnitType, value: number) => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1380,
-                                                                1421
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(unit: UnitType, value: number): Dayjs",
@@ -783,15 +559,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(unit: UnitType) => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1427,
-                                                                1454
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(unit: UnitType): number",
@@ -805,15 +573,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(value: number, unit: OpUnitType) => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1460,
-                                                                1503
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(value: number, unit: OpUnitType): Dayjs",
@@ -827,15 +587,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(value: number, unit: OpUnitType) => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1509,
-                                                                1557
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(value: number, unit: OpUnitType): Dayjs",
@@ -849,15 +601,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(unit: OpUnitType) => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1563,
-                                                                1595
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(unit: OpUnitType): Dayjs",
@@ -871,15 +615,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(unit: OpUnitType) => Dayjs",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1601,
-                                                                1631
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(unit: OpUnitType): Dayjs",
@@ -893,15 +629,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(template?: string | undefined) => string",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1637,
-                                                                1670
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(template?: string | undefined): string",
@@ -915,15 +643,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(date: ConfigType, unit?: \"M\" | \"millisecond\" | \"second\" | \"minute\" | \"hour\" | \"day\" | \"month\" | \"year\" | \"date\" | \"d\" | \"y\" | \"h\" | \"m\" | \"s\" | \"ms\" | \"week\" | \"w\" | \"quarter\" | \"Q\" | undefined, float?: boolean | undefined) => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1676,
-                                                                1754
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(date: ConfigType, unit?: \"M\" | \"millisecond\" | \"second\" | \"minute\" | \"hour\" | \"day\" | \"month\" | \"year\" | \"date\" | \"d\" | \"y\" | \"h\" | \"m\" | \"s\" | \"ms\" | \"week\" | \"w\" | \"quarter\" | \"Q\" | undefined, float?: boolean | undefined): number",
@@ -937,15 +657,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1760,
-                                                                1777
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): number"
@@ -958,15 +670,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1783,
-                                                                1797
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): number"
@@ -979,15 +683,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1803,
-                                                                1824
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): number"
@@ -1000,15 +696,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => Date",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1830,
-                                                                1844
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): Date"
@@ -1021,15 +709,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => string",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1850,
-                                                                1866
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): string"
@@ -1042,15 +722,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => string",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1872,
-                                                                1893
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): string"
@@ -1063,15 +735,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => string",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1899,
-                                                                1917
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): string"
@@ -1084,15 +748,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "() => number",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1923,
-                                                                1942
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(): number"
@@ -1105,15 +761,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                1948,
-                                                                2002
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
@@ -1127,15 +775,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                2008,
-                                                                2060
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
@@ -1149,15 +789,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "(date: ConfigType, unit?: OpUnitType | undefined) => boolean",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                2066,
-                                                                2119
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": {
                                                         "kind": "event",
                                                         "type": "(date: ConfigType, unit?: OpUnitType | undefined): boolean",
@@ -1171,22 +803,7 @@
                                                     "tags": [],
                                                     "required": true,
                                                     "type": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }",
-                                                    "declarations": [
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                2125,
-                                                                2141
-                                                            ]
-                                                        },
-                                                        {
-                                                            "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/dayjs@1.9.1/node_modules/dayjs/index.d.ts",
-                                                            "range": [
-                                                                2147,
-                                                                2213
-                                                            ]
-                                                        }
-                                                    ],
+                                                    "declarations": [],
                                                     "schema": "{ (): string; (preset: string | ILocale, object?: Partial<ILocale> | undefined): Dayjs; }"
                                                 }
                                             }
@@ -1208,15 +825,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "Dayjs[]",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
-                                        "range": [
-                                            3617,
-                                            3637
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "Dayjs[]"
                             },
                             "date": {
@@ -1226,15 +835,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "Dayjs",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/calendar/Calendar.vue",
-                                        "range": [
-                                            3644,
-                                            3661
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "Dayjs"
                             }
                         }
@@ -1245,30 +846,14 @@
                 "name": "close",
                 "type": "[]",
                 "signature": "(event: \"close\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "update:visible",
                 "type": "[visible: boolean]",
                 "signature": "(event: \"update:visible\", visible: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -1382,60 +967,28 @@
                 "name": "guideTap",
                 "type": "[]",
                 "signature": "(event: \"guideTap\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "infoTap",
                 "type": "[]",
                 "signature": "(event: \"infoTap\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "actionTap",
                 "type": "[]",
                 "signature": "(event: \"actionTap\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "toggleOpen",
                 "type": "[open: boolean]",
                 "signature": "(event: \"toggleOpen\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -1520,15 +1073,7 @@
                 "name": "update:open",
                 "type": "[open: boolean]",
                 "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -1544,15 +1089,7 @@
                 "name": "confirm",
                 "type": "[value: CascaderOption[]]",
                 "signature": "(event: \"confirm\", value: CascaderOption[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -1569,15 +1106,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
-                                                "range": [
-                                                    1277,
-                                                    1290
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "value": {
@@ -1587,15 +1116,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
-                                                "range": [
-                                                    1293,
-                                                    1306
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "disabled": {
@@ -1605,15 +1126,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "boolean | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
-                                                "range": [
-                                                    1309,
-                                                    1327
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "boolean | undefined",
@@ -1631,15 +1144,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "CascaderOption[] | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/cascader/Cascader.vue",
-                                                "range": [
-                                                    1330,
-                                                    1357
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "CascaderOption[] | undefined",
@@ -1659,15 +1164,7 @@
                 "name": "update:value",
                 "type": "[value: string[]]",
                 "signature": "(event: \"update:value\", value: string[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -1806,30 +1303,14 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "update:checked",
                 "type": "[value: boolean]",
                 "signature": "(event: \"update:checked\", value: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -1920,15 +1401,7 @@
                 "name": "update:value",
                 "type": "[value: string[]]",
                 "signature": "(event: \"update:value\", value: string[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -1943,15 +1416,7 @@
                 "name": "input",
                 "type": "[value: string[]]",
                 "signature": "(event: \"input\", value: string[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -2105,15 +1570,7 @@
                 "name": "buttonClick",
                 "type": "[]",
                 "signature": "(event: \"buttonClick\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -2208,15 +1665,7 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -2328,15 +1777,7 @@
                 "name": "showInfo",
                 "type": "[info: string | boolean]",
                 "signature": "(event: \"showInfo\", info: string | boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -2418,15 +1859,7 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -2689,15 +2122,7 @@
                 "name": "confirm",
                 "type": "[value: { detail: { value: string; }; }]",
                 "signature": "(event: \"confirm\", value: { detail: { value: string; }; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -2710,15 +2135,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "{ value: string; }",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                        "range": [
-                                            4441,
-                                            4466
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "object",
                                     "type": "{ value: string; }",
@@ -2730,15 +2147,7 @@
                                             "tags": [],
                                             "required": true,
                                             "type": "string",
-                                            "declarations": [
-                                                {
-                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                                    "range": [
-                                                        4451,
-                                                        4464
-                                                    ]
-                                                }
-                                            ],
+                                            "declarations": [],
                                             "schema": "string"
                                         }
                                     }
@@ -2752,15 +2161,7 @@
                 "name": "update:value",
                 "type": "[value: string]",
                 "signature": "(event: \"update:value\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -2769,15 +2170,7 @@
                 "name": "input",
                 "type": "[value: string]",
                 "signature": "(event: \"input\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -2786,15 +2179,7 @@
                 "name": "change",
                 "type": "[value: string]",
                 "signature": "(event: \"change\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -2803,15 +2188,7 @@
                 "name": "focus",
                 "type": "[value: { detail: { height: number; }; }]",
                 "signature": "(event: \"focus\", value: { detail: { height: number; }; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -2824,15 +2201,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "{ height: number; }",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                        "range": [
-                                            4336,
-                                            4362
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "object",
                                     "type": "{ height: number; }",
@@ -2844,15 +2213,7 @@
                                             "tags": [],
                                             "required": true,
                                             "type": "number",
-                                            "declarations": [
-                                                {
-                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                                    "range": [
-                                                        4346,
-                                                        4360
-                                                    ]
-                                                }
-                                            ],
+                                            "declarations": [],
                                             "schema": "number"
                                         }
                                     }
@@ -2866,15 +2227,7 @@
                 "name": "blur",
                 "type": "[value: { detail: {}; }]",
                 "signature": "(event: \"blur\", value: { detail: {}; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -2887,15 +2240,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "{}",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                        "range": [
-                                            4395,
-                                            4405
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "object",
                                     "type": "{}",
@@ -2910,15 +2255,7 @@
                 "name": "keyboardheightchange",
                 "type": "[value: { detail: { height: number; duration: number; }; }]",
                 "signature": "(event: \"keyboardheightchange\", value: { detail: { height: number; duration: number; }; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -2931,15 +2268,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "{ height: number; duration: number; }",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                        "range": [
-                                            4524,
-                                            4568
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "object",
                                     "type": "{ height: number; duration: number; }",
@@ -2951,15 +2280,7 @@
                                             "tags": [],
                                             "required": true,
                                             "type": "number",
-                                            "declarations": [
-                                                {
-                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                                    "range": [
-                                                        4534,
-                                                        4549
-                                                    ]
-                                                }
-                                            ],
+                                            "declarations": [],
                                             "schema": "number"
                                         },
                                         "duration": {
@@ -2969,15 +2290,7 @@
                                             "tags": [],
                                             "required": true,
                                             "type": "number",
-                                            "declarations": [
-                                                {
-                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/input/Input.vue",
-                                                    "range": [
-                                                        4550,
-                                                        4566
-                                                    ]
-                                                }
-                                            ],
+                                            "declarations": [],
                                             "schema": "number"
                                         }
                                     }
@@ -3082,15 +2395,7 @@
                 "name": "update:value",
                 "type": "[val: number]",
                 "signature": "(event: \"update:value\", val: number): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "number"
                 ]
@@ -3099,15 +2404,7 @@
                 "name": "input",
                 "type": "[val: number]",
                 "signature": "(event: \"input\", val: number): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "number"
                 ]
@@ -3116,15 +2413,7 @@
                 "name": "change",
                 "type": "[val: number]",
                 "signature": "(event: \"change\", val: number): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "number"
                 ]
@@ -3154,15 +2443,7 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -3253,15 +2534,7 @@
                 "name": "share",
                 "type": "[]",
                 "signature": "(event: \"share\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -3434,30 +2707,14 @@
                 "name": "close",
                 "type": "[]",
                 "signature": "(event: \"close\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "link-click",
                 "type": "[]",
                 "signature": "(event: \"link-click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -3499,15 +2756,7 @@
                 "name": "update:open",
                 "type": "[open: boolean]",
                 "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -3523,15 +2772,7 @@
                 "name": "update:value",
                 "type": "[value: string[]]",
                 "signature": "(event: \"update:value\", value: string[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -3670,30 +2911,14 @@
                 "name": "close",
                 "type": "[]",
                 "signature": "(event: \"close\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "update:visible",
                 "type": "[visible: boolean]",
                 "signature": "(event: \"update:visible\", visible: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -3823,30 +3048,14 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "update:value",
                 "type": "[value: { checked: boolean; value: any; }]",
                 "signature": "(event: \"update:value\", value: { checked: boolean; value: any; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -3859,15 +3068,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "boolean",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
-                                        "range": [
-                                            2233,
-                                            2250
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "boolean",
@@ -3884,15 +3085,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "any",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
-                                        "range": [
-                                            2251,
-                                            2273
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "any"
                             }
                         }
@@ -3903,15 +3096,7 @@
                 "name": "update:checked",
                 "type": "[value: boolean]",
                 "signature": "(event: \"update:checked\", value: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -3927,15 +3112,7 @@
                 "name": "input",
                 "type": "[value: { checked: boolean; value: any; }]",
                 "signature": "(event: \"input\", value: { checked: boolean; value: any; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -3948,15 +3125,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "boolean",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
-                                        "range": [
-                                            2152,
-                                            2169
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "boolean",
@@ -3973,15 +3142,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "any",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/radio/Radio.vue",
-                                        "range": [
-                                            2170,
-                                            2192
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": "any"
                             }
                         }
@@ -4074,15 +3235,7 @@
                 "name": "update:value",
                 "type": "[value: string | number | undefined]",
                 "signature": "(event: \"update:value\", value: string | number | undefined): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -4099,15 +3252,7 @@
                 "name": "input",
                 "type": "[value: string | number | undefined]",
                 "signature": "(event: \"input\", value: string | number | undefined): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -4254,15 +3399,7 @@
                 "name": "update:value",
                 "type": "[i: number]",
                 "signature": "(event: \"update:value\", i: number): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "number"
                 ]
@@ -4271,15 +3408,7 @@
                 "name": "change",
                 "type": "[value: { value: number | undefined; }]",
                 "signature": "(event: \"change\", value: { value: number | undefined; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -4292,15 +3421,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "number | undefined",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/rate/Rate.vue",
-                                        "range": [
-                                            3131,
-                                            3156
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "number | undefined",
@@ -4385,30 +3506,14 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "confirm",
                 "type": "[value: string]",
                 "signature": "(event: \"confirm\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -4417,15 +3522,7 @@
                 "name": "update:value",
                 "type": "[value: string]",
                 "signature": "(event: \"update:value\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -4497,6 +3594,13 @@
                 "default": "\"\\u8BF7\\u9009\\u62E9\""
             },
             {
+                "name": "confirmText",
+                "description": "确认按钮的文字，当 `withConfirm` 为 `true` 时生效",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u786E\\u8BA4\""
+            },
+            {
                 "name": "formItem",
                 "description": "如果为 true，当作为 `DuFormItem` 的子元素时，会自动显示表单项，如果为 false，则不会显示",
                 "required": false,
@@ -4518,6 +3622,13 @@
                 "default": "\"\\u8F93\\u5165\\u5173\\u952E\\u8BCD\\u641C\\u7D22...\""
             },
             {
+                "name": "withConfirm",
+                "description": "是否带有 confirm button",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "mode",
                 "description": "不提供为单选，multiple 为多选",
                 "required": false,
@@ -4537,15 +3648,7 @@
                 "name": "update:open",
                 "type": "[open: boolean]",
                 "signature": "(event: \"update:open\", open: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -4561,15 +3664,7 @@
                 "name": "confirm",
                 "type": "[value: SelectOption[]]",
                 "signature": "(event: \"confirm\", value: SelectOption[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -4586,15 +3681,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
-                                                "range": [
-                                                    1852,
-                                                    1865
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "value": {
@@ -4604,15 +3691,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string | number",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
-                                                "range": [
-                                                    1868,
-                                                    1890
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "string | number",
@@ -4629,15 +3708,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "boolean | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/select/Select.vue",
-                                                "range": [
-                                                    1893,
-                                                    1911
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "boolean | undefined",
@@ -4658,15 +3729,7 @@
                 "name": "update:value",
                 "type": "[value: string | number | string[] | number[]]",
                 "signature": "(event: \"update:value\", value: string | number | string[] | number[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -4720,11 +3783,6 @@
                 }
             }
         ]
-    },
-    "Sidebar": {
-        "props": [],
-        "events": [],
-        "slots": []
     },
     "Snackbar": {
         "props": [
@@ -4804,30 +3862,14 @@
                 "name": "close",
                 "type": "[]",
                 "signature": "(event: \"close\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "action",
                 "type": "[]",
                 "signature": "(event: \"action\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -5047,15 +4089,7 @@
                 "name": "update:on",
                 "type": "[on: boolean]",
                 "signature": "(event: \"update:on\", on: boolean): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "enum",
@@ -5085,15 +4119,7 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -5152,15 +4178,7 @@
                 "name": "update:value",
                 "type": "[name: string]",
                 "signature": "(event: \"update:value\", name: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -5276,30 +4294,14 @@
                 "name": "click",
                 "type": "[]",
                 "signature": "(event: \"click\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "close",
                 "type": "[]",
                 "signature": "(event: \"close\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             }
         ],
@@ -5353,30 +4355,14 @@
                 "name": "add",
                 "type": "[]",
                 "signature": "(event: \"add\"): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": []
             },
             {
                 "name": "remove",
                 "type": "[payload: { value: string | number; }]",
                 "signature": "(event: \"remove\", payload: { value: string | number; }): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "object",
@@ -5389,15 +4375,7 @@
                                 "tags": [],
                                 "required": true,
                                 "type": "string | number",
-                                "declarations": [
-                                    {
-                                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/tags-panel/TagsPanel.vue",
-                                        "range": [
-                                            1430,
-                                            1452
-                                        ]
-                                    }
-                                ],
+                                "declarations": [],
                                 "schema": {
                                     "kind": "enum",
                                     "type": "string | number",
@@ -5483,15 +4461,7 @@
                 "name": "update:value",
                 "type": "[value: string]",
                 "signature": "(event: \"update:value\", value: string): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     "string"
                 ]
@@ -5509,6 +4479,23 @@
                 "default": "unknown"
             }
         ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "ToastProvider": {
+        "props": [],
         "events": [],
         "slots": [
             {
@@ -5736,15 +4723,7 @@
                 "name": "update:value",
                 "type": "[value: UploadFile[]]",
                 "signature": "(event: \"update:value\", value: UploadFile[]): void",
-                "declarations": [
-                    {
-                        "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/@vue+runtime-core@3.3.8/node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
-                        "range": [
-                            4388,
-                            4423
-                        ]
-                    }
-                ],
+                "declarations": [],
                 "schema": [
                     {
                         "kind": "array",
@@ -5761,15 +4740,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "number",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    55,
-                                                    66
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "number"
                                     },
                                     "url": {
@@ -5779,15 +4750,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    91,
-                                                    102
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "thumbUrl": {
@@ -5797,15 +4760,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    139,
-                                                    155
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "identifier": {
@@ -5815,15 +4770,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    255,
-                                                    273
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "status": {
@@ -5833,15 +4780,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "\"done\" | \"error\" | \"uploading\"",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    296,
-                                                    334
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "\"done\" | \"error\" | \"uploading\"",
@@ -5859,15 +4798,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "number",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    360,
-                                                    375
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "number"
                                     },
                                     "name": {
@@ -5877,15 +4808,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    405,
-                                                    417
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "filePath": {
@@ -5895,15 +4818,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    447,
-                                                    463
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "file": {
@@ -5913,15 +4828,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "File | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    491,
-                                                    502
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "File | undefined",
@@ -5938,15 +4845,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "number",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        337853,
-                                                                        337883
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": "number"
                                                         },
                                                         "name": {
@@ -5956,15 +4855,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "string",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        337969,
-                                                                        337991
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": "string"
                                                         },
                                                         "webkitRelativePath": {
@@ -5974,15 +4865,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "string",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        338091,
-                                                                        338127
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": "string"
                                                         },
                                                         "size": {
@@ -5992,15 +4875,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "number",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101270,
-                                                                        101292
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": "number"
                                                         },
                                                         "type": {
@@ -6010,15 +4885,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "string",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101378,
-                                                                        101400
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": "string"
                                                         },
                                                         "arrayBuffer": {
@@ -6028,15 +4895,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "() => Promise<ArrayBuffer>",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101493,
-                                                                        101529
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": {
                                                                 "kind": "event",
                                                                 "type": "(): Promise<ArrayBuffer>"
@@ -6049,15 +4908,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "(start?: number | undefined, end?: number | undefined, contentType?: string | undefined) => Blob",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101616,
-                                                                        101680
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": {
                                                                 "kind": "event",
                                                                 "type": "(start?: number | undefined, end?: number | undefined, contentType?: string | undefined): Blob",
@@ -6071,15 +4922,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "() => ReadableStream<Uint8Array>",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101768,
-                                                                        101805
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": {
                                                                 "kind": "event",
                                                                 "type": "(): ReadableStream<Uint8Array>"
@@ -6092,15 +4935,7 @@
                                                             "tags": [],
                                                             "required": true,
                                                             "type": "() => Promise<string>",
-                                                            "declarations": [
-                                                                {
-                                                                    "file": "/Users/zhuliangzhen/dev/echo/dumpling/node_modules/.pnpm/typescript@5.3.2/node_modules/typescript/lib/lib.dom.d.ts",
-                                                                    "range": [
-                                                                        101891,
-                                                                        101915
-                                                                    ]
-                                                                }
-                                                            ],
+                                                            "declarations": [],
                                                             "schema": {
                                                                 "kind": "event",
                                                                 "type": "(): Promise<string>"
@@ -6118,15 +4953,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "Record<string, string> | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    530,
-                                                    562
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "Record<string, string> | undefined",
@@ -6143,15 +4970,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "Record<string, string> | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    601,
-                                                    634
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "Record<string, string> | undefined"
                                     },
                                     "statusCode": {
@@ -6161,15 +4980,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "number | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    665,
-                                                    684
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "number | undefined",
@@ -6186,15 +4997,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "string | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    717,
-                                                    738
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "string | undefined",
@@ -6211,15 +5014,7 @@
                                         "tags": [],
                                         "required": false,
                                         "type": "boolean | undefined",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    781,
-                                                    796
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": {
                                             "kind": "enum",
                                             "type": "boolean | undefined",
@@ -6237,15 +5032,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    820,
-                                                    833
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     },
                                     "action": {
@@ -6255,15 +5042,7 @@
                                         "tags": [],
                                         "required": true,
                                         "type": "string",
-                                        "declarations": [
-                                            {
-                                                "file": "/Users/zhuliangzhen/dev/echo/dumpling/packages/dumpling/src/upload/helpers.ts",
-                                                "range": [
-                                                    860,
-                                                    874
-                                                ]
-                                            }
-                                        ],
+                                        "declarations": [],
                                         "schema": "string"
                                     }
                                 }

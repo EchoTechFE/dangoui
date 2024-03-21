@@ -27,6 +27,7 @@ const checkerOptions: MetaCheckerOptions = {
   forceUseTs: true,
   schema: { ignore: ['MyIgnoredNestedProps'] },
   printer: { newLine: 1 },
+  noDeclarations: true,
 }
 
 const tsconfigChecker = createComponentMetaChecker(
@@ -35,7 +36,6 @@ const tsconfigChecker = createComponentMetaChecker(
 )
 
 const filterMeta = (meta: ComponentMeta): ComponentApi => {
-  console.log('filter meta', meta)
   // const clonedMeta: ComponentMeta = JSON.parse(JSON.stringify(meta))
 
   // Exclude global props
@@ -69,25 +69,42 @@ const components = fg.sync(['src/**/*.vue'], {
   absolute: true,
 })
 
-console.log(components)
+let metas: Record<string, ComponentApi> = {}
 
-const metas: Record<string, ComponentApi> = {}
+console.log('start generating component meta...')
+
+const metaDirPath = resolve(__dirname, '../assets/component-meta')
+
+const metaJsonFilePath = join(metaDirPath, `meta.json`)
 
 // Generate component meta
 components.forEach((componentPath) => {
-  console.log('before')
   const componentName = parse(componentPath).name
-
-  console.log(componentName)
 
   const meta = filterMeta(tsconfigChecker.getComponentMeta(componentPath))
 
   metas[componentName] = meta
 
-  const metaDirPath = resolve(__dirname, '../assets/component-meta')
-
   if (!existsSync(metaDirPath)) mkdirSync(metaDirPath)
 
-  const metaJsonFilePath = join(metaDirPath, `meta.json`)
-  fs.writeFileSync(metaJsonFilePath, JSON.stringify(metas, null, 4))
+  console.log(`${componentName} meta generated`)
 })
+
+metas = JSON.parse(JSON.stringify(metas))
+
+Object.entries(metas).forEach(([name, meta]) => {
+  meta.events.forEach((e) => {
+    e.declarations = []
+    e.schema.forEach((s) => {
+      if (typeof s !== 'string') {
+      }
+    })
+  })
+  meta.slots.forEach((s) => {
+    s.declarations = []
+  })
+})
+
+fs.writeFileSync(metaJsonFilePath, JSON.stringify(metas, null, 4))
+
+console.log(`All component meta generated`)

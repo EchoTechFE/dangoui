@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "gen:meta": "npx npx vite-node ./scripts/gen-component-meta.ts",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "gen:meta && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
