@@ -1,5 +1,12 @@
 # @frontend/dumpling
 
+## 3.0.101
+
+### Patch Changes
+
+- 1878b24: select 组件支持确认按钮模式
+- 0105ae8: update icon
+
 ## 3.0.100
 
 ### Patch Changes
