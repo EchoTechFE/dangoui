@@ -222,8 +222,6 @@ function handleClick() {
 function handlePlaceholderClick() {
   if (!props.readonly) {
     if (inputRef.value) {
-      console.log(inputRef)
-      console.log('focus')
       inputRef.value.focus()
     }
 
@@ -235,12 +233,10 @@ function handlePlaceholderClick() {
 }
 
 function handleFocus() {
-  console.log('handle focus')
   isFocus.value = true
 }
 
 function handleBlur() {
-  console.log('handle blur')
   isFocus.value = false
 }
 

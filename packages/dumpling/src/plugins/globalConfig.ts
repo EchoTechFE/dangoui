@@ -152,8 +152,6 @@ export default {
           })
           .join('\n')
 
-        console.log(css, 'css is')
-
         const previousStyleElement = document.querySelector(
           'style[data-dumpling-theme]',
         ) as HTMLStyleElement | null

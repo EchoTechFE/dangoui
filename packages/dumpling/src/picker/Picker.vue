@@ -121,7 +121,6 @@ const visible = computed({
     if (props.open == null) {
       internalOpen.value = val
     }
-    console.log('update:open', val)
     emit('update:open', val)
   },
 })
