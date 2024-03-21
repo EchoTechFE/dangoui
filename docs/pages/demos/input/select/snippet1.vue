@@ -2,8 +2,10 @@
 <template>
   <PreviewBlock title="单组作为弹出组件">
     <DuButton @click="handleOpen">打开选择</DuButton>
+    <DuButton @click="handleOpenWithConfirm">打开带确认按钮的选择</DuButton>
     <div>{{ value }}</div>
     <DuSelect :options="options" v-model:value="value" v-model:open="open" />
+    <DuSelect :options="options" v-model:value="value" v-model:open="openWithConfirm" with-confirm />
   </PreviewBlock>
 </template>
 
@@ -12,6 +14,7 @@ import { ref } from 'vue'
 import { DuSelect, DuButton } from '@frontend/dumpling'
 
 const open = ref(false)
+const openWithConfirm = ref(false)
 
 const value = ref(null)
 
@@ -25,5 +28,9 @@ const options = [
 
 function handleOpen() {
   open.value = true
+}
+
+function handleOpenWithConfirm() {
+  openWithConfirm.value = true
 }
 </script>

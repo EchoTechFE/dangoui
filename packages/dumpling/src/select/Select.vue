@@ -45,12 +45,22 @@
           />
         </div>
       </scroll-view>
+      <div class="du-select__button" v-if="withConfirm">
+        <DuButton
+          size="large"
+          full
+          @click="handleConfirm"
+          :disabled="isConfirmDisabled"
+        >
+          {{ confirmText }}
+        </DuButton>
+      </div>
     </Popup>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import Popup from '../popup/Popup.vue'
 import FormField from '../form/FormField.vue'
 import Checkbox from '../checkbox/Checkbox.vue'
@@ -58,6 +68,7 @@ import { formItemLayoutInjectionKey } from '../form/helpers'
 import Radio from '../radio/Radio.vue'
 import TagsPanel from '../tags-panel/TagsPanel.vue'
 import Search from '../search/Search.vue'
+import DuButton from '../button/Button.vue'
 
 export type SelectOption = {
   label: string
@@ -99,6 +110,14 @@ const props = withDefaults(
      * 搜索框的 placeholder
      */
     filterPlaceholder: string
+    /**
+     * 是否带有 confirm button
+     */
+    withConfirm: boolean
+    /**
+     * 确认按钮的文字，当 `withConfirm` 为 `true` 时生效
+     */
+    confirmText: string
   }>(),
   {
     open: undefined,
@@ -107,6 +126,8 @@ const props = withDefaults(
     formItem: true,
     filterable: false,
     filterPlaceholder: '输入关键词搜索...',
+    withConfirm: false,
+    confirmText: '确认',
   },
 )
 
@@ -127,6 +148,8 @@ const isInFormItem = !!formItemLayout
 
 const internalOpen = ref(false)
 
+const internalValue = ref<string | number | string[] | number[]>()
+
 const visible = computed({
   get() {
     return props.open ?? internalOpen.value
@@ -137,6 +160,12 @@ const visible = computed({
     }
     emit('update:open', val)
   },
+})
+
+watch(visible, (v) => {
+  if (v && props.withConfirm) {
+    internalValue.value = props.value
+  }
 })
 
 const selectedTags = computed(() => {
@@ -178,16 +207,27 @@ function handleSelectOption(opt: SelectOption) {
   }
 
   if (props.mode === 'multiple') {
-    const value = props.value as any[]
+    const value = props.withConfirm
+      ? (internalValue.value as any[])
+      : (props.value as any[])
+
     const set = new Set(value)
     if (set.has(opt.value)) {
       set.delete(opt.value)
     } else {
       set.add(opt.value)
     }
-    emit('update:value', Array.from(set))
+    if (props.withConfirm) {
+      internalValue.value = Array.from(set)
+    } else {
+      emit('update:value', Array.from(set))
+    }
   } else {
-    emit('update:value', opt.value)
+    if (props.withConfirm) {
+      internalValue.value = opt.value
+    } else {
+      emit('update:value', opt.value)
+    }
   }
 }
 
@@ -202,10 +242,11 @@ function handleRemove({ value }: { value: number | string }) {
 }
 
 function isSelected(opt: SelectOption) {
-  if (Array.isArray(props.value)) {
-    return (props.value as any[]).includes(opt.value)
+  const val = props.withConfirm ? internalValue.value : props.value
+  if (Array.isArray(val)) {
+    return (val as any[]).includes(opt.value)
   } else {
-    return props.value === opt.value
+    return val === opt.value
   }
 }
 
@@ -216,5 +257,19 @@ const displayOptions = computed(() => {
     )
   }
   return props.options
+})
+
+function handleConfirm() {
+  if (internalValue.value) {
+    emit('update:value', internalValue.value)
+    visible.value = false
+  }
+}
+
+const isConfirmDisabled = computed(() => {
+  if (Array.isArray(internalValue.value)) {
+    return internalValue.value.length === 0
+  }
+  return !internalValue.value
 })
 </script>
