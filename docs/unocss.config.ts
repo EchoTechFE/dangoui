@@ -16,6 +16,21 @@ export default defineConfig({
         'code:after': {
           content: 'none',
         },
+        'h1 a, h2 a': {
+          'text-decoration': 'none',
+          position: 'relative',
+        },
+        'h1 a:before, h2 a:before': {
+          content: '"#"',
+          position: 'absolute',
+          left: '-20px',
+          opacity: '0',
+          transition: 'opacity 0.1s ease',
+          color: '#7c66ff',
+        },
+        'h1 a:hover:before, h2 a:hover:before': {
+          opacity: '1',
+        },
       },
     }),
   ],

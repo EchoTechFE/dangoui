@@ -30,14 +30,19 @@
     </div>
   </main>
   <div
-    class="doc-outline fixed top-0 right-0 mt-$doc-header-h w-$doc-outline-w text-14px pl-16px border-l border-l-solid border-l-gray-200"
+    class="doc-outline fixed top-0 right-0 mt-$doc-header-h w-$doc-outline-w text-15px pl-16px border-l border-l-solid border-l-gray-200"
     v-if="md?.body?.toc?.links"
   >
     <div class="font-semibold mb-8px">本页包含</div>
     <div
       v-for="link in md.body.toc.links"
       :key="link.text"
-      class="lh-normal c-gray-500 hover:c-gray-800"
+      :class="[
+        'lh-loose transition transition-all duration-200',
+        isLinkActive(link)
+          ? 'c-qd-purple-700 hover:c-qd-purple-700'
+          : 'c-gray-500 hover:c-gray-800',
+      ]"
     >
       <a :href="`#${link.id}`">{{ link.text }}</a>
     </div>
@@ -45,6 +50,7 @@
 </template>
 
 <script setup lang="ts">
+import { useThrottleFn, useEventListener } from '@vueuse/core'
 definePageMeta({
   layout: 'doc',
 })
@@ -64,5 +70,57 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
       _partial: false,
     })
     .findSurround(route.path === '/' ? '/get-started/introduction' : route.path)
+})
+
+const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
+
+function isLinkActive(link: { id: string }) {
+  return linksWithStatus.value.some((l) => l.id === link.id && l.isActive)
+}
+
+const handleScroll = useThrottleFn(
+  () => {
+    if (md.value?.body?.toc?.links) {
+      const links = md.value.body.toc.links
+      const height = document.documentElement.clientHeight
+      const linksWithRect = links.map((link) => {
+        const el = document.querySelector(`#${link.id}`)!
+        return {
+          ...link,
+          rect: el.getBoundingClientRect(),
+        }
+      })
+
+      linksWithStatus.value = linksWithRect.map((link, idx) => {
+        const { rect } = link
+        let isActive = false
+
+        if (rect.y > 0 && rect.y < height) {
+          isActive = true
+        } else if (rect.y < height) {
+          // 看后一个是不是 active，如果后一个是 active，那么当前就是 active，如果是最后一个元素，那么也是 active
+          const next = linksWithRect[idx + 1]
+          if (next && next.rect.y > 0 && rect.y < height) {
+            isActive = true
+          } else if (!next) {
+            isActive = true
+          }
+        }
+
+        return {
+          id: link.id,
+          isActive,
+        }
+      })
+    }
+  },
+  500,
+  true,
+)
+
+useEventListener('scroll', handleScroll)
+
+onMounted(() => {
+  handleScroll()
 })
 </script>
