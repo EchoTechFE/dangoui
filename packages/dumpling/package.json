@@ -1,5 +1,5 @@
 {
-  "name": "@echofe/dumpling",
+  "name": "@echotechfe/dumpling",
   "version": "3.0.102",
   "description": "",
   "main": "dist/index.mjs",
@@ -51,7 +51,7 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
-    "@echofe/dumpling-design-token": "workspace:^",
+    "@echotechfe/dumpling-design-token": "workspace:^",
     "dayjs": "^1.9.1",
     "rollup": "^4.5.1"
   },

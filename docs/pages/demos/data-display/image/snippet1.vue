@@ -6,5 +6,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuImage } from '@echofe/dumpling'
+import { DuImage } from '@echotechfe/dumpling'
 </script>

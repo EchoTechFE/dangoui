@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref, getCurrentInstance } from 'vue'
-import { DuToastProvider, useToast, DuButton } from '@echofe/dumpling'
+import { DuToastProvider, useToast, DuButton } from '@echotechfe/dumpling'
 
 const { show } = useToast()
 

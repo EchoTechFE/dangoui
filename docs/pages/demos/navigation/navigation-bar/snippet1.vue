@@ -85,7 +85,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab, DuActionButton } from '@echofe/dumpling'
+import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab, DuActionButton } from '@echotechfe/dumpling'
 
 const placeholders = [
   'Molly',

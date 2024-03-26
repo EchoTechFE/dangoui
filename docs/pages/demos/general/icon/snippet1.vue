@@ -30,5 +30,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuIcon } from '@echofe/dumpling'
+import { DuIcon } from '@echotechfe/dumpling'
 </script>

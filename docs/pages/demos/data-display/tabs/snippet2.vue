@@ -79,7 +79,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuTabs, DuTab, DuButton, DuIcon, DuDivider } from '@echofe/dumpling'
+import { DuTabs, DuTab, DuButton, DuIcon, DuDivider } from '@echotechfe/dumpling'
 
 const selectedTab = ref('all')
 

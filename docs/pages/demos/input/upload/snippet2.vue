@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuUpload } from '@echofe/dumpling'
+import { DuUpload } from '@echotechfe/dumpling'
 
 const fileList = ref([
   {

@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuTagsPanel, DuButton } from '@echofe/dumpling'
+import { DuTagsPanel, DuButton } from '@echotechfe/dumpling'
 
 const tags = ['你好', 'Hello', '안녕하세요', 'Bonjour', 'こんにちは', 'Hallo'].map(text => ({ value: text, text, canRemove: text !== '你好' }))
 

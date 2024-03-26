@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuPicker, DuButton } from '@echofe/dumpling'
+import { DuPicker, DuButton } from '@echotechfe/dumpling'
 import { ref } from 'vue'
 
 const fruitValue = ref([])

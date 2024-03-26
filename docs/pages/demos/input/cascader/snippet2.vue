@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuCascader, DuButton, DuForm, DuFormItem, DuCard } from '@echofe/dumpling'
+import { DuCascader, DuButton, DuForm, DuFormItem, DuCard } from '@echotechfe/dumpling'
 
 const value = ref<string[]>([])
 const open = ref(false)

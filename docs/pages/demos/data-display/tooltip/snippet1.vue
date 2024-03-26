@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuTooltip, DuButton } from '@echofe/dumpling'
+import { DuTooltip, DuButton } from '@echotechfe/dumpling'
 </script>

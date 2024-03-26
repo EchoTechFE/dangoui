@@ -14,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuNavigationBar, DuSticky, DuButton } from '@echofe/dumpling'
+import { DuNavigationBar, DuSticky, DuButton } from '@echotechfe/dumpling'
 </script>

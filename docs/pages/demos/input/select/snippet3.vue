@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSelect, DuButton } from '@echofe/dumpling'
+import { DuSelect, DuButton } from '@echotechfe/dumpling'
 
 const open = ref(false)
 

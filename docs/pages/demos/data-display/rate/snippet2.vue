@@ -24,5 +24,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuRate } from '@echofe/dumpling'
+import { DuRate } from '@echotechfe/dumpling'
 </script>

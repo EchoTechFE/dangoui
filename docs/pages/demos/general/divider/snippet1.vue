@@ -56,5 +56,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuDivider, DuButton } from '@echofe/dumpling'
+import { DuDivider, DuButton } from '@echotechfe/dumpling'
 </script>

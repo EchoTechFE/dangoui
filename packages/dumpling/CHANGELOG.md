@@ -1,4 +1,4 @@
-# @echofe/dumpling
+# @echotechfe/dumpling
 
 ## 3.0.102
 
@@ -7,7 +7,7 @@
 - b021777: 导出 FormField
 - aa146cb: use @echofe
 - Updated dependencies [aa146cb]
-  - @echofe/dumpling-design-token@1.0.17
+  - @echotechfe/dumpling-design-token@1.0.17
 
 ## 3.0.101
 
@@ -52,7 +52,7 @@
 - 9a45ea7: fix theme
 - c1bbcd4: fix theme
 - Updated dependencies [19427f4]
-  - @echofe/dumpling-design-token@1.0.16
+  - @echotechfe/dumpling-design-token@1.0.16
 
 ## 3.0.96-alpha.5
 
@@ -91,7 +91,7 @@
 - 40bbb2a: 优化 Upload 组件文件超过最大数量时候的提示
 - 19427f4: 支持自定义主题
 - Updated dependencies [19427f4]
-  - @echofe/dumpling-design-token@1.0.16-alpha.0
+  - @echotechfe/dumpling-design-token@1.0.16-alpha.0
 
 ## 3.0.95
 
@@ -123,7 +123,7 @@
 
 - b89e06d: update platte
 - Updated dependencies [b89e06d]
-  - @echofe/dumpling-design-token@1.0.15
+  - @echotechfe/dumpling-design-token@1.0.15
 
 ## 3.0.90
 
@@ -181,7 +181,7 @@
 ### Patch Changes
 
 - Updated dependencies [5c0c976]
-  - @echofe/dumpling-design-token@1.0.14
+  - @echotechfe/dumpling-design-token@1.0.14
 
 ## 3.0.81
 
@@ -216,7 +216,7 @@
 - 250d7cb: support show form field in form
 - 55f9d5e: 重构主题生成
 - Updated dependencies [55f9d5e]
-  - @echofe/dumpling-design-token@1.0.13
+  - @echotechfe/dumpling-design-token@1.0.13
 
 ## 3.0.76
 
@@ -286,7 +286,7 @@
 
 - 3c00859: add mihua platte
 - Updated dependencies [3c00859]
-  - @echofe/dumpling-design-token@1.0.12
+  - @echotechfe/dumpling-design-token@1.0.12
 
 ## 3.0.65
 
@@ -381,7 +381,7 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.11
+  - @echotechfe/dumpling-design-token@1.0.11
 
 ## 3.0.50
 
@@ -401,7 +401,7 @@
 
 - add root selector
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.10
+  - @echotechfe/dumpling-design-token@1.0.10
 
 ## 3.0.47
 
@@ -433,7 +433,7 @@
 
 - fix snackbar button color
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.9
+  - @echotechfe/dumpling-design-token@1.0.9
 
 ## 3.0.42
 
@@ -441,7 +441,7 @@
 
 - switch support color
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.8
+  - @echotechfe/dumpling-design-token@1.0.8
 
 ## 3.0.41
 
@@ -449,7 +449,7 @@
 
 - fix alias
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.7
+  - @echotechfe/dumpling-design-token@1.0.7
 
 ## 3.0.40
 
@@ -457,7 +457,7 @@
 
 - fix css gen
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.6
+  - @echotechfe/dumpling-design-token@1.0.6
 
 ## 3.0.39
 
@@ -465,7 +465,7 @@
 
 - fix navbar bg
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.5
+  - @echotechfe/dumpling-design-token@1.0.5
 
 ## 3.0.38
 
@@ -473,7 +473,7 @@
 
 - fix theme
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.4
+  - @echotechfe/dumpling-design-token@1.0.4
 
 ## 3.0.37
 
@@ -481,7 +481,7 @@
 
 - fix Theme class
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.3
+  - @echotechfe/dumpling-design-token@1.0.3
 
 ## 3.0.36
 
@@ -489,7 +489,7 @@
 
 - fix version
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.2
+  - @echotechfe/dumpling-design-token@1.0.2
 
 ## 3.0.35
 
@@ -497,4 +497,4 @@
 
 - design token
 - Updated dependencies
-  - @echofe/dumpling-design-token@1.0.1
+  - @echotechfe/dumpling-design-token@1.0.1

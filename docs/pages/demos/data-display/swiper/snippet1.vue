@@ -44,5 +44,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuSwiper, DuSwiperItem } from '@echofe/dumpling'
+import { DuSwiper, DuSwiperItem } from '@echotechfe/dumpling'
 </script>

@@ -11,5 +11,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuSwitch, DuTheme } from '@echofe/dumpling'
+import { DuButton, DuSwitch, DuTheme } from '@echotechfe/dumpling'
 </script>

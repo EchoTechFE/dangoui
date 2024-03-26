@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuCascader, DuButton } from '@echofe/dumpling'
+import { DuCascader, DuButton } from '@echotechfe/dumpling'
 
 const value = ref<string[]>([])
 const open = ref(false)

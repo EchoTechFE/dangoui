@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRate, DuIcon } from '@echofe/dumpling'
+import { DuRate, DuIcon } from '@echotechfe/dumpling'
 
 const selectedTab = ref('all')
 </script>

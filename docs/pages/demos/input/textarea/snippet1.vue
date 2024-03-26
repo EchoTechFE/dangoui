@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuTextarea } from '@echofe/dumpling'
+import { DuTextarea } from '@echotechfe/dumpling'
 
 const text = ref('')
 

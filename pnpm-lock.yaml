@@ -38,7 +38,7 @@ importers:
 
   docs:
     dependencies:
-      '@echofe/dumpling':
+      '@echotechfe/dumpling':
         specifier: workspace:*
         version: link:../packages/dumpling
       '@floating-ui/vue':
@@ -117,7 +117,7 @@ importers:
 
   packages/dumpling:
     dependencies:
-      '@echofe/dumpling-design-token':
+      '@echotechfe/dumpling-design-token':
         specifier: workspace:^
         version: link:../dumpling-design-token
       dayjs:
@@ -222,10 +222,10 @@ importers:
 
   packages/vite-plugin-dumpling:
     dependencies:
-      '@echofe/dumpling':
+      '@echotechfe/dumpling':
         specifier: workspace:^
         version: link:../dumpling
-      '@echofe/dumpling-design-token':
+      '@echotechfe/dumpling-design-token':
         specifier: workspace:^
         version: link:../dumpling-design-token
       fast-glob:
@@ -2010,7 +2010,7 @@ packages:
   /@nuxt/content-edge@2.10.0-28387307.a69ea72(nuxt@3.8.1)(vue@3.3.8):
     resolution: {integrity: sha512-zw5cRq33DXNpjP0qZy+6UPDT6OzCPceuTPyQrAtKZwRy4vP7zGB9Tmfg6q3qzPmNjW3yYq/IU+PlaF9AiXd1ng==}
     dependencies:
-      '@nuxt/kit': 3.10.3
+      '@nuxt/kit': 3.11.1
       '@nuxtjs/mdc': 0.3.2
       '@vueuse/core': 10.9.0(vue@3.3.8)
       '@vueuse/head': 2.0.0(vue@3.3.8)
@@ -2033,7 +2033,7 @@ packages:
       shiki-es: 0.14.0
       slugify: 1.6.6
       socket.io-client: 4.7.4
-      ufo: 1.4.0
+      ufo: 1.5.3
       unist-util-stringify-position: 4.0.0
       unstorage: 1.10.1
       ws: 8.16.0

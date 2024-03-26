@@ -42,5 +42,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuNoticeBar } from '@echofe/dumpling'
+import { DuNoticeBar } from '@echotechfe/dumpling'
 </script>

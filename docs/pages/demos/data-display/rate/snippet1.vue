@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { DuRate, DuIcon } from '@echofe/dumpling'
+import { DuRate, DuIcon } from '@echotechfe/dumpling'
 
 const value = ref(1.5)
 const percentValue = ref(1.5)

@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuActionSheet, DuButton } from '@echofe/dumpling'
+import { DuActionSheet, DuButton } from '@echotechfe/dumpling'
 
 const listOpen = ref(false)
 

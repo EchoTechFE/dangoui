@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuImage, DuActionButton } from '@echofe/dumpling'
+import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuImage, DuActionButton } from '@echotechfe/dumpling'
 
 const placeholders = [
   'Molly',

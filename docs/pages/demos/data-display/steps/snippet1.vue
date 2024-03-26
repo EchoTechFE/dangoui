@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuSteps } from '@echofe/dumpling'
+import { DuSteps } from '@echotechfe/dumpling'
 
 const basicSteps = [
   { title: '等待支付' },

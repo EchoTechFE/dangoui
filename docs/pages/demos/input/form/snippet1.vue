@@ -72,7 +72,7 @@ import {
   DuInputNumber,
   DuUpload,
   DuSwitch,
-} from '@echofe/dumpling'
+} from '@echotechfe/dumpling'
 
 const productImages = ref([
   {

@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRadio } from '@echofe/dumpling'
+import { DuRadio } from '@echotechfe/dumpling'
 
 const checked = ref(false)
 const monthlyChecked = ref(false)

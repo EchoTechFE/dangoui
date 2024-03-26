@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSearch, DuIcon, DuDivider } from '@echofe/dumpling'
+import { DuSearch, DuIcon, DuDivider } from '@echotechfe/dumpling'
 
 const keyword = ref('')
 

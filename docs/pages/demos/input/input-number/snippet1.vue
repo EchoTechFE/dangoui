@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuInputNumber } from '@echofe/dumpling'
+import { DuInputNumber } from '@echotechfe/dumpling'
 
 const value = ref(0)
 

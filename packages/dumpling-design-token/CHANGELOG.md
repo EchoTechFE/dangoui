@@ -1,4 +1,4 @@
-# @echofe/dumpling-design-token
+# @echotechfe/dumpling-design-token
 
 ## 1.0.17
 

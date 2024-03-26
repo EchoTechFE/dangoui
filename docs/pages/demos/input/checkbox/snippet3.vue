@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuCheckboxGroup, DuCheckbox } from '@echofe/dumpling'
+import { DuCheckboxGroup, DuCheckbox } from '@echotechfe/dumpling'
 
 const checked = ref(false)
 

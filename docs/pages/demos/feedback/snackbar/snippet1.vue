@@ -18,5 +18,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuSnackbar } from '@echofe/dumpling'
+import { DuSnackbar } from '@echotechfe/dumpling'
 </script>

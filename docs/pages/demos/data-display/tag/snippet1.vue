@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuTag } from '@echofe/dumpling'
+import { DuTag } from '@echotechfe/dumpling'
 
 function handleClose() {
   console.log('[demo] close')
