@@ -20,7 +20,9 @@
 
 ```bash
 npm install dangoui
+
 yarn add dangoui
+
 pnpm add dangoui
 ```
 
