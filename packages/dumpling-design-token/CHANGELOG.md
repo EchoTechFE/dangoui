@@ -1,5 +1,11 @@
 # @echofe/dumpling-design-token
 
+## 1.0.17
+
+### Patch Changes
+
+- aa146cb: use @echofe
+
 ## 1.0.16
 
 ### Patch Changes

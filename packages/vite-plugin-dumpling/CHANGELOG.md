@@ -1,5 +1,15 @@
 # @echofe/vite-plugin-dumpling
 
+## 1.0.73
+
+### Patch Changes
+
+- aa146cb: use @echofe
+- Updated dependencies [b021777]
+- Updated dependencies [aa146cb]
+  - @echofe/dumpling@3.0.102
+  - @echofe/dumpling-design-token@1.0.17
+
 ## 1.0.72
 
 ### Patch Changes
