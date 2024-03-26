@@ -1,46 +1,58 @@
-
 <template>
   <PreviewBlock title="最简例子" :show-section="false">
-    <DuCard title="商城" subtitle="66个在卖">
-      内容
-    </DuCard>
+    <DuCard title="商城" subtitle="66个在卖">内容</DuCard>
   </PreviewBlock>
   <PreviewBlock title="显示说明按钮" :show-section="false">
-    <DuCard title="商城" subtitle="66个在卖" info-text="规格说明">
-      内容
-    </DuCard>
+    <DuCard title="商城" subtitle="66个在卖" info-text="规格说明">内容</DuCard>
   </PreviewBlock>
   <PreviewBlock title="展示 Action 图标" :show-section="false">
-    <DuCard title="标题" subtitle="子标题" info-text="" guide-text="" action-icon="delete">
+    <DuCard
+      title="标题"
+      subtitle="子标题"
+      info-text=""
+      guide-text=""
+      action-icon="delete"
+    >
       内容
     </DuCard>
   </PreviewBlock>
   <PreviewBlock title="自定义右侧 Slot" :show-section="false">
-      <DuCard title="款式">
-        <template #right>
-          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
-        </template>
-        <div>内容</div>
-      </DuCard>
+    <DuCard title="款式">
+      <template #right>
+        <DuButton size="mini" type="outline" color="default">
+          我拥有的 8
+        </DuButton>
+      </template>
+      <div>内容</div>
+    </DuCard>
   </PreviewBlock>
-    <PreviewBlock title="自定义左侧 Slot" :show-section="false">
-      <DuCard title="款式" guide-text="查看所有">
-        <template #left>
-          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
-        </template>
-        <div>内容</div>
-      </DuCard>
+  <PreviewBlock title="自定义左侧 Slot" :show-section="false">
+    <DuCard title="款式" guide-text="查看所有">
+      <template #left>
+        <DuButton size="mini" type="outline" color="default">
+          我拥有的 8
+        </DuButton>
+      </template>
+      <div>内容</div>
+    </DuCard>
   </PreviewBlock>
-      <PreviewBlock title="展开/折叠" :show-section="false">
-      <DuCard title="款式" guide-text="查看所有" mode="collapse" :default-open="false">
-        <template #left>
-          <DuButton size="mini" type="outline" color="default">我拥有的 8</DuButton>
-        </template>
-        <div>内容</div>
-      </DuCard>
+  <PreviewBlock title="展开/折叠" :show-section="false">
+    <DuCard
+      title="款式"
+      guide-text="查看所有"
+      mode="collapse"
+      :default-open="false"
+    >
+      <template #left>
+        <DuButton size="mini" type="outline" color="default">
+          我拥有的 8
+        </DuButton>
+      </template>
+      <div>内容</div>
+    </DuCard>
   </PreviewBlock>
 </template>
 
 <script lang="ts" setup>
-import { DuButton, DuCard } from '@echotechfe/dumpling'
+import { DuButton, DuCard } from 'dangoui'
 </script>

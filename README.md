@@ -2,7 +2,7 @@
 
 <img height="166" src="https://cdn.qiandaoapp.com/interior/images/928db35e88a094cd3bd77f03d5c01867.svg">
 
-<h1>Dumpling</h1>
+<h1>Dango UI</h1>
 
 一套适用于 uni-app 小程序和 Web 的 Vue 3 移动端组件库
 
@@ -19,14 +19,14 @@
 ## 安装
 
 ```bash
-npm install @echotechfe/dumpling
-yarn add @echotechfe/dumpling
-pnpm add @echotechfe/dumpling
+npm install dangoui
+yarn add dangoui
+pnpm add dangoui
 ```
 
 ## 链接
 
-- [Dumpling 文档](https://dumpling.echo.tech/)
+- [Dango UI 文档](https://dumpling.echo.tech/)
 
 ## 发布
 

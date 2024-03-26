@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="显示红点">
     <div class="flex items-center gap-x-8px">
@@ -15,5 +14,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuBadge } from '@echotechfe/dumpling'
+import { DuBadge } from 'dangoui'
 </script>

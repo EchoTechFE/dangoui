@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="简单">
     <div class="w-full">
@@ -58,15 +57,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSearch, DuIcon, DuDivider } from '@echotechfe/dumpling'
+import { DuSearch, DuIcon, DuDivider } from 'dangoui'
 
 const keyword = ref('')
 
-const placeholders = [
-  'Molly',
-  'Labubu',
-  'Skullpanda'
-]
+const placeholders = ['Molly', 'Labubu', 'Skullpanda']
 
 function handleConfirm(value: string) {
   console.log(`[demo] confirm: ${value}`)

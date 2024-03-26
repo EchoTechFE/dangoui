@@ -1,4 +1,4 @@
-# @echotechfe/vite-plugin-dumpling
+# vite-plugin-dangoui
 
 ## 1.0.73
 
@@ -7,8 +7,8 @@
 - aa146cb: use @echofe
 - Updated dependencies [b021777]
 - Updated dependencies [aa146cb]
-  - @echotechfe/dumpling@3.0.102
-  - @echotechfe/dumpling-design-token@1.0.17
+  - dangoui@3.0.102
+  - dangoui-design-token@1.0.17
 
 ## 1.0.72
 
@@ -16,21 +16,21 @@
 
 - Updated dependencies [1878b24]
 - Updated dependencies [0105ae8]
-  - @echotechfe/dumpling@3.0.101
+  - dangoui@3.0.101
 
 ## 1.0.71
 
 ### Patch Changes
 
 - Updated dependencies [6e61cb6]
-  - @echotechfe/dumpling@3.0.100
+  - dangoui@3.0.100
 
 ## 1.0.70
 
 ### Patch Changes
 
 - Updated dependencies [d4c4753]
-  - @echotechfe/dumpling@3.0.99
+  - dangoui@3.0.99
 
 ## 1.0.69
 
@@ -38,14 +38,14 @@
 
 - bfa02a1: bump version
 - Updated dependencies [bfa02a1]
-  - @echotechfe/dumpling@3.0.98
+  - dangoui@3.0.98
 
 ## 1.0.68
 
 ### Patch Changes
 
 - Updated dependencies [0e12733]
-  - @echotechfe/dumpling@3.0.97
+  - dangoui@3.0.97
 
 ## 1.0.67
 
@@ -66,22 +66,22 @@
 - Updated dependencies [19427f4]
 - Updated dependencies [9a45ea7]
 - Updated dependencies [c1bbcd4]
-  - @echotechfe/dumpling@3.0.96
-  - @echotechfe/dumpling-design-token@1.0.16
+  - dangoui@3.0.96
+  - dangoui-design-token@1.0.16
 
 ## 1.0.67-alpha.10
 
 ### Patch Changes
 
 - Updated dependencies [8088654]
-  - @echotechfe/dumpling@3.0.96-alpha.5
+  - dangoui@3.0.96-alpha.5
 
 ## 1.0.67-alpha.9
 
 ### Patch Changes
 
 - Updated dependencies [4d865b8]
-  - @echotechfe/dumpling@3.0.96-alpha.4
+  - dangoui@3.0.96-alpha.4
 
 ## 1.0.67-alpha.8
 
@@ -95,7 +95,7 @@
 
 - 6020671: new theme generate
 - Updated dependencies [6020671]
-  - @echotechfe/dumpling@3.0.96-alpha.3
+  - dangoui@3.0.96-alpha.3
 
 ## 1.0.67-alpha.6
 
@@ -114,7 +114,7 @@
 ### Patch Changes
 
 - Updated dependencies [c1bbcd4]
-  - @echotechfe/dumpling@3.0.96-alpha.2
+  - dangoui@3.0.96-alpha.2
 
 ## 1.0.67-alpha.3
 
@@ -122,7 +122,7 @@
 
 - 9a45ea7: fix theme
 - Updated dependencies [9a45ea7]
-  - @echotechfe/dumpling@3.0.96-alpha.1
+  - dangoui@3.0.96-alpha.1
 
 ## 1.0.67-alpha.2
 
@@ -143,22 +143,22 @@
 - 19427f4: 支持自定义主题
 - Updated dependencies [40bbb2a]
 - Updated dependencies [19427f4]
-  - @echotechfe/dumpling@3.0.96-alpha.0
-  - @echotechfe/dumpling-design-token@1.0.16-alpha.0
+  - dangoui@3.0.96-alpha.0
+  - dangoui-design-token@1.0.16-alpha.0
 
 ## 1.0.66
 
 ### Patch Changes
 
 - Updated dependencies [cb0f25b]
-  - @echotechfe/dumpling@3.0.95
+  - dangoui@3.0.95
 
 ## 1.0.65
 
 ### Patch Changes
 
 - Updated dependencies [179a18f]
-  - @echotechfe/dumpling@3.0.94
+  - dangoui@3.0.94
 
 ## 1.0.64
 
@@ -166,29 +166,29 @@
 
 - 60e24a4: fix opts
 - Updated dependencies [413608d]
-  - @echotechfe/dumpling@3.0.93
+  - dangoui@3.0.93
 
 ## 1.0.63
 
 ### Patch Changes
 
 - Updated dependencies [3c4aaa2]
-  - @echotechfe/dumpling@3.0.92
+  - dangoui@3.0.92
 
 ## 1.0.62
 
 ### Patch Changes
 
 - Updated dependencies [b89e06d]
-  - @echotechfe/dumpling-design-token@1.0.15
-  - @echotechfe/dumpling@3.0.91
+  - dangoui-design-token@1.0.15
+  - dangoui@3.0.91
 
 ## 1.0.61
 
 ### Patch Changes
 
 - Updated dependencies [6de1aea]
-  - @echotechfe/dumpling@3.0.90
+  - dangoui@3.0.90
 
 ## 1.0.60
 
@@ -196,28 +196,28 @@
 
 - eeabec0: 支持配置 virtualHost
 - Updated dependencies [66b9852]
-  - @echotechfe/dumpling@3.0.89
+  - dangoui@3.0.89
 
 ## 1.0.59
 
 ### Patch Changes
 
 - Updated dependencies [2b63a8d]
-  - @echotechfe/dumpling@3.0.88
+  - dangoui@3.0.88
 
 ## 1.0.58
 
 ### Patch Changes
 
 - Updated dependencies [0d87d2a]
-  - @echotechfe/dumpling@3.0.87
+  - dangoui@3.0.87
 
 ## 1.0.57
 
 ### Patch Changes
 
 - Updated dependencies [374af8b]
-  - @echotechfe/dumpling@3.0.86
+  - dangoui@3.0.86
 
 ## 1.0.56
 
@@ -227,7 +227,7 @@
 - Updated dependencies [691a1ac]
 - Updated dependencies [2323539]
 - Updated dependencies [947effa]
-  - @echotechfe/dumpling@3.0.85
+  - dangoui@3.0.85
 
 ## 1.0.55
 
@@ -235,7 +235,7 @@
 
 - 6700f2b: 修复 switch 的样式和交互问题
 - Updated dependencies [6700f2b]
-  - @echotechfe/dumpling@3.0.84
+  - dangoui@3.0.84
 
 ## 1.0.54
 
@@ -243,29 +243,29 @@
 
 - Updated dependencies [10c046a]
 - Updated dependencies [6e69645]
-  - @echotechfe/dumpling@3.0.83
+  - dangoui@3.0.83
 
 ## 1.0.53
 
 ### Patch Changes
 
 - Updated dependencies [5c0c976]
-  - @echotechfe/dumpling-design-token@1.0.14
-  - @echotechfe/dumpling@3.0.82
+  - dangoui-design-token@1.0.14
+  - dangoui@3.0.82
 
 ## 1.0.52
 
 ### Patch Changes
 
 - Updated dependencies [458ed14]
-  - @echotechfe/dumpling@3.0.81
+  - dangoui@3.0.81
 
 ## 1.0.51
 
 ### Patch Changes
 
 - Updated dependencies [bdf0814]
-  - @echotechfe/dumpling@3.0.80
+  - dangoui@3.0.80
 
 ## 1.0.50
 
@@ -273,14 +273,14 @@
 
 - Updated dependencies [5dc2590]
 - Updated dependencies [c0ab5e7]
-  - @echotechfe/dumpling@3.0.79
+  - dangoui@3.0.79
 
 ## 1.0.49
 
 ### Patch Changes
 
 - Updated dependencies [fa0508c]
-  - @echotechfe/dumpling@3.0.78
+  - dangoui@3.0.78
 
 ## 1.0.48
 
@@ -290,22 +290,22 @@
 - Updated dependencies [e0eab20]
 - Updated dependencies [250d7cb]
 - Updated dependencies [55f9d5e]
-  - @echotechfe/dumpling@3.0.77
-  - @echotechfe/dumpling-design-token@1.0.13
+  - dangoui@3.0.77
+  - dangoui-design-token@1.0.13
 
 ## 1.0.47
 
 ### Patch Changes
 
 - Updated dependencies [bc7d936]
-  - @echotechfe/dumpling@3.0.76
+  - dangoui@3.0.76
 
 ## 1.0.46
 
 ### Patch Changes
 
 - Updated dependencies [8e7d880]
-  - @echotechfe/dumpling@3.0.75
+  - dangoui@3.0.75
 
 ## 1.0.45
 
@@ -313,14 +313,14 @@
 
 - 698601e: textarea support extStyle and extClass
 - Updated dependencies [698601e]
-  - @echotechfe/dumpling@3.0.74
+  - dangoui@3.0.74
 
 ## 1.0.44
 
 ### Patch Changes
 
 - Updated dependencies [d31b83b]
-  - @echotechfe/dumpling@3.0.73
+  - dangoui@3.0.73
 
 ## 1.0.43
 
@@ -328,7 +328,7 @@
 
 - 61b3826: add transition
 - Updated dependencies [61b3826]
-  - @echotechfe/dumpling@3.0.72
+  - dangoui@3.0.72
 
 ## 1.0.42
 
@@ -337,50 +337,50 @@
 - Updated dependencies [a246a16]
 - Updated dependencies [79181a0]
 - Updated dependencies [a743101]
-  - @echotechfe/dumpling@3.0.71
+  - dangoui@3.0.71
 
 ## 1.0.41
 
 ### Patch Changes
 
 - Updated dependencies [d0e582e]
-  - @echotechfe/dumpling@3.0.70
+  - dangoui@3.0.70
 
 ## 1.0.40
 
 ### Patch Changes
 
 - Updated dependencies [d23f2d8]
-  - @echotechfe/dumpling@3.0.69
+  - dangoui@3.0.69
 
 ## 1.0.39
 
 ### Patch Changes
 
 - Updated dependencies [62f8344]
-  - @echotechfe/dumpling@3.0.68
+  - dangoui@3.0.68
 
 ## 1.0.38
 
 ### Patch Changes
 
 - Updated dependencies [4dd09d0]
-  - @echotechfe/dumpling@3.0.67
+  - dangoui@3.0.67
 
 ## 1.0.37
 
 ### Patch Changes
 
 - Updated dependencies [3c00859]
-  - @echotechfe/dumpling@3.0.66
-  - @echotechfe/dumpling-design-token@1.0.12
+  - dangoui@3.0.66
+  - dangoui-design-token@1.0.12
 
 ## 1.0.36
 
 ### Patch Changes
 
 - Updated dependencies [42bf2cd]
-  - @echotechfe/dumpling@3.0.65
+  - dangoui@3.0.65
 
 ## 1.0.35
 
@@ -388,56 +388,56 @@
 
 - Updated dependencies [4d44a11]
 - Updated dependencies [d76b1d1]
-  - @echotechfe/dumpling@3.0.64
+  - dangoui@3.0.64
 
 ## 1.0.34
 
 ### Patch Changes
 
 - Updated dependencies [76eee72]
-  - @echotechfe/dumpling@3.0.63
+  - dangoui@3.0.63
 
 ## 1.0.33
 
 ### Patch Changes
 
 - Updated dependencies [e3c0f79]
-  - @echotechfe/dumpling@3.0.62
+  - dangoui@3.0.62
 
 ## 1.0.32
 
 ### Patch Changes
 
 - Updated dependencies [9b68cb6]
-  - @echotechfe/dumpling@3.0.61
+  - dangoui@3.0.61
 
 ## 1.0.31
 
 ### Patch Changes
 
 - Updated dependencies [b8f4eaf]
-  - @echotechfe/dumpling@3.0.60
+  - dangoui@3.0.60
 
 ## 1.0.30
 
 ### Patch Changes
 
 - Updated dependencies [84c670b]
-  - @echotechfe/dumpling@3.0.59
+  - dangoui@3.0.59
 
 ## 1.0.29
 
 ### Patch Changes
 
 - Updated dependencies [18e15a5]
-  - @echotechfe/dumpling@3.0.58
+  - dangoui@3.0.58
 
 ## 1.0.28
 
 ### Patch Changes
 
 - Updated dependencies [ab31385]
-  - @echotechfe/dumpling@3.0.57
+  - dangoui@3.0.57
 
 ## 1.0.27
 
@@ -445,14 +445,14 @@
 
 - e6bc9bb: 临时支持 :host（后面还可能有更改）
 - Updated dependencies [e6bc9bb]
-  - @echotechfe/dumpling@3.0.56
+  - dangoui@3.0.56
 
 ## 1.0.26
 
 ### Patch Changes
 
 - Updated dependencies [b3a3a44]
-  - @echotechfe/dumpling@3.0.55
+  - dangoui@3.0.55
 
 ## 1.0.25
 
@@ -462,43 +462,43 @@
 - Updated dependencies [9c8ddf8]
 - Updated dependencies [1099e46]
 - Updated dependencies [299f8c1]
-  - @echotechfe/dumpling@3.0.54
+  - dangoui@3.0.54
 
 ## 1.0.24
 
 ### Patch Changes
 
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.53
+  - dangoui@3.0.53
 
 ## 1.0.23
 
 ### Patch Changes
 
 - Updated dependencies [4b5dcad]
-  - @echotechfe/dumpling@3.0.52
+  - dangoui@3.0.52
 
 ## 1.0.22
 
 ### Patch Changes
 
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.11
-  - @echotechfe/dumpling@3.0.51
+  - dangoui-design-token@1.0.11
+  - dangoui@3.0.51
 
 ## 1.0.21
 
 ### Patch Changes
 
 - Updated dependencies [045c335]
-  - @echotechfe/dumpling@3.0.50
+  - dangoui@3.0.50
 
 ## 1.0.20
 
 ### Patch Changes
 
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.49
+  - dangoui@3.0.49
 
 ## 1.0.19
 
@@ -506,15 +506,15 @@
 
 - add root selector
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.48
-  - @echotechfe/dumpling-design-token@1.0.10
+  - dangoui@3.0.48
+  - dangoui-design-token@1.0.10
 
 ## 1.0.18
 
 ### Patch Changes
 
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.47
+  - dangoui@3.0.47
 
 ## 1.0.17
 
@@ -522,7 +522,7 @@
 
 - fix popup type
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.46
+  - dangoui@3.0.46
 
 ## 1.0.16
 
@@ -530,7 +530,7 @@
 
 - change access
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.45
+  - dangoui@3.0.45
 
 ## 1.0.15
 
@@ -538,7 +538,7 @@
 
 - add g-theme-basic
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.44
+  - dangoui@3.0.44
 
 ## 1.0.14
 
@@ -546,8 +546,8 @@
 
 - fix snackbar button color
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.43
-  - @echotechfe/dumpling-design-token@1.0.9
+  - dangoui@3.0.43
+  - dangoui-design-token@1.0.9
 
 ## 1.0.13
 
@@ -555,8 +555,8 @@
 
 - switch support color
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.42
-  - @echotechfe/dumpling-design-token@1.0.8
+  - dangoui@3.0.42
+  - dangoui-design-token@1.0.8
 
 ## 1.0.12
 
@@ -564,8 +564,8 @@
 
 - fix alias
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.7
-  - @echotechfe/dumpling@3.0.41
+  - dangoui-design-token@1.0.7
+  - dangoui@3.0.41
 
 ## 1.0.11
 
@@ -573,8 +573,8 @@
 
 - fix css gen
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.40
-  - @echotechfe/dumpling-design-token@1.0.6
+  - dangoui@3.0.40
+  - dangoui-design-token@1.0.6
 
 ## 1.0.10
 
@@ -582,8 +582,8 @@
 
 - fix navbar bg
 - Updated dependencies
-  - @echotechfe/dumpling@3.0.39
-  - @echotechfe/dumpling-design-token@1.0.5
+  - dangoui@3.0.39
+  - dangoui-design-token@1.0.5
 
 ## 1.0.9
 
@@ -591,8 +591,8 @@
 
 - fix theme
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.4
-  - @echotechfe/dumpling@3.0.38
+  - dangoui-design-token@1.0.4
+  - dangoui@3.0.38
 
 ## 1.0.8
 
@@ -600,8 +600,8 @@
 
 - fix Theme class
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.3
-  - @echotechfe/dumpling@3.0.37
+  - dangoui-design-token@1.0.3
+  - dangoui@3.0.37
 
 ## 1.0.7
 
@@ -609,8 +609,8 @@
 
 - fix version
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.2
-  - @echotechfe/dumpling@3.0.36
+  - dangoui-design-token@1.0.2
+  - dangoui@3.0.36
 
 ## 1.0.6
 
@@ -618,5 +618,5 @@
 
 - design token
 - Updated dependencies
-  - @echotechfe/dumpling-design-token@1.0.1
-  - @echotechfe/dumpling@3.0.34
+  - dangoui-design-token@1.0.1
+  - dangoui@3.0.34

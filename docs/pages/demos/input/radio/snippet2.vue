@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="一组值">
     <DuRadioGroup v-model:value="selected">
@@ -19,7 +18,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRadioGroup, DuRadio } from '@echotechfe/dumpling'
+import { DuRadioGroup, DuRadio } from 'dangoui'
 
 const items = ['月卡', '季卡', '年卡']
 const selected = ref('')

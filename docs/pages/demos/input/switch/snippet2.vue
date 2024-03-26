@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="secondary">
     <DuSwitch v-model:on="isOn" color="secondary" />
@@ -28,7 +27,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSwitch } from '@echotechfe/dumpling'
+import { DuSwitch } from 'dangoui'
 
 const isOn = ref(false)
 </script>

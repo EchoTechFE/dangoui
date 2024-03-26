@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="secondary" type="block">
     <DuTabs v-model:value="selectedTab" color="secondary" type="tag">
@@ -48,7 +47,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuTabs, DuTab, DuButton, DuDivider } from '@echotechfe/dumpling'
+import { DuTabs, DuTab, DuButton, DuDivider } from 'dangoui'
 
 const selectedTab = ref('all')
 </script>

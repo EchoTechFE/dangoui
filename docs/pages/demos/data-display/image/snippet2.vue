@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="基本">
     <DuImage
@@ -10,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuImage } from '@echotechfe/dumpling'
+import { DuImage } from 'dangoui'
 </script>

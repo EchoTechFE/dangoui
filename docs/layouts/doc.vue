@@ -6,7 +6,7 @@
       class="doc-logo pl-8px flex items-center w-$doc-sidebar-w border-r border-r-solid border-r-border-2 h-full"
     >
       <Logo />
-      <div class="fw-500">Dumpling</div>
+      <div class="fw-500">Dango UI</div>
       <div class="bg-orange c-white rounded-4px text-sm px-4px ml-4px">
         Beta
       </div>
@@ -318,7 +318,7 @@ function handleThemeConfigClick() {
 
 function handleThemeClick(theme: string) {
   globalTheme.value = theme
-  localStorage.setItem('DUMPLING_THEME', theme)
+  localStorage.setItem('DANGOUI_THEME', theme)
 }
 
 watch(

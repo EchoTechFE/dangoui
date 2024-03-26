@@ -1,64 +1,32 @@
-
 <template>
-  <PreviewBlock title="不同大小" >
+  <PreviewBlock title="不同大小">
     <div>
-      <DuRate
-        size="large"
-        :count="7"
-        :value="5.3"
-      />
-      <DuRate
-        size="medium"
-      />
-      <DuRate
-        size="small"
-      />
-      <DuRate
-        size="mini"
-      />
+      <DuRate size="large" :count="7" :value="5.3" />
+      <DuRate size="medium" />
+      <DuRate size="small" />
+      <DuRate size="mini" />
     </div>
   </PreviewBlock>
-  <PreviewBlock title="改变值" >
-    <DuRate
-      size="medium"
-      :value="value"
-      @update:value="handleUpdate"
-    />
+  <PreviewBlock title="改变值">
+    <DuRate size="medium" :value="value" @update:value="handleUpdate" />
   </PreviewBlock>
-  <PreviewBlock title="动画效果" >
-    <DuRate
-      size="large"
-      animation="fade"
-    />
+  <PreviewBlock title="动画效果">
+    <DuRate size="large" animation="fade" />
   </PreviewBlock>
-  <PreviewBlock title="自定义图标" >
-    <DuRate
-      size="large"
-      :defaultValue="3.7"
-      icon="like-normal"
-    />
+  <PreviewBlock title="自定义图标">
+    <DuRate size="large" :defaultValue="3.7" icon="like-normal" />
   </PreviewBlock>
-    <PreviewBlock title="支持半选" >
-    <DuRate
-      size="large"
-      v-model:value="percentValue"
-      icon="like-normal"
-      half
-    />
+  <PreviewBlock title="支持半选">
+    <DuRate size="large" v-model:value="percentValue" icon="like-normal" half />
   </PreviewBlock>
-   <PreviewBlock title="非受控" >
-    <DuRate
-      size="large"
-      icon="like-normal"
-      half
-      defaultValue="3"
-    />
+  <PreviewBlock title="非受控">
+    <DuRate size="large" icon="like-normal" half defaultValue="3" />
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { DuRate, DuIcon } from '@echotechfe/dumpling'
+import { DuRate, DuIcon } from 'dangoui'
 
 const value = ref(1.5)
 const percentValue = ref(1.5)
@@ -70,5 +38,4 @@ watch(percentValue, (v) => {
 function handleUpdate(v: number) {
   value.value = v
 }
-
 </script>

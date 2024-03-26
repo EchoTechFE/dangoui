@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      titleTemplate: '%s - Dumpling',
+      titleTemplate: '%s - Dango UI',
     },
   },
   content: {

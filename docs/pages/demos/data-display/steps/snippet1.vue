@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="基础">
     <DuSteps
@@ -39,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuSteps } from '@echotechfe/dumpling'
+import { DuSteps } from 'dangoui'
 
 const basicSteps = [
   { title: '等待支付' },

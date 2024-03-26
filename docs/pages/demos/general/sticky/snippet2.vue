@@ -1,4 +1,3 @@
-
 <template>
   <DuNavigationBar fixed placeholder>标题</DuNavigationBar>
   <div class="h-200vh bg-white">
@@ -14,5 +13,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuNavigationBar, DuSticky, DuButton } from '@echotechfe/dumpling'
+import { DuNavigationBar, DuSticky, DuButton } from 'dangoui'
 </script>

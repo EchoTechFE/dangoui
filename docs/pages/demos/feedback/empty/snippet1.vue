@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="默认">
     <DuEmpty />
@@ -48,5 +47,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuEmpty } from '@echotechfe/dumpling'
+import { DuEmpty } from 'dangoui'
 </script>

@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="切换主题">
     <DuTheme :name="theme">
@@ -21,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuButton, DuSwitch, DuTheme, DuRadio, DuRadioGroup } from '@echotechfe/dumpling'
+import { DuButton, DuSwitch, DuTheme, DuRadio, DuRadioGroup } from 'dangoui'
 
 const theme = ref('qd')
 </script>

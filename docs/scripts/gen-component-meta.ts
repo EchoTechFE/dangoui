@@ -65,7 +65,7 @@ const filterMeta = (meta: ComponentMeta): ComponentApi => {
 
 // Collect components
 const components = fg.sync(['src/**/*.vue'], {
-  cwd: resolve(__dirname, '../../packages/dumpling'),
+  cwd: resolve(__dirname, '../../packages/dangoui'),
   absolute: true,
 })
 

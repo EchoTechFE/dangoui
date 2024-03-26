@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="大小">
     <DuTag size="mini" @click="handleClick">标签</DuTag>
@@ -36,13 +35,17 @@
   <PreviewBlock title="自定义颜色">
     <DuTag color="#B2D600" icon="lock" closeable>标签</DuTag>
     <DuTag color="#B2D600" icon="lock" bordered closeable>标签</DuTag>
-    <DuTag color="#B2D600" icon="lock" bordered bg="ghost" closeable>标签</DuTag>
-    <DuTag color="#B2D600" icon="lock" bordered bg="solid" closeable>标签</DuTag>
+    <DuTag color="#B2D600" icon="lock" bordered bg="ghost" closeable>
+      标签
+    </DuTag>
+    <DuTag color="#B2D600" icon="lock" bordered bg="solid" closeable>
+      标签
+    </DuTag>
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
-import { DuTag } from '@echotechfe/dumpling'
+import { DuTag } from 'dangoui'
 
 function handleClose() {
   console.log('[demo] close')

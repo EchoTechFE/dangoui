@@ -1,4 +1,3 @@
-
 <template>
   <DuCard class="important-mt-4px" title="创建商品" guide-text="">
     <DuForm label-size="80px">
@@ -11,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSelect, DuButton, DuCard, DuForm, DuFormItem } from '@echotechfe/dumpling'
+import { DuSelect, DuButton, DuCard, DuForm, DuFormItem } from 'dangoui'
 
 const open = ref(false)
 
@@ -30,7 +29,7 @@ const options = [
   { label: 'x5', value: 'x5' },
   { label: 'x6', value: 'x6' },
   { label: 'x7', value: 'x7' },
-  { label: 'x8', value: 'x8' }
+  { label: 'x8', value: 'x8' },
 ]
 
 function handleOpen() {

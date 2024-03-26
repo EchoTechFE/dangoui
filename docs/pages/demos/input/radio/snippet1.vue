@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="单独使用">
     <div>
@@ -31,7 +30,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRadio } from '@echotechfe/dumpling'
+import { DuRadio } from 'dangoui'
 
 const checked = ref(false)
 const monthlyChecked = ref(false)

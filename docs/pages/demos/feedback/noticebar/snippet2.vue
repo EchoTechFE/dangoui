@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="默认">
     <div class="flex-auto">
@@ -42,5 +41,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuNoticeBar } from '@echotechfe/dumpling'
+import { DuNoticeBar } from 'dangoui'
 </script>

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.2",
-    "@echotechfe/dumpling": "workspace:*",
+    "dangoui": "workspace:*",
     "@iconify-json/mdi": "^1.1.55",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxt/kit": "^3.8.2",

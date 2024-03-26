@@ -20,7 +20,7 @@ const V = 2
 // ref: iconfont.cn
 const CSS_TEMPLATE = `
 @font-face {
-  font-family: 'dumpling-icon';
+  font-family: 'dangoui-icon';
   src: url('{{eot}}'); /* IE9 */
   src: url('{{eot}}#iefix') format('embedded-opentype'),
     /* IE6-IE8 */ url('{{woff2}}') format('woff2'),

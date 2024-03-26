@@ -1,4 +1,3 @@
-
 <template>
   <div class="min-h-screen bg-white">
     <div class="mb-16px">
@@ -25,21 +24,26 @@
     <div class="mb-16px">
       <DuNavigationBar share @share="handleShare">
         <div>标题</div>
-          <div class="flex-auto w-0">
-            <DuSearch bg="white" :placeholder="placeholders" readonly>
-              <template #right>
-                <DuIcon name="camera" />
-                <DuDivider />
-                <DuIcon name="scanning" />
-              </template>
-            </DuSearch>
-          </div>
+        <div class="flex-auto w-0">
+          <DuSearch bg="white" :placeholder="placeholders" readonly>
+            <template #right>
+              <DuIcon name="camera" />
+              <DuDivider />
+              <DuIcon name="scanning" />
+            </template>
+          </DuSearch>
+        </div>
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
-      <DuNavigationBar share color="secondary" :back="false" @share="handleShare">
-          <div>标题</div>
-          <div class="flex-auto w-0">
+      <DuNavigationBar
+        share
+        color="secondary"
+        :back="false"
+        @share="handleShare"
+      >
+        <div>标题</div>
+        <div class="flex-auto w-0">
           <DuSearch bg="white" placeholder="Labubu">
             <template #right>
               <DuIcon name="camera" />
@@ -47,13 +51,13 @@
               <DuIcon name="scanning" />
             </template>
           </DuSearch>
-          </div>
+        </div>
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
       <DuNavigationBar share color="primary" :back="false" @share="handleShare">
-          <div>标题</div>
-          <div class="flex-auto w-0">
+        <div>标题</div>
+        <div class="flex-auto w-0">
           <DuSearch bg="white" placeholder="Labubu">
             <template #right>
               <DuIcon name="camera" />
@@ -61,7 +65,7 @@
               <DuIcon name="scanning" />
             </template>
           </DuSearch>
-          </div>
+        </div>
       </DuNavigationBar>
     </div>
     <div class="mb-16px">
@@ -85,13 +89,18 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuNavigationBar, DuButton, DuSearch, DuIcon, DuDivider, DuTabs, DuTab, DuActionButton } from '@echotechfe/dumpling'
+import {
+  DuNavigationBar,
+  DuButton,
+  DuSearch,
+  DuIcon,
+  DuDivider,
+  DuTabs,
+  DuTab,
+  DuActionButton,
+} from 'dangoui'
 
-const placeholders = [
-  'Molly',
-  'Labubu',
-  'Skullpanda'
-]
+const placeholders = ['Molly', 'Labubu', 'Skullpanda']
 
 const tab = ref('discovery')
 

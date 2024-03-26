@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="渐变色按钮">
     <DuTheme name="qd">
@@ -8,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuTheme } from '@echotechfe/dumpling'
+import { DuButton, DuTheme } from 'dangoui'
 </script>

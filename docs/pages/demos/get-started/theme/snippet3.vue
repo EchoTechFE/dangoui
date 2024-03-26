@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="传递 trade">
     <DuTheme name="qd">
@@ -11,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuSwitch, DuTheme } from '@echotechfe/dumpling'
+import { DuButton, DuSwitch, DuTheme } from 'dangoui'
 </script>

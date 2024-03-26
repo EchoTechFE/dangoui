@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="无边框">
     <div class="flex-auto">
@@ -14,7 +13,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuTextarea } from '@echotechfe/dumpling'
+import { DuTextarea } from 'dangoui'
 
 const text = ref('')
 

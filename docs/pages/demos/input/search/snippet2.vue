@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="带右侧操作按钮">
     <div class="w-full">
@@ -17,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSearch, DuSearchRight, DuIcon, DuDivider } from '@echotechfe/dumpling'
+import { DuSearch, DuSearchRight, DuIcon, DuDivider } from 'dangoui'
 
 const keyword = ref('')
 

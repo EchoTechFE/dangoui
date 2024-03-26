@@ -7,7 +7,7 @@ export default defineConfig({
     target: 'es2017',
     lib: {
       entry: resolve(__dirname, 'theme.ts'),
-      name: 'dumpling-design-token',
+      name: 'dangoui-design-token',
       formats: ['es', 'cjs'],
       fileName: 'index',
     },

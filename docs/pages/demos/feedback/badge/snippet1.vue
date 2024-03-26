@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="简单">
     <DuBadge :value="10" dot>
@@ -51,5 +50,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuBadge } from '@echotechfe/dumpling'
+import { DuBadge } from 'dangoui'
 </script>

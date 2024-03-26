@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock>
     <DuButton @click="showToast">打开通知</DuButton>
@@ -7,13 +6,13 @@
 
 <script setup lang="ts">
 import { ref, getCurrentInstance } from 'vue'
-import { DuToastProvider, useToast, DuButton } from '@echotechfe/dumpling'
+import { DuToastProvider, useToast, DuButton } from 'dangoui'
 
 const { show } = useToast()
 
 function showToast() {
   show({
-    message: '测试消息'
+    message: '测试消息',
   })
 }
 </script>

@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import cssvars from '@echotechfe/dumpling/cssvars'
+import cssvars from 'dangoui/cssvars'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 
 const props = defineProps<{

@@ -1,4 +1,4 @@
-# @echotechfe/dumpling-design-token
+# dangoui-design-token
 
 ## 1.0.17
 

@@ -50,7 +50,7 @@ type GlobalConfig = {
    *
    * 该配置仅在 Web 平台生效
    *
-   * 在小程序平台，请使用 `vite-plugin-dumpling` 指定主题
+   * 在小程序平台，请使用 `vite-plugin-dangoui` 指定主题
    */
   themes?: {
     name: string
@@ -153,7 +153,7 @@ export default {
           .join('\n')
 
         const previousStyleElement = document.querySelector(
-          'style[data-dumpling-theme]',
+          'style[data-dangoui-theme]',
         ) as HTMLStyleElement | null
 
         if (previousStyleElement && previousStyleElement.textContent !== css) {
@@ -162,7 +162,7 @@ export default {
           const styleElement = document.createElement('style')
           styleElement.textContent = css
           styleElement.setAttribute('type', 'text/css')
-          styleElement.setAttribute('data-dumpling-theme', '')
+          styleElement.setAttribute('data-dangoui-theme', '')
 
           document.head.appendChild(styleElement)
         }

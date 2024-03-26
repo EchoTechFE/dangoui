@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="基本">
     <DuUpload
@@ -37,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuUpload } from '@echotechfe/dumpling'
+import { DuUpload } from 'dangoui'
 
 function beforeResponse(f: any) {
   if (f.statusCode === 200) {
@@ -58,40 +57,47 @@ const fileList = ref([
   {
     uid: 1,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
   {
     uid: 2,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
   {
     uid: 3,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
   {
     uid: 4,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
   {
     uid: 5,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
-  }
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
+  },
 ])
 
 const fileList2 = ref([
   {
     uid: 1,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
   {
     uid: 2,
     url: '',
-    thumbUrl: 'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg'
+    thumbUrl:
+      'https://cdn.qiandaoapp.com/interior/images/1ab88333caa868a7f2bdfc0bbd3df1f6.jpg',
   },
 ])
 

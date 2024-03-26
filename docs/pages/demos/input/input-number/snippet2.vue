@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="secondary">
     <DuInputNumber :min="0" :max="6" highlight-add color="secondary" />
@@ -21,5 +20,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuInputNumber } from '@echotechfe/dumpling'
+import { DuInputNumber } from 'dangoui'
 </script>

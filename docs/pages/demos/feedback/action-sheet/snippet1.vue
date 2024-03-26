@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="列表">
     <DuButton @click="listOpen = true">开放列表分享面板</DuButton>
@@ -12,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuActionSheet, DuButton } from '@echotechfe/dumpling'
+import { DuActionSheet, DuButton } from 'dangoui'
 
 const listOpen = ref(false)
 
@@ -21,27 +20,27 @@ const gridOpen = ref(false)
 const items = [
   {
     label: '微信',
-    icon: 'wechat-colorful'
+    icon: 'wechat-colorful',
   },
   {
     label: '复制链接',
-    icon: 'copylink'
+    icon: 'copylink',
   },
   {
     label: '生成海报',
-    icon: 'photo'
+    icon: 'photo',
   },
   {
     label: '编辑',
-    icon: 'edit'
+    icon: 'edit',
   },
   {
     label: '删除',
-    icon: 'delete'
+    icon: 'delete',
   },
   {
     label: '举报',
-    icon: 'warning'
-  }
+    icon: 'warning',
+  },
 ]
 </script>

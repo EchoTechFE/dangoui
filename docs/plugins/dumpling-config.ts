@@ -1,4 +1,4 @@
-import { globalConfig } from '@echotechfe/dumpling'
+import { globalConfig } from 'dangoui'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(globalConfig, {

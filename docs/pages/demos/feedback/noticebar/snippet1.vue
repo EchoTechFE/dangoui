@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="简单">
     <div class="flex-auto">
@@ -52,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuNoticeBar } from '@echotechfe/dumpling'
+import { DuNoticeBar } from 'dangoui'
 
 function handleClose() {
   console.log('[demo] close')

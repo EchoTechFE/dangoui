@@ -3,9 +3,9 @@ import path from 'path'
 import fs from 'fs'
 import MagicString from 'magic-string'
 import fg from 'fast-glob'
-import { createThemes } from '@echotechfe/dumpling-design-token'
-import fromPlatte from '@echotechfe/dumpling/platte'
-import cssvars from '@echotechfe/dumpling/cssvars'
+import { createThemes } from 'dangoui-design-token'
+import fromPlatte from 'dangoui/platte'
+import cssvars from 'dangoui/cssvars'
 
 function kebab(str: string) {
   return str
@@ -119,7 +119,7 @@ export function resolveThemes(themes: PluginOptions['themes'] = []) {
 }
 
 export default function plugin(options: PluginOptions = {}): Plugin {
-  const libName = '@echotechfe/dumpling'
+  const libName = 'dangoui'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
   const components = fg.globSync('src/*/**.vue', {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
@@ -138,10 +138,10 @@ export default function plugin(options: PluginOptions = {}): Plugin {
     defaultTheme: 'qd',
   })
 
-  const VIRTUAL_DUMPLING_THEME = 'virtual:dumpling-theme.css'
+  const VIRTUAL_DANGO_UI_THEME = 'virtual:dangoui-theme.css'
 
   return {
-    name: 'vite-plugin-dumpling',
+    name: 'vite-plugin-dangoui',
     config() {
       return {
         define: {
@@ -152,14 +152,14 @@ export default function plugin(options: PluginOptions = {}): Plugin {
     },
 
     resolveId(source: string) {
-      if (source === VIRTUAL_DUMPLING_THEME) {
-        return VIRTUAL_DUMPLING_THEME
+      if (source === VIRTUAL_DANGO_UI_THEME) {
+        return VIRTUAL_DANGO_UI_THEME
       }
       return null
     },
 
     load(id: string) {
-      if (id === VIRTUAL_DUMPLING_THEME) {
+      if (id === VIRTUAL_DANGO_UI_THEME) {
         const iconfont = fs.readFileSync(
           path.resolve(libraryPath, 'src/icon/iconfont.css'),
         )

@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="primary">
     <DuRate :value="4" color="primary" />
@@ -24,5 +23,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuRate } from '@echotechfe/dumpling'
+import { DuRate } from 'dangoui'
 </script>

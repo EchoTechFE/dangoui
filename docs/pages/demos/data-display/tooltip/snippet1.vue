@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock>
     <div class="pl-16px pt-16px">
@@ -10,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuTooltip, DuButton } from '@echotechfe/dumpling'
+import { DuTooltip, DuButton } from 'dangoui'
 </script>

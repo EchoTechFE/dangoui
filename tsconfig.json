@@ -24,10 +24,10 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "packages/dumpling/**/*.vue",
-    "packages/dumpling/**/*.ts",
-    "packages/dumpling/src/global.d.ts",
-    "packages/vite-plugin-dumpling/**/*.ts"
+    "packages/dangoui/**/*.vue",
+    "packages/dangoui/**/*.ts",
+    "packages/dangoui/src/global.d.ts",
+    "packages/vite-plugin-dangoui/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["**/docs/**"]

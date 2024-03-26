@@ -1,5 +1,5 @@
 {
-  "name": "@echotechfe/vite-plugin-dumpling",
+  "name": "vite-plugin-dangoui",
   "version": "1.0.73",
   "description": "",
   "main": "dist/index.js",
@@ -26,8 +26,8 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
-    "@echotechfe/dumpling": "workspace:^",
-    "@echotechfe/dumpling-design-token": "workspace:^",
+    "dangoui": "workspace:^",
+    "dangoui-design-token": "workspace:^",
     "fast-glob": "^3.3.2",
     "magic-string": "^0.30.5"
   }

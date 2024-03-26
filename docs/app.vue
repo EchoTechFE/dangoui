@@ -9,13 +9,13 @@ import '@unocss/reset/tailwind-compat.css'
 import 'overlayscrollbars/overlayscrollbars.css'
 import '@/assets/index.css'
 import '@/assets/github-markdown-light.css'
-import '@echotechfe/dumpling/style.css'
-import '@echotechfe/dumpling/theme.css'
+import 'dangoui/style.css'
+import 'dangoui/theme.css'
 import 'tippy.js/dist/tippy.css'
 
 const route = useRoute()
 
 onMounted(() => {
-  globalTheme.value = localStorage.getItem('DUMPLING_THEME') ?? ''
+  globalTheme.value = localStorage.getItem('DANGOUI_THEME') ?? ''
 })
 </script>

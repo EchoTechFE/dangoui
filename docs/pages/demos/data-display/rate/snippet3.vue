@@ -1,14 +1,10 @@
-
 <template>
-  <PreviewBlock title="small Size" >
-    <du-rate 
-      size="small"
-    />
+  <PreviewBlock title="small Size">
+    <du-rate size="small" />
   </PreviewBlock>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuRate, DuIcon } from '@echotechfe/dumpling'
-
+import { DuRate, DuIcon } from 'dangoui'
 </script>

@@ -1,4 +1,3 @@
-
 <template>
   <PreviewBlock title="基础">
     <DuButton type="secondary" @click="topVisible = true">打开底部</DuButton>
@@ -17,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuPopup } from '@echotechfe/dumpling'
+import { DuButton, DuPopup } from 'dangoui'
 
 const topVisible = ref(false)
 const visible = ref(false)
