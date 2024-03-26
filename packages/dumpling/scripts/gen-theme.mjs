@@ -1,6 +1,6 @@
 import cssvars from '../dist/cssvars.mjs'
 import fs from 'fs'
-import { createThemes } from '@frontend/dumpling-design-token'
+import { createThemes } from '@echofe/dumpling-design-token'
 import fromPlatte from '../dist/platte.mjs'
 
 const themeHelper = createThemes({

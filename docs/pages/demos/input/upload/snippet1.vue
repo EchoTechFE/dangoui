@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuUpload } from '@frontend/dumpling'
+import { DuUpload } from '@echofe/dumpling'
 
 function beforeResponse(f: any) {
   if (f.statusCode === 200) {

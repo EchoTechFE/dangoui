@@ -19,9 +19,9 @@
 ## 安装
 
 ```bash
-npm install @frontend/dumpling
-yarn add @frontend/dumpling
-pnpm add @frontend/dumpling
+npm install @echofe/dumpling
+yarn add @echofe/dumpling
+pnpm add @echofe/dumpling
 ```
 
 ## 链接

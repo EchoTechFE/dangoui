@@ -15,5 +15,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuBadge } from '@frontend/dumpling'
+import { DuBadge } from '@echofe/dumpling'
 </script>

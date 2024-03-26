@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSelect, DuButton, DuCard, DuForm, DuFormItem } from '@frontend/dumpling'
+import { DuSelect, DuButton, DuCard, DuForm, DuFormItem } from '@echofe/dumpling'
 
 const open = ref(false)
 

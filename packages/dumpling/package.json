@@ -1,5 +1,5 @@
 {
-  "name": "@frontend/dumpling",
+  "name": "@echofe/dumpling",
   "version": "3.0.101",
   "description": "",
   "main": "dist/index.mjs",
@@ -51,7 +51,7 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
-    "@frontend/dumpling-design-token": "workspace:^",
+    "@echofe/dumpling-design-token": "workspace:^",
     "dayjs": "^1.9.1",
     "rollup": "^4.5.1"
   },
@@ -71,8 +71,5 @@
     "unocss": "^0.57.7",
     "unocss-preset-echo": "^1.7.6",
     "vue-tsc": "^1.8.22"
-  },
-  "publishConfig": {
-    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   }
 }

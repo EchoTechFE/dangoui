@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuImage } from '@frontend/dumpling'
+import { DuImage } from '@echofe/dumpling'
 </script>

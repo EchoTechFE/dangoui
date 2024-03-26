@@ -1,4 +1,4 @@
-# @frontend/dumpling-design-token
+# @echofe/dumpling-design-token
 
 ## 1.0.16
 

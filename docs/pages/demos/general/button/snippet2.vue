@@ -95,5 +95,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton } from '@frontend/dumpling'
+import { DuButton } from '@echofe/dumpling'
 </script>

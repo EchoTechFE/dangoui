@@ -3,9 +3,9 @@ import path from 'path'
 import fs from 'fs'
 import MagicString from 'magic-string'
 import fg from 'fast-glob'
-import { createThemes } from '@frontend/dumpling-design-token'
-import fromPlatte from '@frontend/dumpling/platte'
-import cssvars from '@frontend/dumpling/cssvars'
+import { createThemes } from '@echofe/dumpling-design-token'
+import fromPlatte from '@echofe/dumpling/platte'
+import cssvars from '@echofe/dumpling/cssvars'
 
 function kebab(str: string) {
   return str
@@ -119,7 +119,7 @@ export function resolveThemes(themes: PluginOptions['themes'] = []) {
 }
 
 export default function plugin(options: PluginOptions = {}): Plugin {
-  const libName = '@frontend/dumpling'
+  const libName = '@echofe/dumpling'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
   const components = fg.globSync('src/*/**.vue', {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),

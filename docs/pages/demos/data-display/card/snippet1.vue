@@ -42,5 +42,5 @@
 </template>
 
 <script lang="ts" setup>
-import { DuButton, DuCard } from '@frontend/dumpling'
+import { DuButton, DuCard } from '@echofe/dumpling'
 </script>

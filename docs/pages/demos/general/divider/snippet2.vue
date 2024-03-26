@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuDivider } from '@frontend/dumpling'
+import { DuDivider } from '@echofe/dumpling'
 </script>

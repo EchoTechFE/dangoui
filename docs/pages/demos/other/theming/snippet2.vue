@@ -8,5 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuTheme } from '@frontend/dumpling'
+import { DuButton, DuTheme } from '@echofe/dumpling'
 </script>

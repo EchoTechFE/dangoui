@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuNoticeBar } from '@frontend/dumpling'
+import { DuNoticeBar } from '@echofe/dumpling'
 
 function handleClose() {
   console.log('[demo] close')

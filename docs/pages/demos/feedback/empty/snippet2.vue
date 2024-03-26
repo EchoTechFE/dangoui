@@ -6,5 +6,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuEmpty } from '@frontend/dumpling'
+import { DuEmpty } from '@echofe/dumpling'
 </script>

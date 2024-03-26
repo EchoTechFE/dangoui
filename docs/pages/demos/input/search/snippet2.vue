@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSearch, DuSearchRight, DuIcon, DuDivider } from '@frontend/dumpling'
+import { DuSearch, DuSearchRight, DuIcon, DuDivider } from '@echofe/dumpling'
 
 const keyword = ref('')
 

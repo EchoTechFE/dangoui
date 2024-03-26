@@ -21,5 +21,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuSticky, DuButton } from '@frontend/dumpling'
+import { DuSticky, DuButton } from '@echofe/dumpling'
 </script>

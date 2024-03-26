@@ -1,5 +1,5 @@
 {
-  "name": "@frontend/vite-plugin-dumpling",
+  "name": "@echofe/vite-plugin-dumpling",
   "version": "1.0.72",
   "description": "",
   "main": "dist/index.js",
@@ -26,12 +26,9 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
-    "@frontend/dumpling": "workspace:^",
-    "@frontend/dumpling-design-token": "workspace:^",
+    "@echofe/dumpling": "workspace:^",
+    "@echofe/dumpling-design-token": "workspace:^",
     "fast-glob": "^3.3.2",
     "magic-string": "^0.30.5"
-  },
-  "publishConfig": {
-    "@frontend:registry": "https://g.echo.tech/api/v4/projects/87/packages/npm/"
   }
 }

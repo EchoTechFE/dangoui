@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuButton, DuCalendar } from '@frontend/dumpling'
+import { DuButton, DuCalendar } from '@echofe/dumpling'
 import dayjs from 'dayjs'
 
 const singleVisible = ref(false)

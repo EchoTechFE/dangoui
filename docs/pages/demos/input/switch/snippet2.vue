@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuSwitch } from '@frontend/dumpling'
+import { DuSwitch } from '@echofe/dumpling'
 
 const isOn = ref(false)
 </script>

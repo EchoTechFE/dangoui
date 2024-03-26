@@ -19,8 +19,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { DuIcon, DuSearch } from '@frontend/dumpling'
-import iconConfig from '@frontend/dumpling/iconfont-config.json'
+import { DuIcon, DuSearch } from '@echofe/dumpling'
+import iconConfig from '@echofe/dumpling/iconfont-config.json'
 
 const keyword = ref('')
 

@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuButton } from '@frontend/dumpling'
+import { DuButton } from '@echofe/dumpling'
 
 function onClick() {
   console.log('[demo] button clicked')

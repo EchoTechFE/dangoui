@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuTheme, DuToastProvider } from '@frontend/dumpling'
+import { DuTheme, DuToastProvider } from '@echofe/dumpling'
 
 watch(isHydrated, () => {
   window.addEventListener('message', (message: any) => {

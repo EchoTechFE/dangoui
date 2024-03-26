@@ -21,5 +21,5 @@
 </template>
 
 <script setup lang="ts">
-import { DuInputNumber } from '@frontend/dumpling'
+import { DuInputNumber } from '@echofe/dumpling'
 </script>

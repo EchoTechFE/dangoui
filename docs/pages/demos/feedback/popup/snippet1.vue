@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { DuButton, DuPopup } from '@frontend/dumpling'
+import { DuButton, DuPopup } from '@echofe/dumpling'
 
 const topVisible = ref(false)
 const visible = ref(false)

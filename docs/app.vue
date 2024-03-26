@@ -9,8 +9,8 @@ import '@unocss/reset/tailwind-compat.css'
 import 'overlayscrollbars/overlayscrollbars.css'
 import '@/assets/index.css'
 import '@/assets/github-markdown-light.css'
-import '@frontend/dumpling/style.css'
-import '@frontend/dumpling/theme.css'
+import '@echofe/dumpling/style.css'
+import '@echofe/dumpling/theme.css'
 import 'tippy.js/dist/tippy.css'
 
 const route = useRoute()

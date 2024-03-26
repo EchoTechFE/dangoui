@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DuButton, DuSwitch, DuTheme, DuRadio, DuRadioGroup } from '@frontend/dumpling'
+import { DuButton, DuSwitch, DuTheme, DuRadio, DuRadioGroup } from '@echofe/dumpling'
 
 const theme = ref('qd')
 </script>
