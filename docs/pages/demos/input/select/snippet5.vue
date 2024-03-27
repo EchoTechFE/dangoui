@@ -1,3 +1,4 @@
+
 <template>
   <DuCard class="important-mt-4px" title="创建商品" guide-text="">
     <DuForm label-size="80px">
@@ -29,7 +30,7 @@ const options = [
   { label: 'x5', value: 'x5' },
   { label: 'x6', value: 'x6' },
   { label: 'x7', value: 'x7' },
-  { label: 'x8', value: 'x8' },
+  { label: 'x8', value: 'x8' }
 ]
 
 function handleOpen() {

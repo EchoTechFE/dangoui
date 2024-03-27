@@ -20,7 +20,7 @@ export default defineNuxtModule({
     const { resolve } = createResolver(import.meta.url)
 
     nuxt.hook('builder:watch', (event, filename) => {
-      filename = relative(nuxt.options.srcDir, resolve(nuxt.options.srcDir, filename))
+      filename = path.relative(nuxt.options.srcDir, resolve(nuxt.options.srcDir, filename))
       if (!filename.endsWith('.md')) {
         return
       }

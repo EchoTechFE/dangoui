@@ -1,24 +1,14 @@
+
 <template>
   <PreviewBlock title="单列">
     <DuButton @click="fruitOpen = true">选择喜欢的水果</DuButton>
     {{ fruitValue }}
-    <DuPicker
-      title="请选择水果"
-      v-model:open="fruitOpen"
-      :columns="fruitColumns"
-      v-model:value="fruitValue"
-    />
+    <DuPicker title="请选择水果" v-model:open="fruitOpen" :columns="fruitColumns" v-model:value="fruitValue" />
   </PreviewBlock>
   <PreviewBlock title="多列">
     <DuButton @click="handleOpen">打开选择器</DuButton>
     {{ value }}
-    <DuPicker
-      title="请选择时间"
-      v-model:open="open"
-      :columns="columns"
-      :value="value"
-      @update:value="handleUpdate"
-    />
+    <DuPicker title="请选择时间" v-model:open="open" :columns="columns" :value="value" @update:value="handleUpdate" />
   </PreviewBlock>
 </template>
 
@@ -39,7 +29,7 @@ const fruitColumns = [
     { label: '葡萄', value: 'grape' },
     { label: '橘子', value: 'orange' },
     { label: '樱桃', value: 'cherry' },
-  ],
+  ]
 ]
 
 const columns = [

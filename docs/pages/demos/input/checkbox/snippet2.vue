@@ -1,12 +1,8 @@
+
 <template>
   <PreviewBlock title="Checkbox Group">
     <DuCheckboxGroup v-model:value="checkedItems" position="left">
-      <DuCheckbox
-        v-for="item in items"
-        :key="item"
-        :value="item"
-        :label="item"
-      />
+      <DuCheckbox v-for="item in items" :key="item" :value="item" :label="item"  />
     </DuCheckboxGroup>
   </PreviewBlock>
 </template>

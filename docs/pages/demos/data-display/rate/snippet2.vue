@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="primary">
     <DuRate :value="4" color="primary" />

@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="secondary">
     <DuSwitch v-model:on="isOn" color="secondary" />

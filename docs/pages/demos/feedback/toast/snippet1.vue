@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock>
     <DuButton @click="showToast">打开通知</DuButton>
@@ -12,7 +13,7 @@ const { show } = useToast()
 
 function showToast() {
   show({
-    message: '测试消息',
+    message: '测试消息'
   })
 }
 </script>

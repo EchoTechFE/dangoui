@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="简单">
     <DuBadge :value="10" dot>

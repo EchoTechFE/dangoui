@@ -1,3 +1,4 @@
+
 <template>
   <DuNavigationBar fixed placeholder>标题</DuNavigationBar>
   <div class="h-200vh bg-white">

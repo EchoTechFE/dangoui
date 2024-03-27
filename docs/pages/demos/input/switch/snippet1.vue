@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="简单">
     <DuSwitch v-model:on="isOn" />

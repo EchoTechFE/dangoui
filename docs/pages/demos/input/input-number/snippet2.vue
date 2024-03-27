@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="secondary">
     <DuInputNumber :min="0" :max="6" highlight-add color="secondary" />

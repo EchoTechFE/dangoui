@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="默认/带有操作按钮" type="block">
     <DuTabs v-model:value="selectedTab" size="large">
@@ -9,25 +10,9 @@
       <DuTab name="buy">求购</DuTab>
       <DuTab name="purchaseway">全网</DuTab>
       <template #right>
-        <DuButton
-          color="default"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          测试1
-        </DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试1</DuButton>
         <DuDivider />
-        <DuButton
-          color="default"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          测试2
-        </DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>
@@ -41,25 +26,9 @@
       <DuTab name="buy">求购</DuTab>
       <DuTab name="purchaseway">全网</DuTab>
       <template #right>
-        <DuButton
-          color="primary"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          排序
-        </DuButton>
+        <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton
-          color="default"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          测试2
-        </DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>
@@ -79,25 +48,9 @@
       <DuDivider />
       <DuTab name="purchaseway">全网</DuTab>
       <template #right>
-        <DuButton
-          color="primary"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          排序
-        </DuButton>
+        <DuButton color="primary" type="text" size="small" icon="sort" icon-position="right">排序</DuButton>
         <DuDivider />
-        <DuButton
-          color="default"
-          type="text"
-          size="small"
-          icon="sort"
-          icon-position="right"
-        >
-          测试2
-        </DuButton>
+        <DuButton color="default" type="text" size="small" icon="sort" icon-position="right">测试2</DuButton>
       </template>
     </DuTabs>
   </PreviewBlock>

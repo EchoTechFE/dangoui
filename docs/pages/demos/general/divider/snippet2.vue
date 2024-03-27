@@ -1,3 +1,4 @@
+
 <template>
   <PreviewBlock title="使用色板中的颜色">
     <DuDivider color="success-soft-bg" />
