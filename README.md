@@ -4,6 +4,14 @@
 
 <h1>Dango UI</h1>
 
+<a href="https://www.npmjs.org/package/dangoui">
+  <img src="https://img.shields.io/npm/v/dangoui.svg" />
+</a>
+<a href="https://github.com/EchoTechFE/dangoui">
+  <img src="https://img.shields.io/github/license/EchoTechFE/dangoui" />
+</a>
+<br>
+
 一套适用于 uni-app 小程序和 Web 的 Vue 3 移动端组件库
 
 </div>
