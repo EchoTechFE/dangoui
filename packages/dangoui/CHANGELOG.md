@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.104
+
+### Patch Changes
+
+- 2bce5bb: fix badge color
+
 ## 3.0.103
 
 ### Patch Changes
