@@ -68,11 +68,11 @@ const displayText = computed(() => {
 const style = computed(() => {
   if (props.color.startsWith('#')) {
     return {
-      '--du-badge-color': props.color,
+      '--du-c-badge-color': props.color,
     }
   }
   return {
-    '--du-badge-color': `var(--du-${props.color}-color)`,
+    '--du-c-badge-color': `var(--du-${props.color}-color)`,
   }
 })
 </script>
