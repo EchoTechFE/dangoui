@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.0.103
+
+### Patch Changes
+
+- 35acf39: fix upload uid
+- dffb82b: rename to dangoui
+- Updated dependencies [dffb82b]
+  - dangoui-design-token@1.0.18
+
 ## 3.0.102
 
 ### Patch Changes

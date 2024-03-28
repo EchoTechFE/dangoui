@@ -1,5 +1,11 @@
 # dangoui-design-token
 
+## 1.0.18
+
+### Patch Changes
+
+- dffb82b: rename to dangoui
+
 ## 1.0.17
 
 ### Patch Changes

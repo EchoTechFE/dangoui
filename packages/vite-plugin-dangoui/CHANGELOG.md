@@ -1,5 +1,15 @@
 # vite-plugin-dangoui
 
+## 1.0.74
+
+### Patch Changes
+
+- dffb82b: rename to dangoui
+- Updated dependencies [35acf39]
+- Updated dependencies [dffb82b]
+  - dangoui@3.0.103
+  - dangoui-design-token@1.0.18
+
 ## 1.0.73
 
 ### Patch Changes
