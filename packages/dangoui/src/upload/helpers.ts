@@ -2,7 +2,7 @@ export type UploadFile = {
   /**
    * 自动生成的 ID
    */
-  uid: number
+  uid: number | string
   /**
    * 资源下载
    */
@@ -67,8 +67,6 @@ export type UploadFile = {
   action: string
 }
 
-let idx = 1
-
 export function getNextUid() {
-  return idx++
+  return Math.random().toString(16).slice(2)
 }
