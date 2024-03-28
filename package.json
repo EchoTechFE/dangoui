@@ -10,7 +10,8 @@
     "build": "pnpm -r --filter=./packages/* run build",
     "prepublishOnly": "pnpm run build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "sync": "cnpm sync dangoui && cnpm sync vite-plugin-dangoui && cnpm sync dangoui-design-token"
   },
   "keywords": [],
   "author": "zhuscat",
