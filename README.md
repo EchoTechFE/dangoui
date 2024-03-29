@@ -43,4 +43,6 @@ pnpm add dangoui
 1. 做出更改后，`git add`，然后执行 `npx changeset`，并把变更提交到仓库
 2. 准备发布,`npx changest version`、`pnpm run build`、`npx changeset publish`
 
+## 活动
+
 ![Alt](https://repobeats.axiom.co/api/embed/aaf46fe1722cdeeffdf18619e14c1fa43ac66863.svg "Repobeats analytics image")
