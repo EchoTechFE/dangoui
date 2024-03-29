@@ -4739,9 +4739,16 @@
                                         "description": "自动生成的 ID",
                                         "tags": [],
                                         "required": true,
-                                        "type": "number",
+                                        "type": "string | number",
                                         "declarations": [],
-                                        "schema": "number"
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "string | number",
+                                            "schema": [
+                                                "string",
+                                                "number"
+                                            ]
+                                        }
                                     },
                                     "url": {
                                         "name": "url",
