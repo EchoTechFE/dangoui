@@ -72,7 +72,7 @@
       </div>
       <div class="flex items-center gap-x-16px">
         <div
-          class="text-24px cursor-pointer text-gray-700"
+          class="text-24px cursor-pointer text-gray-700 hover:text-gray-900"
           @click="handleThemeConfigClick"
         >
           <IconsBrush />
@@ -133,8 +133,8 @@
             </div>
           </div>
         </Teleport>
-        <div class="text-24px cursor-not-allowed text-gray-500">
-          <IconsGitHub />
+        <div class="text-24px cursor-not-allowed text-gray-700 hover:text-gray-900">
+          <a href="https://github.com/EchoTechFE/dangoui" target="_blank"><IconsGitHub /></a>
         </div>
       </div>
     </div>
