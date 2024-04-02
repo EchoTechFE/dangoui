@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.105
+
+### Patch Changes
+
+- b4eec47: fix popup title height
+
 ## 3.0.104
 
 ### Patch Changes
