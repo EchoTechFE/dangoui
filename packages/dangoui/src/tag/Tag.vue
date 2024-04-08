@@ -1,15 +1,6 @@
 <template>
   <div
-    :class="[
-      'du-tag',
-      `du-tag--${colorName}`,
-      `du-tag--${size}`,
-      `du-tag--${bg}`,
-      {
-        'du-tag--bordered': bordered,
-        'du-tag--round': round,
-      },
-    ]"
+    :class="className"
     :style="style"
     @click="handleClick"
   >
@@ -28,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { StyleValue, computed } from 'vue'
+import { StyleValue, computed, normalizeClass, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
@@ -63,6 +54,12 @@ const props = withDefaults(
      * 左侧
      */
     icon?: string
+    extClass?: string | string[] | Record<string, boolean>
+    extStyle?:
+      | string
+      | {
+          [x: string]: string | number
+        }
   }>(),
   {
     color: 'primary',
@@ -71,6 +68,8 @@ const props = withDefaults(
     bg: 'soft',
     size: 'medium',
     closeable: false,
+    extClass: '',
+    extStyle: ''
   },
 )
 
@@ -85,21 +84,35 @@ const colorName = computed(() => {
   }
 })
 
+const className = computed(() => {
+  return normalizeClass([
+      'du-tag',
+      `du-tag--${colorName.value}`,
+      `du-tag--${props.size}`,
+      `du-tag--${props.bg}`,
+      {
+        'du-tag--bordered': props.bordered,
+        'du-tag--round': props.round,
+      },
+      props.extClass
+    ])
+})
+
 const style = computed(() => {
   if (typeof props.color === 'string') {
     if (props.color.startsWith('#')) {
-      return {
+      return normalizeStyle([{
         '--du-c-tag': props.color,
         '--du-c-tag-soft-bg': props.color + '33',
         // 目前没有自动感知背景色亮暗的能力
         '--du-c-tag-solid-text': '#fff',
-      }
+      }, props.extStyle])
     } else {
-      return {
+      return normalizeStyle([{
         '--du-c-tag': `var(--du-c-${props.color}-tag)`,
         '--du-c-tag-soft-bg': `var(--du-c-${props.color}-tag-soft-bg)`,
         '--du-c-tag-solid-text': `var(--du-c-${props.color}-tag-solid-text)`,
-      }
+      }, props.extStyle])
     }
   } else {
     const s: StyleValue = {}
@@ -110,7 +123,7 @@ const style = computed(() => {
     if (props.bordered) {
       s.border = `1px solid ${props.color.border}`
     }
-    return s
+    return normalizeStyle([s, props.extStyle])
   }
 })
 
