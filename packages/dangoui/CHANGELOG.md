@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.106
+
+### Patch Changes
+
+- 4756e2c: tag support ext class and ext style
+
 ## 3.0.105
 
 ### Patch Changes
