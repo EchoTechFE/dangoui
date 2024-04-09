@@ -1,6 +1,6 @@
 {
   "name": "dangoui",
-  "version": "3.0.106",
+  "version": "3.0.107",
   "description": "",
   "main": "dist/index.mjs",
   "types": "typings/index.d.ts",
