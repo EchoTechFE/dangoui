@@ -4247,6 +4247,20 @@
                 "default": "\"primary\""
             },
             {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
                 "name": "size",
                 "description": "大小",
                 "required": false,
