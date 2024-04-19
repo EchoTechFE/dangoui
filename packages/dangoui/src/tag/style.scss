@@ -71,6 +71,10 @@
     height: 12px;
   }
 
+  &__close--normal {
+    height: 12px;
+  }
+
   &__close--medium {
     height: 12px;
   }
@@ -94,6 +98,10 @@
     height: 12px;
   }
 
+  &__icon--normal {
+    height: 12px;
+  }
+
   &__icon--medium {
     height: 12px;
   }
@@ -111,6 +119,13 @@
   }
 
   &--small {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 1px 4px;
+    height: 20px;
+  }
+
+  &--normal {
     font-size: 12px;
     line-height: 18px;
     padding: 3px 8px;

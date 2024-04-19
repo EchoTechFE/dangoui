@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.110
+
+### Patch Changes
+
+- d74afc3: tag add normal size
+
 ## 3.0.109
 
 ### Patch Changes
