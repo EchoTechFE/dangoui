@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.109
+
+### Patch Changes
+
+- 67d76bb: fix icon
+
 ## 3.0.108
 
 ### Patch Changes
