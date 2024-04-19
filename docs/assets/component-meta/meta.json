@@ -4264,8 +4264,8 @@
                 "name": "size",
                 "description": "大小",
                 "required": false,
-                "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"medium\""
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
             },
             {
                 "name": "round",

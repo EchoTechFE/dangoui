@@ -16,7 +16,7 @@
   <Tag
     v-else-if="type === 'tag'"
     :id="id"
-    :size="size === 'large' ? 'medium' : 'small'"
+    :size="size === 'large' ? 'medium' : 'normal'"
     :color="isActive ? color : 'default'"
     @click="handleClick"
   >

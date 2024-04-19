@@ -37,7 +37,7 @@ const props = withDefaults(
     /**
      * 大小
      */
-    size: 'mini' | 'small' | 'medium' | 'large'
+    size: 'mini' | 'small' | 'normal' | 'medium' | 'large'
     /**
      * 是否为圆角
      */
@@ -66,7 +66,7 @@ const props = withDefaults(
     round: false,
     bordered: false,
     bg: 'soft',
-    size: 'medium',
+    size: 'normal',
     closeable: false,
     extClass: '',
     extStyle: ''
