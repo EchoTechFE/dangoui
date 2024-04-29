@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.111
+
+### Patch Changes
+
+- b7b17f9: fix tag mini height
+
 ## 3.0.110
 
 ### Patch Changes
