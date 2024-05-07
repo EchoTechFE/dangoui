@@ -45,6 +45,10 @@ pnpm add dangoui
    1. 手动发布（不推荐）,`npx changest version`、`pnpm run build`、`npx changeset publish`
    2. 自动发布（GitHub Action），提交/合并到 main 的代码，如果含有 changeset 文件，会更新版本并提交一个 PR，合并 PR 后，会进行版本发布
 
+## 同步到 npmmirror
+
+因为我们的项目用的 npmmirror 镜像，当我们想立刻使用最新版本的时候，可以执行 `pnpm run sync`
+
 ## 活动
 
 ![Alt](https://repobeats.axiom.co/api/embed/aaf46fe1722cdeeffdf18619e14c1fa43ac66863.svg "Repobeats analytics image")
