@@ -41,7 +41,9 @@ pnpm add dangoui
 ## 发布
 
 1. 做出更改后，`git add`，然后执行 `npx changeset`，并把变更提交到仓库
-2. 准备发布,`npx changest version`、`pnpm run build`、`npx changeset publish`
+2. 发布
+   1. 手动发布（不推荐）,`npx changest version`、`pnpm run build`、`npx changeset publish`
+   2. 自动发布（GitHub Action），提交 main 的代码，如果含有 changeset 文件，会更新版本并提交一个 PR，合并 PR 后，会进行版本发布
 
 ## 活动
 
