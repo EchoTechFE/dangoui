@@ -1,0 +1,44 @@
+name: Doc
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CI: true
+  OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+  OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+  OSS_BUCKET: echoing-dumpling
+  OSS_REGION: oss-cn-shanghai
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  doc:
+    name: Doc
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v3.0.0
+
+      - name: setup node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: cd docs
+        run: cd docs
+      
+      - name: build docs
+        run: pnpm run generate
+      
+      - name: deploy
+        run: pnpm run deploy

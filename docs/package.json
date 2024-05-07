@@ -8,16 +8,17 @@
     "dev": "nuxt dev",
     "generate": "pnpm run gen:meta && nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "static-deploy"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.2",
-    "dangoui": "workspace:*",
     "@iconify-json/mdi": "^1.1.55",
     "@nuxt/content": "npm:@nuxt/content-edge@latest",
     "@nuxt/kit": "^3.8.2",
     "@unocss/reset": "^0.57.7",
     "@vueuse/core": "^10.6.1",
+    "dangoui": "workspace:*",
     "dayjs": "^1.9.1",
     "hammer-touchemulator": "^0.0.2",
     "hotkeys-js": "^3.13.7",
@@ -27,6 +28,7 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
+    "@echotechfe/static-deploy": "^1.4.0",
     "@nuxt/devtools": "latest",
     "@types/lodash-es": "^4.17.12",
     "@unocss/nuxt": "^0.57.7",
