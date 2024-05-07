@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "sync": "cnpm sync dangoui-design-token && cnpm sync vite-plugin-dangoui && cnpm sync dangoui",
-    "release": "pnpm run build && changesets publish --tag latest"
+    "release": "pnpm run build && changeset publish --tag latest"
   },
   "keywords": [],
   "author": "zhuscat",
