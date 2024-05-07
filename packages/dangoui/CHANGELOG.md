@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.113
+
+### Patch Changes
+
+- 5f4745d: add upload error log
+
 ## 3.0.112
 
 ### Patch Changes
