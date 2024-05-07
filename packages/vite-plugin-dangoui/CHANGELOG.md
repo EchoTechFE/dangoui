@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.84
+
+### Patch Changes
+
+- 5f4745d: add upload error log
+- Updated dependencies [5f4745d]
+  - dangoui@3.0.113
+
 ## 1.0.83
 
 ### Patch Changes
