@@ -33,12 +33,11 @@ jobs:
 
       - name: install dependencies
         run: pnpm install
-
-      - name: cd docs
-        run: cd docs
       
       - name: build docs
+        working-directory: ./docs
         run: pnpm run generate
       
       - name: deploy
+        working-directory: ./docs
         run: pnpm run deploy
