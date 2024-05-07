@@ -28,7 +28,7 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "@echotechfe/static-deploy": "^1.4.0",
+    "@echotechfe/static-deploy": "^1.5.0",
     "@nuxt/devtools": "latest",
     "@types/lodash-es": "^4.17.12",
     "@unocss/nuxt": "^0.57.7",
