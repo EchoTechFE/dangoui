@@ -9,7 +9,7 @@
     "generate": "pnpm run gen:meta && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "static-deploy"
+    "deploy": "static-deploy deploy"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.2",
