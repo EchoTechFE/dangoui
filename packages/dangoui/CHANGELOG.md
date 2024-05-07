@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.112
+
+### Patch Changes
+
+- 25aeb4e: test github action publish
+
 ## 3.0.111
 
 ### Patch Changes
