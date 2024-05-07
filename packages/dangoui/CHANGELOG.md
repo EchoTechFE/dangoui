@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 25aeb4e: test github action publish
+- add chooseMedia error throw
 
 ## 3.0.111
 

@@ -335,7 +335,9 @@ function uniAdd() {
         }
       }
     },
-    fail() {},
+    fail(e) {
+      throw new Error(`chooseMedia fail: ${e}`,)
+    },
   })
 }
 
