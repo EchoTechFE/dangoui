@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Updated dependencies [25aeb4e]
+- Updated dependencies
   - dangoui@3.0.112
 
 ## 1.0.82
