@@ -27,3 +27,5 @@ logs
 .alioss.json
 .aliossrc
 .vscode
+
+.pnpm-store
