@@ -6,6 +6,8 @@ on:
       - main
     paths-ignore:
       - 'docs/**'
+      - 'README.md'
+
 
 env:
   CI: true
