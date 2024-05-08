@@ -1,5 +1,8 @@
 name: Doc
 
+on:
+  workflow_dispatch:
+
 env:
   CI: true
   OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
