@@ -3,10 +3,6 @@
 import {
   createResolver,
   defineNuxtModule,
-  addServerHandler,
-  extendPages,
-  addVitePlugin,
-  addTemplate,
 } from '@nuxt/kit'
 import glob from 'fast-glob'
 import path from 'path'
@@ -14,17 +10,12 @@ import fs from 'fs'
 
 export default defineNuxtModule({
   meta: {
-    name: 'hello',
+    name: 'preview',
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
-    nuxt.hook('builder:watch', (event, filename) => {
-      filename = path.relative(nuxt.options.srcDir, resolve(nuxt.options.srcDir, filename))
-      if (!filename.endsWith('.md')) {
-        return
-      }
-
+    function genDemos() {
       const files = glob.sync('**/*.md', {
         absolute: true,
         cwd: path.resolve(process.cwd(), './content'),
@@ -47,42 +38,23 @@ export default defineNuxtModule({
             `./pages/demos/${p}/snippet${i++}.vue`,
           )
 
-          // console.log(snippetFile, 'write')
-
-          // console.log('write', snippetFile)
-
           fs.mkdirSync(path.dirname(snippetFile), { recursive: true })
           fs.writeFileSync(snippetFile, snippet)
         }
       }
+    }
+
+    nuxt.hook('builder:watch', (event, filename) => {
+      filename = path.relative(nuxt.options.srcDir, resolve(nuxt.options.srcDir, filename))
+      if (!filename.endsWith('.md')) {
+        return
+      }
+
+      genDemos()
     })
 
-    // extendPages((pages) => {
-    //   console.log('extend pages')
-    //   pages.unshift({
-    //     name: 'test-preview',
-    //     path: '/test-preview',
-    //     file: resolve('runtime/preview.vue'),
-    //   })
-    // })
-
-    // addVitePlugin(() => {
-    //   return {
-    //     enforce: 'pre',
-    //     name: 'vite-plugin-demo-page',
-    //     resolveId(source) {
-    //       if (source.includes('demos/') || source.includes('preview')) {
-    //         return source
-    //       }
-    //     },
-    //     load(id) {
-    //       // console.log(id, 'hello')
-    //       if (id.includes('demos') || id.includes('preview')) {
-    //         console.log(id)
-    //         return `<template><div>${id}</div></template>`
-    //       }
-    //     },
-    //   }
-    // })
+    nuxt.hook('build:before', () => {
+      genDemos()
+    })
   },
 })

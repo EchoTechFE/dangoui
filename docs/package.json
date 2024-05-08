@@ -30,6 +30,7 @@
   "devDependencies": {
     "@echotechfe/static-deploy": "^1.5.0",
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.7.0",
     "@types/lodash-es": "^4.17.12",
     "@unocss/nuxt": "^0.57.7",
     "@unocss/preset-typography": "^0.57.7",
