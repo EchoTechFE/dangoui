@@ -30,42 +30,50 @@
           v-for="(month, index) in displayDates"
           :key="index"
           class="du-calendar__month-container"
-          :id="`du-calendar-${instanceId}-${month[0].format('YYYY-MM')}`"
+          :id="`du-calendar-${instanceId}-${month.first.format('YYYY-MM')}`"
         >
           <div class="du-calendar__month">
-            {{ month[0].year() }}.{{ month[0].month() + 1 }}
+            {{ month.first.year() }}.{{ month.first.month() + 1 }}
           </div>
           <div class="du-calendar__dates">
             <div
-              class="du-calendar__item"
-              v-if="month[0].day() - weekStart > 0"
-              v-for="i in month[0].day() - weekStart"
-              :key="i"
-            ></div>
-            <div
-              class="du-calendar__item"
-              v-for="date in month"
-              :key="date.unix()"
-              @click="changeSelectedDate(date)"
+              v-for="(row, idx) in month.rows"
+              :class="[
+                'du-calendar__dates-row',
+                idx === month.rows.length - 1 && 'du-calendar__dates-row--last',
+              ]"
+              :key="idx"
             >
               <div
-                :class="[
-                  'du-calendar__item-inner',
-                  {
-                    'du-calendar__item-inner--selected': isSelected(date),
-                    'du-calendar__item-inner--disabled': isDisabled(date),
-                  },
-                ]"
+                v-for="(date, idx) in row"
+                :key="date ? date.unix() : idx"
+                :class="getCalendarItemClassName(date, idx)"
+                @click="changeSelectedDate(date)"
               >
-                <div
-                  v-if="isToday(date)"
-                  style="color: var(--du-primary-color)"
-                >
-                  今
+                <div v-if="!date">
+                  <div class="du-calendar__item-inner" />
                 </div>
-                <template v-else>
-                  {{ date.date() }}
-                </template>
+                <div v-else :class="getCalendarItemInnerClassName(date, idx)">
+                  <div
+                    v-if="isToday(date)"
+                    :style="{
+                      color: isSelected(date)
+                        ? 'inherit'
+                        : 'var(--du-primary-color)',
+                    }"
+                  >
+                    今
+                  </div>
+                  <template v-else>
+                    {{ date.date() }}
+                  </template>
+                  <div v-if="isRangeFirst(date)" class="du-calendar__sub">
+                    开始
+                  </div>
+                  <div v-if="isRangeLast(date)" class="du-calendar__sub">
+                    结束
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -260,15 +268,39 @@ const displayDates = computed(() => {
     monthGroups.push(dates)
     currentMonth = currentMonth.add(1, 'month')
   }
-  return monthGroups
+  const renderDates = monthGroups.map((month) => {
+    const rows: Array<Array<dayjs.Dayjs | null>> = []
+    const diff = month[0].day() - props.weekStart
+    const monthCopy: Array<dayjs.Dayjs | null> = [...month]
+    if (diff > 0) {
+      for (let i = 0; i < diff; i++) {
+        monthCopy.unshift(null)
+      }
+    }
+    while (monthCopy.length) {
+      rows.push(monthCopy.splice(0, 7))
+    }
+    return {
+      first: month[0],
+      rows,
+    }
+  })
+  return renderDates
 })
 
-function isToday(d: dayjs.Dayjs) {
+function isToday(d: dayjs.Dayjs | null) {
+  if (!d) {
+    return false
+  }
   return dayjs().isSame(d, 'day')
 }
 
 // 判断某项是否被选中
-const isSelected = (d: dayjs.Dayjs) => {
+const isSelected = (d: dayjs.Dayjs | null) => {
+  if (!d) {
+    return false
+  }
+
   if (innerSelected.value.some((item) => item.isSame(d, 'day'))) {
     return true
   }
@@ -285,8 +317,119 @@ const isSelected = (d: dayjs.Dayjs) => {
   return false
 }
 
+function isRangeFirst(d: dayjs.Dayjs | null) {
+  return (
+    d &&
+    props.type === 'range' &&
+    innerSelected.value.length === 2 &&
+    innerSelected.value[0].isSame(d, 'day')
+  )
+}
+
+function isRangeLast(d: dayjs.Dayjs | null) {
+  return (
+    d &&
+    props.type === 'range' &&
+    innerSelected.value.length === 2 &&
+    innerSelected.value[1].isSame(d, 'day')
+  )
+}
+
+function getCalendarItemClassName(date: dayjs.Dayjs | null, idx: number) {
+  const classNames = ['du-calendar__item']
+
+  if (idx === 6) {
+    classNames.push('du-calendar__item--last')
+  }
+
+  if (!date) {
+    return classNames.join(' ')
+  }
+
+  if (props.type === 'range') {
+    if (innerSelected.value.length === 2) {
+      // 这种情况下才可能有背景
+      if (isSelected(date)) {
+        if (isRangeFirst(date)) {
+          if (date.date() === date.daysInMonth() || idx === 6) {
+            // 如果是最后一个，那么不用有背景
+          } else {
+            classNames.push('du-calendar__item--bl')
+            if (date.add(1, 'day').isSame(innerSelected.value[1], 'day')) {
+              // 如果就选了两天
+              classNames.push('du-calendar__item--range-solid')
+            }
+          }
+        } else if (isRangeLast(date)) {
+        } else {
+          classNames.push('du-calendar__item--range')
+
+          if (date.date() === date.daysInMonth() || idx === 6) {
+            // 如果是该月最后一个或者一行最后一个，显示背景，右侧圆角
+            classNames.push('du-calendar__item--br')
+          }
+          if (date.date() === 1 || idx === 0) {
+            // 如果是第一个，显示背景，左侧圆角
+            classNames.push('du-calendar__item--bl')
+          }
+        }
+      } else {
+        // 没有选择的情况下，不用管
+      }
+    } else {
+      // 这种情况下不会有背景
+    }
+  }
+
+  return classNames.join(' ')
+}
+
+function getCalendarItemInnerClassName(date: dayjs.Dayjs, idx: number) {
+  const classNames = ['du-calendar__item-inner']
+
+  if (isDisabled(date)) {
+    classNames.push('du-calendar__item-inner--disabled')
+    return classNames.join(' ')
+  }
+
+  if (isSelected(date)) {
+    if (props.type === 'range') {
+      if (innerSelected.value.length === 2) {
+        if (isRangeFirst(date)) {
+          if (date.date() === date.daysInMonth() || idx === 6) {
+            // 如果是最后一个，那么是圆角
+            classNames.push('du-calendar__item-inner--selected')
+          } else {
+            // 否则只有左侧有圆角
+            classNames.push('du-calendar__item-inner--range-bl')
+          }
+        } else if (isRangeLast(date)) {
+          if (date.date() === 1 || idx === 0) {
+            // 如果是第一个，那么是圆角
+            classNames.push('du-calendar__item-inner--selected')
+          } else {
+            // 否则只有右侧是圆角
+            classNames.push('du-calendar__item-inner--range-br')
+          }
+        } else {
+          classNames.push('du-calendar__item-inner--range-selected')
+        }
+      } else {
+        classNames.push('du-calendar__item-inner--selected')
+      }
+    } else {
+      classNames.push('du-calendar__item-inner--selected')
+    }
+  }
+
+  return classNames.join(' ')
+}
+
 // 动态判断是否被禁用
-const isDisabled = (d: dayjs.Dayjs) => {
+const isDisabled = (d: dayjs.Dayjs | null) => {
+  if (!d) {
+    return false
+  }
   if (
     (resolvedMin.value.isBefore(d) || resolvedMin.value.isSame(d, 'day')) &&
     (resolvedMax.value.isAfter(d) || resolvedMax.value.isSame(d, 'day'))
@@ -297,7 +440,11 @@ const isDisabled = (d: dayjs.Dayjs) => {
   return true
 }
 
-const changeSelectedDate = (d: dayjs.Dayjs) => {
+const changeSelectedDate = (d: dayjs.Dayjs | null) => {
+  if (!d) {
+    return
+  }
+
   const disabled = isDisabled(d)
   if (disabled) {
     return
