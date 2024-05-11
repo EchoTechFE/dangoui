@@ -1,5 +1,5 @@
 .du-calendar {
-  font-size: 14px;
+  font-size: 16px;
 
   &__main {
     position: relative;
@@ -8,8 +8,8 @@
 
   &__week {
     display: flex;
-    column-gap: 8px;
-    padding: 0 15px;
+    column-gap: 2px;
+    padding: 0 6px;
     height: 38px;
     margin-bottom: 8px;
   }
@@ -26,28 +26,65 @@
   }
 
   &__item {
-    width: 100%;
-    overflow: hidden;
-    height: 0;
-    padding-bottom: 100%;
-    position: relative;
+    padding-right: 2px;
+
+    &--last {
+      padding-right: 0px;
+    }
+
+    &--range {
+      background-color: var(--du-primary-soft-bg);
+    }
+
+    &--bl {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      background-color: var(--du-primary-soft-bg);
+    }
+
+    &--br {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      background-color: var(--du-primary-soft-bg);
+    }
+
+    &--range-solid {
+      background-color: var(--du-primary-solid-bg);
+    }
   }
 
   &__item-inner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: 500;
 
     &--selected {
+      background: var(--du-primary-solid-bg);
+      color: var(--du-primary-solid-color);
+    }
+
+    &--range-selected {
       background: var(--du-primary-soft-bg);
       color: var(--du-primary-color);
+    }
+
+    &--range-bl {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      background: var(--du-primary-solid-bg);
+      color: var(--du-primary-solid-color);
+    }
+
+    &--range-br {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      background: var(--du-primary-solid-bg);
+      color: var(--du-primary-solid-color);
     }
 
     &--disabled {
@@ -68,6 +105,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    width: 100%;
   }
 
   &__container {
@@ -79,16 +117,26 @@
 
   &__month-container {
     margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  &__dates {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px;
-    padding: 0 15px;
+  &__dates-row {
+    display: flex;
+    margin-bottom: 4px;
+
+    &--last {
+      margin-bottom: 0px;
+    }
   }
 
   &--button {
     padding: 5px 15px 5px 15px;
+  }
+
+  &__sub {
+    font-size: 10px;
+    color: var(--du-primary-solid-color);
   }
 }
