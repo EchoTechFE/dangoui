@@ -67,10 +67,13 @@
                   <template v-else>
                     {{ date.date() }}
                   </template>
-                  <div v-if="isRangeFirst(date)" class="du-calendar__sub">
+                  <div v-if="isStart(date) && isEnd(date)" class="du-calendar__sub">
+                    开始/结束
+                  </div>
+                  <div v-else-if="isStart(date)" class="du-calendar__sub">
                     开始
                   </div>
-                  <div v-if="isRangeLast(date)" class="du-calendar__sub">
+                  <div v-else-if="isEnd(date)" class="du-calendar__sub">
                     结束
                   </div>
                 </div>
@@ -317,6 +320,24 @@ const isSelected = (d: dayjs.Dayjs | null) => {
   return false
 }
 
+function isStart(d: dayjs.Dayjs | null) {
+  return (
+    d &&
+    props.type === 'range' &&
+    innerSelected.value.length > 0 &&
+    innerSelected.value[0].isSame(d, 'day')
+  )
+}
+
+function isEnd(d: dayjs.Dayjs | null) {
+  return (
+    d &&
+    props.type === 'range' &&
+    innerSelected.value.length > 1 &&
+    innerSelected.value[1].isSame(d, 'day')
+  )
+}
+
 function isRangeFirst(d: dayjs.Dayjs | null) {
   return (
     d &&
@@ -350,7 +371,11 @@ function getCalendarItemClassName(date: dayjs.Dayjs | null, idx: number) {
     if (innerSelected.value.length === 2) {
       // 这种情况下才可能有背景
       if (isSelected(date)) {
-        if (isRangeFirst(date)) {
+        const isStart = isRangeFirst(date)
+        const isEnd = isRangeLast(date)
+        if (isStart && isEnd) {
+          // 如果是开始和结束是同一天，那么不显示背景
+        } else if (isStart) {
           if (date.date() === date.daysInMonth() || idx === 6) {
             // 如果是最后一个，那么不用有背景
           } else {
@@ -360,7 +385,7 @@ function getCalendarItemClassName(date: dayjs.Dayjs | null, idx: number) {
               classNames.push('du-calendar__item--range-solid')
             }
           }
-        } else if (isRangeLast(date)) {
+        } else if (isEnd) {
         } else {
           classNames.push('du-calendar__item--range')
 
@@ -395,7 +420,11 @@ function getCalendarItemInnerClassName(date: dayjs.Dayjs, idx: number) {
   if (isSelected(date)) {
     if (props.type === 'range') {
       if (innerSelected.value.length === 2) {
-        if (isRangeFirst(date)) {
+        const isStart = isRangeFirst(date)
+        const isEnd = isRangeLast(date)
+        if (isStart && isEnd) {
+          classNames.push('du-calendar__item-inner--selected')
+        } else if (isStart) {
           if (date.date() === date.daysInMonth() || idx === 6) {
             // 如果是最后一个，那么是圆角
             classNames.push('du-calendar__item-inner--selected')
@@ -403,7 +432,7 @@ function getCalendarItemInnerClassName(date: dayjs.Dayjs, idx: number) {
             // 否则只有左侧有圆角
             classNames.push('du-calendar__item-inner--range-bl')
           }
-        } else if (isRangeLast(date)) {
+        } else if (isEnd) {
           if (date.date() === 1 || idx === 0) {
             // 如果是第一个，那么是圆角
             classNames.push('du-calendar__item-inner--selected')
@@ -482,13 +511,9 @@ const changeSelectedDate = (d: dayjs.Dayjs | null) => {
       innerSelected.value.push(d)
     }
   } else if (props.type === 'range') {
-    if (isPrevSelected) {
-      return
-    }
-
     const current = innerSelected.value[0]
     if (current.isAfter(d)) {
-      innerSelected.value = [d, current]
+      innerSelected.value = [d]
     } else {
       innerSelected.value = [current, d]
     }
