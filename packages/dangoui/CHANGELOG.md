@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.114
+
+### Patch Changes
+
+- 9365d13: 范围选择器样式更新
+
 ## 3.0.113
 
 ### Patch Changes
