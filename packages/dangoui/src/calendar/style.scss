@@ -1,6 +1,40 @@
 .du-calendar {
   font-size: 16px;
 
+  &__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  &__title {
+    color: #202426;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    line-height: 24px;
+  }
+
+  &__clear {
+    width: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.64);
+  }
+
+  &__close {
+    width: 50px;
+    font-size: 16px;
+    color: #918b9f;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
   &__main {
     position: relative;
     background: #fff;
@@ -113,6 +147,14 @@
     overflow: auto;
     height: 427px;
     background: #fff;
+
+    &--range-picker {
+      height: 280px;
+    }
+
+    &--picker {
+      height: 321px;
+    }
   }
 
   &__month-container {
@@ -133,10 +175,54 @@
 
   &--button {
     padding: 5px 15px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--button-right {
+    min-width: 102px;
   }
 
   &__sub {
     font-size: 10px;
     color: var(--du-primary-solid-color);
+  }
+
+  &__time {
+    box-shadow: 0px -4px 12px 0px rgba(0, 0, 0, 0.04);
+  }
+
+  &__time-header {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    align-items: center;
+  }
+
+  &__time-title {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__disp {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #000;
+  }
+
+  &__disp-title {
+    margin-right: 8px;
+  }
+
+  &__disp-none {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
   }
 }

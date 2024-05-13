@@ -1,12 +1,19 @@
 <template>
   <DuPopup
     :visible="visible"
-    :title="calendarTitle"
+    :header-visible="false"
     :extStyle="style"
     :extClass="className"
     type="bottom"
     @update:visible="handleClose"
   >
+    <div class="du-calendar__header">
+      <div class="du-calendar__clear" @click="handleClear">清除</div>
+      <div class="du-calendar__title">{{ calendarTitle }}</div>
+      <div class="du-calendar__close" @click="handleClose">
+        <DuIcon name="close" />
+      </div>
+    </div>
     <div class="du-calendar__main">
       <div class="du-calendar__week">
         <div
@@ -22,7 +29,15 @@
       </div>
       <scroll-view
         :scroll-y="true"
-        class="du-calendar__container"
+        :class="[
+          'du-calendar__container',
+          showTimePicker && type === 'range'
+            ? 'du-calendar__container--range-picker'
+            : '',
+          showTimePicker && type !== 'range'
+            ? 'du-calendar__container--picker'
+            : '',
+        ]"
         :scroll-into-view="todayMonthId"
         scroll-with-animation
       >
@@ -67,7 +82,10 @@
                   <template v-else>
                     {{ date.date() }}
                   </template>
-                  <div v-if="isStart(date) && isEnd(date)" class="du-calendar__sub">
+                  <div
+                    v-if="isStart(date) && isEnd(date)"
+                    class="du-calendar__sub"
+                  >
                     开始/结束
                   </div>
                   <div v-else-if="isStart(date)" class="du-calendar__sub">
@@ -82,15 +100,79 @@
           </div>
         </div>
       </scroll-view>
-      <div class="du-calendar--button">
-        <DuButton
-          type="primary"
-          size="large"
-          full
-          :disabled="!!buttonDisabled"
-          @click="handleConfirm"
-          :text="buttonConfirmText"
+      <div class="du-calendar__time" v-if="type === 'range' && showTimePicker">
+        <div class="du-calendar__time-header">
+          <div class="du-calendar__time-title">开始时间</div>
+          <DuIcon name="arrow-right-line" :size="12" color="#D4D0DA" />
+          <div class="du-calendar__time-title">结束时间</div>
+        </div>
+        <div style="display: flex">
+          <div style="flex: 1">
+            <DuPickerView
+              :columns="timePickerColumns"
+              v-model:value="startTime"
+              :style="{ '--du-picker-view-height': '106px' }"
+            />
+          </div>
+          <div style="flex: 1">
+            <DuPickerView
+              :columns="timePickerColumns"
+              v-model:value="endTime"
+              :style="{ '--du-picker-view-height': '106px' }"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="du-calendar__time" v-else-if="showTimePicker">
+        <DuPickerView
+          :columns="timePickerColumns"
+          v-model:value="startTime"
+          :style="{ '--du-picker-view-height': '106px' }"
         />
+      </div>
+      <div class="du-calendar--button">
+        <div v-if="type === 'range'">
+          <div class="du-calendar__disp">
+            <div class="du-calendar__disp-title">开始</div>
+            <div class="du-calendar__disp-none" v-if="innerSelected.length < 1">
+              待设置
+            </div>
+            <div v-else>
+              {{ formattedRangeStart }}
+            </div>
+          </div>
+          <div class="du-calendar__disp">
+            <div class="du-calendar__disp-title">结束</div>
+            <div class="du-calendar__disp-none" v-if="innerSelected.length < 2">
+              待设置
+            </div>
+            <div v-else>
+              {{ formattedRangeEnd }}
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <div class="du-calendar__disp">
+            <div class="du-calendar__disp-title">已选</div>
+            <div class="du-calendar__disp-none" v-if="innerSelected.length < 1">
+              待设置
+            </div>
+            <div v-else>
+              {{ formattedRangeStart }}
+            </div>
+          </div>
+        </div>
+        <div class="du-calendar--button-right">
+          <DuButton
+            type="primary"
+            size="large"
+            full
+            disabled-type="temp"
+            :disabled="!!buttonDisabled"
+            @click="handleConfirm"
+            :text="buttonConfirmText"
+          />
+        </div>
       </div>
     </div>
   </DuPopup>
@@ -109,6 +191,8 @@ import DuPopup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
 import { getInstanceId } from './helpers'
 import dayjs from 'dayjs'
+import DuPickerView from '../picker-view/PickerView.vue'
+import DuIcon from '../icon/Icon.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -127,6 +211,8 @@ const props = withDefaults(
     max?: dayjs.Dayjs | number
     selectableCount?: number
     weekStart?: number
+    showTimePicker?: boolean
+    timeStep: 5 | 10
   }>(),
   {
     extClass: '',
@@ -140,6 +226,8 @@ const props = withDefaults(
     max: () => dayjs().startOf('month').add(12, 'month').endOf('month'),
     selectableCount: 30,
     weekStart: 0,
+    showTimePicker: false,
+    timeStep: 5,
   },
 )
 
@@ -155,6 +243,24 @@ const emit = defineEmits<{
   (e: 'close'): void
   (e: 'update:visible', visible: boolean): void
 }>()
+
+const timePickerColumns = computed(() => {
+  const hours: { label: string; value: string }[] = []
+  const minutes: { label: string; value: string }[] = []
+  for (let i = 0; i < 24; i++) {
+    hours.push({
+      label: i.toString().padStart(2, '0') + '时',
+      value: '' + i,
+    })
+  }
+  for (let i = 0; i < 60; i += props.timeStep) {
+    minutes.push({
+      label: i.toString().padStart(2, '0') + '分',
+      value: '' + i,
+    })
+  }
+  return [hours, minutes]
+})
 
 const resolvedMin = computed(() => {
   if (typeof props.min === 'number') {
@@ -173,6 +279,10 @@ const resolvedMax = computed(() => {
 })
 
 const innerSelected = ref<dayjs.Dayjs[]>([])
+
+const startTime = ref<string[]>(['8', '0'])
+
+const endTime = ref<string[]>(['20', '0'])
 
 const instanceId = getInstanceId()
 
@@ -213,24 +323,41 @@ const calendarTitle = computed(() => {
   }
 })
 
-const buttonConfirmText = computed(() => {
-  if (props.confirmText) {
-    return props.confirmText
-  } else {
-    if (props.type === 'single') {
-      return '确定'
-    } else if (props.type === 'multiple') {
-      return innerSelected.value.length > 0
-        ? `确定(${innerSelected.value.length})`
-        : '确定'
-    } else {
-      return '确定'
+const isInvalidDateRange = computed(() => {
+  if (
+    props.type === 'range' &&
+    props.showTimePicker &&
+    innerSelected.value.length === 2
+  ) {
+    if (innerSelected.value[0].isSame(innerSelected.value[1], 'day')) {
+      if (
+        +startTime.value[0] * 60 + +startTime.value[1] >=
+        +endTime.value[0] * 60 + +endTime.value[1]
+      ) {
+        return true
+      }
     }
   }
+
+  return false
+})
+
+const buttonConfirmText = computed(() => {
+  if (
+    props.type === 'range' &&
+    props.showTimePicker &&
+    innerSelected.value.length === 2
+  ) {
+    if (isInvalidDateRange.value) {
+      return '开始应早于结束'
+    }
+  }
+
+  return props.confirmText || '确定'
 })
 
 const buttonDisabled = computed(() => {
-  return innerSelected.value.length <= 0
+  return isInvalidDateRange.value || innerSelected.value.length <= 0
 })
 
 const weekList = computed(() => {
@@ -319,6 +446,38 @@ const isSelected = (d: dayjs.Dayjs | null) => {
 
   return false
 }
+
+function formatDate(d: dayjs.Dayjs) {
+  if (props.showTimePicker) {
+    return d.format('YYYY-MM-DD dddd HH:mm')
+  }
+  return d.format('YYYY-MM-DD dddd')
+}
+
+const formattedRangeStart = computed(() => {
+  if (innerSelected.value.length > 0) {
+    if (props.type === 'multiple' && innerSelected.value.length >= 2) {
+      return `${innerSelected.value.length} 个日期`
+    }
+    return formatDate(
+      innerSelected.value[0]
+        .add(+startTime.value[0], 'hour')
+        .add(+startTime.value[1], 'minute'),
+    )
+  }
+  return ''
+})
+
+const formattedRangeEnd = computed(() => {
+  if (innerSelected.value.length > 1) {
+    return formatDate(
+      innerSelected.value[1]
+        .add(+endTime.value[0], 'hour')
+        .add(+endTime.value[1], 'minute'),
+    )
+  }
+  return ''
+})
 
 function isStart(d: dayjs.Dayjs | null) {
   return (
@@ -525,22 +684,45 @@ const handleClose = () => {
   emit('update:visible', false)
 }
 
+function handleClear() {
+  innerSelected.value = []
+  startTime.value = ['8', '0']
+  endTime.value = ['20', '0']
+}
+
 const handleConfirm = () => {
   if (innerSelected.value.length === 0) {
     return
   }
 
+  let selected = [...innerSelected.value]
+
+  if (props.showTimePicker) {
+    if (props.type === 'range') {
+      selected[0] = selected[0]
+        .add(+startTime.value[0], 'hour')
+        .add(+startTime.value[1], 'minute')
+      selected[1] = selected[1]
+        .add(+endTime.value[0], 'hour')
+        .add(+endTime.value[1], 'minute')
+    } else {
+      selected = selected.map((d) =>
+        d.add(+startTime.value[0], 'hour').add(+startTime.value[1], 'minute'),
+      )
+    }
+  }
+
   if (props.type === 'single') {
     emit('confirm', {
-      value: innerSelected.value[0],
-      date: innerSelected.value[0],
-      dates: innerSelected.value,
+      value: selected[0],
+      date: selected[0],
+      dates: selected,
     })
   } else {
     emit('confirm', {
-      value: innerSelected.value,
-      date: innerSelected.value[0],
-      dates: innerSelected.value,
+      value: selected,
+      date: selected[0],
+      dates: selected,
     })
   }
 }
@@ -556,7 +738,36 @@ watch(
         const dates = Array.isArray(props.selectedDate)
           ? props.selectedDate
           : [props.selectedDate]
-        innerSelected.value = dates.map((d) => d.clone())
+
+        if (props.showTimePicker) {
+          function toStepMinite(m: number) {
+            return `${Math.floor(m / props.timeStep) * props.timeStep}`
+          }
+
+          if (props.type === 'range') {
+            if (dates[0]) {
+              startTime.value = [
+                '' + dates[0].hour(),
+                toStepMinite(dates[0].minute()),
+              ]
+            }
+            if (dates[1]) {
+              endTime.value = [
+                '' + dates[1].hour(),
+                toStepMinite(dates[1].minute()),
+              ]
+            }
+          } else {
+            if (dates[0]) {
+              startTime.value = [
+                '' + dates[0].hour(),
+                toStepMinite(dates[0].minute()),
+              ]
+            }
+          }
+        }
+
+        innerSelected.value = dates.map((d) => d.clone().startOf('day'))
       }
     } else {
       todayMonthId.value = ''
