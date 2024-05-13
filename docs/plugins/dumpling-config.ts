@@ -1,6 +1,10 @@
 import { globalConfig } from 'dangoui'
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  dayjs.locale('zh-cn')
+
   nuxtApp.vueApp.use(globalConfig, {
     upload: {
       beforeUpload(file) {

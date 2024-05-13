@@ -19,6 +19,7 @@ import SearchRight from './search/SearchRight.vue'
 import Textarea from './textarea/Textarea.vue'
 import Select from './select/Select.vue'
 import Picker from './picker/Picker.vue'
+import PickerView from './picker-view/PickerView.vue'
 import Form from './form/Form.vue'
 import FormItem from './form/FormItem.vue'
 import FormField from './form/FormField.vue'
@@ -77,6 +78,7 @@ const DuSearchRight = SearchRight
 const DuTextarea = Textarea
 const DuSelect = Select
 const DuPicker = Picker
+const DuPickerView = PickerView
 const DuForm = Form
 const DuFormItem = FormItem
 const DuFormField = FormField
@@ -152,6 +154,8 @@ export {
   DuSelect,
   Picker,
   DuPicker,
+  PickerView,
+  DuPickerView,
   Form,
   DuForm,
   FormItem,
