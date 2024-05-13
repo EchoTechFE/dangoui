@@ -60,9 +60,6 @@ const itemHeight = ref(44)
 onMounted(() => {
   if (__WEB__) {
     itemHeight.value = placeholder.value!.getBoundingClientRect().height
-  } else {
-    const systemInfo = uni.getSystemInfoSync()
-    itemHeight.value = (systemInfo.windowWidth * 44) / 375
   }
 })
 

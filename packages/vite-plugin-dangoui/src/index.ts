@@ -199,7 +199,9 @@ export default function plugin(options: PluginOptions = {}): Plugin {
         }
 
         let styleContent = fs.readFileSync(stylepath, 'utf-8')
-        if (stylepath.includes('switch')) {
+        if (styleContent.includes('no-px-vw-transform')) {
+          // not transform
+        } else if (stylepath.includes('switch')) {
           styleContent = styleContent.replace(
             /(\d+(\.\d+)?|\.\d+)px/g,
             (_, px) => {
