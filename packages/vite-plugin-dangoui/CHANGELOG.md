@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.87
+
+### Patch Changes
+
+- a18866a: 支持不转换 px 到 vw
+- Updated dependencies [a18866a]
+  - dangoui@3.0.116
+
 ## 1.0.86
 
 ### Patch Changes

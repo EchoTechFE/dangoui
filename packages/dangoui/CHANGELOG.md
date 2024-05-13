@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.116
+
+### Patch Changes
+
+- a18866a: 支持不转换 px 到 vw
+
 ## 3.0.115
 
 ### Patch Changes
