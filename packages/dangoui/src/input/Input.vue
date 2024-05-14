@@ -42,6 +42,15 @@
         @confirm="onConfirm"
         @keyboardheightchange="onKeyboardHeightChange"
       />
+      <div
+        class="du-input__clear"
+        :style="{
+          visibility: allowClear && mValue ? 'visible' : 'hidden',
+        }"
+        @click="handleClear"
+      >
+        <DuIcon name="close-circle-filled" color="var(--du-icon-disabled)" />
+      </div>
       <div v-if="props.suffix" class="du-input__suffix">
         {{ props.suffix }}
       </div>
@@ -172,6 +181,10 @@ const props = withDefaults(
      * rightIconSize
      */
     rightIconSize?: string
+    /**
+     * 当有内容时，点击清除图标能够清除内容
+     */
+    allowClear?: boolean
   }>(),
   {
     extClass: '',
@@ -197,6 +210,7 @@ const props = withDefaults(
     selectionStart: -1,
     selectionEnd: -1,
     adjustPosition: true,
+    allowClear: false,
   },
 )
 
@@ -301,5 +315,9 @@ function onInnerInput(e: any) {
   }
 
   mValue.value = val
+}
+
+function handleClear() {
+  mValue.value = ''
 }
 </script>
