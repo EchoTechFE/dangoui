@@ -1,5 +1,11 @@
 # dangoui
 
+## 4.0.0
+
+### Major Changes
+
+- 5c78610: update upload fail error
+
 ## 3.0.116
 
 ### Patch Changes
