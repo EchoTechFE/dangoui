@@ -1,6 +1,6 @@
 ---
-'vite-plugin-dangoui': major
-'dangoui': major
+'vite-plugin-dangoui': patch
+'dangoui': patch
 ---
 
 update upload fail error
