@@ -1,0 +1,5 @@
+---
+'dangoui': patch
+---
+
+fix clear
