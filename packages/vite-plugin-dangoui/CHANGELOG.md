@@ -1,5 +1,15 @@
 # vite-plugin-dangoui
 
+## 1.0.88
+
+### Patch Changes
+
+- 5c78610: update upload fail error
+- Updated dependencies [5c78610]
+- Updated dependencies [cbc7cff]
+- Updated dependencies [d466391]
+  - dangoui@3.0.117
+
 ## 1.0.87
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.0.117
+
+### Patch Changes
+
+- 5c78610: update upload fail error
+- cbc7cff: update upload error
+- d466391: input 支持 allow clear 属性
+
 ## 3.0.116
 
 ### Patch Changes
