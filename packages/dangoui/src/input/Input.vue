@@ -44,10 +44,8 @@
       />
       <div
         class="du-input__clear"
-        :style="{
-          visibility: allowClear && mValue ? 'visible' : 'hidden',
-        }"
-        @click="handleClear"
+        v-if="allowClear && mValue"
+        @touchstart.stop.prevent="handleClear"
       >
         <DuIcon name="close-circle-filled" color="var(--du-icon-disabled)" />
       </div>
