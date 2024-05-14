@@ -335,8 +335,8 @@ function uniAdd() {
         }
       }
     },
-    fail(e) {
-      throw new Error(`chooseMedia fail: ${e}`,)
+    fail(e:Error) {
+      throw new Error(`chooseMedia fail: ${e.message}`,)
     },
   })
 }
