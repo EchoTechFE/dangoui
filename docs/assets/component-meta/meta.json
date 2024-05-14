@@ -2117,6 +2117,13 @@
                 "default": "true"
             },
             {
+                "name": "allowClear",
+                "description": "当有内容时，点击清除图标能够清除内容",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "rightIcon",
                 "description": "rightIcon",
                 "required": false,

@@ -5,7 +5,7 @@
 
   &--bordered {
     height: 32px;
-    padding: 5px 8px;
+    padding: 4px 8px;
     border: 1px solid var(--du-border-2);
     border-radius: 4px;
     overflow: hidden;
@@ -88,5 +88,9 @@
     &::placeholder {
       color: var(--du-text-3);
     }
+  }
+
+  &__clear {
+    margin-left: 4px;
   }
 }
