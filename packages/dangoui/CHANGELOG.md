@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.118
+
+### Patch Changes
+
+- 001ce8d: fix clear
+
 ## 3.0.117
 
 ### Patch Changes
