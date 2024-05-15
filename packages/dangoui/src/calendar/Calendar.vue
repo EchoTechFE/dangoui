@@ -242,6 +242,7 @@ const emit = defineEmits<{
   ): void
   (e: 'close'): void
   (e: 'update:visible', visible: boolean): void
+  (e: 'clear'): void
 }>()
 
 const timePickerColumns = computed(() => {
@@ -688,6 +689,7 @@ function handleClear() {
   innerSelected.value = []
   startTime.value = ['8', '0']
   endTime.value = ['20', '0']
+  emit('clear')
 }
 
 const handleConfirm = () => {
