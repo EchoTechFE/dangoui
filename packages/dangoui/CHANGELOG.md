@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.119
+
+### Patch Changes
+
+- f652570: calendar clear event
+
 ## 3.0.118
 
 ### Patch Changes
