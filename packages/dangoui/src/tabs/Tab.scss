@@ -7,10 +7,22 @@
   position: relative;
   white-space: nowrap;
 
+  &::after {
+    width: 28px;
+    height: 24px;
+    bottom: 4px;
+  }
+
   &--large {
     height: 32px;
     font-size: 16px;
     line-height: 24px;
+
+    &::after {
+      width: 32px;
+      height: 30px;
+      bottom: 4px;
+    }
   }
 
   &--active {
@@ -29,6 +41,19 @@
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
+    }
+  }
+
+  &--custom-active {
+    color: var(--du-text-1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-size: contain;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: var(--du-tabs-indicator-url);
     }
   }
 

@@ -16,6 +16,7 @@ export type TabsConfig = {
   type: Ref<'default' | 'tag' | 'text'>
   value: Ref<string>
   color: Ref<string>
+  indicator: Ref<string | undefined>
   setValue: (name: string, id: string) => void
   updateLayout: (name: string, id: string, opts?: TabConfigOpt) => void
 }

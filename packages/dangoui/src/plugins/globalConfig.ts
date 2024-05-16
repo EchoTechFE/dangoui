@@ -40,6 +40,9 @@ type GlobalConfig = {
       ) => { url: string }
     }>
   }
+  tabs?: {
+    indicator?: Record<string, string>
+  }
   /**
    * 小程序独有
    */
