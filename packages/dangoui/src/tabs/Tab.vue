@@ -5,10 +5,12 @@
     :class="[
       'du-tab-item',
       {
-        'du-tab-item--active': isActive,
+        'du-tab-item--custom-active': !!indicatorConf && isActive,
+        'du-tab-item--active': !indicatorConf && isActive,
         'du-tab-item--large': size === 'large',
       },
     ]"
+    :style="style"
     @click="handleClick"
   >
     <slot />
@@ -43,6 +45,7 @@ import { computed, inject, getCurrentInstance } from 'vue'
 import { TabConfigOpt, TabsInjectionKey } from './helpers'
 import { getInstanceId } from './helpers'
 import Tag from '../tag/Tag.vue'
+import { GlobalConfigKey } from '../plugins/globalConfig'
 
 const props = defineProps<{
   name: string
@@ -56,7 +59,23 @@ const id = `du-tab-item-${getInstanceId()}`
 
 const instance = getCurrentInstance()
 
+const globalConfig = inject(GlobalConfigKey)
 const tabsConfig = inject(TabsInjectionKey)
+
+const indicatorConf = computed(() => {
+  if (tabsConfig?.indicator.value && globalConfig?.tabs?.indicator) {
+    const conf = globalConfig.tabs.indicator[tabsConfig.indicator.value]
+    return conf
+  }
+})
+
+const style = computed(() => {
+  if (indicatorConf.value) {
+    return {
+      '--du-tabs-indicator-url': `url(${indicatorConf.value})`,
+    }
+  }
+})
 
 const isActive = computed(() => {
   return tabsConfig?.value.value === props.name

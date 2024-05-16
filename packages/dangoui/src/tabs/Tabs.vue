@@ -64,6 +64,10 @@ const props = withDefaults(
     type: 'default' | 'tag' | 'text'
     value: string
     size: 'normal' | 'large'
+    /**
+     * 指示器，可以通过全局配置进行扩展
+     */
+    indicator?: string
   }>(),
   {
     color: 'primary',
@@ -166,6 +170,7 @@ provide(TabsInjectionKey, {
   type: toRef(props, 'type'),
   value: readonlyValue,
   color: toRef(props, 'color'),
+  indicator: toRef(props, 'indicator'),
   setValue,
   updateLayout,
 })
