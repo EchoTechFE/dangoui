@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.120
+
+### Patch Changes
+
+- 5315251: tabs 支持风格化
+
 ## 3.0.119
 
 ### Patch Changes
