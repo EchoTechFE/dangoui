@@ -878,6 +878,13 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "clear",
+                "type": "[]",
+                "signature": "(event: \"clear\"): void",
+                "declarations": [],
+                "schema": []
             }
         ],
         "slots": []
@@ -4226,6 +4233,13 @@
                 "name": "value",
                 "description": "",
                 "required": true,
+                "type": "string",
+                "default": "unknown"
+            },
+            {
+                "name": "indicator",
+                "description": "指示器，可以通过全局配置进行扩展",
+                "required": false,
                 "type": "string",
                 "default": "unknown"
             }
