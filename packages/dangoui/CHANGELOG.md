@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.121
+
+### Patch Changes
+
+- 7f29f85: 更新 tab 的指示器大小，更新 tab 默认样式
+
 ## 3.0.120
 
 ### Patch Changes
