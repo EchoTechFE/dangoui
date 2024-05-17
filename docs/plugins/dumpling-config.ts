@@ -45,7 +45,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
     tabs: {
       indicator: {
-        qd: 'https://cdn.qiandaoapp.com/interior/images/330711282c8d97fc264c43dc5db2a8ef.svg',
+        qd: 'https://cdn.qiandaoapp.com/interior/images/2ec7a1feb8c27ce9ed0e948ce2676a0a.svg',
       },
     },
     themes: [
