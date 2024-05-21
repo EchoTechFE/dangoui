@@ -1,5 +1,11 @@
 # vite-plugin-dangoui
 
+## 1.0.94
+
+### Patch Changes
+
+- 3185497: support toValue for uniapp
+
 ## 1.0.93
 
 ### Patch Changes
