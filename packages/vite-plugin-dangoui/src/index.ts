@@ -310,6 +310,11 @@ export default {
         'gm',
       )
 
+      const importVueRegex = new RegExp(
+        `^\\s*import\\s*{\\s*([\\w\\s,]+)\\s*}\\s*from\\s*["\']vue["\'];?$`,
+        'gm',
+      )
+
       if (
         !id.includes('node_modules') &&
         ['.vue', '.js', '.ts'].some((ext) => id.endsWith(ext))
@@ -375,6 +380,58 @@ export default {
               return ''
             })
             .join('\n')
+        })
+
+        // TODO: 当前 uniapp 小程序版本的 Vue 比较旧，没有 toValue，在这里，打上 toValue 的 patch，如果后续 uniapp 官方支持，需要移除
+        s.replace(importVueRegex, (_: string, $1: string) => {
+          const imports: { name: string; alias: string }[] = []
+          $1.split(',')
+            .map((s) => s.trim())
+            .forEach((s) => {
+              if (s === '') {
+                return
+              }
+
+              if (s.includes(' as ')) {
+                const [name, alias] = s.split(' as ').map((item) => item.trim())
+                imports.push({
+                  name,
+                  alias,
+                })
+              } else {
+                imports.push({
+                  name: s,
+                  alias: s,
+                })
+              }
+            })
+
+          if (imports.some((i) => i.name === 'toValue')) {
+            if (!imports.some((i) => i.name === 'unref')) {
+              imports.push({
+                name: 'unref',
+                alias: 'unref',
+              })
+            }
+            const lines: string[] = []
+            const importsStr = imports
+              .filter((i) => i.name !== 'toValue')
+              .map((i) => {
+                if (i.name === i.alias) {
+                  return i.name
+                } else {
+                  return `${i.name} as ${i.alias}`
+                }
+              })
+              .join(', ')
+            lines.push(`import { ${importsStr} } from 'vue';`)
+            lines.push(
+              `function toValue(r) { return typeof r === 'function' ? r() : unref(r) }\n`,
+            )
+            return lines.join('\n')
+          }
+
+          return _
         })
 
         if (s.hasChanged()) {
