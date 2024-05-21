@@ -34,6 +34,18 @@ yarn add dangoui
 pnpm add dangoui
 ```
 
+## 开发
+
+```bash
+# 编译组件库
+pnpm run build
+
+# 文档站 dev 模式
+cd docs
+# 在 run dev 前，要编译组件库，要查看最新组件库更改，也要编译组件库
+pnpm run dev
+```
+
 ## 链接
 
 - [Dango UI 文档](https://dumpling.echo.tech/)
