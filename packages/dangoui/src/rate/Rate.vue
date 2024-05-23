@@ -14,6 +14,9 @@
         }"
       >
         <DuIcon :name="icon" :size="iconSize" :color="color" />
+        <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText">
+          {{ computedTextList[index - 1] }}
+        </div>
       </div>
       <div
         v-if="percent > 0"
@@ -33,15 +36,21 @@
             }"
             class="du-rate du-rate__left-half"
           >
-            <DuIcon :name="icon" :size="iconSize" :color="color" />
+            <div class="du-rate__left-container">
+              <DuIcon :name="icon" :size="iconSize" :color="color" />
+              <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText">
+                {{ computedTextList[chosen] }}
+              </div>
+            </div>
           </div>
+
           <div
-            :style="{
-              width: (1 - percent) * 100 + '%',
-            }"
-            class="du-rate du-rate__right-half"
+            class="du-rate du-rate__unselected"
           >
             <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
+            <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText">
+              {{ computedTextList[chosen] }}
+            </div>
           </div>
         </div>
       </div>
@@ -55,13 +64,16 @@
         }"
       >
         <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
+        <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText">
+          {{ computedTextList[percent > 0 ? chosen + index : chosen + index - 1] }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, normalizeStyle, normalizeClass } from 'vue'
+import { computed, normalizeClass, normalizeStyle, ref, watch } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { isPlatteColor } from '../helpers'
 
@@ -110,7 +122,15 @@ const props = withDefaults(
     /**
      * 是否支持半选
      */
-    half: boolean
+    half: boolean,
+    /**
+     * 是否在icon下显示文字
+     */
+    withText: boolean,
+    /**
+     * 文字列表
+     */
+    textList?: string[]
   }>(),
   {
     count: 5,
@@ -118,13 +138,13 @@ const props = withDefaults(
     size: 'medium',
     color: '#FC7E22',
     disabled: false,
-    readonly: false,
     icon: 'rate-filled',
     extStyle: '',
     extClass: '',
-    animation: 'bounce',
+    animation: null,
     half: false,
     defaultValue: 0,
+    withText: false
   },
 )
 
@@ -133,6 +153,18 @@ const emits = defineEmits<{
   (e: 'update:value', i: number): void
 }>()
 
+const displayValue = ref(props.defaultValue || props.value)
+
+const computedTextList = computed(() => {
+  if (props.withText && props.textList?.length === props.count) {
+    return props.textList
+  } else if (props.withText) {
+    return Array.from({ length: props.count }).map((_, i) => String(i + 1))
+  } else {
+    return []
+  }
+})
+
 const color = computed(() => {
   if (isPlatteColor(props.color)) {
     return `var(--du-${props.color}-color)`
@@ -140,7 +172,11 @@ const color = computed(() => {
   return props.color
 })
 
-const displayValue = ref(props.defaultValue || props.value)
+const colorStyle = computed(() => {
+  return normalizeStyle({
+    color: color.value,
+  })
+})
 
 const chosen = computed(() => {
   return Math.floor(displayValue.value || 0)

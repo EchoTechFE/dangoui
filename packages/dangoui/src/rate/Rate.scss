@@ -1,6 +1,29 @@
 .du-rate {
+  position: relative;
+
+  &__unselected, &__left-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+
+    &--unselected {
+      color: #D4D0DA;
+    }
+
+  }
   &__item {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &--mini {
       overflow: hidden;
@@ -23,14 +46,22 @@
     display: flex;
     flex-direction: row;
   }
-  &__right-half {
-    transform: scaleX(-1);
-    height: 100%;
-    overflow: hidden;
-  }
+
+  //
+  //&__rate__unselected {
+  //  height: 100%;
+  //  overflow: hidden;
+  //  color: #D4D0DA;
+  //  width: 100%;
+  //}
 
   &__left-half {
     height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    top: 0;
     overflow: hidden;
   }
   &__container {
