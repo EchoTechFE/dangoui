@@ -191,7 +191,9 @@ const className = computed(() => {
   return normalizeClass(props.extClass)
 })
 
+
 const style = computed(() => {
+
   return normalizeStyle(props.extStyle)
 })
 
