@@ -21,7 +21,7 @@
       <DuImage :src="file.thumbUrl" />
       <DuIcon
         v-if="!disabled"
-        name="close-circle-filled"
+        name="close-heavy"
         class="du-upload__item-delete"
         @click="handleDelete(file)"
       />
