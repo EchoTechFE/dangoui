@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.123
+
+### Patch Changes
+
+- 2bc03a4: 兼容 uniapp app plus
+
 ## 3.0.122
 
 ### Patch Changes
