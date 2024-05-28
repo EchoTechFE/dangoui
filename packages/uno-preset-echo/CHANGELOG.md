@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.7
+
+### Patch Changes
+
+- 29b93a9: 拆出 echo-colors 包
+- Updated dependencies [29b93a9]
+  - unocss-preset-echo-colors@1.7.7
+
 ## 1.7.6
 
 ### Patch Changes

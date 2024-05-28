@@ -1,5 +1,23 @@
 # dangoui
 
+## 3.0.123
+
+### Patch Changes
+
+- 2bc03a4: 兼容 uniapp app plus
+
+## 3.0.122
+
+### Patch Changes
+
+- a63fa13: update icon
+
+## 3.0.121
+
+### Patch Changes
+
+- 7f29f85: 更新 tab 的指示器大小，更新 tab 默认样式
+
 ## 3.0.120
 
 ### Patch Changes
