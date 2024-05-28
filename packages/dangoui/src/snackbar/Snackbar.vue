@@ -1,24 +1,37 @@
 <template>
   <div :style="style" :class="className" v-if="show">
+    <div class="du-snackbar__left">
+      <DuIcon
+        v-if="leftIcon"
+        extClass="du-snackbar__left__icon"
+        :name="leftIcon"
+      />
+      <DuImage
+        v-if="leftImage"
+        :src="leftImage"
+        width="32px"
+        height="32px"
+        radius="4px"
+        extClass="du-snackbar__left__image"
+      />
+    </div>
+    <div class="du-snackbar__content"><slot /></div>
+    <DuButton
+      v-if="showActionBtn"
+      size="mini"
+      :text="buttonProps?.text"
+      :color="buttonProps?.color || 'white'"
+      :type="buttonProps?.type || 'primary'"
+      @click="emitAction"
+      :style="{ flex: 'none' }"
+    />
     <div v-if="showClose" class="du-snackbar__close">
       <DuIcon
         @click="emitClose"
         extClass="du-snackbar__close__icon"
-        :name="leftIcon"
+        name="close-heavy"
       />
-      <div class="du-snackbar__close__bgc"></div>
     </div>
-    <div class="du-snackbar__content">
-      <slot />
-    </div>
-    <DuButton
-      v-if="showActionBtn"
-      size="mini"
-      color="white"
-      :text="buttonProps?.text"
-      @click="emitAction"
-      :style="{ flex: 'none' }"
-    />
   </div>
 </template>
 
@@ -26,6 +39,7 @@
 import { computed, watch, normalizeStyle, normalizeClass } from 'vue'
 import DuButton from '../button/Button.vue'
 import DuIcon from '../icon/Icon.vue'
+import DuImage from '../image/Image.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -42,9 +56,12 @@ const props = withDefaults(
     showClose: boolean
     buttonProps?: {
       text: string
+      color: string
+      type: 'primary' | 'secondary' | 'outline' | 'text'
     }
     showActionBtn: boolean
     leftIcon: string
+    leftImage: string
   }>(),
   {
     extClass: '',
@@ -56,7 +73,8 @@ const props = withDefaults(
     showClose: false,
     buttonProps: undefined,
     showActionBtn: true,
-    leftIcon: 'close-circle-filled',
+    leftIcon: '',
+    leftImage: '',
   },
 )
 
