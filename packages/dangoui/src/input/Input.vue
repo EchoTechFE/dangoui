@@ -307,7 +307,7 @@ function onKeyboardHeightChange(e: any) {
 }
 
 function onInnerInput(e: any) {
-  let val = e.target.value
+  let val = e?.target?.value || e?.detail.value
   if (props.trim) {
     val = val.trim()
   }

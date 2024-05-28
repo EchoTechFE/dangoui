@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
 })
 
 function handleInput(e: any) {
-  emit('update:value', e.target.value)
+  emit('update:value', e?.target?.value || e?.detail?.value)
 }
 
 function handleClear() {

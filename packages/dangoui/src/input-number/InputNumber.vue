@@ -172,7 +172,7 @@ const isAddDisabled = computed(() => {
 function onInput(e: any) {
   const previousValue = inputValue.value
 
-  let val = e.target.value
+  let val = e?.target?.value || e?.detail?.value
 
   if (props.allowDecimal) {
     if (val !== '' && !/^\d+(\.\d*)?$/.test(val)) {
