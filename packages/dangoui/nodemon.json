@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "src/"
+  ],
+  "verbose": true,
+  "exec": "pnpm run build",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules"
+  ],
+  "ext": "js json ts vue"
+}

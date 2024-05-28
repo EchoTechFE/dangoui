@@ -47,7 +47,7 @@
     "gen:icon": "node ./scripts/genicon.cjs",
     "dts": "vue-tsc -p tsconfig.declaration.json --declaration --emitDeclarationOnly",
     "build": "pnpm run dts && vite build && gulp && node ./scripts/gen-theme.mjs",
-    "build:watch": "nodemon --watch './src/**/*.{vue,ts,scss}' --exec 'pnpm run build'",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

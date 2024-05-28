@@ -14,13 +14,15 @@
         }"
       >
         <DuIcon :name="icon" :size="iconSize" :color="color" />
-        <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText">
+        <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText&& size==='large'">
           {{ computedTextList[index - 1] }}
+
         </div>
       </div>
       <div
         v-if="percent > 0"
         @click="handleClickItem($event, Math.ceil(displayValue || 0))"
+
         :class="`du-rate du-rate__item du-rate__item--${size}`"
         :style="{
           cursor: disabled ? 'not-allowed' : 'pointer',
@@ -48,7 +50,7 @@
             class="du-rate du-rate__unselected"
           >
             <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
-            <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText">
+            <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText&& size==='large'">
               {{ computedTextList[chosen] }}
             </div>
           </div>
@@ -64,7 +66,7 @@
         }"
       >
         <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
-        <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText">
+        <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText && size==='large'">
           {{ computedTextList[percent > 0 ? chosen + index : chosen + index - 1] }}
         </div>
       </div>
@@ -124,7 +126,7 @@ const props = withDefaults(
      */
     half: boolean,
     /**
-     * 是否在icon下显示文字
+     * 是否在icon下显示文字，该项只在size为large的情况下可用
      */
     withText: boolean,
     /**
@@ -181,6 +183,7 @@ const colorStyle = computed(() => {
 const chosen = computed(() => {
   return Math.floor(displayValue.value || 0)
 })
+
 
 // 小数点
 const percent = computed(() => {
