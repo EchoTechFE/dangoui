@@ -8,5 +8,5 @@
     ".git",
     "node_modules/**/node_modules"
   ],
-  "ext": "js json ts vue"
+  "ext": "js json ts vue scss"
 }

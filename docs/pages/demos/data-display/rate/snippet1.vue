@@ -25,10 +25,12 @@
       @update:value="handleUpdate"
     />
   </PreviewBlock>
-  <PreviewBlock title="动画效果" >
+
+  <PreviewBlock title="动画效果 - bounce">
     <DuRate
       size="large"
-      animation="fade"
+      animation="bounce"
+      :defaultValue="3"
     />
   </PreviewBlock>
   <PreviewBlock title="自定义图标" >
@@ -46,22 +48,14 @@
       half
     />
   </PreviewBlock>
-  <PreviewBlock>
+  <PreviewBlock title="带文字" >
     <DuRate
       size="large"
       icon="like-normal"
-      withText
-      defaultValue="3"
-    />
-  </PreviewBlock>
-  <PreviewBlock>
-    <DuRate
-      size="large"
-      icon="have-normal"
       half
-      :text-list="['不行','还行','可以', '很好', '好']"
       withText
-      defaultValue="3"
+      :text-list="[ '丑', '难看', '还行', '不错', '绝美']"
+      :defaultValue="3"
     />
   </PreviewBlock>
    <PreviewBlock title="非受控" >
@@ -69,7 +63,7 @@
       size="large"
       icon="like-normal"
       half
-      defaultValue="3"
+      :defaultValue="3"
     />
   </PreviewBlock>
 
