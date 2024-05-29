@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.125
+
+### Patch Changes
+
+- 693ab1d: update icon
+
 ## 3.0.124
 
 ### Patch Changes
