@@ -52,7 +52,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
 }>()
 
 const id = `du-tab-item-${getInstanceId()}`
@@ -93,7 +93,7 @@ const type = computed(() => {
   return tabsConfig?.type.value
 })
 
-function handleClick() {
+function handleClick(event: any) {
   if (tabsConfig) {
     const opt: TabConfigOpt = {}
     if (__WEB__) {
@@ -115,6 +115,6 @@ function handleClick() {
     tabsConfig.setValue(props.name, id)
   }
 
-  emit('click')
+  emit('click', event)
 }
 </script>

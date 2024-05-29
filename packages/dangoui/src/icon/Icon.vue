@@ -43,7 +43,7 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
 }>()
 
 const isImageUrl = computed(() => {
@@ -110,7 +110,7 @@ const unicode = computed(() => {
   return config || iconConfig.icons['question-circle-filled']
 })
 
-function onClick() {
-  emit('click')
+function onClick(event: any) {
+  emit('click', event)
 }
 </script>
