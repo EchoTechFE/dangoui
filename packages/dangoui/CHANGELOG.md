@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.128
+
+### Patch Changes
+
+- 906b823: update snackbar
+
 ## 3.0.127
 
 ### Patch Changes
