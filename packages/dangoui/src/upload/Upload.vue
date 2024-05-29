@@ -19,12 +19,19 @@
       ]"
     >
       <DuImage :src="file.thumbUrl" />
-      <DuIcon
-        v-if="!disabled"
-        name="close-heavy"
+      
+      <div
         class="du-upload__item-delete"
+        v-if="!disabled"
         @click="handleDelete(file)"
-      />
+      >
+        <DuIcon
+          name="close-heavy"
+          class="du-upload__item-delete-icon"
+          size="8"
+        />
+      </div>
+
       <div v-if="badge && idx === 0" class="du-upload__item-label">
         {{ badge }}
       </div>
