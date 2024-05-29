@@ -60,7 +60,7 @@ pnpm run dev
    2. 自动发布（GitHub Action），提交/合并到 main 的代码，如果含有 changeset 文件，会更新版本并提交一个 PR，合并 PR 后，会进行版本发布
 
 :bulb: **npx changeset 的使用**  
-使用空格键确认，使用回车键跳过。在选在版本提升时（bump）通过回车键跳过来切换 major，minor，patch 版本。
+使用空格键确认，使用回车键跳过。在选版本提升时（bump）通过回车键跳过来切换 major，minor，patch 版本。
 
 ### 发布文档站
 
