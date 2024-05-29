@@ -25,10 +25,10 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
 }>()
 
-function handleClick() {
-  emit('click')
+function handleClick(event: any) {
+  emit('click', event)
 }
 </script>

@@ -119,7 +119,7 @@ const emit = defineEmits<{
   /**
    * 点击整个元素
    */
-  (e: 'click'): void
+  (e: 'click', event: any): void
   /**
    * 输入框的值发生变化
    */
@@ -215,8 +215,8 @@ function handleClear() {
   emit('confirm', '')
 }
 
-function handleClick() {
-  emit('click')
+function handleClick(event: any) {
+  emit('click', event)
 }
 
 function handlePlaceholderClick() {

@@ -1,9 +1,5 @@
 <template>
-  <div
-    :class="className"
-    :style="style"
-    @click="handleClick"
-  >
+  <div :class="className" :style="style" @click="handleClick">
     <div v-if="icon" :class="`du-tag__icon du-tag__icon--${size}`">
       <DuIcon :name="icon" />
     </div>
@@ -69,7 +65,7 @@ const props = withDefaults(
     size: 'normal',
     closeable: false,
     extClass: '',
-    extStyle: ''
+    extStyle: '',
   },
 )
 
@@ -86,33 +82,39 @@ const colorName = computed(() => {
 
 const className = computed(() => {
   return normalizeClass([
-      'du-tag',
-      `du-tag--${colorName.value}`,
-      `du-tag--${props.size}`,
-      `du-tag--${props.bg}`,
-      {
-        'du-tag--bordered': props.bordered,
-        'du-tag--round': props.round,
-      },
-      props.extClass
-    ])
+    'du-tag',
+    `du-tag--${colorName.value}`,
+    `du-tag--${props.size}`,
+    `du-tag--${props.bg}`,
+    {
+      'du-tag--bordered': props.bordered,
+      'du-tag--round': props.round,
+    },
+    props.extClass,
+  ])
 })
 
 const style = computed(() => {
   if (typeof props.color === 'string') {
     if (props.color.startsWith('#')) {
-      return normalizeStyle([{
-        '--du-c-tag': props.color,
-        '--du-c-tag-soft-bg': props.color + '33',
-        // 目前没有自动感知背景色亮暗的能力
-        '--du-c-tag-solid-text': '#fff',
-      }, props.extStyle])
+      return normalizeStyle([
+        {
+          '--du-c-tag': props.color,
+          '--du-c-tag-soft-bg': props.color + '33',
+          // 目前没有自动感知背景色亮暗的能力
+          '--du-c-tag-solid-text': '#fff',
+        },
+        props.extStyle,
+      ])
     } else {
-      return normalizeStyle([{
-        '--du-c-tag': `var(--du-c-${props.color}-tag)`,
-        '--du-c-tag-soft-bg': `var(--du-c-${props.color}-tag-soft-bg)`,
-        '--du-c-tag-solid-text': `var(--du-c-${props.color}-tag-solid-text)`,
-      }, props.extStyle])
+      return normalizeStyle([
+        {
+          '--du-c-tag': `var(--du-c-${props.color}-tag)`,
+          '--du-c-tag-soft-bg': `var(--du-c-${props.color}-tag-soft-bg)`,
+          '--du-c-tag-solid-text': `var(--du-c-${props.color}-tag-solid-text)`,
+        },
+        props.extStyle,
+      ])
     }
   } else {
     const s: StyleValue = {}
@@ -128,7 +130,7 @@ const style = computed(() => {
 })
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
   (e: 'close'): void
 }>()
 
@@ -136,7 +138,7 @@ function handleClose() {
   emit('close')
 }
 
-function handleClick() {
-  emit('click')
+function handleClick(event: any) {
+  emit('click', event)
 }
 </script>

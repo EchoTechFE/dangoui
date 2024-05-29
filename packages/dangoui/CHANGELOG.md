@@ -1,5 +1,17 @@
 # dangoui
 
+## 3.0.127
+
+### Patch Changes
+
+- c3e84af: click 事件增加原生事件透传
+
+## 3.0.126
+
+### Patch Changes
+
+- 11dddc6: calendar support 1 minute interval
+
 ## 3.0.125
 
 ### Patch Changes
