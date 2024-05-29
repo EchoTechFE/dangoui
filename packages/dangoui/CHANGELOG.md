@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.127
+
+### Patch Changes
+
+- c3e84af: click 事件增加原生事件透传
+
 ## 3.0.126
 
 ### Patch Changes
