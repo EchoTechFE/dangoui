@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.96
+
+### Patch Changes
+
+- 1ab1cf4: 评分组件改造
+- Updated dependencies [8385acb]
+- Updated dependencies [1ab1cf4]
+  - dangoui@3.0.124
+
 ## 1.0.95
 
 ### Patch Changes

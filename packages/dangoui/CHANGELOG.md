@@ -1,5 +1,12 @@
 # dangoui
 
+## 3.0.124
+
+### Patch Changes
+
+- 8385acb: change upload delete button style
+- 1ab1cf4: 评分组件改造
+
 ## 3.0.123
 
 ### Patch Changes
