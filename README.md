@@ -59,6 +59,9 @@ pnpm run dev
    1. 手动发布（不推荐）,`npx changest version`、`pnpm run build`、`npx changeset publish`
    2. 自动发布（GitHub Action），提交/合并到 main 的代码，如果含有 changeset 文件，会更新版本并提交一个 PR，合并 PR 后，会进行版本发布
 
+:bulb: **npx changeset 的使用**  
+使用空格键确认，使用回车键跳过。在选版本提升时（bump）通过回车键跳过来切换 major，minor，patch 版本。
+
 ### 发布文档站
 
 在 GitHub Actions 中，选择 Doc，并点 Run workflow
