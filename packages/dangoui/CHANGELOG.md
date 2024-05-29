@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.126
+
+### Patch Changes
+
+- 11dddc6: calendar support 1 minute interval
+
 ## 3.0.125
 
 ### Patch Changes
