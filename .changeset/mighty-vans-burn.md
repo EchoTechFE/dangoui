@@ -1,0 +1,5 @@
+---
+'dangoui': major
+---
+
+update icon

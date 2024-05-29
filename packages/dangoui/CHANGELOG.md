@@ -1,11 +1,5 @@
 # dangoui
 
-## 4.0.0
-
-### Major Changes
-
-- d872673: update icon
-
 ## 3.0.124
 
 ### Patch Changes
