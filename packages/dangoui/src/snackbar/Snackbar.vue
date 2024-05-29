@@ -18,10 +18,12 @@
     <div class="du-snackbar__content"><slot /></div>
     <DuButton
       v-if="showActionBtn"
-      size="mini"
       :text="buttonProps?.text"
       :color="buttonProps?.color || 'white'"
       :type="buttonProps?.type || 'primary'"
+      :size="buttonProps?.size || 'mini'"
+      :extClass="buttonProps?.extClass"
+      :extStyle="buttonProps?.extStyle"
       @click="emitAction"
       :style="{ flex: 'none' }"
     />
@@ -58,6 +60,13 @@ const props = withDefaults(
       text: string
       color: string
       type: 'primary' | 'secondary' | 'outline' | 'text'
+      size: 'normal' | 'mini' | 'small' | 'medium' | 'large'
+      extClass: string | string[] | Record<string, boolean>
+      extStyle:
+        | string
+        | {
+            [x: string]: string | number
+          }
     }
     showActionBtn: boolean
     leftIcon: string

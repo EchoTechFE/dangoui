@@ -3800,9 +3800,9 @@
       },
       {
         "name": "buttonProps",
-        "description": "",
+        "description": "支持自定义按钮",
         "required": false,
-        "type": "{ text: string; color: string; type: \"primary\" | \"secondary\" | \"outline\" | \"text\" }",
+        "type": "{ text: string; color: string; type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size:\"normal\" | \"mini\" | \"small\" | \"medium | \"large\";extClass: string | string[] | Record<string, boolean>; extStyle: string | { ...; };}",
         "default": "undefined"
       },
       {
@@ -3816,13 +3816,15 @@
         "name": "leftIcon",
         "description": "",
         "required": false,
-        "type": "string"
+        "type": "string",
+        "default": "\"\""
       },
       {
         "name": "leftImage",
         "description": "",
         "required": false,
-        "type": "string"
+        "type": "string",
+        "default": "\"\""
       }
     ],
     "events": [
