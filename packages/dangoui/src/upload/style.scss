@@ -35,11 +35,28 @@
   }
 
   &__item-delete {
-    font-size: 16px;
-    line-height: 16px;
+    cursor: pointer;
     position: absolute;
-    right: 2px;
-    top: 2px;
+    top: 0px;
+    right: 0px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icon {
+      font-size: 8px;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      border: 1px solid rgba(255, 255, 255, 0.64);
+      background-color:rgba(0, 0, 0, 0.24);
+      border-radius: 50%;
+    }
   }
 
   &__item-add {
