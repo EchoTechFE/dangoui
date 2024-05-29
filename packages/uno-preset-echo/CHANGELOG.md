@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.8
+
+### Patch Changes
+
+- 1ab1cf4: 评分组件改造
+- Updated dependencies [1ab1cf4]
+  - unocss-preset-echo-colors@1.7.8
+
 ## 1.7.7
 
 ### Patch Changes
