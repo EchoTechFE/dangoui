@@ -415,7 +415,7 @@
                 "name": "timeStep",
                 "description": "",
                 "required": false,
-                "type": "5 | 10",
+                "type": "1 | 5 | 10",
                 "default": "5"
             }
         ],
@@ -3434,7 +3434,7 @@
                 "description": "评分改变时触发的过渡动画",
                 "required": false,
                 "type": "\"bounce\" | \"fade\" | null",
-                "default": "\"bounce\""
+                "default": "null"
             },
             {
                 "name": "count",
@@ -3456,6 +3456,20 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "withText",
+                "description": "是否在icon下显示文字，该项只在size为large的情况下可用",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "textList",
+                "description": "文字列表",
+                "required": false,
+                "type": "string[]",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -3544,13 +3558,6 @@
                 "default": "\"\""
             },
             {
-                "name": "readonly",
-                "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "clearable",
                 "description": "是否可清空",
                 "required": false,
@@ -3563,6 +3570,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\""
+            },
+            {
+                "name": "readonly",
+                "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             }
         ],
         "events": [

@@ -212,7 +212,7 @@ const props = withDefaults(
     selectableCount?: number
     weekStart?: number
     showTimePicker?: boolean
-    timeStep: 5 | 10
+    timeStep: 1 | 5 | 10
   }>(),
   {
     extClass: '',
@@ -354,10 +354,17 @@ const buttonConfirmText = computed(() => {
     }
   }
 
+  if (props.type === 'range' && innerSelected.value.length === 1) {
+    return '缺少结束时间'
+  }
+
   return props.confirmText || '确定'
 })
 
 const buttonDisabled = computed(() => {
+  if (props.type === 'range' && innerSelected.value.length === 1) {
+    return true
+  }
   return isInvalidDateRange.value || innerSelected.value.length <= 0
 })
 
