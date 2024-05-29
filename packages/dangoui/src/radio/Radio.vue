@@ -98,7 +98,7 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
   (e: 'input', value: { checked: boolean; value: any | undefined }): void
   (e: 'update:value', value: { checked: boolean; value: any | undefined }): void
   (e: 'update:checked', value: boolean): void
@@ -181,8 +181,8 @@ function update(value: string | number) {
   emit('update:checked', true)
 }
 
-function handleClick() {
-  emit('click')
+function handleClick(event: any) {
+  emit('click', event)
 
   if (config.value.disabled) {
     return

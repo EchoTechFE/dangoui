@@ -169,7 +169,7 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'click'): void
+  (e: 'click', event: any): void
   (e: 'getUserInfo', ...args: any[]): void
 }>()
 
@@ -238,9 +238,9 @@ const style = computed(() => {
 const isIconC = computed(() => !!findIcon(props.icon))
 const allowClick = computed(() => !props.disabled && !props.loading)
 
-function onClick() {
+function onClick(event: any) {
   if (!props.press && allowClick.value) {
-    emit('click')
+    emit('click', event)
   }
 }
 
@@ -251,7 +251,7 @@ function onStart() {
   }
 }
 
-function onEnd() {
+function onEnd(event: any) {
   if (props.press) {
     const minPressTime = 150 - (new Date().getTime() - pressStart.value)
     setTimeout(
@@ -261,7 +261,7 @@ function onEnd() {
       minPressTime > 0 ? minPressTime : 0,
     )
     if (allowClick.value) {
-      emit('click')
+      emit('click', event)
     }
   }
 }
