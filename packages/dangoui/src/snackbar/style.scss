@@ -29,6 +29,8 @@
   &__close {
     line-height: 1;
     margin-left: 12px;
+    display: flex;
+    align-items: center;
     &__icon {
       font-size: 9px;
       color: var(--du-secondary-solid-color);
