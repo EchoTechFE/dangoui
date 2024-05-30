@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.129
+
+### Patch Changes
+
+- 52a90c8: fix:snackbar close
+
 ## 3.0.128
 
 ### Patch Changes
