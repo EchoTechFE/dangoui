@@ -48,8 +48,7 @@
 
   &--bottom-safe-area {
     padding-bottom: 0px;
-    padding-bottom: calc(0px + constant(safe-area-inset-bottom));
-    padding-bottom: calc(0px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   &--bottom-open {
