@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.130
+
+### Patch Changes
+
+- 422e929: 修复 uniapp app plus 中 safe bottom 不生效的问题
+
 ## 3.0.129
 
 ### Patch Changes
