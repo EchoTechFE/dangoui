@@ -8,23 +8,22 @@
     :disable-portal="disablePortal"
     :title="title"
     :title-align="titleAlign"
-    :ext-class="extClass"
+    :ext-class="modalContainerClass"
     :ext-style="extStyle"
     :mask-class="maskClass"
     :mask-style="maskStyle"
   >
-    <DuImage v-if="cover" :src="cover" extClass=""/>
     <slot />
-    <div class="du-modal__footer">
+    <div class="du-modal__footer du-modal__button">
       <DuButton v-for="btnConfig in actions" v-bind="btnConfig"/>
     </div>
   </DuPopup>
 </template>
 <script lang="ts" setup>
 import DuPopup from '../popup/Popup.vue'
-import { ref, watch } from 'vue'
+import { computed, normalizeClass, ref, watch } from 'vue'
 import DuButton from '../button/Button.vue'
-import { DuImage } from '../image/Image.vue'
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -78,11 +77,11 @@ const props = withDefaults(
     /**
      * 底部按钮配置，类型参考Button的属性
      */
-    actions: InstanceType<typeof DuButton>['$props'][]
+    actions: (InstanceType<typeof DuButton>['$props'] & { buttonText: string })[]
     /**
-     * 封面图
+     * 按钮排列方式：水平或者垂直
      */
-    cover: string
+    buttonLayout: 'horizontal' | 'vertical'
   }>(),
   {
     extStyle: '',
@@ -97,10 +96,17 @@ const props = withDefaults(
     maskStyle: '',
     disablePortal: false,
     actions: () => [],
-    cover: ''
+    buttonLayout: 'horizontal'
   }
 )
 
+const modalContainerClass = computed(() => {
+  const { extClass } = props
+  return normalizeClass([
+    'du-modal',
+    extClass
+  ])
+})
 
 const _visible = ref(false)
 
