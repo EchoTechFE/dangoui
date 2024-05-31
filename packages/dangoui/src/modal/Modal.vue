@@ -1,13 +1,30 @@
 <template>
-  <DuPopup v-model:visible="_visible" type="center">
-
+  <DuPopup
+    v-model:visible="_visible"
+    type="center"
+    :header-visible="headerVisible"
+    :mask-click="maskClick"
+    :closable="closable"
+    :disable-portal="disablePortal"
+    :title="title"
+    :title-align="titleAlign"
+    :ext-class="extClass"
+    :ext-style="extStyle"
+    :mask-class="maskClass"
+    :mask-style="maskStyle"
+  >
+    <DuImage v-if="cover" :src="cover" extClass=""/>
+    <slot />
+    <div class="du-modal__footer">
+      <DuButton v-for="btnConfig in actions" v-bind="btnConfig"/>
+    </div>
   </DuPopup>
 </template>
 <script lang="ts" setup>
 import DuPopup from '../popup/Popup.vue'
 import { ref, watch } from 'vue'
-
-
+import DuButton from '../button/Button.vue'
+import { DuImage } from '../image/Image.vue'
 const props = withDefaults(
   defineProps<{
     /**
@@ -37,7 +54,7 @@ const props = withDefaults(
     /**
      * 标题对齐方式，default 为左对齐
      */
-    titleAlign: string
+    titleAlign: 'default' | 'center' | undefined
     /**
      * maskClass
      */
@@ -58,6 +75,14 @@ const props = withDefaults(
       | {
       [x: string]: string | number
     }
+    /**
+     * 底部按钮配置，类型参考Button的属性
+     */
+    actions: InstanceType<typeof DuButton>['$props'][]
+    /**
+     * 封面图
+     */
+    cover: string
   }>(),
   {
     extStyle: '',
@@ -71,8 +96,11 @@ const props = withDefaults(
     maskClass: '',
     maskStyle: '',
     disablePortal: false,
+    actions: () => [],
+    cover: ''
   }
 )
+
 
 const _visible = ref(false)
 
@@ -82,5 +110,5 @@ watch(() => props.visible, (val) => {
   immediate: true
 })
 
-console.log(props)
+
 </script>

@@ -1,0 +1,11 @@
+.du-modal {
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__cover {
+    width: 100%;
+
+  }
+}
