@@ -1,29 +1,65 @@
 .du-modal {
   width: 271px;
+
+  &__content {
+    color: rgba(0, 0, 0, 0.64);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    max-height: 274px;
+    overflow: auto;
+    margin-bottom: 8px;
+
+  }
+
+  &__content::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  &__container {
+    padding: 0 15px;
+  }
+
   &__footer {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  &__cover {
-    width: 100%;
-  }
+
   &__button {
     display: flex;
     margin-bottom: 20px;
+    align-items: center;
+    width: 100%;
+
+    &-item {
+      flex: 1;
+      width: 100%;
+    }
     &--horizontal {
-      margin-right: 9px;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: center;
     }
 
-    &--horizontal:last-child {
+    &--horizontal &-item {
+      margin-right: 6px;
+    }
+
+    &--horizontal &-item:last-child {
       margin-right: 0;
     }
 
     &--vertical {
-      margin-bottom: 12px;
+      flex-direction: column;
     }
 
-    &--vertical:last-child {
+    &--vertical &-item {
+      margin-bottom: 9px;
+    }
+
+    &--vertical &-item:last-child {
       margin-bottom: 0;
     }
   }

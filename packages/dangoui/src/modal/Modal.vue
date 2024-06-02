@@ -2,87 +2,68 @@
   <DuPopup
     v-model:visible="_visible"
     type="center"
-    :header-visible="headerVisible"
-    :mask-click="maskClick"
-    :closable="closable"
-    :disable-portal="disablePortal"
-    :title="title"
-    :title-align="titleAlign"
+    :header-visible="state.headerVisible"
+    :mask-click="state.maskClick"
+    :closable="state.closable"
+    :disable-portal="state.disablePortal"
+    :title="state.title"
+    :title-align="state.titleAlign"
     :ext-class="modalContainerClass"
-    :ext-style="extStyle"
-    :mask-class="maskClass"
-    :mask-style="maskStyle"
+    :ext-style="state.extStyle"
+    :mask-class="state.maskClass"
+    :mask-style="state.maskStyle"
+    @close="handleClick"
   >
-    <slot />
-    <div class="du-modal__footer du-modal__button">
-      <DuButton v-for="btnConfig in actions" v-bind="btnConfig"/>
+    <div class="du-modal__container">
+      <div v-if="content" class="du-modal__content">
+        {{ content }}
+      </div>
+      <slot v-else/>
+      <div :class="['du-modal__footer', 'du-modal__button', {
+      'du-modal__button--horizontal': actionLayout === 'horizontal',
+      'du-modal__button--vertical': actionLayout === 'vertical'
+
+    }]">
+        <div class="du-modal__button-item" v-for="(btnConfig, index) in state.actions"
+             @click="handleActionButtonClick(btnConfig.key, index)">
+          <DuButton
+            :key="btnConfig.key"
+            :ext-class="btnConfig.extClass"
+            :ext-style="btnConfig.extStyle"
+            :size="btnConfig.size"
+            :type="btnConfig.type"
+            :loading="btnConfig.loading"
+            :disabled="btnConfig.disabled"
+            :color="btnConfig.color"
+            :icon-size="btnConfig.iconSize"
+            :icon-position="btnConfig.iconPosition"
+            :icon="btnConfig.icon"
+            :text="btnConfig.text || '按钮'"
+            :arrow-right="btnConfig.arrowRight"
+            :button-id="btnConfig.buttonId"
+            :disabled-type="btnConfig.disabledType"
+            :open-type="btnConfig.openType"
+            :press="btnConfig.press"
+            :press-background="btnConfig.pressBackground"
+            :theme="btnConfig.theme"
+            full
+            @click="btnConfig.onClick"
+          />
+        </div>
+
+      </div>
     </div>
+
   </DuPopup>
 </template>
 <script lang="ts" setup>
 import DuPopup from '../popup/Popup.vue'
-import { computed, normalizeClass, ref, watch } from 'vue'
+import { computed, normalizeClass, reactive, ref, watch } from 'vue'
 import DuButton from '../button/Button.vue'
+import { Modal } from './Modal.ts'
 
 const props = withDefaults(
-  defineProps<{
-    /**
-     * 是否展示弹窗
-     */
-    visible: boolean
-    /**
-     * 是否展示内置的头部栏
-     */
-    headerVisible: boolean
-    /**
-     * 点击遮罩层是否关闭
-     */
-    maskClick: boolean
-    /**
-     * 是否展示关闭按钮（当内置头部栏展示时有效）
-     */
-    closable: boolean
-    /**
-     * 禁止将 Popup 渲染到根节点
-     */
-    disablePortal: boolean
-    /**
-     * 弹窗标题
-     */
-    title: string
-    /**
-     * 标题对齐方式，default 为左对齐
-     */
-    titleAlign: 'default' | 'center' | undefined
-    /**
-     * maskClass
-     */
-    maskClass: string | string[] | Record<string, boolean>
-    /**
-     * maskStyle
-     */
-    maskStyle: string | { [x: string]: string | number; }
-    /**
-     * extClass
-     */
-    extClass: string | string[] | Record<string, boolean>
-    /**
-     * extStyle
-     */
-    extStyle:
-      | string
-      | {
-      [x: string]: string | number
-    }
-    /**
-     * 底部按钮配置，类型参考Button的属性
-     */
-    actions: (InstanceType<typeof DuButton>['$props'] & { buttonText: string })[]
-    /**
-     * 按钮排列方式：水平或者垂直
-     */
-    buttonLayout: 'horizontal' | 'vertical'
-  }>(),
+  defineProps<Modal>(),
   {
     extStyle: '',
     extClass: '',
@@ -96,7 +77,8 @@ const props = withDefaults(
     maskStyle: '',
     disablePortal: false,
     actions: () => [],
-    buttonLayout: 'horizontal'
+    actionLayout: 'horizontal',
+    content: '',
   }
 )
 
@@ -110,11 +92,48 @@ const modalContainerClass = computed(() => {
 
 const _visible = ref(false)
 
+const state = reactive<Modal>({ ...props })
+
+watch(() => props, (val) => {
+  Object.assign(state, val)
+}, {
+  deep: true
+})
+
 watch(() => props.visible, (val) => {
   _visible.value = val
 }, {
   immediate: true
 })
 
+watch(() => _visible.value, (val) => {
+  emits('update:visible', val)
+})
 
+function handleClick() {
+  emits('close')
+}
+
+function handleActionButtonClick(key: string | number, index: number) {
+  emits('action', {
+    key,
+    index
+  })
+}
+
+function open(options: Modal) {
+  Object.assign(state, options)
+  _visible.value = true
+}
+
+function close() {
+  _visible.value = false
+}
+
+const emits = defineEmits(['update:visible', 'close', 'action'])
+
+defineExpose({
+  open,
+  close
+})
 </script>
