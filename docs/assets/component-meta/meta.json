@@ -1859,6 +1859,75 @@
       }
     ]
   },
+    "IconButton": {
+    "props": [
+      {
+        "name": "color",
+        "description": "颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
+        "required": false,
+        "type": "string",
+        "default": "\"\""
+      },
+      {
+        "name": "extClass",
+        "description": "",
+        "required": false,
+        "type": "string | string[] | Record<string, boolean>",
+        "default": "\"\""
+      },
+      {
+        "name": "extStyle",
+        "description": "",
+        "required": false,
+        "type": "string | { [x: string]: string | number; }",
+        "default": "\"\""
+      },
+      {
+        "name": "iconSize",
+        "description": "图标大小",
+        "required": false,
+        "type": "string | number",
+        "default": "\"\""
+      },
+      {
+        "name": "name",
+        "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
+        "required": false,
+        "type": "string",
+        "default": "\"\""
+      },
+       {
+        "name": "size",
+        "description": "按钮交互热区大小",
+        "required": false,
+        "type":  "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+        "default": "normal"
+      },
+       {
+        "name": "text",
+        "description": "文字",
+        "required": false,
+        "type": "string ",
+        "default": "\"\""
+      },
+      {
+        "name": "textColor",
+        "description": "文字颜色，用法同color，不填时默认跟随color",
+        "required": false,
+        "type": "string",
+        "default": "\"\""
+      }
+    ],
+    "events": [
+      {
+        "name": "click",
+        "type": "[]",
+        "signature": "(event: \"click\"): void",
+        "declarations": [],
+        "schema": []
+      }
+    ]
+  },
   "Image": {
     "props": [
       {

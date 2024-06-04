@@ -1,5 +1,6 @@
 import Button from './button/Button.vue'
 import Icon from './icon/Icon.vue'
+import IconButton from './icon-button/IconButton.vue'
 import Sticky from './sticky/Sticky.vue'
 import Transition from './transition/Transition.vue'
 
@@ -59,6 +60,7 @@ import { useToast } from './composables/useToast'
 
 const DuButton = Button
 const DuIcon = Icon
+const DuIconButton = IconButton
 const DuSticky = Sticky
 const DuTransition = Transition
 
@@ -118,6 +120,7 @@ export {
   DuButton,
   Icon,
   DuIcon,
+  DuIconButton,
   Sticky,
   DuSticky,
   Transition,
