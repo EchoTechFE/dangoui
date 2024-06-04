@@ -4,13 +4,16 @@
   justify-content: center;
   flex-direction: column;
 
+  &-text {
+    font-weight: 500;
+  }
+
   &--large {
     width: 44px;
     height: 44px;
 
     &-text {
       font-size: 12px;
-      font-weight: 500;
       line-height: 18px;
     }
   }
@@ -18,11 +21,10 @@
   &--medium {
     width: 40px;
     height: 40px;
-    gap: 2px;
 
     &-text {
       font-size: 11px;
-      font-weight: 500;
+      margin-top: 2px;
       line-height: 13px;
     }
   }
@@ -30,11 +32,10 @@
   &--normal {
     width: 36px;
     height: 36px;
-    gap: 4px;
 
     &-text {
       font-size: 10px;
-      font-weight: 500;
+      margin-top: 4px;
       line-height: 11px;
     }
   }
@@ -42,11 +43,10 @@
   &--small {
     width: 32px;
     height: 32px;
-    gap: 4px;
 
     &-text {
       font-size: 10px;
-      font-weight: 500;
+      margin-top: 4px;
       line-height: 11px;
     }
   }
@@ -57,7 +57,6 @@
 
     &-text {
       font-size: 10px;
-      font-weight: 500;
       line-height: 11px;
     }
   }

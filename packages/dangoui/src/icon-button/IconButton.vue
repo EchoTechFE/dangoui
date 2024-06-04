@@ -10,7 +10,7 @@
     />
     <text
       v-if="text"
-      :class="`du-icon-button--${size}-text`"
+      :class="`du-icon-button-text du-icon-button--${size}-text`"
       :style="textStyle"
     >
       {{ text }}
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, normalizeStyle } from 'vue'
+import { computed, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { isPlatteColor } from '../helpers/index'
 
@@ -69,14 +69,14 @@ const props = withDefaults(
     textColor: '',
   }
 )
-const iconSizes = ref<any>({
+const iconSizeObj: any = {
   mini: 12,
   small: 14,
   normal: 16,
   medium: 20,
   large: 24,
-})
-const duSize = computed(() => props.iconSize || iconSizes.value[props.size])
+}
+const duSize = computed(() => props.iconSize || iconSizeObj[props.size])
 const emit = defineEmits<{
   (e: 'click', event: any): void
 }>()
