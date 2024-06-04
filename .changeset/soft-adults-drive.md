@@ -2,4 +2,4 @@
 'dangoui': patch
 ---
 
-add icon-button
+new component icon-button
