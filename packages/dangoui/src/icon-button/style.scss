@@ -1,0 +1,36 @@
+.du-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &--large {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  &--medium {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  &--normal {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+
+  &--small {
+    width: 16px;
+    height: 16px;
+    font-size: 7px;
+  }
+
+  &--mini {
+    width: 14px;
+    height: 14px;
+    font-size: 6px;
+  }
+}
