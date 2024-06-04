@@ -5,16 +5,23 @@
     @click="onClick"
   >
     <DuIcon
-      :color="color"
       :name="name"
       :size="duSize"
     />
+    <text
+      v-if="text"
+      :class="`du-icon-button--${size}-text`"
+      :style="textStyle"
+    >
+      {{ text }}
+    </text>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { isPlatteColor } from '../helpers/index'
 
 const props = withDefaults(
   defineProps<{
@@ -43,6 +50,14 @@ const props = withDefaults(
      * 图标大小
      */
     iconSize: string
+    /**
+     * 文字
+     */
+    text: string
+    /**
+     * 文字颜色，可以使用色板中的颜色名
+     */
+    textColor: string
   }>(),
   {
     extClass: '',
@@ -50,24 +65,43 @@ const props = withDefaults(
     color: '',
     size: 'normal',
     iconSize: '',
+    text: '',
+    textColor: '',
   }
 )
 const iconSizes = ref<any>({
-  mini: 6,
-  small: 7,
-  normal: 8,
-  medium: 10,
-  large: 12,
+  mini: 12,
+  small: 14,
+  normal: 16,
+  medium: 20,
+  large: 24,
 })
 const duSize = computed(() => props.iconSize || iconSizes.value[props.size])
 const emit = defineEmits<{
   (e: 'click', event: any): void
 }>()
 const style = computed(() => {
-  const { extStyle } = props
-  return normalizeStyle(extStyle)
+  const { extStyle, color } = props
+  const baseStyle: Record<string, string> = {}
+  baseStyle.color = getColor(color)
+  return normalizeStyle([extStyle, baseStyle])
 })
-
+const textStyle = computed(() => {
+  if (props.textColor) {
+    return `color:${getColor(props.textColor)}`
+  }
+  return ''
+})
+function getColor(color: string) {
+  if (color && isPlatteColor(color)) {
+    if (color.includes('-')) {
+      color = `var(--du-${color})`
+    } else {
+      color = `var(--du-${color}-text-color)`
+    }
+  }
+  return color
+}
 function onClick(event: any) {
   emit('click', event)
 }

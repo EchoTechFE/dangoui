@@ -1863,7 +1863,7 @@
     "props": [
       {
         "name": "color",
-        "description": "图标颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
+        "description": "颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
         "required": false,
         "type": "string",
         "default": "\"\""
@@ -1902,6 +1902,20 @@
         "required": false,
         "type":  "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
         "default": "normal"
+      },
+       {
+        "name": "text",
+        "description": "文字",
+        "required": false,
+        "type": "string ",
+        "default": "\"\""
+      },
+      {
+        "name": "textColor",
+        "description": "文字颜色，用法同color，不填时默认跟随color",
+        "required": false,
+        "type": "string",
+        "default": "\"\""
       }
     ],
     "events": [
