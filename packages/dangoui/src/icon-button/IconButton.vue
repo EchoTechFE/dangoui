@@ -59,7 +59,7 @@ const iconSizes = ref<any>({
   medium: 10,
   large: 12,
 })
-const duSize = computed(() => props.iconSize || iconSizes[props.size])
+const duSize = computed(() => props.iconSize || iconSizes.value[props.size])
 const emit = defineEmits<{
   (e: 'click', event: any): void
 }>()
