@@ -11,53 +11,53 @@
   &--large {
     width: 44px;
     height: 44px;
+  }
 
-    &-text {
-      font-size: 12px;
-      line-height: 18px;
-    }
+  &-text--large {
+    font-size: 12px;
+    line-height: 18px;
   }
 
   &--medium {
     width: 40px;
     height: 40px;
+  }
 
-    &-text {
-      font-size: 11px;
-      margin-top: 2px;
-      line-height: 13px;
-    }
+  &-text--medium {
+    font-size: 11px;
+    margin-top: 2px;
+    line-height: 13px;
   }
 
   &--normal {
     width: 36px;
     height: 36px;
+  }
 
-    &-text {
-      font-size: 10px;
-      margin-top: 4px;
-      line-height: 11px;
-    }
+  &-text--normal {
+    font-size: 10px;
+    margin-top: 4px;
+    line-height: 11px;
   }
 
   &--small {
     width: 32px;
     height: 32px;
+  }
 
-    &-text {
-      font-size: 10px;
-      margin-top: 4px;
-      line-height: 11px;
-    }
+  &-text--small {
+    font-size: 10px;
+    margin-top: 4px;
+    line-height: 11px;
   }
 
   &--mini {
     width: 28px;
     height: 28px;
+  }
 
-    &-text {
-      font-size: 10px;
-      line-height: 11px;
-    }
+  &-text--mini {
+    font-size: 10px;
+    line-height: 11px;
   }
 }

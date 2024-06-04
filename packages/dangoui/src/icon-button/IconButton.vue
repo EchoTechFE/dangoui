@@ -10,7 +10,7 @@
     />
     <text
       v-if="text"
-      :class="`du-icon-button-text du-icon-button--${size}-text`"
+      :class="`du-icon-button-text du-icon-button-text--${size}`"
       :style="textStyle"
     >
       {{ text }}
@@ -69,7 +69,8 @@ const props = withDefaults(
     textColor: '',
   }
 )
-const iconSizeObj: any = {
+
+const iconSizeObj = {
   mini: 12,
   small: 14,
   normal: 16,
