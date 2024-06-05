@@ -1,5 +1,12 @@
 # dangoui
 
+## 3.0.131
+
+### Patch Changes
+
+- f70aa73: fix: icon-button css
+- c3854ff: new component icon-button
+
 ## 3.0.130
 
 ### Patch Changes
