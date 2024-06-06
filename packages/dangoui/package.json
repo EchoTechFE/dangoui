@@ -74,7 +74,7 @@
     "sass": "^1.69.5",
     "through2": "^4.0.2",
     "unocss": "^0.57.7",
-    "unocss-preset-echo": "^1.7.8",
+    "unocss-preset-echo": "^1.7.9-alpha.0",
     "vue-tsc": "^1.8.22"
   }
 }
