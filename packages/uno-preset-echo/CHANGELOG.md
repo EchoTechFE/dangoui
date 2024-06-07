@@ -1,5 +1,12 @@
 # unocss-preset-echo
 
+## 1.7.9
+
+### Patch Changes
+
+- Updated dependencies [633e1cb]
+  - unocss-preset-echo-colors@1.7.9
+
 ## 1.7.9-alpha.0
 
 ### Patch Changes

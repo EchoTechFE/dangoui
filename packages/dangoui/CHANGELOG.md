@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.132
+
+### Patch Changes
+
+- 1a60f7a: fix theme
+
 ## 3.0.131
 
 ### Patch Changes
