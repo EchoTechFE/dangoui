@@ -255,8 +255,8 @@ const colors = {
    */
   'text-primary': 'var(--du-c-text-primary)',
   'text-1': 'var(--du-text-1)',
-  'text-2': 'var(--du-c-text-2)',
-  'text-3': 'var(--du-c-text-3)',
+  'text-2': 'var(--du-text-2)',
+  'text-3': 'var(--du-text-3)',
   'text-disabled': 'var(--du-text-disabled)',
   /**
    * @deprecated
@@ -287,16 +287,16 @@ const colors = {
    */
   'border-primary': 'var(--du-c-b-primary)',
   'border-1': 'var(--du-border-1)',
-  'border-2': 'var(--du-c-b-2)',
-  'border-3': 'var(--du-c-b-3)',
+  'border-2': 'var(--du-border-2)',
+  'border-3': 'var(--du-border-3)',
   /**
    * @deprecated
    */
   'bg-primary': 'var(--du-c-bg-primary)',
   'bg-1': 'var(--du-bg-1)',
-  'bg-2': 'var(--du-c-bg-2)',
-  'bg-3': 'var(--du-c-bg-3)',
-  'bg-4': 'var(--du-c-bg-4)',
+  'bg-2': 'var(--du-bg-2)',
+  'bg-3': 'var(--du-bg-3)',
+  'bg-4': 'var(--du-bg-4)',
   /**
    * @deprecated
    */

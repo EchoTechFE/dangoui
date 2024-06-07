@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "dangoui": "3.0.131",
+    "dangoui-design-token": "1.0.18",
+    "unocss-preset-echo": "1.7.8",
+    "unocss-preset-echo-colors": "1.7.8",
+    "vite-plugin-dangoui": "1.0.103"
+  },
+  "changesets": [
+    "metal-lions-attack"
+  ]
+}

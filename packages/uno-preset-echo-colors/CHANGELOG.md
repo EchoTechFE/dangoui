@@ -1,5 +1,11 @@
 # unocss-preset-echo-colors
 
+## 1.7.9-alpha.0
+
+### Patch Changes
+
+- upgrade colors
+
 ## 1.7.8
 
 ### Patch Changes
