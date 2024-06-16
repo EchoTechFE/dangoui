@@ -5,6 +5,7 @@
     @click="onClick"
   >
     <DuIcon
+      class="du-icon-button-icon"
       :name="name"
       :size="duSize"
     />
