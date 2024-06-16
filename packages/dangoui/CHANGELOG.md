@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.133
+
+### Patch Changes
+
+- db23577: fix: 在小程序中icon为image的 自带高度的问题优化
+
 ## 3.0.132
 
 ### Patch Changes
