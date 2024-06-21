@@ -1,5 +1,11 @@
 # unocss-preset-echo
 
+## 1.7.10
+
+### Patch Changes
+
+- 8f62e88: add spacing and border-radius
+
 ## 1.7.9
 
 ### Patch Changes
