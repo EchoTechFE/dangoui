@@ -1,6 +1,7 @@
 import { definePreset } from '@unocss/core'
 import presetMp, { PresetMpOptions } from 'unocss-preset-mp'
 import presetEchoColors from 'unocss-preset-echo-colors'
+import deepmerge from 'deepmerge'
 
 type PresetEchoOptions = {
   theme?: Record<string, Record<string, string | number>>
@@ -27,10 +28,33 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
       ['shadow-primary', { 'box-shadow': '0 1px 20rpx 0 rgba(0, 0, 0, 0.08)' }],
       ['shadow-2', { 'box-shadow': '0 1px 20rpx 0 rgba(0, 0, 0, 0.06)' }],
     ],
-    theme: {
-      ...mp.theme,
-      ...presetColors.theme,
-    },
+    theme: deepmerge(
+      {
+        ...mp.theme,
+        ...presetColors.theme,
+      },
+      {
+        borderRadius: {
+          DEFAULT: '0.25rem',
+          none: '0',
+          mini: '0.5rem',
+          sm: '1rem',
+          norm: '2rem',
+          md: '6rem',
+          lg: '8rem',
+          full: '9999px',
+        },
+        spacing: {
+          DEFAULT: '1rem',
+          none: '0',
+          mini: '0.5rem',
+          sm: '1rem',
+          norm: '2rem',
+          md: '3rem',
+          lg: '4rem',
+        },
+      },
+    ),
     preflights: [...(mp.preflights ?? []), ...(presetColors.preflights ?? [])],
     shortcuts: [
       {

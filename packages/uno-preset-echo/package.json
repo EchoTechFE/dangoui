@@ -21,8 +21,9 @@
     "@unocss/core": "^0.57.3",
     "@unocss/extractor-arbitrary-variants": "^0.57.3",
     "@unocss/rule-utils": "^0.57.3",
-    "unocss-preset-mp": "^1.4.4",
-    "unocss-preset-echo-colors": "workspace:^"
+    "deepmerge": "^4.3.1",
+    "unocss-preset-echo-colors": "workspace:^",
+    "unocss-preset-mp": "^1.4.4"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
