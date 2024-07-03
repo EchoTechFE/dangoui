@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.136
+
+### Patch Changes
+
+- 55ba753: custom add scene
+
 ## 3.0.135
 
 ### Patch Changes
