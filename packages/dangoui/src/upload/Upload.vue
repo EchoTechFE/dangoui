@@ -163,7 +163,7 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
-    customAdd?: () => Promise<UploadFile[]>
+    customAdd?: (params: { scene: string }) => Promise<UploadFile[]>
   }>(),
   {
     size: 'normal',
@@ -461,7 +461,7 @@ function handleAdd() {
 
   const customAdd = globalConfig?.upload?.customAdd || props.customAdd
   if (customAdd) {
-    customAdd().then((files) => {
+    customAdd({ scene: props.scene }).then((files) => {
       emit('update:value', props.value.concat(files))
     })
     return
