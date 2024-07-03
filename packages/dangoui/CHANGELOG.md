@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.135
+
+### Patch Changes
+
+- 28583c3: 上传组件支持托管 add
+
 ## 3.0.134
 
 ### Patch Changes
