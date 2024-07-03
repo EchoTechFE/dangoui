@@ -28,7 +28,7 @@ type GlobalConfig = {
      * 完全自定义的图片选择+上传，完全托管（适用于 App 内）
      * @returns
      */
-    customAdd?: () => Promise<UploadFile[]>
+    customAdd?: (params: { scene: string }) => Promise<UploadFile[]>
     /**
      *
      * @param f
