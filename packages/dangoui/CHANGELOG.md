@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.137
+
+### Patch Changes
+
+- 6dae86c: upload file type
+
 ## 3.0.136
 
 ### Patch Changes
