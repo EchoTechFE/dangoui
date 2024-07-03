@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.0.134
+
+### Patch Changes
+
+- a6b5754: upload android
+
 ## 3.0.133
 
 ### Patch Changes

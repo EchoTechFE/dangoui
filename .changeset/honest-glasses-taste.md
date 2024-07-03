@@ -1,5 +1,0 @@
----
-'dangoui': patch
----
-
-upload android
