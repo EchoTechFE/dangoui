@@ -65,6 +65,10 @@ export type UploadFile = {
    * action
    */
   action: string
+  /**
+   * 文件类型 image | video | other
+   */
+  fileType?: string
 }
 
 export function getNextUid() {
