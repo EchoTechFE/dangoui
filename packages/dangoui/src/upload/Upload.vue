@@ -163,6 +163,7 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
+    customAdd?: () => Promise<UploadFile[]>
   }>(),
   {
     size: 'normal',
@@ -455,6 +456,14 @@ function handleActionSelect({ label }: { label: string }) {
 
 function handleAdd() {
   if (props.disabled) {
+    return
+  }
+
+  const customAdd = globalConfig?.upload?.customAdd || props.customAdd
+  if (customAdd) {
+    customAdd().then((files) => {
+      emit('update:value', props.value.concat(files))
+    })
     return
   }
 
