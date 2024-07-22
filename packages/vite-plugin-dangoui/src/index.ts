@@ -69,6 +69,8 @@ type PluginOptions = {
     | 'mihua-dark'
     | 'mihua-light'
   )[]
+
+  defaultTheme?: string
 }
 
 export function combineVars(vars: string[]): string {
@@ -135,7 +137,7 @@ export default function plugin(options: PluginOptions = {}): Plugin {
 
   const themeHelper = createThemes({
     theme: themes,
-    defaultTheme: 'qd',
+    defaultTheme: options.defaultTheme ?? 'qd',
   })
 
   const VIRTUAL_DANGO_UI_THEME = 'virtual:dangoui-theme.css'
