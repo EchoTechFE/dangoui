@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-dangoui",
-  "version": "1.0.109",
+  "version": "1.0.110",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

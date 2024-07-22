@@ -1,5 +1,11 @@
 # vite-plugin-dangoui
 
+## 1.0.110
+
+### Patch Changes
+
+- 6906df9: support default theme
+
 ## 1.0.109
 
 ### Patch Changes
