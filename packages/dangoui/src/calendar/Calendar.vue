@@ -410,10 +410,8 @@ const displayDates = computed(() => {
     const rows: Array<Array<dayjs.Dayjs | null>> = []
     const diff = month[0].day() - props.weekStart
     const monthCopy: Array<dayjs.Dayjs | null> = [...month]
-    if (diff > 0) {
-      for (let i = 0; i < diff; i++) {
-        monthCopy.unshift(null)
-      }
+    for (let i = 0; i < (diff >= 0 ? diff : 7 + diff); i++) {
+      monthCopy.unshift(null)
     }
     while (monthCopy.length) {
       rows.push(monthCopy.splice(0, 7))
