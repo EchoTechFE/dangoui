@@ -10,7 +10,7 @@ function toValue<T>(v: MaybeRefOrGetter<T>): T {
 }
 
 export function useSize(size: MaybeRefOrGetter<number | string | undefined>) {
-  const globalConfig = inject(GlobalConfigKey)
+  const globalConfig = inject(GlobalConfigKey,null)
 
   return computed(() => {
     const s = toValue(size)

@@ -59,8 +59,8 @@ const id = `du-tab-item-${getInstanceId()}`
 
 const instance = getCurrentInstance()
 
-const globalConfig = inject(GlobalConfigKey)
-const tabsConfig = inject(TabsInjectionKey)
+const globalConfig = inject(GlobalConfigKey, {})
+const tabsConfig = inject(TabsInjectionKey, null)
 
 const indicatorConf = computed(() => {
   if (tabsConfig?.indicator.value && globalConfig?.tabs?.indicator) {

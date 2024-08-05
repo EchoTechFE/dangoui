@@ -124,7 +124,7 @@ const emit = defineEmits<{
 
 const innerVisible = ref(props.visible)
 const openAni = ref(false)
-const themeConfig = inject(themeInjectionKey)
+const themeConfig = inject(themeInjectionKey, null)
 
 const themeName = computed(() => {
   if (!themeConfig?.name) {

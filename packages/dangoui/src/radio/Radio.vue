@@ -104,9 +104,9 @@ const emit = defineEmits<{
   (e: 'update:checked', value: boolean): void
 }>()
 
-const groupConfig = inject(groupConfigInjectionKey)
-const groupValue = inject(groupValueInjectionKey)
-const groupUpdateValue = inject(setGroupValueInjectionKey)
+const groupConfig = inject(groupConfigInjectionKey, null)
+const groupValue = inject(groupValueInjectionKey, null)
+const groupUpdateValue = inject(setGroupValueInjectionKey, null)
 
 const config = computed(() => {
   const {

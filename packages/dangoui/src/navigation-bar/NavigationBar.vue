@@ -133,7 +133,7 @@ const emit = defineEmits<{
 
 const instance = getCurrentInstance()
 
-const globalConfig = inject(GlobalConfigKey)
+const globalConfig = inject(GlobalConfigKey, null)
 
 onMounted(() => {
   if (__WEB__) {
