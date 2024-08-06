@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.3
+
+### Patch Changes
+
+- 587b14d: fix: checkbox groupValue default
+
 ## 3.1.2
 
 ### Patch Changes
