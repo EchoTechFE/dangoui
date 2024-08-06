@@ -142,7 +142,7 @@ const emit = defineEmits<{
 
 const keyword = ref('')
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const isInFormItem = !!formItemLayout
 

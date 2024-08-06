@@ -80,7 +80,7 @@ const id = ref(`du-image-id-${getInstanceId()}`)
 
 const instance = getCurrentInstance()
 
-const globalConfig = inject(GlobalConfigKey)
+const globalConfig = inject(GlobalConfigKey, null)
 
 const displaySrc = ref('')
 

@@ -2,7 +2,7 @@ import { inject } from 'vue'
 import { ToastMessage, toastInjectionKey } from '../toast/helpers'
 
 export function useToast() {
-  const toast = inject(toastInjectionKey)
+  const toast = inject(toastInjectionKey,null)
 
   return {
     show: (opts: ToastMessage) => {

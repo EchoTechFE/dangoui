@@ -200,9 +200,9 @@ const emit = defineEmits<{
   (e: 'update:value', value: UploadFile[]): void
 }>()
 
-const globalConfig = inject(GlobalConfigKey)
+const globalConfig = inject(GlobalConfigKey, null)
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const fileInputRef = ref<HTMLInputElement>()
 

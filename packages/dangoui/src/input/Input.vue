@@ -228,7 +228,7 @@ const emit = defineEmits<{
 const mValue = ref('')
 const focus = ref(false)
 
-const listenFormItemOnClick = inject(listenFormItemClickInjectionKey)
+const listenFormItemOnClick = inject(listenFormItemClickInjectionKey, null)
 
 const isInFormItem = !!listenFormItemOnClick
 

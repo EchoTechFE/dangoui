@@ -4,11 +4,7 @@
     :style="style"
     @click="onClick"
   >
-    <DuIcon
-      class="du-icon-button-icon"
-      :name="name"
-      :size="duSize"
-    />
+    <DuIcon class="du-icon-button-icon" :name="name" :size="duSize" />
     <text
       v-if="text"
       :class="`du-icon-button-text du-icon-button-text--${size}`"
@@ -59,6 +55,7 @@ const props = withDefaults(
      * 文字颜色，可以使用色板中的颜色名
      */
     textColor: string
+    disabled: boolean
   }>(),
   {
     extClass: '',
@@ -68,6 +65,7 @@ const props = withDefaults(
     iconSize: '',
     text: '',
     textColor: '',
+    disabled: false,
   }
 )
 
@@ -105,6 +103,8 @@ function getColor(color: string) {
   return color
 }
 function onClick(event: any) {
-  emit('click', event)
+  if (!props.disabled) {
+    emit('click', event)
+  }
 }
 </script>

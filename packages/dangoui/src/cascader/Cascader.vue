@@ -71,7 +71,7 @@ const emit = defineEmits<{
   (e: 'confirm', value: CascaderOption[]): void
 }>()
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const isInFormItem = !!formItemLayout
 
