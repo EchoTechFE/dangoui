@@ -149,9 +149,9 @@ const emit = defineEmits<{
   (e: 'showInfo', info: string | boolean): void
 }>()
 
-const formLabelSize = inject(formLabelSizeInjectionKey, null)
-const formLabelAlign = inject(formLabelAlignInjectionKey, null)
-const formItemLayout = inject(formItemLayoutInjectionKey, null)
+const formLabelSize = inject(formLabelSizeInjectionKey, '60px')
+const formLabelAlign = inject(formLabelAlignInjectionKey, 'left')
+const formItemLayout = inject(formItemLayoutInjectionKey, 'horizontal')
 
 const onClickListeners = ref<(() => void)[]>([])
 
