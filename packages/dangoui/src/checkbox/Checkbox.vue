@@ -47,7 +47,6 @@ import {
   watch,
   normalizeStyle,
   normalizeClass,
-  ref,
 } from 'vue'
 import CheckboxIcon from './CheckboxIcon.vue'
 import {
@@ -136,7 +135,7 @@ const state = reactive({
 })
 
 const groupConfig = inject(groupConfigInjectionKey, null)
-const groupValue = inject(groupValueInjectionKey, ref([]))
+const groupValue = inject(groupValueInjectionKey, null)
 const setGroupValue = inject(setGroupValueInjectionKey, () => null)
 
 watch(
