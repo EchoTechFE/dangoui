@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.2
+
+### Patch Changes
+
+- e0f3d3f: fix type error
+
 ## 3.1.1
 
 ### Patch Changes
