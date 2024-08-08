@@ -7,6 +7,8 @@
       {
         'du-tab-item--custom-active': !!indicatorConf && isActive,
         'du-tab-item--active': !indicatorConf && isActive,
+        'du-tab-item--large-active':
+          !indicatorConf && isActive && size === 'large',
         'du-tab-item--large': size === 'large',
       },
     ]"
