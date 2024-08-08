@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.4
+
+### Patch Changes
+
+- 5712794: update tab
+
 ## 3.1.3
 
 ### Patch Changes
