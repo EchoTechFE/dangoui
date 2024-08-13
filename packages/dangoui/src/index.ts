@@ -51,7 +51,7 @@ import Rate from './rate/Rate.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
 import ActionSheet from './action-sheet/ActionSheet.vue'
 import ToastProvider from './toast/ToastProvider.vue'
-
+import Dropdown from './dropdown/Dropdown.vue'
 import Theme from './theme/Theme.vue'
 
 import globalConfig from './plugins/globalConfig'
@@ -110,6 +110,7 @@ const DuBadge = Badge
 const DuNoticeBar = NoticeBar
 const DuActionSheet = ActionSheet
 const DuToastProvider = ToastProvider
+const DuDropdown = Dropdown
 
 const DuTheme = Theme
 
@@ -217,4 +218,6 @@ export {
   DuRate,
   Rate,
   useToast,
+  Dropdown,
+  DuDropdown,
 }
