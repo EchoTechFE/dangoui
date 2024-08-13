@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.5
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+
 ## 3.1.4
 
 ### Patch Changes
