@@ -22,7 +22,7 @@
       <div
         v-if="percent > 0"
         @click="handleClickItem($event, Math.ceil(displayValue || 0))"
-        :class="`du-rate du-rate__item du-rate__item--${size}`"
+        :class="`du-rate du-rate__item `"
         :style="{
           cursor: disabled ? 'not-allowed' : 'pointer',
           animation: animation
