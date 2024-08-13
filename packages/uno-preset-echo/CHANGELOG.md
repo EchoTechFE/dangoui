@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.11
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+- Updated dependencies [4dce8c4]
+  - unocss-preset-echo-colors@1.7.10
+
 ## 1.7.10
 
 ### Patch Changes

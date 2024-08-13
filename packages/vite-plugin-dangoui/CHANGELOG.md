@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.116
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+- Updated dependencies [4dce8c4]
+  - dangoui@3.1.5
+
 ## 1.0.115
 
 ### Patch Changes
