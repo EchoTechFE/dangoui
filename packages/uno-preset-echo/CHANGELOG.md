@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.12
+
+### Patch Changes
+
+- ce2dd73: fix pnpm
+- Updated dependencies [ce2dd73]
+  - unocss-preset-echo-colors@1.7.11
+
 ## 1.7.11
 
 ### Patch Changes

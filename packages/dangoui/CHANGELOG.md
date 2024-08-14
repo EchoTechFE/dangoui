@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.6
+
+### Patch Changes
+
+- ce2dd73: fix pnpm
+- Updated dependencies [ce2dd73]
+  - dangoui-design-token@1.0.19
+
 ## 3.1.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # unocss-preset-echo-colors
 
+## 1.7.11
+
+### Patch Changes
+
+- ce2dd73: fix pnpm
+
 ## 1.7.10
 
 ### Patch Changes
