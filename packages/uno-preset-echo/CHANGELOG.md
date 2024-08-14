@@ -1,5 +1,17 @@
 # unocss-preset-echo
 
+## 1.7.12
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+  - unocss-preset-echo-colors@1.7.11
+
 ## 1.7.11
 
 ### Patch Changes

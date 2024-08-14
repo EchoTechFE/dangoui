@@ -1,5 +1,17 @@
 # vite-plugin-dangoui
 
+## 1.0.117
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+  - dangoui@3.1.6
+
 ## 1.0.116
 
 ### Patch Changes
