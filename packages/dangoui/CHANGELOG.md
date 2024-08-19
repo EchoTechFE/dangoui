@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.7
+
+### Patch Changes
+
+- f3342a6: fix info click
+
 ## 3.1.6
 
 ### Patch Changes
