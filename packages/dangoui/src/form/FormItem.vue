@@ -16,13 +16,13 @@
         <span v-if="config?.required" class="du-form-item__label__required">
           {{ '*' }}
         </span>
-
-        <DuIcon
+        <div
           v-if="config?.info"
-          name="question-circle"
-          class="du-form-item__label__info"
           @click.stop="handleInfoTap"
-        />
+          class="du-form-item__label__info"
+        >
+          <DuIcon name="question-circle" />
+        </div>
         <span class="du-form-item__label__dirty" v-if="config?.isDirty">
           已修改
         </span>
