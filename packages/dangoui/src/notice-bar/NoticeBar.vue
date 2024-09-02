@@ -6,7 +6,14 @@
       ]"
     >
       <div class="du-notice-bar__text" v-if="text">
-        <div class="du-notice-bar__text-inner">{{ text }}</div>
+        <div class="du-notice-bar__text-inner">
+          <div class="du-notice-bar__left-icon" v-if="icon">
+            <DuIcon :name="icon" :size="12" />
+          </div>
+          <div :class="[ellipsis && 'du-notice-bar__text-content']">
+            {{ text }}
+          </div>
+        </div>
         <div
           v-if="layout === 'vertical' && closeable"
           class="du-notice-bar__v-close"
@@ -47,6 +54,14 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     /**
+     * 类型
+     */
+    type: 'primary' | 'secondary'
+    /**
+     * 左边的按钮
+     */
+    icon?: string
+    /**
      * 色彩，可以使用色板中的颜色名
      */
     color: string
@@ -70,14 +85,20 @@ const props = withDefaults(
      * 文案与链接的布局关系
      */
     layout: 'horizontal' | 'vertical'
+    /**
+     * 超长是否截断显示省略号
+     */
+    ellipsis: boolean
   }>(),
   {
+    type: 'secondary',
     color: 'primary',
     text: '',
     linkText: '',
     linkIcon: '',
     closeable: false,
     layout: 'horizontal',
+    ellipsis: false,
   },
 )
 
@@ -87,6 +108,12 @@ const emit = defineEmits<{
 }>()
 
 const style = computed(() => {
+  if (props.type === 'primary') {
+    return {
+      '--du-c-notice-bar': `var(--du-${props.color}-solid-color)`,
+      '--du-c-notice-bar-bg': `var(--du-${props.color}-solid-bg)`,
+    }
+  }
   return {
     '--du-c-notice-bar': `var(--du-${props.color}-color)`,
     '--du-c-notice-bar-bg': `var(--du-${props.color}-soft-bg)`,

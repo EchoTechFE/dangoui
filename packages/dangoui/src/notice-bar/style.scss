@@ -1,5 +1,5 @@
 .du-notice-bar {
-  padding: 10px 15px;
+  padding: 13px 12px;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -9,12 +9,14 @@
   background: var(--du-c-notice-bar-bg);
   color: var(--du-c-notice-bar);
   column-gap: 8px;
+  width: 100%;
 
   &__v {
     display: flex;
     flex-direction: column;
     flex: auto;
     row-gap: 8px;
+    width: 100%;
   }
 
   &__v-close {
@@ -27,6 +29,7 @@
     align-items: center;
     justify-content: center;
     column-gap: 8px;
+    width: calc(100% - 24px - 8px);
   }
 
   &__right {
@@ -45,9 +48,26 @@
     display: flex;
     align-items: flex-start;
     column-gap: 16px;
+    overflow: hidden;
   }
 
   &__text-inner {
     flex: auto;
+    display: flex;
+    width: 100%;
+  }
+
+  &__text-content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__left-icon {
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
   }
 }
