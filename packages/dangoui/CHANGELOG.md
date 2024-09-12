@@ -1,5 +1,12 @@
 # dangoui
 
+## 3.1.8
+
+### Patch Changes
+
+- 455dc68: noticebar adjust
+- e9133e4: feat: add disabled tip
+
 ## 3.1.7
 
 ### Patch Changes
