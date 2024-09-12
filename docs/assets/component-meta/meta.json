@@ -3059,6 +3059,13 @@
         "default": "false"
       },
       {
+        "name": "disabledTip",
+        "description": "当前无法选中的提示内容",
+        "required": false,
+        "type": "string",
+        "default": "\"\""
+      },
+      {
         "name": "inline",
         "description": "",
         "required": false,
