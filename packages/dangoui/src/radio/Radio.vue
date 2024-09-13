@@ -188,10 +188,12 @@ function update(value: string | number) {
 function handleClick(event: any) {
   emit('click', event)
 
-  if (config.value.disabled && config.value.disabledTip) {
-    toast.show({
-      message: config.value.disabledTip,
-    })
+  if (config.value.disabled) {
+    if (config.value.disabledTip) {
+      toast.show({
+        message: config.value.disabledTip,
+      })
+    }
     return
   }
 
