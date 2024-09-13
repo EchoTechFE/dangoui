@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.9
+
+### Patch Changes
+
+- 4862857: fix:radio
+
 ## 3.1.8
 
 ### Patch Changes
