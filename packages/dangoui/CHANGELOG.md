@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.11
+
+### Patch Changes
+
+- 8d0ddb0: fix without border
+
 ## 3.1.10
 
 ### Patch Changes
