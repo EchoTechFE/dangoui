@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.10
+
+### Patch Changes
+
+- 111b213: noticebar divider color
+
 ## 3.1.9
 
 ### Patch Changes
