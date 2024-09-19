@@ -25,7 +25,8 @@
       <DuDivider
         v-if="text && (linkIcon || linkText)"
         :type="layout === 'horizontal' ? 'vertical' : 'horizontal'"
-        :length="layout === 'horizontal' ? 12 : '100%'"
+        :length="layout === 'horizontal' ? 8 : '100%'"
+        :color="dividerColor"
       />
       <div
         v-if="linkIcon || linkText"
@@ -118,5 +119,12 @@ const style = computed(() => {
     '--du-c-notice-bar': `var(--du-${props.color}-color)`,
     '--du-c-notice-bar-bg': `var(--du-${props.color}-soft-bg)`,
   }
+})
+
+const dividerColor = computed(() => {
+  if (props.type === 'primary') {
+    return `${props.color}-solid-color`
+  }
+  return `${props.color}-color`
 })
 </script>
