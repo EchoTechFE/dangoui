@@ -60,7 +60,7 @@
       />
     </div>
     <div
-      v-if="!isInFormItem && !props.bordered"
+      v-if="!isInFormItem && !props.bordered && !withoutBorder"
       class="du-input__bottom-line"
     />
   </div>
