@@ -168,7 +168,7 @@
             },
             {
                 "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
+                "description": "使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -4104,6 +4104,13 @@
                 "required": false,
                 "type": "\"default\" | \"ghost\"",
                 "default": "\"default\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "extClass",

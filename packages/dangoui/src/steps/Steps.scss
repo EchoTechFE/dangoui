@@ -129,11 +129,9 @@
 }
 
 .du-steps-theme-opacity {
-  --du-steps-primary: var(--du-primary-solid-bg);
   --du-steps-sub: #fff;
   --du-steps-circle-inner-color: #fff;
   --du-steps-text-color: #fff;
   --du-steps-text-sub-color: #fff;
   --du-steps-line-color: rgba(255, 255, 255, 0.16);
-  --du-steps-line-active-color: var(--du-primary-solid-bg);
 }
