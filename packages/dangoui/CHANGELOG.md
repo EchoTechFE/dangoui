@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.12
+
+### Patch Changes
+
+- 760854f: steps support color
+
 ## 3.1.11
 
 ### Patch Changes
