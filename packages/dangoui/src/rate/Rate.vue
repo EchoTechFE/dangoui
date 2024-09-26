@@ -95,7 +95,7 @@ const props = withDefaults(
     /**
      * Rate 组件尺寸
      */
-    size: 'large' | 'medium' | 'small' | 'mini'
+    size: 'large' | 'medium' | 'small' | 'mini' | 'normal'
     /**
      * 主题颜色
      */
@@ -204,6 +204,8 @@ const iconSize = computed(() => {
     case 'large':
       return 32
     case 'medium':
+      return 24
+    case 'normal':
       return 12
     case 'small':
       return 8

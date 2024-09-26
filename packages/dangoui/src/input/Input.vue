@@ -264,6 +264,16 @@ watch(
 )
 
 watch(
+  () => props.autofocus,
+  (val) => {
+    focus.value = focus.value || val
+  },
+  {
+    immediate: true,
+  },
+)
+
+watch(
   () => props.value,
   (val) => {
     mValue.value = val
