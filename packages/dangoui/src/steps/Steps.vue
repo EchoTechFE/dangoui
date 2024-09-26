@@ -49,6 +49,8 @@
 <script setup lang="ts">
 import { computed, normalizeStyle, normalizeClass } from 'vue'
 import StepCheck from './StepCheck.vue'
+import type { CSSProperties } from 'vue'
+import { isPlatteColor } from '../helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -67,6 +69,10 @@ const props = withDefaults(
       title: string
     }>
     type: 'default' | 'ghost'
+    /**
+     * 色彩，可以使用色板中的颜色名
+     */
+    color: string
   }>(),
   {
     extClass: '',
@@ -75,6 +81,7 @@ const props = withDefaults(
     status: 'process',
     steps: () => [],
     type: 'default',
+    color: 'primary',
   },
 )
 
@@ -116,8 +123,27 @@ const fulfilledSteps = computed(() => {
 })
 
 const style = computed(() => {
-  const { extStyle } = props
-  return normalizeStyle(extStyle)
+  const { extStyle, color } = props
+
+  const style: CSSProperties = {}
+
+  if (isPlatteColor(color)) {
+    style['--du-steps-primary'] = `var(--du-${color}-solid-bg)`
+    style['--du-steps-line-active-color'] = `var(--du-${color}-solid-bg)`
+  } else {
+    style['--du-steps-primary'] = color
+    style['--du-steps-line-active-color'] = color
+  }
+
+  if (props.type !== 'ghost') {
+    if (isPlatteColor(color)) {
+      style['--du-steps-text-color'] = `var(--du-${color}-color)`
+    } else {
+      style['--du-steps-text-color'] = color
+    }
+  }
+
+  return normalizeStyle([extStyle, color !== 'primary' ? style : {}])
 })
 
 const className = computed(() => {
