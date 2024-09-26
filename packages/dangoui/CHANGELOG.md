@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.14
+
+### Patch Changes
+
+- 2b5715d: fix: rate size and support clickable
+
 ## 3.1.13
 
 ### Patch Changes
