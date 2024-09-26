@@ -105,6 +105,10 @@ const props = withDefaults(
      */
     disabled: boolean
     /**
+     * 是否禁用评分
+     */
+    clickable: boolean
+    /**
      * 图标，对应 icon 组件的 name
      */
     icon: string
@@ -139,6 +143,7 @@ const props = withDefaults(
     size: 'medium',
     color: '#FC7E22',
     disabled: false,
+    clickable: true,
     icon: 'rate-filled',
     extStyle: '',
     extClass: '',
@@ -256,7 +261,7 @@ function ifHalfSupported(e: any, i: number) {
 }
 
 function handleClickItem(e: Event, i: number) {
-  if (props.disabled) return
+  if (props.disabled || !props.clickable) return
 
   let index = i
 
