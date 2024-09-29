@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.15
+
+### Patch Changes
+
+- 022502a: fix: icon url
+
 ## 3.1.14
 
 ### Patch Changes
