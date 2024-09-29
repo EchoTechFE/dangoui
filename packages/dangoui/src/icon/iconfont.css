@@ -1,10 +1,10 @@
 
 @font-face {
   font-family: 'dangoui-icon';
-  src: url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.eot'); /* IE9 */
-  src: url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.eot#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.woff2') format('woff2'),
-    url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.woff') format('woff'),
-    url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.ttf') format('truetype'),
-    url('https://assets.qiandaocdn.com/icons/76c621d5b832da0558ca97ceb8c17acd.svg#iconfont') format('svg');
+  src: url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.eot'); /* IE9 */
+  src: url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.eot#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.woff2') format('woff2'),
+    url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.woff') format('woff'),
+    url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.ttf') format('truetype'),
+    url('https://assets.qiandaocdn.com/icons/d5ef3fb73fe5a24c68fcf088a850462d.svg#iconfont') format('svg');
 }
