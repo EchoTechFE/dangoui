@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.17
+
+### Patch Changes
+
+- b921f6e: update icon
+
 ## 3.1.16
 
 ### Patch Changes
