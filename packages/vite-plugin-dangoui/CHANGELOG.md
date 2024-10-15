@@ -1,5 +1,11 @@
 # vite-plugin-dangoui
 
+## 1.0.132
+
+### Patch Changes
+
+- 20118db: vite plugin support icon config
+
 ## 1.0.131
 
 ### Patch Changes
