@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.21
+
+### Patch Changes
+
+- bump version
+- Updated dependencies
+  - dangoui-icon-config@1.0.2
+
 ## 3.1.20
 
 ### Patch Changes
