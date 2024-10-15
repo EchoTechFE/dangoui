@@ -123,6 +123,11 @@ export function resolveThemes(themes: PluginOptions['themes'] = []) {
 export default function plugin(options: PluginOptions = {}): Plugin {
   const libName = 'dangoui'
   const libraryPath = path.resolve(process.cwd(), 'node_modules', libName)
+  const iconConfigPath = path.resolve(
+    process.cwd(),
+    'node_modules',
+    'dangoui-icon-config',
+  )
   const components = fg.globSync('src/*/**.vue', {
     cwd: path.resolve(process.cwd(), `./node_modules/${libName}`),
   })
@@ -161,6 +166,14 @@ export default function plugin(options: PluginOptions = {}): Plugin {
     },
 
     load(id: string) {
+      // TODO: 还要考虑 cjs
+      if (id === path.resolve(iconConfigPath, 'dist/index.mjs')) {
+        return fs.readFileSync(
+          path.resolve(iconConfigPath, 'src/index.ts'),
+          'utf-8',
+        )
+      }
+
       if (id === VIRTUAL_DANGO_UI_THEME) {
         const iconfont = fs.readFileSync(
           path.resolve(libraryPath, 'src/icon/iconfont.css'),
