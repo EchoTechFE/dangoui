@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.19
+
+### Patch Changes
+
+- 36c4ef2: fix useSize
+
 ## 3.1.18
 
 ### Patch Changes
