@@ -26,8 +26,8 @@ const props = withDefaults(
           [x: string]: string | number
         }
     /**
-     * 内置图标，从 dangoui-icon-config 导入，与 name 互斥
-     * 推荐在 web 侧用这个属性
+     * 内置图标，从 `dangoui-icon-config` 导入，与 name 互斥
+     * 在 web 侧必须用这个属性
      */
     icon?: { _: string }
     /**

@@ -1877,6 +1877,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\""
+            },
+            {
+                "name": "icon",
+                "description": "内置图标，从 `dangoui-icon-config` 导入，与 name 互斥\n在 web 侧必须用这个属性",
+                "required": false,
+                "type": "{ _: string; }",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -3536,8 +3543,8 @@
                 "name": "icon",
                 "description": "图标，对应 icon 组件的 name",
                 "required": false,
-                "type": "string",
-                "default": "\"rate-filled\""
+                "type": "string | { _: string; }",
+                "default": "iconRateFilled"
             },
             {
                 "name": "disabled",
