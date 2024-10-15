@@ -1,5 +1,12 @@
 # vite-plugin-dangoui
 
+## 1.0.129
+
+### Patch Changes
+
+- Updated dependencies [1eb7c28]
+  - dangoui@3.1.18
+
 ## 1.0.128
 
 ### Patch Changes

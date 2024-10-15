@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.18
+
+### Patch Changes
+
+- 1eb7c28: support dangoui icon config
+- Updated dependencies [1eb7c28]
+  - dangoui-icon-config@1.0.1
+
 ## 3.1.17
 
 ### Patch Changes
