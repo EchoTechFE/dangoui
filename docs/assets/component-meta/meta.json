@@ -3529,7 +3529,7 @@
                 "name": "size",
                 "description": "Rate 组件尺寸",
                 "required": false,
-                "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
                 "default": "\"medium\""
             },
             {
@@ -3566,6 +3566,13 @@
                 "required": false,
                 "type": "number",
                 "default": "0"
+            },
+            {
+                "name": "clickable",
+                "description": "是否禁用评分",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
             },
             {
                 "name": "half",

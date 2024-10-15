@@ -1,5 +1,11 @@
 <template>
   <img v-if="isImageUrl" :src="name" class="du-icon__img" :style="style" />
+  <div
+    v-else-if="isWeb && icon"
+    :class="className"
+    :style="style"
+    v-html="icon._"
+  ></div>
   <i v-else :class="className" :style="style" @click="onClick">
     <slot>{{ unicode }}</slot>
   </i>
@@ -19,6 +25,11 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
+    /**
+     * 内置图标，从 dangoui-icon-config 导入，与 name 互斥
+     * 推荐在 web 侧用这个属性
+     */
+    icon?: { _: string }
     /**
      * 图标名称，可以是内置 iconfont 的名字，也可以是图片链接
      */
@@ -45,6 +56,8 @@ const props = withDefaults(
 const emit = defineEmits<{
   (e: 'click', event: any): void
 }>()
+
+const isWeb = __WEB__
 
 const isImageUrl = computed(() => {
   // TODO: 针对 svg url 提供多彩的功能，问题是如何提供 props 会比较优雅

@@ -1,0 +1,16 @@
+{
+  "name": "dangoui-icon-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "dts": "tsc -p tsconfig.declaration.json --declaration --emitDeclarationOnly",
+    "build": "pnpm run dts && vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "zhuscat",
+  "license": "ISC"
+}
