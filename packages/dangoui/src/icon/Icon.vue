@@ -97,10 +97,11 @@ const style = computed(() => {
 })
 
 const unicode = computed(() => {
-  if (!props.name) {
+  if (!props.name && !props.icon) {
     iconConfig.icons['question-circle-filled']
   }
-  let config = iconConfig.icons[props.name as keyof typeof iconConfig.icons]
+  const name = props.name || props.icon?._ || ''
+  let config = iconConfig.icons[name as keyof typeof iconConfig.icons]
   if (!config && props.name.indexOf('_') > -1) {
     config =
       iconConfig.icons[
@@ -116,8 +117,8 @@ const unicode = computed(() => {
     accountpay: 'accountpay-circle-filled',
   }
 
-  if (!config && map[props.name]) {
-    config = iconConfig.icons[map[props.name] as keyof typeof iconConfig.icons]
+  if (!config && map[name]) {
+    config = iconConfig.icons[map[name] as keyof typeof iconConfig.icons]
   }
 
   return config || iconConfig.icons['question-circle-filled']
