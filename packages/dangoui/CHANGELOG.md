@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.20
+
+### Patch Changes
+
+- 2367473: fix get icon in mp
+
 ## 3.1.19
 
 ### Patch Changes
