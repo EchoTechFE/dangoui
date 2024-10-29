@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.23
+
+### Patch Changes
+
+- 6142f49: fix: update icon
+- Updated dependencies [6142f49]
+  - dangoui-icon-config@1.0.3
+
 ## 3.1.22
 
 ### Patch Changes
