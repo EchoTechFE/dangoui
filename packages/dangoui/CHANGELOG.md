@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.22
+
+### Patch Changes
+
+- 612fe8d: update icon-url
+
 ## 3.1.21
 
 ### Patch Changes
