@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.24
+
+### Patch Changes
+
+- 744e6dd: feat: update icon url
+- Updated dependencies [744e6dd]
+  - dangoui-icon-config@1.0.4
+
 ## 3.1.23
 
 ### Patch Changes
