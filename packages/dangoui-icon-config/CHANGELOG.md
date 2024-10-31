@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.4
+
+### Patch Changes
+
+- 744e6dd: feat: update icon url
+
 ## 1.0.3
 
 ### Patch Changes
