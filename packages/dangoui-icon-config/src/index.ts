@@ -68,6 +68,11 @@ if (__WEB__) {
   iconVipConfig = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm12 10c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12ZM7 7.065H6v2h1.571l2.123 7.476c.43 1.51 2.506 1.668 3.158.24l3.525-7.716H18v-2h-2.089c-.499 0-.952.291-1.16.745l-3.365 7.368-2.04-7.186a1.275 1.275 0 0 0-1.227-.927H7Z" data-follow-fill="#2B263B"/></svg>' }
 }
 export { iconVipConfig }
+let iconVideo = { _: 'video' }
+if (__WEB__) {
+  iconVideo = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" d="M1.5 5.5a4 4 0 0 1 4-4h13a4 4 0 0 1 4 4v13a4 4 0 0 1-4 4h-13a4 4 0 0 1-4-4v-13Zm4-2a2 2 0 0 0-2 2v1h3.382l1.5-3H5.5Zm-2 15a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-10h-17v10Zm17-13a2 2 0 0 0-2-2h-.882l-1.5 3H20.5v-1Zm-5.118-2h-4.764l-1.5 3h4.764l1.5-3ZM10.9 16.343v-3.686l2.976 1.843-2.976 1.843Zm.452-5.524a1.45 1.45 0 0 0-1.533 0 1.537 1.537 0 0 0-.719 1.309v4.744c0 .516.256 1.023.719 1.309a1.45 1.45 0 0 0 1.533 0l3.83-2.372c.462-.287.718-.793.718-1.309 0-.516-.256-1.022-.719-1.309l-3.83-2.372Z" data-follow-fill="#2B263B"/></svg>' }
+}
+export { iconVideo }
 let iconVideoPlayCircleFilled = { _: 'video-play-circle-filled' }
 if (__WEB__) {
   iconVideoPlayCircleFilled = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12ZM9.318 7.355a1 1 0 0 0-.5.866v7.558a1 1 0 0 0 1.5.866l6.546-3.779a1 1 0 0 0 0-1.732l-6.546-3.779a1 1 0 0 0-1 0Z" data-follow-fill="#2B263B"/></svg>' }
@@ -848,6 +853,11 @@ if (__WEB__) {
   iconDelete = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" d="M6.126 3.5C6.57 1.775 8.136.5 10 .5h4a4.002 4.002 0 0 1 3.874 3H23.5v2h-2v14a4 4 0 0 1-4 4h-11a4 4 0 0 1-4-4v-14h-2v-2h5.626ZM4.5 5.5v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-14h-15Zm11.232-2A2 2 0 0 0 14 2.5h-4a2 2 0 0 0-1.732 1h7.464ZM10.25 9v8.5h-2V9h2Zm5.5 0v8.5h-2V9h2Z" data-follow-fill="#2B263B"/></svg>' }
 }
 export { iconDelete }
+let iconDeleteRow = { _: 'delete-row' }
+if (__WEB__) {
+  iconDeleteRow = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path data-follow-fill="currentColor" d="M2 20h16v2H2v-2ZM2 2h16v2H2V2Zm8 9v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2Zm2 3v-3h8v3h-8Zm-6.525-.11-1.768 1.767-1.414-1.414 1.768-1.768-1.768-1.768 1.414-1.414 1.768 1.768 1.768-1.768 1.414 1.414-1.768 1.768 1.768 1.768-1.414 1.414-1.768-1.768Z" fill="#2B263B"/></svg>' }
+}
+export { iconDeleteRow }
 let iconDegree360 = { _: 'degree-360' }
 if (__WEB__) {
   iconDegree360 = { _: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" d="M11.417 2.229c.376-.15.794-.15 1.17 0l7.653 3.044a.678.678 0 0 1 .067 1.229l-7.565 4.005a1.581 1.581 0 0 1-1.48 0L3.696 6.502a.678.678 0 0 1 .067-1.23l7.654-3.043Zm10.658 6.43a.678.678 0 0 0-.991-.662l-7.392 3.907c-.556.294-.903.87-.903 1.498v8.445c0 .541.604.864 1.054.564l6.521-4.348a2.26 2.26 0 0 0 .997-1.672l.714-7.733ZM2.976 7.996a.678.678 0 0 0-.992.661l.715 7.733a2.26 2.26 0 0 0 .997 1.672l6.52 4.348a.678.678 0 0 0 1.055-.564v-8.445c0-.628-.348-1.204-.903-1.498L2.976 7.997Z" data-follow-fill="#2B263B"/></svg>' }
