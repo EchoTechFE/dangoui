@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.25
+
+### Patch Changes
+
+- a1ab4bd: update icon
+- Updated dependencies [a1ab4bd]
+  - dangoui-icon-config@1.0.5
+
 ## 3.1.24
 
 ### Patch Changes
