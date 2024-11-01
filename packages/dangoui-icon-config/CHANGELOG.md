@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.5
+
+### Patch Changes
+
+- a1ab4bd: update icon
+
 ## 1.0.4
 
 ### Patch Changes
