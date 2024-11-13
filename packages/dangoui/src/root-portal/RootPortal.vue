@@ -25,7 +25,13 @@ withDefaults(
   },
 )
 
+const isWeb = __WEB__
+
 function isRootPortalAvailable(): boolean {
+  if (isWeb) {
+    return false
+  }
+
   // @ts-ignore
   if (typeof uni !== 'undefined') {
     // @ts-ignore
@@ -34,8 +40,6 @@ function isRootPortalAvailable(): boolean {
     return false
   }
 }
-
-const isWeb = __WEB__
 
 const canUseRootPortal = isRootPortalAvailable()
 </script>
