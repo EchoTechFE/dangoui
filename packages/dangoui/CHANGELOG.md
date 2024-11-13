@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.26
+
+### Patch Changes
+
+- caa1e80: fix root portal
+
 ## 3.1.25
 
 ### Patch Changes
