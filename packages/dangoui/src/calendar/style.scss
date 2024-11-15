@@ -38,6 +38,7 @@
   &__main {
     position: relative;
     background: #fff;
+    padding-bottom: 50px;
   }
 
   &__week {
@@ -183,6 +184,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
   }
 
   &--button-right {
