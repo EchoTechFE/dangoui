@@ -73,3 +73,9 @@ pnpm run dev
 ## 活动
 
 ![Alt](https://repobeats.axiom.co/api/embed/aaf46fe1722cdeeffdf18619e14c1fa43ac66863.svg "Repobeats analytics image")
+
+## 更新图标
+1. 如果根目录下没有 `.alioss.json` 的话，需要创建这个文件，并加入 `accessKeyId`、`accessKeySecret`、`region`、`bucket` 这四个字段。这个文件不要提交到远程代码仓库中。
+2. 首先需要更新图标文件 Url，去这个网站：https://iconpark.oceanengine.com/projects/7443/detail，不要忘记点击页面上的`更新代码`哦，复制 SVG Symbol 下的 script 的 src 中的地址到 `packages/dangoui/icon-url` 中去。
+3. 其次执行 `packages/dangoui/package.json` 下的 `gen:icon` 命令，等待更新完成
+4. 更新完成后，提交代码，并执行 changeset。
