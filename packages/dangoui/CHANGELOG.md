@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.29
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - dangoui-icon-config@1.0.6
+
 ## 3.1.28
 
 ### Patch Changes

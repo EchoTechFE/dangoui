@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.13
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - unocss-preset-echo-colors@1.7.12
+
 ## 1.7.12
 
 ### Patch Changes
