@@ -1,5 +1,11 @@
 # unocss-preset-echo-colors
 
+## 1.7.12
+
+### Patch Changes
+
+- 220f610: 图标更新
+
 ## 1.7.11
 
 ### Patch Changes

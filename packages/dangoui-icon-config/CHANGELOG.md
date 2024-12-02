@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.6
+
+### Patch Changes
+
+- 220f610: 图标更新
+
 ## 1.0.5
 
 ### Patch Changes

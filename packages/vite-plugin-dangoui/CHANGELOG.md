@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.141
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - dangoui@3.1.29
+
 ## 1.0.140
 
 ### Patch Changes
