@@ -1,5 +1,15 @@
 # dangoui
 
+## 3.1.30
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+- Updated dependencies [2bc6577]
+- Updated dependencies [2bc6577]
+  - dangoui-icon-config@1.0.7
+
 ## 3.1.29
 
 ### Patch Changes
