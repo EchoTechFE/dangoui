@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.143
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - dangoui@3.1.31
+  - dangoui-design-token@1.0.19
+
 ## 1.0.142
 
 ### Patch Changes

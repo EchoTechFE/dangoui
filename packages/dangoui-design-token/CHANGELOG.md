@@ -1,5 +1,11 @@
 # dangoui-design-token
 
+## 1.0.19
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+
 ## 1.0.18
 
 ### Patch Changes

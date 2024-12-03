@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.1.31
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - dangoui-design-token@1.0.19
+  - dangoui-icon-config@1.0.8
+
 ## 3.1.30
 
 ### Patch Changes
