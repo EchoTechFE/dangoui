@@ -1,5 +1,15 @@
 # unocss-preset-echo
 
+## 1.7.14
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+- Updated dependencies [2bc6577]
+- Updated dependencies [2bc6577]
+  - unocss-preset-echo-colors@1.7.13
+
 ## 1.7.13
 
 ### Patch Changes

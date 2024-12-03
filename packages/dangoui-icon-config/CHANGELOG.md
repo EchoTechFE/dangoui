@@ -1,5 +1,12 @@
 # dangoui-icon-config
 
+## 1.0.7
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+
 ## 1.0.6
 
 ### Patch Changes
