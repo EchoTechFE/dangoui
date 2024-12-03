@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.16
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - unocss-preset-echo-colors@1.7.15
+
 ## 1.7.15
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # dangoui-design-token
 
+## 1.0.20
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+
 ## 1.0.19
 
 ### Patch Changes

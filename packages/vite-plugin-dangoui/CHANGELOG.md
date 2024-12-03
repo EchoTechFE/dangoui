@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.144
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - dangoui@3.1.32
+  - dangoui-design-token@1.0.20
+
 ## 1.0.143
 
 ### Patch Changes
