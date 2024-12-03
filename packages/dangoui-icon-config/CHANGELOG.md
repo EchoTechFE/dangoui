@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.9
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+
 ## 1.0.8
 
 ### Patch Changes

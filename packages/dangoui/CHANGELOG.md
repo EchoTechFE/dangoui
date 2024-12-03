@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.1.32
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - dangoui-design-token@1.0.20
+  - dangoui-icon-config@1.0.9
+
 ## 3.1.31
 
 ### Patch Changes
