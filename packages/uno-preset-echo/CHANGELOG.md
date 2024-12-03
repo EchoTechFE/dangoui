@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.15
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - unocss-preset-echo-colors@1.7.14
+
 ## 1.7.14
 
 ### Patch Changes
