@@ -5,3 +5,7 @@
 .du-swiper--last .du-swiper__item:first-child {
   transform: translateX(calc(-1 * var(--du-swiper-offset, 0)));
 }
+
+.du-overflow-hidden {
+  overflow: hidden !important;
+}

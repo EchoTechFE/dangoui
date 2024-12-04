@@ -36,6 +36,7 @@ import {
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
 import { themeInjectionKey } from '../theme/helpers'
+import { useBodyScrollLock } from '../composables/useScrollLock'
 
 const props = withDefaults(
   defineProps<{
@@ -184,6 +185,10 @@ const handleMaskClick = () => {
 const handleClose = () => {
   emit('update:visible', false)
   emit('close')
+}
+
+if (__WEB__) {
+  useBodyScrollLock(() => props.visible)
 }
 
 watch(
