@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.33
+
+### Patch Changes
+
+- 34e9a1e: popup body scroll
+
 ## 3.1.32
 
 ### Patch Changes
