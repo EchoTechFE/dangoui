@@ -87,7 +87,7 @@ const emit = defineEmits<{
 
 const handleInput = (e: any) => {
   if (__WEB__) {
-    emit('update:value', e.target.value)
+    emit('update:value', e.target?.value || e.detail?.value || '')
   } else if (__UNI_PLATFORM__) {
     emit('update:value', e.detail.value)
   }
