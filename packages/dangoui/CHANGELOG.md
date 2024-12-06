@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.34
+
+### Patch Changes
+
+- 206136d: fix textarea
+
 ## 3.1.33
 
 ### Patch Changes
