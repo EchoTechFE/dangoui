@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.35
+
+### Patch Changes
+
+- 62ce546: feat: search autofoucs
+
 ## 3.1.34
 
 ### Patch Changes
