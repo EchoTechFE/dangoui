@@ -3708,6 +3708,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "autofocus",
+                "description": "是否自动聚焦",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             }
         ],
         "events": [

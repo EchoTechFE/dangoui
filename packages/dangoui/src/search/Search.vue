@@ -75,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, provide, onBeforeUnmount } from 'vue'
+import { ref, watch, computed, provide, onBeforeUnmount, onMounted } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { dividerInjectionKey } from '../divider/helpers'
 
@@ -103,6 +103,10 @@ const props = withDefaults(
      * 你可能想利用这个组件做到点击切换到另一个页面进行搜索
      */
     readonly: boolean
+    /**
+     * 自动聚焦，拉起键盘
+     */
+    autofocus: boolean
   }>(),
   {
     placeholder: '',
@@ -110,7 +114,8 @@ const props = withDefaults(
     clearable: false,
     bg: '',
     readonly: false,
-  },
+    autofocus: false,
+  }
 )
 
 const isWeb = __WEB__
@@ -171,7 +176,6 @@ const displayPlaceholders = computed(() => {
 const currentIndex = ref(0)
 const isNext = ref(false)
 let timer: any = null
-
 function tick() {
   if (!isNext.value) {
     isNext.value = true
@@ -182,7 +186,14 @@ function tick() {
   }
   timer = setTimeout(tick, 3000)
 }
-
+watch(
+  () => props.autofocus,
+  (newVal) => {
+    if (newVal) {
+      doFocus()
+    }
+  }
+)
 watch(
   [isFocus, placeholders],
   () => {
@@ -198,9 +209,13 @@ watch(
   },
   {
     immediate: true,
-  },
+  }
 )
-
+onMounted(() => {
+  if (props.autofocus) {
+    doFocus()
+  }
+})
 onBeforeUnmount(() => {
   clearTimeout(timer)
   timer = null
@@ -221,17 +236,19 @@ function handleClick(event: any) {
 
 function handlePlaceholderClick() {
   if (!props.readonly) {
-    if (inputRef.value) {
-      inputRef.value.focus()
-    }
-
-    // @ts-ignore
-    if (typeof uni !== 'undefined') {
-      isFocus.value = true
-    }
+    doFocus()
   }
 }
+function doFocus() {
+  if (inputRef.value) {
+    inputRef.value.focus()
+  }
 
+  // @ts-ignore
+  if (typeof uni !== 'undefined') {
+    isFocus.value = true
+  }
+}
 function handleFocus() {
   isFocus.value = true
 }
