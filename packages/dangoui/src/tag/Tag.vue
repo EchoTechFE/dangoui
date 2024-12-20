@@ -50,6 +50,10 @@ const props = withDefaults(
      * 左侧
      */
     icon?: string
+    /**
+     * Tab 下的字重
+     */
+    weight?: 'light' | 'normal'
     extClass?: string | string[] | Record<string, boolean>
     extStyle?:
       | string
@@ -66,6 +70,7 @@ const props = withDefaults(
     closeable: false,
     extClass: '',
     extStyle: '',
+    weight: 'normal',  
   },
 )
 
@@ -86,6 +91,7 @@ const className = computed(() => {
     `du-tag--${colorName.value}`,
     `du-tag--${props.size}`,
     `du-tag--${props.bg}`,
+    `du-tag--weight-${props.weight}`,
     {
       'du-tag--bordered': props.bordered,
       'du-tag--round': props.round,
