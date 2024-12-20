@@ -22,6 +22,7 @@
     :id="id"
     :size="size === 'large' ? 'medium' : 'normal'"
     :color="isActive ? color : 'default'"
+    :weight="isActive ? 'normal' : 'light'"
     @click="handleClick"
   >
     <slot />
