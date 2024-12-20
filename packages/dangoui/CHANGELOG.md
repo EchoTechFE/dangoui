@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.36
+
+### Patch Changes
+
+- b84ac6e: tab style performance and tag support font weight
+
 ## 3.1.35
 
 ### Patch Changes
