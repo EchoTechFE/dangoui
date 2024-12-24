@@ -3689,6 +3689,13 @@
                 "default": "\"\""
             },
             {
+                "name": "autofocus",
+                "description": "自动聚焦，拉起键盘",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "clearable",
                 "description": "是否可清空",
                 "required": false,
@@ -3705,13 +3712,6 @@
             {
                 "name": "readonly",
                 "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "autofocus",
-                "description": "是否自动聚焦",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -4537,6 +4537,13 @@
                 "default": "\"soft\""
             },
             {
+                "name": "weight",
+                "description": "Tab 下的字重",
+                "required": false,
+                "type": "\"normal\" | \"light\"",
+                "default": "\"normal\""
+            },
+            {
                 "name": "icon",
                 "description": "左侧",
                 "required": false,
@@ -4978,7 +4985,14 @@
                 "name": "customAdd",
                 "description": "",
                 "required": false,
-                "type": "((params: { scene: string; }) => Promise<UploadFile[]>)",
+                "type": "((params: { scene: string; meta: any; }) => Promise<UploadFile[]>)",
+                "default": "unknown"
+            },
+            {
+                "name": "meta",
+                "description": "meta",
+                "required": false,
+                "type": "any",
                 "default": "unknown"
             }
         ],
@@ -5325,6 +5339,16 @@
                                         "type": "string | undefined",
                                         "declarations": [],
                                         "schema": "string | undefined"
+                                    },
+                                    "meta": {
+                                        "name": "meta",
+                                        "global": false,
+                                        "description": "meta",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "any",
+                                        "declarations": [],
+                                        "schema": "any"
                                     }
                                 }
                             }
