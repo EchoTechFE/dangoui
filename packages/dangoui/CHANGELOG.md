@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.37
+
+### Patch Changes
+
+- 0764526: add upload meta
+
 ## 3.1.36
 
 ### Patch Changes
