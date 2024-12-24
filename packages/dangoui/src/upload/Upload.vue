@@ -163,7 +163,11 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
-    customAdd?: (params: { scene: string }) => Promise<UploadFile[]>
+    customAdd?: (params: { scene: string, meta: any }) => Promise<UploadFile[]>
+    /**
+     * meta
+     */
+    meta?: any
   }>(),
   {
     size: 'normal',
@@ -330,6 +334,7 @@ function uniAdd() {
           formData: props.data,
           scene: props.scene,
           action: props.action ?? '',
+          meta: props.meta,
         }
 
         return f
@@ -415,6 +420,7 @@ function webAdd(mediaType?: string) {
         file,
         scene: props.scene,
         action: props.action ?? '',
+        meta: props.meta,
       }
       if (props.beforeUpload) {
         uploadFile = await props.beforeUpload(uploadFile)
@@ -461,7 +467,7 @@ function handleAdd() {
 
   const customAdd = globalConfig?.upload?.customAdd || props.customAdd
   if (customAdd) {
-    customAdd({ scene: props.scene }).then((files) => {
+    customAdd({ scene: props.scene, meta: props.meta }).then((files) => {
       emit('update:value', props.value.concat(files))
     })
     return
