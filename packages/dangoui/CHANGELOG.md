@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.38
+
+### Patch Changes
+
+- 80a2865: cascader slot
+
 ## 3.1.37
 
 ### Patch Changes
