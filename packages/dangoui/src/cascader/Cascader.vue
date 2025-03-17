@@ -23,7 +23,9 @@
             class="du-cascader__option"
             @click="handleSelectOption(opt)"
           >
-            <div>{{ opt.label }}</div>
+            <slot name="option" :option="opt">
+              {{ opt.label }}
+            </slot>
             <DuIcon name="arrow-heavy-right" :size="12" />
           </div>
         </scroll-view>
@@ -46,6 +48,7 @@ export type CascaderOption = {
   value: string
   disabled?: boolean
   children?: CascaderOption[]
+  extra?: any
 }
 
 const props = withDefaults(
