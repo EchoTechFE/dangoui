@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.39
+
+### Patch Changes
+
+- 0251c8a: range calendar support selectable count
+
 ## 3.1.38
 
 ### Patch Changes
