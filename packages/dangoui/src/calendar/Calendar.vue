@@ -358,6 +358,14 @@ const buttonConfirmText = computed(() => {
     return '缺少结束时间'
   }
 
+  if (
+    props.type === 'range' &&
+    innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
+      props.selectableCount
+  ) {
+    return `最多选${props.selectableCount}天`
+  }
+
   return props.confirmText || '确定'
 })
 
@@ -365,6 +373,15 @@ const buttonDisabled = computed(() => {
   if (props.type === 'range' && innerSelected.value.length === 1) {
     return true
   }
+
+  if (
+    props.type === 'range' &&
+    innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
+      props.selectableCount
+  ) {
+    return true
+  }
+
   return isInvalidDateRange.value || innerSelected.value.length <= 0
 })
 
@@ -641,6 +658,11 @@ const changeSelectedDate = (d: dayjs.Dayjs | null) => {
 
   const disabled = isDisabled(d)
   if (disabled) {
+    return
+  }
+
+  if (props.selectableCount === 1) {
+    innerSelected.value = [d, d]
     return
   }
 
