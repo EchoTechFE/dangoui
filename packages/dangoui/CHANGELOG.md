@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.40
+
+### Patch Changes
+
+- 41a3f25: git commit -m 'feat: update icon'
+
 ## 3.1.39
 
 ### Patch Changes
