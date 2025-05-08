@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.41
+
+### Patch Changes
+
+- 7e478e0: 更新badge
+- Updated dependencies [7e478e0]
+  - dangoui-icon-config@1.0.10
+
 ## 3.1.40
 
 ### Patch Changes

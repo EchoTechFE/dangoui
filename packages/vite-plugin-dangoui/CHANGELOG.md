@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.153
+
+### Patch Changes
+
+- 7e478e0: 更新badge
+- Updated dependencies [7e478e0]
+  - dangoui@3.1.41
+
 ## 1.0.152
 
 ### Patch Changes

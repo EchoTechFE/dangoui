@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.10
+
+### Patch Changes
+
+- 7e478e0: 更新badge
+
 ## 1.0.9
 
 ### Patch Changes
