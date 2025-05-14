@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.11
+
+### Patch Changes
+
+- dff5db1: update icons
+
 ## 1.0.10
 
 ### Patch Changes

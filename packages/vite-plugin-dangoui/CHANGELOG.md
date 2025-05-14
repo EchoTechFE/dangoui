@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.154
+
+### Patch Changes
+
+- dff5db1: update icons
+- Updated dependencies [dff5db1]
+  - dangoui@3.1.42
+
 ## 1.0.153
 
 ### Patch Changes

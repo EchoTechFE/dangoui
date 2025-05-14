@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.42
+
+### Patch Changes
+
+- dff5db1: update icons
+- Updated dependencies [dff5db1]
+  - dangoui-icon-config@1.0.11
+
 ## 3.1.41
 
 ### Patch Changes
