@@ -140,8 +140,9 @@ async function gen(url) {
 
     const resolvedSvg = fileBuffer
       .toString()
-      .replace('#2B263B', 'currentColor')
-      .replace('#000', 'currentColor')
+      .replaceAll('#2B263B', 'currentColor')
+      .replaceAll('#000', 'currentColor')
+      .replaceAll('#000000', 'currentColor')
       .replace(
         'viewBox="0 0 24 24"',
         `viewBox="0 0 24 24" width="1em" height="1em"`,
