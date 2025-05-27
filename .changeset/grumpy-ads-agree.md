@@ -1,0 +1,5 @@
+---
+'dangoui': patch
+---
+
+gen icon
