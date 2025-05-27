@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.43
+
+### Patch Changes
+
+- 4e53c5f: fix icon color
+
 ## 3.1.42
 
 ### Patch Changes
