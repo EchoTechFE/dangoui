@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.12
+
+### Patch Changes
+
+- 944abac: fix icon config
+
 ## 1.0.11
 
 ### Patch Changes
