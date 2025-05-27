@@ -1,5 +1,11 @@
 # vite-plugin-dangoui
 
+## 1.0.157
+
+### Patch Changes
+
+- dangoui@3.1.45
+
 ## 1.0.156
 
 ### Patch Changes

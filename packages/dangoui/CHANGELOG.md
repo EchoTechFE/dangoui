@@ -1,5 +1,12 @@
 # dangoui
 
+## 3.1.45
+
+### Patch Changes
+
+- Updated dependencies [944abac]
+  - dangoui-icon-config@1.0.12
+
 ## 3.1.44
 
 ### Patch Changes
