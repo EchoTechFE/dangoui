@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.44
+
+### Patch Changes
+
+- e086473: gen icon
+
 ## 3.1.43
 
 ### Patch Changes
