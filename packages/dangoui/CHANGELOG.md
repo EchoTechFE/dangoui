@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.46
+
+### Patch Changes
+
+- 68a15cc: icon support import from config
+- Updated dependencies [68a15cc]
+  - dangoui-icon-config@1.0.13
+
 ## 3.1.45
 
 ### Patch Changes

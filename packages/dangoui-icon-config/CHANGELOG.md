@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.13
+
+### Patch Changes
+
+- 68a15cc: icon support import from config
+
 ## 1.0.12
 
 ### Patch Changes
