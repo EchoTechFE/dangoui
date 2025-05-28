@@ -1,6 +1,6 @@
 <template>
   <slot />
-  <DuRootPortal v-if="currentMessage" :disabled="false">
+  <DuRootPortal v-if="currentMessage" :disabled="false" root="app">
     <div class="du-toast__mask" v-if="currentMessage.mask" />
     <div :class="['du-toast__message', isOpen && 'du-toast__message--open']">
       {{ currentMessage.message }}

@@ -18,23 +18,41 @@
 <script setup lang="ts">
 import { getCurrentInstance, onMounted, ref } from 'vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     disabled: boolean
+    root: 'app' | 'page'
   }>(),
   {
     disabled: true,
+    root: 'page',
   },
 )
 
 const isWeb = __WEB__
 
-const rootRef = ref<HTMLElement | null>(
-  __UNI_PLATFORM__ === 'h5' ? null : __WEB__ ? document.body : null,
-)
+function getDefaultRoot() {
+  if (__UNI_PLATFORM__ === 'h5') {
+    if (props.root === 'app') {
+      return document.body
+    } else {
+      return null
+    }
+  } else if (__WEB__) {
+    return document.body
+  } else {
+    return null
+  }
+}
+
+const rootRef = ref<HTMLElement | null>(getDefaultRoot())
 
 if (__UNI_PLATFORM__ === 'h5') {
   onMounted(() => {
+    if (rootRef.value) {
+      return
+    }
+
     const instance = getCurrentInstance()
 
     const el = instance?.proxy?.$el?.parentElement

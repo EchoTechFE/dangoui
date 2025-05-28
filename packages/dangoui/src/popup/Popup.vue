@@ -1,5 +1,5 @@
 <template>
-  <DuRootPortal :disabled="disablePortal">
+  <DuRootPortal :disabled="disablePortal" :root="root">
     <div class="du-popup" v-if="innerVisible">
       <div
         :class="maskClassName"
@@ -101,6 +101,8 @@ const props = withDefaults(
      * 是否自带 safe area
      */
     safeArea: boolean
+
+    root: 'app' | 'page'
   }>(),
   {
     title: '',
@@ -116,6 +118,7 @@ const props = withDefaults(
     maskStyle: '',
     disablePortal: false,
     safeArea: true,
+    root: 'page',
   },
 )
 
