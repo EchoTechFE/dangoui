@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.49
+
+### Patch Changes
+
+- 4272290: fix select max height
+
 ## 3.1.48
 
 ### Patch Changes
