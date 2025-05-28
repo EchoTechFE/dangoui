@@ -15,7 +15,10 @@
       :class="`du-button__icon du-button__icon--${size} du-button__loading`"
     />
     <template v-if="iconPosition === 'left' && icon">
-      <div v-if="isIconC" :class="`du-button__icon du-button__icon--${size}`">
+      <div v-if="iconC" :class="`du-button__icon du-button__icon--${size}`">
+        <DuIcon :icon="iconC" :size="iconSize" />
+      </div>
+      <div v-else-if="isIconC" :class="`du-button__icon du-button__icon--${size}`">
         <DuIcon :name="icon" :size="iconSize" />
       </div>
       <img
@@ -29,8 +32,11 @@
       {{ text }}
     </slot>
     <template v-if="iconPosition === 'right' && icon">
+      <div v-if="iconC" :class="`du-button__icon du-button__icon--${size} du-button__icon--${size}-right`">
+        <DuIcon :icon="iconC" :size="iconSize" />
+      </div>
       <div
-        v-if="isIconC"
+        v-else-if="isIconC"
         :class="`du-button__icon du-button__icon--${size} du-button__icon--${size}-right`"
       >
         <DuIcon :name="icon" :size="iconSize" />
@@ -103,6 +109,12 @@ const props = withDefaults(
      * 按钮附带图标
      */
     icon: string
+    /**
+     * 按钮附带图标: 使用 icon-config svg 图标
+     */
+    iconC?: {
+      _: string
+    }
     /**
      * 图标大小
      */
