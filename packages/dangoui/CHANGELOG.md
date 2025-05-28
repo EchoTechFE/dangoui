@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.50
+
+### Patch Changes
+
+- b6bb49f: feat:update icon
+- Updated dependencies [b6bb49f]
+  - dangoui-icon-config@1.0.14
+
 ## 3.1.49
 
 ### Patch Changes
