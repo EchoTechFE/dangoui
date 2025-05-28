@@ -9,13 +9,15 @@
     <slot />
   </div>
   <!--  #ifdef H5 -->
-  <teleport v-else to="body">
+  <teleport v-else-if="rootRef" :to="rootRef">
     <slot />
   </teleport>
   <!--  #endif -->
 </template>
 
 <script setup lang="ts">
+import { getCurrentInstance, onMounted, ref } from 'vue'
+
 withDefaults(
   defineProps<{
     disabled: boolean
@@ -26,6 +28,26 @@ withDefaults(
 )
 
 const isWeb = __WEB__
+
+const rootRef = ref<HTMLElement | null>(
+  __UNI_PLATFORM__ === 'h5' ? null : __WEB__ ? document.body : null,
+)
+
+if (__UNI_PLATFORM__ === 'h5') {
+  onMounted(() => {
+    const instance = getCurrentInstance()
+
+    const el = instance?.proxy?.$el?.parentElement
+
+    if (el) {
+      const root = el.closest('uni-page')
+
+      if (root) {
+        rootRef.value = root
+      }
+    }
+  })
+}
 
 function isRootPortalAvailable(): boolean {
   if (isWeb) {
