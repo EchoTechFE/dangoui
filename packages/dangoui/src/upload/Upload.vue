@@ -20,7 +20,7 @@
     >
       <DuImage v-if="file.thumbUrl" :src="file.thumbUrl" />
       <div class="du-upload__video" v-else>
-        <DuIcon name="video_play_circle_filled" :size="24" />
+        <DuIcon :unsafe-internal="videoPlayCircleFilledIcon" :size="24" />
       </div>
 
       <div
@@ -29,7 +29,7 @@
         @click="handleDelete(file)"
       >
         <DuIcon
-          name="close-heavy"
+          :unsafe-internal="closeHeavyIcon"
           class="du-upload__item-delete-icon"
           size="8"
         />
@@ -52,7 +52,10 @@
       ]"
       @click="handleAdd"
     >
-      <DuIcon name="plus-circle" class="du-upload__item-add-plus" />
+      <DuIcon
+        :unsafe-internal="plusCircleIcon"
+        class="du-upload__item-add-plus"
+      />
       <div class="du-upload__item-add-text">{{ uploadText }}</div>
     </div>
     <DuActionSheet
@@ -73,6 +76,11 @@ import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
 import { useToast } from '../composables/useToast'
 import DuActionSheet from '../action-sheet/ActionSheet.vue'
+import {
+  iconCloseHeavy,
+  iconPlusCircle,
+  iconVideoPlayCircleFilled,
+} from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -163,7 +171,7 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
-    customAdd?: (params: { scene: string, meta: any }) => Promise<UploadFile[]>
+    customAdd?: (params: { scene: string; meta: any }) => Promise<UploadFile[]>
     /**
      * meta
      */
@@ -486,4 +494,28 @@ function handleDelete(file: UploadFile) {
     props.value.filter((item) => item.uid !== file.uid),
   )
 }
+
+const closeHeavyIcon = (function () {
+  if (__WEB__) {
+    return iconCloseHeavy
+  } else {
+    return 'close-heavy'
+  }
+})()
+
+const plusCircleIcon = (function () {
+  if (__WEB__) {
+    return iconPlusCircle
+  } else {
+    return 'plus-circle'
+  }
+})()
+
+const videoPlayCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconVideoPlayCircleFilled
+  } else {
+    return 'video-play-circle-filled'
+  }
+})()
 </script>

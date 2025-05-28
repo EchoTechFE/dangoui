@@ -1,7 +1,7 @@
 <template>
   <div :class="className" :style="style" @click="handleClick">
     <div v-if="icon" :class="`du-tag__icon du-tag__icon--${size}`">
-      <DuIcon :name="icon" />
+      <DuIcon :unsafe-internal="icon" />
     </div>
     <slot />
     <div
@@ -9,7 +9,7 @@
       :class="`du-tag__close du-tag__close--${size}`"
       @click.stop="handleClose"
     >
-      <DuIcon name="close-circle-filled" />
+      <DuIcon :unsafe-internal="closeCircleFilledIcon" />
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { StyleValue, computed, normalizeClass, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { iconCloseCircleFilled } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -49,7 +50,7 @@ const props = withDefaults(
     /**
      * 左侧
      */
-    icon?: string
+    icon?: string | { _: string }
     /**
      * Tab 下的字重
      */
@@ -70,9 +71,17 @@ const props = withDefaults(
     closeable: false,
     extClass: '',
     extStyle: '',
-    weight: 'normal',  
+    weight: 'normal',
   },
 )
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
 
 const colorName = computed(() => {
   if (typeof props.color === 'string') {

@@ -8,7 +8,7 @@
         visibility: isEmpty && compact ? 'hidden' : 'visible',
       }"
     >
-      <DuIcon name="reduce-heavy" />
+      <DuIcon :unsafe-internal="reduceHeavyIcon" />
     </div>
     <div
       v-if="input && !disabled"
@@ -39,7 +39,7 @@
     </div>
 
     <div :class="addItemClass" @click.stop="add">
-      <DuIcon name="plus-heavy" />
+      <DuIcon :unsafe-internal="plusHeavyIcon" />
     </div>
   </div>
 </template>
@@ -47,6 +47,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { iconReduceHeavy, iconPlusHeavy } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -255,4 +256,20 @@ const addItemClass = computed(() => {
 const isEmpty = computed(() => {
   return !+inputValue.value
 })
+
+const reduceHeavyIcon = (function () {
+  if (__WEB__) {
+    return iconReduceHeavy
+  } else {
+    return 'reduce-heavy'
+  }
+})()
+
+const plusHeavyIcon = (function () {
+  if (__WEB__) {
+    return iconPlusHeavy
+  } else {
+    return 'plus-heavy'
+  }
+})()
 </script>

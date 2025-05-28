@@ -47,7 +47,10 @@
         v-if="allowClear && mValue"
         @touchstart.stop.prevent="handleClear"
       >
-        <DuIcon name="close-circle-filled" color="var(--du-icon-disabled)" />
+        <DuIcon
+          :unsafe-internal="closeCircleFilledIcon"
+          color="var(--du-icon-disabled)"
+        />
       </div>
       <div v-if="props.suffix" class="du-input__suffix">
         {{ props.suffix }}
@@ -77,6 +80,7 @@ import {
 } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { listenFormItemClickInjectionKey } from '../form/helpers'
+import { iconCloseCircleFilled } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -328,4 +332,12 @@ function onInnerInput(e: any) {
 function handleClear() {
   mValue.value = ''
 }
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
 </script>

@@ -10,7 +10,7 @@
       <div class="du-navigation-bar">
         <div class="du-navigation-bar__left">
           <div v-if="back" class="du-navigation-bar__back" @click="handleBack">
-            <DuIcon :name="icon" />
+            <DuIcon :unsafe-internal="icon" />
           </div>
           <slot name="left" />
           <slot name="scoped-left" :opacity="+bgOpacity" />
@@ -40,7 +40,7 @@
             class="du-navigation-bar__share"
             @click="handleShare"
           >
-            <DuIcon name="share-filled" />
+            <DuIcon :unsafe-internal="shareFilledIcon" />
           </button>
         </div>
       </div>
@@ -69,6 +69,7 @@ import { setHeightByPage } from './helpers'
 import { onPageScroll } from '@dcloudio/uni-app'
 import { GlobalConfigKey } from '../plugins/globalConfig'
 import { tryCall } from '../helpers'
+import { iconShareFilled, iconArrowLeft } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -87,7 +88,7 @@ const props = withDefaults(
     /**
      * 返回按钮，在小程序平台不指定会根据页面所在层级自动判断
      */
-    backIcon: string
+    backIcon: string | { _: string }
     /**
      * 是否固定在顶部
      */
@@ -135,6 +136,13 @@ const instance = getCurrentInstance()
 
 const globalConfig = inject(GlobalConfigKey, null)
 
+const shareFilledIcon = (function () {
+  if (__WEB__) {
+    return iconShareFilled
+  }
+  return 'share-filled'
+})()
+
 onMounted(() => {
   if (__WEB__) {
     setHeightByPage(
@@ -180,7 +188,16 @@ const icon = computed(() => {
       return 'room'
     }
   }
-  return props.backIcon || arrowLeft
+
+  if (props.backIcon) {
+    return props.backIcon
+  }
+
+  if (__WEB__) {
+    return iconArrowLeft
+  } else {
+    return arrowLeft
+  }
 })
 
 const wrapperStyle = ref<CSSProperties>({

@@ -1,10 +1,10 @@
 <template>
   <img v-if="isImageUrl" :src="name" class="du-icon__img" :style="style" />
   <div
-    v-else-if="isWeb && icon"
+    v-else-if="isWeb && finalIcon"
     :class="className"
     :style="style"
-    v-html="icon._"
+    v-html="finalIcon._"
   ></div>
   <i v-else :class="className" :style="style" @click="onClick">
     <slot>{{ unicode }}</slot>
@@ -43,6 +43,10 @@ const props = withDefaults(
      *
      */
     color: string
+    /**
+     * 仅内部使用
+     */
+    unsafeInternal: string | { _: string }
   }>(),
   {
     extClass: '',
@@ -50,6 +54,7 @@ const props = withDefaults(
     name: '',
     size: '',
     color: '',
+    unsafeInternal: '',
   },
 )
 
@@ -59,9 +64,35 @@ const emit = defineEmits<{
 
 const isWeb = __WEB__
 
+const finalName = computed(() => {
+  const name = props.name || props.icon?._ || ''
+
+  if (!name && props.unsafeInternal) {
+    if (typeof props.unsafeInternal === 'string') {
+      return props.unsafeInternal
+    } else {
+      return props.unsafeInternal._
+    }
+  }
+
+  return name
+})
+
+const finalIcon = computed(() => {
+  if (props.icon) {
+    return props.icon
+  }
+
+  if (props.unsafeInternal && typeof props.unsafeInternal === 'object') {
+    return props.unsafeInternal
+  }
+
+  return null
+})
+
 const isImageUrl = computed(() => {
   // TODO: 针对 svg url 提供多彩的功能，问题是如何提供 props 会比较优雅
-  return /^http(s?):\/\//.test(props.name)
+  return /^http(s?):\/\//.test(finalName.value)
 })
 
 const className = computed(() => {
@@ -97,16 +128,15 @@ const style = computed(() => {
 })
 
 const unicode = computed(() => {
-  if (!props.name && !props.icon) {
+  if (!finalName.value && !finalIcon.value) {
     iconConfig.icons['question-circle-filled']
   }
-  const name = props.name || props.icon?._ || ''
+
+  const name = finalName.value
   let config = iconConfig.icons[name as keyof typeof iconConfig.icons]
-  if (!config && props.name.indexOf('_') > -1) {
+  if (!config && name.indexOf('_') > -1) {
     config =
-      iconConfig.icons[
-        props.name.replace(/_/g, '-') as keyof typeof iconConfig.icons
-      ]
+      iconConfig.icons[name.replace(/_/g, '-') as keyof typeof iconConfig.icons]
   }
   // TODO: 下个版本替换了删掉
   const map: Record<string, string> = {

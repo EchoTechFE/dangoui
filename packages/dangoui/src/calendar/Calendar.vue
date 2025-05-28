@@ -11,7 +11,7 @@
       <div class="du-calendar__clear" @click="handleClear">清除</div>
       <div class="du-calendar__title">{{ calendarTitle }}</div>
       <div class="du-calendar__close" @click="handleClose">
-        <DuIcon name="close" />
+        <DuIcon :unsafe-internal="closeIcon" />
       </div>
     </div>
     <div class="du-calendar__main">
@@ -103,7 +103,11 @@
       <div class="du-calendar__time" v-if="type === 'range' && showTimePicker">
         <div class="du-calendar__time-header">
           <div class="du-calendar__time-title">开始时间</div>
-          <DuIcon name="arrow-right-line" :size="12" color="#D4D0DA" />
+          <DuIcon
+            :unsafe-internal="arrowRightLineIcon"
+            :size="12"
+            color="#D4D0DA"
+          />
           <div class="du-calendar__time-title">结束时间</div>
         </div>
         <div style="display: flex">
@@ -193,6 +197,7 @@ import { getInstanceId } from './helpers'
 import dayjs from 'dayjs'
 import DuPickerView from '../picker-view/PickerView.vue'
 import DuIcon from '../icon/Icon.vue'
+import { iconClose, iconArrowRightLine } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -244,6 +249,22 @@ const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
   (e: 'clear'): void
 }>()
+
+const closeIcon = (function () {
+  if (__WEB__) {
+    return iconClose
+  } else {
+    return 'close'
+  }
+})()
+
+const arrowRightLineIcon = (function () {
+  if (__WEB__) {
+    return iconArrowRightLine
+  } else {
+    return 'arrow-right-line'
+  }
+})()
 
 const timePickerColumns = computed(() => {
   const hours: { label: string; value: string }[] = []

@@ -21,7 +21,7 @@
           @click.stop="handleInfoTap"
           class="du-form-item__label__info"
         >
-          <DuIcon name="question-circle" />
+          <DuIcon :unsafe-internal="questionCircleIcon" />
         </div>
         <span class="du-form-item__label__dirty" v-if="config?.isDirty">
           已修改
@@ -88,6 +88,7 @@ import {
   formLabelSizeInjectionKey,
   listenFormItemClickInjectionKey,
 } from './helpers'
+import { iconQuestionCircle } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -220,4 +221,12 @@ function handleInfoTap() {
 }
 
 provide(listenFormItemClickInjectionKey, listenOnClick)
+
+const questionCircleIcon = (function () {
+  if (__WEB__) {
+    return iconQuestionCircle
+  } else {
+    return 'question-circle'
+  }
+})()
 </script>

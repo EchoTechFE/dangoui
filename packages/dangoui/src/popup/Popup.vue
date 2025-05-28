@@ -15,7 +15,7 @@
         >
           <div class="du-popup__title" v-if="title">{{ title }}</div>
           <div v-if="closable" class="du-popup__close" @click="handleClose">
-            <DuIcon name="close" />
+            <DuIcon :unsafe-internal="closeIcon" />
           </div>
         </div>
         <slot />
@@ -37,6 +37,7 @@ import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
 import { themeInjectionKey } from '../theme/helpers'
 import { useBodyScrollLock } from '../composables/useScrollLock'
+import { iconClose } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -219,4 +220,12 @@ watch(
     immediate: true,
   },
 )
+
+const closeIcon = (function () {
+  if (__WEB__) {
+    return iconClose
+  } else {
+    return 'close'
+  }
+})()
 </script>

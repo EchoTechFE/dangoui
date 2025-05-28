@@ -26,7 +26,7 @@
             <slot name="option" :option="opt">
               {{ opt.label }}
             </slot>
-            <DuIcon name="arrow-heavy-right" :size="12" />
+            <DuIcon :unsafe-internal="arrowHeavyRightIcon" :size="12" />
           </div>
         </scroll-view>
       </div>
@@ -42,6 +42,7 @@ import Tab from '../tabs/Tab.vue'
 import FormField from '../form/FormField.vue'
 import DuIcon from '../icon/Icon.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
+import { iconArrowHeavyRight } from 'dangoui-icon-config'
 
 export type CascaderOption = {
   label: string
@@ -216,4 +217,12 @@ function handleSelectOption(opt: CascaderOption) {
     visible.value = false
   }
 }
+
+const arrowHeavyRightIcon = (function () {
+  if (__WEB__) {
+    return iconArrowHeavyRight
+  } else {
+    return 'arrow-heavy-right'
+  }
+})()
 </script>

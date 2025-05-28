@@ -8,7 +8,7 @@
       <div class="du-notice-bar__text" v-if="text">
         <div class="du-notice-bar__text-inner">
           <div class="du-notice-bar__left-icon" v-if="icon">
-            <DuIcon :name="icon" :size="12" />
+            <DuIcon :unsafe-internal="icon" :size="12" />
           </div>
           <div :class="[ellipsis && 'du-notice-bar__text-content']">
             {{ text }}
@@ -19,7 +19,7 @@
           class="du-notice-bar__v-close"
           @click="$emit('close')"
         >
-          <DuIcon name="close-circle-filled" :size="12" />
+          <DuIcon :unsafe-internal="closeCircleFilledIcon" :size="12" />
         </div>
       </div>
       <DuDivider
@@ -34,7 +34,7 @@
         @click="$emit('link-click')"
       >
         {{ linkText }}
-        <DuIcon v-if="linkIcon" :name="linkIcon" />
+        <DuIcon v-if="linkIcon" :unsafe-internal="linkIcon" />
       </div>
     </div>
     <div
@@ -42,7 +42,7 @@
       v-if="layout === 'horizontal' && closeable"
       @click="$emit('close')"
     >
-      <DuIcon name="close-circle-filled" :size="12" />
+      <DuIcon :unsafe-internal="closeCircleFilledIcon" :size="12" />
     </div>
   </div>
 </template>
@@ -51,6 +51,7 @@
 import DuIcon from '../icon/Icon.vue'
 import DuDivider from '../divider/Divider.vue'
 import { computed } from 'vue'
+import { iconCloseCircleFilled } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -77,7 +78,7 @@ const props = withDefaults(
     /**
      * 链接图标
      */
-    linkIcon: string
+    linkIcon: string | { _: string }
     /**
      * 是否可关闭
      */
@@ -120,6 +121,14 @@ const style = computed(() => {
     '--du-c-notice-bar-bg': `var(--du-${props.color}-soft-bg)`,
   }
 })
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
 
 const dividerColor = computed(() => {
   if (props.type === 'primary') {

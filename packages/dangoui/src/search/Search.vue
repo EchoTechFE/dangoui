@@ -2,7 +2,7 @@
   <div class="du-search" :style="style" @click="handleClick">
     <div class="du-search__left">
       <slot name="left">
-        <DuIcon name="search" />
+        <DuIcon :unsafe-internal="searchIcon" />
       </slot>
     </div>
     <div class="du-search__input">
@@ -64,7 +64,7 @@
     </div>
     <DuIcon
       v-if="value && clearable"
-      name="close-circle-filled"
+      :unsafe-internal="closeCircleFilledIcon"
       class="du-search__close"
       @click="handleClear"
     />
@@ -78,6 +78,7 @@
 import { ref, watch, computed, provide, onBeforeUnmount, onMounted } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { dividerInjectionKey } from '../divider/helpers'
+import { iconCloseCircleFilled, iconSearch } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -115,7 +116,7 @@ const props = withDefaults(
     bg: '',
     readonly: false,
     autofocus: false,
-  }
+  },
 )
 
 const isWeb = __WEB__
@@ -192,7 +193,7 @@ watch(
     if (newVal) {
       doFocus()
     }
-  }
+  },
 )
 watch(
   [isFocus, placeholders],
@@ -209,7 +210,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 onMounted(() => {
   if (props.autofocus) {
@@ -266,4 +267,20 @@ function handleKeyPress(e: KeyboardEvent) {
 function handleConfirm(e: { detail: { value: string } }) {
   emit('confirm', e.detail.value)
 }
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
+
+const searchIcon = (function () {
+  if (__WEB__) {
+    return iconSearch
+  } else {
+    return 'search'
+  }
+})()
 </script>
