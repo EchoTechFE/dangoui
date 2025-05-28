@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.48
+
+### Patch Changes
+
+- f43ac78: adjust root portal
+
 ## 3.1.47
 
 ### Patch Changes
