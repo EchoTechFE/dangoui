@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.47
+
+### Patch Changes
+
+- 64b84e7: root portal for uniapp h5
+
 ## 3.1.46
 
 ### Patch Changes
