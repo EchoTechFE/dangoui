@@ -39,13 +39,13 @@ function getDefaultRoot() {
       return null
     }
   } else if (__WEB__) {
-    return document.body
+    return 'body'
   } else {
     return null
   }
 }
 
-const rootRef = ref<HTMLElement | null>(getDefaultRoot())
+const rootRef = ref<HTMLElement | string | null>(getDefaultRoot())
 
 if (__UNI_PLATFORM__ === 'h5') {
   onMounted(() => {
