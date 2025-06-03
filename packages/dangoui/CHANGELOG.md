@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.52
+
+### Patch Changes
+
+- 6db6a6f: fix portal
+
 ## 3.1.51
 
 ### Patch Changes
