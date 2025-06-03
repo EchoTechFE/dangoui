@@ -32,14 +32,16 @@ const props = withDefaults(
 const isWeb = __WEB__
 
 function getDefaultRoot() {
-  if (__UNI_PLATFORM__ === 'h5') {
-    if (props.root === 'app') {
-      return document.body
+  if (__WEB__) {
+    if (typeof uni === 'undefined') {
+      return 'body'
     } else {
-      return null
+      if (props.root === 'app') {
+        return 'body'
+      } else {
+        return null
+      }
     }
-  } else if (__WEB__) {
-    return 'body'
   } else {
     return null
   }
@@ -47,7 +49,7 @@ function getDefaultRoot() {
 
 const rootRef = ref<HTMLElement | string | null>(getDefaultRoot())
 
-if (__UNI_PLATFORM__ === 'h5') {
+if (__WEB__) {
   onMounted(() => {
     if (rootRef.value) {
       return
