@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.54
+
+### Patch Changes
+
+- b41643a: fix ts lint
+
 ## 3.1.53
 
 ### Patch Changes
