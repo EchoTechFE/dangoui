@@ -1,5 +1,12 @@
 # dangoui
 
+## 3.1.53
+
+### Patch Changes
+
+- c825058: upload file restrict
+- c825058: upload restrict file size
+
 ## 3.1.52
 
 ### Patch Changes
