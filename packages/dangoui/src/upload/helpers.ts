@@ -81,4 +81,4 @@ export function getNextUid() {
 
 const ONE_MB_UNIT = 1024 * 1024 * 1
 
-export const MB_UNIT_COMPUTE = (num) => ONE_MB_UNIT * num
+export const MB_UNIT_COMPUTE = (num:number) => ONE_MB_UNIT * num
