@@ -71,7 +71,7 @@ import { computed, inject, normalizeStyle, ref } from 'vue'
 import DuImage from '../image/Image.vue'
 import DuIcon from '../icon/Icon.vue'
 import { GlobalConfigKey } from '../plugins/globalConfig'
-import { UploadFile, getNextUid } from './helpers'
+import { UploadFile, getNextUid, MB_UNIT_COMPUTE } from "./helpers";
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
 import { useToast } from '../composables/useToast'
@@ -328,7 +328,17 @@ function uniAdd() {
     mediaType: props.mediaType,
     count,
     async success(res: any) {
+
+      const isImageTooLarge = (size) => size > MB_UNIT_COMPUTE(20)
+
+
+      let error: Error
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
+
+        if (isImageTooLarge(file.size)){
+          error =  new Error('请上传小于 20MB 的图片')
+        }
+
         const f: UploadFile = {
           uid: getNextUid(),
           url: '',
@@ -347,6 +357,15 @@ function uniAdd() {
 
         return f
       })
+
+      if (error){
+        uni.showModal({
+          title: '',
+          content: error.message,
+        })
+        return
+      }
+
 
       emit('update:value', props.value.concat(uploadFiles))
 
