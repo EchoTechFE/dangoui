@@ -78,3 +78,7 @@ export type UploadFile = {
 export function getNextUid() {
   return Math.random().toString(16).slice(2)
 }
+
+const ONE_MB_UNIT = 1024 * 1024 * 1
+
+export const MB_UNIT_COMPUTE = (num) => ONE_MB_UNIT * num
