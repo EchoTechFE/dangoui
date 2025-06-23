@@ -329,10 +329,10 @@ function uniAdd() {
     count,
     async success(res: any) {
 
-      const isImageTooLarge = (size) => size > MB_UNIT_COMPUTE(20)
+      const isImageTooLarge = (size:number) => size > MB_UNIT_COMPUTE(20)
 
 
-      let error: Error
+      let error: Error | null = null
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
 
         if (isImageTooLarge(file.size)){
@@ -361,7 +361,7 @@ function uniAdd() {
       if (error){
         uni.showModal({
           title: '',
-          content: error.message,
+          content: (error as Error).message,
         })
         return
       }
