@@ -175,9 +175,9 @@
       },
       {
         "name": "default/textColor",
-        "color": "#000000a3",
-        "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "color": "#00000066",
+        "var": "default/6",
+        "rootAlias": "Main/neutral_06"
       },
       {
         "name": "default/textDisabledtempColor",
@@ -259,9 +259,9 @@
       },
       {
         "name": "default/bt/textColor",
-        "color": "#000000a3",
+        "color": "#00000066",
         "var": "default/textColor",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/neutral_06"
       },
       {
         "name": "default/bt/textDisabledtempColor",
@@ -1945,7 +1945,7 @@
       "name": "米花暗黑",
       "id": "22530:0"
     },
-    "color": [
+   "color": [
       {
         "name": "bg/1",
         "color": "#1f1f1f",
@@ -1960,9 +1960,9 @@
       },
       {
         "name": "bg/3",
-        "color": "#ffffff0a",
-        "var": "Main/white_01",
-        "rootAlias": "Main/white_01"
+        "color": "#1f1f1f",
+        "var": "",
+        "rootAlias": ""
       },
       {
         "name": "bg/4",
@@ -1972,15 +1972,15 @@
       },
       {
         "name": "border/1",
-        "color": "#ffffffe0",
-        "var": "Main/white_08",
-        "rootAlias": "Main/white_08"
+        "color": "#ffffff3d",
+        "var": "Main/white_05",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "border/2",
-        "color": "#ffffff66",
-        "var": "Main/white_06",
-        "rootAlias": "Main/white_06"
+        "color": "#ffffff29",
+        "var": "Main/white_04",
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "border/3",
@@ -1990,69 +1990,69 @@
       },
       {
         "name": "default/1",
-        "color": "#0000000a",
-        "var": "Main/neutral_01",
-        "rootAlias": "Main/neutral_01"
+        "color": "#ffffff0a",
+        "var": "Main/white_01",
+        "rootAlias": "Main/white_01"
       },
       {
         "name": "default/2",
-        "color": "#00000014",
-        "var": "Main/neutral_02",
-        "rootAlias": "Main/neutral_02"
+        "color": "#ffffff14",
+        "var": "Main/white_02",
+        "rootAlias": "Main/white_02"
       },
       {
         "name": "default/3",
-        "color": "#0000001f",
-        "var": "Main/neutral_03",
-        "rootAlias": "Main/neutral_03"
+        "color": "#ffffff1f",
+        "var": "Main/white_03",
+        "rootAlias": "Main/white_03"
       },
       {
         "name": "default/4",
-        "color": "#00000029",
-        "var": "Main/neutral_04",
-        "rootAlias": "Main/neutral_04"
+        "color": "#ffffff29",
+        "var": "Main/white_04",
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "default/5",
-        "color": "#0000003d",
-        "var": "Main/neutral_05",
-        "rootAlias": "Main/neutral_05"
+        "color": "#ffffff3d",
+        "var": "Main/white_05",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/6",
-        "color": "#00000066",
-        "var": "Main/neutral_06",
-        "rootAlias": "Main/neutral_06"
+        "color": "#ffffff66",
+        "var": "Main/white_06",
+        "rootAlias": "Main/white_06"
       },
       {
         "name": "default/7",
-        "color": "#000000a3",
-        "var": "Main/neutral_07",
-        "rootAlias": "Main/neutral_07"
+        "color": "#ffffffa3",
+        "var": "Main/white_07",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/8",
-        "color": "#000000e0",
-        "var": "Main/neutral_08",
-        "rootAlias": "Main/neutral_08"
+        "color": "#ffffffe0",
+        "var": "Main/white_08",
+        "rootAlias": "Main/white_08"
       },
       {
         "name": "default/9",
-        "color": "#000000",
-        "var": "Main/neutral_09",
-        "rootAlias": "Main/neutral_09"
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
       },
       {
         "name": "default/border",
-        "color": "#00000029",
-        "var": "default/4",
-        "rootAlias": "Main/neutral_04"
+        "color": "#ffffff29",
+        "var": "Main/white_04",
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "default/color",
-        "color": "#00000066",
-        "var": "default/6",
-        "rootAlias": "Main/neutral_06"
+        "color": "#ffffff66",
+        "var": "Main/white_06",
+        "rootAlias": "Main/white_06"
       },
       {
         "name": "default/disabledtempBorder",
@@ -2068,9 +2068,9 @@
       },
       {
         "name": "default/outlineColor",
-        "color": "#000000a3",
-        "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "color": "#ffffffa3",
+        "var": "Main/white_07",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/outlineDisabledtempColor",
@@ -2080,9 +2080,9 @@
       },
       {
         "name": "default/softBg",
-        "color": "#0000000a",
-        "var": "default/1",
-        "rootAlias": "Main/neutral_01"
+        "color": "#ffffff0a",
+        "var": "Main/white_01",
+        "rootAlias": "Main/white_01"
       },
       {
         "name": "default/softDisabledtempBg",
@@ -2092,15 +2092,15 @@
       },
       {
         "name": "default/solidBg",
-        "color": "#000000",
-        "var": "default/9",
-        "rootAlias": "Main/neutral_09"
-      },
-      {
-        "name": "default/solidColor",
         "color": "#ffffff",
         "var": "Main/white_09",
         "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "default/solidColor",
+        "color": "#000000",
+        "var": "Main/neutral_09",
+        "rootAlias": "Main/neutral_09"
       },
       {
         "name": "default/solidDisabledtempBg",
@@ -2110,15 +2110,15 @@
       },
       {
         "name": "default/solidDisabledtempColor",
-        "color": "#ffffff",
-        "var": "Main/white_09",
-        "rootAlias": "Main/white_09"
+        "color": "#000000",
+        "var": "Main/neutral_09",
+        "rootAlias": "Main/neutral_09"
       },
       {
         "name": "default/textColor",
-        "color": "#000000a3",
-        "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "color": "#ffffffa3",
+        "var": "Main/white_07",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/textDisabledtempColor",
@@ -2200,9 +2200,9 @@
       },
       {
         "name": "default/bt/textColor",
-        "color": "#000000a3",
+        "color": "#00000066",
         "var": "default/textColor",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/neutral_06"
       },
       {
         "name": "default/bt/textDisabledtempColor",
@@ -2818,9 +2818,9 @@
       },
       {
         "name": "secondary/softDisabledtempBg",
-        "color": "#1F1F1F",
-        "var": "bg/1",
-        "rootAlias": "Main/white_09"
+        "color": "#ffffff0a",
+        "var": "Main/white_01",
+        "rootAlias": "Main/white_01"
       },
       {
         "name": "secondary/solidBg",
@@ -3244,15 +3244,15 @@
       },
       {
         "name": "trade/border",
-        "color": "#9d96ff",
-        "var": "Main/MHpurple_05",
-        "rootAlias": "Main/MHpurple_05"
+        "color": "#cfccff",
+        "var": "Main/MHpurple_02",
+        "rootAlias": "Main/MHpurple_02"
       },
       {
         "name": "trade/color",
-        "color": "#9d96ff",
-        "var": "Main/MHpurple_05",
-        "rootAlias": "Main/MHpurple_05"
+        "color": "#cfccff",
+        "var": "Main/MHpurple_02",
+        "rootAlias": "Main/MHpurple_02"
       },
       {
         "name": "trade/disabledtempBorder",
@@ -3262,39 +3262,39 @@
       },
       {
         "name": "trade/disabledtempColor",
-        "color": "#bfbaff",
-        "var": "Main/MHpurple_03",
-        "rootAlias": "Main/MHpurple_03"
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
       },
       {
         "name": "trade/outlineColor",
-        "color": "#9d96ff",
-        "var": "Main/MHpurple_05",
-        "rootAlias": "Main/MHpurple_05"
+        "color": "#cfccff",
+        "var": "Main/MHpurple_02",
+        "rootAlias": "Main/MHpurple_02"
       },
       {
         "name": "trade/outlineDisabledtempColor",
-        "color": "#bfbaff",
-        "var": "Main/MHpurple_03",
-        "rootAlias": "Main/MHpurple_03"
+        "color": "#6f68dc",
+        "var": "Main/MHpurple_06",
+        "rootAlias": "Main/MHpurple_06"
       },
       {
         "name": "trade/softBg",
-        "color": "#e0deff",
-        "var": "Main/MHpurple_01",
-        "rootAlias": "Main/MHpurple_01"
+        "color": "#6f68dc",
+        "var": "Main/MHpurple_06",
+        "rootAlias": "Main/MHpurple_06"
       },
       {
         "name": "trade/softDisabledtempBg",
-        "color": "#e0deff",
-        "var": "Main/MHpurple_01",
-        "rootAlias": "Main/MHpurple_01"
+        "color": "#6f68dc",
+        "var": "Main/MHpurple_06",
+        "rootAlias": "Main/MHpurple_06"
       },
       {
         "name": "trade/solidBg",
-        "color": "#bab5c4",
-        "var": "secondary/bt/disabledtempBorder",
-        "rootAlias": "Main/purplegray_05"
+        "color": "#cfccff",
+        "var": "Main/MHpurple_02",
+        "rootAlias": "Main/MHpurple_02"
       },
       {
         "name": "trade/solidColor",
@@ -3304,9 +3304,9 @@
       },
       {
         "name": "trade/solidDisabledtempBg",
-        "color": "#bfbaff",
-        "var": "Main/MHpurple_03",
-        "rootAlias": "Main/MHpurple_03"
+        "color": "#6f68dc",
+        "var": "Main/MHpurple_06",
+        "rootAlias": "Main/MHpurple_06"
       },
       {
         "name": "trade/solidDisabledtempColor",
@@ -3316,9 +3316,9 @@
       },
       {
         "name": "trade/textColor",
-        "color": "#9d96ff",
-        "var": "Main/MHpurple_05",
-        "rootAlias": "Main/MHpurple_05"
+        "color": "#cfccff",
+        "var": "Main/MHpurple_02",
+        "rootAlias": "Main/MHpurple_02"
       },
       {
         "name": "trade/textDisabledtempColor",
