@@ -1,5 +1,11 @@
 # dangoui-design-token
 
+## 1.0.21
+
+### Patch Changes
+
+- 6b77545: 'feat:iconButton支持icon,更新色板'
+
 ## 1.0.20
 
 ### Patch Changes

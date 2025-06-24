@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.1.55
+
+### Patch Changes
+
+- 6b77545: 'feat:iconButton支持icon,更新色板'
+- Updated dependencies [6b77545]
+  - dangoui-design-token@1.0.21
+
 ## 3.1.54
 
 ### Patch Changes
