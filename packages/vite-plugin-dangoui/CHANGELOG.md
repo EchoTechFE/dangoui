@@ -1,5 +1,13 @@
 # vite-plugin-dangoui
 
+## 1.0.167
+
+### Patch Changes
+
+- Updated dependencies [6b77545]
+  - dangoui-design-token@1.0.21
+  - dangoui@3.1.55
+
 ## 1.0.166
 
 ### Patch Changes
