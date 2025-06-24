@@ -151,9 +151,9 @@
       },
       {
         "name": "default/solidBg",
-        "color": "#00000066",
-        "var": "default/6",
-        "rootAlias": "Main/neutral_06"
+        "color": "#000000a3",
+        "var": "default/7",
+        "rootAlias": "Main/neutral_07"
       },
       {
         "name": "default/solidColor",
@@ -175,9 +175,9 @@
       },
       {
         "name": "default/textColor",
-        "color": "#000000a3",
-        "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "color": "#00000066",
+        "var": "default/6",
+        "rootAlias": "Main/neutral_06"
       },
       {
         "name": "default/textDisabledtempColor",
@@ -193,9 +193,9 @@
       },
       {
         "name": "default/bt/color",
-        "color": "#00000066",
+        "color": "#000000a3",
         "var": "default/color",
-        "rootAlias": "Main/neutral_06"
+        "rootAlias": "Main/neutral_07"
       },
       {
         "name": "default/bt/disabledtempBorder",
@@ -223,9 +223,9 @@
       },
       {
         "name": "default/bt/solidBg",
-        "color": "#00000066",
+        "color": "#000000a3",
         "var": "default/solidBg",
-        "rootAlias": "Main/neutral_06"
+        "rootAlias": "Main/neutral_07"
       },
       {
         "name": "default/bt/solidColor",
@@ -235,9 +235,75 @@
       },
       {
         "name": "default/bt/textColor",
-        "color": "#000000a3",
+        "color": "#00000066",
         "var": "default/textColor",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "default/bt/textDisabledtempColor",
+        "color": "#0000003d",
+        "var": "default/textDisabledtempColor",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "default/tag/border",
+        "color": "#00000029",
+        "var": "default/border",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "default/tag/color",
+        "color": "#000000a3",
+        "var": "default/color",
         "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "default/tag/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "default/disabledtempBorder",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "default/tag/outlineColor",
+        "color": "#000000a3",
+        "var": "default/outlineColor",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "default/tag/outlineDisabledtempColor",
+        "color": "#0000003d",
+        "var": "default/outlineDisabledtempColor",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "default/tag/softBg",
+        "color": "#0000000a",
+        "var": "default/softBg",
+        "rootAlias": "Main/neutral_01"
+      },
+      {
+        "name": "default/tag/solidBg",
+        "color": "#000000a3",
+        "var": "default/solidBg",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "default/tag/solidColor",
+        "color": "#ffffff",
+        "var": "default/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "default/tag/textColor",
+        "color": "#00000066",
+        "var": "default/textColor",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "default/tag/textDisabledtempColor",
+        "color": "#0000003d",
+        "var": "default/textDisabledtempColor",
+        "rootAlias": "Main/neutral_05"
       },
       {
         "name": "error/1",
@@ -462,6 +528,90 @@
         "rootAlias": "Semantics/red_03"
       },
       {
+        "name": "error/tag/border",
+        "color": "#d94a4e",
+        "var": "error/border",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/color",
+        "color": "#d94a4e",
+        "var": "error/color",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/disabledtempBorder",
+        "color": "#ffabab",
+        "var": "error/disabledtempBorder",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/disabledtempColor",
+        "color": "#ffabab",
+        "var": "error/disabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/outlineColor",
+        "color": "#d94a4e",
+        "var": "error/outlineColor",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/outlineDisabledtempColor",
+        "color": "#ffabab",
+        "var": "error/outlineDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/softBg",
+        "color": "#ffebe9",
+        "var": "error/softBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "error/tag/softDisabledtempBg",
+        "color": "#ffebe9",
+        "var": "error/softDisabledtempBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "error/tag/solidBg",
+        "color": "#d94a4e",
+        "var": "error/solidBg",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/solidColor",
+        "color": "#ffffff",
+        "var": "error/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "error/tag/solidDisabledtempBg",
+        "color": "#ffabab",
+        "var": "error/solidDisabledtempBg",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "error/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "error/tag/textColor",
+        "color": "#d94a4e",
+        "var": "error/textColor",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/textDisabledtempColor",
+        "color": "#ffabab",
+        "var": "error/textDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
         "name": "icon/1",
         "color": "#2b263b",
         "var": "Main/purplegray_09",
@@ -475,9 +625,9 @@
       },
       {
         "name": "icon/3",
-        "color": "#bab5c4",
-        "var": "Main/purplegray_05",
-        "rootAlias": "Main/purplegray_05"
+        "color": "#918b9f",
+        "var": "Main/purplegray_06",
+        "rootAlias": "Main/purplegray_06"
       },
       {
         "name": "icon/disabled",
@@ -499,6 +649,12 @@
       },
       {
         "name": "mask/3",
+        "color": "#00000066",
+        "var": "Main/neutral_06",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "mask/4",
         "color": "#0000003d",
         "var": "Main/neutral_05",
         "rootAlias": "Main/neutral_05"
@@ -580,6 +736,18 @@
         "color": "#7c66ff",
         "var": "primary/5",
         "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/disabledBg",
+        "color": "#f7f7f9",
+        "var": "bg/2",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "primary/disabledColor",
+        "color": "#d4d0da",
+        "var": "icon/disabled",
+        "rootAlias": "Main/purplegray_04"
       },
       {
         "name": "primary/disabledtempBorder",
@@ -668,13 +836,13 @@
       {
         "name": "primary/bt/disabledBg",
         "color": "#f7f7f9",
-        "var": "bg/2",
+        "var": "primary/disabledBg",
         "rootAlias": "Main/purplegray_01"
       },
       {
         "name": "primary/bt/disabledColor",
         "color": "#d4d0da",
-        "var": "icon/disabled",
+        "var": "primary/disabledColor",
         "rootAlias": "Main/purplegray_04"
       },
       {
@@ -745,6 +913,102 @@
       },
       {
         "name": "primary/bt/textDisabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/textDisabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/border",
+        "color": "#7c66ff",
+        "var": "primary/border",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/color",
+        "color": "#7c66ff",
+        "var": "primary/color",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/disabledBg",
+        "color": "#f7f7f9",
+        "var": "primary/disabledBg",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "primary/tag/disabledColor",
+        "color": "#d4d0da",
+        "var": "primary/disabledColor",
+        "rootAlias": "Main/purplegray_04"
+      },
+      {
+        "name": "primary/tag/disabledtempBorder",
+        "color": "#c7b8ff",
+        "var": "primary/disabledtempBorder",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/disabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/disabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/outlineColor",
+        "color": "#7c66ff",
+        "var": "primary/outlineColor",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/outlineDisabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/outlineDisabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/softBg",
+        "color": "#f2f0ff",
+        "var": "primary/softBg",
+        "rootAlias": "Main/primarypurple_01"
+      },
+      {
+        "name": "primary/tag/softDisabledtempBg",
+        "color": "#f2f0ff",
+        "var": "primary/softDisabledtempBg",
+        "rootAlias": "Main/primarypurple_01"
+      },
+      {
+        "name": "primary/tag/solidBg",
+        "color": "#7c66ff",
+        "var": "primary/solidBg",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/solidColor",
+        "color": "#ffffff",
+        "var": "primary/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "primary/tag/solidDisabledtempBg",
+        "color": "#c7b8ff",
+        "var": "primary/solidDisabledtempBg",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "primary/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "primary/tag/textColor",
+        "color": "#7c66ff",
+        "var": "primary/textColor",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/textDisabledtempColor",
         "color": "#c7b8ff",
         "var": "primary/textDisabledtempColor",
         "rootAlias": "Main/primarypurple_03"
@@ -972,6 +1236,90 @@
         "rootAlias": "Main/purplegray_05"
       },
       {
+        "name": "secondary/tag/border",
+        "color": "#2b263b",
+        "var": "secondary/border",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/color",
+        "color": "#2b263b",
+        "var": "secondary/color",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/disabledtempBorder",
+        "color": "#bab5c4",
+        "var": "secondary/disabledtempBorder",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/disabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/disabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/outlineColor",
+        "color": "#2b263b",
+        "var": "secondary/outlineColor",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/outlineDisabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/outlineDisabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/softBg",
+        "color": "#f7f7f9",
+        "var": "secondary/softBg",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "secondary/tag/softDisabledtempBg",
+        "color": "#f7f7f9",
+        "var": "secondary/softDisabledtempBg",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "secondary/tag/solidBg",
+        "color": "#2b263b",
+        "var": "secondary/solidBg",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/solidColor",
+        "color": "#ffffff",
+        "var": "secondary/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "secondary/tag/solidDisabledtempBg",
+        "color": "#bab5c4",
+        "var": "secondary/solidDisabledtempBg",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "secondary/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "secondary/tag/textColor",
+        "color": "#2b263b",
+        "var": "secondary/textColor",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/textDisabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/textDisabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
         "name": "success/1",
         "color": "#e2f7e3",
         "var": "Semantics/green_01",
@@ -1189,6 +1537,90 @@
       },
       {
         "name": "success/bt/textDisabledtempColor",
+        "color": "#9de09d",
+        "var": "success/textDisabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/border",
+        "color": "#379e45",
+        "var": "success/border",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/color",
+        "color": "#379e45",
+        "var": "success/color",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/disabledtempBorder",
+        "color": "#9de09d",
+        "var": "success/disabledtempBorder",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/disabledtempColor",
+        "color": "#9de09d",
+        "var": "success/disabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/outlineColor",
+        "color": "#379e45",
+        "var": "success/outlineColor",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/outlineDisabledtempColor",
+        "color": "#9de09d",
+        "var": "success/outlineDisabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/softBg",
+        "color": "#e2f7e3",
+        "var": "success/softBg",
+        "rootAlias": "Semantics/green_01"
+      },
+      {
+        "name": "success/tag/softDisabledtempBg",
+        "color": "#e2f7e3",
+        "var": "success/softDisabledtempBg",
+        "rootAlias": "Semantics/green_01"
+      },
+      {
+        "name": "success/tag/solidBg",
+        "color": "#379e45",
+        "var": "success/solidBg",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/solidColor",
+        "color": "#ffffff",
+        "var": "success/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "success/tag/solidDisabledtempBg",
+        "color": "#9de09d",
+        "var": "success/solidDisabledtempBg",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "success/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "success/tag/textColor",
+        "color": "#379e45",
+        "var": "success/textColor",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/textDisabledtempColor",
         "color": "#9de09d",
         "var": "success/textDisabledtempColor",
         "rootAlias": "Semantics/green_03"
@@ -1440,6 +1872,396 @@
         "rootAlias": "Semantics/red_03"
       },
       {
+        "name": "trade/tag/border",
+        "color": "#f96464",
+        "var": "trade/border",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/color",
+        "color": "#f96464",
+        "var": "trade/color",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/disabledtempBorder",
+        "color": "#ffabab",
+        "var": "trade/disabledtempBorder",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/disabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/disabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/outlineColor",
+        "color": "#f96464",
+        "var": "trade/outlineColor",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/outlineDisabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/outlineDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/softBg",
+        "color": "#ffebe9",
+        "var": "trade/softBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "trade/tag/softDisabledtempBg",
+        "color": "#ffebe9",
+        "var": "trade/softDisabledtempBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "trade/tag/solidBg",
+        "color": "#f96464",
+        "var": "trade/solidBg",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/solidColor",
+        "color": "#ffffff",
+        "var": "trade/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "trade/tag/solidDisabledtempBg",
+        "color": "#ffabab",
+        "var": "trade/solidDisabledtempBg",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "trade/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "trade/tag/textColor",
+        "color": "#f96464",
+        "var": "trade/textColor",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/textDisabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/textDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "transBlack/1",
+        "color": "#0000000a",
+        "var": "Main/neutral_01",
+        "rootAlias": "Main/neutral_01"
+      },
+      {
+        "name": "transBlack/2",
+        "color": "#00000014",
+        "var": "Main/neutral_02",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/3",
+        "color": "#0000001f",
+        "var": "Main/neutral_03",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/4",
+        "color": "#00000029",
+        "var": "Main/neutral_04",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/5",
+        "color": "#0000003d",
+        "var": "Main/neutral_05",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/6",
+        "color": "#00000066",
+        "var": "Main/neutral_06",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "transBlack/7",
+        "color": "#000000a3",
+        "var": "Main/neutral_07",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/8",
+        "color": "#000000e0",
+        "var": "Main/neutral_08",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/9",
+        "color": "#000000",
+        "var": "Main/neutral_09",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "transBlack/border",
+        "color": "#0000003d",
+        "var": "transBlack/5",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/color",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "Main/white_08",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/8",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/7",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/4",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/8",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/solidColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/textColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/2",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/bt/border",
+        "color": "#0000003d",
+        "var": "transBlack/border",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/bt/color",
+        "color": "#ffffff",
+        "var": "transBlack/color",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/disabledtempBorder",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "transBlack/disabledtempColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/bt/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/outlineColor",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/bt/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/outlineDisabledtempColor",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/softBg",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/bt/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/softDisabledtempBg",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/bt/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/solidBg",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/bt/solidColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/solidDisabledtempBg",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/textColor",
+        "color": "#ffffff",
+        "var": "transBlack/textColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/textDisabledtempColor",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/tag/border",
+        "color": "#0000003d",
+        "var": "transBlack/border",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/tag/color",
+        "color": "#ffffff",
+        "var": "transBlack/color",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/disabledtempBorder",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "transBlack/disabledtempColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/tag/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/outlineColor",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/tag/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/outlineDisabledtempColor",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/softBg",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/tag/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/softDisabledtempBg",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/tag/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/solidBg",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/tag/solidColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/solidDisabledtempBg",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/textColor",
+        "color": "#ffffff",
+        "var": "transBlack/textColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/textDisabledtempColor",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
         "name": "warning/1",
         "color": "#fff0e6",
         "var": "Semantics/orange_01",
@@ -1662,6 +2484,90 @@
         "rootAlias": "Semantics/orange_03"
       },
       {
+        "name": "warning/tag/border",
+        "color": "#fc7e22",
+        "var": "warning/border",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/color",
+        "color": "#fc7e22",
+        "var": "warning/color",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/disabledtempBorder",
+        "color": "#ffc299",
+        "var": "warning/disabledtempBorder",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/disabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/disabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/outlineColor",
+        "color": "#fc7e22",
+        "var": "warning/outlineColor",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/outlineDisabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/outlineDisabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/softBg",
+        "color": "#fff0e6",
+        "var": "warning/softBg",
+        "rootAlias": "Semantics/orange_01"
+      },
+      {
+        "name": "warning/tag/softDisabledtempBg",
+        "color": "#fff0e6",
+        "var": "warning/softDisabledtempBg",
+        "rootAlias": "Semantics/orange_01"
+      },
+      {
+        "name": "warning/tag/solidBg",
+        "color": "#fc7e22",
+        "var": "warning/solidBg",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/solidColor",
+        "color": "#ffffff",
+        "var": "warning/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "warning/tag/solidDisabledtempBg",
+        "color": "#ffc299",
+        "var": "warning/solidDisabledtempBg",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "warning/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "warning/tag/textColor",
+        "color": "#fc7e22",
+        "var": "warning/textColor",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/textDisabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/textDisabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
         "name": "white/1",
         "color": "#ffffff0a",
         "var": "Main/white_01",
@@ -1723,15 +2629,15 @@
       },
       {
         "name": "white/border2",
-        "color": "#ffffff3d",
-        "var": "white/5",
-        "rootAlias": "Main/white_05"
+        "color": "#ffffffa3",
+        "var": "white/7",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "white/border3",
-        "color": "#ffffff1f",
-        "var": "white/3",
-        "rootAlias": "Main/white_03"
+        "color": "#ffffff3d",
+        "var": "white/5",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "white/color",
@@ -1906,9 +2812,94 @@
         "color": "#ffffff3d",
         "var": "white/textDisabledtempColor",
         "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/border",
+        "color": "#ffffffe0",
+        "var": "white/border",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/color",
+        "color": "#ffffffe0",
+        "var": "white/color",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/disabledtempBorder",
+        "color": "#ffffff66",
+        "var": "white/disabledtempBorder",
+        "rootAlias": "Main/white_06"
+      },
+      {
+        "name": "white/tag/disabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/disabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/outlineColor",
+        "color": "#ffffffe0",
+        "var": "white/outlineColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/outlineDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/outlineDisabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/softBg",
+        "color": "#ffffff14",
+        "var": "white/softBg",
+        "rootAlias": "Main/white_02"
+      },
+      {
+        "name": "white/tag/softDisabledtempBg",
+        "color": "#ffffff0a",
+        "var": "white/softDisabledtempBg",
+        "rootAlias": "Main/white_01"
+      },
+      {
+        "name": "white/tag/solidBg",
+        "color": "#ffffff",
+        "var": "white/solidBg",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "white/tag/solidColor",
+        "color": "#000000",
+        "var": "white/solidColor",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "white/tag/solidDisabledtempBg",
+        "color": "#ffffff3d",
+        "var": "white/solidDisabledtempBg",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "white/solidDisabledtempColor",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "white/tag/textColor",
+        "color": "#ffffff",
+        "var": "white/textColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "white/tag/textDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/textDisabledtempColor",
+        "rootAlias": "Main/white_05"
       }
     ],
-    "number": []
+    "number": [],
+    "string": []
   },
   {
     "mode": {
@@ -1924,33 +2915,33 @@
       },
       {
         "name": "bg/2",
-        "color": "#000000",
-        "var": "Main/neutral_09",
-        "rootAlias": "Main/neutral_09"
-      },
-      {
-        "name": "bg/3",
-        "color": "#ffffff0a",
-        "var": "Main/white_01",
-        "rootAlias": "Main/white_01"
-      },
-      {
-        "name": "bg/4",
         "color": "#ffffff14",
         "var": "Main/white_02",
         "rootAlias": "Main/white_02"
       },
       {
+        "name": "bg/3",
+        "color": "#1f1f1f",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/4",
+        "color": "#ffffff0a",
+        "var": "Main/white_01",
+        "rootAlias": "Main/white_01"
+      },
+      {
         "name": "border/1",
-        "color": "#ffffffe0",
-        "var": "Main/white_08",
-        "rootAlias": "Main/white_08"
+        "color": "#ffffff3d",
+        "var": "Main/white_05",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "border/2",
-        "color": "#ffffff66",
-        "var": "Main/white_06",
-        "rootAlias": "Main/white_06"
+        "color": "#ffffff29",
+        "var": "Main/white_04",
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "border/3",
@@ -1960,111 +2951,111 @@
       },
       {
         "name": "default/1",
-        "color": "#0000000a",
-        "var": "Main/neutral_01",
-        "rootAlias": "Main/neutral_01"
+        "color": "#ffffff0a",
+        "var": "Main/white_01",
+        "rootAlias": "Main/white_01"
       },
       {
         "name": "default/2",
-        "color": "#00000014",
-        "var": "Main/neutral_02",
-        "rootAlias": "Main/neutral_02"
+        "color": "#ffffff14",
+        "var": "Main/white_02",
+        "rootAlias": "Main/white_02"
       },
       {
         "name": "default/3",
-        "color": "#0000001f",
-        "var": "Main/neutral_03",
-        "rootAlias": "Main/neutral_03"
+        "color": "#ffffff1f",
+        "var": "Main/white_03",
+        "rootAlias": "Main/white_03"
       },
       {
         "name": "default/4",
-        "color": "#00000029",
-        "var": "Main/neutral_04",
-        "rootAlias": "Main/neutral_04"
+        "color": "#ffffff29",
+        "var": "Main/white_04",
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "default/5",
-        "color": "#0000003d",
-        "var": "Main/neutral_05",
-        "rootAlias": "Main/neutral_05"
+        "color": "#ffffff3d",
+        "var": "Main/white_05",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/6",
-        "color": "#00000066",
-        "var": "Main/neutral_06",
-        "rootAlias": "Main/neutral_06"
+        "color": "#ffffff66",
+        "var": "Main/white_06",
+        "rootAlias": "Main/white_06"
       },
       {
         "name": "default/7",
-        "color": "#000000a3",
-        "var": "Main/neutral_07",
-        "rootAlias": "Main/neutral_07"
+        "color": "#ffffffa3",
+        "var": "Main/white_07",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/8",
-        "color": "#000000e0",
-        "var": "Main/neutral_08",
-        "rootAlias": "Main/neutral_08"
+        "color": "#ffffffe0",
+        "var": "Main/white_08",
+        "rootAlias": "Main/white_08"
       },
       {
         "name": "default/9",
-        "color": "#000000",
-        "var": "Main/neutral_09",
-        "rootAlias": "Main/neutral_09"
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
       },
       {
         "name": "default/border",
-        "color": "#00000029",
+        "color": "#ffffff29",
         "var": "default/4",
-        "rootAlias": "Main/neutral_04"
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "default/color",
-        "color": "#00000066",
-        "var": "default/6",
-        "rootAlias": "Main/neutral_06"
+        "color": "#ffffffa3",
+        "var": "default/7",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/disabledtempBorder",
-        "color": "#0000001f",
+        "color": "#ffffff1f",
         "var": "default/3",
-        "rootAlias": "Main/neutral_03"
+        "rootAlias": "Main/white_03"
       },
       {
         "name": "default/disabledtempColor",
-        "color": "#0000003d",
+        "color": "#ffffff3d",
         "var": "default/5",
-        "rootAlias": "Main/neutral_05"
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/outlineColor",
-        "color": "#000000a3",
+        "color": "#ffffffa3",
         "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/outlineDisabledtempColor",
-        "color": "#0000003d",
+        "color": "#ffffff3d",
         "var": "default/5",
-        "rootAlias": "Main/neutral_05"
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/softBg",
-        "color": "#0000000a",
-        "var": "default/1",
-        "rootAlias": "Main/neutral_01"
+        "color": "#ffffff14",
+        "var": "default/2",
+        "rootAlias": "Main/white_02"
       },
       {
         "name": "default/softDisabledtempBg",
-        "color": "#0000000a",
+        "color": "#ffffff0a",
         "var": "default/1",
-        "rootAlias": "Main/neutral_01"
+        "rootAlias": "Main/white_01"
       },
       {
         "name": "default/solidBg",
-        "color": "#00000066",
-        "var": "default/6",
-        "rootAlias": "Main/neutral_06"
+        "color": "#ffffffa3",
+        "var": "default/7",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/solidColor",
@@ -2074,9 +3065,9 @@
       },
       {
         "name": "default/solidDisabledtempBg",
-        "color": "#0000003d",
+        "color": "#ffffff3d",
         "var": "default/5",
-        "rootAlias": "Main/neutral_05"
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/solidDisabledtempColor",
@@ -2086,57 +3077,57 @@
       },
       {
         "name": "default/textColor",
-        "color": "#000000a3",
+        "color": "#ffffffa3",
         "var": "default/7",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/textDisabledtempColor",
-        "color": "#0000003d",
+        "color": "#ffffff3d",
         "var": "default/5",
-        "rootAlias": "Main/neutral_05"
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/bt/border",
-        "color": "#00000029",
+        "color": "#ffffff29",
         "var": "default/border",
-        "rootAlias": "Main/neutral_04"
+        "rootAlias": "Main/white_04"
       },
       {
         "name": "default/bt/color",
-        "color": "#00000066",
+        "color": "#ffffffa3",
         "var": "default/color",
-        "rootAlias": "Main/neutral_06"
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/bt/disabledtempBorder",
-        "color": "#0000001f",
+        "color": "#ffffff1f",
         "var": "default/disabledtempBorder",
-        "rootAlias": "Main/neutral_03"
+        "rootAlias": "Main/white_03"
       },
       {
         "name": "default/bt/outlineColor",
-        "color": "#000000a3",
+        "color": "#ffffffa3",
         "var": "default/outlineColor",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/bt/outlineDisabledtempColor",
-        "color": "#0000003d",
+        "color": "#ffffff3d",
         "var": "default/outlineDisabledtempColor",
-        "rootAlias": "Main/neutral_05"
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "default/bt/softBg",
-        "color": "#0000000a",
+        "color": "#ffffff14",
         "var": "default/softBg",
-        "rootAlias": "Main/neutral_01"
+        "rootAlias": "Main/white_02"
       },
       {
         "name": "default/bt/solidBg",
-        "color": "#00000066",
+        "color": "#ffffffa3",
         "var": "default/solidBg",
-        "rootAlias": "Main/neutral_06"
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "default/bt/solidColor",
@@ -2146,9 +3137,75 @@
       },
       {
         "name": "default/bt/textColor",
-        "color": "#000000a3",
+        "color": "#ffffffa3",
         "var": "default/textColor",
-        "rootAlias": "Main/neutral_07"
+        "rootAlias": "Main/white_07"
+      },
+      {
+        "name": "default/bt/textDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "default/textDisabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "default/tag/border",
+        "color": "#ffffff29",
+        "var": "default/border",
+        "rootAlias": "Main/white_04"
+      },
+      {
+        "name": "default/tag/color",
+        "color": "#ffffffa3",
+        "var": "default/color",
+        "rootAlias": "Main/white_07"
+      },
+      {
+        "name": "default/tag/disabledtempBorder",
+        "color": "#ffffff1f",
+        "var": "default/disabledtempBorder",
+        "rootAlias": "Main/white_03"
+      },
+      {
+        "name": "default/tag/outlineColor",
+        "color": "#ffffffa3",
+        "var": "default/outlineColor",
+        "rootAlias": "Main/white_07"
+      },
+      {
+        "name": "default/tag/outlineDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "default/outlineDisabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "default/tag/softBg",
+        "color": "#ffffff14",
+        "var": "default/softBg",
+        "rootAlias": "Main/white_02"
+      },
+      {
+        "name": "default/tag/solidBg",
+        "color": "#ffffffa3",
+        "var": "default/solidBg",
+        "rootAlias": "Main/white_07"
+      },
+      {
+        "name": "default/tag/solidColor",
+        "color": "#ffffff",
+        "var": "default/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "default/tag/textColor",
+        "color": "#ffffffa3",
+        "var": "default/textColor",
+        "rootAlias": "Main/white_07"
+      },
+      {
+        "name": "default/tag/textDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "default/textDisabledtempColor",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "error/1",
@@ -2373,6 +3430,90 @@
         "rootAlias": "Semantics/red_03"
       },
       {
+        "name": "error/tag/border",
+        "color": "#d94a4e",
+        "var": "error/border",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/color",
+        "color": "#d94a4e",
+        "var": "error/color",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/disabledtempBorder",
+        "color": "#ffabab",
+        "var": "error/disabledtempBorder",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/disabledtempColor",
+        "color": "#ffabab",
+        "var": "error/disabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/outlineColor",
+        "color": "#d94a4e",
+        "var": "error/outlineColor",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/outlineDisabledtempColor",
+        "color": "#ffabab",
+        "var": "error/outlineDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/softBg",
+        "color": "#ffebe9",
+        "var": "error/softBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "error/tag/softDisabledtempBg",
+        "color": "#ffebe9",
+        "var": "error/softDisabledtempBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "error/tag/solidBg",
+        "color": "#d94a4e",
+        "var": "error/solidBg",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/solidColor",
+        "color": "#ffffff",
+        "var": "error/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "error/tag/solidDisabledtempBg",
+        "color": "#ffabab",
+        "var": "error/solidDisabledtempBg",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "error/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "error/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "error/tag/textColor",
+        "color": "#d94a4e",
+        "var": "error/textColor",
+        "rootAlias": "Semantics/red_06"
+      },
+      {
+        "name": "error/tag/textDisabledtempColor",
+        "color": "#ffabab",
+        "var": "error/textDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
         "name": "icon/1",
         "color": "#ffffffe0",
         "var": "Main/white_08",
@@ -2410,6 +3551,12 @@
       },
       {
         "name": "mask/3",
+        "color": "#00000066",
+        "var": "Main/neutral_06",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "mask/4",
         "color": "#0000003d",
         "var": "Main/neutral_05",
         "rootAlias": "Main/neutral_05"
@@ -2491,6 +3638,18 @@
         "color": "#7c66ff",
         "var": "primary/5",
         "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/disabledBg",
+        "color": "#ffffff14",
+        "var": "bg/2",
+        "rootAlias": "Main/white_02"
+      },
+      {
+        "name": "primary/disabledColor",
+        "color": "#ffffff3d",
+        "var": "icon/disabled",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "primary/disabledtempBorder",
@@ -2578,15 +3737,15 @@
       },
       {
         "name": "primary/bt/disabledBg",
-        "color": "#f7f7f9",
-        "var": "bg/2",
-        "rootAlias": "Main/purplegray_01"
+        "color": "#ffffff14",
+        "var": "primary/disabledBg",
+        "rootAlias": "Main/white_02"
       },
       {
         "name": "primary/bt/disabledColor",
-        "color": "#d4d0da",
-        "var": "icon/disabled",
-        "rootAlias": "Main/purplegray_04"
+        "color": "#ffffff3d",
+        "var": "primary/disabledColor",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "primary/bt/disabledtempBorder",
@@ -2656,6 +3815,102 @@
       },
       {
         "name": "primary/bt/textDisabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/textDisabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/border",
+        "color": "#7c66ff",
+        "var": "primary/border",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/color",
+        "color": "#7c66ff",
+        "var": "primary/color",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/disabledBg",
+        "color": "#ffffff14",
+        "var": "primary/disabledBg",
+        "rootAlias": "Main/white_02"
+      },
+      {
+        "name": "primary/tag/disabledColor",
+        "color": "#ffffff3d",
+        "var": "primary/disabledColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "primary/tag/disabledtempBorder",
+        "color": "#c7b8ff",
+        "var": "primary/disabledtempBorder",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/disabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/disabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/outlineColor",
+        "color": "#7c66ff",
+        "var": "primary/outlineColor",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/outlineDisabledtempColor",
+        "color": "#c7b8ff",
+        "var": "primary/outlineDisabledtempColor",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/softBg",
+        "color": "#f2f0ff",
+        "var": "primary/softBg",
+        "rootAlias": "Main/primarypurple_01"
+      },
+      {
+        "name": "primary/tag/softDisabledtempBg",
+        "color": "#f2f0ff",
+        "var": "primary/softDisabledtempBg",
+        "rootAlias": "Main/primarypurple_01"
+      },
+      {
+        "name": "primary/tag/solidBg",
+        "color": "#7c66ff",
+        "var": "primary/solidBg",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/solidColor",
+        "color": "#ffffff",
+        "var": "primary/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "primary/tag/solidDisabledtempBg",
+        "color": "#c7b8ff",
+        "var": "primary/solidDisabledtempBg",
+        "rootAlias": "Main/primarypurple_03"
+      },
+      {
+        "name": "primary/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "primary/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "primary/tag/textColor",
+        "color": "#7c66ff",
+        "var": "primary/textColor",
+        "rootAlias": "Main/primarypurple_05"
+      },
+      {
+        "name": "primary/tag/textDisabledtempColor",
         "color": "#c7b8ff",
         "var": "primary/textDisabledtempColor",
         "rootAlias": "Main/primarypurple_03"
@@ -2883,6 +4138,90 @@
         "rootAlias": "Main/purplegray_05"
       },
       {
+        "name": "secondary/tag/border",
+        "color": "#2b263b",
+        "var": "secondary/border",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/color",
+        "color": "#2b263b",
+        "var": "secondary/color",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/disabledtempBorder",
+        "color": "#bab5c4",
+        "var": "secondary/disabledtempBorder",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/disabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/disabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/outlineColor",
+        "color": "#2b263b",
+        "var": "secondary/outlineColor",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/outlineDisabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/outlineDisabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/softBg",
+        "color": "#f7f7f9",
+        "var": "secondary/softBg",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "secondary/tag/softDisabledtempBg",
+        "color": "#f7f7f9",
+        "var": "secondary/softDisabledtempBg",
+        "rootAlias": "Main/purplegray_01"
+      },
+      {
+        "name": "secondary/tag/solidBg",
+        "color": "#2b263b",
+        "var": "secondary/solidBg",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/solidColor",
+        "color": "#ffffff",
+        "var": "secondary/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "secondary/tag/solidDisabledtempBg",
+        "color": "#bab5c4",
+        "var": "secondary/solidDisabledtempBg",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
+        "name": "secondary/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "secondary/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "secondary/tag/textColor",
+        "color": "#2b263b",
+        "var": "secondary/textColor",
+        "rootAlias": "Main/purplegray_09"
+      },
+      {
+        "name": "secondary/tag/textDisabledtempColor",
+        "color": "#bab5c4",
+        "var": "secondary/textDisabledtempColor",
+        "rootAlias": "Main/purplegray_05"
+      },
+      {
         "name": "success/1",
         "color": "#e2f7e3",
         "var": "Semantics/green_01",
@@ -3100,6 +4439,90 @@
       },
       {
         "name": "success/bt/textDisabledtempColor",
+        "color": "#9de09d",
+        "var": "success/textDisabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/border",
+        "color": "#379e45",
+        "var": "success/border",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/color",
+        "color": "#379e45",
+        "var": "success/color",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/disabledtempBorder",
+        "color": "#9de09d",
+        "var": "success/disabledtempBorder",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/disabledtempColor",
+        "color": "#9de09d",
+        "var": "success/disabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/outlineColor",
+        "color": "#379e45",
+        "var": "success/outlineColor",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/outlineDisabledtempColor",
+        "color": "#9de09d",
+        "var": "success/outlineDisabledtempColor",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/softBg",
+        "color": "#e2f7e3",
+        "var": "success/softBg",
+        "rootAlias": "Semantics/green_01"
+      },
+      {
+        "name": "success/tag/softDisabledtempBg",
+        "color": "#e2f7e3",
+        "var": "success/softDisabledtempBg",
+        "rootAlias": "Semantics/green_01"
+      },
+      {
+        "name": "success/tag/solidBg",
+        "color": "#379e45",
+        "var": "success/solidBg",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/solidColor",
+        "color": "#ffffff",
+        "var": "success/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "success/tag/solidDisabledtempBg",
+        "color": "#9de09d",
+        "var": "success/solidDisabledtempBg",
+        "rootAlias": "Semantics/green_03"
+      },
+      {
+        "name": "success/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "success/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "success/tag/textColor",
+        "color": "#379e45",
+        "var": "success/textColor",
+        "rootAlias": "Semantics/green_06"
+      },
+      {
+        "name": "success/tag/textDisabledtempColor",
         "color": "#9de09d",
         "var": "success/textDisabledtempColor",
         "rootAlias": "Semantics/green_03"
@@ -3351,6 +4774,396 @@
         "rootAlias": "Semantics/red_03"
       },
       {
+        "name": "trade/tag/border",
+        "color": "#f96464",
+        "var": "trade/border",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/color",
+        "color": "#f96464",
+        "var": "trade/color",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/disabledtempBorder",
+        "color": "#ffabab",
+        "var": "trade/disabledtempBorder",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/disabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/disabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/outlineColor",
+        "color": "#f96464",
+        "var": "trade/outlineColor",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/outlineDisabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/outlineDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/softBg",
+        "color": "#ffebe9",
+        "var": "trade/softBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "trade/tag/softDisabledtempBg",
+        "color": "#ffebe9",
+        "var": "trade/softDisabledtempBg",
+        "rootAlias": "Semantics/red_01"
+      },
+      {
+        "name": "trade/tag/solidBg",
+        "color": "#f96464",
+        "var": "trade/solidBg",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/solidColor",
+        "color": "#ffffff",
+        "var": "trade/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "trade/tag/solidDisabledtempBg",
+        "color": "#ffabab",
+        "var": "trade/solidDisabledtempBg",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "trade/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "trade/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "trade/tag/textColor",
+        "color": "#f96464",
+        "var": "trade/textColor",
+        "rootAlias": "Semantics/red_05"
+      },
+      {
+        "name": "trade/tag/textDisabledtempColor",
+        "color": "#ffabab",
+        "var": "trade/textDisabledtempColor",
+        "rootAlias": "Semantics/red_03"
+      },
+      {
+        "name": "transBlack/1",
+        "color": "#0000000a",
+        "var": "Main/neutral_01",
+        "rootAlias": "Main/neutral_01"
+      },
+      {
+        "name": "transBlack/2",
+        "color": "#00000014",
+        "var": "Main/neutral_02",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/3",
+        "color": "#0000001f",
+        "var": "Main/neutral_03",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/4",
+        "color": "#00000029",
+        "var": "Main/neutral_04",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/5",
+        "color": "#0000003d",
+        "var": "Main/neutral_05",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/6",
+        "color": "#00000066",
+        "var": "Main/neutral_06",
+        "rootAlias": "Main/neutral_06"
+      },
+      {
+        "name": "transBlack/7",
+        "color": "#000000a3",
+        "var": "Main/neutral_07",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/8",
+        "color": "#000000e0",
+        "var": "Main/neutral_08",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/9",
+        "color": "#000000",
+        "var": "Main/neutral_09",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "transBlack/border",
+        "color": "#0000003d",
+        "var": "transBlack/5",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/color",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "Main/white_08",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/8",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/7",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/4",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/8",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/solidColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/3",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/textColor",
+        "color": "#ffffff",
+        "var": "Main/white_09",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/2",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/bt/border",
+        "color": "#0000003d",
+        "var": "transBlack/border",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/bt/color",
+        "color": "#ffffff",
+        "var": "transBlack/color",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/disabledtempBorder",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "transBlack/disabledtempColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/bt/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/outlineColor",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/bt/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/outlineDisabledtempColor",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/softBg",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/bt/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/softDisabledtempBg",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/bt/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/solidBg",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/bt/solidColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/solidDisabledtempBg",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/bt/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/textColor",
+        "color": "#ffffff",
+        "var": "transBlack/textColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/bt/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/textDisabledtempColor",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
+        "name": "transBlack/tag/border",
+        "color": "#0000003d",
+        "var": "transBlack/border",
+        "rootAlias": "Main/neutral_05"
+      },
+      {
+        "name": "transBlack/tag/color",
+        "color": "#ffffff",
+        "var": "transBlack/color",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/disabledtempBorder",
+        "color": "#0000001f",
+        "var": "transBlack/disabledtempBorder",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/disabledtempColor",
+        "color": "#ffffffe0",
+        "var": "transBlack/disabledtempColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "transBlack/tag/outlineColor",
+        "color": "#000000e0",
+        "var": "transBlack/outlineColor",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/tag/outlineDisabledtempColor",
+        "color": "#0000001f",
+        "var": "transBlack/outlineDisabledtempColor",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/softBg",
+        "color": "#000000a3",
+        "var": "transBlack/softBg",
+        "rootAlias": "Main/neutral_07"
+      },
+      {
+        "name": "transBlack/tag/softDisabledtempBg",
+        "color": "#00000029",
+        "var": "transBlack/softDisabledtempBg",
+        "rootAlias": "Main/neutral_04"
+      },
+      {
+        "name": "transBlack/tag/solidBg",
+        "color": "#000000e0",
+        "var": "transBlack/solidBg",
+        "rootAlias": "Main/neutral_08"
+      },
+      {
+        "name": "transBlack/tag/solidColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/solidDisabledtempBg",
+        "color": "#0000001f",
+        "var": "transBlack/solidDisabledtempBg",
+        "rootAlias": "Main/neutral_03"
+      },
+      {
+        "name": "transBlack/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "transBlack/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/textColor",
+        "color": "#ffffff",
+        "var": "transBlack/textColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "transBlack/tag/textDisabledtempColor",
+        "color": "#00000014",
+        "var": "transBlack/textDisabledtempColor",
+        "rootAlias": "Main/neutral_02"
+      },
+      {
         "name": "warning/1",
         "color": "#fff0e6",
         "var": "Semantics/orange_01",
@@ -3573,6 +5386,90 @@
         "rootAlias": "Semantics/orange_03"
       },
       {
+        "name": "warning/tag/border",
+        "color": "#fc7e22",
+        "var": "warning/border",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/color",
+        "color": "#fc7e22",
+        "var": "warning/color",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/disabledtempBorder",
+        "color": "#ffc299",
+        "var": "warning/disabledtempBorder",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/disabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/disabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/outlineColor",
+        "color": "#fc7e22",
+        "var": "warning/outlineColor",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/outlineDisabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/outlineDisabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/softBg",
+        "color": "#fff0e6",
+        "var": "warning/softBg",
+        "rootAlias": "Semantics/orange_01"
+      },
+      {
+        "name": "warning/tag/softDisabledtempBg",
+        "color": "#fff0e6",
+        "var": "warning/softDisabledtempBg",
+        "rootAlias": "Semantics/orange_01"
+      },
+      {
+        "name": "warning/tag/solidBg",
+        "color": "#fc7e22",
+        "var": "warning/solidBg",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/solidColor",
+        "color": "#ffffff",
+        "var": "warning/solidColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "warning/tag/solidDisabledtempBg",
+        "color": "#ffc299",
+        "var": "warning/solidDisabledtempBg",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
+        "name": "warning/tag/solidDisabledtempColor",
+        "color": "#ffffff",
+        "var": "warning/solidDisabledtempColor",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "warning/tag/textColor",
+        "color": "#fc7e22",
+        "var": "warning/textColor",
+        "rootAlias": "Semantics/orange_05"
+      },
+      {
+        "name": "warning/tag/textDisabledtempColor",
+        "color": "#ffc299",
+        "var": "warning/textDisabledtempColor",
+        "rootAlias": "Semantics/orange_03"
+      },
+      {
         "name": "white/1",
         "color": "#ffffff0a",
         "var": "Main/white_01",
@@ -3634,15 +5531,15 @@
       },
       {
         "name": "white/border2",
-        "color": "#ffffff3d",
-        "var": "white/5",
-        "rootAlias": "Main/white_05"
+        "color": "#ffffffa3",
+        "var": "white/7",
+        "rootAlias": "Main/white_07"
       },
       {
         "name": "white/border3",
-        "color": "#ffffff1f",
-        "var": "white/3",
-        "rootAlias": "Main/white_03"
+        "color": "#ffffff3d",
+        "var": "white/5",
+        "rootAlias": "Main/white_05"
       },
       {
         "name": "white/color",
@@ -3808,17 +5705,102 @@
       },
       {
         "name": "white/bt/textColor",
-        "color": "#ffffff",
+        "color": "#ffffffe0",
         "var": "white/textColor",
-        "rootAlias": "Main/white_09"
+        "rootAlias": "Main/white_08"
       },
       {
         "name": "white/bt/textDisabledtempColor",
         "color": "#ffffff3d",
         "var": "white/textDisabledtempColor",
         "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/border",
+        "color": "#ffffffe0",
+        "var": "white/border",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/color",
+        "color": "#ffffffe0",
+        "var": "white/color",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/disabledtempBorder",
+        "color": "#ffffff66",
+        "var": "white/disabledtempBorder",
+        "rootAlias": "Main/white_06"
+      },
+      {
+        "name": "white/tag/disabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/disabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/outlineColor",
+        "color": "#ffffffe0",
+        "var": "white/outlineColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/outlineDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/outlineDisabledtempColor",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/softBg",
+        "color": "#ffffff14",
+        "var": "white/softBg",
+        "rootAlias": "Main/white_02"
+      },
+      {
+        "name": "white/tag/softDisabledtempBg",
+        "color": "#ffffff0a",
+        "var": "white/softDisabledtempBg",
+        "rootAlias": "Main/white_01"
+      },
+      {
+        "name": "white/tag/solidBg",
+        "color": "#ffffff",
+        "var": "white/solidBg",
+        "rootAlias": "Main/white_09"
+      },
+      {
+        "name": "white/tag/solidColor",
+        "color": "#000000",
+        "var": "white/solidColor",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "white/tag/solidDisabledtempBg",
+        "color": "#ffffff3d",
+        "var": "white/solidDisabledtempBg",
+        "rootAlias": "Main/white_05"
+      },
+      {
+        "name": "white/tag/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "white/solidDisabledtempColor",
+        "rootAlias": "Main/neutral_09"
+      },
+      {
+        "name": "white/tag/textColor",
+        "color": "#ffffffe0",
+        "var": "white/textColor",
+        "rootAlias": "Main/white_08"
+      },
+      {
+        "name": "white/tag/textDisabledtempColor",
+        "color": "#ffffff3d",
+        "var": "white/textDisabledtempColor",
+        "rootAlias": "Main/white_05"
       }
     ],
-    "number": []
+    "number": [],
+    "string": []
   }
 ]

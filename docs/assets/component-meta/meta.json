@@ -2083,6 +2083,12 @@
                 "required": true,
                 "type": "string",
                 "default": "unknown"
+            } ,{
+                "name": "icon",
+                "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
