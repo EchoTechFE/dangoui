@@ -1,179 +1,270 @@
 <template>
-  <Popup v-model:visible="popupVisible" type="top" :closable="false">
-    <div class="du-dropdown">
+  <Popup
+    v-model:visible="popupVisible"
+    type="top"
+    :closable="false"
+    :extClass="extClass"
+    :extStyle="extStyle"
+  >
+    <div :class="className" :style="style">
       <!-- 筛选维度选择栏 -->
-      <div class="du-dropdown__dimensions">
+      <div v-if="dimensions.length > 1" class="du-dropdown__dimensions">
         <div
           v-for="(dimension, index) in dimensions"
-          :key="dimension.title"
-          :class="[
-            'du-dropdown__dimension',
-            {
-              'du-dropdown__dimension--active': currentDimensionIndex === index,
-            },
-          ]"
+          :key="dimension.value"
+          :class="dimensionClassName(index)"
           @click="handleDimensionChange(index)"
         >
-          {{ dimension.title }}
+          {{ dimension.label }}
+          <DuIcon name="arrowdown" :size="8" />
         </div>
       </div>
-
-      <!-- 当前维度标题 -->
-      <div class="du-dropdown__title" v-if="currentDimension">
-        {{ currentDimension.title }}
-      </div>
+      <DuDivider v-if="dimensions.length > 1" />
 
       <!-- 选项内容区 -->
       <div class="du-dropdown__content">
         <template v-if="currentDimension">
           <div
-            v-for="group in currentDimension.groups"
-            :key="group.title"
+            v-for="group in currentGroups"
+            :key="group.value"
             class="du-dropdown__group"
           >
-            <div class="du-dropdown__group-title">
-              {{ group.title }}
-              <span class="du-dropdown__subtitle">
-                {{ group.multiple ? '(可多选)' : '(单选)' }}
-              </span>
+            <div
+              v-if="currentGroups?.length > 1"
+              class="du-dropdown__group-title"
+            >
+              {{ group.label }}
             </div>
             <div class="du-dropdown__tags">
-              <DuTag
-                v-for="option in group.options"
-                :key="option.value"
-                :class="[
-                  'du-dropdown__tag',
-                  {
-                    'du-dropdown__tag--selected': isSelected(option, group),
-                    'du-dropdown__tag--disabled': option.disabled,
-                  },
-                ]"
-                :color="isSelected(option, group) ? 'primary' : 'default'"
-                @click="handleSelect(option, group)"
-              >
-                <span class="du-tag__content">
+              <div class="du-dropdown__tag-wrapper">
+                <DuTag
+                  v-for="option in group.options"
+                  :key="option.value"
+                  :class="tagClassName(option, group)"
+                  :color="isSelected(option, group) ? 'primary' : 'default'"
+                  @click="handleSelect(option, group)"
+                >
                   {{ option.label }}
-                </span>
-              </DuTag>
+                </DuTag>
+              </div>
             </div>
           </div>
         </template>
       </div>
 
+      <DuDivider />
+
       <!-- 底部按钮 -->
       <div class="du-dropdown__footer">
-        <DuButton
-          type="primary"
-          size="large"
-          full
-          :disabled="!hasSelected"
-          @click="handleConfirm"
-        >
-          确定
-        </DuButton>
+        <div class="du-dropdown__footer-buttons">
+          <DuButton
+            type="outline"
+            color="default"
+            size="large"
+            :extStyle="{ flex: 1 }"
+            @click="handleCancel"
+          >
+            {{ cancelText }}
+          </DuButton>
+          <DuButton
+            type="primary"
+            size="large"
+            :extStyle="{ flex: 1 }"
+            :disabled="!hasSelected"
+            @click="handleConfirm"
+          >
+            {{ confirmText }}
+          </DuButton>
+        </div>
       </div>
     </div>
   </Popup>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, normalizeClass, normalizeStyle } from 'vue'
 import Popup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
 import DuTag from '../tag/Tag.vue'
+import DuDivider from '../divider/Divider.vue'
+import DuIcon from '../icon/Icon.vue'
 
 // 选项类型
 export type DropdownOption = {
   label: string
   value: string
-  disabled?: boolean
 }
 
 // 选项分组类型
 export type OptionGroup = {
-  title: string
+  label: string
+  value: string
   multiple?: boolean
   options: DropdownOption[]
 }
 
 // 筛选维度类型
 export type FilterDimension = {
-  title: string
-  groups: OptionGroup[]
-}
+  label: string
+  value: string
+  multiple?: boolean
+} & (
+  | {
+      groups: OptionGroup[]
+    }
+  | {
+      options: DropdownOption[]
+    }
+)
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 筛选维度配置
+     */
     dimensions: FilterDimension[]
+    /**
+     * 当前选中的值
+     */
     value: Record<string, Record<string, string[]>>
+    /**
+     * 是否显示
+     */
     visible: boolean
+    /**
+     * 自定义 class
+     */
+    extClass?: string | string[] | Record<string, boolean>
+    /**
+     * 自定义 style
+     */
+    extStyle?: string | { [x: string]: string | number }
+    /**
+     * 取消按钮文本
+     */
+    cancelText?: string
+    /**
+     * 确认按钮文本
+     */
+    confirmText?: string
   }>(),
   {
     value: () => ({}),
+    flatten: false,
+    extClass: '',
+    extStyle: '',
+    cancelText: '取消',
+    confirmText: '确定',
   },
 )
 
 const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
   (e: 'update:value', value: Record<string, Record<string, string[]>>): void
-  (e: 'confirm', value: Record<string, Record<string, DropdownOption[]>>): void
+  (
+    e: 'confirm',
+    value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>,
+  ): void
 }>()
 
 const internalValue = ref<Record<string, Record<string, string[]>>>({})
 const currentDimensionIndex = ref(0)
+
+// 同步外部value到内部状态
+watch(
+  () => props.value,
+  (newValue) => {
+    internalValue.value = { ...newValue }
+  },
+  { immediate: true },
+)
+
+// 监听可见性变化，重置当前维度索引
+watch(
+  () => props.visible,
+  (newValue) => {
+    if (newValue) {
+      // 打开时同步一次值
+      internalValue.value = { ...props.value }
+    } else {
+      // 关闭时重置索引
+      currentDimensionIndex.value = 0
+    }
+  },
+)
 
 // 获取当前维度
 const currentDimension = computed(
   () => props.dimensions[currentDimensionIndex.value],
 )
 
+// 获取当前维度的选项组
+const currentGroups = computed(() => {
+  const dimension = currentDimension.value
+  if (!dimension) return []
+
+  // 如果直接有options，构造一个默认的group
+  if ('options' in dimension) {
+    return [
+      {
+        label: dimension.label,
+        value: dimension.value,
+        multiple: dimension.multiple,
+        options: dimension.options,
+      },
+    ]
+  }
+
+  return dimension.groups
+})
+
 // 检查选项是否被选中
 function isSelected(option: DropdownOption, group: OptionGroup): boolean {
   const dimension = currentDimension.value
   if (!dimension) return false
 
-  const dimensionValue = internalValue.value[dimension.title] || {}
-  const groupValue = dimensionValue[group.title] || []
+  const dimensionValue = internalValue.value[dimension.value] || {}
+  const groupValue = dimensionValue[group.value] || []
   return groupValue.includes(option.value)
 }
 
 // 处理选项选择
 function handleSelect(option: DropdownOption, group: OptionGroup) {
-  if (option.disabled) return
-
   const dimension = currentDimension.value
   if (!dimension) return
 
-  // 确保维度值和组值都是有效的对象和数组
-  const dimensionTitle = dimension.title
-  const groupTitle = group.title
+  const dimensionValue = dimension.value
+  const groupValue = group.value
 
-  if (!internalValue.value[dimensionTitle]) {
+  if (!internalValue.value[dimensionValue]) {
     internalValue.value = {
       ...internalValue.value,
-      [dimensionTitle]: {},
+      [dimensionValue]: {},
     }
   }
 
-  const dimensionValue = internalValue.value[dimensionTitle]
-  if (!dimensionValue[groupTitle]) {
-    dimensionValue[groupTitle] = []
+  const dimValue = internalValue.value[dimensionValue]
+  if (!dimValue[groupValue]) {
+    dimValue[groupValue] = []
   }
 
-  const groupValue = dimensionValue[groupTitle]
-  const index = groupValue.indexOf(option.value)
+  const grpValue = dimValue[groupValue]
+  const index = grpValue.indexOf(option.value)
 
-  if (group.multiple) {
+  // 使用group或dimension的multiple配置
+  const isMultiple = 'multiple' in group ? group.multiple : dimension.multiple
+
+  if (isMultiple) {
     // 多选模式
     if (index > -1) {
-      groupValue.splice(index, 1)
+      grpValue.splice(index, 1)
     } else {
-      groupValue.push(option.value)
+      grpValue.push(option.value)
     }
   } else {
     // 单选模式直接替换
-    groupValue.length = 0
-    groupValue.push(option.value)
+    grpValue.length = 0
+    grpValue.push(option.value)
   }
 
   // 触发响应式更新
@@ -190,23 +281,36 @@ function handleConfirm() {
   const currentValue = internalValue.value || {}
   emit('update:value', { ...currentValue })
 
-  const selectedOptions: Record<string, Record<string, DropdownOption[]>> = {}
+  const selectedOptions: Record<string, any> = {}
   props.dimensions.forEach((dimension) => {
-    const dimensionTitle = dimension.title
-    const dimensionValue = currentValue[dimensionTitle] || {}
-    selectedOptions[dimensionTitle] = {}
+    const dimensionValue = dimension.value
+    const dimValue = currentValue[dimensionValue] || {}
 
-    dimension.groups.forEach((group) => {
-      const groupTitle = group.title
-      const groupValue = dimensionValue[groupTitle] || []
-      selectedOptions[dimensionTitle][groupTitle] = group.options.filter(
-        (option) => groupValue.includes(option.value),
+    // 处理直接有options的情况 - 返回扁平结构
+    if ('options' in dimension) {
+      const grpValue = dimValue[dimensionValue] || []
+      selectedOptions[dimensionValue] = dimension.options.filter((option) =>
+        grpValue.includes(option.value),
       )
-    })
+    } else {
+      // 处理有groups的情况 - 返回嵌套结构
+      selectedOptions[dimensionValue] = {}
+      dimension.groups.forEach((group) => {
+        const groupValue = group.value
+        const grpValue = dimValue[groupValue] || []
+        selectedOptions[dimensionValue][groupValue] = group.options.filter(
+          (option) => grpValue.includes(option.value),
+        )
+      })
+    }
   })
-  console.log(selectedOptions)
+  console.info(selectedOptions)
   popupVisible.value = false
   emit('confirm', selectedOptions)
+}
+
+function handleCancel() {
+  popupVisible.value = false
 }
 
 // 计算是否有选中项
@@ -230,123 +334,37 @@ const popupVisible = computed({
   },
 })
 
-// 监听可见性变化
-watch(
-  () => props.visible,
-  (val) => {
-    if (val) {
-      // 确保初始值是一个有效的对象
-      internalValue.value = props.value ? { ...props.value } : {}
-      currentDimensionIndex.value = 0
-    }
-  },
-)
+// 组件样式类名
+const className = computed(() => {
+  return normalizeClass(['du-dropdown', props.extClass])
+})
+
+// 组件样式
+const style = computed(() => {
+  return normalizeStyle(props.extStyle)
+})
+
+// 维度标签样式类名
+function dimensionClassName(index: number) {
+  return normalizeClass([
+    'du-dropdown__dimension',
+    {
+      'du-dropdown__dimension--active': currentDimensionIndex.value === index,
+    },
+  ])
+}
+
+// 选项标签样式类名
+function tagClassName(option: DropdownOption, group: OptionGroup) {
+  return normalizeClass([
+    'du-dropdown__tag',
+    {
+      'du-dropdown__tag--selected': isSelected(option, group),
+    },
+  ])
+}
 </script>
 
 <style lang="scss">
-.du-dropdown {
-  display: flex;
-  flex-direction: column;
-  max-height: 70vh;
-
-  &__dimensions {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--du-border-color);
-    overflow-x: auto;
-    position: sticky;
-    top: 0;
-    background: var(--du-bg-color);
-    z-index: 1;
-  }
-
-  &__dimension {
-    padding: 6px 12px;
-    font-size: 14px;
-    color: var(--du-text-color-secondary);
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 16px;
-    transition: all 0.2s;
-
-    &:not(:last-child) {
-      margin-right: 8px;
-    }
-
-    &--active {
-      color: var(--du-primary-color);
-      background: var(--du-primary-color-light);
-    }
-  }
-
-  &__title {
-    padding: 16px 16px 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--du-text-color);
-  }
-
-  &__subtitle {
-    font-size: 12px;
-    color: var(--du-text-color-secondary);
-    font-weight: normal;
-    margin-left: 4px;
-  }
-
-  &__content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 12px 16px;
-  }
-
-  &__group {
-    & + & {
-      margin-top: 16px;
-    }
-  }
-
-  &__group-title {
-    font-size: 14px;
-    color: var(--du-text-color);
-    margin-bottom: 12px;
-  }
-
-  &__tags {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  &__tag {
-    cursor: pointer;
-    width: 100%;
-    height: 40px;
-    text-align: left;
-    padding: 4px 12px;
-    display: flex;
-    align-items: center;
-
-    :deep(.du-tag__content) {
-      flex: 1;
-      min-width: 0;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      line-height: 1.2;
-      font-size: 14px;
-    }
-
-    &--disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-
-  &__footer {
-    padding: 16px;
-    border-top: 1px solid var(--du-border-color);
-  }
-}
+@import './style.scss';
 </style>

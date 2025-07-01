@@ -1509,8 +1509,98 @@
     ]
   },
   "Dropdown": {
-    "props": [],
-    "events": [],
+    "props": [
+      {
+        "name": "dimensions",
+        "description": "筛选维度配置，支持单维度或多维度筛选",
+        "required": true,
+        "type": "FilterDimension[]",
+        "default": "unknown"
+      },
+      {
+        "name": "value",
+        "description": "当前选中的值，嵌套对象结构，用于存储每个维度下各分组的选中值",
+        "required": false,
+        "type": "Record<string, Record<string, string[]>>",
+        "default": "{}"
+      },
+      {
+        "name": "visible",
+        "description": "是否显示下拉选择器",
+        "required": false,
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "name": "extClass",
+        "description": "自定义 class",
+        "required": false,
+        "type": "string | string[] | Record<string, boolean>",
+        "default": "\"\""
+      },
+      {
+        "name": "extStyle",
+        "description": "自定义 style",
+        "required": false,
+        "type": "string | { [x: string]: string | number; }",
+        "default": "\"\""
+      },
+      {
+        "name": "cancelText",
+        "description": "取消按钮文本",
+        "required": false,
+        "type": "string",
+        "default": "\"取消\""
+      },
+      {
+        "name": "confirmText",
+        "description": "确认按钮文本",
+        "required": false,
+        "type": "string",
+        "default": "\"确定\""
+      }
+    ],
+    "events": [
+      {
+        "name": "update:visible",
+        "type": "[visible: boolean]",
+        "signature": "(event: \"update:visible\", visible: boolean): void",
+        "declarations": [],
+        "schema": [
+          {
+            "kind": "enum",
+            "type": "boolean",
+            "schema": ["false", "true"]
+          }
+        ]
+      },
+      {
+        "name": "update:value",
+        "type": "[value: Record<string, Record<string, string[]>>]",
+        "signature": "(event: \"update:value\", value: Record<string, Record<string, string[]>>): void",
+        "declarations": [],
+        "schema": [
+          {
+            "kind": "object",
+            "type": "Record<string, Record<string, string[]>>",
+            "schema": {}
+          }
+        ]
+      },
+      {
+        "name": "confirm",
+        "type": "[value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>]",
+        "signature": "(event: \"confirm\", value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>): void",
+        "declarations": [],
+        "schema": [
+          {
+            "kind": "object",
+            "type": "Record<string, DropdownOption[] | Record<string, DropdownOption[]>>",
+            "schema": {}
+          }
+        ]
+      }
+    ],
     "slots": []
   },
   "Empty": {
