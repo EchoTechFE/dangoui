@@ -304,7 +304,6 @@ function handleConfirm() {
       })
     }
   })
-  console.info(selectedOptions)
   popupVisible.value = false
   emit('confirm', selectedOptions)
 }
