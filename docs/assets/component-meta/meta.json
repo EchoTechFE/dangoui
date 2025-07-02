@@ -1532,20 +1532,6 @@
         "default": "false"
       },
       {
-        "name": "extClass",
-        "description": "自定义 class",
-        "required": false,
-        "type": "string | string[] | Record<string, boolean>",
-        "default": "\"\""
-      },
-      {
-        "name": "extStyle",
-        "description": "自定义 style",
-        "required": false,
-        "type": "string | { [x: string]: string | number; }",
-        "default": "\"\""
-      },
-      {
         "name": "cancelText",
         "description": "取消按钮文本",
         "required": false,

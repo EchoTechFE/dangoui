@@ -1,12 +1,6 @@
 <template>
-  <Popup
-    v-model:visible="popupVisible"
-    type="top"
-    :closable="false"
-    :extClass="extClass"
-    :extStyle="extStyle"
-  >
-    <div :class="className" :style="style">
+  <Popup v-model:visible="popupVisible" type="top" :closable="false">
+    <div>
       <!-- 筛选维度选择栏 -->
       <div v-if="dimensions.length > 1" class="du-dropdown__dimensions">
         <div
@@ -40,7 +34,7 @@
                 <DuTag
                   v-for="option in group.options"
                   :key="option.value"
-                  :class="tagClassName(option, group)"
+                  class="du-dropdown__tag"
                   :color="isSelected(option, group) ? 'primary' : 'default'"
                   @click="handleSelect(option, group)"
                 >
@@ -82,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, normalizeClass, normalizeStyle } from 'vue'
+import { computed, ref, watch, normalizeClass } from 'vue'
 import Popup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
 import DuTag from '../tag/Tag.vue'
@@ -130,14 +124,6 @@ const props = withDefaults(
      * 是否显示
      */
     visible: boolean
-    /**
-     * 自定义 class
-     */
-    extClass?: string | string[] | Record<string, boolean>
-    /**
-     * 自定义 style
-     */
-    extStyle?: string | { [x: string]: string | number }
     /**
      * 取消按钮文本
      */
@@ -351,14 +337,6 @@ const hasSelected = computed(() => {
   })
 })
 
-const className = computed(() => {
-  return normalizeClass(['du-dropdown', props.extClass])
-})
-
-const style = computed(() => {
-  return normalizeStyle(props.extStyle)
-})
-
 function dimensionClassName(index: number) {
   return normalizeClass([
     'du-dropdown__dimension',
@@ -367,17 +345,4 @@ function dimensionClassName(index: number) {
     },
   ])
 }
-
-function tagClassName(option: DropdownOption, group: OptionGroup) {
-  return normalizeClass([
-    'du-dropdown__tag',
-    {
-      'du-dropdown__tag--selected': isSelected(option, group),
-    },
-  ])
-}
 </script>
-
-<style lang="scss">
-@import './style.scss';
-</style>
