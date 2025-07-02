@@ -89,13 +89,11 @@ import DuTag from '../tag/Tag.vue'
 import DuDivider from '../divider/Divider.vue'
 import DuIcon from '../icon/Icon.vue'
 
-// 选项类型
 export type DropdownOption = {
   label: string
   value: string
 }
 
-// 选项分组类型
 export type OptionGroup = {
   label: string
   value: string
@@ -103,7 +101,6 @@ export type OptionGroup = {
   options: DropdownOption[]
 }
 
-// 筛选维度类型
 export type FilterDimension = {
   label: string
   value: string
@@ -117,7 +114,6 @@ export type FilterDimension = {
     }
 )
 
-// 选中值类型
 export type SelectedValue = Record<string, any>
 
 const props = withDefaults(
@@ -169,41 +165,39 @@ const emit = defineEmits<{
 
 const internalValue = ref<SelectedValue>({})
 const currentDimensionIndex = ref(0)
+const isConfirming = ref(false)
 
-// 同步外部value到内部状态
-watch(
-  () => props.value,
-  (newValue) => {
-    internalValue.value = { ...newValue }
-  },
-  { immediate: true },
-)
-
-// 监听可见性变化，重置当前维度索引
 watch(
   () => props.visible,
   (newValue) => {
     if (newValue) {
-      // 打开时同步一次值
-      internalValue.value = { ...props.value }
+      internalValue.value = JSON.parse(JSON.stringify(props.value))
     } else {
-      // 关闭时重置索引
       currentDimensionIndex.value = 0
+      isConfirming.value = false
     }
   },
 )
 
-// 获取当前维度
+const popupVisible = computed({
+  get() {
+    return props.visible
+  },
+  set(val) {
+    if (!val && !isConfirming.value) {
+      internalValue.value = JSON.parse(JSON.stringify(props.value))
+    }
+    emit('update:visible', val)
+  },
+})
+
 const currentDimension = computed(
   () => props.dimensions[currentDimensionIndex.value],
 )
 
-// 获取当前维度的选项组
 const currentGroups = computed(() => {
   const dimension = currentDimension.value
   if (!dimension) return []
-
-  // 如果直接有options，构造一个默认的group
   if ('options' in dimension) {
     return [
       {
@@ -214,11 +208,9 @@ const currentGroups = computed(() => {
       },
     ]
   }
-
   return dimension.groups
 })
 
-// 检查选项是否被选中
 function isSelected(option: DropdownOption, group: OptionGroup): boolean {
   const dimension = currentDimension.value
   if (!dimension) return false
@@ -238,14 +230,12 @@ function isSelected(option: DropdownOption, group: OptionGroup): boolean {
   return groupOptions.some((opt: DropdownOption) => opt.value === option.value)
 }
 
-// 处理选项选择
 function handleSelect(option: DropdownOption, group: OptionGroup) {
   const dimension = currentDimension.value
   if (!dimension) return
 
   const dimensionValue = dimension.value
 
-  // 使用group或dimension的multiple配置
   const isMultiple = 'multiple' in group ? group.multiple : dimension.multiple
 
   if ('options' in dimension) {
@@ -314,18 +304,20 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
       dimValue[group.value] = [option]
     }
   }
-
-  // 触发响应式更新
   internalValue.value = { ...internalValue.value }
 }
 
-// 处理维度切换
 function handleDimensionChange(index: number) {
   currentDimensionIndex.value = index
 }
 
-// 处理确认按钮点击
+function handleCancel() {
+  internalValue.value = JSON.parse(JSON.stringify(props.value))
+  popupVisible.value = false
+}
+
 function handleConfirm() {
+  isConfirming.value = true
   const selectedOptions: SelectedValue = {}
 
   props.dimensions.forEach((dimension) => {
@@ -342,16 +334,11 @@ function handleConfirm() {
       selectedOptions[dimensionValue] = groupedValue
     }
   })
-  emit('update:value', selectedOptions)
   popupVisible.value = false
+  emit('update:value', selectedOptions)
   emit('confirm', selectedOptions)
 }
 
-function handleCancel() {
-  popupVisible.value = false
-}
-
-// 计算是否有选中项
 const hasSelected = computed(() => {
   const dimensionValues = internalValue.value || {}
   return Object.values(dimensionValues).some((dimensionValue) => {
@@ -364,26 +351,14 @@ const hasSelected = computed(() => {
   })
 })
 
-const popupVisible = computed({
-  get() {
-    return props.visible
-  },
-  set(val) {
-    emit('update:visible', val)
-  },
-})
-
-// 组件样式类名
 const className = computed(() => {
   return normalizeClass(['du-dropdown', props.extClass])
 })
 
-// 组件样式
 const style = computed(() => {
   return normalizeStyle(props.extStyle)
 })
 
-// 维度标签样式类名
 function dimensionClassName(index: number) {
   return normalizeClass([
     'du-dropdown__dimension',
@@ -393,7 +368,6 @@ function dimensionClassName(index: number) {
   ])
 }
 
-// 选项标签样式类名
 function tagClassName(option: DropdownOption, group: OptionGroup) {
   return normalizeClass([
     'du-dropdown__tag',
