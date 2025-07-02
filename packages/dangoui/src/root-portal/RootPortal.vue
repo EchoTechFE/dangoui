@@ -35,7 +35,7 @@ function isRootPortalAvailable(): boolean {
   }
 }
 
-// const isWeb = __WEB__
+const isWeb = __WEB__
 
 const canUseRootPortal = isRootPortalAvailable()
 </script>
