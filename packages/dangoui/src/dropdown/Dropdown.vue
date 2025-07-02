@@ -117,6 +117,9 @@ export type FilterDimension = {
     }
 )
 
+// 选中值类型
+export type SelectedValue = Record<string, any>
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -126,7 +129,7 @@ const props = withDefaults(
     /**
      * 当前选中的值
      */
-    value: Record<string, Record<string, string[]>>
+    value: SelectedValue
     /**
      * 是否显示
      */
@@ -160,14 +163,11 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
-  (e: 'update:value', value: Record<string, Record<string, string[]>>): void
-  (
-    e: 'confirm',
-    value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>,
-  ): void
+  (e: 'update:value', value: SelectedValue): void
+  (e: 'confirm', value: SelectedValue): void
 }>()
 
-const internalValue = ref<Record<string, Record<string, string[]>>>({})
+const internalValue = ref<SelectedValue>({})
 const currentDimensionIndex = ref(0)
 
 // 同步外部value到内部状态
@@ -223,9 +223,19 @@ function isSelected(option: DropdownOption, group: OptionGroup): boolean {
   const dimension = currentDimension.value
   if (!dimension) return false
 
-  const dimensionValue = internalValue.value[dimension.value] || {}
-  const groupValue = dimensionValue[group.value] || []
-  return groupValue.includes(option.value)
+  const dimensionValue = internalValue.value[dimension.value]
+  if (!dimensionValue) return false
+
+  if (Array.isArray(dimensionValue)) {
+    return dimensionValue.some(
+      (opt: DropdownOption) => opt.value === option.value,
+    )
+  }
+
+  const groupOptions = dimensionValue[group.value]
+  if (!groupOptions) return false
+
+  return groupOptions.some((opt: DropdownOption) => opt.value === option.value)
 }
 
 // 处理选项选择
@@ -234,37 +244,75 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
   if (!dimension) return
 
   const dimensionValue = dimension.value
-  const groupValue = group.value
-
-  if (!internalValue.value[dimensionValue]) {
-    internalValue.value = {
-      ...internalValue.value,
-      [dimensionValue]: {},
-    }
-  }
-
-  const dimValue = internalValue.value[dimensionValue]
-  if (!dimValue[groupValue]) {
-    dimValue[groupValue] = []
-  }
-
-  const grpValue = dimValue[groupValue]
-  const index = grpValue.indexOf(option.value)
 
   // 使用group或dimension的multiple配置
   const isMultiple = 'multiple' in group ? group.multiple : dimension.multiple
 
-  if (isMultiple) {
-    // 多选模式
-    if (index > -1) {
-      grpValue.splice(index, 1)
+  if ('options' in dimension) {
+    // 处理直接有options的情况
+    let currentOptions: DropdownOption[]
+
+    if (
+      !internalValue.value[dimensionValue] ||
+      !Array.isArray(internalValue.value[dimensionValue])
+    ) {
+      currentOptions = []
+      internalValue.value = {
+        ...internalValue.value,
+        [dimensionValue]: currentOptions,
+      }
     } else {
-      grpValue.push(option.value)
+      currentOptions = internalValue.value[dimensionValue]
+    }
+
+    const existingIndex = currentOptions.findIndex(
+      (opt) => opt.value === option.value,
+    )
+
+    if (isMultiple) {
+      if (existingIndex > -1) {
+        currentOptions.splice(existingIndex, 1)
+      } else {
+        currentOptions.push(option)
+      }
+    } else {
+      internalValue.value[dimensionValue] = [option]
     }
   } else {
-    // 单选模式直接替换
-    grpValue.length = 0
-    grpValue.push(option.value)
+    // 处理有groups的情况
+    let dimValue: Record<string, DropdownOption[]>
+
+    if (
+      !internalValue.value[dimensionValue] ||
+      Array.isArray(internalValue.value[dimensionValue])
+    ) {
+      dimValue = {}
+      internalValue.value = {
+        ...internalValue.value,
+        [dimensionValue]: dimValue,
+      }
+    } else {
+      dimValue = internalValue.value[dimensionValue]
+    }
+
+    if (!dimValue[group.value]) {
+      dimValue[group.value] = []
+    }
+
+    const groupOptions = dimValue[group.value]
+    const existingIndex = groupOptions.findIndex(
+      (opt) => opt.value === option.value,
+    )
+
+    if (isMultiple) {
+      if (existingIndex > -1) {
+        groupOptions.splice(existingIndex, 1)
+      } else {
+        groupOptions.push(option)
+      }
+    } else {
+      dimValue[group.value] = [option]
+    }
   }
 
   // 触发响应式更新
@@ -278,32 +326,23 @@ function handleDimensionChange(index: number) {
 
 // 处理确认按钮点击
 function handleConfirm() {
-  const currentValue = internalValue.value || {}
-  emit('update:value', { ...currentValue })
+  const selectedOptions: SelectedValue = {}
 
-  const selectedOptions: Record<string, any> = {}
   props.dimensions.forEach((dimension) => {
     const dimensionValue = dimension.value
-    const dimValue = currentValue[dimensionValue] || {}
+    const dimValue = internalValue.value[dimensionValue] || {}
 
-    // 处理直接有options的情况 - 返回扁平结构
+    // 处理直接有options的情况
     if ('options' in dimension) {
-      const grpValue = dimValue[dimensionValue] || []
-      selectedOptions[dimensionValue] = dimension.options.filter((option) =>
-        grpValue.includes(option.value),
-      )
+      const options = dimValue as DropdownOption[]
+      selectedOptions[dimensionValue] = options || []
     } else {
-      // 处理有groups的情况 - 返回嵌套结构
-      selectedOptions[dimensionValue] = {}
-      dimension.groups.forEach((group) => {
-        const groupValue = group.value
-        const grpValue = dimValue[groupValue] || []
-        selectedOptions[dimensionValue][groupValue] = group.options.filter(
-          (option) => grpValue.includes(option.value),
-        )
-      })
+      // 处理有groups的情况
+      const groupedValue = dimValue as Record<string, DropdownOption[]>
+      selectedOptions[dimensionValue] = groupedValue
     }
   })
+  emit('update:value', selectedOptions)
   popupVisible.value = false
   emit('confirm', selectedOptions)
 }
@@ -315,13 +354,14 @@ function handleCancel() {
 // 计算是否有选中项
 const hasSelected = computed(() => {
   const dimensionValues = internalValue.value || {}
-  return Object.values(dimensionValues).some(
-    (dimensionValue) =>
-      dimensionValue &&
-      Object.values(dimensionValue).some(
-        (groupValue) => Array.isArray(groupValue) && groupValue.length > 0,
-      ),
-  )
+  return Object.values(dimensionValues).some((dimensionValue) => {
+    if (Array.isArray(dimensionValue)) {
+      return dimensionValue.length > 0
+    }
+    return Object.values(dimensionValue).some(
+      (groupValue) => Array.isArray(groupValue) && groupValue.length > 0,
+    )
+  })
 })
 
 const popupVisible = computed({
