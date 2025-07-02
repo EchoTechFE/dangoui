@@ -34,7 +34,7 @@ export default defineNuxtModule({
             process.cwd(),
             `./pages/demos/${p}/snippet${i++}.vue`,
           )
-          console.log('snippetFile', snippetFile)
+
           fs.mkdirSync(path.dirname(snippetFile), { recursive: true })
           fs.writeFileSync(snippetFile, snippet)
         }
