@@ -151,7 +151,6 @@ const emit = defineEmits<{
 
 const internalValue = ref<SelectedValue>({})
 const currentDimensionIndex = ref(0)
-const isConfirming = ref(false)
 
 watch(
   () => props.visible,
@@ -160,7 +159,6 @@ watch(
       internalValue.value = JSON.parse(JSON.stringify(props.value))
     } else {
       currentDimensionIndex.value = 0
-      isConfirming.value = false
     }
   },
 )
@@ -170,9 +168,6 @@ const popupVisible = computed({
     return props.visible
   },
   set(val) {
-    if (!val && !isConfirming.value) {
-      internalValue.value = JSON.parse(JSON.stringify(props.value))
-    }
     emit('update:visible', val)
   },
 })
@@ -303,7 +298,6 @@ function handleCancel() {
 }
 
 function handleConfirm() {
-  isConfirming.value = true
   const selectedOptions: SelectedValue = {}
 
   props.dimensions.forEach((dimension) => {
