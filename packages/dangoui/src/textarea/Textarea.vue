@@ -1,7 +1,12 @@
 <template>
   <div :class="className" :style="style">
     <textarea
-      class="du-textarea__inner"
+      :class="[
+        'du-textarea__inner',
+        {
+          'du-textarea__inner--without-count': !showCount,
+        },
+      ]"
       :value="value"
       :maxlength="maxlength"
       @input="handleInput"

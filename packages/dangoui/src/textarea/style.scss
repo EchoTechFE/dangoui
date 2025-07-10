@@ -19,6 +19,10 @@
     line-height: 22px;
     background-color: transparent;
     height: calc(100% - 18px);
+
+    &--without-count {
+      height: 100%;
+    }
   }
 
   &__count {
