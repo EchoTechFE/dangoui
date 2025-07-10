@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.1.56
+
+### Patch Changes
+
+- 049fbcd: fix textarea count
+
 ## 3.1.55
 
 ### Patch Changes
