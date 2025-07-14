@@ -13,16 +13,25 @@
           animationDelay: `${index * 0.02}s`,
         }"
       >
-        <DuIcon :name="icon" :size="iconSize" :color="color" />
-        <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText&& size==='large'">
+        <DuIcon
+          v-if="typeof icon === 'string'"
+          :name="icon"
+          :size="iconSize"
+          :color="color"
+        ></DuIcon>
+        <DuIcon v-else :icon="icon" :size="iconSize" :color="color" />
+        <div
+          class="du-rate__item du-rate__text"
+          :style="colorStyle"
+          v-if="withText && size === 'large'"
+        >
           {{ computedTextList[index - 1] }}
-
         </div>
       </div>
       <div
         v-if="percent > 0"
         @click="handleClickItem($event, Math.ceil(displayValue || 0))"
-        :class="`du-rate du-rate__item du-rate__item--${size}`"
+        :class="`du-rate du-rate__item `"
         :style="{
           cursor: disabled ? 'not-allowed' : 'pointer',
           animation: animation
@@ -38,18 +47,35 @@
             class="du-rate du-rate__left-half"
           >
             <div class="du-rate__left-container">
-              <DuIcon :name="icon" :size="iconSize" :color="color" />
-              <div class="du-rate__item du-rate__text" :style="colorStyle" v-if="withText">
+              <DuIcon
+                v-if="typeof icon === 'string'"
+                :name="icon"
+                :size="iconSize"
+                :color="color"
+              ></DuIcon>
+              <DuIcon v-else :icon="icon" :size="iconSize" :color="color" />
+              <div
+                class="du-rate__item du-rate__text"
+                :style="colorStyle"
+                v-if="withText"
+              >
                 {{ computedTextList[chosen] }}
               </div>
             </div>
           </div>
 
-          <div
-            class="du-rate du-rate__unselected"
-          >
-            <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
-            <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText&& size==='large'">
+          <div class="du-rate du-rate__unselected">
+            <DuIcon
+              v-if="typeof icon === 'string'"
+              :name="icon"
+              :size="iconSize"
+              color="#D4D0DA"
+            ></DuIcon>
+            <DuIcon v-else :icon="icon" :size="iconSize" color="#D4D0DA" />
+            <div
+              class="du-rate__item du-rate__text du-rate__text--unselected"
+              v-if="withText && size === 'large'"
+            >
               {{ computedTextList[chosen] }}
             </div>
           </div>
@@ -64,9 +90,20 @@
           cursor: disabled ? 'not-allowed' : 'pointer',
         }"
       >
-        <DuIcon :name="icon" :size="iconSize" color="#D4D0DA" />
-        <div class="du-rate__item du-rate__text du-rate__text--unselected" v-if="withText && size==='large'">
-          {{ computedTextList[percent > 0 ? chosen + index : chosen + index - 1] }}
+        <DuIcon
+          v-if="typeof icon === 'string'"
+          :name="icon"
+          :size="iconSize"
+          color="#D4D0DA"
+        ></DuIcon>
+        <DuIcon v-else :icon="icon" :size="iconSize" color="#D4D0DA" />
+        <div
+          class="du-rate__item du-rate__text du-rate__text--unselected"
+          v-if="withText && size === 'large'"
+        >
+          {{
+            computedTextList[percent > 0 ? chosen + index : chosen + index - 1]
+          }}
         </div>
       </div>
     </div>
@@ -77,6 +114,7 @@
 import { computed, normalizeClass, normalizeStyle, ref, watch } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { isPlatteColor } from '../helpers'
+import { iconRateFilled } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -95,7 +133,7 @@ const props = withDefaults(
     /**
      * Rate 组件尺寸
      */
-    size: 'large' | 'medium' | 'small' | 'mini'
+    size: 'large' | 'medium' | 'small' | 'mini' | 'normal'
     /**
      * 主题颜色
      */
@@ -105,9 +143,13 @@ const props = withDefaults(
      */
     disabled: boolean
     /**
+     * 是否禁用评分
+     */
+    clickable: boolean
+    /**
      * 图标，对应 icon 组件的 name
      */
-    icon: string
+    icon: string | { _: string }
 
     extClass: string | string[] | Record<string, boolean>
 
@@ -123,11 +165,11 @@ const props = withDefaults(
     /**
      * 是否支持半选
      */
-    half: boolean,
+    half: boolean
     /**
      * 是否在icon下显示文字，该项只在size为large的情况下可用
      */
-    withText: boolean,
+    withText: boolean
     /**
      * 文字列表
      */
@@ -139,13 +181,14 @@ const props = withDefaults(
     size: 'medium',
     color: '#FC7E22',
     disabled: false,
-    icon: 'rate-filled',
+    clickable: true,
+    icon: () => iconRateFilled,
     extStyle: '',
     extClass: '',
     animation: null,
     half: false,
     defaultValue: 0,
-    withText: false
+    withText: false,
   },
 )
 
@@ -183,7 +226,6 @@ const chosen = computed(() => {
   return Math.floor(displayValue.value || 0)
 })
 
-
 // 小数点
 const percent = computed(() => {
   return (displayValue.value || 0) - Math.floor(displayValue.value || 0)
@@ -193,9 +235,7 @@ const className = computed(() => {
   return normalizeClass(props.extClass)
 })
 
-
 const style = computed(() => {
-
   return normalizeStyle(props.extStyle)
 })
 
@@ -204,6 +244,8 @@ const iconSize = computed(() => {
     case 'large':
       return 32
     case 'medium':
+      return 24
+    case 'normal':
       return 12
     case 'small':
       return 8
@@ -254,7 +296,7 @@ function ifHalfSupported(e: any, i: number) {
 }
 
 function handleClickItem(e: Event, i: number) {
-  if (props.disabled) return
+  if (props.disabled || !props.clickable) return
 
   let index = i
 

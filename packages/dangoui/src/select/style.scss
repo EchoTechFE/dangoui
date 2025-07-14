@@ -18,6 +18,8 @@
 
   &__options {
     height: 300px;
+    max-height: 80vh;
+    overflow-y: scroll;
   }
 
   &__tags {

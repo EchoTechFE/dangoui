@@ -11,7 +11,7 @@
     "prepublishOnly": "pnpm run build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "sync": "cnpm sync dangoui-design-token && cnpm sync vite-plugin-dangoui && cnpm sync dangoui",
+    "sync": "cnpm sync dangoui-design-token && cnpm sync vite-plugin-dangoui && cnpm sync dangoui && cnpm sync dangoui-icon-config",
     "release": "pnpm run build && changeset publish --tag latest"
   },
   "keywords": [],

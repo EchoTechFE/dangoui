@@ -19,6 +19,7 @@
     "@unocss/reset": "^0.57.7",
     "@vueuse/core": "^10.6.1",
     "dangoui": "workspace:*",
+    "dangoui-icon-config": "workspace:*",
     "dayjs": "^1.9.1",
     "hammer-touchemulator": "^0.0.2",
     "hotkeys-js": "^3.13.7",

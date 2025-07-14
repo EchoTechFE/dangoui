@@ -1,7 +1,12 @@
 <template>
   <div :class="className" :style="style">
     <textarea
-      class="du-textarea__inner"
+      :class="[
+        'du-textarea__inner',
+        {
+          'du-textarea__inner--without-count': !showCount,
+        },
+      ]"
       :value="value"
       :maxlength="maxlength"
       @input="handleInput"
@@ -87,7 +92,7 @@ const emit = defineEmits<{
 
 const handleInput = (e: any) => {
   if (__WEB__) {
-    emit('update:value', e.target.value)
+    emit('update:value', e.target?.value || e.detail?.value || '')
   } else if (__UNI_PLATFORM__) {
     emit('update:value', e.detail.value)
   }

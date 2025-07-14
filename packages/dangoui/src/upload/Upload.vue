@@ -20,7 +20,7 @@
     >
       <DuImage v-if="file.thumbUrl" :src="file.thumbUrl" />
       <div class="du-upload__video" v-else>
-        <DuIcon name="video_play_circle_filled" :size="24" />
+        <DuIcon :unsafe-internal="videoPlayCircleFilledIcon" :size="24" />
       </div>
 
       <div
@@ -29,7 +29,7 @@
         @click="handleDelete(file)"
       >
         <DuIcon
-          name="close-heavy"
+          :unsafe-internal="closeHeavyIcon"
           class="du-upload__item-delete-icon"
           size="8"
         />
@@ -52,7 +52,10 @@
       ]"
       @click="handleAdd"
     >
-      <DuIcon name="plus-circle" class="du-upload__item-add-plus" />
+      <DuIcon
+        :unsafe-internal="plusCircleIcon"
+        class="du-upload__item-add-plus"
+      />
       <div class="du-upload__item-add-text">{{ uploadText }}</div>
     </div>
     <DuActionSheet
@@ -68,11 +71,16 @@ import { computed, inject, normalizeStyle, ref } from 'vue'
 import DuImage from '../image/Image.vue'
 import DuIcon from '../icon/Icon.vue'
 import { GlobalConfigKey } from '../plugins/globalConfig'
-import { UploadFile, getNextUid } from './helpers'
+import { UploadFile, getNextUid, MB_UNIT_COMPUTE } from "./helpers";
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
 import { useToast } from '../composables/useToast'
 import DuActionSheet from '../action-sheet/ActionSheet.vue'
+import {
+  iconCloseHeavy,
+  iconPlusCircle,
+  iconVideoPlayCircleFilled,
+} from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -163,7 +171,11 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
-    customAdd?: (params: { scene: string }) => Promise<UploadFile[]>
+    customAdd?: (params: { scene: string; meta: any }) => Promise<UploadFile[]>
+    /**
+     * meta
+     */
+    meta?: any
   }>(),
   {
     size: 'normal',
@@ -316,7 +328,17 @@ function uniAdd() {
     mediaType: props.mediaType,
     count,
     async success(res: any) {
+
+      const isImageTooLarge = (size:number) => size > MB_UNIT_COMPUTE(20)
+
+
+      let error: Error | null = null
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
+
+        if (isImageTooLarge(file.size)){
+          error =  new Error('请上传小于 20MB 的图片')
+        }
+
         const f: UploadFile = {
           uid: getNextUid(),
           url: '',
@@ -330,10 +352,20 @@ function uniAdd() {
           formData: props.data,
           scene: props.scene,
           action: props.action ?? '',
+          meta: props.meta,
         }
 
         return f
       })
+
+      if (error){
+        uni.showModal({
+          title: '',
+          content: (error as Error).message,
+        })
+        return
+      }
+
 
       emit('update:value', props.value.concat(uploadFiles))
 
@@ -415,6 +447,7 @@ function webAdd(mediaType?: string) {
         file,
         scene: props.scene,
         action: props.action ?? '',
+        meta: props.meta,
       }
       if (props.beforeUpload) {
         uploadFile = await props.beforeUpload(uploadFile)
@@ -461,7 +494,7 @@ function handleAdd() {
 
   const customAdd = globalConfig?.upload?.customAdd || props.customAdd
   if (customAdd) {
-    customAdd({ scene: props.scene }).then((files) => {
+    customAdd({ scene: props.scene, meta: props.meta }).then((files) => {
       emit('update:value', props.value.concat(files))
     })
     return
@@ -480,4 +513,28 @@ function handleDelete(file: UploadFile) {
     props.value.filter((item) => item.uid !== file.uid),
   )
 }
+
+const closeHeavyIcon = (function () {
+  if (__WEB__) {
+    return iconCloseHeavy
+  } else {
+    return 'close-heavy'
+  }
+})()
+
+const plusCircleIcon = (function () {
+  if (__WEB__) {
+    return iconPlusCircle
+  } else {
+    return 'plus-circle'
+  }
+})()
+
+const videoPlayCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconVideoPlayCircleFilled
+  } else {
+    return 'video-play-circle-filled'
+  }
+})()
 </script>

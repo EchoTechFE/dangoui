@@ -2,7 +2,7 @@
   <div class="du-search" :style="style" @click="handleClick">
     <div class="du-search__left">
       <slot name="left">
-        <DuIcon name="search" />
+        <DuIcon :unsafe-internal="searchIcon" />
       </slot>
     </div>
     <div class="du-search__input">
@@ -64,7 +64,7 @@
     </div>
     <DuIcon
       v-if="value && clearable"
-      name="close-circle-filled"
+      :unsafe-internal="closeCircleFilledIcon"
       class="du-search__close"
       @click="handleClear"
     />
@@ -75,9 +75,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, provide, onBeforeUnmount } from 'vue'
+import { ref, watch, computed, provide, onBeforeUnmount, onMounted } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { dividerInjectionKey } from '../divider/helpers'
+import { iconCloseCircleFilled, iconSearch } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -103,6 +104,10 @@ const props = withDefaults(
      * 你可能想利用这个组件做到点击切换到另一个页面进行搜索
      */
     readonly: boolean
+    /**
+     * 自动聚焦，拉起键盘
+     */
+    autofocus: boolean
   }>(),
   {
     placeholder: '',
@@ -110,6 +115,7 @@ const props = withDefaults(
     clearable: false,
     bg: '',
     readonly: false,
+    autofocus: false,
   },
 )
 
@@ -171,7 +177,6 @@ const displayPlaceholders = computed(() => {
 const currentIndex = ref(0)
 const isNext = ref(false)
 let timer: any = null
-
 function tick() {
   if (!isNext.value) {
     isNext.value = true
@@ -182,7 +187,14 @@ function tick() {
   }
   timer = setTimeout(tick, 3000)
 }
-
+watch(
+  () => props.autofocus,
+  (newVal) => {
+    if (newVal) {
+      doFocus()
+    }
+  },
+)
 watch(
   [isFocus, placeholders],
   () => {
@@ -200,7 +212,11 @@ watch(
     immediate: true,
   },
 )
-
+onMounted(() => {
+  if (props.autofocus) {
+    doFocus()
+  }
+})
 onBeforeUnmount(() => {
   clearTimeout(timer)
   timer = null
@@ -221,17 +237,19 @@ function handleClick(event: any) {
 
 function handlePlaceholderClick() {
   if (!props.readonly) {
-    if (inputRef.value) {
-      inputRef.value.focus()
-    }
-
-    // @ts-ignore
-    if (typeof uni !== 'undefined') {
-      isFocus.value = true
-    }
+    doFocus()
   }
 }
+function doFocus() {
+  if (inputRef.value) {
+    inputRef.value.focus()
+  }
 
+  // @ts-ignore
+  if (typeof uni !== 'undefined') {
+    isFocus.value = true
+  }
+}
 function handleFocus() {
   isFocus.value = true
 }
@@ -249,4 +267,20 @@ function handleKeyPress(e: KeyboardEvent) {
 function handleConfirm(e: { detail: { value: string } }) {
   emit('confirm', e.detail.value)
 }
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
+
+const searchIcon = (function () {
+  if (__WEB__) {
+    return iconSearch
+  } else {
+    return 'search'
+  }
+})()
 </script>

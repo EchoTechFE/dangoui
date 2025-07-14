@@ -11,7 +11,7 @@
       <div class="du-card__right">
         <slot name="right" />
         <div class="du-card__info" v-if="infoText" @click="$emit('infoTap')">
-          <DuIcon name="info-circle" :size="infoIconSize" />
+          <DuIcon :unsafe-internal="infoCircleIcon" :size="infoIconSize" />
           <div class="du-card__info-text">{{ infoText }}</div>
         </div>
         <div
@@ -19,12 +19,16 @@
           v-if="actionIcon"
           @click="$emit('actionTap')"
         >
-          <DuIcon :name="actionIcon" :size="infoIconSize" color="#918B9F" />
+          <DuIcon
+            :unsafe-internal="actionIcon"
+            :size="infoIconSize"
+            color="#918B9F"
+          />
         </div>
         <div class="du-card__guide" v-if="guideText" @click="handleGuideTap">
           <div class="du-card__guide-text">{{ guideText }}</div>
           <DuIcon
-            name="arrow-heavy-right"
+            :unsafe-internal="arrowHeavyRightIcon"
             :size="iconSize"
             color="rgba(0, 0, 0, 0.4)"
             :extStyle="arrowStyle"
@@ -41,6 +45,7 @@
 <script setup lang="ts">
 import { computed, ref, normalizeStyle } from 'vue'
 import DuIcon from '../icon/Icon.vue'
+import { iconArrowHeavyRight, iconInfoCircle } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -48,7 +53,7 @@ const props = withDefaults(
     subtitle: string
     guideText: string
     infoText: string
-    actionIcon: string
+    actionIcon: string | { _: string }
     mode: 'normal' | 'collapse'
     size: 'normal' | 'large'
     defaultOpen: boolean | null
@@ -93,6 +98,20 @@ const emit = defineEmits<{
 const iconSize = ((16 * 100) / 750).toFixed(4) + 'vw'
 
 const infoIconSize = ((24 * 100) / 750).toFixed(4) + 'vw'
+
+const arrowHeavyRightIcon = (function () {
+  if (__WEB__) {
+    return iconArrowHeavyRight
+  }
+  return 'arrow-heavy-right'
+})()
+
+const infoCircleIcon = (function () {
+  if (__WEB__) {
+    return iconInfoCircle
+  }
+  return 'info-circle'
+})()
 
 const style = computed(() => {
   const { extStyle } = props

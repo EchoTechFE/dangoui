@@ -16,10 +16,10 @@
     />
     <template v-if="iconPosition === 'left' && icon">
       <div v-if="isIconC" :class="`du-button__icon du-button__icon--${size}`">
-        <DuIcon :name="icon" :size="iconSize" />
+        <DuIcon :unsafe-internal="icon" :size="iconSize" />
       </div>
       <img
-        v-else
+        v-else-if="typeof icon === 'string'"
         :class="`du-button__icon du-button__icon--${size}`"
         :src="icon"
         alt="du-button-icon"
@@ -33,17 +33,18 @@
         v-if="isIconC"
         :class="`du-button__icon du-button__icon--${size} du-button__icon--${size}-right`"
       >
-        <DuIcon :name="icon" :size="iconSize" />
+        <DuIcon :unsafe-internal="icon" :size="iconSize" />
       </div>
       <img
-        v-else
+        v-else-if="typeof icon === 'string'"
         :class="`du-button__icon du-button__icon--${size} du-button__icon--${size}-right`"
         :src="icon"
         alt="du-button-icon"
       />
     </template>
     <div v-if="arrowRight" class="du-button__arrow-right">
-      <DuIcon name="arrow-heavy-right" :size="iconSize" />
+      <DuIcon v-if="arrowRightIcon" :icon="arrowRightIcon" :size="iconSize" />
+      <DuIcon v-else name="arrow-heavy-right" :size="iconSize" />
     </div>
 
     <div
@@ -60,6 +61,7 @@
 import { computed, ref, normalizeStyle, normalizeClass } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import iconConfig from '../icon/iconfont-config.json'
+import { iconArrowHeavyRight } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -84,7 +86,7 @@ const props = withDefaults(
           [x: string]: string | number
         }
     /**
-     * 色彩，可以使用色板中的颜色名
+     * 使用色板中的颜色名
      */
     color: string
     /**
@@ -102,7 +104,7 @@ const props = withDefaults(
     /**
      * 按钮附带图标
      */
-    icon: string
+    icon: string | { _: string }
     /**
      * 图标大小
      */
@@ -235,8 +237,27 @@ const style = computed(() => {
   return normalizeStyle(extStyle)
 })
 
-const isIconC = computed(() => !!findIcon(props.icon))
+const isIconC = computed(() => {
+  if (typeof props.icon === 'string') {
+    return !!findIcon(props.icon)
+  } else if (typeof props.icon === 'object' && props.icon._) {
+    return true
+  } else {
+    return false
+  }
+})
+
 const allowClick = computed(() => !props.disabled && !props.loading)
+
+function getArrowRightIcon() {
+  if (__WEB__) {
+    return iconArrowHeavyRight
+  } else {
+    return null
+  }
+}
+
+const arrowRightIcon = getArrowRightIcon()
 
 function onClick(event: any) {
   if (!props.press && allowClick.value) {

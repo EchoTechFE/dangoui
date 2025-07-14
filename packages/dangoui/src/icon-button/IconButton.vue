@@ -4,7 +4,12 @@
     :style="style"
     @click="onClick"
   >
-    <DuIcon class="du-icon-button-icon" :name="name" :size="duSize" />
+    <DuIcon
+      class="du-icon-button-icon"
+      :name="name"
+      :icon="icon"
+      :size="duSize"
+    />
     <text
       v-if="text"
       :class="`du-icon-button-text du-icon-button-text--${size}`"
@@ -40,7 +45,12 @@ const props = withDefaults(
      */
     size: 'mini' | 'small' | 'normal' | 'medium' | 'large'
     /**
-     * iconname
+     * 内置图标，从 `dangoui-icon-config` 导入，与 name 互斥
+     * 在 web 侧必须用这个属性
+     */
+    icon?: { _: string }
+    /**
+     * 图标名称，可以是内置 iconfont 的名字，也可以是图片链接
      */
     name: string
     /**

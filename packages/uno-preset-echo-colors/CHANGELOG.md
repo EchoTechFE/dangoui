@@ -1,5 +1,44 @@
 # unocss-preset-echo-colors
 
+## 1.7.15
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+
+## 1.7.14
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+
+## 1.7.13
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+
+## 1.7.12
+
+### Patch Changes
+
+- 220f610: 图标更新
+
+## 1.7.11
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+
+## 1.7.10
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+
 ## 1.7.9
 
 ### Patch Changes
