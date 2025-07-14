@@ -3,28 +3,27 @@
   flex-direction: column;
   max-height: 486px;
 
-  &__dimensions {
+  &__filter-fields {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 12px 16px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    height: 40px;
-    font-size: 12px;
   }
 
-  &__dimension {
-    flex: 1;
-    padding: 6px 12px;
+  &__filter-field {
+    display: flex;
+    align-items: center;
     font-size: 14px;
+    color: #666;
     cursor: pointer;
-    text-align: center;
-    border-radius: 16px;
-    transition: all 0.2s;
-    margin: 0 4px;
+    gap:2px;
+    &:last-child {
+      margin-right: 0;
+    }
+
     &--active {
-      color: var(--du-primary-color);
+      color: #333;
+      font-weight: 500;
     }
   }
 

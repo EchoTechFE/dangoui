@@ -2,22 +2,22 @@
   <Popup v-model:visible="popupVisible" type="top" :closable="false">
     <div>
       <!-- 筛选维度选择栏 -->
-      <div v-if="dimensions.length > 1" class="du-dropdown__dimensions">
+      <div v-if="filterField.length > 1" class="du-dropdown__filter-fields">
         <div
-          v-for="(dimension, index) in dimensions"
-          :key="dimension.value"
-          :class="dimensionClassName(index)"
-          @click="handleDimensionChange(index)"
+          v-for="(field, index) in filterField"
+          :key="field.value"
+          :class="filterFieldClassName(index)"
+          @click="handleFilterFieldChange(index)"
         >
-          {{ dimension.label }}
+          <div>{{ field.label }}</div>
           <DuIcon name="arrowdown" :size="8" />
         </div>
       </div>
-      <DuDivider v-if="dimensions.length > 1" />
+      <DuDivider v-if="filterField.length > 1" />
 
       <!-- 选项内容区 -->
       <div class="du-dropdown__content">
-        <template v-if="currentDimension">
+        <template v-if="currentFilterField">
           <div
             v-for="group in currentGroups"
             :key="group.value"
@@ -95,7 +95,7 @@ export type OptionGroup = {
   options: DropdownOption[]
 }
 
-export type FilterDimension = {
+export type FilterField = {
   label: string
   value: string
   multiple?: boolean
@@ -115,7 +115,7 @@ const props = withDefaults(
     /**
      * 筛选维度配置
      */
-    dimensions: FilterDimension[]
+    filterField: FilterField[]
     /**
      * 当前选中的值
      */
@@ -150,7 +150,7 @@ const emit = defineEmits<{
 }>()
 
 const internalValue = ref<SelectedValue>({})
-const currentDimensionIndex = ref(0)
+const currentFilterFieldIndex = ref(0)
 
 watch(
   () => props.visible,
@@ -158,7 +158,7 @@ watch(
     if (newValue) {
       internalValue.value = JSON.parse(JSON.stringify(props.value))
     } else {
-      currentDimensionIndex.value = 0
+      currentFilterFieldIndex.value = 0
     }
   },
 )
@@ -172,68 +172,66 @@ const popupVisible = computed({
   },
 })
 
-const currentDimension = computed(
-  () => props.dimensions[currentDimensionIndex.value],
+const currentFilterField = computed(
+  () => props.filterField[currentFilterFieldIndex.value],
 )
 
 const currentGroups = computed(() => {
-  const dimension = currentDimension.value
-  if (!dimension) return []
-  if ('options' in dimension) {
+  const field = currentFilterField.value
+  if (!field) return []
+  if ('options' in field) {
     return [
       {
-        label: dimension.label,
-        value: dimension.value,
-        multiple: dimension.multiple,
-        options: dimension.options,
+        label: field.label,
+        value: field.value,
+        multiple: field.multiple,
+        options: field.options,
       },
     ]
   }
-  return dimension.groups
+  return field.groups
 })
 
 function isSelected(option: DropdownOption, group: OptionGroup): boolean {
-  const dimension = currentDimension.value
-  if (!dimension) return false
+  const field = currentFilterField.value
+  if (!field) return false
 
-  const dimensionValue = internalValue.value[dimension.value]
-  if (!dimensionValue) return false
+  const fieldValue = internalValue.value[field.value]
+  if (!fieldValue) return false
 
-  if (Array.isArray(dimensionValue)) {
-    return dimensionValue.some(
-      (opt: DropdownOption) => opt.value === option.value,
-    )
+  if (Array.isArray(fieldValue)) {
+    return fieldValue.some((opt: DropdownOption) => opt.value === option.value)
   }
 
-  const groupOptions = dimensionValue[group.value]
+  const groupOptions = fieldValue[group.value]
   if (!groupOptions) return false
 
   return groupOptions.some((opt: DropdownOption) => opt.value === option.value)
 }
 
 function handleSelect(option: DropdownOption, group: OptionGroup) {
-  const dimension = currentDimension.value
-  if (!dimension) return
+  const field = currentFilterField.value
+  if (!field) return
 
-  const dimensionValue = dimension.value
+  const fieldValue = field.value
 
-  const isMultiple = 'multiple' in group ? group.multiple : dimension.multiple
+  const isMultiple = 'multiple' in group ? group.multiple : field.multiple
 
-  if ('options' in dimension) {
+  if ('options' in field) {
     // 处理直接有options的情况
     let currentOptions: DropdownOption[]
 
     if (
-      !internalValue.value[dimensionValue] ||
-      !Array.isArray(internalValue.value[dimensionValue])
+      !internalValue.value[fieldValue] ||
+      !Array.isArray(internalValue.value[fieldValue])
     ) {
       currentOptions = []
       internalValue.value = {
         ...internalValue.value,
-        [dimensionValue]: currentOptions,
+        [fieldValue]: currentOptions,
       }
     } else {
-      currentOptions = internalValue.value[dimensionValue]
+      currentOptions = internalValue.value[fieldValue]
     }
 
     const existingIndex = currentOptions.findIndex(
@@ -247,30 +245,30 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
         currentOptions.push(option)
       }
     } else {
-      internalValue.value[dimensionValue] = [option]
+      internalValue.value[fieldValue] = [option]
     }
   } else {
     // 处理有groups的情况
-    let dimValue: Record<string, DropdownOption[]>
+    let filterValue: Record<string, DropdownOption[]>
 
     if (
-      !internalValue.value[dimensionValue] ||
-      Array.isArray(internalValue.value[dimensionValue])
+      !internalValue.value[fieldValue] ||
+      Array.isArray(internalValue.value[fieldValue])
     ) {
-      dimValue = {}
+      filterValue = {}
       internalValue.value = {
         ...internalValue.value,
-        [dimensionValue]: dimValue,
+        [fieldValue]: filterValue,
       }
     } else {
-      dimValue = internalValue.value[dimensionValue]
+      filterValue = internalValue.value[fieldValue]
     }
 
-    if (!dimValue[group.value]) {
-      dimValue[group.value] = []
+    if (!filterValue[group.value]) {
+      filterValue[group.value] = []
     }
 
-    const groupOptions = dimValue[group.value]
+    const groupOptions = filterValue[group.value]
     const existingIndex = groupOptions.findIndex(
       (opt) => opt.value === option.value,
     )
@@ -282,14 +280,14 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
         groupOptions.push(option)
       }
     } else {
-      dimValue[group.value] = [option]
+      filterValue[group.value] = [option]
     }
   }
   internalValue.value = { ...internalValue.value }
 }
 
-function handleDimensionChange(index: number) {
-  currentDimensionIndex.value = index
+function handleFilterFieldChange(index: number) {
+  currentFilterFieldIndex.value = index
 }
 
 function handleCancel() {
@@ -300,18 +298,18 @@ function handleCancel() {
 function handleConfirm() {
   const selectedOptions: SelectedValue = {}
 
-  props.dimensions.forEach((dimension) => {
-    const dimensionValue = dimension.value
-    const dimValue = internalValue.value[dimensionValue] || {}
+  props.filterField.forEach((field) => {
+    const fieldValue = field.value
+    const filterValue = internalValue.value[fieldValue] || {}
 
     // 处理直接有options的情况
-    if ('options' in dimension) {
-      const options = dimValue as DropdownOption[]
-      selectedOptions[dimensionValue] = options || []
+    if ('options' in field) {
+      const options = filterValue as DropdownOption[]
+      selectedOptions[fieldValue] = options || []
     } else {
       // 处理有groups的情况
-      const groupedValue = dimValue as Record<string, DropdownOption[]>
-      selectedOptions[dimensionValue] = groupedValue
+      const groupedValue = filterValue as Record<string, DropdownOption[]>
+      selectedOptions[fieldValue] = groupedValue
     }
   })
   popupVisible.value = false
@@ -320,22 +318,23 @@ function handleConfirm() {
 }
 
 const hasSelected = computed(() => {
-  const dimensionValues = internalValue.value || {}
-  return Object.values(dimensionValues).some((dimensionValue) => {
-    if (Array.isArray(dimensionValue)) {
-      return dimensionValue.length > 0
+  const fieldValues = internalValue.value || {}
+  return Object.values(fieldValues).some((fieldValue) => {
+    if (Array.isArray(fieldValue)) {
+      return fieldValue.length > 0
     }
-    return Object.values(dimensionValue).some(
+    return Object.values(fieldValue).some(
       (groupValue) => Array.isArray(groupValue) && groupValue.length > 0,
     )
   })
 })
 
-function dimensionClassName(index: number) {
+function filterFieldClassName(index: number) {
   return normalizeClass([
-    'du-dropdown__dimension',
+    'du-dropdown__filter-field',
     {
-      'du-dropdown__dimension--active': currentDimensionIndex.value === index,
+      'du-dropdown__filter-field--active':
+        currentFilterFieldIndex.value === index,
     },
   ])
 }

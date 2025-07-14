@@ -1511,10 +1511,10 @@
   "Dropdown": {
     "props": [
       {
-        "name": "dimensions",
+        "name": "filterField",
         "description": "筛选维度配置，支持单维度或多维度筛选",
         "required": true,
-        "type": "FilterDimension[]",
+        "type": "FilterField[]",
         "default": "unknown"
       },
       {
