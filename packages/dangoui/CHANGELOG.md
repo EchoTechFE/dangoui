@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.2.0
+
+### Minor Changes
+
+- d0fa4d0: fix: miss found cascader default value bug
+
 ## 3.1.56
 
 ### Patch Changes
