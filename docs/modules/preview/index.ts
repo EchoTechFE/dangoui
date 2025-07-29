@@ -1,9 +1,6 @@
 // `nuxt/kit` is a helper subpath import you can use when defining local modules
 // that means you do not need to add `@nuxt/kit` to your project's dependencies
-import {
-  createResolver,
-  defineNuxtModule,
-} from '@nuxt/kit'
+import { createResolver, defineNuxtModule } from '@nuxt/kit'
 import glob from 'fast-glob'
 import path from 'path'
 import fs from 'fs'
@@ -45,7 +42,10 @@ export default defineNuxtModule({
     }
 
     nuxt.hook('builder:watch', (event, filename) => {
-      filename = path.relative(nuxt.options.srcDir, resolve(nuxt.options.srcDir, filename))
+      filename = path.relative(
+        nuxt.options.srcDir,
+        resolve(nuxt.options.srcDir, filename),
+      )
       if (!filename.endsWith('.md')) {
         return
       }
