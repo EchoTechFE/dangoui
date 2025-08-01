@@ -2166,6 +2166,123 @@
         "events": [],
         "slots": []
     },
+    "Avatar": {
+        "props": [
+            {
+                "name": "src",
+                "description": "头像图片地址",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "string | number",
+                "default": "\"normal\""
+            },
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "string",
+                "default": "\"default\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "AvatarGroup": {
+        "props": [
+            {
+                "name": "avatars",
+                "description": "头像图片地址",
+                "required": false,
+                "type": "string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "string | number",
+                "default": "\"normal\""
+            },
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "string",
+                "default": "\"default\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "gap",
+                "description": "头像间距",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "reverse",
+                "description": "层级是否倒序",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "limit",
+                "description": "限制头像数量",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
     "Input": {
         "props": [
             {
