@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.3.0
+
+### Minor Changes
+
+- 122b1de: feat: avatar
+
 ## 3.2.0
 
 ### Minor Changes
