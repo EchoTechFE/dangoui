@@ -28,6 +28,8 @@ import FormField from './form/FormField.vue'
 import Card from './card/Card.vue'
 import Steps from './steps/Steps.vue'
 import Image from './image/Image.vue'
+import Avatar from './avatar/Avatar.vue'
+import AvatarGroup from './avatar/AvatarGroup.vue'
 import Tabs from './tabs/Tabs.vue'
 import Tab from './tabs/Tab.vue'
 import TabPane from './tabs/TabPane.vue'
@@ -88,6 +90,8 @@ const DuFormField = FormField
 const DuCard = Card
 const DuSteps = Steps
 const DuImage = Image
+const DuAvatar = Avatar
+const DuAvatarGroup = AvatarGroup
 const DuTabs = Tabs
 const DuTab = Tab
 const DuTabPane = TabPane
@@ -171,6 +175,10 @@ export {
   DuSteps,
   Image,
   DuImage,
+  Avatar,
+  DuAvatar,
+  AvatarGroup,
+  DuAvatarGroup,
   DuTabs,
   Tabs,
   DuTab,
