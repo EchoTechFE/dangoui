@@ -10,7 +10,7 @@
       :ext-style="{
         marginLeft: index > 0 ? `-${internalGap}px` : 0,
         position: 'relative',
-        zIndex: reverse ? avatars.length - index : index,
+        zIndex: reverse ? index : avatars.length - index,
       }"
     />
     <DuAvatar
@@ -22,7 +22,7 @@
       :ext-style="{
         marginLeft: `-${internalGap}px`,
         position: 'relative',
-        zIndex: reverse ? avatars.length - limit : limit + 1,
+        zIndex: reverse ? limit + 1 : avatars.length - limit,
       }"
     >
       <span class="du-avatar-group__limit-avatar-text">
