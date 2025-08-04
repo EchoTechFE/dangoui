@@ -22,7 +22,7 @@
     }
 
     &--active {
-      color: #333;
+      color: var(--du-primary-color);
       font-weight: 500;
     }
   }
@@ -75,12 +75,15 @@
   &__tag {
     cursor: pointer;
     width: calc((100% - 24px) / 3);
-    height: 40px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &-text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-size: 14px;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
     }

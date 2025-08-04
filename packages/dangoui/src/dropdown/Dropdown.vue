@@ -2,16 +2,25 @@
   <Popup v-model:visible="popupVisible" type="top" :closable="false">
     <div>
       <!-- 选项选择栏 -->
-      <div v-if="options.length > 1" class="du-dropdown__options-nav">
-        <div
-          v-for="(option, index) in options"
-          :key="option.value"
-          :class="optionNavClassName(index)"
-          @click="handleOptionNavChange(index)"
+      <div v-if="options.length > 1">
+        <slot
+          name="option-nav"
+          :options="options"
+          :current-index="currentOptionIndex"
+          :on-change="handleOptionNavChange"
         >
-          <div>{{ option.label }}</div>
-          <DuIcon name="arrowdown" :size="8" />
-        </div>
+          <div class="du-dropdown__options-nav">
+            <div
+              v-for="(option, index) in options"
+              :key="option.value"
+              :class="optionNavClassName(index)"
+              @click="handleOptionNavChange(index)"
+            >
+              <div>{{ option.label }}</div>
+              <DuIcon name="arrowdown" :size="8" />
+            </div>
+          </div>
+        </slot>
       </div>
       <DuDivider v-if="options.length > 1" />
 
@@ -38,7 +47,9 @@
                   :color="isSelected(option, group) ? 'primary' : 'default'"
                   @click="handleSelect(option, group)"
                 >
-                  {{ option.label }}
+                  <div class="du-dropdown__tag-text">
+                    {{ option.label }}
+                  </div>
                 </DuTag>
               </div>
             </div>
@@ -49,7 +60,7 @@
       <DuDivider />
 
       <!-- 底部按钮 -->
-      <div class="du-dropdown__footer">
+      <div v-if="showFooter" class="du-dropdown__footer">
         <div class="du-dropdown__footer-buttons">
           <DuButton
             type="outline"
@@ -132,14 +143,17 @@ const props = withDefaults(
      * 确认按钮文本
      */
     confirmText?: string
+    /**
+     * 是否显示底部按钮
+     */
+    showFooter?: boolean
   }>(),
   {
     value: () => ({}),
     flatten: false,
-    extClass: '',
-    extStyle: '',
     cancelText: '取消',
     confirmText: '确定',
+    showFooter: true,
   },
 )
 
@@ -212,7 +226,6 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
   if (!currentOpt) return
 
   const optionValue = currentOpt.value
-
   const isMultiple = 'multiple' in group ? group.multiple : currentOpt.multiple
 
   if ('options' in currentOpt) {
@@ -244,6 +257,11 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
       }
     } else {
       internalValue.value[optionValue] = [option]
+    }
+
+    // 非多选或者没有底部按钮时，选择后自动确认
+    if (!isMultiple && !props.showFooter) {
+      handleConfirm()
     }
   } else {
     // 处理有groups的情况
@@ -280,8 +298,18 @@ function handleSelect(option: DropdownOption, group: OptionGroup) {
     } else {
       optionsValue[group.value] = [option]
     }
+
+    // 非多选或者没有底部按钮时，选择后自动确认
+    if (!isMultiple && !props.showFooter) {
+      handleConfirm()
+    }
   }
   internalValue.value = { ...internalValue.value }
+
+  // 多选且没有底部按钮时，每次选择都自动确认
+  if (isMultiple && !props.showFooter) {
+    handleConfirm()
+  }
 }
 
 function handleOptionNavChange(index: number) {
@@ -336,3 +364,6 @@ function optionNavClassName(index: number) {
   ])
 }
 </script>
+<style lang="scss" scoped>
+@import './style.scss';
+</style>
