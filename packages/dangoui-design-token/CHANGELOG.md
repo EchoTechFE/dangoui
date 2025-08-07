@@ -1,5 +1,23 @@
 # dangoui-design-token
 
+## 1.0.21
+
+### Patch Changes
+
+- 6b77545: 'feat:iconButton支持icon,更新色板'
+
+## 1.0.20
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+
+## 1.0.19
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+
 ## 1.0.18
 
 ### Patch Changes

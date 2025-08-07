@@ -8,6 +8,7 @@ const glob = require('glob')
 const fse = require('fs-extra')
 const aliossConfig = require('../../../.alioss.json')
 const crypto = require('crypto')
+const _ = require('lodash')
 
 // unicode Private Use Zone E000-F8FF
 const START_UNICODE = 0xe000
@@ -117,6 +118,8 @@ async function gen(url) {
 
   const outHash = crypto.createHash('md5')
 
+  let iconConfigTs = ''
+
   for (let index = 0; index < files.length; index++) {
     const fileBuffer = fs.readFileSync(files[index])
     const hash = md5(fileBuffer)
@@ -125,7 +128,30 @@ async function gen(url) {
     const unicode = START_UNICODE + index
     const unicodeChar = String.fromCharCode(unicode)
     font.setSvg(unicodeChar, fileBuffer.toString())
+
+    const parts = files[index].split('/')
+    const name = parts[parts.length - 1].replace(/\.svg$/, '')
+
+    function normalizeNameVar(name) {
+      return 'icon' + _.upperFirst(_.camelCase(name))
+    }
+
+    const nameVar = normalizeNameVar(name)
+
+    const resolvedSvg = fileBuffer
+      .toString()
+      .replaceAll('#2B263B', 'currentColor')
+      .replaceAll('#000', 'currentColor')
+      .replaceAll('#000000', 'currentColor')
+      .replace(
+        'viewBox="0 0 24 24"',
+        `viewBox="0 0 24 24" width="1em" height="1em"`,
+      )
+
+    iconConfigTs += `let ${nameVar} = { _: '${name}' }\nif (__WEB__) {\n  ${nameVar} = { _: '${resolvedSvg}' }\n}\nexport { ${nameVar} }\n`
+
     await upload(filename, fileBuffer)
+
     icons[path.basename(files[index]).replace(/\.svg$/, '')] = {
       unicode: unicodeChar,
       hash,
@@ -171,6 +197,11 @@ async function gen(url) {
       woff2: getCDNPath(iconConfig.CDN, iconConfig.font.woff2),
       svg: getCDNPath(iconConfig.CDN, iconConfig.font.svg),
     }),
+  )
+
+  fs.writeFileSync(
+    path.resolve(__dirname, '../../dangoui-icon-config/src/index.ts'),
+    iconConfigTs,
   )
 }
 

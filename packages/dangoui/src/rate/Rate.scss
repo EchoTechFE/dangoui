@@ -28,22 +28,6 @@
     flex-direction: column;
     align-items: center;
 
-    &--mini {
-      overflow: hidden;
-      width: 5px;
-    }
-    &--small {
-      overflow: hidden;
-      width: 8px;
-    }
-    &--medium {
-      overflow: hidden;
-      width: 12px;
-    }
-    &--large {
-      overflow: hidden;
-      width: 32px;
-    }
   }
   &__flex-row {
     display: flex;
@@ -62,6 +46,7 @@
   &__container {
     &--mini,
     &--small,
+    &--normal,
     &--medium,
     &--large {
       display: flex;

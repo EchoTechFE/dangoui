@@ -1,5 +1,6 @@
 import Button from './button/Button.vue'
 import Icon from './icon/Icon.vue'
+import IconButton from './icon-button/IconButton.vue'
 import Sticky from './sticky/Sticky.vue'
 import Transition from './transition/Transition.vue'
 
@@ -27,6 +28,8 @@ import FormField from './form/FormField.vue'
 import Card from './card/Card.vue'
 import Steps from './steps/Steps.vue'
 import Image from './image/Image.vue'
+import Avatar from './avatar/Avatar.vue'
+import AvatarGroup from './avatar/AvatarGroup.vue'
 import Tabs from './tabs/Tabs.vue'
 import Tab from './tabs/Tab.vue'
 import TabPane from './tabs/TabPane.vue'
@@ -59,6 +62,7 @@ import { useToast } from './composables/useToast'
 
 const DuButton = Button
 const DuIcon = Icon
+const DuIconButton = IconButton
 const DuSticky = Sticky
 const DuTransition = Transition
 
@@ -86,6 +90,8 @@ const DuFormField = FormField
 const DuCard = Card
 const DuSteps = Steps
 const DuImage = Image
+const DuAvatar = Avatar
+const DuAvatarGroup = AvatarGroup
 const DuTabs = Tabs
 const DuTab = Tab
 const DuTabPane = TabPane
@@ -120,6 +126,7 @@ export {
   DuButton,
   Icon,
   DuIcon,
+  DuIconButton,
   Sticky,
   DuSticky,
   Transition,
@@ -170,6 +177,10 @@ export {
   DuSteps,
   Image,
   DuImage,
+  Avatar,
+  DuAvatar,
+  AvatarGroup,
+  DuAvatarGroup,
   DuTabs,
   Tabs,
   DuTab,

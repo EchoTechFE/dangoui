@@ -17,7 +17,7 @@
         />
       </div>
     </slot>
-    <Popup :title="title" v-model:visible="visible" type="bottom">
+    <Popup :title="title" v-model:visible="visible" type="bottom" :style="internalStyle">
       <div class="du-select__search" v-if="filterable">
         <Search :placeholder="filterPlaceholder" v-model:value="keyword" />
       </div>
@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch } from 'vue'
+import { computed, inject, ref, watch, normalizeStyle } from 'vue'
 import Popup from '../popup/Popup.vue'
 import FormField from '../form/FormField.vue'
 import Checkbox from '../checkbox/Checkbox.vue'
@@ -118,6 +118,10 @@ const props = withDefaults(
      * 确认按钮的文字，当 `withConfirm` 为 `true` 时生效
      */
     confirmText: string
+    /**
+     * 弹窗的样式
+     */
+    popupStyle: string | Record<string, string>
   }>(),
   {
     open: undefined,
@@ -128,6 +132,7 @@ const props = withDefaults(
     filterPlaceholder: '输入关键词搜索...',
     withConfirm: false,
     confirmText: '确认',
+    popupStyle: '',
   },
 )
 
@@ -142,7 +147,7 @@ const emit = defineEmits<{
 
 const keyword = ref('')
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const isInFormItem = !!formItemLayout
 
@@ -160,6 +165,16 @@ const visible = computed({
     }
     emit('update:open', val)
   },
+})
+
+const internalStyle = computed(() => {
+  return normalizeStyle([
+    {
+      'max-height': '80vh',
+      'overflow-y': 'auto',
+    },
+    props.popupStyle,
+  ])
 })
 
 watch(visible, (v) => {

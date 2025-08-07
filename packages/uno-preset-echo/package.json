@@ -1,6 +1,6 @@
 {
   "name": "unocss-preset-echo",
-  "version": "1.7.8",
+  "version": "1.7.16",
   "description": "",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -21,8 +21,9 @@
     "@unocss/core": "^0.57.3",
     "@unocss/extractor-arbitrary-variants": "^0.57.3",
     "@unocss/rule-utils": "^0.57.3",
-    "unocss-preset-mp": "^1.4.4",
-    "unocss-preset-echo-colors": "workspace:^"
+    "deepmerge": "^4.3.1",
+    "unocss-preset-echo-colors": "workspace:^",
+    "unocss-preset-mp": "^1.4.4"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

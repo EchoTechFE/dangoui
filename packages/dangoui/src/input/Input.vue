@@ -47,7 +47,10 @@
         v-if="allowClear && mValue"
         @touchstart.stop.prevent="handleClear"
       >
-        <DuIcon name="close-circle-filled" color="var(--du-icon-disabled)" />
+        <DuIcon
+          :unsafe-internal="closeCircleFilledIcon"
+          color="var(--du-icon-disabled)"
+        />
       </div>
       <div v-if="props.suffix" class="du-input__suffix">
         {{ props.suffix }}
@@ -60,7 +63,7 @@
       />
     </div>
     <div
-      v-if="!isInFormItem && !props.bordered"
+      v-if="!isInFormItem && !props.bordered && !withoutBorder"
       class="du-input__bottom-line"
     />
   </div>
@@ -77,6 +80,7 @@ import {
 } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import { listenFormItemClickInjectionKey } from '../form/helpers'
+import { iconCloseCircleFilled } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -228,7 +232,7 @@ const emit = defineEmits<{
 const mValue = ref('')
 const focus = ref(false)
 
-const listenFormItemOnClick = inject(listenFormItemClickInjectionKey)
+const listenFormItemOnClick = inject(listenFormItemClickInjectionKey, null)
 
 const isInFormItem = !!listenFormItemOnClick
 
@@ -257,6 +261,16 @@ watch(
     if (listenOnClick) {
       listenOnClick(() => switchFocus(true))
     }
+  },
+  {
+    immediate: true,
+  },
+)
+
+watch(
+  () => props.autofocus,
+  (val) => {
+    focus.value = focus.value || val
   },
   {
     immediate: true,
@@ -318,4 +332,12 @@ function onInnerInput(e: any) {
 function handleClear() {
   mValue.value = ''
 }
+
+const closeCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconCloseCircleFilled
+  } else {
+    return 'close-circle-filled'
+  }
+})()
 </script>

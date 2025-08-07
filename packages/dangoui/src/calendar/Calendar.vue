@@ -11,7 +11,7 @@
       <div class="du-calendar__clear" @click="handleClear">清除</div>
       <div class="du-calendar__title">{{ calendarTitle }}</div>
       <div class="du-calendar__close" @click="handleClose">
-        <DuIcon name="close" />
+        <DuIcon :unsafe-internal="closeIcon" />
       </div>
     </div>
     <div class="du-calendar__main">
@@ -103,7 +103,11 @@
       <div class="du-calendar__time" v-if="type === 'range' && showTimePicker">
         <div class="du-calendar__time-header">
           <div class="du-calendar__time-title">开始时间</div>
-          <DuIcon name="arrow-right-line" :size="12" color="#D4D0DA" />
+          <DuIcon
+            :unsafe-internal="arrowRightLineIcon"
+            :size="12"
+            color="#D4D0DA"
+          />
           <div class="du-calendar__time-title">结束时间</div>
         </div>
         <div style="display: flex">
@@ -193,6 +197,7 @@ import { getInstanceId } from './helpers'
 import dayjs from 'dayjs'
 import DuPickerView from '../picker-view/PickerView.vue'
 import DuIcon from '../icon/Icon.vue'
+import { iconClose, iconArrowRightLine } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -244,6 +249,22 @@ const emit = defineEmits<{
   (e: 'update:visible', visible: boolean): void
   (e: 'clear'): void
 }>()
+
+const closeIcon = (function () {
+  if (__WEB__) {
+    return iconClose
+  } else {
+    return 'close'
+  }
+})()
+
+const arrowRightLineIcon = (function () {
+  if (__WEB__) {
+    return iconArrowRightLine
+  } else {
+    return 'arrow-right-line'
+  }
+})()
 
 const timePickerColumns = computed(() => {
   const hours: { label: string; value: string }[] = []
@@ -358,6 +379,14 @@ const buttonConfirmText = computed(() => {
     return '缺少结束时间'
   }
 
+  if (
+    props.type === 'range' &&
+    innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
+      props.selectableCount
+  ) {
+    return `最多选${props.selectableCount}天`
+  }
+
   return props.confirmText || '确定'
 })
 
@@ -365,6 +394,15 @@ const buttonDisabled = computed(() => {
   if (props.type === 'range' && innerSelected.value.length === 1) {
     return true
   }
+
+  if (
+    props.type === 'range' &&
+    innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
+      props.selectableCount
+  ) {
+    return true
+  }
+
   return isInvalidDateRange.value || innerSelected.value.length <= 0
 })
 
@@ -410,10 +448,8 @@ const displayDates = computed(() => {
     const rows: Array<Array<dayjs.Dayjs | null>> = []
     const diff = month[0].day() - props.weekStart
     const monthCopy: Array<dayjs.Dayjs | null> = [...month]
-    if (diff > 0) {
-      for (let i = 0; i < diff; i++) {
-        monthCopy.unshift(null)
-      }
+    for (let i = 0; i < (diff >= 0 ? diff : 7 + diff); i++) {
+      monthCopy.unshift(null)
     }
     while (monthCopy.length) {
       rows.push(monthCopy.splice(0, 7))
@@ -643,6 +679,11 @@ const changeSelectedDate = (d: dayjs.Dayjs | null) => {
 
   const disabled = isDisabled(d)
   if (disabled) {
+    return
+  }
+
+  if (props.selectableCount === 1) {
+    innerSelected.value = [d, d]
     return
   }
 

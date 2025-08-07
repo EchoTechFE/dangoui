@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, computed, inject } from 'vue'
+import { CSSProperties, computed, inject, ref } from 'vue'
 import { dividerInjectionKey } from './helpers'
 import { useSize } from '../composables/useSize'
 import { isPlatteColor } from '../helpers'
@@ -38,7 +38,10 @@ const props = withDefaults(
   },
 )
 
-const dividerConfig = inject(dividerInjectionKey)
+const dividerConfig = inject(dividerInjectionKey, {
+  defaultType: 'horizontal',
+  length: ref(''),
+})
 
 const config = computed(() => {
   const type =

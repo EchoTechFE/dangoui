@@ -1,5 +1,449 @@
 # dangoui
 
+## 3.3.1
+
+### Patch Changes
+
+- 4f83529: fix: avatar reverse
+
+## 3.3.0
+
+### Minor Changes
+
+- 122b1de: feat: avatar
+
+## 3.2.0
+
+### Minor Changes
+
+- d0fa4d0: fix: miss found cascader default value bug
+
+## 3.1.56
+
+### Patch Changes
+
+- 049fbcd: fix textarea count
+
+## 3.1.55
+
+### Patch Changes
+
+- 6b77545: 'feat:iconButton支持icon,更新色板'
+- Updated dependencies [6b77545]
+  - dangoui-design-token@1.0.21
+
+## 3.1.54
+
+### Patch Changes
+
+- b41643a: fix ts lint
+
+## 3.1.53
+
+### Patch Changes
+
+- c825058: upload file restrict
+- c825058: upload restrict file size
+
+## 3.1.52
+
+### Patch Changes
+
+- 6db6a6f: fix portal
+
+## 3.1.51
+
+### Patch Changes
+
+- 9902dab: fix portal
+
+## 3.1.50
+
+### Patch Changes
+
+- b6bb49f: feat:update icon
+- Updated dependencies [b6bb49f]
+  - dangoui-icon-config@1.0.14
+
+## 3.1.49
+
+### Patch Changes
+
+- 4272290: fix select max height
+
+## 3.1.48
+
+### Patch Changes
+
+- f43ac78: adjust root portal
+
+## 3.1.47
+
+### Patch Changes
+
+- 64b84e7: root portal for uniapp h5
+
+## 3.1.46
+
+### Patch Changes
+
+- 68a15cc: icon support import from config
+- Updated dependencies [68a15cc]
+  - dangoui-icon-config@1.0.13
+
+## 3.1.45
+
+### Patch Changes
+
+- Updated dependencies [944abac]
+  - dangoui-icon-config@1.0.12
+
+## 3.1.44
+
+### Patch Changes
+
+- e086473: gen icon
+
+## 3.1.43
+
+### Patch Changes
+
+- 4e53c5f: fix icon color
+
+## 3.1.42
+
+### Patch Changes
+
+- dff5db1: update icons
+- Updated dependencies [dff5db1]
+  - dangoui-icon-config@1.0.11
+
+## 3.1.41
+
+### Patch Changes
+
+- 7e478e0: 更新badge
+- Updated dependencies [7e478e0]
+  - dangoui-icon-config@1.0.10
+
+## 3.1.40
+
+### Patch Changes
+
+- 41a3f25: git commit -m 'feat: update icon'
+
+## 3.1.39
+
+### Patch Changes
+
+- 0251c8a: range calendar support selectable count
+
+## 3.1.38
+
+### Patch Changes
+
+- 80a2865: cascader slot
+
+## 3.1.37
+
+### Patch Changes
+
+- 0764526: add upload meta
+
+## 3.1.36
+
+### Patch Changes
+
+- b84ac6e: tab style performance and tag support font weight
+
+## 3.1.35
+
+### Patch Changes
+
+- 62ce546: feat: search autofoucs
+
+## 3.1.34
+
+### Patch Changes
+
+- 206136d: fix textarea
+
+## 3.1.33
+
+### Patch Changes
+
+- 34e9a1e: popup body scroll
+
+## 3.1.32
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - dangoui-design-token@1.0.20
+  - dangoui-icon-config@1.0.9
+
+## 3.1.31
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - dangoui-design-token@1.0.19
+  - dangoui-icon-config@1.0.8
+
+## 3.1.30
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+- Updated dependencies [2bc6577]
+- Updated dependencies [2bc6577]
+  - dangoui-icon-config@1.0.7
+
+## 3.1.29
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - dangoui-icon-config@1.0.6
+
+## 3.1.28
+
+### Patch Changes
+
+- db59eeb: fix:calendar button
+
+## 3.1.27
+
+### Patch Changes
+
+- 9f4b5cd: fix:calendar
+
+## 3.1.26
+
+### Patch Changes
+
+- caa1e80: fix root portal
+
+## 3.1.25
+
+### Patch Changes
+
+- a1ab4bd: update icon
+- Updated dependencies [a1ab4bd]
+  - dangoui-icon-config@1.0.5
+
+## 3.1.24
+
+### Patch Changes
+
+- 744e6dd: feat: update icon url
+- Updated dependencies [744e6dd]
+  - dangoui-icon-config@1.0.4
+
+## 3.1.23
+
+### Patch Changes
+
+- 6142f49: fix: update icon
+- Updated dependencies [6142f49]
+  - dangoui-icon-config@1.0.3
+
+## 3.1.22
+
+### Patch Changes
+
+- 612fe8d: update icon-url
+
+## 3.1.21
+
+### Patch Changes
+
+- bump version
+- Updated dependencies
+  - dangoui-icon-config@1.0.2
+
+## 3.1.20
+
+### Patch Changes
+
+- 2367473: fix get icon in mp
+
+## 3.1.19
+
+### Patch Changes
+
+- 36c4ef2: fix useSize
+
+## 3.1.18
+
+### Patch Changes
+
+- 1eb7c28: support dangoui icon config
+- Updated dependencies [1eb7c28]
+  - dangoui-icon-config@1.0.1
+
+## 3.1.17
+
+### Patch Changes
+
+- b921f6e: update icon
+
+## 3.1.16
+
+### Patch Changes
+
+- 8bc733a: update icon
+
+## 3.1.15
+
+### Patch Changes
+
+- 022502a: fix: icon url
+
+## 3.1.14
+
+### Patch Changes
+
+- 2b5715d: fix: rate size and support clickable
+
+## 3.1.13
+
+### Patch Changes
+
+- 71f5d8c: fix: rate size and update icon
+
+## 3.1.12
+
+### Patch Changes
+
+- 760854f: steps support color
+
+## 3.1.11
+
+### Patch Changes
+
+- 8d0ddb0: fix without border
+
+## 3.1.10
+
+### Patch Changes
+
+- 111b213: noticebar divider color
+
+## 3.1.9
+
+### Patch Changes
+
+- 4862857: fix:radio
+
+## 3.1.8
+
+### Patch Changes
+
+- 455dc68: noticebar adjust
+- e9133e4: feat: add disabled tip
+
+## 3.1.7
+
+### Patch Changes
+
+- f3342a6: fix info click
+
+## 3.1.6
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+
+## 3.1.5
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+
+## 3.1.4
+
+### Patch Changes
+
+- 5712794: update tab
+
+## 3.1.3
+
+### Patch Changes
+
+- 587b14d: fix: checkbox groupValue default
+
+## 3.1.2
+
+### Patch Changes
+
+- e0f3d3f: fix type error
+
+## 3.1.1
+
+### Patch Changes
+
+- a29710e: fix:injest set default
+
+## 3.1.0
+
+### Minor Changes
+
+- 5c46cdd: fix calendar
+
+### Patch Changes
+
+- 5815f5d: fix calendar
+
+## 3.0.137
+
+### Patch Changes
+
+- 6dae86c: upload file type
+
+## 3.0.136
+
+### Patch Changes
+
+- 55ba753: custom add scene
+
+## 3.0.135
+
+### Patch Changes
+
+- 28583c3: 上传组件支持托管 add
+
+## 3.0.134
+
+### Patch Changes
+
+- a6b5754: upload android
+
+## 3.0.133
+
+### Patch Changes
+
+- db23577: fix: 在小程序中icon为image的 自带高度的问题优化
+
+## 3.0.132
+
+### Patch Changes
+
+- 1a60f7a: fix theme
+
+## 3.0.131
+
+### Patch Changes
+
+- f70aa73: fix: icon-button css
+- c3854ff: new component icon-button
+
 ## 3.0.130
 
 ### Patch Changes

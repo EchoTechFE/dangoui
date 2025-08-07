@@ -1,5 +1,514 @@
 # vite-plugin-dangoui
 
+## 1.0.172
+
+### Patch Changes
+
+- ee5ebec: fix: vite plugin filter
+
+## 1.0.171
+
+### Patch Changes
+
+- Updated dependencies [4f83529]
+  - dangoui@3.3.1
+
+## 1.0.170
+
+### Patch Changes
+
+- Updated dependencies [122b1de]
+  - dangoui@3.3.0
+
+## 1.0.169
+
+### Patch Changes
+
+- Updated dependencies [d0fa4d0]
+  - dangoui@3.2.0
+
+## 1.0.168
+
+### Patch Changes
+
+- Updated dependencies [049fbcd]
+  - dangoui@3.1.56
+
+## 1.0.167
+
+### Patch Changes
+
+- Updated dependencies [6b77545]
+  - dangoui-design-token@1.0.21
+  - dangoui@3.1.55
+
+## 1.0.166
+
+### Patch Changes
+
+- Updated dependencies [b41643a]
+  - dangoui@3.1.54
+
+## 1.0.165
+
+### Patch Changes
+
+- Updated dependencies [c825058]
+- Updated dependencies [c825058]
+  - dangoui@3.1.53
+
+## 1.0.164
+
+### Patch Changes
+
+- Updated dependencies [6db6a6f]
+  - dangoui@3.1.52
+
+## 1.0.163
+
+### Patch Changes
+
+- Updated dependencies [9902dab]
+  - dangoui@3.1.51
+
+## 1.0.162
+
+### Patch Changes
+
+- Updated dependencies [b6bb49f]
+  - dangoui@3.1.50
+
+## 1.0.161
+
+### Patch Changes
+
+- Updated dependencies [4272290]
+  - dangoui@3.1.49
+
+## 1.0.160
+
+### Patch Changes
+
+- Updated dependencies [f43ac78]
+  - dangoui@3.1.48
+
+## 1.0.159
+
+### Patch Changes
+
+- Updated dependencies [64b84e7]
+  - dangoui@3.1.47
+
+## 1.0.158
+
+### Patch Changes
+
+- Updated dependencies [68a15cc]
+  - dangoui@3.1.46
+
+## 1.0.157
+
+### Patch Changes
+
+- dangoui@3.1.45
+
+## 1.0.156
+
+### Patch Changes
+
+- Updated dependencies [e086473]
+  - dangoui@3.1.44
+
+## 1.0.155
+
+### Patch Changes
+
+- Updated dependencies [4e53c5f]
+  - dangoui@3.1.43
+
+## 1.0.154
+
+### Patch Changes
+
+- dff5db1: update icons
+- Updated dependencies [dff5db1]
+  - dangoui@3.1.42
+
+## 1.0.153
+
+### Patch Changes
+
+- 7e478e0: 更新badge
+- Updated dependencies [7e478e0]
+  - dangoui@3.1.41
+
+## 1.0.152
+
+### Patch Changes
+
+- Updated dependencies [41a3f25]
+  - dangoui@3.1.40
+
+## 1.0.151
+
+### Patch Changes
+
+- Updated dependencies [0251c8a]
+  - dangoui@3.1.39
+
+## 1.0.150
+
+### Patch Changes
+
+- Updated dependencies [80a2865]
+  - dangoui@3.1.38
+
+## 1.0.149
+
+### Patch Changes
+
+- Updated dependencies [0764526]
+  - dangoui@3.1.37
+
+## 1.0.148
+
+### Patch Changes
+
+- b84ac6e: tab style performance and tag support font weight
+- Updated dependencies [b84ac6e]
+  - dangoui@3.1.36
+
+## 1.0.147
+
+### Patch Changes
+
+- Updated dependencies [62ce546]
+  - dangoui@3.1.35
+
+## 1.0.146
+
+### Patch Changes
+
+- Updated dependencies [206136d]
+  - dangoui@3.1.34
+
+## 1.0.145
+
+### Patch Changes
+
+- Updated dependencies [34e9a1e]
+  - dangoui@3.1.33
+
+## 1.0.144
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - dangoui@3.1.32
+  - dangoui-design-token@1.0.20
+
+## 1.0.143
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - dangoui@3.1.31
+  - dangoui-design-token@1.0.19
+
+## 1.0.142
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+- Updated dependencies [2bc6577]
+- Updated dependencies [2bc6577]
+  - dangoui@3.1.30
+
+## 1.0.141
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - dangoui@3.1.29
+
+## 1.0.140
+
+### Patch Changes
+
+- Updated dependencies [db59eeb]
+  - dangoui@3.1.28
+
+## 1.0.139
+
+### Patch Changes
+
+- Updated dependencies [9f4b5cd]
+  - dangoui@3.1.27
+
+## 1.0.138
+
+### Patch Changes
+
+- Updated dependencies [caa1e80]
+  - dangoui@3.1.26
+
+## 1.0.137
+
+### Patch Changes
+
+- Updated dependencies [a1ab4bd]
+  - dangoui@3.1.25
+
+## 1.0.136
+
+### Patch Changes
+
+- Updated dependencies [744e6dd]
+  - dangoui@3.1.24
+
+## 1.0.135
+
+### Patch Changes
+
+- Updated dependencies [6142f49]
+  - dangoui@3.1.23
+
+## 1.0.134
+
+### Patch Changes
+
+- Updated dependencies [612fe8d]
+  - dangoui@3.1.22
+
+## 1.0.133
+
+### Patch Changes
+
+- bump version
+- Updated dependencies
+  - dangoui@3.1.21
+
+## 1.0.132
+
+### Patch Changes
+
+- 20118db: vite plugin support icon config
+
+## 1.0.131
+
+### Patch Changes
+
+- Updated dependencies [2367473]
+  - dangoui@3.1.20
+
+## 1.0.130
+
+### Patch Changes
+
+- Updated dependencies [36c4ef2]
+  - dangoui@3.1.19
+
+## 1.0.129
+
+### Patch Changes
+
+- Updated dependencies [1eb7c28]
+  - dangoui@3.1.18
+
+## 1.0.128
+
+### Patch Changes
+
+- Updated dependencies [b921f6e]
+  - dangoui@3.1.17
+
+## 1.0.127
+
+### Patch Changes
+
+- Updated dependencies [8bc733a]
+  - dangoui@3.1.16
+
+## 1.0.126
+
+### Patch Changes
+
+- Updated dependencies [022502a]
+  - dangoui@3.1.15
+
+## 1.0.125
+
+### Patch Changes
+
+- Updated dependencies [2b5715d]
+  - dangoui@3.1.14
+
+## 1.0.124
+
+### Patch Changes
+
+- Updated dependencies [71f5d8c]
+  - dangoui@3.1.13
+
+## 1.0.123
+
+### Patch Changes
+
+- Updated dependencies [760854f]
+  - dangoui@3.1.12
+
+## 1.0.122
+
+### Patch Changes
+
+- Updated dependencies [8d0ddb0]
+  - dangoui@3.1.11
+
+## 1.0.121
+
+### Patch Changes
+
+- Updated dependencies [111b213]
+  - dangoui@3.1.10
+
+## 1.0.120
+
+### Patch Changes
+
+- Updated dependencies [4862857]
+  - dangoui@3.1.9
+
+## 1.0.119
+
+### Patch Changes
+
+- Updated dependencies [455dc68]
+- Updated dependencies [e9133e4]
+  - dangoui@3.1.8
+
+## 1.0.118
+
+### Patch Changes
+
+- Updated dependencies [f3342a6]
+  - dangoui@3.1.7
+
+## 1.0.117
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+  - dangoui@3.1.6
+
+## 1.0.116
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+- Updated dependencies [4dce8c4]
+  - dangoui@3.1.5
+
+## 1.0.115
+
+### Patch Changes
+
+- Updated dependencies [5712794]
+  - dangoui@3.1.4
+
+## 1.0.114
+
+### Patch Changes
+
+- Updated dependencies [587b14d]
+  - dangoui@3.1.3
+
+## 1.0.113
+
+### Patch Changes
+
+- Updated dependencies [e0f3d3f]
+  - dangoui@3.1.2
+
+## 1.0.112
+
+### Patch Changes
+
+- Updated dependencies [a29710e]
+  - dangoui@3.1.1
+
+## 1.0.111
+
+### Patch Changes
+
+- Updated dependencies [5815f5d]
+- Updated dependencies [5c46cdd]
+  - dangoui@3.1.0
+
+## 1.0.110
+
+### Patch Changes
+
+- 6906df9: support default theme
+
+## 1.0.109
+
+### Patch Changes
+
+- Updated dependencies [6dae86c]
+  - dangoui@3.0.137
+
+## 1.0.108
+
+### Patch Changes
+
+- Updated dependencies [55ba753]
+  - dangoui@3.0.136
+
+## 1.0.107
+
+### Patch Changes
+
+- Updated dependencies [28583c3]
+  - dangoui@3.0.135
+
+## 1.0.106
+
+### Patch Changes
+
+- Updated dependencies [a6b5754]
+  - dangoui@3.0.134
+
+## 1.0.105
+
+### Patch Changes
+
+- Updated dependencies [db23577]
+  - dangoui@3.0.133
+
+## 1.0.104
+
+### Patch Changes
+
+- Updated dependencies [1a60f7a]
+  - dangoui@3.0.132
+
+## 1.0.103
+
+### Patch Changes
+
+- Updated dependencies [f70aa73]
+- Updated dependencies [c3854ff]
+  - dangoui@3.0.131
+
 ## 1.0.102
 
 ### Patch Changes

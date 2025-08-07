@@ -83,7 +83,7 @@ const config = computed(() => {
   }
 })
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const className = computed(() => {
   const { extClass } = config.value

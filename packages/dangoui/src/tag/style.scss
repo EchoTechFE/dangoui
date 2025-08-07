@@ -24,7 +24,7 @@
   --du-c-default-tag-soft-bg: var(--du-default-soft-bg);
   --du-c-default-tag-solid-text: #fff;
 
-  font-weight: 500;
+  
   border-radius: 4px;
   white-space: nowrap;
   display: inline-flex;
@@ -145,4 +145,11 @@
     padding: 9px 12px;
     height: 40px;
   }
+  &--weight-light {
+    font-weight: 400;
+  }
+  &--weight-normal {
+    font-weight: 500;
+  }
+
 }

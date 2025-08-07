@@ -27,6 +27,7 @@
     "packages/dangoui/**/*.vue",
     "packages/dangoui/**/*.ts",
     "packages/dangoui/src/global.d.ts",
+    "packages/dangoui-icon-config/**/*.ts",
     "packages/vite-plugin-dangoui/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],

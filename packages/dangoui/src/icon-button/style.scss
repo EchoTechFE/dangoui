@@ -1,0 +1,70 @@
+.du-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  &--large {
+    width: 44px;
+    height: 44px;
+  }
+
+  &--medium {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--normal {
+    width: 36px;
+    height: 36px;
+  }
+
+  &--small {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--mini {
+    width: 28px;
+    height: 28px;
+  }
+
+  &-icon {
+    display: flex;
+  }
+
+  &-text {
+    font-weight: 500;
+
+    &--large {
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &--medium {
+      font-size: 11px;
+      margin-top: 2px;
+      line-height: 13px;
+    }
+
+    &--normal {
+      font-size: 10px;
+      margin-top: 4px;
+      line-height: 11px;
+    }
+
+    &--small {
+      font-size: 10px;
+      margin-top: 4px;
+      line-height: 11px;
+    }
+
+    &--mini {
+      font-size: 10px;
+      line-height: 11px;
+    }
+
+  }
+
+}

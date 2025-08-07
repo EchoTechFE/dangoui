@@ -81,7 +81,7 @@ const className = computed(() => {
   ])
 })
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const marginYInFormItem = useSize(() => 10)
 

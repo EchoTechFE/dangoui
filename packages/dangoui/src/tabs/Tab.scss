@@ -32,16 +32,19 @@
     &::after {
       content: '';
       position: absolute;
-      width: 20px;
-      height: 4px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 1px;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 1px;
+      width: 13px;
+      height: 3px;
       background: var(--du-tabs-active-color);
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
+    }
+  }
+
+  &--large-active {
+    &::after {
+      width: 20px;
+      height: 4px;
     }
   }
 

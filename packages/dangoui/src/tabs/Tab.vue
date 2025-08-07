@@ -7,6 +7,8 @@
       {
         'du-tab-item--custom-active': !!indicatorConf && isActive,
         'du-tab-item--active': !indicatorConf && isActive,
+        'du-tab-item--large-active':
+          !indicatorConf && isActive && size === 'large',
         'du-tab-item--large': size === 'large',
       },
     ]"
@@ -20,6 +22,7 @@
     :id="id"
     :size="size === 'large' ? 'medium' : 'normal'"
     :color="isActive ? color : 'default'"
+    :weight="isActive ? 'normal' : 'light'"
     @click="handleClick"
   >
     <slot />
@@ -59,8 +62,8 @@ const id = `du-tab-item-${getInstanceId()}`
 
 const instance = getCurrentInstance()
 
-const globalConfig = inject(GlobalConfigKey)
-const tabsConfig = inject(TabsInjectionKey)
+const globalConfig = inject(GlobalConfigKey, {})
+const tabsConfig = inject(TabsInjectionKey, null)
 
 const indicatorConf = computed(() => {
   if (tabsConfig?.indicator.value && globalConfig?.tabs?.indicator) {

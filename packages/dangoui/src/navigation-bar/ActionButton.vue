@@ -1,6 +1,6 @@
 <template>
   <button class="du-action-button" @click="handleClick">
-    <DuIcon :name="name" />
+    <DuIcon :unsafe-internal="name" />
   </button>
 </template>
 
@@ -9,7 +9,7 @@ import DuIcon from '../icon/Icon.vue'
 
 defineProps<{
   color: 'black' | 'white'
-  name: string
+  name: string | { _: string }
 }>()
 
 const emit = defineEmits<{

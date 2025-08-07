@@ -9,7 +9,7 @@
         />
       </div>
     </slot>
-    <Popup :title="title" v-model:visible="visible" type="bottom">
+    <Popup :title="title" v-model:visible="visible" type="bottom" :style="internalStyle">
       <div>
         <Tabs v-model:value="tabIndex">
           <Tab v-for="tab in currentTabs" :key="tab.name" :name="tab.name">
@@ -23,8 +23,10 @@
             class="du-cascader__option"
             @click="handleSelectOption(opt)"
           >
-            <div>{{ opt.label }}</div>
-            <DuIcon name="arrow-heavy-right" :size="12" />
+            <slot name="option" :option="opt">
+              {{ opt.label }}
+            </slot>
+            <DuIcon :unsafe-internal="arrowHeavyRightIcon" :size="12" />
           </div>
         </scroll-view>
       </div>
@@ -33,19 +35,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch } from 'vue'
+import { computed, inject, ref, watch, normalizeStyle } from 'vue'
 import Popup from '../popup/Popup.vue'
 import Tabs from '../tabs/Tabs.vue'
 import Tab from '../tabs/Tab.vue'
 import FormField from '../form/FormField.vue'
 import DuIcon from '../icon/Icon.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
+import { iconArrowHeavyRight } from 'dangoui-icon-config'
 
 export type CascaderOption = {
   label: string
   value: string
   disabled?: boolean
   children?: CascaderOption[]
+  extra?: any
 }
 
 const props = withDefaults(
@@ -54,11 +58,13 @@ const props = withDefaults(
     open?: boolean
     options: CascaderOption[]
     value: string[]
+    popupStyle?: string | Record<string, string>
   }>(),
   {
     open: undefined,
     title: '请选择',
     value: () => [],
+    popupStyle: '',
   },
 )
 
@@ -71,13 +77,23 @@ const emit = defineEmits<{
   (e: 'confirm', value: CascaderOption[]): void
 }>()
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const isInFormItem = !!formItemLayout
 
 const internalOpen = ref(false)
 const internalValue = ref<string[]>([])
 const tabIndex = ref('1')
+
+const internalStyle = computed(() => {
+  return normalizeStyle([
+    {
+      'max-height': '80vh',
+      'overflow-y': 'auto',
+    },
+    props.popupStyle,
+  ])
+})
 
 const visible = computed({
   get() {
@@ -95,13 +111,18 @@ watch(visible, (val) => {
   if (val) {
     internalValue.value = [...props.value]
     let currentOptions: CascaderOption[] | undefined = props.options
+    let lastValidOptions: CascaderOption[] | undefined = props.options
+    
     for (let i = 0; i < internalValue.value.length; i++) {
       const found: CascaderOption | undefined = currentOptions?.find(
         (opt) => opt.value === internalValue.value[i],
       )
       if (found) {
+        lastValidOptions = currentOptions
         currentOptions = found.children
       } else {
+        internalValue.value.length = i
+        currentOptions = lastValidOptions
         break
       }
     }
@@ -213,4 +234,12 @@ function handleSelectOption(opt: CascaderOption) {
     visible.value = false
   }
 }
+
+const arrowHeavyRightIcon = (function () {
+  if (__WEB__) {
+    return iconArrowHeavyRight
+  } else {
+    return 'arrow-heavy-right'
+  }
+})()
 </script>

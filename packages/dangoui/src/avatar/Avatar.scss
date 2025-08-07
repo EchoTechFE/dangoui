@@ -1,0 +1,82 @@
+.du-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--du-icon-disabled);
+  }
+
+  &--large {
+    --du-avatar-border-width: 1px;
+    width: 56px;
+    height: 56px;
+  }
+
+  &--medium {
+    --du-avatar-border-width: 1px;
+    width: 48px;
+    height: 48px;
+  }
+
+  &--normal {
+    --du-avatar-border-width: 1px;
+    width: 32px;
+    height: 32px;
+  }
+
+  &--small {
+    --du-avatar-border-width: 0.5px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &--mini {
+    --du-avatar-border-width: 0.5px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-width: var(--du-avatar-border-width);
+    border-style: solid;
+
+    &--primary {
+      border-color: var(--du-primary-border);
+    }
+
+    &--trade {
+      border-color: var(--du-trade-border);
+    }
+
+    &--success {
+      border-color: var(--du-success-border);
+    }
+
+    &--error {
+      border-color: var(--du-error-border);
+    }
+
+    &--default {
+      border-color: var(--du-default-border);
+    }
+
+    &--white {
+      border-color: var(--du-white-border);
+    }
+  }
+}

@@ -168,7 +168,7 @@
             },
             {
                 "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
+                "description": "使用色板中的颜色名",
                 "required": false,
                 "type": "string",
                 "default": "\"primary\""
@@ -1176,6 +1176,16 @@
                                                 "CascaderOption[]"
                                             ]
                                         }
+                                    },
+                                    "extra": {
+                                        "name": "extra",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "any",
+                                        "declarations": [],
+                                        "schema": "any"
                                     }
                                 }
                             }
@@ -1220,6 +1230,104 @@
                             "schema": {
                                 "kind": "event",
                                 "type": "(): void"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "option",
+                "type": "{ option: CascaderOption; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ option: CascaderOption; }",
+                    "schema": {
+                        "option": {
+                            "name": "option",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "CascaderOption",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "object",
+                                "type": "CascaderOption",
+                                "schema": {
+                                    "label": {
+                                        "name": "label",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [],
+                                        "schema": "string"
+                                    },
+                                    "value": {
+                                        "name": "value",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": true,
+                                        "type": "string",
+                                        "declarations": [],
+                                        "schema": "string"
+                                    },
+                                    "disabled": {
+                                        "name": "disabled",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "boolean | undefined",
+                                        "declarations": [],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "boolean | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                "false",
+                                                "true"
+                                            ]
+                                        }
+                                    },
+                                    "children": {
+                                        "name": "children",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "CascaderOption[] | undefined",
+                                        "declarations": [],
+                                        "schema": {
+                                            "kind": "enum",
+                                            "type": "CascaderOption[] | undefined",
+                                            "schema": [
+                                                "undefined",
+                                                {
+                                                    "kind": "array",
+                                                    "type": "CascaderOption[]",
+                                                    "schema": [
+                                                        "CascaderOption"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "extra": {
+                                        "name": "extra",
+                                        "global": false,
+                                        "description": "",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "any",
+                                        "declarations": [],
+                                        "schema": "any"
+                                    }
+                                }
                             }
                         }
                     }
@@ -1877,6 +1985,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\""
+            },
+            {
+                "name": "icon",
+                "description": "内置图标，从 `dangoui-icon-config` 导入，与 name 互斥\n在 web 侧必须用这个属性",
+                "required": false,
+                "type": "{ _: string; }",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -1903,6 +2018,91 @@
                 }
             }
         ]
+    },
+    "IconButton": {
+        "props": [
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "text",
+                "description": "文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            },
+            {
+                "name": "size",
+                "description": "按钮交互热区大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "iconSize",
+                "description": "图标大小",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "disabled",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "textColor",
+                "description": "文字颜色，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "name",
+                "description": "iconname",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            } ,{
+                "name": "icon",
+                "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "click",
+                "type": "[event: any]",
+                "signature": "(event: \"click\", event: any): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
+        "slots": []
     },
     "Image": {
         "props": [
@@ -1961,6 +2161,123 @@
                 "required": true,
                 "type": "string",
                 "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "Avatar": {
+        "props": [
+            {
+                "name": "src",
+                "description": "头像图片地址",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "string | number",
+                "default": "\"normal\""
+            },
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "string",
+                "default": "\"default\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "AvatarGroup": {
+        "props": [
+            {
+                "name": "avatars",
+                "description": "头像图片地址",
+                "required": false,
+                "type": "string[]",
+                "default": "\"\""
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "string | number",
+                "default": "\"normal\""
+            },
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "string",
+                "default": "\"default\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "gap",
+                "description": "头像间距",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "reverse",
+                "description": "层级是否倒序",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "limit",
+                "description": "限制头像数量",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
             }
         ],
         "events": [],
@@ -2455,150 +2772,6 @@
         ],
         "slots": []
     },
-    "Modal": {
-        "props": [
-            {
-                "name": "extClass",
-                "description": "extClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "extStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "visible",
-                "description": "是否展示弹窗",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "title",
-                "description": "弹窗标题",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "titleAlign",
-                "description": "标题对齐方式，default 为左对齐",
-                "required": false,
-                "type": "\"default\" | \"center\"",
-                "default": "\"default\""
-            },
-            {
-                "name": "headerVisible",
-                "description": "是否展示内置的头部栏",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClick",
-                "description": "点击遮罩层是否关闭",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "closable",
-                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClass",
-                "description": "maskClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "maskStyle",
-                "description": "maskStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "disablePortal",
-                "description": "禁止将 Popup 渲染到根节点",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "actions",
-                "description": "底部按钮配置，类型参考Button的属性",
-                "required": false,
-                "type": "(Partial<{ type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; color: string; text: string; buttonId: string; extClass: string | string[] | Record<string, boolean>; extStyle: string | { ...; }; ... 11 more ...; pressBackground: string; }> & Omit<...> & { ...; })[]",
-                "default": "[]"
-            },
-            {
-                "name": "actionLayout",
-                "description": "按钮排列方式：水平或者垂直",
-                "required": false,
-                "type": "\"horizontal\" | \"vertical\"",
-                "default": "\"horizontal\""
-            },
-            {
-                "name": "content",
-                "description": "Modal 内容，若不为空，则优先显示该字段，忽略插槽",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            }
-        ],
-        "events": [
-            {
-                "name": "close",
-                "type": "any[]",
-                "signature": "(event: \"close\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "update:visible",
-                "type": "any[]",
-                "signature": "(event: \"update:visible\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "action",
-                "type": "any[]",
-                "signature": "(event: \"action\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            }
-        ],
-        "slots": [
-            {
-                "name": "default",
-                "type": "{}",
-                "description": "",
-                "declarations": [],
-                "schema": {
-                    "kind": "object",
-                    "type": "{}",
-                    "schema": {}
-                }
-            }
-        ]
-    },
     "ActionButton": {
         "props": [
             {
@@ -2840,6 +3013,13 @@
     "NoticeBar": {
         "props": [
             {
+                "name": "type",
+                "description": "类型",
+                "required": false,
+                "type": "\"primary\" | \"secondary\"",
+                "default": "\"secondary\""
+            },
+            {
                 "name": "color",
                 "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
@@ -2880,6 +3060,20 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "ellipsis",
+                "description": "超长是否截断显示省略号",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "icon",
+                "description": "左边的按钮",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
         "events": [
@@ -3215,6 +3409,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
+            },
+            {
+                "name": "disabledTip",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
             },
             {
                 "name": "cell",
@@ -3566,15 +3767,15 @@
                 "name": "size",
                 "description": "Rate 组件尺寸",
                 "required": false,
-                "type": "\"mini\" | \"small\" | \"medium\" | \"large\"",
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
                 "default": "\"medium\""
             },
             {
                 "name": "icon",
                 "description": "图标，对应 icon 组件的 name",
                 "required": false,
-                "type": "string",
-                "default": "\"rate-filled\""
+                "type": "string | { _: string; }",
+                "default": "iconRateFilled"
             },
             {
                 "name": "disabled",
@@ -3603,6 +3804,13 @@
                 "required": false,
                 "type": "number",
                 "default": "0"
+            },
+            {
+                "name": "clickable",
+                "description": "是否禁用评分",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
             },
             {
                 "name": "half",
@@ -3710,6 +3918,13 @@
                 "required": false,
                 "type": "string | string[]",
                 "default": "\"\""
+            },
+            {
+                "name": "autofocus",
+                "description": "自动聚焦，拉起键盘",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "clearable",
@@ -4143,6 +4358,13 @@
                 "default": "\"default\""
             },
             {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -4546,6 +4768,13 @@
                 "default": "\"soft\""
             },
             {
+                "name": "weight",
+                "description": "Tab 下的字重",
+                "required": false,
+                "type": "\"normal\" | \"light\"",
+                "default": "\"normal\""
+            },
+            {
                 "name": "icon",
                 "description": "左侧",
                 "required": false,
@@ -4921,6 +5150,13 @@
                 "default": "uploadFile"
             },
             {
+                "name": "mediaType",
+                "description": "mediaType 小程序",
+                "required": false,
+                "type": "(\"image\" | \"video\")[]",
+                "default": "[\"image\"]"
+            },
+            {
                 "name": "disabled",
                 "description": "是否禁用",
                 "required": false,
@@ -4956,13 +5192,6 @@
                 "default": "unknown"
             },
             {
-                "name": "mediaType",
-                "description": "mediaType 小程序",
-                "required": false,
-                "type": "(\"image\" | \"video\")[]",
-                "default": "unknown"
-            },
-            {
                 "name": "sourceType",
                 "description": "sourceType 小程序",
                 "required": false,
@@ -4981,6 +5210,20 @@
                 "description": "sizeType",
                 "required": false,
                 "type": "(\"original\" | \"compressed\")[]",
+                "default": "unknown"
+            },
+            {
+                "name": "customAdd",
+                "description": "",
+                "required": false,
+                "type": "((params: { scene: string; meta: any; }) => Promise<UploadFile[]>)",
+                "default": "unknown"
+            },
+            {
+                "name": "meta",
+                "description": "meta",
+                "required": false,
+                "type": "any",
                 "default": "unknown"
             }
         ],
@@ -5317,6 +5560,26 @@
                                         "type": "string",
                                         "declarations": [],
                                         "schema": "string"
+                                    },
+                                    "fileType": {
+                                        "name": "fileType",
+                                        "global": false,
+                                        "description": "文件类型 image | video | other",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "string | undefined",
+                                        "declarations": [],
+                                        "schema": "string | undefined"
+                                    },
+                                    "meta": {
+                                        "name": "meta",
+                                        "global": false,
+                                        "description": "meta",
+                                        "tags": [],
+                                        "required": false,
+                                        "type": "any",
+                                        "declarations": [],
+                                        "schema": "any"
                                     }
                                 }
                             }

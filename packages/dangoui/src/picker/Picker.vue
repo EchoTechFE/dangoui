@@ -107,7 +107,7 @@ onMounted(() => {
   }
 })
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const isInFormItem = !!formItemLayout
 

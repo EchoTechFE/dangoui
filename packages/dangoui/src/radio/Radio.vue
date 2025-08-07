@@ -57,6 +57,7 @@ import {
   groupValueInjectionKey,
   setGroupValueInjectionKey,
 } from './helpers'
+import { useToast } from '../composables/useToast'
 
 const props = withDefaults(
   defineProps<{
@@ -76,6 +77,7 @@ const props = withDefaults(
     custom?: boolean
     inline?: boolean
     disabled?: boolean
+    disabledTip?: string
     cell?: boolean
     value?: any
     valueKey?: string
@@ -94,9 +96,10 @@ const props = withDefaults(
     disabled: false,
     cell: false,
     color: undefined,
+    disabledTip: '',
   },
 )
-
+const toast = useToast()
 const emit = defineEmits<{
   (e: 'click', event: any): void
   (e: 'input', value: { checked: boolean; value: any | undefined }): void
@@ -104,9 +107,9 @@ const emit = defineEmits<{
   (e: 'update:checked', value: boolean): void
 }>()
 
-const groupConfig = inject(groupConfigInjectionKey)
-const groupValue = inject(groupValueInjectionKey)
-const groupUpdateValue = inject(setGroupValueInjectionKey)
+const groupConfig = inject(groupConfigInjectionKey, null)
+const groupValue = inject(groupValueInjectionKey, null)
+const groupUpdateValue = inject(setGroupValueInjectionKey, null)
 
 const config = computed(() => {
   const {
@@ -116,6 +119,7 @@ const config = computed(() => {
     inline,
     custom,
     disabled,
+    disabledTip,
     shape,
     cell,
     value,
@@ -124,7 +128,6 @@ const config = computed(() => {
   } = {
     ...props,
   }
-
   return {
     extStyle,
     extClass,
@@ -132,6 +135,7 @@ const config = computed(() => {
     inline: inline || groupConfig?.value.inline || false,
     custom: custom || groupConfig?.value.custom || false,
     disabled,
+    disabledTip: disabledTip || '',
     shape: shape || groupConfig?.value.shape || 'normal',
     cell: cell || groupConfig?.value.cell || false,
     value,
@@ -185,6 +189,11 @@ function handleClick(event: any) {
   emit('click', event)
 
   if (config.value.disabled) {
+    if (config.value.disabledTip) {
+      toast.show({
+        message: config.value.disabledTip,
+      })
+    }
     return
   }
 

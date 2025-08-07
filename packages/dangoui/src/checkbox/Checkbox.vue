@@ -134,9 +134,9 @@ const state = reactive({
   currentVal: false,
 })
 
-const groupConfig = inject(groupConfigInjectionKey)
-const groupValue = inject(groupValueInjectionKey)
-const setGroupValue = inject(setGroupValueInjectionKey)
+const groupConfig = inject(groupConfigInjectionKey, null)
+const groupValue = inject(groupValueInjectionKey, null)
+const setGroupValue = inject(setGroupValueInjectionKey, () => null)
 
 watch(
   () => props.checked,

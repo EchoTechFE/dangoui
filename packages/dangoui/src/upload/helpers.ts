@@ -65,8 +65,20 @@ export type UploadFile = {
    * action
    */
   action: string
+  /**
+   * 文件类型 image | video | other
+   */
+  fileType?: string
+  /**
+   * meta
+   */
+  meta?: any
 }
 
 export function getNextUid() {
   return Math.random().toString(16).slice(2)
 }
+
+const ONE_MB_UNIT = 1024 * 1024 * 1
+
+export const MB_UNIT_COMPUTE = (num:number) => ONE_MB_UNIT * num

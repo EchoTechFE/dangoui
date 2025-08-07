@@ -1,5 +1,79 @@
 # unocss-preset-echo
 
+## 1.7.16
+
+### Patch Changes
+
+- 5eb0a25: fix workspace dep
+- Updated dependencies [5eb0a25]
+  - unocss-preset-echo-colors@1.7.15
+
+## 1.7.15
+
+### Patch Changes
+
+- 249ed5a: fix pnpm
+- Updated dependencies [249ed5a]
+  - unocss-preset-echo-colors@1.7.14
+
+## 1.7.14
+
+### Patch Changes
+
+- 2bc6577: 图标更新
+- 2bc6577: pnpm-lock fix
+- Updated dependencies [2bc6577]
+- Updated dependencies [2bc6577]
+  - unocss-preset-echo-colors@1.7.13
+
+## 1.7.13
+
+### Patch Changes
+
+- 220f610: 图标更新
+- Updated dependencies [220f610]
+  - unocss-preset-echo-colors@1.7.12
+
+## 1.7.12
+
+### Patch Changes
+
+- a62d661: 修复了评分组件的一些问题
+- a62d661: 解决报错
+- a62d661: 解决报错
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+- Updated dependencies [a62d661]
+  - unocss-preset-echo-colors@1.7.11
+
+## 1.7.11
+
+### Patch Changes
+
+- 4dce8c4: 修复了评分组件的一些问题
+- Updated dependencies [4dce8c4]
+  - unocss-preset-echo-colors@1.7.10
+
+## 1.7.10
+
+### Patch Changes
+
+- 8f62e88: add spacing and border-radius
+
+## 1.7.9
+
+### Patch Changes
+
+- Updated dependencies [633e1cb]
+  - unocss-preset-echo-colors@1.7.9
+
+## 1.7.9-alpha.0
+
+### Patch Changes
+
+- Updated dependencies
+  - unocss-preset-echo-colors@1.7.9-alpha.0
+
 ## 1.7.8
 
 ### Patch Changes

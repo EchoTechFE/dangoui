@@ -1,5 +1,5 @@
 <template>
-  <DuRootPortal :disabled="disablePortal">
+  <DuRootPortal :disabled="disablePortal" :root="root">
     <div class="du-popup" v-if="innerVisible">
       <div
         :class="maskClassName"
@@ -15,7 +15,7 @@
         >
           <div class="du-popup__title" v-if="title">{{ title }}</div>
           <div v-if="closable" class="du-popup__close" @click="handleClose">
-            <DuIcon name="close" />
+            <DuIcon :unsafe-internal="closeIcon" />
           </div>
         </div>
         <slot />
@@ -36,6 +36,8 @@ import {
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
 import { themeInjectionKey } from '../theme/helpers'
+import { useBodyScrollLock } from '../composables/useScrollLock'
+import { iconClose } from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -99,6 +101,8 @@ const props = withDefaults(
      * 是否自带 safe area
      */
     safeArea: boolean
+
+    root: 'app' | 'page'
   }>(),
   {
     title: '',
@@ -114,6 +118,7 @@ const props = withDefaults(
     maskStyle: '',
     disablePortal: false,
     safeArea: true,
+    root: 'page',
   },
 )
 
@@ -124,7 +129,7 @@ const emit = defineEmits<{
 
 const innerVisible = ref(props.visible)
 const openAni = ref(false)
-const themeConfig = inject(themeInjectionKey)
+const themeConfig = inject(themeInjectionKey, null)
 
 const themeName = computed(() => {
   if (!themeConfig?.name) {
@@ -186,6 +191,10 @@ const handleClose = () => {
   emit('close')
 }
 
+if (__WEB__) {
+  useBodyScrollLock(() => props.visible)
+}
+
 watch(
   () => props.visible,
   (val) => {
@@ -214,4 +223,12 @@ watch(
     immediate: true,
   },
 )
+
+const closeIcon = (function () {
+  if (__WEB__) {
+    return iconClose
+  } else {
+    return 'close'
+  }
+})()
 </script>

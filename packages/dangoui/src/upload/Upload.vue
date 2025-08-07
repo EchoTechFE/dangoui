@@ -18,15 +18,18 @@
         },
       ]"
     >
-      <DuImage :src="file.thumbUrl" />
-      
+      <DuImage v-if="file.thumbUrl" :src="file.thumbUrl" />
+      <div class="du-upload__video" v-else>
+        <DuIcon :unsafe-internal="videoPlayCircleFilledIcon" :size="24" />
+      </div>
+
       <div
         class="du-upload__item-delete"
         v-if="!disabled"
         @click="handleDelete(file)"
       >
         <DuIcon
-          name="close-heavy"
+          :unsafe-internal="closeHeavyIcon"
           class="du-upload__item-delete-icon"
           size="8"
         />
@@ -49,9 +52,17 @@
       ]"
       @click="handleAdd"
     >
-      <DuIcon name="plus-circle" class="du-upload__item-add-plus" />
+      <DuIcon
+        :unsafe-internal="plusCircleIcon"
+        class="du-upload__item-add-plus"
+      />
       <div class="du-upload__item-add-text">{{ uploadText }}</div>
     </div>
+    <DuActionSheet
+      :items="actionItems"
+      v-model:open="isSheetOpen"
+      @select="handleActionSelect"
+    />
   </div>
 </template>
 
@@ -60,10 +71,16 @@ import { computed, inject, normalizeStyle, ref } from 'vue'
 import DuImage from '../image/Image.vue'
 import DuIcon from '../icon/Icon.vue'
 import { GlobalConfigKey } from '../plugins/globalConfig'
-import { UploadFile, getNextUid } from './helpers'
+import { UploadFile, getNextUid, MB_UNIT_COMPUTE } from "./helpers";
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { useSize } from '../composables/useSize'
 import { useToast } from '../composables/useToast'
+import DuActionSheet from '../action-sheet/ActionSheet.vue'
+import {
+  iconCloseHeavy,
+  iconPlusCircle,
+  iconVideoPlayCircleFilled,
+} from 'dangoui-icon-config'
 
 const props = withDefaults(
   defineProps<{
@@ -132,7 +149,7 @@ const props = withDefaults(
     /**
      * mediaType 小程序
      */
-    mediaType?: Array<'image' | 'video'>
+    mediaType: Array<'image' | 'video'>
     /**
      * sourceType 小程序
      */
@@ -154,6 +171,11 @@ const props = withDefaults(
       | {
           [x: string]: string | number
         }
+    customAdd?: (params: { scene: string; meta: any }) => Promise<UploadFile[]>
+    /**
+     * meta
+     */
+    meta?: any
   }>(),
   {
     size: 'normal',
@@ -166,11 +188,14 @@ const props = withDefaults(
     uploadText: '上传',
     beforeResponse: (uploadFile: UploadFile) => uploadFile,
     extStyle: '',
+    mediaType: () => ['image'],
   },
 )
 
 const toast = useToast()
 const marginYInFormItem = useSize(() => 11)
+const actionItems = [{ label: '图片' }, { label: '视频' }]
+const isSheetOpen = ref(false)
 
 const style = computed(() => {
   const styles = [props.extStyle]
@@ -187,9 +212,9 @@ const emit = defineEmits<{
   (e: 'update:value', value: UploadFile[]): void
 }>()
 
-const globalConfig = inject(GlobalConfigKey)
+const globalConfig = inject(GlobalConfigKey, null)
 
-const formItemLayout = inject(formItemLayoutInjectionKey)
+const formItemLayout = inject(formItemLayoutInjectionKey, null)
 
 const fileInputRef = ref<HTMLInputElement>()
 
@@ -211,6 +236,9 @@ const uploadText = computed(() => {
 
 function getLocalImagePreviewUrl(file: File) {
   return new Promise<string>((resolve) => {
+    if (!file.type.startsWith('image')) {
+      return resolve('')
+    }
     const reader = new FileReader()
     reader.onload = (e) => {
       resolve(e.target?.result as string)
@@ -300,7 +328,17 @@ function uniAdd() {
     mediaType: props.mediaType,
     count,
     async success(res: any) {
+
+      const isImageTooLarge = (size:number) => size > MB_UNIT_COMPUTE(20)
+
+
+      let error: Error | null = null
       const uploadFiles = (res.tempFiles as any[]).map((file: any) => {
+
+        if (isImageTooLarge(file.size)){
+          error =  new Error('请上传小于 20MB 的图片')
+        }
+
         const f: UploadFile = {
           uid: getNextUid(),
           url: '',
@@ -314,10 +352,20 @@ function uniAdd() {
           formData: props.data,
           scene: props.scene,
           action: props.action ?? '',
+          meta: props.meta,
         }
 
         return f
       })
+
+      if (error){
+        uni.showModal({
+          title: '',
+          content: (error as Error).message,
+        })
+        return
+      }
+
 
       emit('update:value', props.value.concat(uploadFiles))
 
@@ -342,80 +390,113 @@ function uniAdd() {
         }
       }
     },
-    fail(e:any) {
-      throw new Error(`chooseMedia fail: ${e.errMsg || e.message}`,)
+    fail(e: any) {
+      throw new Error(`chooseMedia fail: ${e.errMsg || e.message}`)
     },
   })
 }
 
-function webAdd() {
-  if (!fileInputRef.value) {
-    const fileInput = document.createElement('input')
-    fileInput.type = 'file'
-    if (props.mediaType) {
-      fileInput.accept = props.mediaType
-        .map((type) => {
-          return type + '/*'
-        })
-        .join(',')
-    }
-    fileInput.style.display = 'none'
-    fileInput.addEventListener('change', async () => {
-      const len = fileInput.files?.length ?? 0
-      if (props.maxCount && len + props.value.length > props.maxCount) {
-        toast.show({
-          message: '最多上传' + props.maxCount + '个文件',
-        })
-        return
-      }
-
-      for (const file of fileInput.files ?? []) {
-        const url = await getLocalImagePreviewUrl(file)
-        let uploadFile: UploadFile = {
-          uid: getNextUid(),
-          url: '',
-          thumbUrl: url,
-          identifier: '',
-          status: 'uploading',
-          percent: 0,
-          name: props.name,
-          filePath: '',
-          headers: props.headers,
-          formData: props.data,
-          file,
-          scene: props.scene,
-          action: props.action ?? '',
-        }
-        if (props.beforeUpload) {
-          uploadFile = await props.beforeUpload(uploadFile)
-        }
-        if (uploadFile.chain !== false && globalConfig?.upload?.beforeUpload) {
-          uploadFile = await globalConfig.upload.beforeUpload(uploadFile)
-        }
-        emit('update:value', props.value.concat(uploadFile))
-        if (globalConfig?.upload?.customUpload) {
-          uploadFile = await globalConfig.upload.customUpload(uploadFile)
-        } else {
-          uploadFile = await webUpload(uploadFile)
-        }
-        const idx = props.value.findIndex((f) => f.uid === uploadFile.uid)
-        if (idx >= 0) {
-          emit(
-            'update:value',
-            props.value.map((f, i) => (i === idx ? uploadFile : f)),
-          )
-        }
-      }
-    })
-    fileInputRef.value = fileInput
-    document.body.appendChild(fileInput)
+function webAdd(mediaType?: string) {
+  if (
+    !mediaType &&
+    props.mediaType.length > 1 &&
+    navigator.userAgent.indexOf('Android') > -1
+  ) {
+    isSheetOpen.value = true
+    return
   }
+
+  if (fileInputRef.value) {
+    fileInputRef.value.remove()
+  }
+
+  const fileInput = document.createElement('input')
+  fileInput.type = 'file'
+  if (mediaType) {
+    fileInput.accept = mediaType + '/*'
+  } else {
+    fileInput.accept = props.mediaType
+      .map((type) => {
+        return type + '/*'
+      })
+      .join(',')
+  }
+  fileInput.style.display = 'none'
+  fileInput.addEventListener('change', async () => {
+    const len = fileInput.files?.length ?? 0
+    if (props.maxCount && len + props.value.length > props.maxCount) {
+      toast.show({
+        message: '最多上传' + props.maxCount + '个文件',
+      })
+      return
+    }
+
+    for (const file of fileInput.files ?? []) {
+      const url = await getLocalImagePreviewUrl(file)
+      let uploadFile: UploadFile = {
+        uid: getNextUid(),
+        url: '',
+        thumbUrl: url,
+        identifier: '',
+        status: 'uploading',
+        percent: 0,
+        name: props.name,
+        filePath: '',
+        headers: props.headers,
+        formData: props.data,
+        file,
+        scene: props.scene,
+        action: props.action ?? '',
+        meta: props.meta,
+      }
+      if (props.beforeUpload) {
+        uploadFile = await props.beforeUpload(uploadFile)
+      }
+      if (uploadFile.chain !== false && globalConfig?.upload?.beforeUpload) {
+        uploadFile = await globalConfig.upload.beforeUpload(uploadFile)
+      }
+      emit('update:value', props.value.concat(uploadFile))
+      if (globalConfig?.upload?.customUpload) {
+        uploadFile = await globalConfig.upload.customUpload(uploadFile)
+      } else {
+        uploadFile = await webUpload(uploadFile)
+      }
+      const idx = props.value.findIndex((f) => f.uid === uploadFile.uid)
+      if (idx >= 0) {
+        emit(
+          'update:value',
+          props.value.map((f, i) => (i === idx ? uploadFile : f)),
+        )
+      }
+    }
+  })
+  fileInputRef.value = fileInput
+  document.body.appendChild(fileInput)
 
   fileInputRef.value?.click()
 }
 
+function handleActionSelect({ label }: { label: string }) {
+  switch (label) {
+    case '图片':
+      webAdd('image')
+      break
+    case '视频':
+      webAdd('video')
+      break
+  }
+}
+
 function handleAdd() {
   if (props.disabled) {
+    return
+  }
+
+  const customAdd = globalConfig?.upload?.customAdd || props.customAdd
+  if (customAdd) {
+    customAdd({ scene: props.scene, meta: props.meta }).then((files) => {
+      emit('update:value', props.value.concat(files))
+    })
     return
   }
 
@@ -432,4 +513,28 @@ function handleDelete(file: UploadFile) {
     props.value.filter((item) => item.uid !== file.uid),
   )
 }
+
+const closeHeavyIcon = (function () {
+  if (__WEB__) {
+    return iconCloseHeavy
+  } else {
+    return 'close-heavy'
+  }
+})()
+
+const plusCircleIcon = (function () {
+  if (__WEB__) {
+    return iconPlusCircle
+  } else {
+    return 'plus-circle'
+  }
+})()
+
+const videoPlayCircleFilledIcon = (function () {
+  if (__WEB__) {
+    return iconVideoPlayCircleFilled
+  } else {
+    return 'video-play-circle-filled'
+  }
+})()
 </script>
