@@ -1,5 +1,11 @@
 # vite-plugin-dangoui
 
+## 1.0.172
+
+### Patch Changes
+
+- ee5ebec: fix: vite plugin filter
+
 ## 1.0.171
 
 ### Patch Changes
