@@ -24,7 +24,7 @@
           <DuIcon :unsafe-internal="questionCircleIcon" />
         </div>
         <span class="du-form-item__label__dirty" v-if="config?.isDirty">
-          已修改
+          {{ t('edited') }}
         </span>
       </div>
       <div v-if="config.layout === 'horizontal'" class="du-form-item__slot">
@@ -89,6 +89,11 @@ import {
   listenFormItemClickInjectionKey,
 } from './helpers'
 import { iconQuestionCircle } from 'dangoui-icon-config'
+import { useLocale } from '../locale'
+
+const { useTranslator } = useLocale()
+const t = useTranslator('FormItem')
+
 
 const props = withDefaults(
   defineProps<{
