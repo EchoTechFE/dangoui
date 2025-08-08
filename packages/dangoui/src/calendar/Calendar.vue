@@ -8,7 +8,7 @@
     @update:visible="handleClose"
   >
     <div class="du-calendar__header">
-      <div class="du-calendar__clear" @click="handleClear">清除</div>
+      <div class="du-calendar__clear" @click="handleClear">{{ t('clear') }}</div>
       <div class="du-calendar__title">{{ calendarTitle }}</div>
       <div class="du-calendar__close" @click="handleClose">
         <DuIcon :unsafe-internal="closeIcon" />
@@ -77,7 +77,7 @@
                         : 'var(--du-primary-color)',
                     }"
                   >
-                    今
+                    {{ t('today') }}
                   </div>
                   <template v-else>
                     {{ date.date() }}
@@ -86,13 +86,13 @@
                     v-if="isStart(date) && isEnd(date)"
                     class="du-calendar__sub"
                   >
-                    开始/结束
+                    {{ t('startEnd') }}
                   </div>
                   <div v-else-if="isStart(date)" class="du-calendar__sub">
-                    开始
+                    {{ t('start') }}
                   </div>
                   <div v-else-if="isEnd(date)" class="du-calendar__sub">
-                    结束
+                    {{ t('end') }}
                   </div>
                 </div>
               </div>
@@ -102,13 +102,13 @@
       </scroll-view>
       <div class="du-calendar__time" v-if="type === 'range' && showTimePicker">
         <div class="du-calendar__time-header">
-          <div class="du-calendar__time-title">开始时间</div>
+          <div class="du-calendar__time-title">{{ t('startTime') }}</div>
           <DuIcon
             :unsafe-internal="arrowRightLineIcon"
             :size="12"
             color="#D4D0DA"
           />
-          <div class="du-calendar__time-title">结束时间</div>
+          <div class="du-calendar__time-title">{{ t('endTime') }}</div>
         </div>
         <div style="display: flex">
           <div style="flex: 1">
@@ -137,18 +137,18 @@
       <div class="du-calendar--button">
         <div v-if="type === 'range'">
           <div class="du-calendar__disp">
-            <div class="du-calendar__disp-title">开始</div>
+            <div class="du-calendar__disp-title">{{ t('start') }}</div>
             <div class="du-calendar__disp-none" v-if="innerSelected.length < 1">
-              待设置
+              {{ t('toBeSet') }}
             </div>
             <div v-else>
               {{ formattedRangeStart }}
             </div>
           </div>
           <div class="du-calendar__disp">
-            <div class="du-calendar__disp-title">结束</div>
+            <div class="du-calendar__disp-title">{{ t('end') }}</div>
             <div class="du-calendar__disp-none" v-if="innerSelected.length < 2">
-              待设置
+              {{ t('toBeSet') }}
             </div>
             <div v-else>
               {{ formattedRangeEnd }}
@@ -157,9 +157,9 @@
         </div>
         <div v-else>
           <div class="du-calendar__disp">
-            <div class="du-calendar__disp-title">已选</div>
+            <div class="du-calendar__disp-title">{{ t('selected') }}</div>
             <div class="du-calendar__disp-none" v-if="innerSelected.length < 1">
-              待设置
+              {{ t('toBeSet') }}
             </div>
             <div v-else>
               {{ formattedRangeStart }}
@@ -191,6 +191,7 @@ import {
   normalizeStyle,
   normalizeClass,
 } from 'vue'
+import { useLocale } from '../locale'
 import DuPopup from '../popup/Popup.vue'
 import DuButton from '../button/Button.vue'
 import { getInstanceId } from './helpers'
@@ -250,6 +251,10 @@ const emit = defineEmits<{
   (e: 'clear'): void
 }>()
 
+const { useTranslator } = useLocale()
+const t = useTranslator('Calendar')
+const gt = useTranslator('global')
+
 const closeIcon = (function () {
   if (__WEB__) {
     return iconClose
@@ -271,13 +276,13 @@ const timePickerColumns = computed(() => {
   const minutes: { label: string; value: string }[] = []
   for (let i = 0; i < 24; i++) {
     hours.push({
-      label: i.toString().padStart(2, '0') + '时',
+      label: i.toString().padStart(2, '0') + t('hour'),
       value: '' + i,
     })
   }
   for (let i = 0; i < 60; i += props.timeStep) {
     minutes.push({
-      label: i.toString().padStart(2, '0') + '分',
+      label: i.toString().padStart(2, '0') + t('minute'),
       value: '' + i,
     })
   }
@@ -339,9 +344,9 @@ const calendarTitle = computed(() => {
     return props.title
   } else {
     if (props.type === 'multiple') {
-      return `请选择日期(最多可选${props.selectableCount}天)`
+      return t('selectDateRange', props.selectableCount)
     }
-    return '请选择日期'
+    return t('selectDate')
   }
 })
 
@@ -371,12 +376,12 @@ const buttonConfirmText = computed(() => {
     innerSelected.value.length === 2
   ) {
     if (isInvalidDateRange.value) {
-      return '开始应早于结束'
+      return t('startShouldBeforeEnd')
     }
   }
 
   if (props.type === 'range' && innerSelected.value.length === 1) {
-    return '缺少结束时间'
+    return t('missingEndTime')
   }
 
   if (
@@ -384,10 +389,10 @@ const buttonConfirmText = computed(() => {
     innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
       props.selectableCount
   ) {
-    return `最多选${props.selectableCount}天`
+    return t('maxDays', props.selectableCount)
   }
 
-  return props.confirmText || '确定'
+  return props.confirmText || gt('confirm')
 })
 
 const buttonDisabled = computed(() => {
@@ -408,17 +413,13 @@ const buttonDisabled = computed(() => {
 
 const weekList = computed(() => {
   const { weekStart } = props
-  const initList = [
-    { name: '日', highlight: true },
-    { name: '一', highlight: false },
-    { name: '二', highlight: false },
-    { name: '三', highlight: false },
-    { name: '四', highlight: false },
-    { name: '五', highlight: false },
-    { name: '六', highlight: true },
-  ]
+  const weekdays = t('weekdays') as string[]
+  const initList = weekdays.map((name: string, index: number) => ({
+    name,
+    highlight: index === 0 || index === 6
+  }))
 
-  const list = initList.map((l, index) => {
+  const list = initList.map((l: { name: string; highlight: boolean }, index: number) => {
     return {
       ...l,
       index: (index + (7 - weekStart)) % 7,
@@ -501,7 +502,7 @@ function formatDate(d: dayjs.Dayjs) {
 const formattedRangeStart = computed(() => {
   if (innerSelected.value.length > 0) {
     if (props.type === 'multiple' && innerSelected.value.length >= 2) {
-      return `${innerSelected.value.length} 个日期`
+      return t('selectedDates', innerSelected.value.length)
     }
     return formatDate(
       innerSelected.value[0]

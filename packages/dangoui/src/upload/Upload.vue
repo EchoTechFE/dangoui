@@ -39,7 +39,7 @@
         {{ badge }}
       </div>
       <div v-if="file.status === 'uploading'" class="du-upload__loading">
-        上传中...
+        {{ t('uploading') }}
       </div>
     </div>
     <div
@@ -81,6 +81,10 @@ import {
   iconPlusCircle,
   iconVideoPlayCircleFilled,
 } from 'dangoui-icon-config'
+import { useLocale } from '../locale'
+
+const { useTranslator } = useLocale()
+const t = useTranslator('Upload')
 
 const props = withDefaults(
   defineProps<{
@@ -194,7 +198,7 @@ const props = withDefaults(
 
 const toast = useToast()
 const marginYInFormItem = useSize(() => 11)
-const actionItems = [{ label: '图片' }, { label: '视频' }]
+const actionItems = [{ label: t('image') }, { label: t('video') }]
 const isSheetOpen = ref(false)
 
 const style = computed(() => {
@@ -426,7 +430,7 @@ function webAdd(mediaType?: string) {
     const len = fileInput.files?.length ?? 0
     if (props.maxCount && len + props.value.length > props.maxCount) {
       toast.show({
-        message: '最多上传' + props.maxCount + '个文件',
+        message: t('maxCount', props.maxCount),
       })
       return
     }
@@ -478,10 +482,10 @@ function webAdd(mediaType?: string) {
 
 function handleActionSelect({ label }: { label: string }) {
   switch (label) {
-    case '图片':
+    case t('image'):
       webAdd('image')
       break
-    case '视频':
+    case t('video'):
       webAdd('video')
       break
   }

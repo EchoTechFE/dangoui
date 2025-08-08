@@ -32,6 +32,11 @@
 import { computed, ref } from 'vue'
 import DuTag from '../tag/Tag.vue'
 import DuButton from '../button/Button.vue'
+import { useLocale } from '../locale/index'
+
+const { useTranslator } = useLocale()
+
+const t = useTranslator('TagsPanel')
 
 const props = withDefaults(
   defineProps<{
@@ -76,7 +81,7 @@ const displayTags = computed(() => {
 const isExpanded = ref(false)
 
 const toggleText = computed(() => {
-  return isExpanded.value ? '收起' : '展开'
+  return isExpanded.value ? t('fold') : t('expand')
 })
 
 function handleExpand() {

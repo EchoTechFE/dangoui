@@ -10,6 +10,7 @@ export default defineConfig({
         resolve(__dirname, 'src/index.ts'),
         resolve(__dirname, 'src/cssvars.ts'),
         resolve(__dirname, 'src/platte.ts'),
+        resolve(__dirname, 'src/locale.ts'),
       ],
       fileName: (format, entryName) => {
         const extension = format === 'es' ? 'mjs' : 'cjs'
