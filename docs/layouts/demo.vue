@@ -16,7 +16,6 @@
 
 <script setup lang="ts">
 import { DuTheme, DuToastProvider } from 'dangoui'
-import { useLocaleProvider } from 'dangoui/locale'
 
 watch(isHydrated, () => {
   window.addEventListener('message', (message: any) => {
@@ -30,6 +29,5 @@ onMounted(() => {
   import('../libs/touch-emulator').then(({ default: TouchEmulator }) => {
     TouchEmulator()
   })
-  useLocaleProvider()
 })
 </script>

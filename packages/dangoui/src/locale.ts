@@ -1,7 +1,5 @@
-import { useLocale, registerLocale, useLocaleProvider } from './locale/index'
+import { useLocale } from './locale/index'
 
 export {
   useLocale,
-  registerLocale,
-  useLocaleProvider,
 }
