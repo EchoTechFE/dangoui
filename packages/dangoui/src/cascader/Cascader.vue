@@ -9,7 +9,7 @@
         />
       </div>
     </slot>
-    <Popup :title="title" v-model:visible="visible" type="bottom">
+    <Popup :title="title" v-model:visible="visible" type="bottom" :style="internalStyle">
       <div>
         <Tabs v-model:value="tabIndex">
           <Tab v-for="tab in currentTabs" :key="tab.name" :name="tab.name">
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch } from 'vue'
+import { computed, inject, ref, watch, normalizeStyle } from 'vue'
 import Popup from '../popup/Popup.vue'
 import Tabs from '../tabs/Tabs.vue'
 import Tab from '../tabs/Tab.vue'
@@ -58,11 +58,13 @@ const props = withDefaults(
     open?: boolean
     options: CascaderOption[]
     value: string[]
+    popupStyle?: string | Record<string, string>
   }>(),
   {
     open: undefined,
     title: '请选择',
     value: () => [],
+    popupStyle: '',
   },
 )
 
@@ -83,6 +85,16 @@ const internalOpen = ref(false)
 const internalValue = ref<string[]>([])
 const tabIndex = ref('1')
 
+const internalStyle = computed(() => {
+  return normalizeStyle([
+    {
+      'max-height': '80vh',
+      'overflow-y': 'auto',
+    },
+    props.popupStyle,
+  ])
+})
+
 const visible = computed({
   get() {
     return props.open ?? internalOpen.value
@@ -99,13 +111,18 @@ watch(visible, (val) => {
   if (val) {
     internalValue.value = [...props.value]
     let currentOptions: CascaderOption[] | undefined = props.options
+    let lastValidOptions: CascaderOption[] | undefined = props.options
+    
     for (let i = 0; i < internalValue.value.length; i++) {
       const found: CascaderOption | undefined = currentOptions?.find(
         (opt) => opt.value === internalValue.value[i],
       )
       if (found) {
+        lastValidOptions = currentOptions
         currentOptions = found.children
       } else {
+        internalValue.value.length = i
+        currentOptions = lastValidOptions
         break
       }
     }

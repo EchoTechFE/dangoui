@@ -1,5 +1,32 @@
 # vite-plugin-dangoui
 
+## 1.0.172
+
+### Patch Changes
+
+- ee5ebec: fix: vite plugin filter
+
+## 1.0.171
+
+### Patch Changes
+
+- Updated dependencies [4f83529]
+  - dangoui@3.3.1
+
+## 1.0.170
+
+### Patch Changes
+
+- Updated dependencies [122b1de]
+  - dangoui@3.3.0
+
+## 1.0.169
+
+### Patch Changes
+
+- Updated dependencies [d0fa4d0]
+  - dangoui@3.2.0
+
 ## 1.0.168
 
 ### Patch Changes

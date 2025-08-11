@@ -331,7 +331,7 @@ export default {
       )
 
       if (
-        !id.includes('node_modules') &&
+        (!id.includes('node_modules') || id.includes('qiandao-ui')) &&
         ['.vue', '.js', '.ts'].some((ext) => id.endsWith(ext))
       ) {
         const s = new MagicString(code)
