@@ -58,11 +58,31 @@
     font-weight: 500;
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 0 4px;
+  &__options {
+    &--tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0 4px;
+    }
+
+    &--list {
+      padding: 0 4px;
+    }
+  }
+
+  &__list {
+    &-item {
+      padding: 12px 0px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 22px;
+      transition: color 0.2s;
+      color: rgba(0, 0, 0, 0.4);
+      &:hover {
+        color: var(--du-primary-color);
+      }
+    }
   }
 
   &__tag-wrapper {

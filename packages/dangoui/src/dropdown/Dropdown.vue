@@ -25,36 +25,72 @@
       <DuDivider v-if="options.length > 1" />
 
       <!-- 选项内容区 -->
-      <div class="du-dropdown__content">
-        <template v-if="currentOption">
-          <div
-            v-for="group in currentGroups"
-            :key="group.value"
-            class="du-dropdown__group"
-          >
-            <div
-              v-if="currentGroups?.length > 1"
-              class="du-dropdown__group-title"
-            >
-              {{ group.label }}
-            </div>
-            <div class="du-dropdown__tags">
-              <div class="du-dropdown__tag-wrapper">
-                <DuTag
-                  v-for="option in group.options"
-                  :key="option.value"
-                  class="du-dropdown__tag"
-                  :color="isSelected(option, group) ? 'primary' : 'default'"
-                  @click="handleSelect(option, group)"
+      <div>
+        <slot
+          name="content"
+          :current-option="currentOption"
+          :current-groups="currentGroups"
+          :is-selected="isSelected"
+          :on-select="handleSelect"
+        >
+          <template v-if="currentOption">
+            <div class="du-dropdown__content">
+              <div
+                v-for="group in currentGroups"
+                :key="group.value"
+                class="du-dropdown__group"
+              >
+                <div
+                  v-if="currentGroups?.length > 1"
+                  class="du-dropdown__group-title"
                 >
-                  <div class="du-dropdown__tag-text">
-                    {{ option.label }}
-                  </div>
-                </DuTag>
+                  {{ group.label }}
+                </div>
+                <div
+                  :class="[
+                    'du-dropdown__options',
+                    `du-dropdown__options--${props.layout}`,
+                  ]"
+                >
+                  <template v-if="props.layout === 'tag'">
+                    <div class="du-dropdown__tag-wrapper">
+                      <DuTag
+                        v-for="option in group.options"
+                        :key="option.value"
+                        class="du-dropdown__tag"
+                        :color="
+                          isSelected(option, group) ? 'primary' : 'default'
+                        "
+                        @click="handleSelect(option, group)"
+                      >
+                        <div class="du-dropdown__tag-text">
+                          {{ option.label }}
+                        </div>
+                      </DuTag>
+                    </div>
+                  </template>
+                  <template v-else>
+                    <div class="du-dropdown__list">
+                      <div
+                        v-for="option in group.options"
+                        :key="option.value"
+                        class="du-dropdown__list-item"
+                        :style="{
+                          color: isSelected(option, group)
+                            ? 'var(--du-primary-color)'
+                            : '#666',
+                        }"
+                        @click="handleSelect(option, group)"
+                      >
+                        {{ option.label }}
+                      </div>
+                    </div>
+                  </template>
+                </div>
               </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </slot>
       </div>
 
       <DuDivider />
@@ -147,6 +183,11 @@ const props = withDefaults(
      * 是否显示底部按钮
      */
     showFooter?: boolean
+    /**
+     * 布局方式
+     * @default 'grid'
+     */
+    layout?: 'tag' | 'list'
   }>(),
   {
     value: () => ({}),
@@ -154,6 +195,7 @@ const props = withDefaults(
     cancelText: '取消',
     confirmText: '确定',
     showFooter: true,
+    layout: 'tag',
   },
 )
 

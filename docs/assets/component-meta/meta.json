@@ -1654,85 +1654,87 @@
         ]
     },
     "Dropdown": {
-    "props": [
-      {
-        "name": "options",
-        "description": "选项配置，支持单维度或多维度筛选",
-        "required": true,
-        "type": "FilterField[]",
-        "default": "unknown"
-      },
-      {
-        "name": "value",
-        "description": "当前选中的值，嵌套对象结构，用于存储每个维度下各分组的选中值",
-        "required": false,
-        "type": "Record<string, Record<string, string[]>>",
-        "default": "{}"
-      },
-      {
-        "name": "visible",
-        "description": "是否显示下拉选择器",
-        "required": false,
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "name": "cancelText",
-        "description": "取消按钮文本",
-        "required": false,
-        "type": "string",
-        "default": "\"取消\""
-      },
-      {
-        "name": "confirmText",
-        "description": "确认按钮文本",
-        "required": false,
-        "type": "string",
-        "default": "\"确定\""
-      }
-    ],
-    "events": [
-      {
-        "name": "update:visible",
-        "type": "[visible: boolean]",
-        "signature": "(event: \"update:visible\", visible: boolean): void",
-        "declarations": [],
-        "schema": [
-          {
-            "kind": "enum",
-            "type": "boolean",
-            "schema": ["false", "true"]
-          }
+        "props": [
+            {
+                "name": "options",
+                "description": "选项配置，支持单维度或多维度筛选",
+                "required": true,
+                "type": "FilterField[]",
+                "default": "-"
+            },
+            {
+                "name": "value",
+                "description": "当前选中的值，嵌套对象结构，用于存储每个维度下各分组的选中值",
+                "required": false,
+                "type": "SelectedValue",
+                "default": "{}"
+            },
+            {
+                "name": "visible",
+                "description": "是否显示下拉选择器",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "cancelText",
+                "description": "取消按钮文本",
+                "required": false,
+                "type": "string",
+                "default": "\"取消\""
+            },
+            {
+                "name": "confirmText",
+                "description": "确认按钮文本",
+                "required": false,
+                "type": "string",
+                "default": "\"确定\""
+            },
+            {
+                "name": "showFooter",
+                "description": "是否显示底部按钮",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "layout",
+                "description": "布局方式，tag 为标签布局，list 为列表布局",
+                "required": false,
+                "type": "'tag' | 'list'",
+                "default": "'tag'"
+            }
+        ],
+        "events": [
+            {
+                "name": "update:visible",
+                "description": "下拉选择器显示状态变化时触发",
+                "type": "[visible: boolean]",
+                "signature": "(event: \"update:visible\", visible: boolean): void"
+            },
+            {
+                "name": "update:value",
+                "description": "选中值变化时触发",
+                "type": "[value: SelectedValue]",
+                "signature": "(event: \"update:value\", value: SelectedValue): void"
+            },
+            {
+                "name": "confirm",
+                "description": "点击确认按钮时触发",
+                "type": "[value: SelectedValue]",
+                "signature": "(event: \"confirm\", value: SelectedValue): void"
+            }
+        ],
+        "slots": [
+            {
+                "name": "option-nav",
+                "description": "自定义选择栏的内容"
+            },
+            {
+                "name": "content",
+                "description": "自定义内容区域的展示方式"
+            }
         ]
-      },
-      {
-        "name": "update:value",
-        "type": "[value: Record<string, Record<string, string[]>>]",
-        "signature": "(event: \"update:value\", value: Record<string, Record<string, string[]>>): void",
-        "declarations": [],
-        "schema": [
-          {
-            "kind": "object",
-            "type": "Record<string, Record<string, string[]>>",
-            "schema": {}
-          }
-        ]
-      },
-      {
-        "name": "confirm",
-        "type": "[value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>]",
-        "signature": "(event: \"confirm\", value: Record<string, DropdownOption[] | Record<string, DropdownOption[]>>): void",
-        "declarations": [],
-        "schema": [
-          {
-            "kind": "object",
-            "type": "Record<string, DropdownOption[] | Record<string, DropdownOption[]>>",
-            "schema": {}
-          }
-        ]
-      }
-    ],
-    "slots": []
     },
     "Empty": {
         "props": [
@@ -2159,7 +2161,8 @@
                 "required": true,
                 "type": "string",
                 "default": "unknown"
-            } ,{
+            },
+            {
                 "name": "icon",
                 "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
                 "required": true,
