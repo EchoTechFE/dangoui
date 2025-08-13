@@ -21,7 +21,7 @@
         class="du-action-sheet__list-item du-action-sheet__list-item--cancel"
         @click="handleCancel"
       >
-        取消
+        {{ t('cancel') }}
       </div>
     </div>
     <div v-else>
@@ -48,7 +48,9 @@
         <div class="du-action-sheet__divider">
           <DuDivider />
         </div>
-        <div class="du-action-sheet__cacnel" @click="handleCancel">取消</div>
+        <div class="du-action-sheet__cacnel" @click="handleCancel">
+          {{ t('cancel') }}
+        </div>
       </div>
     </div>
   </DuPopup>
@@ -58,6 +60,11 @@
 import DuPopup from '../popup/Popup.vue'
 import DuDivider from '../divider/Divider.vue'
 import DuIcon from '../icon/Icon.vue'
+
+import { useLocale } from '../locale/index'
+
+const { useTranslator } = useLocale()
+const t = useTranslator('actionSheet')
 
 type ActionSheetItem = {
   key?: string

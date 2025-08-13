@@ -1,0 +1,78 @@
+---
+description: 本地化规范文档
+globs: ["packages/dangoui/src/locale/lang/*_*.ts", "packages/dangoui/src/locale/*.ts"]
+alwaysApply: false
+---
+
+# 本地化规范
+
+dangoui 中所有的本地化配置都应该在 `packages/dangoui/src/locale` 目录中完成定义，主要分为两步：类型定义和本地化配置
+
+## 类型定义
+
+dangoui 的本地化配置的类型定义的入口文件是 `packages/dangoui/src/locale/index.ts`, 当需要添加新的本地化配置时，需要检查对应组件或全局配置的类型是否存在，如果不存在，则需要增加相应的类型描述。
+如果新增或修改的本地化配置时组件配置，那么具体的本地化类型应该在相应的组件目录定义，定义好后在 `packages/dangoui/src/locale/index.ts` 引入对应组件的类型定义。
+
+## 本地化配置
+
+### 纯字符串配置
+
+dangoui 中的本地化配置文件命名规则是：`*_*.ts`，如：`zh_CN.ts`，文件默认导出一个 `Locale` 类型对象。
+通常在为 dangoui 添加后修改某一项本地化配置时，如无特殊说明，需要同时修改所有语言的本地化配置。
+
+本地化配置文件列表如下（包括但不限于）：
+
+```json
+["packages/dangoui/src/locale/lang/zh_CN.ts", "packages/dangoui/src/locale/lang/en_US.ts"]
+```
+
+本地化配置的内容通常是纯字符串，如：
+
+
+```typescript
+{
+    // ...
+  TagsPanel: {
+    fold: 'Collapse',
+    expand: 'Expand'
+  },
+    // ...
+}
+```
+
+
+### 全局配置
+
+如果某个本地化配置不独属于某个组件，而是数据全局的本地化配置，此时应该在 `global` 中添加相关属性，如：
+
+```typescript
+{
+    // ...
+    // locales for all components
+    global: {
+      close: '关闭',
+      cancel: '取消',
+      confirm: '确认',
+    },
+    // ...
+}
+```
+
+# 使用本地化
+
+dangoui 中具体使用本地化配置时，可以使用 `packages/dangoui/src/locale/index.ts` 文件中导出的 `useLocale` 获取全局上下文中配置的本地化，并跟组件属性中传入的本地化配置合并后得到最完整的本地化配置，如：
+
+```vue
+<template>
+  <div>
+    {{ t('close') }}
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useLocale } from '../locale'
+
+const { useTranslator } = useLocale()
+const t = useTranslator('global')
+</script>
+```

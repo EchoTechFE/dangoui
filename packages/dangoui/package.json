@@ -8,7 +8,8 @@
   "files": [
     "dist",
     "src",
-    "typings"
+    "typings",
+    "lang"
   ],
   "exports": {
     "./package.json": "./package.json",
@@ -34,6 +35,22 @@
         "default": "./dist/cssvars.mjs"
       }
     },
+    "./locale": {
+      "import": {
+        "types": "./typings/locale.d.ts",
+        "default": "./dist/locale.mjs"
+      }
+    },
+    "./lang/*": {
+      "import": {
+        "types": "./typings/locale/lang/*.d.ts",
+        "default": "./dist/lang/*.mjs"
+      },
+      "require": {
+        "types": "./typings/locale/lang/*.d.ts",
+        "default": "./dist/lang/*.cjs"
+      }
+    },
     "./src/*": "./src/*",
     "./theme.css": "./dist/theme.css",
     "./style.css": "./dist/style.css",
@@ -46,7 +63,7 @@
   "scripts": {
     "gen:icon": "node ./scripts/genicon.cjs",
     "dts": "vue-tsc -p tsconfig.declaration.json --declaration --emitDeclarationOnly",
-    "build": "pnpm run dts && vite build && gulp && node ./scripts/gen-theme.mjs",
+    "build": "pnpm run dts && vite build && vite build --config vite.lang.config.ts && gulp && node ./scripts/gen-theme.mjs",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
