@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.4.0
+
+### Minor Changes
+
+- 0ea0340: feat: support i18n
+
 ## 3.3.2
 
 ### Patch Changes
