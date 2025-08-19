@@ -30,7 +30,7 @@ const locale: Locale = {
       maxRange > 1 ? `Up to ${maxRange} days` : `Up to ${maxRange} day`,
     selectedDates: (count: number) =>
       count > 1 ? `${count} dates` : `${count} date`,
-    weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    weekdays: () => ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   },
   FormItem: {
     edited: 'Modified',
