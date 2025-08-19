@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.4.1
+
+### Patch Changes
+
+- 427d2aa: fix: weekdays i18n bug
+
 ## 3.4.0
 
 ### Minor Changes
