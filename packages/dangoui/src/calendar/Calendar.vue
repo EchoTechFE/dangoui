@@ -386,6 +386,7 @@ const buttonConfirmText = computed(() => {
 
   if (
     props.type === 'range' &&
+    innerSelected.value.length === 2 &&
     innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
       props.selectableCount
   ) {
@@ -402,6 +403,7 @@ const buttonDisabled = computed(() => {
 
   if (
     props.type === 'range' &&
+    innerSelected.value.length === 2 &&
     innerSelected.value[1].diff(innerSelected.value[0], 'day') + 1 >
       props.selectableCount
   ) {
