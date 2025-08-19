@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.4.2
+
+### Patch Changes
+
+- 955822a: fix: cakebdar button text bug
+
 ## 3.4.1
 
 ### Patch Changes
