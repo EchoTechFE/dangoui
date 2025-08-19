@@ -26,7 +26,7 @@ export type Locale = {
     missingEndTime: string
     maxDays: (maxRange: number) => string
     selectedDates: (count: number) => string
-    weekdays: string[]
+    weekdays: () => string[]
   }
   FormItem: {
     edited: string

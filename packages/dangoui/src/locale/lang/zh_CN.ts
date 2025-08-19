@@ -25,7 +25,7 @@ const locale: Locale = {
     missingEndTime: '缺少结束时间',
     maxDays: (maxRange: number) => `最多选${maxRange}天`,
     selectedDates: (count: number) => `${count} 个日期`,
-    weekdays: ['日', '一', '二', '三', '四', '五', '六'],
+    weekdays: () => ['日', '一', '二', '三', '四', '五', '六'],
   },
   FormItem: {
     edited: '已修改',
