@@ -55,6 +55,10 @@ import ActionSheet from './action-sheet/ActionSheet.vue'
 import ToastProvider from './toast/ToastProvider.vue'
 import Dropdown from './dropdown/Dropdown.vue'
 import Theme from './theme/Theme.vue'
+import Skeleton from './skeleton/Skeleton.vue'
+import SkeletonParagraph from './skeleton/SkeletonParagraph.vue'
+import SkeletonAvatar from './skeleton/SkeletonAvatar.vue'
+import SkeletonRectangle from './skeleton/SkeletonRectangle.vue'
 
 import globalConfig from './plugins/globalConfig'
 
@@ -119,6 +123,11 @@ const DuDropdown = Dropdown
 const DuTheme = Theme
 
 const DuRate = Rate
+
+const DuSkeleton = Skeleton
+const DuSkeletonParagraph = SkeletonParagraph
+const DuSkeletonAvatar = SkeletonAvatar
+const DuSkeletonRectangle = SkeletonRectangle
 
 export {
   Button,
@@ -228,4 +237,12 @@ export {
   useToast,
   Dropdown,
   DuDropdown,
+  Skeleton,
+  DuSkeleton,
+  SkeletonParagraph,
+  DuSkeletonParagraph,
+  SkeletonAvatar,
+  DuSkeletonAvatar,
+  SkeletonRectangle,
+  DuSkeletonRectangle,
 }
