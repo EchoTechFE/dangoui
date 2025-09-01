@@ -1,0 +1,9 @@
+.du-skeleton {
+  --du-skeleton-paragraph-height: 16px;
+  --du-skeleton-paragraph-gap: 8px;
+  &-paragraph {
+    height: var(--du-skeleton-paragraph-height);
+    background-color: var(--du-default-1);
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,5 @@
+---
+'dangoui': minor
+---
+
+feat: skeleton
