@@ -1,5 +1,5 @@
 <template>
-  <DuSkeletonAnimate :class="classes" :style="style" />
+  <DuSkeletonAnimate :ext-class="classes" :ext-style="style" />
 </template>
 
 <script setup lang="ts">
