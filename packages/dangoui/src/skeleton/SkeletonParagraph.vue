@@ -1,10 +1,11 @@
 <template>
-  <div :class="classes" :style="style" />
+  <DuSkeletonAnimate :class="classes" :style="style" />
 </template>
 
 <script setup lang="ts">
 import { computed, normalizeStyle, normalizeClass } from 'vue'
 import { useSize } from '../composables/useSize'
+import DuSkeletonAnimate from './SkeletonAnimate.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -24,7 +25,7 @@ const props = withDefaults(
 )
 
 const classes = computed(() => {
-  return normalizeClass(['du-skeleton-paragraph', 'du-skeleton__animate', props.extClass])
+  return normalizeClass(['du-skeleton-paragraph', props.extClass])
 })
 
 const normalizedRowHeight = useSize(() => props.rowHeight)
