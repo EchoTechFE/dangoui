@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.1
+
+### Patch Changes
+
+- acec367: fix: animmate
+
 ## 3.6.0
 
 ### Minor Changes
