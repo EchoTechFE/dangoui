@@ -1,10 +1,11 @@
 <template>
-  <div :class="classes" :style="style" />
+  <DuSkeletonAnimate :class="classes" :style="style" />
 </template>
 
 <script setup lang="ts">
 import { computed, normalizeStyle, normalizeClass } from 'vue'
 import { useSize } from '../composables/useSize'
+import DuSkeletonAnimate from './SkeletonAnimate.vue'
 
 const props = withDefaults(
   defineProps<{
