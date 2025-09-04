@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.5.0
+
+### Minor Changes
+
+- 5437c19: feat: skeleton
+
 ## 3.4.2
 
 ### Patch Changes
