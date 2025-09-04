@@ -1,5 +1,15 @@
 # dangoui
 
+## 3.6.0
+
+### Minor Changes
+
+- 31798cd: feat: skeleton
+
+### Patch Changes
+
+- 31798cd: fix: skeleton animate in miniprogram
+
 ## 3.5.0
 
 ### Minor Changes
