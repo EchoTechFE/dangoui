@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.2
+
+### Patch Changes
+
+- cc16523: fix: skeleton animate
+
 ## 3.6.1
 
 ### Patch Changes
