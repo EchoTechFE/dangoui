@@ -18,14 +18,22 @@
       <div v-if="content" class="du-modal__content">
         {{ content }}
       </div>
-      <slot v-else/>
-      <div :class="['du-modal__footer', 'du-modal__button', {
-      'du-modal__button--horizontal': actionLayout === 'horizontal',
-      'du-modal__button--vertical': actionLayout === 'vertical'
-
-    }]">
-        <div class="du-modal__button-item" v-for="(btnConfig, index) in state.actions"
-             @click="handleActionButtonClick(btnConfig.key, index)">
+      <slot v-else />
+      <div
+        :class="[
+          'du-modal__footer',
+          'du-modal__button',
+          {
+            'du-modal__button--horizontal': actionLayout === 'horizontal',
+            'du-modal__button--vertical': actionLayout === 'vertical',
+          },
+        ]"
+      >
+        <div
+          class="du-modal__button-item"
+          v-for="(btnConfig, index) in state.actions"
+          @click="handleActionButtonClick(btnConfig.key, index)"
+        >
           <DuButton
             :key="btnConfig.key"
             :ext-class="btnConfig.extClass"
@@ -50,10 +58,8 @@
             @click="btnConfig.onClick"
           />
         </div>
-
       </div>
     </div>
-
   </DuPopup>
 </template>
 <script lang="ts" setup>
@@ -62,53 +68,58 @@ import { computed, normalizeClass, reactive, ref, watch } from 'vue'
 import DuButton from '../button/Button.vue'
 import { Modal } from './Modal.ts'
 
-const props = withDefaults(
-  defineProps<Modal>(),
-  {
-    extStyle: '',
-    extClass: '',
-    visible: false,
-    title: '',
-    titleAlign: 'default',
-    headerVisible: true,
-    maskClick: true,
-    closable: true,
-    maskClass: '',
-    maskStyle: '',
-    disablePortal: false,
-    actions: () => [],
-    actionLayout: 'horizontal',
-    content: '',
-  }
-)
+const props = withDefaults(defineProps<Modal>(), {
+  extStyle: '',
+  extClass: '',
+  visible: false,
+  title: '',
+  titleAlign: 'default',
+  headerVisible: true,
+  maskClick: true,
+  closable: true,
+  maskClass: '',
+  maskStyle: '',
+  disablePortal: false,
+  actions: () => [],
+  actionLayout: 'horizontal',
+  content: '',
+})
 
 const modalContainerClass = computed(() => {
   const { extClass } = props
-  return normalizeClass([
-    'du-modal',
-    extClass
-  ])
+  return normalizeClass(['du-modal', extClass])
 })
 
 const _visible = ref(false)
 
 const state = reactive<Modal>({ ...props })
 
-watch(() => props, (val) => {
-  Object.assign(state, val)
-}, {
-  deep: true
-})
+watch(
+  () => props,
+  (val) => {
+    Object.assign(state, val)
+  },
+  {
+    deep: true,
+  },
+)
 
-watch(() => props.visible, (val) => {
-  _visible.value = val
-}, {
-  immediate: true
-})
+watch(
+  () => props.visible,
+  (val) => {
+    _visible.value = val
+  },
+  {
+    immediate: true,
+  },
+)
 
-watch(() => _visible.value, (val) => {
-  emits('update:visible', val)
-})
+watch(
+  () => _visible.value,
+  (val) => {
+    emits('update:visible', val)
+  },
+)
 
 function handleClick() {
   emits('close')
@@ -117,7 +128,7 @@ function handleClick() {
 function handleActionButtonClick(key: string | number, index: number) {
   emits('action', {
     key,
-    index
+    index,
   })
 }
 
@@ -134,6 +145,6 @@ const emits = defineEmits(['update:visible', 'close', 'action'])
 
 defineExpose({
   open,
-  close
+  close,
 })
 </script>

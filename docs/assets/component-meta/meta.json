@@ -104,13 +104,142 @@
         ],
         "slots": []
     },
+    "Avatar": {
+        "props": [
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "\"default\" | \"primary\" | \"trade\" | \"success\" | \"error\" | \"white\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "src",
+                "description": "src",
+                "required": true,
+                "type": "string",
+                "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "AvatarGroup": {
+        "props": [
+            {
+                "name": "type",
+                "description": "头像类型",
+                "required": false,
+                "type": "\"default\" | \"primary\" | \"trade\" | \"success\" | \"error\" | \"white\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "reverse",
+                "description": "层级是否倒序",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "size",
+                "description": "头像大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否展示外边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "limit",
+                "description": "限制头像数量",
+                "required": false,
+                "type": "number",
+                "default": "0"
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "unknown"
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "unknown"
+            },
+            {
+                "name": "avatars",
+                "description": "头像文件列表",
+                "required": true,
+                "type": "string[]",
+                "default": "unknown"
+            },
+            {
+                "name": "gap",
+                "description": "头像间距",
+                "required": false,
+                "type": "number",
+                "default": "unknown"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
     "Badge": {
         "props": [
             {
                 "name": "color",
                 "description": "",
                 "required": false,
-                "type": "\"default\" | \"error\" | `#${string}` | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "type": "\"default\" | \"primary\" | \"success\" | \"error\" | `#${string}` | \"secondary\" | \"warning\"",
                 "default": "\"error\""
             },
             {
@@ -167,6 +296,27 @@
                 "default": "\"primary\""
             },
             {
+                "name": "size",
+                "description": "按钮大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "extClass",
+                "description": "自定义 class",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "自定义 style",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            },
+            {
                 "name": "color",
                 "description": "使用色板中的颜色名",
                 "required": false,
@@ -188,31 +338,10 @@
                 "default": "\"\""
             },
             {
-                "name": "extClass",
-                "description": "自定义 class",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "自定义 style",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "{}"
-            },
-            {
-                "name": "size",
-                "description": "按钮大小",
-                "required": false,
-                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"normal\""
-            },
-            {
                 "name": "icon",
                 "description": "按钮附带图标",
                 "required": false,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "\"\""
             },
             {
@@ -337,13 +466,6 @@
                 "default": "\"multiple\""
             },
             {
-                "name": "max",
-                "description": "",
-                "required": false,
-                "type": "number | Dayjs",
-                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -356,6 +478,13 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
+            },
+            {
+                "name": "max",
+                "description": "",
+                "required": false,
+                "type": "number | Dayjs",
+                "default": "dayjs().startOf(\"month\").add(12, \"month\").endOf(\"month\")"
             },
             {
                 "name": "visible",
@@ -901,6 +1030,13 @@
                 "default": "null"
             },
             {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -913,13 +1049,6 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
-            },
-            {
-                "name": "size",
-                "description": "",
-                "required": false,
-                "type": "\"normal\" | \"large\"",
-                "default": "\"normal\""
             },
             {
                 "name": "title",
@@ -953,7 +1082,7 @@
                 "name": "actionIcon",
                 "description": "",
                 "required": false,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "\"\""
             },
             {
@@ -1082,6 +1211,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\\u8BF7\\u9009\\u62E9\""
+            },
+            {
+                "name": "popupStyle",
+                "description": "",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
             },
             {
                 "name": "options",
@@ -1338,11 +1474,11 @@
     "Checkbox": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
+                "name": "size",
+                "description": "对勾图标大小",
                 "required": false,
                 "type": "string",
-                "default": "undefined"
+                "default": "\"20px\""
             },
             {
                 "name": "extClass",
@@ -1359,11 +1495,11 @@
                 "default": "\"\""
             },
             {
-                "name": "size",
-                "description": "对勾图标大小",
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
                 "type": "string",
-                "default": "\"20px\""
+                "default": "undefined"
             },
             {
                 "name": "disabled",
@@ -1471,20 +1607,6 @@
     "CheckboxGroup": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "undefined"
-            },
-            {
-                "name": "value",
-                "description": "当前选中的值",
-                "required": false,
-                "type": "string[]",
-                "default": "[]"
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -1497,6 +1619,20 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
+            },
+            {
+                "name": "value",
+                "description": "当前选中的值",
+                "required": false,
+                "type": "string[]",
+                "default": "[]"
             },
             {
                 "name": "shape",
@@ -1576,18 +1712,18 @@
     "CheckboxIcon": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "size",
                 "description": "",
                 "required": false,
                 "type": "string | number",
                 "default": "20"
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "shape",
@@ -1661,13 +1797,6 @@
     "Empty": {
         "props": [
             {
-                "name": "text",
-                "description": "",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -1679,6 +1808,13 @@
                 "description": "",
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "text",
+                "description": "",
+                "required": false,
+                "type": "string",
                 "default": "\"\""
             },
             {
@@ -1952,10 +2088,10 @@
     "Icon": {
         "props": [
             {
-                "name": "color",
-                "description": "图标颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
+                "name": "size",
+                "description": "图标大小",
                 "required": false,
-                "type": "string",
+                "type": "string | number",
                 "default": "\"\""
             },
             {
@@ -1973,10 +2109,10 @@
                 "default": "\"\""
             },
             {
-                "name": "size",
-                "description": "图标大小",
+                "name": "color",
+                "description": "图标颜色，可以使用合法的 CSS 颜色值或者色板中具体的颜色名（如 success-solid-bg）",
                 "required": false,
-                "type": "string | number",
+                "type": "string",
                 "default": "\"\""
             },
             {
@@ -1984,6 +2120,13 @@
                 "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
                 "required": false,
                 "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "unsafeInternal",
+                "description": "仅内部使用",
+                "required": false,
+                "type": "string | { _: string; }",
                 "default": "\"\""
             },
             {
@@ -2022,18 +2165,11 @@
     "IconButton": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
+                "name": "size",
+                "description": "按钮交互热区大小",
                 "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "text",
-                "description": "文字",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
             },
             {
                 "name": "extClass",
@@ -2050,11 +2186,18 @@
                 "default": "{}"
             },
             {
-                "name": "size",
-                "description": "按钮交互热区大小",
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
                 "required": false,
-                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"normal\""
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "text",
+                "description": "文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
             },
             {
                 "name": "iconSize",
@@ -2078,13 +2221,14 @@
                 "default": "\"\""
             },
             {
-                "name": "name",
-                "description": "iconname",
-                "required": true,
-                "type": "string",
-                "default": "unknown"
-            } ,{
                 "name": "icon",
+                "description": "内置图标，从 `dangoui-icon-config` 导入，与 name 互斥\n在 web 侧必须用这个属性",
+                "required": false,
+                "type": "{ _: string; }",
+                "default": "unknown"
+            },
+            {
+                "name": "name",
                 "description": "图标名称，可以是内置 iconfont 的名字，也可以是图片链接",
                 "required": true,
                 "type": "string",
@@ -2149,135 +2293,18 @@
                 "default": "false"
             },
             {
-                "name": "extClass",
-                "description": "自定义 class",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "unknown"
-            },
-            {
                 "name": "src",
                 "description": "src",
                 "required": true,
                 "type": "string",
                 "default": "unknown"
-            }
-        ],
-        "events": [],
-        "slots": []
-    },
-    "Avatar": {
-        "props": [
-            {
-                "name": "src",
-                "description": "头像图片地址",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "size",
-                "description": "头像大小",
-                "required": false,
-                "type": "string | number",
-                "default": "\"normal\""
-            },
-            {
-                "name": "type",
-                "description": "头像类型",
-                "required": false,
-                "type": "string",
-                "default": "\"default\""
-            },
-            {
-                "name": "bordered",
-                "description": "是否展示外边框",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "extClass",
                 "description": "自定义 class",
                 "required": false,
                 "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "自定义 style",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            }
-        ],
-        "events": [],
-        "slots": []
-    },
-    "AvatarGroup": {
-        "props": [
-            {
-                "name": "avatars",
-                "description": "头像图片地址",
-                "required": false,
-                "type": "string[]",
-                "default": "\"\""
-            },
-            {
-                "name": "size",
-                "description": "头像大小",
-                "required": false,
-                "type": "string | number",
-                "default": "\"normal\""
-            },
-            {
-                "name": "type",
-                "description": "头像类型",
-                "required": false,
-                "type": "string",
-                "default": "\"default\""
-            },
-            {
-                "name": "bordered",
-                "description": "是否展示外边框",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "gap",
-                "description": "头像间距",
-                "required": false,
-                "type": "number",
-                "default": "undefined"
-            },
-            {
-                "name": "reverse",
-                "description": "层级是否倒序",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "limit",
-                "description": "限制头像数量",
-                "required": false,
-                "type": "number",
-                "default": "undefined"
-            },
-            {
-                "name": "extClass",
-                "description": "自定义 class",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "自定义 style",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
+                "default": "unknown"
             }
         ],
         "events": [],
@@ -2293,11 +2320,11 @@
                 "default": "\"text\""
             },
             {
-                "name": "value",
-                "description": "",
+                "name": "bordered",
+                "description": "是否展示外边框",
                 "required": false,
-                "type": "string",
-                "default": "\"\""
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "extClass",
@@ -2311,6 +2338,13 @@
                 "description": "",
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "value",
+                "description": "",
+                "required": false,
+                "type": "string",
                 "default": "\"\""
             },
             {
@@ -2347,13 +2381,6 @@
                 "required": false,
                 "type": "string",
                 "default": "\"left\""
-            },
-            {
-                "name": "bordered",
-                "description": "是否展示外边框",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "withoutBorder",
@@ -2657,6 +2684,13 @@
     "InputNumber": {
         "props": [
             {
+                "name": "size",
+                "description": "大小",
+                "required": false,
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"mini\""
+            },
+            {
                 "name": "color",
                 "description": "色板颜色",
                 "required": false,
@@ -2676,13 +2710,6 @@
                 "required": false,
                 "type": "number",
                 "default": "Infinity"
-            },
-            {
-                "name": "size",
-                "description": "大小",
-                "required": false,
-                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"mini\""
             },
             {
                 "name": "min",
@@ -2772,20 +2799,164 @@
         ],
         "slots": []
     },
+    "Modal": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "extClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "extStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "visible",
+                "description": "是否展示弹窗",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "title",
+                "description": "弹窗标题",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "titleAlign",
+                "description": "标题对齐方式，default 为左对齐",
+                "required": false,
+                "type": "\"default\" | \"center\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "headerVisible",
+                "description": "是否展示内置的头部栏",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClick",
+                "description": "点击遮罩层是否关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "closable",
+                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClass",
+                "description": "maskClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "maskStyle",
+                "description": "maskStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "disablePortal",
+                "description": "禁止将 Popup 渲染到根节点",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "actions",
+                "description": "底部按钮配置，类型参考Button的属性",
+                "required": false,
+                "type": "(Partial<{ type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; ... 14 more ...; pressBackground: string; }> & Omit<...> & { ...; })[]",
+                "default": "[]"
+            },
+            {
+                "name": "actionLayout",
+                "description": "按钮排列方式：水平或者垂直",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
+            },
+            {
+                "name": "content",
+                "description": "Modal 内容，若不为空，则优先显示该字段，忽略插槽",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            }
+        ],
+        "events": [
+            {
+                "name": "close",
+                "type": "any[]",
+                "signature": "(event: \"close\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "update:visible",
+                "type": "any[]",
+                "signature": "(event: \"update:visible\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "action",
+                "type": "any[]",
+                "signature": "(event: \"action\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "ActionButton": {
         "props": [
             {
                 "name": "color",
                 "description": "",
                 "required": true,
-                "type": "\"black\" | \"white\"",
+                "type": "\"white\" | \"black\"",
                 "default": "unknown"
             },
             {
                 "name": "name",
                 "description": "",
                 "required": true,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "unknown"
             }
         ],
@@ -2850,7 +3021,7 @@
                 "name": "backIcon",
                 "description": "返回按钮，在小程序平台不指定会根据页面所在层级自动判断",
                 "required": true,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "unknown"
             },
             {
@@ -2864,7 +3035,7 @@
                 "name": "transparentFrontColor",
                 "description": "前景色",
                 "required": true,
-                "type": "\"black\" | \"white\"",
+                "type": "\"white\" | \"black\"",
                 "default": "unknown"
             },
             {
@@ -3051,7 +3222,7 @@
                 "name": "linkIcon",
                 "description": "链接图标",
                 "required": false,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "\"\""
             },
             {
@@ -3314,6 +3485,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "true"
+            },
+            {
+                "name": "root",
+                "description": "",
+                "required": false,
+                "type": "\"page\" | \"app\"",
+                "default": "\"page\""
             }
         ],
         "events": [
@@ -3369,13 +3547,6 @@
     "Radio": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "undefined"
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -3388,6 +3559,13 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
             },
             {
                 "name": "disabled",
@@ -3586,13 +3764,6 @@
     "RadioGroup": {
         "props": [
             {
-                "name": "color",
-                "description": "颜色，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "undefined"
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -3605,6 +3776,13 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "颜色，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "undefined"
             },
             {
                 "name": "inline",
@@ -3702,18 +3880,18 @@
     "RadioIcon": {
         "props": [
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "size",
                 "description": "",
                 "required": false,
                 "type": "string | number",
                 "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "disabled",
@@ -3736,18 +3914,11 @@
     "Rate": {
         "props": [
             {
-                "name": "color",
-                "description": "主题颜色",
+                "name": "size",
+                "description": "Rate 组件尺寸",
                 "required": false,
-                "type": "string",
-                "default": "\"#FC7E22\""
-            },
-            {
-                "name": "value",
-                "description": "当前值",
-                "required": false,
-                "type": "number",
-                "default": "undefined"
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"medium\""
             },
             {
                 "name": "extClass",
@@ -3764,11 +3935,18 @@
                 "default": "\"\""
             },
             {
-                "name": "size",
-                "description": "Rate 组件尺寸",
+                "name": "color",
+                "description": "主题颜色",
                 "required": false,
-                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"medium\""
+                "type": "string",
+                "default": "\"#FC7E22\""
+            },
+            {
+                "name": "value",
+                "description": "当前值",
+                "required": false,
+                "type": "number",
+                "default": "undefined"
             },
             {
                 "name": "icon",
@@ -3886,6 +4064,13 @@
                 "required": false,
                 "type": "boolean",
                 "default": "true"
+            },
+            {
+                "name": "root",
+                "description": "",
+                "required": false,
+                "type": "\"page\" | \"app\"",
+                "default": "\"page\""
             }
         ],
         "events": [],
@@ -4048,6 +4233,13 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\\u786E\\u8BA4\""
+            },
+            {
+                "name": "popupStyle",
+                "description": "弹窗的样式",
+                "required": false,
+                "type": "string | Record<string, string>",
+                "default": "\"\""
             },
             {
                 "name": "formItem",
@@ -4358,13 +4550,6 @@
                 "default": "\"default\""
             },
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -4377,6 +4562,13 @@
                 "required": false,
                 "type": "string | { [x: string]: string | number; }",
                 "default": "\"\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "activeIndex",
@@ -4617,18 +4809,18 @@
                 "default": "\"default\""
             },
             {
-                "name": "color",
-                "description": "色彩，可以使用色板中的颜色名",
-                "required": false,
-                "type": "string",
-                "default": "\"primary\""
-            },
-            {
                 "name": "size",
                 "description": "",
                 "required": false,
                 "type": "\"normal\" | \"large\"",
                 "default": "\"normal\""
+            },
+            {
+                "name": "color",
+                "description": "色彩，可以使用色板中的颜色名",
+                "required": false,
+                "type": "string",
+                "default": "\"primary\""
             },
             {
                 "name": "value",
@@ -4712,11 +4904,18 @@
     "Tag": {
         "props": [
             {
-                "name": "color",
-                "description": "颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色\nTODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展",
+                "name": "size",
+                "description": "大小",
                 "required": false,
-                "type": "string | { border: string; text: string; background: string; }",
-                "default": "\"primary\""
+                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
+                "default": "\"normal\""
+            },
+            {
+                "name": "bordered",
+                "description": "是否带有边框",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "extClass",
@@ -4733,22 +4932,15 @@
                 "default": "\"\""
             },
             {
-                "name": "size",
-                "description": "大小",
+                "name": "color",
+                "description": "颜色，可以使用主题预置的颜色或者十六进制颜色表示，也可以使用对象更灵活地来自定义颜色\nTODO: 抽象到公用类型中，并可以外部扩展，这样就能进行主题定制与扩展",
                 "required": false,
-                "type": "\"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"",
-                "default": "\"normal\""
+                "type": "string | { border: string; text: string; background: string; }",
+                "default": "\"primary\""
             },
             {
                 "name": "round",
                 "description": "是否为圆角",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "bordered",
-                "description": "是否带有边框",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -4778,7 +4970,7 @@
                 "name": "icon",
                 "description": "左侧",
                 "required": false,
-                "type": "string",
+                "type": "string | { _: string; }",
                 "default": "unknown"
             }
         ],
@@ -4902,6 +5094,13 @@
     "Textarea": {
         "props": [
             {
+                "name": "bordered",
+                "description": "是否是外边框类型",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "value",
                 "description": "值",
                 "required": false,
@@ -4921,13 +5120,6 @@
                 "required": false,
                 "type": "number",
                 "default": "-1"
-            },
-            {
-                "name": "bordered",
-                "description": "是否是外边框类型",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "showCount",
@@ -5080,11 +5272,11 @@
     "Upload": {
         "props": [
             {
-                "name": "value",
-                "description": "上传文件列表",
+                "name": "size",
+                "description": "大小",
                 "required": false,
-                "type": "UploadFile[]",
-                "default": "[]"
+                "type": "\"normal\" | \"large\"",
+                "default": "\"normal\""
             },
             {
                 "name": "extStyle",
@@ -5094,11 +5286,11 @@
                 "default": "\"\""
             },
             {
-                "name": "size",
-                "description": "大小",
+                "name": "value",
+                "description": "上传文件列表",
                 "required": false,
-                "type": "\"normal\" | \"large\"",
-                "default": "\"normal\""
+                "type": "UploadFile[]",
+                "default": "[]"
             },
             {
                 "name": "name",
