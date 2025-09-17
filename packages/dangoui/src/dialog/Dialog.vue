@@ -16,31 +16,35 @@
   >
     <div class="du-dialog__container">
       <slot />
-      <div class="du-dialog__footer">
-        <slot name="footer" />
-      </div>
-      <div
-        :class="[
-          'du-dialog__footer',
-          'du-dialog__button',
-          {
-            'du-dialog__button--horizontal': actionLayout === 'horizontal',
-            'du-dialog__button--vertical': actionLayout === 'vertical',
-          },
-        ]"
-      >
-        <div class="du-dialog__button-item" v-show="okText">
-          <DuButton :text="okText" @click="handleOkClick" full type="primary" />
+      <slot name="footer">
+        <div
+          :class="[
+            'du-dialog__footer',
+            'du-dialog__button',
+            {
+              'du-dialog__button--horizontal': actionLayout === 'horizontal',
+              'du-dialog__button--vertical': actionLayout === 'vertical',
+            },
+          ]"
+        >
+          <div class="du-dialog__button-item" v-show="okText">
+            <DuButton
+              :text="okText"
+              @click="handleOkClick"
+              full
+              type="primary"
+            />
+          </div>
+          <div class="du-dialog__button-item" v-show="cancelText">
+            <DuButton
+              :text="cancelText"
+              @click="handleCancelClick"
+              full
+              type="outline"
+            />
+          </div>
         </div>
-        <div class="du-dialog__button-item" v-show="cancelText">
-          <DuButton
-            :text="cancelText"
-            @click="handleCancelClick"
-            full
-            type="outline"
-          />
-        </div>
-      </div>
+      </slot>
     </div>
   </DuPopup>
 </template>
