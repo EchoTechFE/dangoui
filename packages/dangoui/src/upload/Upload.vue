@@ -416,6 +416,9 @@ function webAdd(mediaType?: string) {
 
   const fileInput = document.createElement('input')
   fileInput.type = 'file'
+  if (props.maxCount && props.maxCount > 1) {
+    fileInput.multiple = true
+  }
   if (mediaType) {
     fileInput.accept = mediaType + '/*'
   } else {
