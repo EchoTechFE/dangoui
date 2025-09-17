@@ -3,11 +3,11 @@
     :visible="_visible"
     type="center"
     :header-visible="state.headerVisible"
-    :mask-click="state.maskClick"
+    :mask-click="false"
     :closable="state.closable"
     :disable-portal="state.disablePortal"
     :title="state.title"
-    :title-align="state.titleAlign"
+    title-align="center"
     :ext-class="dialogContainerClass"
     :ext-style="state.extStyle"
     :mask-class="state.maskClass"
@@ -16,37 +16,35 @@
   >
     <div class="du-dialog__container">
       <slot />
-      <slot name="footer">
-        <div
-          :class="[
-            'du-dialog__footer',
-            'du-dialog__button',
-            {
-              'du-dialog__button--horizontal': actionLayout === 'horizontal',
-              'du-dialog__button--vertical': actionLayout === 'vertical',
-            },
-          ]"
-        >
-          <div class="du-dialog__button-item" v-show="cancelText">
-            <DuButton
-              :text="cancelText"
-              @click="handleCancelClick"
-              full
-              type="outline"
-              size="large"
-            />
-          </div>
-          <div class="du-dialog__button-item" v-show="okText">
-            <DuButton
-              :text="okText"
-              @click="handleOkClick"
-              full
-              size="large"
-              type="primary"
-            />
-          </div>
-        </div>
-      </slot>
+      <div
+        :class="[
+          'du-dialog__footer',
+          'du-dialog__button',
+          {
+            'du-dialog__button--horizontal': actionLayout === 'horizontal',
+            'du-dialog__button--vertical': actionLayout === 'vertical',
+          },
+        ]"
+      >
+        <slot name="footer">
+          <DuButton
+            v-if="cancelText"
+            :text="cancelText"
+            @click="handleCancelClick"
+            full
+            type="outline"
+            size="large"
+          />
+          <DuButton
+            v-if="okText"
+            :text="okText"
+            @click="handleOkClick"
+            full
+            size="large"
+            type="primary"
+          />
+        </slot>
+      </div>
     </div>
   </DuPopup>
 </template>
@@ -61,10 +59,8 @@ const props = withDefaults(defineProps<Dialog>(), {
   extClass: '',
   visible: undefined,
   title: '',
-  titleAlign: 'default',
   headerVisible: true,
-  maskClick: true,
-  closable: true,
+  closable: false,
   maskClass: '',
   maskStyle: '',
   disablePortal: false,
