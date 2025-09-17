@@ -1,4 +1,3 @@
-import DuButton from '../button/Button.vue'
 
 type Dialog = {
   /**
@@ -49,26 +48,11 @@ type Dialog = {
   | {
     [x: string]: string | number
   }
-  /**
-   * 底部按钮配置，类型参考Button的属性
-   */
-  actions?: (InstanceType<typeof DuButton>['$props'] & { onClick: () => void, key: string | number })[]
+
   /**
    * 按钮排列方式：水平或者垂直
    */
   actionLayout?: 'horizontal' | 'vertical'
-  /**
-   * Dialog 内容，若不为空，则优先显示该字段，忽略插槽
-   */
-  content?: string
-  /**
-   * showOk，是否展示确定按钮
-   */
-  showOk?: boolean
-  /**
-   * showCancel，是否展示取消按钮
-   */
-  showCancel?: boolean
   /**
    * okText，确定按钮的文字
    */

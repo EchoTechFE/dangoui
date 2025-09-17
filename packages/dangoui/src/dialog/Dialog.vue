@@ -1,6 +1,6 @@
 <template>
   <DuPopup
-    v-model:visible="_visible"
+    :visible="_visible"
     type="center"
     :header-visible="state.headerVisible"
     :mask-click="state.maskClick"
@@ -12,13 +12,13 @@
     :ext-style="state.extStyle"
     :mask-class="state.maskClass"
     :mask-style="state.maskStyle"
-    @close="handleClick"
+    @close="handleClose"
   >
     <div class="du-dialog__container">
-      <div v-if="content" class="du-dialog__content">
-        {{ content }}
+      <slot />
+      <div class="du-dialog__footer">
+        <slot name="footer" />
       </div>
-      <slot v-else />
       <div
         :class="[
           'du-dialog__footer',
@@ -29,45 +29,15 @@
           },
         ]"
       >
-        <div class="du-dialog__button-item" v-show="showOk">
+        <div class="du-dialog__button-item" v-show="okText">
           <DuButton :text="okText" @click="handleOkClick" full type="primary" />
         </div>
-        <div class="du-dialog__button-item" v-show="showCancel">
+        <div class="du-dialog__button-item" v-show="cancelText">
           <DuButton
             :text="cancelText"
             @click="handleCancelClick"
             full
             type="outline"
-          />
-        </div>
-        <div
-          class="du-dialog__button-item"
-          v-show="showActions"
-          v-for="(btnConfig, index) in state.actions"
-          @click="handleActionButtonClick(btnConfig.key, index)"
-        >
-          <DuButton
-            :key="btnConfig.key"
-            :ext-class="btnConfig.extClass"
-            :ext-style="btnConfig.extStyle"
-            :size="btnConfig.size"
-            :type="btnConfig.type"
-            :loading="btnConfig.loading"
-            :disabled="btnConfig.disabled"
-            :color="btnConfig.color"
-            :icon-size="btnConfig.iconSize"
-            :icon-position="btnConfig.iconPosition"
-            :icon="btnConfig.icon"
-            :text="btnConfig.text || '按钮'"
-            :arrow-right="btnConfig.arrowRight"
-            :button-id="btnConfig.buttonId"
-            :disabled-type="btnConfig.disabledType"
-            :open-type="btnConfig.openType"
-            :press="btnConfig.press"
-            :press-background="btnConfig.pressBackground"
-            :theme="btnConfig.theme"
-            full
-            @click="btnConfig.onClick"
           />
         </div>
       </div>
@@ -83,7 +53,7 @@ import { Dialog } from './Dialog.ts'
 const props = withDefaults(defineProps<Dialog>(), {
   extStyle: '',
   extClass: '',
-  visible: false,
+  visible: undefined,
   title: '',
   titleAlign: 'default',
   headerVisible: true,
@@ -92,11 +62,7 @@ const props = withDefaults(defineProps<Dialog>(), {
   maskClass: '',
   maskStyle: '',
   disablePortal: false,
-  actions: () => [],
   actionLayout: 'horizontal',
-  content: '',
-  showOk: true,
-  showCancel: true,
   okText: '确定',
   cancelText: '取消',
 })
@@ -123,7 +89,9 @@ watch(
 watch(
   () => props.visible,
   (val) => {
-    _visible.value = val
+    if (val !== undefined) {
+      _visible.value = val
+    }
   },
   {
     immediate: true,
@@ -137,11 +105,10 @@ watch(
   },
 )
 
-const showActions = computed(() => {
-  return !props.showOk && !props.showCancel
-})
-
-function handleClick() {
+function handleClose() {
+  if (props.visible === undefined) {
+    _visible.value = false
+  }
   emits('close')
 }
 
@@ -150,6 +117,9 @@ function handleOkClick() {
   emits('confirm')
   emits('close')
   emits('update:visible', false)
+  if (props.visible === undefined) {
+    _visible.value = false
+  }
 }
 
 function handleCancelClick() {
@@ -157,13 +127,9 @@ function handleCancelClick() {
   emits('cancel')
   emits('close')
   emits('update:visible', false)
-}
-
-function handleActionButtonClick(key: string | number, index: number) {
-  emits('action', {
-    key,
-    index,
-  })
+  if (props.visible === undefined) {
+    _visible.value = false
+  }
 }
 
 function open(options: Dialog) {
@@ -175,13 +141,7 @@ function close() {
   _visible.value = false
 }
 
-const emits = defineEmits([
-  'update:visible',
-  'close',
-  'action',
-  'confirm',
-  'cancel',
-])
+const emits = defineEmits(['update:visible', 'close', 'confirm', 'cancel'])
 
 defineExpose({
   open,
