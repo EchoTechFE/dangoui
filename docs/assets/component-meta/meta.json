@@ -1750,6 +1750,170 @@
         "events": [],
         "slots": []
     },
+    "Dialog": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "extClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "extStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "visible",
+                "description": "是否展示弹窗",
+                "required": false,
+                "type": "boolean",
+                "default": "undefined"
+            },
+            {
+                "name": "title",
+                "description": "弹窗标题",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "titleAlign",
+                "description": "标题对齐方式，default 为左对齐",
+                "required": false,
+                "type": "\"default\" | \"center\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "headerVisible",
+                "description": "是否展示内置的头部栏",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClick",
+                "description": "点击遮罩层是否关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "closable",
+                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClass",
+                "description": "maskClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "maskStyle",
+                "description": "maskStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "disablePortal",
+                "description": "禁止将 Popup 渲染到根节点",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "actionLayout",
+                "description": "按钮排列方式：水平或者垂直",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
+            },
+            {
+                "name": "okText",
+                "description": "okText，确定按钮的文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u786E\\u5B9A\""
+            },
+            {
+                "name": "cancelText",
+                "description": "cancelText，取消按钮的文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u53D6\\u6D88\""
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "any[]",
+                "signature": "(event: \"confirm\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "close",
+                "type": "any[]",
+                "signature": "(event: \"close\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "update:visible",
+                "type": "any[]",
+                "signature": "(event: \"update:visible\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "cancel",
+                "type": "any[]",
+                "signature": "(event: \"cancel\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "footer",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "Divider": {
         "props": [
             {
@@ -4902,26 +5066,6 @@
                 }
             }
         ]
-    },
-    "SkeletonAnimate": {
-        "props": [
-            {
-                "name": "extClass",
-                "description": "",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "{}"
-            }
-        ],
-        "events": [],
-        "slots": []
     },
     "SkeletonAvatar": {
         "props": [
