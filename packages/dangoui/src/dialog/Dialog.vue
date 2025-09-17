@@ -8,29 +8,41 @@
     :disable-portal="state.disablePortal"
     :title="state.title"
     :title-align="state.titleAlign"
-    :ext-class="modalContainerClass"
+    :ext-class="dialogContainerClass"
     :ext-style="state.extStyle"
     :mask-class="state.maskClass"
     :mask-style="state.maskStyle"
     @close="handleClick"
   >
-    <div class="du-modal__container">
-      <div v-if="content" class="du-modal__content">
+    <div class="du-dialog__container">
+      <div v-if="content" class="du-dialog__content">
         {{ content }}
       </div>
       <slot v-else />
       <div
         :class="[
-          'du-modal__footer',
-          'du-modal__button',
+          'du-dialog__footer',
+          'du-dialog__button',
           {
-            'du-modal__button--horizontal': actionLayout === 'horizontal',
-            'du-modal__button--vertical': actionLayout === 'vertical',
+            'du-dialog__button--horizontal': actionLayout === 'horizontal',
+            'du-dialog__button--vertical': actionLayout === 'vertical',
           },
         ]"
       >
+        <div class="du-dialog__button-item" v-show="showOk">
+          <DuButton :text="okText" @click="handleOkClick" full type="primary" />
+        </div>
+        <div class="du-dialog__button-item" v-show="showCancel">
+          <DuButton
+            :text="cancelText"
+            @click="handleCancelClick"
+            full
+            type="outline"
+          />
+        </div>
         <div
-          class="du-modal__button-item"
+          class="du-dialog__button-item"
+          v-show="showActions"
           v-for="(btnConfig, index) in state.actions"
           @click="handleActionButtonClick(btnConfig.key, index)"
         >
@@ -66,9 +78,9 @@
 import DuPopup from '../popup/Popup.vue'
 import { computed, normalizeClass, reactive, ref, watch } from 'vue'
 import DuButton from '../button/Button.vue'
-import { Modal } from './Modal.ts'
+import { Dialog } from './Dialog.ts'
 
-const props = withDefaults(defineProps<Modal>(), {
+const props = withDefaults(defineProps<Dialog>(), {
   extStyle: '',
   extClass: '',
   visible: false,
@@ -83,16 +95,20 @@ const props = withDefaults(defineProps<Modal>(), {
   actions: () => [],
   actionLayout: 'horizontal',
   content: '',
+  showOk: true,
+  showCancel: true,
+  okText: '确定',
+  cancelText: '取消',
 })
 
-const modalContainerClass = computed(() => {
+const dialogContainerClass = computed(() => {
   const { extClass } = props
-  return normalizeClass(['du-modal', extClass])
+  return normalizeClass(['du-dialog', extClass])
 })
 
 const _visible = ref(false)
 
-const state = reactive<Modal>({ ...props })
+const state = reactive<Dialog>({ ...props })
 
 watch(
   () => props,
@@ -121,8 +137,26 @@ watch(
   },
 )
 
+const showActions = computed(() => {
+  return !props.showOk && !props.showCancel
+})
+
 function handleClick() {
   emits('close')
+}
+
+function handleOkClick() {
+  state.onConfirm?.()
+  emits('confirm')
+  emits('close')
+  emits('update:visible', false)
+}
+
+function handleCancelClick() {
+  state.onCancel?.()
+  emits('cancel')
+  emits('close')
+  emits('update:visible', false)
 }
 
 function handleActionButtonClick(key: string | number, index: number) {
@@ -132,7 +166,7 @@ function handleActionButtonClick(key: string | number, index: number) {
   })
 }
 
-function open(options: Modal) {
+function open(options: Dialog) {
   Object.assign(state, options)
   _visible.value = true
 }
@@ -141,7 +175,13 @@ function close() {
   _visible.value = false
 }
 
-const emits = defineEmits(['update:visible', 'close', 'action'])
+const emits = defineEmits([
+  'update:visible',
+  'close',
+  'action',
+  'confirm',
+  'cancel',
+])
 
 defineExpose({
   open,

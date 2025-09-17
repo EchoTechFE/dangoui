@@ -1,6 +1,6 @@
 import DuButton from '../button/Button.vue'
 
-type Modal = {
+type Dialog = {
   /**
    * 是否展示弹窗
    */
@@ -45,8 +45,8 @@ type Modal = {
    * extStyle
    */
   extStyle?:
-    | string
-    | {
+  | string
+  | {
     [x: string]: string | number
   }
   /**
@@ -58,11 +58,36 @@ type Modal = {
    */
   actionLayout?: 'horizontal' | 'vertical'
   /**
-   * Modal 内容，若不为空，则优先显示该字段，忽略插槽
+   * Dialog 内容，若不为空，则优先显示该字段，忽略插槽
    */
   content?: string
+  /**
+   * showOk，是否展示确定按钮
+   */
+  showOk?: boolean
+  /**
+   * showCancel，是否展示取消按钮
+   */
+  showCancel?: boolean
+  /**
+   * okText，确定按钮的文字
+   */
+  okText?: string
+  /**
+   * cancelText，取消按钮的文字
+   */
+  cancelText?: string
+  /**
+   * 点击确定时
+   */
+  onConfirm?: () => void
+  /**
+   * 点击取消时
+   */
+  onCancel?: () => void
+
 }
 
 export {
-  type Modal
+  type Dialog
 }

@@ -53,7 +53,7 @@ import Rate from './rate/Rate.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
 import ActionSheet from './action-sheet/ActionSheet.vue'
 import ToastProvider from './toast/ToastProvider.vue'
-import Modal from './modal/Modal.vue'
+import Dialog from './dialog/Dialog.vue'
 import Theme from './theme/Theme.vue'
 
 import globalConfig from './plugins/globalConfig'
@@ -119,7 +119,7 @@ const DuTheme = Theme
 
 const DuRate = Rate
 
-const DuModal = Modal
+const DuDialog = Dialog
 
 export {
   Button,
@@ -226,7 +226,7 @@ export {
   globalConfig,
   DuRate,
   Rate,
-  Modal,
-  DuModal,
+  Dialog,
+  DuDialog,
   useToast,
 }

@@ -1750,6 +1750,196 @@
         "events": [],
         "slots": []
     },
+    "Dialog": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "extClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "extStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "visible",
+                "description": "是否展示弹窗",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "title",
+                "description": "弹窗标题",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "titleAlign",
+                "description": "标题对齐方式，default 为左对齐",
+                "required": false,
+                "type": "\"default\" | \"center\"",
+                "default": "\"default\""
+            },
+            {
+                "name": "headerVisible",
+                "description": "是否展示内置的头部栏",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClick",
+                "description": "点击遮罩层是否关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "closable",
+                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "maskClass",
+                "description": "maskClass",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "maskStyle",
+                "description": "maskStyle",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "\"\""
+            },
+            {
+                "name": "disablePortal",
+                "description": "禁止将 Popup 渲染到根节点",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "actions",
+                "description": "底部按钮配置，类型参考Button的属性",
+                "required": false,
+                "type": "(Partial<{ type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; ... 14 more ...; pressBackground: string; }> & Omit<...> & { ...; })[]",
+                "default": "[]"
+            },
+            {
+                "name": "actionLayout",
+                "description": "按钮排列方式：水平或者垂直",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
+            },
+            {
+                "name": "content",
+                "description": "Dialog 内容，若不为空，则优先显示该字段，忽略插槽",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
+                "name": "showOk",
+                "description": "showOk，是否展示确定按钮",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "showCancel",
+                "description": "showCancel，是否展示取消按钮",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "okText",
+                "description": "okText，确定按钮的文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u786E\\u5B9A\""
+            },
+            {
+                "name": "cancelText",
+                "description": "cancelText，取消按钮的文字",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u53D6\\u6D88\""
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "any[]",
+                "signature": "(event: \"confirm\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "close",
+                "type": "any[]",
+                "signature": "(event: \"close\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "update:visible",
+                "type": "any[]",
+                "signature": "(event: \"update:visible\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "action",
+                "type": "any[]",
+                "signature": "(event: \"action\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            },
+            {
+                "name": "cancel",
+                "type": "any[]",
+                "signature": "(event: \"cancel\", ...args: any[]): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
     "Divider": {
         "props": [
             {
@@ -2798,150 +2988,6 @@
             }
         ],
         "slots": []
-    },
-    "Modal": {
-        "props": [
-            {
-                "name": "extClass",
-                "description": "extClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "extStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "visible",
-                "description": "是否展示弹窗",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "title",
-                "description": "弹窗标题",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "titleAlign",
-                "description": "标题对齐方式，default 为左对齐",
-                "required": false,
-                "type": "\"default\" | \"center\"",
-                "default": "\"default\""
-            },
-            {
-                "name": "headerVisible",
-                "description": "是否展示内置的头部栏",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClick",
-                "description": "点击遮罩层是否关闭",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "closable",
-                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClass",
-                "description": "maskClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "maskStyle",
-                "description": "maskStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "disablePortal",
-                "description": "禁止将 Popup 渲染到根节点",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "actions",
-                "description": "底部按钮配置，类型参考Button的属性",
-                "required": false,
-                "type": "(Partial<{ type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; ... 14 more ...; pressBackground: string; }> & Omit<...> & { ...; })[]",
-                "default": "[]"
-            },
-            {
-                "name": "actionLayout",
-                "description": "按钮排列方式：水平或者垂直",
-                "required": false,
-                "type": "\"horizontal\" | \"vertical\"",
-                "default": "\"horizontal\""
-            },
-            {
-                "name": "content",
-                "description": "Modal 内容，若不为空，则优先显示该字段，忽略插槽",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            }
-        ],
-        "events": [
-            {
-                "name": "close",
-                "type": "any[]",
-                "signature": "(event: \"close\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "update:visible",
-                "type": "any[]",
-                "signature": "(event: \"update:visible\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "action",
-                "type": "any[]",
-                "signature": "(event: \"action\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            }
-        ],
-        "slots": [
-            {
-                "name": "default",
-                "type": "{}",
-                "description": "",
-                "declarations": [],
-                "schema": {
-                    "kind": "object",
-                    "type": "{}",
-                    "schema": {}
-                }
-            }
-        ]
     },
     "ActionButton": {
         "props": [
