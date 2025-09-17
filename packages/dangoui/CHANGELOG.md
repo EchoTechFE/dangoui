@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.3
+
+### Patch Changes
+
+- 5bbdcfe: fix: upload multiple
+
 ## 3.6.2
 
 ### Patch Changes
