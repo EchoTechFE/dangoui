@@ -1750,196 +1750,6 @@
         "events": [],
         "slots": []
     },
-    "Dialog": {
-        "props": [
-            {
-                "name": "extClass",
-                "description": "extClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "extStyle",
-                "description": "extStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "visible",
-                "description": "是否展示弹窗",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "title",
-                "description": "弹窗标题",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "titleAlign",
-                "description": "标题对齐方式，default 为左对齐",
-                "required": false,
-                "type": "\"default\" | \"center\"",
-                "default": "\"default\""
-            },
-            {
-                "name": "headerVisible",
-                "description": "是否展示内置的头部栏",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClick",
-                "description": "点击遮罩层是否关闭",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "closable",
-                "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClass",
-                "description": "maskClass",
-                "required": false,
-                "type": "string | string[] | Record<string, boolean>",
-                "default": "\"\""
-            },
-            {
-                "name": "maskStyle",
-                "description": "maskStyle",
-                "required": false,
-                "type": "string | { [x: string]: string | number; }",
-                "default": "\"\""
-            },
-            {
-                "name": "disablePortal",
-                "description": "禁止将 Popup 渲染到根节点",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
-                "name": "actions",
-                "description": "底部按钮配置，类型参考Button的属性",
-                "required": false,
-                "type": "(Partial<{ type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; ... 14 more ...; pressBackground: string; }> & Omit<...> & { ...; })[]",
-                "default": "[]"
-            },
-            {
-                "name": "actionLayout",
-                "description": "按钮排列方式：水平或者垂直",
-                "required": false,
-                "type": "\"horizontal\" | \"vertical\"",
-                "default": "\"horizontal\""
-            },
-            {
-                "name": "content",
-                "description": "Dialog 内容，若不为空，则优先显示该字段，忽略插槽",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "showOk",
-                "description": "showOk，是否展示确定按钮",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "showCancel",
-                "description": "showCancel，是否展示取消按钮",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "okText",
-                "description": "okText，确定按钮的文字",
-                "required": false,
-                "type": "string",
-                "default": "\"\\u786E\\u5B9A\""
-            },
-            {
-                "name": "cancelText",
-                "description": "cancelText，取消按钮的文字",
-                "required": false,
-                "type": "string",
-                "default": "\"\\u53D6\\u6D88\""
-            }
-        ],
-        "events": [
-            {
-                "name": "confirm",
-                "type": "any[]",
-                "signature": "(event: \"confirm\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "close",
-                "type": "any[]",
-                "signature": "(event: \"close\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "update:visible",
-                "type": "any[]",
-                "signature": "(event: \"update:visible\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "action",
-                "type": "any[]",
-                "signature": "(event: \"action\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            },
-            {
-                "name": "cancel",
-                "type": "any[]",
-                "signature": "(event: \"cancel\", ...args: any[]): void",
-                "declarations": [],
-                "schema": [
-                    "any"
-                ]
-            }
-        ],
-        "slots": [
-            {
-                "name": "default",
-                "type": "{}",
-                "description": "",
-                "declarations": [],
-                "schema": {
-                    "kind": "object",
-                    "type": "{}",
-                    "schema": {}
-                }
-            }
-        ]
-    },
     "Divider": {
         "props": [
             {
@@ -1980,9 +1790,581 @@
         ]
     },
     "Dropdown": {
-        "props": [],
-        "events": [],
-        "slots": []
+        "props": [
+            {
+                "name": "value",
+                "description": "当前选中的值",
+                "required": false,
+                "type": "SelectedValue",
+                "default": "{}"
+            },
+            {
+                "name": "confirmText",
+                "description": "确认按钮文本",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u786E\\u5B9A\""
+            },
+            {
+                "name": "cancelText",
+                "description": "取消按钮文本",
+                "required": false,
+                "type": "string",
+                "default": "\"\\u53D6\\u6D88\""
+            },
+            {
+                "name": "showFooter",
+                "description": "是否显示底部按钮",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            },
+            {
+                "name": "layout",
+                "description": "布局方式",
+                "required": false,
+                "type": "\"list\" | \"tag\"",
+                "default": "\"tag\""
+            },
+            {
+                "name": "visible",
+                "description": "是否显示",
+                "required": true,
+                "type": "boolean",
+                "default": "unknown"
+            },
+            {
+                "name": "options",
+                "description": "选项配置",
+                "required": true,
+                "type": "FilterField[]",
+                "default": "unknown"
+            }
+        ],
+        "events": [
+            {
+                "name": "confirm",
+                "type": "[value: SelectedValue]",
+                "signature": "(event: \"confirm\", value: SelectedValue): void",
+                "declarations": [],
+                "schema": [
+                    "SelectedValue"
+                ]
+            },
+            {
+                "name": "update:visible",
+                "type": "[visible: boolean]",
+                "signature": "(event: \"update:visible\", visible: boolean): void",
+                "declarations": [],
+                "schema": [
+                    {
+                        "kind": "enum",
+                        "type": "boolean",
+                        "schema": [
+                            "false",
+                            "true"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "update:value",
+                "type": "[value: SelectedValue]",
+                "signature": "(event: \"update:value\", value: SelectedValue): void",
+                "declarations": [],
+                "schema": [
+                    "SelectedValue"
+                ]
+            }
+        ],
+        "slots": [
+            {
+                "name": "option-nav",
+                "type": "{ options: FilterField[]; currentIndex: number; onChange: (index: number) => void; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ options: FilterField[]; currentIndex: number; onChange: (index: number) => void; }",
+                    "schema": {
+                        "options": {
+                            "name": "options",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "FilterField[]",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "array",
+                                "type": "FilterField[]",
+                                "schema": [
+                                    {
+                                        "kind": "enum",
+                                        "type": "FilterField",
+                                        "schema": [
+                                            {
+                                                "kind": "object",
+                                                "type": "{ label: string; value: string; multiple?: boolean | undefined; } & { groups: OptionGroup[]; }",
+                                                "schema": {
+                                                    "label": {
+                                                        "name": "label",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "string",
+                                                        "declarations": [],
+                                                        "schema": "string"
+                                                    },
+                                                    "value": {
+                                                        "name": "value",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "string",
+                                                        "declarations": [],
+                                                        "schema": "string"
+                                                    },
+                                                    "multiple": {
+                                                        "name": "multiple",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": false,
+                                                        "type": "boolean | undefined",
+                                                        "declarations": [],
+                                                        "schema": {
+                                                            "kind": "enum",
+                                                            "type": "boolean | undefined",
+                                                            "schema": [
+                                                                "undefined",
+                                                                "false",
+                                                                "true"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "groups": {
+                                                        "name": "groups",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "OptionGroup[]",
+                                                        "declarations": [],
+                                                        "schema": {
+                                                            "kind": "array",
+                                                            "type": "OptionGroup[]",
+                                                            "schema": [
+                                                                {
+                                                                    "kind": "object",
+                                                                    "type": "OptionGroup",
+                                                                    "schema": {
+                                                                        "label": {
+                                                                            "name": "label",
+                                                                            "global": false,
+                                                                            "description": "",
+                                                                            "tags": [],
+                                                                            "required": true,
+                                                                            "type": "string",
+                                                                            "declarations": [],
+                                                                            "schema": "string"
+                                                                        },
+                                                                        "value": {
+                                                                            "name": "value",
+                                                                            "global": false,
+                                                                            "description": "",
+                                                                            "tags": [],
+                                                                            "required": true,
+                                                                            "type": "string",
+                                                                            "declarations": [],
+                                                                            "schema": "string"
+                                                                        },
+                                                                        "multiple": {
+                                                                            "name": "multiple",
+                                                                            "global": false,
+                                                                            "description": "",
+                                                                            "tags": [],
+                                                                            "required": false,
+                                                                            "type": "boolean | undefined",
+                                                                            "declarations": [],
+                                                                            "schema": "boolean | undefined"
+                                                                        },
+                                                                        "options": {
+                                                                            "name": "options",
+                                                                            "global": false,
+                                                                            "description": "",
+                                                                            "tags": [],
+                                                                            "required": true,
+                                                                            "type": "DropdownOption[]",
+                                                                            "declarations": [],
+                                                                            "schema": {
+                                                                                "kind": "array",
+                                                                                "type": "DropdownOption[]",
+                                                                                "schema": [
+                                                                                    {
+                                                                                        "kind": "object",
+                                                                                        "type": "DropdownOption",
+                                                                                        "schema": {
+                                                                                            "label": {
+                                                                                                "name": "label",
+                                                                                                "global": false,
+                                                                                                "description": "",
+                                                                                                "tags": [],
+                                                                                                "required": true,
+                                                                                                "type": "string",
+                                                                                                "declarations": [],
+                                                                                                "schema": "string"
+                                                                                            },
+                                                                                            "value": {
+                                                                                                "name": "value",
+                                                                                                "global": false,
+                                                                                                "description": "",
+                                                                                                "tags": [],
+                                                                                                "required": true,
+                                                                                                "type": "string",
+                                                                                                "declarations": [],
+                                                                                                "schema": "string"
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "kind": "object",
+                                                "type": "{ label: string; value: string; multiple?: boolean | undefined; } & { options: DropdownOption[]; }",
+                                                "schema": {
+                                                    "label": {
+                                                        "name": "label",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "string",
+                                                        "declarations": [],
+                                                        "schema": "string"
+                                                    },
+                                                    "value": {
+                                                        "name": "value",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "string",
+                                                        "declarations": [],
+                                                        "schema": "string"
+                                                    },
+                                                    "multiple": {
+                                                        "name": "multiple",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": false,
+                                                        "type": "boolean | undefined",
+                                                        "declarations": [],
+                                                        "schema": "boolean | undefined"
+                                                    },
+                                                    "options": {
+                                                        "name": "options",
+                                                        "global": false,
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "required": true,
+                                                        "type": "DropdownOption[]",
+                                                        "declarations": [],
+                                                        "schema": "DropdownOption[]"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "currentIndex": {
+                            "name": "currentIndex",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "number",
+                            "declarations": [],
+                            "schema": "number"
+                        },
+                        "onChange": {
+                            "name": "onChange",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "(index: number) => void",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(index: number): void",
+                                "schema": []
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "content",
+                "type": "{ currentOption: FilterField; currentGroups: OptionGroup[]; isSelected: (option: DropdownOption, group: OptionGroup) => boolean; onSelect: (option: DropdownOption, group: OptionGroup) => void; }",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{ currentOption: FilterField; currentGroups: OptionGroup[]; isSelected: (option: DropdownOption, group: OptionGroup) => boolean; onSelect: (option: DropdownOption, group: OptionGroup) => void; }",
+                    "schema": {
+                        "currentOption": {
+                            "name": "currentOption",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "FilterField",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "enum",
+                                "type": "FilterField",
+                                "schema": [
+                                    {
+                                        "kind": "object",
+                                        "type": "{ label: string; value: string; multiple?: boolean | undefined; } & { groups: OptionGroup[]; }",
+                                        "schema": {
+                                            "label": {
+                                                "name": "label",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "string",
+                                                "declarations": [],
+                                                "schema": "string"
+                                            },
+                                            "value": {
+                                                "name": "value",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "string",
+                                                "declarations": [],
+                                                "schema": "string"
+                                            },
+                                            "multiple": {
+                                                "name": "multiple",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": false,
+                                                "type": "boolean | undefined",
+                                                "declarations": [],
+                                                "schema": {
+                                                    "kind": "enum",
+                                                    "type": "boolean | undefined",
+                                                    "schema": [
+                                                        "undefined",
+                                                        "false",
+                                                        "true"
+                                                    ]
+                                                }
+                                            },
+                                            "groups": {
+                                                "name": "groups",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "OptionGroup[]",
+                                                "declarations": [],
+                                                "schema": {
+                                                    "kind": "array",
+                                                    "type": "OptionGroup[]",
+                                                    "schema": [
+                                                        {
+                                                            "kind": "object",
+                                                            "type": "OptionGroup",
+                                                            "schema": {
+                                                                "label": {
+                                                                    "name": "label",
+                                                                    "global": false,
+                                                                    "description": "",
+                                                                    "tags": [],
+                                                                    "required": true,
+                                                                    "type": "string",
+                                                                    "declarations": [],
+                                                                    "schema": "string"
+                                                                },
+                                                                "value": {
+                                                                    "name": "value",
+                                                                    "global": false,
+                                                                    "description": "",
+                                                                    "tags": [],
+                                                                    "required": true,
+                                                                    "type": "string",
+                                                                    "declarations": [],
+                                                                    "schema": "string"
+                                                                },
+                                                                "multiple": {
+                                                                    "name": "multiple",
+                                                                    "global": false,
+                                                                    "description": "",
+                                                                    "tags": [],
+                                                                    "required": false,
+                                                                    "type": "boolean | undefined",
+                                                                    "declarations": [],
+                                                                    "schema": "boolean | undefined"
+                                                                },
+                                                                "options": {
+                                                                    "name": "options",
+                                                                    "global": false,
+                                                                    "description": "",
+                                                                    "tags": [],
+                                                                    "required": true,
+                                                                    "type": "DropdownOption[]",
+                                                                    "declarations": [],
+                                                                    "schema": {
+                                                                        "kind": "array",
+                                                                        "type": "DropdownOption[]",
+                                                                        "schema": [
+                                                                            {
+                                                                                "kind": "object",
+                                                                                "type": "DropdownOption",
+                                                                                "schema": {
+                                                                                    "label": {
+                                                                                        "name": "label",
+                                                                                        "global": false,
+                                                                                        "description": "",
+                                                                                        "tags": [],
+                                                                                        "required": true,
+                                                                                        "type": "string",
+                                                                                        "declarations": [],
+                                                                                        "schema": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "name": "value",
+                                                                                        "global": false,
+                                                                                        "description": "",
+                                                                                        "tags": [],
+                                                                                        "required": true,
+                                                                                        "type": "string",
+                                                                                        "declarations": [],
+                                                                                        "schema": "string"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "kind": "object",
+                                        "type": "{ label: string; value: string; multiple?: boolean | undefined; } & { options: DropdownOption[]; }",
+                                        "schema": {
+                                            "label": {
+                                                "name": "label",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "string",
+                                                "declarations": [],
+                                                "schema": "string"
+                                            },
+                                            "value": {
+                                                "name": "value",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "string",
+                                                "declarations": [],
+                                                "schema": "string"
+                                            },
+                                            "multiple": {
+                                                "name": "multiple",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": false,
+                                                "type": "boolean | undefined",
+                                                "declarations": [],
+                                                "schema": "boolean | undefined"
+                                            },
+                                            "options": {
+                                                "name": "options",
+                                                "global": false,
+                                                "description": "",
+                                                "tags": [],
+                                                "required": true,
+                                                "type": "DropdownOption[]",
+                                                "declarations": [],
+                                                "schema": "DropdownOption[]"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "currentGroups": {
+                            "name": "currentGroups",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "OptionGroup[]",
+                            "declarations": [],
+                            "schema": "OptionGroup[]"
+                        },
+                        "isSelected": {
+                            "name": "isSelected",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "(option: DropdownOption, group: OptionGroup) => boolean",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(option: DropdownOption, group: OptionGroup): boolean",
+                                "schema": []
+                            }
+                        },
+                        "onSelect": {
+                            "name": "onSelect",
+                            "global": false,
+                            "description": "",
+                            "tags": [],
+                            "required": true,
+                            "type": "(option: DropdownOption, group: OptionGroup) => void",
+                            "declarations": [],
+                            "schema": {
+                                "kind": "event",
+                                "type": "(option: DropdownOption, group: OptionGroup): void",
+                                "schema": []
+                            }
+                        }
+                    }
+                }
+            }
+        ]
     },
     "Empty": {
         "props": [
@@ -2057,6 +2439,13 @@
                 "default": "undefined"
             },
             {
+                "name": "layout",
+                "description": "",
+                "required": false,
+                "type": "\"horizontal\" | \"vertical\"",
+                "default": "\"horizontal\""
+            },
+            {
                 "name": "labelSize",
                 "description": "",
                 "required": false,
@@ -2069,13 +2458,6 @@
                 "required": false,
                 "type": "\"left\" | \"right\"",
                 "default": "\"left\""
-            },
-            {
-                "name": "layout",
-                "description": "",
-                "required": false,
-                "type": "\"horizontal\" | \"vertical\"",
-                "default": "\"horizontal\""
             }
         ],
         "events": [],
@@ -3258,6 +3640,13 @@
                 "default": "\"horizontal\""
             },
             {
+                "name": "closeable",
+                "description": "是否可关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "linkText",
                 "description": "链接文案",
                 "required": false,
@@ -3270,13 +3659,6 @@
                 "required": false,
                 "type": "string | { _: string; }",
                 "default": "\"\""
-            },
-            {
-                "name": "closeable",
-                "description": "是否可关闭",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "ellipsis",
@@ -4151,6 +4533,13 @@
                 "default": "\"\""
             },
             {
+                "name": "bg",
+                "description": "背景色",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
                 "name": "autofocus",
                 "description": "自动聚焦，拉起键盘",
                 "required": false,
@@ -4163,13 +4552,6 @@
                 "required": false,
                 "type": "boolean",
                 "default": "false"
-            },
-            {
-                "name": "bg",
-                "description": "背景色",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
             },
             {
                 "name": "readonly",
@@ -4470,6 +4852,178 @@
                 }
             }
         ]
+    },
+    "Skeleton": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            },
+            {
+                "name": "loading",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "true"
+            }
+        ],
+        "events": [],
+        "slots": [
+            {
+                "name": "template",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            }
+        ]
+    },
+    "SkeletonAnimate": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "SkeletonAvatar": {
+        "props": [
+            {
+                "name": "size",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "56"
+            },
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "SkeletonParagraph": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            },
+            {
+                "name": "gap",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "8"
+            },
+            {
+                "name": "rowWidth",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "\"100%\""
+            },
+            {
+                "name": "rowHeight",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "16"
+            }
+        ],
+        "events": [],
+        "slots": []
+    },
+    "SkeletonRectangle": {
+        "props": [
+            {
+                "name": "extClass",
+                "description": "",
+                "required": false,
+                "type": "string | string[] | Record<string, boolean>",
+                "default": "\"\""
+            },
+            {
+                "name": "extStyle",
+                "description": "",
+                "required": false,
+                "type": "string | { [x: string]: string | number; }",
+                "default": "{}"
+            },
+            {
+                "name": "width",
+                "description": "",
+                "required": false,
+                "type": "string | number",
+                "default": "120"
+            },
+            {
+                "name": "aspectRatio",
+                "description": "",
+                "required": false,
+                "type": "number",
+                "default": "1"
+            }
+        ],
+        "events": [],
+        "slots": []
     },
     "Snackbar": {
         "props": [
@@ -4992,18 +5546,18 @@
                 "default": "false"
             },
             {
-                "name": "closeable",
-                "description": "是否可关闭（显示一个关闭按钮）",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "bg",
                 "description": "实心、淡色、透明",
                 "required": false,
                 "type": "\"ghost\" | \"soft\" | \"solid\"",
                 "default": "\"soft\""
+            },
+            {
+                "name": "closeable",
+                "description": "是否可关闭（显示一个关闭按钮）",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "weight",

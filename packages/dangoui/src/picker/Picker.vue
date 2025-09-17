@@ -23,7 +23,7 @@
           size="large"
           @click="handleCancel"
         >
-          取消
+          {{ t('cancel') }}
         </DuButton>
         <div class="du-picker__title">{{ title }}</div>
         <DuButton
@@ -32,7 +32,7 @@
           size="large"
           @click="handleConfirm"
         >
-          确认
+          {{ t('confirm') }}
         </DuButton>
       </div>
       <div class="du-picker">
@@ -73,14 +73,18 @@ import FormField from '../form/FormField.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 
 import { computed, inject, onMounted, ref } from 'vue'
+import { useLocale } from '../locale'
 
 const isWeb = __WEB__
+
+const { useTranslator } = useLocale()
+const t = useTranslator('global')
 
 const props = withDefaults(
   defineProps<{
     columns: { label: string; value: string }[][]
     value: string[]
-    title: string
+    title?: string
     open?: boolean
   }>(),
   {

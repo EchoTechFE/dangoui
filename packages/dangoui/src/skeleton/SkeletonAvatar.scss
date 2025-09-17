@@ -1,0 +1,9 @@
+@import './common.scss';
+
+.du-skeleton {
+  &-avatar {
+    flex-shrink: 0;
+    background-color: var(--du-default-1);
+    border-radius: 50%;
+  }
+}

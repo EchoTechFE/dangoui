@@ -1,0 +1,7 @@
+@import './common.scss';
+.du-skeleton {
+  &-rectangle {
+    background-color: var(--du-default-1);
+    border-radius: 4px;
+  }
+}

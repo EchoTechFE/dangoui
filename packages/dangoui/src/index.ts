@@ -53,8 +53,13 @@ import Rate from './rate/Rate.vue'
 import NoticeBar from './notice-bar/NoticeBar.vue'
 import ActionSheet from './action-sheet/ActionSheet.vue'
 import ToastProvider from './toast/ToastProvider.vue'
+import Dropdown from './dropdown/Dropdown.vue'
 import Dialog from './dialog/Dialog.vue'
 import Theme from './theme/Theme.vue'
+import Skeleton from './skeleton/Skeleton.vue'
+import SkeletonParagraph from './skeleton/SkeletonParagraph.vue'
+import SkeletonAvatar from './skeleton/SkeletonAvatar.vue'
+import SkeletonRectangle from './skeleton/SkeletonRectangle.vue'
 
 import globalConfig from './plugins/globalConfig'
 
@@ -114,10 +119,16 @@ const DuBadge = Badge
 const DuNoticeBar = NoticeBar
 const DuActionSheet = ActionSheet
 const DuToastProvider = ToastProvider
+const DuDropdown = Dropdown
 
 const DuTheme = Theme
 
 const DuRate = Rate
+
+const DuSkeleton = Skeleton
+const DuSkeletonParagraph = SkeletonParagraph
+const DuSkeletonAvatar = SkeletonAvatar
+const DuSkeletonRectangle = SkeletonRectangle
 
 const DuDialog = Dialog
 
@@ -229,4 +240,14 @@ export {
   Dialog,
   DuDialog,
   useToast,
+  Dropdown,
+  DuDropdown,
+  Skeleton,
+  DuSkeleton,
+  SkeletonParagraph,
+  DuSkeletonParagraph,
+  SkeletonAvatar,
+  DuSkeletonAvatar,
+  SkeletonRectangle,
+  DuSkeletonRectangle,
 }

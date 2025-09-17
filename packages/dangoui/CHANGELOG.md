@@ -1,5 +1,57 @@
 # dangoui
 
+## 3.6.2
+
+### Patch Changes
+
+- cc16523: fix: skeleton animate
+
+## 3.6.1
+
+### Patch Changes
+
+- acec367: fix: animmate
+
+## 3.6.0
+
+### Minor Changes
+
+- 31798cd: feat: skeleton
+
+### Patch Changes
+
+- 31798cd: fix: skeleton animate in miniprogram
+
+## 3.5.0
+
+### Minor Changes
+
+- 5437c19: feat: skeleton
+
+## 3.4.2
+
+### Patch Changes
+
+- 955822a: fix: cakebdar button text bug
+
+## 3.4.1
+
+### Patch Changes
+
+- 427d2aa: fix: weekdays i18n bug
+
+## 3.4.0
+
+### Minor Changes
+
+- 0ea0340: feat: support i18n
+
+## 3.3.2
+
+### Patch Changes
+
+- d3fddb2: add dropdown
+
 ## 3.3.1
 
 ### Patch Changes
