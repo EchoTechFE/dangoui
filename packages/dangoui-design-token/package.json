@@ -1,6 +1,6 @@
 {
   "name": "dangoui-design-token",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -1,5 +1,11 @@
 # dangoui-design-token
 
+## 1.0.22
+
+### Patch Changes
+
+- 4542c76: 支持了 Dialog 组件
+
 ## 1.0.21
 
 ### Patch Changes

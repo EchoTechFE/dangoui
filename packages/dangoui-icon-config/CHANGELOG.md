@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.15
+
+### Patch Changes
+
+- 4542c76: 支持了 Dialog 组件
+
 ## 1.0.14
 
 ### Patch Changes
