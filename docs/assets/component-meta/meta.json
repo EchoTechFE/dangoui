@@ -1781,22 +1781,8 @@
                 "default": "\"\""
             },
             {
-                "name": "titleAlign",
-                "description": "标题对齐方式，default 为左对齐",
-                "required": false,
-                "type": "\"default\" | \"center\"",
-                "default": "\"default\""
-            },
-            {
                 "name": "headerVisible",
                 "description": "是否展示内置的头部栏",
-                "required": false,
-                "type": "boolean",
-                "default": "true"
-            },
-            {
-                "name": "maskClick",
-                "description": "点击遮罩层是否关闭",
                 "required": false,
                 "type": "boolean",
                 "default": "true"
@@ -1806,7 +1792,7 @@
                 "description": "是否展示关闭按钮（当内置头部栏展示时有效）",
                 "required": false,
                 "type": "boolean",
-                "default": "true"
+                "default": "false"
             },
             {
                 "name": "maskClass",
@@ -1849,6 +1835,20 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\\u53D6\\u6D88\""
+            },
+            {
+                "name": "titleAlign",
+                "description": "标题对齐方式，default 为左对齐",
+                "required": false,
+                "type": "\"default\" | \"center\"",
+                "default": "unknown"
+            },
+            {
+                "name": "maskClick",
+                "description": "点击遮罩层是否关闭",
+                "required": false,
+                "type": "boolean",
+                "default": "unknown"
             }
         ],
         "events": [
