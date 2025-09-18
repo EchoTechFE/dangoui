@@ -1,0 +1,46 @@
+.du-dialog {
+  width: 271px;
+
+  &__content {
+    color: rgba(0, 0, 0, 0.64);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    max-height: 274px;
+    overflow: auto;
+    margin-bottom: 8px;
+
+  }
+
+  &__content::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__container {
+    padding: 0 15px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    gap: 9px;
+  }
+
+  &__button {
+    width: 100%;
+    &-item {
+      flex: 1;
+      width: 100%;
+    }
+    &--horizontal {
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    &--vertical {
+      flex-direction: column-reverse;
+    }
+  }
+}

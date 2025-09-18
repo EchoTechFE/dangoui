@@ -54,6 +54,7 @@ import NoticeBar from './notice-bar/NoticeBar.vue'
 import ActionSheet from './action-sheet/ActionSheet.vue'
 import ToastProvider from './toast/ToastProvider.vue'
 import Dropdown from './dropdown/Dropdown.vue'
+import Dialog from './dialog/Dialog.vue'
 import Theme from './theme/Theme.vue'
 import Skeleton from './skeleton/Skeleton.vue'
 import SkeletonParagraph from './skeleton/SkeletonParagraph.vue'
@@ -128,6 +129,8 @@ const DuSkeleton = Skeleton
 const DuSkeletonParagraph = SkeletonParagraph
 const DuSkeletonAvatar = SkeletonAvatar
 const DuSkeletonRectangle = SkeletonRectangle
+
+const DuDialog = Dialog
 
 export {
   Button,
@@ -234,6 +237,8 @@ export {
   globalConfig,
   DuRate,
   Rate,
+  Dialog,
+  DuDialog,
   useToast,
   Dropdown,
   DuDropdown,
