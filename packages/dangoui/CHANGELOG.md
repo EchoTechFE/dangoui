@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.6.4
+
+### Patch Changes
+
+- 4542c76: 支持了 Dialog 组件
+- Updated dependencies [4542c76]
+  - dangoui-design-token@1.0.22
+  - dangoui-icon-config@1.0.15
+
 ## 3.6.3
 
 ### Patch Changes

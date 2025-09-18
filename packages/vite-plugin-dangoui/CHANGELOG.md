@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.182
+
+### Patch Changes
+
+- 4542c76: 支持了 Dialog 组件
+- Updated dependencies [4542c76]
+  - dangoui-design-token@1.0.22
+  - dangoui@3.6.4
+
 ## 1.0.181
 
 ### Patch Changes
