@@ -1,3 +1,5 @@
+import { useSize } from '../composables/useSize'
+
 const SIZE_MAP = {
   mini: 24,
   small: 32,
@@ -7,5 +9,5 @@ const SIZE_MAP = {
 }
 
 export function getWidth(size: 'mini' | 'small' | 'normal' | 'medium' | 'large') {
-  return SIZE_MAP[size]
+  return useSize(SIZE_MAP[size]).value
 }
