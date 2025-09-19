@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.6
+
+### Patch Changes
+
+- 264fe0a: fix: avatar size map
+
 ## 3.6.5
 
 ### Patch Changes
