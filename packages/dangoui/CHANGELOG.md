@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.5
+
+### Patch Changes
+
+- e7874cb: fix: avatar width
+
 ## 3.6.4
 
 ### Patch Changes
