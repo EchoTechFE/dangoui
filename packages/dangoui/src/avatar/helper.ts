@@ -1,8 +1,8 @@
 import { useSize } from '../composables/useSize'
 
 const SIZE_MAP = {
-  mini: 24,
-  small: 32,
+  mini: 16,
+  small: 24,
   normal: 32,
   medium: 48,
   large: 56,
