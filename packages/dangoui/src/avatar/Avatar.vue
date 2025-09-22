@@ -1,5 +1,5 @@
 <template>
-  <div :class="className" :style="style">
+  <div :class="className" :style="style" @click="onClick">
     <DuImage
       v-if="src"
       :src="src"
@@ -78,6 +78,10 @@ const props = withDefaults(
   },
 )
 
+const emit = defineEmits<{
+  (e: 'click', event: any): void
+}>()
+
 const className = computed(() => {
   const { size, extClass } = props
 
@@ -93,4 +97,8 @@ const style = computed(() => {
 const width = computed(() => {
   return getWidth(props.size)
 })
+
+function onClick(event: any) {
+  emit('click', event)
+}
 </script>
