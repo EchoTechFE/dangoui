@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.8
+
+### Patch Changes
+
+- 2e81ee6: fix: avatar click
+
 ## 3.6.7
 
 ### Patch Changes
