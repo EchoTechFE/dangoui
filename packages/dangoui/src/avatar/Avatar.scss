@@ -3,8 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  overflow: hidden;
 
   &__fallback {
     display: flex;
@@ -13,6 +11,22 @@
     width: 100%;
     height: 100%;
     background-color: var(--du-icon-disabled);
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+
+    border-radius: 50%;
   }
 
   &--large {

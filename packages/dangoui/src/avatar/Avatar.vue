@@ -1,16 +1,34 @@
 <template>
   <div :class="className" :style="style">
-    <DuImage v-if="src" :src="src" mode="aspectFill" :width="width" :height="width" />
+    <DuImage
+      v-if="src"
+      :src="src"
+      mode="aspectFill"
+      :width="width"
+      :height="width"
+      radius="50%"
+      ext-style="overflow: hidden;"
+    />
     <div v-else class="du-avatar__fallback">
       <slot />
     </div>
-    <div v-if="bordered" class="du-avatar__border" :class="`du-avatar__border--${type}`"></div>
+    <div
+      v-if="bordered"
+      class="du-avatar__border"
+      :class="`du-avatar__border--${type}`"
+    ></div>
+    <slot name="icon">
+      <div v-if="icon" class="du-avatar__icon">
+        <DuIcon :name="icon" :color="iconColor" :size="16" />
+      </div>
+    </slot>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, normalizeStyle, normalizeClass } from 'vue'
 
+import DuIcon from '../icon/Icon.vue'
 import DuImage from '../image/Image.vue'
 import { getWidth } from './helper'
 
@@ -33,6 +51,11 @@ const props = withDefaults(
      */
     bordered: boolean
     /**
+     * badge
+     */
+    icon?: string
+    iconColor?: string
+    /**
      * 自定义 class
      */
     extClass?: string | string[] | Record<string, boolean>
@@ -49,6 +72,7 @@ const props = withDefaults(
     size: 'normal',
     type: 'default',
     bordered: false,
+    icon: '',
     extClass: '',
     extStyle: '',
   },
