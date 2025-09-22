@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.16
+
+### Patch Changes
+
+- a9abdb2: feat: avatar support icon
+
 ## 1.0.15
 
 ### Patch Changes

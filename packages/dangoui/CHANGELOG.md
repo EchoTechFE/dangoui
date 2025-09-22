@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.6.7
+
+### Patch Changes
+
+- a9abdb2: feat: avatar support icon
+- Updated dependencies [a9abdb2]
+  - dangoui-icon-config@1.0.16
+
 ## 3.6.6
 
 ### Patch Changes
