@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.187
+
+### Patch Changes
+
+- 5579ef0: SnackBar 支持了按钮上的 arrowRight
+- Updated dependencies [5579ef0]
+  - dangoui-design-token@1.0.23
+  - dangoui@3.6.9
+
 ## 1.0.186
 
 ### Patch Changes

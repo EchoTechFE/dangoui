@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.6.9
+
+### Patch Changes
+
+- 5579ef0: SnackBar 支持了按钮上的 arrowRight
+- Updated dependencies [5579ef0]
+  - dangoui-design-token@1.0.23
+  - dangoui-icon-config@1.0.17
+
 ## 3.6.8
 
 ### Patch Changes

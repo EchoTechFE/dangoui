@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.17
+
+### Patch Changes
+
+- 5579ef0: SnackBar 支持了按钮上的 arrowRight
+
 ## 1.0.16
 
 ### Patch Changes
