@@ -22,6 +22,7 @@
       :color="buttonProps?.color || 'white'"
       :type="buttonProps?.type || 'primary'"
       :size="buttonProps?.size || 'mini'"
+      :arrowRight="buttonProps?.arrowRight || false"
       :extClass="buttonProps?.extClass"
       :extStyle="buttonProps?.extStyle"
       @click="emitAction"
@@ -62,6 +63,7 @@ const props = withDefaults(
       type: 'primary' | 'secondary' | 'outline' | 'text'
       size: 'normal' | 'mini' | 'small' | 'medium' | 'large'
       extClass: string | string[] | Record<string, boolean>
+      arrowRight: boolean
       extStyle:
         | string
         | {
