@@ -5,6 +5,7 @@
     :class="className"
     :style="style"
     v-html="finalIcon._"
+    @click="onClick"
   ></div>
   <i v-else :class="className" :style="style" @click="onClick">
     <slot>{{ unicode }}</slot>

@@ -9,26 +9,69 @@
         />
       </div>
     </slot>
-    <Popup :title="title" v-model:visible="visible" type="bottom" :style="internalStyle">
+    <Popup
+      :title="title"
+      v-model:visible="visible"
+      type="bottom"
+      :style="internalStyle"
+    >
       <div>
-        <Tabs v-model:value="tabIndex">
-          <Tab v-for="tab in currentTabs" :key="tab.name" :name="tab.name">
-            {{ tab.label }}
-          </Tab>
-        </Tabs>
-        <scroll-view class="du-cascader__options" scroll-y>
-          <div
-            v-for="opt in displayOptions"
-            :key="opt.value"
-            class="du-cascader__option"
-            @click="handleSelectOption(opt)"
-          >
-            <slot name="option" :option="opt">
-              {{ opt.label }}
-            </slot>
-            <DuIcon :unsafe-internal="arrowHeavyRightIcon" :size="12" />
-          </div>
-        </scroll-view>
+        <div v-if="showSearch" class="du-cascader__search">
+          <Search
+            :placeholder="searchPlaceholder"
+            clearable
+            v-model:value="keyword"
+          />
+        </div>
+        <template v-if="keyword?.trim()">
+          <scroll-view class="du-cascader__options" scroll-y>
+            <div
+              v-for="result in searchResults"
+              :key="result.path.join('/')"
+              class="du-cascader__option du-cascader__option--search"
+              @click="handleSelectSearchResult(result)"
+            >
+              <div class="du-cascader__option-path">
+                <template v-for="(segment, idx) in result.segments" :key="idx">
+                  <span v-if="idx > 0" class="du-cascader__option-separator">
+                    /
+                  </span>
+                  <span
+                    v-for="(part, partIdx) in segment.parts"
+                    :key="partIdx"
+                    :class="{ 'du-cascader__option-highlight': part.highlight }"
+                  >
+                    {{ part.text }}
+                  </span>
+                </template>
+              </div>
+              <DuIcon :unsafe-internal="arrowHeavyRightIcon" :size="12" />
+            </div>
+            <div v-if="searchResults.length === 0" class="du-cascader__empty">
+              暂无数据
+            </div>
+          </scroll-view>
+        </template>
+        <template v-else>
+          <Tabs v-model:value="tabIndex">
+            <Tab v-for="tab in currentTabs" :key="tab.name" :name="tab.name">
+              {{ tab.label }}
+            </Tab>
+          </Tabs>
+          <scroll-view class="du-cascader__options" scroll-y>
+            <div
+              v-for="opt in displayOptions"
+              :key="opt.value"
+              class="du-cascader__option"
+              @click="handleSelectOption(opt)"
+            >
+              <slot name="option" :option="opt">
+                {{ opt.label }}
+              </slot>
+              <DuIcon :unsafe-internal="arrowHeavyRightIcon" :size="12" />
+            </div>
+          </scroll-view>
+        </template>
       </div>
     </Popup>
   </div>
@@ -37,20 +80,20 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, normalizeStyle } from 'vue'
 import Popup from '../popup/Popup.vue'
+import Search from '../search/Search.vue'
 import Tabs from '../tabs/Tabs.vue'
 import Tab from '../tabs/Tab.vue'
 import FormField from '../form/FormField.vue'
 import DuIcon from '../icon/Icon.vue'
 import { formItemLayoutInjectionKey } from '../form/helpers'
 import { iconArrowHeavyRight } from 'dangoui-icon-config'
-
-export type CascaderOption = {
-  label: string
-  value: string
-  disabled?: boolean
-  children?: CascaderOption[]
-  extra?: any
-}
+import {
+  flattenOptions,
+  SearchResult,
+  SearchResultSegment,
+  highlightText,
+  type CascaderOption,
+} from './helpers'
 
 const props = withDefaults(
   defineProps<{
@@ -58,6 +101,8 @@ const props = withDefaults(
     open?: boolean
     options: CascaderOption[]
     value: string[]
+    showSearch?: boolean
+    searchPlaceholder?: string
     popupStyle?: string | Record<string, string>
   }>(),
   {
@@ -65,6 +110,7 @@ const props = withDefaults(
     title: '请选择',
     value: () => [],
     popupStyle: '',
+    showSearch: false,
   },
 )
 
@@ -84,6 +130,7 @@ const isInFormItem = !!formItemLayout
 const internalOpen = ref(false)
 const internalValue = ref<string[]>([])
 const tabIndex = ref('1')
+const keyword = ref('')
 
 const internalStyle = computed(() => {
   return normalizeStyle([
@@ -112,7 +159,7 @@ watch(visible, (val) => {
     internalValue.value = [...props.value]
     let currentOptions: CascaderOption[] | undefined = props.options
     let lastValidOptions: CascaderOption[] | undefined = props.options
-    
+
     for (let i = 0; i < internalValue.value.length; i++) {
       const found: CascaderOption | undefined = currentOptions?.find(
         (opt) => opt.value === internalValue.value[i],
@@ -221,6 +268,41 @@ const selectedText = computed(() => {
   return options.map((opt) => opt.label).join('/')
 })
 
+const flattenedOptions = computed(() => {
+  return flattenOptions(props.options)
+})
+
+const searchResults = computed<SearchResult[]>(() => {
+  const kw = keyword.value?.trim()
+  if (!kw) {
+    return []
+  }
+
+  const results: SearchResult[] = []
+
+  for (const flatOption of flattenedOptions.value) {
+    const matchesKeyword = flatOption.labels.some((label) =>
+      label.toLowerCase().includes(kw.toLowerCase()),
+    )
+
+    if (matchesKeyword) {
+      const segments: SearchResultSegment[] = flatOption.labels.map(
+        (label) => ({
+          parts: highlightText(label, kw),
+        }),
+      )
+
+      results.push({
+        path: flatOption.path,
+        labels: flatOption.labels,
+        segments,
+      })
+    }
+  }
+
+  return results
+})
+
 function handleSelectOption(opt: CascaderOption) {
   const idx = +tabIndex.value
   internalValue.value.length = idx
@@ -233,6 +315,14 @@ function handleSelectOption(opt: CascaderOption) {
     emit('confirm', getOptionsFromValue(internalValue.value))
     visible.value = false
   }
+}
+
+function handleSelectSearchResult(result: SearchResult) {
+  internalValue.value = [...result.path]
+  emit('update:value', [...result.path])
+  emit('confirm', getOptionsFromValue(result.path))
+  visible.value = false
+  keyword.value = ''
 }
 
 const arrowHeavyRightIcon = (function () {

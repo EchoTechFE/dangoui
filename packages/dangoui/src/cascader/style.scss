@@ -1,4 +1,9 @@
 .du-cascader {
+
+  &__search {
+    padding: 0 15px;
+  }
+
   &__option {
     padding: 12px 15px;
     font-size: 14px;
@@ -6,9 +11,40 @@
     line-height: 22px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    &--search {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &-path {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &-separator {
+      color: var(--du-text-3);
+      padding: 0 4px;
+    }
+
+    &-highlight {
+      color: var(--du-primary-color);
+      font-weight: 500;
+    }
   }
 
   &__options {
     height: 300px;
+  }
+
+  &__empty {
+    padding: 40px 15px;
+    text-align: center;
+    color: var(--du-text-3);
+    font-size: 14px;
   }
 }
