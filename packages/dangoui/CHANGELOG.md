@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.10
+
+### Patch Changes
+
+- 88eb8ce: feat: cascader support search
+
 ## 3.6.9
 
 ### Patch Changes
