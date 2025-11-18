@@ -128,6 +128,13 @@
                 "default": "false"
             },
             {
+                "name": "icon",
+                "description": "badge",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
                 "name": "extClass",
                 "description": "自定义 class",
                 "required": false,
@@ -147,12 +154,40 @@
                 "required": true,
                 "type": "string",
                 "default": "unknown"
+            },
+            {
+                "name": "iconColor",
+                "description": "",
+                "required": false,
+                "type": "string",
+                "default": "unknown"
             }
         ],
-        "events": [],
+        "events": [
+            {
+                "name": "click",
+                "type": "[event: any]",
+                "signature": "(event: \"click\", event: any): void",
+                "declarations": [],
+                "schema": [
+                    "any"
+                ]
+            }
+        ],
         "slots": [
             {
                 "name": "default",
+                "type": "{}",
+                "description": "",
+                "declarations": [],
+                "schema": {
+                    "kind": "object",
+                    "type": "{}",
+                    "schema": {}
+                }
+            },
+            {
+                "name": "icon",
                 "type": "{}",
                 "description": "",
                 "declarations": [],
@@ -303,6 +338,13 @@
                 "default": "\"normal\""
             },
             {
+                "name": "icon",
+                "description": "按钮附带图标",
+                "required": false,
+                "type": "string | { _: string; }",
+                "default": "\"\""
+            },
+            {
                 "name": "extClass",
                 "description": "自定义 class",
                 "required": false,
@@ -335,13 +377,6 @@
                 "description": "id 属性，可用 CSS id 选择器获取到对应组件",
                 "required": false,
                 "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "icon",
-                "description": "按钮附带图标",
-                "required": false,
-                "type": "string | { _: string; }",
                 "default": "\"\""
             },
             {
@@ -1213,6 +1248,13 @@
                 "default": "\"\\u8BF7\\u9009\\u62E9\""
             },
             {
+                "name": "showSearch",
+                "description": "",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "popupStyle",
                 "description": "",
                 "required": false,
@@ -1224,6 +1266,13 @@
                 "description": "",
                 "required": true,
                 "type": "CascaderOption[]",
+                "default": "unknown"
+            },
+            {
+                "name": "searchPlaceholder",
+                "description": "",
+                "required": false,
+                "type": "string",
                 "default": "unknown"
             }
         ],
@@ -3098,6 +3147,13 @@
                 "default": "\"\""
             },
             {
+                "name": "autofocus",
+                "description": "自动聚焦，拉起键盘",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
                 "name": "password",
                 "description": "是否是密码类型",
                 "required": false,
@@ -3145,13 +3201,6 @@
                 "required": false,
                 "type": "string",
                 "default": "\"\""
-            },
-            {
-                "name": "autofocus",
-                "description": "自动聚焦，拉起键盘",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
             },
             {
                 "name": "cursorSpacing",
@@ -4513,6 +4562,13 @@
                 "default": "\"medium\""
             },
             {
+                "name": "icon",
+                "description": "图标，对应 icon 组件的 name",
+                "required": false,
+                "type": "string | { _: string; }",
+                "default": "iconRateFilled"
+            },
+            {
                 "name": "extClass",
                 "description": "",
                 "required": false,
@@ -4539,13 +4595,6 @@
                 "required": false,
                 "type": "number",
                 "default": "undefined"
-            },
-            {
-                "name": "icon",
-                "description": "图标，对应 icon 组件的 name",
-                "required": false,
-                "type": "string | { _: string; }",
-                "default": "iconRateFilled"
             },
             {
                 "name": "disabled",
@@ -4697,20 +4746,6 @@
                 "default": "\"\""
             },
             {
-                "name": "bg",
-                "description": "背景色",
-                "required": false,
-                "type": "string",
-                "default": "\"\""
-            },
-            {
-                "name": "autofocus",
-                "description": "自动聚焦，拉起键盘",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "clearable",
                 "description": "是否可清空",
                 "required": false,
@@ -4718,8 +4753,22 @@
                 "default": "false"
             },
             {
+                "name": "bg",
+                "description": "背景色",
+                "required": false,
+                "type": "string",
+                "default": "\"\""
+            },
+            {
                 "name": "readonly",
                 "description": "只读\n\n你可能想利用这个组件做到点击切换到另一个页面进行搜索",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
+            },
+            {
+                "name": "autofocus",
+                "description": "自动聚焦，拉起键盘",
                 "required": false,
                 "type": "boolean",
                 "default": "false"
@@ -5224,7 +5273,7 @@
                 "name": "buttonProps",
                 "description": "",
                 "required": false,
-                "type": "{ text: string; color: string; type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; extStyle: string | { ...; }; }",
+                "type": "{ text: string; color: string; type: \"primary\" | \"secondary\" | \"outline\" | \"text\"; size: \"normal\" | \"mini\" | \"small\" | \"medium\" | \"large\"; extClass: string | string[] | Record<string, boolean>; arrowRight: boolean; extStyle: string | { ...; }; }",
                 "default": "undefined"
             },
             {
@@ -5683,18 +5732,18 @@
                 "default": "\"primary\""
             },
             {
-                "name": "round",
-                "description": "是否为圆角",
-                "required": false,
-                "type": "boolean",
-                "default": "false"
-            },
-            {
                 "name": "bg",
                 "description": "实心、淡色、透明",
                 "required": false,
                 "type": "\"ghost\" | \"soft\" | \"solid\"",
                 "default": "\"soft\""
+            },
+            {
+                "name": "round",
+                "description": "是否为圆角",
+                "required": false,
+                "type": "boolean",
+                "default": "false"
             },
             {
                 "name": "closeable",
