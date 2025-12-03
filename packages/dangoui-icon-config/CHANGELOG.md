@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.18
+
+### Patch Changes
+
+- 46503e9: feat: update icon
+
 ## 1.0.17
 
 ### Patch Changes
