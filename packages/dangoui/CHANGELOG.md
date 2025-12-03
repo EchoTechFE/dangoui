@@ -1,5 +1,13 @@
 # dangoui
 
+## 3.6.11
+
+### Patch Changes
+
+- 46503e9: feat: update icon
+- Updated dependencies [46503e9]
+  - dangoui-icon-config@1.0.18
+
 ## 3.6.10
 
 ### Patch Changes
