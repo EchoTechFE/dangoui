@@ -1,5 +1,16 @@
 # unocss-preset-echo
 
+## 1.7.18
+
+### Patch Changes
+
+- b72a82c: ignore drama theme
+
+  :wq
+
+- Updated dependencies [b72a82c]
+  - unocss-preset-echo-colors@1.7.17
+
 ## 1.7.17
 
 ### Patch Changes
