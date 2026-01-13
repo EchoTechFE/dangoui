@@ -1,5 +1,14 @@
 # dangoui
 
+## 3.6.13
+
+### Patch Changes
+
+- 9410fa5: update mihua theme
+- Updated dependencies [9410fa5]
+  - dangoui-design-token@1.0.24
+  - dangoui-icon-config@1.0.19
+
 ## 3.6.11
 
 ### Patch Changes

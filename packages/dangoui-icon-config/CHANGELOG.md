@@ -1,5 +1,11 @@
 # dangoui-icon-config
 
+## 1.0.19
+
+### Patch Changes
+
+- 9410fa5: update mihua theme
+
 ## 1.0.18
 
 ### Patch Changes

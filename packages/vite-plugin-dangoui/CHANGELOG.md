@@ -1,5 +1,14 @@
 # vite-plugin-dangoui
 
+## 1.0.190
+
+### Patch Changes
+
+- 9410fa5: update mihua theme
+- Updated dependencies [9410fa5]
+  - dangoui@3.6.13
+  - dangoui-design-token@1.0.24
+
 ## 1.0.189
 
 ### Patch Changes

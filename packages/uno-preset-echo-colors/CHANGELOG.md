@@ -1,5 +1,11 @@
 # unocss-preset-echo-colors
 
+## 1.7.16
+
+### Patch Changes
+
+- 9410fa5: update mihua theme
+
 ## 1.7.15
 
 ### Patch Changes
