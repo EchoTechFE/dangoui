@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 import { kebabCase } from 'lodash-es'
-import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
+// import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
 import themes from './platte.json' assert { type: 'json' }
 
 type ThemeConfig = {
@@ -381,29 +381,29 @@ export function createThemes(opts: CreateThemeOpts) {
     }
   })
 
-  mihuaThemes.forEach((theme) => {
-    if (theme.mode.name === '米花') {
-      theme.mode.name = 'mihua-light'
-    }
-    if (theme.mode.name === '米花暗黑') {
-      theme.mode.name = 'mihua-dark'
-      // TODO: 先强制把 secondary 给 default
-      // TODO: 后面设计弄好了要把这里删掉
-      theme.color.forEach((c) => {
-        if (c.name.startsWith('default/')) {
-          const candidate = theme.color.find(
-            (candidate) =>
-              candidate.name === c.name.replace('default', 'secondary'),
-          )
-          if (candidate) {
-            c.color = candidate.color
-            c.rootAlias = candidate.rootAlias
-            c.var = candidate.var
-          }
-        }
-      })
-    }
-  })
+  // mihuaThemes.forEach((theme) => {
+  //   if (theme.mode.name === '米花') {
+  //     theme.mode.name = 'mihua-light'
+  //   }
+  //   if (theme.mode.name === '米花暗黑') {
+  //     theme.mode.name = 'mihua-dark'
+  //     // TODO: 先强制把 secondary 给 default
+  //     // TODO: 后面设计弄好了要把这里删掉
+  //     theme.color.forEach((c) => {
+  //       if (c.name.startsWith('default/')) {
+  //         const candidate = theme.color.find(
+  //           (candidate) =>
+  //             candidate.name === c.name.replace('default', 'secondary'),
+  //         )
+  //         if (candidate) {
+  //           c.color = candidate.color
+  //           c.rootAlias = candidate.rootAlias
+  //           c.var = candidate.var
+  //         }
+  //       }
+  //     })
+  //   }
+  // })
 
   // 小程序里极致优化包体积使用
   const alias: Record<string, string> = {}
@@ -424,7 +424,10 @@ export function createThemes(opts: CreateThemeOpts) {
     return alias[name]
   }
 
-  ;[...themes, ...mihuaThemes].forEach((theme) => {
+  ;[
+    ...themes,
+    //  ...mihuaThemes,
+  ].forEach((theme) => {
     if (!filteredBuiltinThemes.find((t) => t === theme.mode.name)) {
       return
     }
