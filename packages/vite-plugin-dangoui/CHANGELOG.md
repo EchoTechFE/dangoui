@@ -1,5 +1,17 @@
 # vite-plugin-dangoui
 
+## 1.0.191
+
+### Patch Changes
+
+- b72a82c: ignore drama theme
+
+  :wq
+
+- Updated dependencies [b72a82c]
+  - dangoui-design-token@1.0.25
+  - dangoui@3.6.14
+
 ## 1.0.190
 
 ### Patch Changes

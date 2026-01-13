@@ -1,5 +1,13 @@
 # dangoui-icon-config
 
+## 1.0.20
+
+### Patch Changes
+
+- b72a82c: ignore drama theme
+
+  :wq
+
 ## 1.0.19
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # dangoui
 
+## 3.6.14
+
+### Patch Changes
+
+- b72a82c: ignore drama theme
+
+  :wq
+
+- Updated dependencies [b72a82c]
+  - dangoui-design-token@1.0.25
+  - dangoui-icon-config@1.0.20
+
 ## 3.6.13
 
 ### Patch Changes

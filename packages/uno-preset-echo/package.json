@@ -1,6 +1,6 @@
 {
   "name": "unocss-preset-echo",
-  "version": "1.7.17",
+  "version": "1.7.18",
   "description": "",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

@@ -1,5 +1,13 @@
 # dangoui-design-token
 
+## 1.0.25
+
+### Patch Changes
+
+- b72a82c: ignore drama theme
+
+  :wq
+
 ## 1.0.24
 
 ### Patch Changes
