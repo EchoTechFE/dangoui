@@ -1,5 +1,13 @@
 # unocss-preset-echo
 
+## 1.7.17
+
+### Patch Changes
+
+- 9410fa5: update mihua theme
+- Updated dependencies [9410fa5]
+  - unocss-preset-echo-colors@1.7.16
+
 ## 1.7.16
 
 ### Patch Changes
