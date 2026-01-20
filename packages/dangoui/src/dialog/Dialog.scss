@@ -2,13 +2,7 @@
   width: 271px;
 
   &__content {
-    color: rgba(0, 0, 0, 0.64);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px; /* 150% */
-    max-height: 274px;
-    overflow: auto;
-    margin-bottom: 8px;
+    padding-bottom: 8px;
 
   }
 
@@ -17,14 +11,20 @@
   }
 
   &__container {
-    padding: 0 15px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
   }
 
   &__footer {
     display: flex;
     align-items: center;
-    padding-bottom: 15px;
-    gap: 9px;
+    padding-bottom: 20px;
+    gap: 8px;
+    margin-top: 8px;
+
   }
 
   &__button {
