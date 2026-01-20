@@ -15,7 +15,9 @@
     @close="handleClose"
   >
     <div class="du-dialog__container">
-      <slot />
+      <div v-if="hasContent" class="du-dialog__content">
+        <slot />
+      </div>
       <div
         :class="[
           'du-dialog__footer',
@@ -50,10 +52,11 @@
 </template>
 <script lang="ts" setup>
 import DuPopup from '../popup/Popup.vue'
-import { computed, normalizeClass, reactive, ref, watch } from 'vue'
+import { computed, normalizeClass, reactive, ref, useSlots, watch } from 'vue'
 import DuButton from '../button/Button.vue'
 import { Dialog } from './Dialog.ts'
-
+const slots = useSlots()
+const hasContent = computed(() => !!slots.default)
 const props = withDefaults(defineProps<Dialog>(), {
   extStyle: '',
   extClass: '',
@@ -85,7 +88,7 @@ watch(
   },
   {
     deep: true,
-  },
+  }
 )
 
 watch(
@@ -97,14 +100,14 @@ watch(
   },
   {
     immediate: true,
-  },
+  }
 )
 
 watch(
   () => _visible.value,
   (val) => {
     emits('update:visible', val)
-  },
+  }
 )
 
 function handleClose() {
