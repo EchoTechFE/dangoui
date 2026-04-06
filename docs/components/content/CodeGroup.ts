@@ -26,13 +26,12 @@ export default defineComponent({
                   class: 'flex items-center gap-x-4px',
                 },
                 tabs.map((tab) => {
+                  const isActive = activeTab.value === tab
                   return h(
                     'div',
                     {
-                      class: [
-                        'cursor-pointer hover:bg-bg-2 c-neutral-800 rounded-4px px-8px py-4px text-14px',
-                        activeTab.value === tab && 'bg-bg-2',
-                      ],
+                      class: 'cursor-pointer rounded-4px px-8px py-4px text-14px',
+                      style: `color: var(--doc-text-primary); background: ${isActive ? 'var(--doc-bg-secondary)' : 'transparent'}; transition: background 150ms`,
                       onClick: () => {
                         activeTab.value = tab
                       },
