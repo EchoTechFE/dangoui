@@ -97,7 +97,6 @@
           scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
           overflow: { x: 'scroll', y: 'scroll' },
         }"
-        defer
       >
         <nav class="doc-nav">
           <div v-for="navItem in navigation" :key="navItem.title" class="doc-nav-group">
@@ -288,7 +287,7 @@ const handleScroll = useThrottleFn(() => {
       }
     })
   }
-}, 100)
+}, 200)
 
 useEventListener('scroll', handleScroll)
 onMounted(() => handleScroll())
