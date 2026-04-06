@@ -124,7 +124,8 @@
             v-for="link in md.body.toc.links"
             :key="link.id"
             :href="`#${link.id}`"
-            :class="['doc-outline-link', { 'doc-outline-link--active': isLinkActive(link) }]"
+            :style="activeLinkId === link.id ? 'color: var(--doc-accent); background: var(--doc-accent-bg);' : ''"
+            class="doc-outline-link"
             @click.prevent="handleOutlineClick(link)"
           >
             {{ link.text }}
@@ -256,15 +257,7 @@ watch(currentPath, async (path) => {
   md.value = result
 }, { immediate: true })
 
-const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
-
-function isLinkActive(link: { id: string }) {
-  const active = linksWithStatus.value.some((l) => l.id === link.id && l.isActive)
-  if (active) {
-    console.log('[isLinkActive] link.id:', link.id, 'isActive:', active, 'linksWithStatus:', linksWithStatus.value)
-  }
-  return active
-}
+const activeLinkId = ref<string>('')
 
 function isNavItemActive(item: NavItem) {
   return item._path === route.path
@@ -272,6 +265,7 @@ function isNavItemActive(item: NavItem) {
 
 function handleOutlineClick(link: { id: string; text: string }) {
   if (!link.id) return
+  activeLinkId.value = link.id
   const target = document.querySelector(`#${link.id}`)
   if (target) {
     target.scrollIntoView({ behavior: 'smooth' })
@@ -313,12 +307,8 @@ const handleScroll = useThrottleFn(() => {
       firstVisibleIdx = 0
     }
 
-    const newStatus = links.map((link, idx) => ({
-      id: link.id,
-      isActive: idx === firstVisibleIdx
-    }))
-    console.log('[handleScroll] links.length:', links.length, 'firstVisibleIdx:', firstVisibleIdx, 'newStatus:', JSON.stringify(newStatus))
-    linksWithStatus.value = newStatus
+    const newActiveId = firstVisibleIdx >= 0 ? links[firstVisibleIdx].id : ''
+    activeLinkId.value = newActiveId
   }
 }, 100)
 

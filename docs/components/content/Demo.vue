@@ -1,64 +1,27 @@
 <template>
-  <section
-    class="w-full flex rounded-4px border border-solid border-border-2 h-667px mb-32px text-14px overflow-hidden"
-  >
-    <div class="flex-1 h-full flex flex-col overflow-hidden">
-      <div
-        class="h-40px w-full border-b border-b-solid border-b-border-2 flex-none flex justify-between items-center px-8px"
-      >
-        <div class="font-semibold">{{ title }}</div>
-        <!-- <div>
-          <div
-            class="cursor-pointer hover:bg-gray-100 px-8px py-4px rounded-4px"
-          >
-            <div class="i-mdi-content-copy" />
-          </div>
-        </div> -->
-      </div>
-      <div class="px-16px flex flex-col flex-1 overflow-hidden">
-        <div
-          class="border-b border-b-dashed border-b-border-2 flex-none"
-          v-if="$slots.default"
-        >
-          <slot />
-        </div>
-        <OverlayScrollbarsComponent
-          class="not-prose py-16px px-8px flex-1"
-          :options="{
-            scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
-            overflow: { x: 'scroll', y: 'scroll' },
-          }"
-          defer
-        >
-          <slot name="snippet" />
-        </OverlayScrollbarsComponent>
-      </div>
+  <section class="demo-block">
+    <div class="demo-block-header">
+      <span class="demo-block-title">{{ title }}</span>
     </div>
-    <div
-      class="flex-none flex-basis-375px border-l border-l-solid border-l-border-2 bg-bg-2 relative"
-    >
-      <iframe ref="iframe" :src="demoPath" class="w-full h-[calc(100%-32px)]" />
-      <div
-        v-if="consoleOpen"
-        class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
-      >
-        <div
-          v-for="(log, idx) in logs"
-          :key="idx"
-          class="px-4px py-2px c-gray-500"
-        >
-          {{ log }}
-        </div>
+    <div class="demo-block-content">
+      <div class="demo-block-preview">
+        <slot />
       </div>
-      <div
-        class="h-32px bg-white border-t border-t-solid border-t-border-2 flex items-center px-8px select-none"
-      >
-        <div
-          class="flex items-center cursor-pointer rounded-2px hover:bg-gray-100 px-4px"
-          @click="consoleOpen = !consoleOpen"
-        >
-          <div class="i-mdi-code-greater-than mr-4px" />
-          <div class="font-mono text-12px">{{ logs.length }}</div>
+      <div class="demo-block-code">
+        <div class="demo-block-code-header">
+          <span class="demo-block-code-title">代码示例</span>
+        </div>
+        <div class="demo-block-code-content">
+          <OverlayScrollbarsComponent
+            class="demo-block-scroll"
+            :options="{
+              scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+              overflow: { x: 'scroll', y: 'scroll' },
+            }"
+            defer
+          >
+            <slot name="snippet" />
+          </OverlayScrollbarsComponent>
         </div>
       </div>
     </div>
@@ -73,43 +36,83 @@ const props = defineProps<{
   path: string
   title: string
 }>()
-
-const iframe = ref<HTMLIFrameElement>()
-
-const demoPath = computed(() => {
-  const p = props.path
-    .replace(/^content:/, '')
-    .split(':')
-    .map((s) => s.replace(/^(\d+)\./, '').replace(/\.md$/, ''))
-    .join('/')
-  return `/demos/${p}/snippet${props.idx}`
-})
-
-const logs = ref<string[]>([])
-
-const consoleOpen = ref(false)
-
-watch(globalTheme, (theme) => {
-  iframe.value?.contentWindow?.postMessage(
-    {
-      type: 'theme',
-      message: theme,
-    },
-    '*',
-  )
-})
-
-onMounted(() => {
-  window.addEventListener('message', (message) => {
-    if (message.source !== iframe.value?.contentWindow) {
-      return
-    }
-    if (
-      message.data?.type === 'log' &&
-      message.data?.message.startsWith('[demo]')
-    ) {
-      logs.value.push(message.data.message)
-    }
-  })
-})
 </script>
+
+<style scoped>
+.demo-block {
+  margin: var(--spacing-2xl) 0;
+  border: 1px solid var(--doc-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--doc-bg-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-block-header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--doc-bg-secondary);
+  border-bottom: 1px solid var(--doc-border-light);
+}
+
+.demo-block-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--doc-text-secondary);
+}
+
+.demo-block-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 280px;
+}
+
+.demo-block-preview {
+  padding: var(--spacing-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--doc-border-light);
+  background: var(--doc-bg-primary);
+}
+
+.demo-block-code {
+  display: flex;
+  flex-direction: column;
+  background: var(--doc-bg-secondary);
+}
+
+.demo-block-code-header {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-bottom: 1px solid var(--doc-border-light);
+}
+
+.demo-block-code-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--doc-text-tertiary);
+}
+
+.demo-block-code-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.demo-block-scroll {
+  height: 100%;
+  padding: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .demo-block-content {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-block-preview {
+    border-right: none;
+    border-bottom: 1px solid var(--doc-border-light);
+  }
+}
+</style>

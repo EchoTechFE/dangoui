@@ -70,3 +70,40 @@
   --doc-sidebar-bg: var(--du-bg-1);
   --doc-content-bg: var(--du-bg-1);
 }
+
+/* ── Dark Theme — Markdown Body Override ── */
+/* github-markdown-light.css 有硬编码的浅色颜色，需要在暗黑模式下覆盖 */
+.du-theme-qd-dark .markdown-body,
+.g-theme-qd-dark .markdown-body {
+  color: var(--doc-text-primary);
+  background-color: var(--doc-bg-primary);
+}
+
+.du-theme-qd-dark .markdown-body a,
+.g-theme-qd-dark .markdown-body a {
+  color: var(--doc-accent);
+}
+
+.du-theme-qd-dark .markdown-body code,
+.g-theme-qd-dark .markdown-body code {
+  background-color: var(--doc-bg-secondary);
+  color: var(--doc-accent);
+}
+
+.du-theme-qd-dark .markdown-body pre,
+.g-theme-qd-dark .markdown-body pre {
+  background-color: var(--doc-bg-secondary);
+}
+
+.du-theme-qd-dark .markdown-body blockquote,
+.g-theme-qd-dark .markdown-body blockquote {
+  border-left-color: var(--doc-accent);
+  background-color: var(--doc-accent-bg);
+}
+
+.du-theme-qd-dark .markdown-body th,
+.g-theme-qd-dark .markdown-body th,
+.du-theme-qd-dark .markdown-body td,
+.g-theme-qd-dark .markdown-body td {
+  border-color: var(--doc-border-light);
+}

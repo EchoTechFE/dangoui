@@ -37,21 +37,37 @@ export const presetEcho = definePreset((options: PresetEchoOptions = {}) => {
         borderRadius: {
           DEFAULT: '0.25rem',
           none: '0',
+          // 存量命名（待废弃）
           mini: '0.5rem',
           sm: '1rem',
           norm: '2rem',
           md: '6rem',
           lg: '8rem',
           full: '9999px',
+          // Figma 规范命名（新增）
+          // 2px=0.125rem, 4px=0.25rem, 8px=0.5rem, 12px=0.75rem, 16px=1rem
+          'radius-mini': '0.125rem', // 2px
+          'radius-small': '0.25rem', // 4px
+          'radius-normal': '0.5rem', // 8px
+          'radius-medium': '0.75rem', // 12px
+          'radius-large': '1rem', // 16px
         },
         spacing: {
           DEFAULT: '1rem',
           none: '0',
+          // 存量命名（待废弃）
           mini: '0.5rem',
           sm: '1rem',
           norm: '2rem',
           md: '3rem',
           lg: '4rem',
+          // Figma 规范命名（新增）
+          // mini=2px, small=4px, normal=8px, medium=12px, large=16px
+          'spacing-mini': '0.125rem', // 2px
+          'spacing-small': '0.25rem', // 4px
+          'spacing-normal': '0.5rem', // 8px
+          'spacing-medium': '0.75rem', // 12px
+          'spacing-large': '1rem', // 16px
         },
       },
     ),
