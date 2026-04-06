@@ -313,11 +313,12 @@ const handleScroll = useThrottleFn(() => {
       firstVisibleIdx = 0
     }
 
-    console.log('[handleScroll] links.length:', links.length, 'firstVisibleIdx:', firstVisibleIdx)
-    linksWithStatus.value = links.map((link, idx) => ({
+    const newStatus = links.map((link, idx) => ({
       id: link.id,
       isActive: idx === firstVisibleIdx
     }))
+    console.log('[handleScroll] links.length:', links.length, 'firstVisibleIdx:', firstVisibleIdx, 'newStatus:', JSON.stringify(newStatus))
+    linksWithStatus.value = newStatus
   }
 }, 100)
 
