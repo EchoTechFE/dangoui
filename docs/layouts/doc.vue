@@ -248,19 +248,12 @@ function handleThemeClick(theme: string) {
 }
 
 // Navigation
-const currentPath = computed(() => {
-  const p = route.path === '/' ? '/get-started/introduction' : route.path
-  console.log('[Outline] currentPath 计算:', p)
-  return p
-})
+const currentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
 const md = ref(null)
 
-// Use watch with immediate to refetch when route changes
 watch(currentPath, async (path) => {
-  console.log('[Outline] watch 触发, path:', path)
   const result = await queryContent(path).findOne()
   md.value = result
-  console.log('[Outline] md 更新为:', md.value?._path)
 }, { immediate: true })
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
@@ -274,15 +267,9 @@ function isNavItemActive(item: NavItem) {
 }
 
 function handleOutlineClick(link: { id: string; text: string }) {
-  console.log('[Outline] 点击 link:', link.id, '当前 md.path:', md.value?._path)
-  if (!link.id) {
-    console.warn('[Outline] link.id 为空', link)
-    return
-  }
+  if (!link.id) return
   const target = document.querySelector(`#${link.id}`)
-  if (!target) {
-    console.warn(`[Outline] 锚点不存在: #${link.id}`, '实际存在的ID:', [...document.querySelectorAll('h2[id], h3[id]')].map(el => el.id))
-  } else {
+  if (target) {
     target.scrollIntoView({ behavior: 'smooth' })
   }
 }
