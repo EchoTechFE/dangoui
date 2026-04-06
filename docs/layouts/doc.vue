@@ -267,6 +267,7 @@ function isNavItemActive(item: NavItem) {
 }
 
 function handleOutlineClick(link: { id: string; text: string }) {
+  console.log('[Outline] 点击 link:', link.id, '当前 md.path:', md.value?._path)
   if (!link.id) {
     console.warn('[Outline] link.id 为空', link)
     return
@@ -283,21 +284,38 @@ const handleScroll = useThrottleFn(() => {
   if (md.value?.body?.toc?.links) {
     const links = md.value.body.toc.links
     const height = window.innerHeight
-    linksWithStatus.value = links.map((link, idx) => {
-      const el = document.querySelector(`#${link.id}`)
-      if (!el) return { id: link.id, isActive: false }
+    const scrollY = window.scrollY
+
+    // Find the first heading that is currently visible (in or above viewport)
+    let firstVisibleIdx = -1
+    for (let i = 0; i < links.length; i++) {
+      const el = document.querySelector(`#${links[i].id}`)
+      if (!el) continue
       const rect = el.getBoundingClientRect()
-      const next = links[idx + 1]
-      const nextRect = next ? document.querySelector(`#${next.id}`)?.getBoundingClientRect() : null
-      return {
-        id: link.id,
-        isActive: rect.y > 0 && rect.y < height * 0.5
-          || (nextRect && nextRect.y < 0 && rect.y >= 0)
-          || (!next && rect.y < height)
+      if (rect.y <= height * 0.5) {
+        firstVisibleIdx = i
       }
-    })
+    }
+
+    // If no heading is in upper half, find the last heading that's above viewport
+    if (firstVisibleIdx === -1) {
+      for (let i = links.length - 1; i >= 0; i--) {
+        const el = document.querySelector(`#${links[i].id}`)
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        if (rect.y < 0) {
+          firstVisibleIdx = i + 1 < links.length ? i + 1 : i
+          break
+        }
+      }
+    }
+
+    linksWithStatus.value = links.map((link, idx) => ({
+      id: link.id,
+      isActive: idx === firstVisibleIdx
+    }))
   }
-}, 200)
+}, 100)
 
 useEventListener('scroll', handleScroll)
 onMounted(() => handleScroll())
