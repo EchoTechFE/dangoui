@@ -48,7 +48,7 @@ export default defineComponent({
           ),
           h(
             'div',
-            { class: 'not-prose px-12px py-16px bg-gray-50' },
+            { class: 'not-prose px-12px py-16px', style: 'background: var(--doc-bg-secondary)' },
             defaultSlot.map((vnode) => {
               return h(
                 'div',
