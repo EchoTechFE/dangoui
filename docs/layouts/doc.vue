@@ -304,6 +304,12 @@ const handleScroll = useThrottleFn(() => {
       }
     }
 
+    // 如果页面在顶部，第一个应该高亮
+    if (scrollY < 50) {
+      firstVisibleIdx = 0
+    }
+
+    console.log('[handleScroll] links.length:', links.length, 'firstVisibleIdx:', firstVisibleIdx)
     linksWithStatus.value = links.map((link, idx) => ({
       id: link.id,
       isActive: idx === firstVisibleIdx
