@@ -248,13 +248,11 @@ function handleThemeClick(theme: string) {
 }
 
 // Navigation
-const { data: md, refresh } = await useAsyncData(route.path, () =>
-  queryContent(route.path === '/' ? '/get-started/introduction' : route.path).findOne(),
+const currentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
+const { data: md } = await useAsyncData(
+  computed(() => `doc-outline-${currentPath.value}`),
+  () => queryContent(currentPath.value).findOne(),
 )
-
-watch(() => route.path, () => {
-  refresh()
-})
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
 
