@@ -244,6 +244,7 @@ const isDark = computed(() => globalTheme.value.includes('dark'))
 function toggleTheme() {
   globalTheme.value = isDark.value ? 'qd' : 'qd-dark'
   localStorage.setItem('DANGOUI_THEME', globalTheme.value)
+  nextTick(() => handleScroll())
 }
 
 const isThemeConfigOpen = ref(false)
@@ -251,6 +252,7 @@ const isThemeConfigOpen = ref(false)
 function handleThemeClick(theme: string) {
   globalTheme.value = theme
   localStorage.setItem('DANGOUI_THEME', theme)
+  nextTick(() => handleScroll())
 }
 
 // Navigation
@@ -286,7 +288,7 @@ const handleScroll = useThrottleFn(() => {
       }
     })
   }
-}, 200)
+}, 100)
 
 useEventListener('scroll', handleScroll)
 onMounted(() => handleScroll())
