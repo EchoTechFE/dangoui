@@ -92,29 +92,22 @@
 
     <!-- Sidebar -->
     <aside class="doc-sidebar">
-      <OverlayScrollbarsComponent
-        :options="{
-          scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
-          overflow: { x: 'scroll', y: 'scroll' },
-        }"
-      >
-        <nav class="doc-nav">
-          <div v-for="navItem in navigation" :key="navItem.title" class="doc-nav-group">
-            <div class="doc-nav-title">{{ navItem.title }}</div>
-            <div class="doc-nav-list">
-              <NuxtLink
-                v-for="item in navItem.children ?? []"
-                :key="item.title"
-                :href="item._path"
-                :class="['doc-nav-link', { 'doc-nav-link--active': isNavItemActive(item) }]"
-              >
-                <span>{{ item.title }}</span>
-                <IconsFlask v-if="item.stage === 'alpha'" class="doc-nav-badge" />
-              </NuxtLink>
-            </div>
+      <nav class="doc-nav">
+        <div v-for="navItem in navigation" :key="navItem.title" class="doc-nav-group">
+          <div class="doc-nav-title">{{ navItem.title }}</div>
+          <div class="doc-nav-list">
+            <NuxtLink
+              v-for="item in navItem.children ?? []"
+              :key="item.title"
+              :href="item._path"
+              :class="['doc-nav-link', { 'doc-nav-link--active': isNavItemActive(item) }]"
+            >
+              <span>{{ item.title }}</span>
+              <IconsFlask v-if="item.stage === 'alpha'" class="doc-nav-badge" />
+            </NuxtLink>
           </div>
-        </nav>
-      </OverlayScrollbarsComponent>
+        </div>
+      </nav>
     </aside>
 
     <!-- Main Content -->
@@ -145,7 +138,6 @@
 <script setup lang="ts">
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
 import { DuTheme } from 'dangoui'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 import { useFloating, offset } from '@floating-ui/vue'
 import { useThrottleFn, useEventListener } from '@vueuse/core'
 import hotkeys from 'hotkeys-js'
@@ -596,6 +588,7 @@ onMounted(() => handleScroll())
   width: var(--doc-sidebar-w);
   background: var(--doc-sidebar-bg);
   border-right: 1px solid var(--doc-border-light);
+  overflow-y: auto;
 }
 
 .doc-nav {
