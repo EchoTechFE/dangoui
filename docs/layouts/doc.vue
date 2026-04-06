@@ -125,15 +125,7 @@
             :key="link.id"
             :href="`#${link.id}`"
             :class="['doc-outline-link', { 'doc-outline-link--active': isLinkActive(link) }]"
-            @click.prevent="(e) => {
-              if (!link.id) { console.warn('[Outline] link.id 为空', link); return }
-              const target = document.querySelector(`#${link.id}`)
-              if (!target) {
-                console.warn(`[Outline] 锚点不存在: #${link.id}`, '实际存在的ID:', [...document.querySelectorAll('h2[id], h3[id]')].map(el => el.id))
-              } else {
-                target.scrollIntoView({ behavior: 'smooth' })
-              }
-            }"
+            @click.prevent="handleOutlineClick(link)"
           >
             {{ link.text }}
           </a>
@@ -268,6 +260,19 @@ function isLinkActive(link: { id: string }) {
 
 function isNavItemActive(item: NavItem) {
   return item._path === route.path
+}
+
+function handleOutlineClick(link: { id: string; text: string }) {
+  if (!link.id) {
+    console.warn('[Outline] link.id 为空', link)
+    return
+  }
+  const target = document.querySelector(`#${link.id}`)
+  if (!target) {
+    console.warn(`[Outline] 锚点不存在: #${link.id}`, '实际存在的ID:', [...document.querySelectorAll('h2[id], h3[id]')].map(el => el.id))
+  } else {
+    target.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 const handleScroll = useThrottleFn(() => {
