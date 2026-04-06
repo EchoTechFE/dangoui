@@ -248,9 +248,13 @@ function handleThemeClick(theme: string) {
 }
 
 // Navigation
-const { data: md } = await useAsyncData(route.path, () =>
+const { data: md, refresh } = await useAsyncData(route.path, () =>
   queryContent(route.path === '/' ? '/get-started/introduction' : route.path).findOne(),
 )
+
+watch(() => route.path, () => {
+  refresh()
+})
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
 
