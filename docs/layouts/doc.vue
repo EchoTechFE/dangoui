@@ -249,10 +249,14 @@ function handleThemeClick(theme: string) {
 
 // Navigation
 const currentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
-const { data: md } = await useAsyncData(
-  computed(() => `doc-outline-${currentPath.value}`),
-  () => queryContent(currentPath.value).findOne(),
-)
+const md = ref(null)
+
+// Use watchEffect to refetch when route changes
+watchEffect(async () => {
+  const path = currentPath.value
+  const result = await queryContent(path).findOne()
+  md.value = result
+})
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
 
