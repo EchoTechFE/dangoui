@@ -596,7 +596,6 @@ onMounted(() => handleScroll())
   width: var(--doc-sidebar-w);
   background: var(--doc-sidebar-bg);
   border-right: 1px solid var(--doc-border-light);
-  overflow: hidden;
 }
 
 .doc-nav {
