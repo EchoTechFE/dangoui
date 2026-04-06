@@ -126,9 +126,10 @@
             :href="`#${link.id}`"
             :class="['doc-outline-link', { 'doc-outline-link--active': isLinkActive(link) }]"
             @click.prevent="(e) => {
+              if (!link.id) { console.warn('[Outline] link.id 为空', link); return }
               const target = document.querySelector(`#${link.id}`)
               if (!target) {
-                console.warn(`[Outline] 锚点不存在: #${link.id}`, '实际存在的ID:', [...document.querySelectorAll('h2, h3')].map(el => el.id))
+                console.warn(`[Outline] 锚点不存在: #${link.id}`, '实际存在的ID:', [...document.querySelectorAll('h2[id], h3[id]')].map(el => el.id))
               } else {
                 target.scrollIntoView({ behavior: 'smooth' })
               }
