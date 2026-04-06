@@ -259,7 +259,11 @@ watch(currentPath, async (path) => {
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
 
 function isLinkActive(link: { id: string }) {
-  return linksWithStatus.value.some((l) => l.id === link.id && l.isActive)
+  const active = linksWithStatus.value.some((l) => l.id === link.id && l.isActive)
+  if (active) {
+    console.log('[isLinkActive] link.id:', link.id, 'isActive:', active, 'linksWithStatus:', linksWithStatus.value)
+  }
+  return active
 }
 
 function isNavItemActive(item: NavItem) {
