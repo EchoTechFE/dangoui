@@ -16,6 +16,6 @@ import 'tippy.js/dist/tippy.css'
 const route = useRoute()
 
 onMounted(() => {
-  globalTheme.value = localStorage.getItem('DANGOUI_THEME') ?? ''
+  globalTheme.value = localStorage.getItem('DANGOUI_THEME') || 'qd'
 })
 </script>

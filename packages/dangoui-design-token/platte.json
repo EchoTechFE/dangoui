@@ -5802,5 +5802,3013 @@
     ],
     "number": [],
     "string": []
+  },
+  {
+    "mode": {
+      "name": "奇货",
+      "id": "qihuo"
+    },
+    "color": [
+      {
+        "name": "text/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/disabled",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/1",
+        "color": "#2B263B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/2",
+        "color": "#625E76",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/3",
+        "color": "#918B9F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/disabled",
+        "color": "#D4D0DA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/2",
+        "color": "#F7F7F9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/4",
+        "color": "#EDEDF2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/hover",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/active",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/1",
+        "color": "#FFF0E6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/2",
+        "color": "#FFDFCA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/3",
+        "color": "#FFC299",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/4",
+        "color": "#FFA15A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/5",
+        "color": "#FC7E22",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/6",
+        "color": "#D65D11",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/7",
+        "color": "#B04105",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/8",
+        "color": "#8A2C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/9",
+        "color": "#631C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/1",
+        "color": "#F7F7F9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/2",
+        "color": "#EDEDF2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/3",
+        "color": "#E1E1E5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/4",
+        "color": "#D4D0DA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/5",
+        "color": "#BAB5C4",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/6",
+        "color": "#918B9F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/7",
+        "color": "#625E76",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/8",
+        "color": "#383950",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/9",
+        "color": "#2B263B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/5",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/6",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/7",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/8",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/9",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/1",
+        "color": "#E2F7E3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/2",
+        "color": "#C9F2CA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/3",
+        "color": "#9DE09D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/4",
+        "color": "#7AD37F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/5",
+        "color": "#52BA5C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/6",
+        "color": "#379E45",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/7",
+        "color": "#247842",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/8",
+        "color": "#145221",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/9",
+        "color": "#0F3D19",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/1",
+        "color": "#FFF0E6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/2",
+        "color": "#FFDFCA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/3",
+        "color": "#FFC299",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/4",
+        "color": "#FFA15A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/5",
+        "color": "#FC7E22",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/6",
+        "color": "#D65D11",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/7",
+        "color": "#B04105",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/8",
+        "color": "#8A2C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/9",
+        "color": "#631C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      }
+    ]
+  },
+  {
+    "mode": {
+      "name": "商家版",
+      "id": "qihuo-dark"
+    },
+    "color": [
+      {
+        "name": "text/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/disabled",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/1",
+        "color": "#2B263B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/2",
+        "color": "#625E76",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/3",
+        "color": "#918B9F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/disabled",
+        "color": "#D4D0DA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/hover",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/active",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/1",
+        "color": "#F2F0FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/2",
+        "color": "#D9D2FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/3",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/4",
+        "color": "#958DFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/5",
+        "color": "#7C66FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/6",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/7",
+        "color": "#4036B3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/8",
+        "color": "#28238C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/9",
+        "color": "#1A1866",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidBg",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/color",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/softBg",
+        "color": "#F2F0FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/outlineColor",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/border",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/textColor",
+        "color": "#5C4CD9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidDisabledtempBg",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/disabledtempColor",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/softDisabledtempBg",
+        "color": "#F2F0FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/outlineDisabledtempColor",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/disabledtempBorder",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/textDisabledtempColor",
+        "color": "#C7B8FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/1",
+        "color": "#F7F7F9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/2",
+        "color": "#EDEDF2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/3",
+        "color": "#E1E1E5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/4",
+        "color": "#D4D0DA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/5",
+        "color": "#BAB5C4",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/6",
+        "color": "#918B9F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/7",
+        "color": "#625E76",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/8",
+        "color": "#383950",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/9",
+        "color": "#2B263B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/5",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/6",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/7",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/8",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/9",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/1",
+        "color": "#E2F7E3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/2",
+        "color": "#C9F2CA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/3",
+        "color": "#9DE09D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/4",
+        "color": "#7AD37F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/5",
+        "color": "#52BA5C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/6",
+        "color": "#379E45",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/7",
+        "color": "#247842",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/8",
+        "color": "#145221",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/9",
+        "color": "#0F3D19",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/1",
+        "color": "#FFF0E6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/2",
+        "color": "#FFDFCA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/3",
+        "color": "#FFC299",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/4",
+        "color": "#FFA15A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/5",
+        "color": "#FC7E22",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/6",
+        "color": "#D65D11",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/7",
+        "color": "#B04105",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/8",
+        "color": "#8A2C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/9",
+        "color": "#631C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "vip/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      }
+    ]
+  },
+  {
+    "mode": {
+      "name": "临界",
+      "id": "linjie"
+    },
+    "color": [
+      {
+        "name": "text/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/disabled",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/disabled",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/4",
+        "color": "#F8F8F8",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/hover",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/active",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/1",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/2",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/3",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/4",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/5",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/6",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/7",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/8",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/9",
+        "color": "#7247DC",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/1",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/2",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/3",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/4",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/5",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/6",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/7",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/8",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/9",
+        "color": "#0D002D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/1",
+        "color": "#FFF3E6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/2",
+        "color": "#FFDDBD",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/3",
+        "color": "#FFC494",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/4",
+        "color": "#FFA96B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/5",
+        "color": "#FF8C42",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/6",
+        "color": "#D9692E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/7",
+        "color": "#B34C1D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/8",
+        "color": "#8C330F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/9",
+        "color": "#66210A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/5",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/6",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/7",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/8",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/9",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/1",
+        "color": "#E2F7E3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/2",
+        "color": "#C9F2CA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/3",
+        "color": "#9DE09D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/4",
+        "color": "#7AD37F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/5",
+        "color": "#52BA5C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/6",
+        "color": "#379E45",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/7",
+        "color": "#247842",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/8",
+        "color": "#145221",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/9",
+        "color": "#0F3D19",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/1",
+        "color": "#FFF0E6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/2",
+        "color": "#FFDFCA",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/3",
+        "color": "#FFC299",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/4",
+        "color": "#FFA15A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/5",
+        "color": "#FC7E22",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/6",
+        "color": "#D65D11",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/7",
+        "color": "#B04105",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/8",
+        "color": "#8A2C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/9",
+        "color": "#631C00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/1",
+        "color": "#FFEBE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/2",
+        "color": "#FFD1CF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/3",
+        "color": "#FFABAB",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/4",
+        "color": "#FF8380",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/5",
+        "color": "#F96464",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/6",
+        "color": "#D94A4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/7",
+        "color": "#B3343C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/8",
+        "color": "#8C222C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/9",
+        "color": "#661722",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/5",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/6",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/7",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/8",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/9",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/color",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/textColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/disabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      }
+    ]
+  },
+  {
+    "mode": {
+      "name": "临界暗黑",
+      "id": "linjie-dark"
+    },
+    "color": [
+      {
+        "name": "text/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "text/disabled",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "icon/disabled",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "border/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/1",
+        "color": "#0A0A0A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/2",
+        "color": "#141414",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/3",
+        "color": "#1F1F1F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "bg/4",
+        "color": "#292929",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/1",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/2",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/3",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/4",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/hover",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "mask/active",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/1",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/2",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/3",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/4",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/5",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/6",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/7",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/8",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/9",
+        "color": "#9B7DE9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/1",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/2",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/3",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/4",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/5",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/6",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/7",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/8",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/9",
+        "color": "#DED1FF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/1",
+        "color": "#361A0C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/2",
+        "color": "#4D2A14",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/3",
+        "color": "#733F1E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/4",
+        "color": "#A65B2B",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/5",
+        "color": "#D97738",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/6",
+        "color": "#E59860",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/7",
+        "color": "#F2BA8D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/8",
+        "color": "#F0D0B2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/9",
+        "color": "#F5E9DD",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "trade/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "white/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "default/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/1",
+        "color": "#0E2811",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/2",
+        "color": "#19381C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/3",
+        "color": "#255429",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/4",
+        "color": "#35793C",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/5",
+        "color": "#469E4E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/6",
+        "color": "#6EBE72",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/7",
+        "color": "#95D595",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/8",
+        "color": "#C3EBC4",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/9",
+        "color": "#DDF2DE",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "success/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/1",
+        "color": "#361704",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/2",
+        "color": "#4C260A",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/3",
+        "color": "#71390F",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/4",
+        "color": "#A45216",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/5",
+        "color": "#D66B1D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/6",
+        "color": "#E59151",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/7",
+        "color": "#F2B891",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/8",
+        "color": "#F7D8C4",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/9",
+        "color": "#FAEBE1",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "warning/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/1",
+        "color": "#361314",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/2",
+        "color": "#4B1E1E",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/3",
+        "color": "#702D2D",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/4",
+        "color": "#A24141",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/5",
+        "color": "#D45555",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/6",
+        "color": "#E57673",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/7",
+        "color": "#F2A2A2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/8",
+        "color": "#F7CBC9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/9",
+        "color": "#FAE6E4",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "error/solidDisabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/1",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/2",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/3",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/4",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/5",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/6",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/7",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/8",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/9",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/solidColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/color",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/textColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/solidDisabledtempColor",
+        "color": "#000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "transBlack/disabledtempColor",
+        "color": "#FFFFFF",
+        "var": "",
+        "rootAlias": ""
+      }
+    ]
   }
 ]

@@ -9,7 +9,7 @@ type ThemeConfig = {
 }
 
 type CreateThemeOpts = {
-  theme: Array<ThemeConfig | 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark'>
+  theme: Array<ThemeConfig | 'qd' | 'qd-dark' | 'qh' | 'qh-dark' | 'qdm' | 'mihua-light' | 'mihua-dark' | 'linjie' | 'linjie-dark'>
   defaultTheme: string
 }
 
@@ -344,7 +344,7 @@ export function combineThemes(...themesList: ThemeConfig[][]) {
 export function createThemes(opts: CreateThemeOpts) {
   // 以字符串形式提供的内置主题
   const filteredBuiltinThemes = opts.theme.filter(
-    (theme): theme is 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark' =>
+    (theme): theme is 'qd' | 'qd-dark' | 'qh' | 'qh-dark' | 'qdm' | 'mihua-light' | 'mihua-dark' | 'linjie' | 'linjie-dark' =>
       typeof theme === 'string',
   )
   // 以对象形式提供的
@@ -378,6 +378,18 @@ export function createThemes(opts: CreateThemeOpts) {
     }
     if (theme.mode.name === '千岛暗黑') {
       theme.mode.name = 'qd-dark'
+    }
+    if (theme.mode.name === '奇货') {
+      theme.mode.name = 'qh'
+    }
+    if (theme.mode.name === '商家版') {
+      theme.mode.name = 'qh-dark'
+    }
+    if (theme.mode.name === '临界') {
+      theme.mode.name = 'linjie'
+    }
+    if (theme.mode.name === '临界暗黑') {
+      theme.mode.name = 'linjie-dark'
     }
   })
 

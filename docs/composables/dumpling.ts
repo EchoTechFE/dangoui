@@ -1,1 +1,1 @@
-export const globalTheme = ref('')
+export const globalTheme = ref('qd')
