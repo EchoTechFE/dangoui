@@ -248,13 +248,19 @@ function handleThemeClick(theme: string) {
 }
 
 // Navigation
-const currentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
+const currentPath = computed(() => {
+  const p = route.path === '/' ? '/get-started/introduction' : route.path
+  console.log('[Outline] currentPath 计算:', p)
+  return p
+})
 const md = ref(null)
 
 // Use watch with immediate to refetch when route changes
 watch(currentPath, async (path) => {
+  console.log('[Outline] watch 触发, path:', path)
   const result = await queryContent(path).findOne()
   md.value = result
+  console.log('[Outline] md 更新为:', md.value?._path)
 }, { immediate: true })
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
