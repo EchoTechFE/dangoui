@@ -251,12 +251,11 @@ function handleThemeClick(theme: string) {
 const currentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
 const md = ref(null)
 
-// Use watchEffect to refetch when route changes
-watchEffect(async () => {
-  const path = currentPath.value
+// Use watch with immediate to refetch when route changes
+watch(currentPath, async (path) => {
   const result = await queryContent(path).findOne()
   md.value = result
-})
+}, { immediate: true })
 
 const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
 
