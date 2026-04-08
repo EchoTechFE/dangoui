@@ -50,45 +50,36 @@
           <div v-else class="doc-search-empty">没有结果</div>
         </div>
 
-        <!-- Right Actions -->
-        <div class="doc-actions">
+        <!-- App Segment Control -->
+        <div class="doc-app-segment">
+          <button
+            v-for="app in apps"
+            :key="app.id"
+            :class="['doc-app-btn', { 'doc-app-btn--active': currentApp === app.id }]"
+            @click="handleAppClick(app.id)"
+            :title="app.name"
+          >
+            <span class="doc-app-dot" :class="`du-theme-${app.id}`"></span>
+            <span class="doc-app-name">{{ app.name }}</span>
+          </button>
+        </div>
+
+        <div class="doc-header-right">
+          <!-- Theme Toggle -->
           <button
             class="doc-action-btn doc-theme-toggle"
             @click="toggleTheme"
-            :title="isDark ? '切换到日照' : '切换到暗黑'"
+            :title="isDarkMode ? '切换到日照' : '切换到暗黑'"
           >
-            {{ isDark ? '☀️' : '🌙' }}
+            {{ isDarkMode ? '☀️' : '🌙' }}
           </button>
+
           <a href="https://github.com/EchoTechFE/dangoui" target="_blank" class="doc-action-btn">
             <IconsGitHub />
           </a>
         </div>
       </div>
     </header>
-
-    <!-- Theme Config Panel -->
-    <Teleport to="body" v-if="isThemeConfigOpen">
-      <div class="doc-modal-overlay" @click="isThemeConfigOpen = false"></div>
-      <div class="doc-theme-panel">
-        <div class="doc-theme-panel-header">
-          <span>主题定制</span>
-          <button class="doc-theme-panel-close" @click="isThemeConfigOpen = false">
-            <span>✕</span>
-          </button>
-        </div>
-        <div class="doc-theme-options">
-          <button
-            v-for="theme in themes"
-            :key="theme.id"
-            :class="['doc-theme-option', { 'doc-theme-option--active': globalTheme === theme.id }]"
-            @click="handleThemeClick(theme.id)"
-          >
-            <div class="doc-theme-swatch" :style="{ background: theme.color }"></div>
-            <span class="doc-theme-name">{{ theme.name }}</span>
-          </button>
-        </div>
-      </div>
-    </Teleport>
 
     <!-- Sidebar -->
     <aside class="doc-sidebar">
@@ -141,6 +132,7 @@
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
 import { DuTheme } from 'dangoui'
 import { useFloating, offset } from '@floating-ui/vue'
+import { globalTheme, currentApp, isDarkMode } from '~/composables/dumpling'
 import { useThrottleFn, useEventListener } from '@vueuse/core'
 import hotkeys from 'hotkeys-js'
 
@@ -164,12 +156,12 @@ const keyword = ref('')
 const result = ref<NavItem[]>([])
 const activeSearchItem = ref('')
 
-const themes = [
-  { id: 'qd', name: '千岛紫', color: '#5854ff' },
-  { id: 'qh', name: '奇货橙', color: '#ff812c' },
-  { id: 'qdm', name: '商家蓝', color: '#1677ff' },
-  { id: 'mihua-light', name: '米花绿·日照', color: '#aef056' },
-  { id: 'mihua-dark', name: '米花绿·暗黑', color: '#aef056' },
+const apps = [
+  { id: 'qd', name: '千岛' },
+  { id: 'qh', name: '奇货' },
+  { id: 'qdm', name: '商家' },
+  { id: 'mihua', name: '米花' },
+  { id: 'linjie', name: '临界' },
 ]
 
 watch(keyword, (kw) => {
@@ -232,19 +224,17 @@ function isActiveSearchItem(item: NavItem) {
 }
 
 // Theme
-const isDark = computed(() => globalTheme.value.includes('dark'))
-
 function toggleTheme() {
-  globalTheme.value = isDark.value ? 'qd' : 'qd-dark'
+  isDarkMode.value = !isDarkMode.value
   localStorage.setItem('DANGOUI_THEME', globalTheme.value)
+  console.log('[toggleTheme] isDarkMode:', isDarkMode.value, '→ globalTheme:', globalTheme.value, '→ currentApp:', currentApp.value)
   nextTick(() => handleScroll())
 }
 
-const isThemeConfigOpen = ref(false)
-
-function handleThemeClick(theme: string) {
-  globalTheme.value = theme
-  localStorage.setItem('DANGOUI_THEME', theme)
+function handleAppClick(appId: string) {
+  currentApp.value = appId
+  localStorage.setItem('DANGOUI_THEME', globalTheme.value)
+  console.log('[handleAppClick] appId:', appId, 'isDarkMode:', isDarkMode.value, '→ globalTheme:', globalTheme.value)
   nextTick(() => handleScroll())
 }
 
@@ -343,7 +333,7 @@ onMounted(() => handleScroll())
   max-width: calc(var(--doc-layout-max-w) + var(--doc-sidebar-w) + var(--spacing-3xl) * 2);
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
-  gap: var(--spacing-lg);
+  gap: 4px;
 }
 
 /* ── Logo ── */
@@ -378,8 +368,6 @@ onMounted(() => handleScroll())
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  flex: 1;
-  max-width: 320px;
   height: 32px;
   padding: 0 var(--spacing-md);
   background: var(--doc-bg-secondary);
@@ -492,7 +480,7 @@ onMounted(() => handleScroll())
   width: 32px;
   height: 32px;
   border: none;
-  background: transparent;
+  background: var(--doc-bg-secondary);
   border-radius: var(--radius-md);
   color: var(--doc-text-secondary);
   cursor: pointer;
@@ -501,7 +489,7 @@ onMounted(() => handleScroll())
 }
 
 .doc-action-btn:hover {
-  background: var(--doc-bg-secondary);
+  background: var(--doc-bg-tertiary);
   color: var(--doc-text-primary);
 }
 
@@ -510,104 +498,72 @@ onMounted(() => handleScroll())
   height: 18px;
 }
 
-/* ── Theme Panel ── */
-.doc-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 200;
+.doc-theme-toggle {
+  margin-left: 0;
 }
 
-.doc-theme-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 100vh;
-  background: var(--doc-bg-primary);
-  box-shadow: var(--shadow-xl);
-  z-index: 201;
-  animation: slideIn 200ms ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.doc-theme-panel-header {
+/* ── App Segment ── */
+.doc-app-segment {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  border-bottom: 1px solid var(--doc-border-light);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--doc-text-primary);
+  gap: 2px;
+  height: 32px;
+  padding: 0 2px;
+  background: var(--doc-bg-secondary);
+  border-radius: var(--radius-md);
+  margin-left: auto;
 }
 
-.doc-theme-panel-close {
+.doc-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doc-app-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
   height: 28px;
+  padding: 0 8px;
   border: none;
   background: transparent;
   border-radius: var(--radius-sm);
-  color: var(--doc-text-tertiary);
   cursor: pointer;
   transition: var(--transition-fast);
+  gap: 4px;
 }
 
-.doc-theme-panel-close:hover {
-  background: var(--doc-bg-secondary);
-  color: var(--doc-text-primary);
+.doc-app-btn:hover {
+  background: var(--doc-bg-primary);
 }
 
-.doc-theme-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
-}
-
-.doc-theme-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md);
-  border: 2px solid transparent;
-  background: transparent;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.doc-theme-option:hover {
-  background: var(--doc-bg-secondary);
-}
-
-.doc-theme-option--active {
-  border-color: var(--doc-accent);
-  background: var(--doc-accent-bg);
-}
-
-.doc-theme-swatch {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
+.doc-app-btn--active {
+  background: var(--doc-bg-primary);
   box-shadow: var(--shadow-sm);
 }
 
-.doc-theme-name {
-  font-size: 12px;
-  color: var(--doc-text-secondary);
+.doc-app-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--du-primary-solid-bg);
+}
+
+.doc-app-btn--active .doc-app-dot {
+  transform: scale(1.2);
+}
+
+.doc-app-name {
+  font-size: 11px;
+  color: var(--doc-text-tertiary);
+  white-space: nowrap;
+}
+
+.doc-app-btn--active .doc-app-name {
+  color: var(--doc-text-primary);
+  font-weight: 500;
 }
 
 /* ── Sidebar ── */
@@ -687,10 +643,9 @@ onMounted(() => handleScroll())
 /* ── Content ── */
 .doc-content {
   min-height: calc(100vh - var(--doc-header-h));
-  padding: var(--spacing-3xl) var(--spacing-4xl);
+  padding: 64px var(--spacing-2xl);
   margin-left: var(--doc-sidebar-w);
   margin-right: var(--doc-outline-w);
-  max-width: calc(var(--doc-layout-max-w) + var(--doc-outline-w));
 }
 
 /* ── Outline ── */
@@ -741,7 +696,7 @@ onMounted(() => handleScroll())
 }
 
 /* ── Responsive ── */
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .doc-outline {
     display: none;
   }

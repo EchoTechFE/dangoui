@@ -18,6 +18,12 @@
   --spacing-xl: 24px;
   --spacing-2xl: 32px;
   --spacing-3xl: 48px;
+
+  /* ── Typography ── */
+  --doc-font-size-xs: 11px;
+  --doc-font-size-sm: 12px;
+  --doc-font-size-md: 13px;
+  --doc-line-height-tight: 1.4;
   --spacing-4xl: 64px;
 
   /* ── Border Radius (Apple-like: 8-12px) ── */
@@ -54,10 +60,51 @@
 
 /* ── Dark Theme ── */
 /* 这些变量通过 CSS 级联从 du-theme-* 类继承 */
-.du-theme-qd-dark,
 .du-theme-qd,
+.du-theme-qh,
+.du-theme-qdm,
+.du-theme-linjie,
+.g-theme-qd,
+.g-theme-qh,
+.g-theme-qdm,
+.g-theme-linjie {
+  --doc-text-primary: var(--du-text-1);
+  --doc-text-secondary: var(--du-text-2);
+  --doc-text-tertiary: var(--du-text-3);
+  --doc-text-placeholder: var(--du-text-disabled);
+  --doc-bg-primary: var(--du-bg-1);
+  --doc-bg-secondary: var(--du-bg-2);
+  --doc-bg-tertiary: var(--du-bg-4);
+  --doc-border: var(--du-border-1);
+  --doc-border-light: var(--du-border-2);
+  --doc-sidebar-bg: var(--du-bg-1);
+  --doc-content-bg: var(--du-bg-1);
+}
+
+.du-theme-qd-dark,
+.du-theme-qh-dark,
+.du-theme-linjie-dark,
 .g-theme-qd-dark,
-.g-theme-qd {
+.g-theme-qh-dark,
+.g-theme-linjie-dark {
+  --doc-text-primary: var(--du-text-1);
+  --doc-text-secondary: var(--du-text-2);
+  --doc-text-tertiary: var(--du-text-3);
+  --doc-text-placeholder: var(--du-text-disabled);
+  --doc-bg-primary: var(--du-bg-1);
+  --doc-bg-secondary: var(--du-bg-2);
+  --doc-bg-tertiary: var(--du-bg-4);
+  --doc-border: var(--du-border-1);
+  --doc-border-light: var(--du-border-2);
+  --doc-sidebar-bg: var(--du-bg-1);
+  --doc-content-bg: var(--du-bg-1);
+}
+
+/* mihua 暂无独立 theme，使用 qd 的映射 */
+.du-theme-mihua,
+.du-theme-mihua-dark,
+.g-theme-mihua,
+.g-theme-mihua-dark {
   --doc-text-primary: var(--du-text-1);
   --doc-text-secondary: var(--du-text-2);
   --doc-text-tertiary: var(--du-text-3);
@@ -74,36 +121,64 @@
 /* ── Dark Theme — Markdown Body Override ── */
 /* github-markdown-light.css 有硬编码的浅色颜色，需要在暗黑模式下覆盖 */
 .du-theme-qd-dark .markdown-body,
-.g-theme-qd-dark .markdown-body {
+.du-theme-qh-dark .markdown-body,
+.du-theme-linjie-dark .markdown-body,
+.g-theme-qd-dark .markdown-body,
+.g-theme-qh-dark .markdown-body,
+.g-theme-linjie-dark .markdown-body {
   color: var(--doc-text-primary);
   background-color: var(--doc-bg-primary);
 }
 
 .du-theme-qd-dark .markdown-body a,
-.g-theme-qd-dark .markdown-body a {
+.du-theme-qh-dark .markdown-body a,
+.du-theme-linjie-dark .markdown-body a,
+.g-theme-qd-dark .markdown-body a,
+.g-theme-qh-dark .markdown-body a,
+.g-theme-linjie-dark .markdown-body a {
   color: var(--doc-accent);
 }
 
 .du-theme-qd-dark .markdown-body code,
-.g-theme-qd-dark .markdown-body code {
+.du-theme-qh-dark .markdown-body code,
+.du-theme-linjie-dark .markdown-body code,
+.g-theme-qd-dark .markdown-body code,
+.g-theme-qh-dark .markdown-body code,
+.g-theme-linjie-dark .markdown-body code {
   background-color: var(--doc-bg-secondary);
   color: var(--doc-accent);
 }
 
 .du-theme-qd-dark .markdown-body pre,
-.g-theme-qd-dark .markdown-body pre {
+.du-theme-qh-dark .markdown-body pre,
+.du-theme-linjie-dark .markdown-body pre,
+.g-theme-qd-dark .markdown-body pre,
+.g-theme-qh-dark .markdown-body pre,
+.g-theme-linjie-dark .markdown-body pre {
   background-color: var(--doc-bg-secondary);
 }
 
 .du-theme-qd-dark .markdown-body blockquote,
-.g-theme-qd-dark .markdown-body blockquote {
+.du-theme-qh-dark .markdown-body blockquote,
+.du-theme-linjie-dark .markdown-body blockquote,
+.g-theme-qd-dark .markdown-body blockquote,
+.g-theme-qh-dark .markdown-body blockquote,
+.g-theme-linjie-dark .markdown-body blockquote {
   border-left-color: var(--doc-accent);
   background-color: var(--doc-accent-bg);
 }
 
 .du-theme-qd-dark .markdown-body th,
+.du-theme-qh-dark .markdown-body th,
+.du-theme-linjie-dark .markdown-body th,
 .g-theme-qd-dark .markdown-body th,
+.g-theme-qh-dark .markdown-body th,
+.g-theme-linjie-dark .markdown-body th,
 .du-theme-qd-dark .markdown-body td,
-.g-theme-qd-dark .markdown-body td {
+.du-theme-qh-dark .markdown-body td,
+.du-theme-linjie-dark .markdown-body td,
+.g-theme-qd-dark .markdown-body td,
+.g-theme-qh-dark .markdown-body td,
+.g-theme-linjie-dark .markdown-body td {
   border-color: var(--doc-border-light);
 }

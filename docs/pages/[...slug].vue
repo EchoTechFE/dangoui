@@ -53,7 +53,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
 <style>
 /* ── Article ── */
 .doc-article {
-  max-width: 720px;
+  width: 100%;
 }
 
 /* ── Typography Prose ── */
@@ -62,6 +62,16 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   font-size: 15px;
   line-height: 1.7;
   color: var(--doc-text-primary);
+  max-width: none;
+}
+
+:deep(.doc-prose.prose) {
+  max-width: none;
+  width: 100%;
+}
+
+:deep(.doc-prose.prose > *) {
+  max-width: 100% !important;
 }
 
 .doc-prose :deep(h1) {
@@ -135,14 +145,16 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   background: var(--doc-bg-secondary);
   border-radius: var(--radius-lg);
   overflow-x: auto;
+  white-space: pre;
 }
 
 .doc-prose :deep(pre code) {
   padding: 0;
   background: transparent;
   color: var(--doc-text-primary);
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: var(--doc-font-size-xs);
+  line-height: var(--doc-line-height-tight);
+  white-space: pre;
 }
 
 .doc-prose :deep(blockquote) {
