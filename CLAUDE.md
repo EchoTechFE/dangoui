@@ -257,6 +257,27 @@ pages/general/typography.vue
 **路由切换不自动刷新：**
 - Nuxt 路由切换时页面不会重新请求数据（CSR 特性），开发时需手动刷新或重启 dev server 确认最新内容
 - 涉及 content 文件变更时，建议 `pnpm dev` 重启以确保渲染结果正确
+
+### 文件重命名防丢 frontmatter 规则
+
+批量 `git mv` 重命名 md 文件时，**只做路径变更，frontmatter 会被丢弃**（踩过 23 个文件 frontmatter 全丢的坑）。
+
+**任何批量 rename 操作后，必须执行校验：**
+```bash
+git diff <old>..<new> --name-status | grep '^R' | grep '\.md$' | while read -r line; do
+  old=$(echo "$line" | awk '{print $2}')
+  new=$(echo "$line" | awk '{print $3}')
+  old_fm=$(git show <old>:"$old" 2>/dev/null | sed -n '1,/^---$/p')
+  new_content=$(git show <new>:"$new" 2>/dev/null | head -1)
+  if echo "$old_fm" | grep -q '^---' && ! echo "$new_content" | grep -q '^---'; then
+    echo "❌ LOST: $old → $new"
+  fi
+done
+```
+
+若检测到 frontmatter 丢失，立即从原始 commit 取出 frontmatter 补回目标文件。
+
+**恢复被误删文件：** `git show <历史commit>:<文件路径>` → 写入新路径 → 确认 frontmatter 完整。
 ### Docs 样式调试经验
 
 **问题：CSS 样式不生效（heading 字号/颜色等）**
@@ -272,7 +293,6 @@ pages/general/typography.vue
 - 如果 `.doc-prose :deep(h1)` 不生效，先检查 `.doc-prose` 是否真的有 `.prose` 类
 
 **Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
-
 ---
 
 ## 04 · 【预留】
