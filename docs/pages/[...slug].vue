@@ -2,7 +2,6 @@
   <article class="doc-article">
     <ContentDoc class="doc-prose prose" />
 
-    <!-- Navigation -->
     <nav class="doc-nav-footer">
       <NuxtLink
         v-if="surround?.[0]"
@@ -146,6 +145,11 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   border-radius: var(--radius-lg);
   overflow-x: auto;
   white-space: pre;
+  border: none !important;
+}
+
+.doc-prose :is(pre, .shiki, code) {
+  border: none !important;
 }
 
 .doc-prose :deep(pre code) {
