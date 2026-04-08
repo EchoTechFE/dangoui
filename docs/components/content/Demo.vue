@@ -1,32 +1,57 @@
 <template>
-  <section class="demo-block">
-    <div class="demo-block-header">
-      <span class="demo-block-title">{{ title }}</span>
-    </div>
-    <div class="demo-block-content">
-      <div class="demo-block-preview">
-        <Suspense>
-          <component :is="snippetComponent" />
-          <template #fallback>
-            <span class="demo-loading">加载中...</span>
-          </template>
-        </Suspense>
+  <section
+    class="w-full flex rounded-4px border border-solid border-border-2 h-667px mb-32px text-14px overflow-hidden"
+  >
+    <div class="flex-1 h-full flex flex-col overflow-hidden">
+      <div
+        class="h-40px w-full border-b border-b-solid border-b-border-2 flex-none flex justify-between items-center px-8px"
+      >
+        <div class="font-semibold">{{ title }}</div>
       </div>
-      <div class="demo-block-code">
-        <div class="demo-block-code-header">
-          <span class="demo-block-code-title">代码示例</span>
+      <div class="px-16px flex flex-col flex-1 overflow-hidden">
+        <div
+          class="border-b border-b-dashed border-b-border-2 flex-none"
+          v-if="$slots.default"
+        >
+          <slot />
         </div>
-        <div class="demo-block-code-content">
-          <OverlayScrollbarsComponent
-            class="demo-block-scroll"
-            :options="{
-              scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
-              overflow: { x: 'scroll', y: 'scroll' },
-            }"
-            defer
-          >
-            <slot name="snippet" />
-          </OverlayScrollbarsComponent>
+        <OverlayScrollbarsComponent
+          class="not-prose py-16px px-8px flex-1"
+          :options="{
+            scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+            overflow: { x: 'scroll', y: 'scroll' },
+          }"
+          defer
+        >
+          <slot name="snippet" />
+        </OverlayScrollbarsComponent>
+      </div>
+    </div>
+    <div
+      class="flex-none flex-basis-375px border-l border-l-solid border-l-border-2 bg-bg-2 relative"
+    >
+      <iframe ref="iframe" :src="demoPath" class="w-full h-[calc(100%-32px)]" />
+      <div
+        v-if="consoleOpen"
+        class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
+      >
+        <div
+          v-for="(log, idx) in logs"
+          :key="idx"
+          class="px-4px py-2px c-gray-500"
+        >
+          {{ log }}
+        </div>
+      </div>
+      <div
+        class="h-32px bg-white border-t border-t-solid border-t-border-2 flex items-center px-8px select-none"
+      >
+        <div
+          class="flex items-center cursor-pointer rounded-2px hover:bg-gray-100 px-4px"
+          @click="consoleOpen = !consoleOpen"
+        >
+          <div class="i-mdi-code-greater-than mr-4px" />
+          <div class="font-mono text-12px">{{ logs.length }}</div>
         </div>
       </div>
     </div>
@@ -35,7 +60,7 @@
 
 <script setup lang="ts">
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
-import { defineAsyncComponent } from 'vue'
+import { globalTheme } from '~/composables/dumpling'
 
 const props = defineProps<{
   idx: number
@@ -43,112 +68,42 @@ const props = defineProps<{
   title: string
 }>()
 
-// content:1.style:3.button.md → 1.style/button
-const snippetFile = computed(() => {
-  const match = props.path.match(/^content:(\d+)\.(\w+):(\d+)\.(.+)\.md$/)
-  if (match) {
-    return `pages/demos/${match[1]}.${match[2]}/${match[4]}/snippet${props.idx}.vue`
-  }
-  return null
+const iframe = ref<HTMLIFrameElement>()
+
+const demoPath = computed(() => {
+  const p = props.path
+    .replace(/^content:/, '')
+    .split(':')
+    .map((s) => s.replace(/^(\d+)\./, '').replace(/\.md$/, ''))
+    .join('/')
+  return `/demos/${p}/snippet${props.idx}`
 })
 
-const snippetComponent = computed(() => {
-  if (!snippetFile.value) return null
-  const url = new URL(`../../${snippetFile.value}`, import.meta.url)
-  return defineAsyncComponent({
-    loader: () => import(/* @vite-ignore */ url.href),
-    loadingComponent: { template: '<span class="demo-loading">加载中...</span>' },
+const logs = ref<string[]>([])
+
+const consoleOpen = ref(false)
+
+watch(globalTheme, (theme) => {
+  iframe.value?.contentWindow?.postMessage(
+    {
+      type: 'theme',
+      message: theme,
+    },
+    '*',
+  )
+})
+
+onMounted(() => {
+  window.addEventListener('message', (message) => {
+    if (message.source !== iframe.value?.contentWindow) {
+      return
+    }
+    if (
+      message.data?.type === 'log' &&
+      message.data?.message.startsWith('[demo]')
+    ) {
+      logs.value.push(message.data.message)
+    }
   })
 })
 </script>
-
-<style scoped>
-.demo-block {
-  margin: var(--spacing-2xl) 0;
-  border: 1px solid var(--doc-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: var(--doc-bg-primary);
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-}
-
-.demo-block-header {
-  display: flex;
-  align-items: center;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--doc-bg-secondary);
-  border-bottom: 1px solid var(--doc-border-light);
-}
-
-.demo-block-title {
-  font-size: var(--doc-font-size-md);
-  font-weight: 500;
-  color: var(--doc-text-secondary);
-}
-
-.demo-block-content {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  min-height: 120px;
-}
-
-.demo-block-preview {
-  padding: var(--spacing-md);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--spacing-xs);
-  border-right: 1px solid var(--doc-border-light);
-  background: var(--doc-bg-primary);
-}
-
-.demo-block-code {
-  display: flex;
-  flex-direction: column;
-  background: var(--doc-bg-secondary);
-}
-
-.demo-block-code-header {
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-bottom: 1px solid var(--doc-border-light);
-}
-
-.demo-block-code-title {
-  font-size: var(--doc-font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--doc-text-tertiary);
-}
-
-.demo-block-code-content {
-  flex: 1;
-  overflow: hidden;
-}
-
-.demo-block-scroll {
-  height: 100%;
-  padding: var(--spacing-sm);
-  font-size: var(--doc-font-size-xs);
-  line-height: var(--doc-line-height-tight);
-  overflow-x: auto;
-  white-space: pre;
-}
-
-@media (max-width: 768px) {
-  .demo-block-content {
-    grid-template-columns: 1fr;
-  }
-
-  .demo-block-preview {
-    border-right: none;
-    border-bottom: 1px solid var(--doc-border-light);
-  }
-}
-
-.demo-loading {
-  font-size: 13px;
-  color: var(--doc-text-tertiary);
-}
-</style>

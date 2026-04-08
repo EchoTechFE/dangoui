@@ -5,7 +5,7 @@
     <nav class="doc-nav-footer">
       <NuxtLink
         v-if="surround?.[0]"
-        :href="surround[0]._path"
+        :to="surround[0]._path"
         class="doc-nav-prev"
       >
         <span class="doc-nav-label">上一篇</span>
@@ -15,7 +15,7 @@
 
       <NuxtLink
         v-if="surround?.[1]"
-        :href="surround[1]._path"
+        :to="surround[1]._path"
         class="doc-nav-next"
       >
         <span class="doc-nav-label">下一篇</span>
@@ -33,20 +33,22 @@ definePageMeta({
 
 const route = useRoute()
 
-const { data: md } = await useAsyncData(route.path, () =>
-  queryContent(
-    route.path === '/' ? '/get-started/introduction' : route.path,
-  ).findOne(),
+const contentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
+
+const { data: md } = await useAsyncData(
+  'content:' + route.path,
+  () => queryContent(contentPath.value).findOne(),
+  { watch: [contentPath] },
 )
 
-const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
-  return queryContent()
+const { data: surround } = await useAsyncData(
+  'surround:' + route.path,
+  () => queryContent()
     .only(['_path', 'title'])
-    .where({
-      _partial: false,
-    })
-    .findSurround(route.path === '/' ? '/get-started/introduction' : route.path)
-})
+    .where({ _partial: false })
+    .findSurround(contentPath.value),
+  { watch: [contentPath] },
+)
 </script>
 
 <style>
@@ -64,16 +66,16 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   max-width: none;
 }
 
-:deep(.doc-prose.prose) {
+.doc-prose.prose {
   max-width: none;
   width: 100%;
 }
 
-:deep(.doc-prose.prose > *) {
+.doc-prose.prose > * {
   max-width: 100% !important;
 }
 
-.doc-prose :deep(h1) {
+.doc-prose h1 {
   font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
@@ -84,7 +86,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   border-bottom: 1px solid var(--doc-border-light);
 }
 
-.doc-prose :deep(h2) {
+.doc-prose h2 {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.3;
@@ -94,7 +96,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   margin-bottom: var(--spacing-lg);
 }
 
-.doc-prose :deep(h3) {
+.doc-prose h3 {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.4;
@@ -103,33 +105,33 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   margin-bottom: var(--spacing-md);
 }
 
-.doc-prose :deep(p) {
+.doc-prose p {
   margin-bottom: var(--spacing-lg);
   color: var(--doc-text-secondary);
 }
 
-.doc-prose :deep(a) {
+.doc-prose a {
   color: var(--doc-accent);
   text-decoration: none;
   transition: var(--transition-fast);
 }
 
-.doc-prose :deep(a:hover) {
+.doc-prose a:hover {
   text-decoration: underline;
 }
 
-.doc-prose :deep(ul),
-.doc-prose :deep(ol) {
+.doc-prose ul,
+.doc-prose ol {
   margin-bottom: var(--spacing-lg);
   padding-left: var(--spacing-xl);
   color: var(--doc-text-secondary);
 }
 
-.doc-prose :deep(li) {
+.doc-prose li {
   margin-bottom: var(--spacing-sm);
 }
 
-.doc-prose :deep(code) {
+.doc-prose code {
   font-family: var(--doc-font-mono);
   font-size: 0.9em;
   padding: 2px 6px;
@@ -138,7 +140,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   color: var(--doc-accent);
 }
 
-.doc-prose :deep(pre) {
+.doc-prose pre {
   margin: var(--spacing-xl) 0;
   padding: var(--spacing-lg);
   background: var(--doc-bg-secondary);
@@ -152,7 +154,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   border: none !important;
 }
 
-.doc-prose :deep(pre code) {
+.doc-prose pre code {
   padding: 0;
   background: transparent;
   color: var(--doc-text-primary);
@@ -161,7 +163,7 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   white-space: pre;
 }
 
-.doc-prose :deep(blockquote) {
+.doc-prose blockquote {
   margin: var(--spacing-xl) 0;
   padding: var(--spacing-lg) var(--spacing-xl);
   border-left: 3px solid var(--doc-accent);
@@ -170,33 +172,33 @@ const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
   color: var(--doc-text-secondary);
 }
 
-.doc-prose :deep(hr) {
+.doc-prose hr {
   margin: var(--spacing-3xl) 0;
   border: none;
   border-top: 1px solid var(--doc-border-light);
 }
 
-.doc-prose :deep(table) {
+.doc-prose table {
   width: 100%;
   margin: var(--spacing-xl) 0;
   border-collapse: collapse;
   font-size: 14px;
 }
 
-.doc-prose :deep(th),
-.doc-prose :deep(td) {
+.doc-prose th,
+.doc-prose td {
   padding: var(--spacing-sm) var(--spacing-md);
   text-align: left;
   border-bottom: 1px solid var(--doc-border-light);
 }
 
-.doc-prose :deep(th) {
+.doc-prose th {
   font-weight: 600;
   color: var(--doc-text-primary);
   background: var(--doc-bg-secondary);
 }
 
-.doc-prose :deep(td) {
+.doc-prose td {
   color: var(--doc-text-secondary);
 }
 
