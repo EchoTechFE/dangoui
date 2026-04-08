@@ -233,6 +233,30 @@ pages/general/typography.vue
 
 **docs 既是设计规范文档（给人看），也是 DangUI 组件的测试床（开发自验）。**
 
+### 文件操作注意事项
+
+**Rename vs Delete+Recreate：**
+- `git mv` = 保留文件 content history，git log 追踪路径变更
+- 实际操作时，如果新文件是从零写入而不是从旧文件迁移，frontmatter 会丢失
+- **移动文件** = 保持内容不变迁移路径；**删除+新建** = 旧 frontmatter 全丢
+
+**Commit message 如实反映操作：**
+- commit message 写了"删除"就会在 PR review 时误导判断
+- rename 操作描述应为"移动 X → Y"，不是"删除 X"
+
+**Restore 流程（从历史恢复被误删的文件）：**
+- `git show <历史commit>:<文件路径>` 可以读取任意历史版本
+- 恢复后确认 frontmatter 完整（`---` 开头 + `head.meta` / `navigation.stage`）
+
+### Docs 样式与路由规范
+
+**样式修改优先 UnoCSS：**
+- docs 中的样式修改应使用 UnoCSS（`uno.config.ts` 或 inline class），而非新建 `*.css` 文件或 `<style>` 块
+- UnoCSS 是 Dangoui 设计系统的核心工具，保持一致性
+
+**路由切换不自动刷新：**
+- Nuxt 路由切换时页面不会重新请求数据（CSR 特性），开发时需手动刷新或重启 dev server 确认最新内容
+- 涉及 content 文件变更时，建议 `pnpm dev` 重启以确保渲染结果正确
 ### Docs 样式调试经验
 
 **问题：CSS 样式不生效（heading 字号/颜色等）**
