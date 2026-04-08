@@ -2,20 +2,9 @@
   <section class="demo-block">
     <div class="demo-block-header">
       <span class="demo-block-title">{{ title }}</span>
-      <div class="demo-block-tabs">
-        <button
-          :class="['demo-tab', { 'demo-tab--active': activeTab === 'preview' }]"
-          @click="activeTab = 'preview'"
-        >预览</button>
-        <button
-          :class="['demo-tab', { 'demo-tab--active': activeTab === 'code' }]"
-          @click="activeTab = 'code'"
-        >代码</button>
-      </div>
     </div>
-    <div class="demo-block-body">
-      <!-- Preview -->
-      <div v-show="activeTab === 'preview'" class="demo-block-preview">
+    <div class="demo-block-content">
+      <div class="demo-block-preview">
         <Suspense>
           <component :is="snippetComponent" />
           <template #fallback>
@@ -23,15 +12,29 @@
           </template>
         </Suspense>
       </div>
-      <!-- Code -->
-      <div v-show="activeTab === 'code'" class="demo-block-code-wrapper">
-        <slot name="snippet" />
+      <div class="demo-block-code">
+        <div class="demo-block-code-header">
+          <span class="demo-block-code-title">代码示例</span>
+        </div>
+        <div class="demo-block-code-content">
+          <OverlayScrollbarsComponent
+            class="demo-block-scroll"
+            :options="{
+              scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
+              overflow: { x: 'scroll', y: 'scroll' },
+            }"
+            defer
+          >
+            <slot name="snippet" />
+          </OverlayScrollbarsComponent>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 import { defineAsyncComponent } from 'vue'
 
 const props = defineProps<{
@@ -39,8 +42,6 @@ const props = defineProps<{
   path: string
   title: string
 }>()
-
-const activeTab = ref<'preview' | 'code'>('preview')
 
 // content:1.style:3.button.md → 1.style/button
 const snippetFile = computed(() => {
@@ -75,8 +76,7 @@ const snippetComponent = computed(() => {
 .demo-block-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background: var(--doc-bg-secondary);
   border-bottom: 1px solid var(--doc-border-light);
 }
@@ -87,80 +87,64 @@ const snippetComponent = computed(() => {
   color: var(--doc-text-secondary);
 }
 
-.demo-block-tabs {
-  display: flex;
-  gap: 2px;
-  background: var(--doc-bg-primary);
-  border-radius: var(--radius-md);
-  padding: 2px;
-}
-
-.demo-tab {
-  padding: 4px 12px;
-  font-size: var(--doc-font-size-sm);
-  border: none;
-  background: transparent;
-  border-radius: var(--radius-sm);
-  color: var(--doc-text-tertiary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.demo-tab:hover {
-  color: var(--doc-text-secondary);
-}
-
-.demo-tab--active {
-  background: var(--doc-bg-secondary);
-  color: var(--doc-text-primary);
-  font-weight: 500;
-}
-
-.demo-block-body {
-  min-height: 80px;
+.demo-block-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  min-height: 120px;
 }
 
 .demo-block-preview {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-md);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--spacing-xs);
+  border-right: 1px solid var(--doc-border-light);
   background: var(--doc-bg-primary);
 }
 
-.demo-block-code-wrapper {
-  padding: var(--spacing-md);
+.demo-block-code {
+  display: flex;
+  flex-direction: column;
   background: var(--doc-bg-secondary);
-  overflow-x: auto;
 }
 
-.demo-block-code-wrapper :deep(pre),
-.demo-block-code-wrapper :deep(.shiki) {
-  margin: 0;
-  padding: 0;
-  background: transparent !important;
+.demo-block-code-header {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-bottom: 1px solid var(--doc-border-light);
+}
+
+.demo-block-code-title {
   font-size: var(--doc-font-size-xs);
-  font-family: var(--doc-font-system);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--doc-text-tertiary);
+}
+
+.demo-block-code-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.demo-block-scroll {
+  height: 100%;
+  padding: var(--spacing-sm);
+  font-size: var(--doc-font-size-xs);
+  line-height: var(--doc-line-height-tight);
+  overflow-x: auto;
   white-space: pre;
-  overflow: visible;
-  border: none !important;
 }
 
-.demo-block-code-wrapper :deep(code) {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-  border: none !important;
-  border-radius: 0;
-}
+@media (max-width: 768px) {
+  .demo-block-content {
+    grid-template-columns: 1fr;
+  }
 
-.demo-block-code-wrapper :is(pre, .shiki, code) {
-  border: none !important;
+  .demo-block-preview {
+    border-right: none;
+    border-bottom: 1px solid var(--doc-border-light);
+  }
 }
 
 .demo-loading {
