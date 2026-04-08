@@ -16,11 +16,15 @@
 
 <script setup lang="ts">
 import { DuTheme, DuToastProvider } from 'dangoui'
+import { currentApp, isDarkMode } from '~/composables/dumpling'
 
 watch(isHydrated, () => {
   window.addEventListener('message', (message: any) => {
     if (message.data.type === 'theme') {
-      globalTheme.value = message.data.message
+      const theme: string = message.data.message
+      const hasDark = theme.endsWith('-dark')
+      isDarkMode.value = hasDark
+      currentApp.value = hasDark ? theme.replace(/-dark$/, '') : theme
     }
   })
 })

@@ -1,43 +1,184 @@
+/* ================================================================
+   Dango UI Docs — Apple-Inspired Design System
+   ================================================================ */
+
 :root {
-  --doc-layout-max-w: 1440px;
+  /* ── Layout ── */
+  --doc-layout-max-w: 1200px;
+  --doc-sidebar-w: 280px;
+  --doc-sidebar-padding: 16px;
+  --doc-header-h: 56px;
+  --doc-outline-w: 220px;
 
-  --doc-sidebar-w: 250px;
-  --doc-sidebar-padding: 8px;
+  /* ── Apple-like Spacing ── */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
 
-  --doc-header-h: 64px;
+  /* ── Typography ── */
+  --doc-font-size-xs: 11px;
+  --doc-font-size-sm: 12px;
+  --doc-font-size-md: 13px;
+  --doc-line-height-tight: 1.4;
+  --spacing-4xl: 64px;
 
-  --doc-outline-w: 250px;
+  /* ── Border Radius (Apple-like: 8-12px) ── */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows (Apple-like: subtle, diffuse) ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  /* ── Semantic Colors — du-* tokens 由 dangoui/theme.css 在 du-theme-* 类下提供 */
+
+  /* ── Accent (Dango Purple, refined) ── */
+  --doc-accent-rgb: 88, 84, 255;
+  --doc-accent: rgb(var(--doc-accent-rgb));
+  --doc-accent-hover: #5854ff;
+  --doc-accent-bg: rgba(88, 84, 255, 0.08);
+  --doc-accent-bg-hover: rgba(88, 84, 255, 0.12);
+
+  /* ── Typography ── */
+  --doc-font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  --doc-font-mono: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+
+  /* ── Transitions (Apple-like: smooth, quick) ── */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:root {
-  --du-color-main-rgb: 124, 102, 255;
-  --du-color-main: rgb(var(--du-color-main-rgb));
-  --du-color-main-opacity: rgba(var(--du-color-main-rgb), 0.2);
+/* ── Dark Theme ── */
+/* 这些变量通过 CSS 级联从 du-theme-* 类继承 */
+.du-theme-qd,
+.du-theme-qh,
+.du-theme-qdm,
+.du-theme-linjie,
+.g-theme-qd,
+.g-theme-qh,
+.g-theme-qdm,
+.g-theme-linjie {
+  --doc-text-primary: var(--du-text-1);
+  --doc-text-secondary: var(--du-text-2);
+  --doc-text-tertiary: var(--du-text-3);
+  --doc-text-placeholder: var(--du-text-disabled);
+  --doc-bg-primary: var(--du-bg-1);
+  --doc-bg-secondary: var(--du-bg-2);
+  --doc-bg-tertiary: var(--du-bg-4);
+  --doc-border: var(--du-border-1);
+  --doc-border-light: var(--du-border-2);
+  --doc-sidebar-bg: var(--du-bg-1);
+  --doc-content-bg: var(--du-bg-1);
 }
 
-:root {
-  --du-bt-primary-bg: var(--du-color-main);
-  --du-bt-primary-color: #fff;
-  --du-bt-primary-border: none;
-  --du-bt-secondary-bg: rgba(var(--du-color-main-rgb), 0.1);
-  --du-bt-secondary-color: var(--du-color-main);
-  --du-bt-secondary-border: none;
-  --du-bt-recommend-bg: none;
-  --du-bt-recommend-color: var(--du-color-main);
-  --du-bt-recommend-border: 1px var(--du-color-main) solid;
-  --du-bt-info-bg: none;
-  --du-bt-info-color: rgba(32, 36, 38, 0.6);
-  --du-bt-info-border: 1px rgba(32, 36, 38, 0.2) solid;
-  --du-bt-text-bg: none;
-  --du-bt-text-color: rgba(32, 36, 38, 0.6);
-  --du-bt-text-border: none;
-  --du-bt-text-primary-bg: none;
-  --du-bt-text-primary-color: var(--du-color-main);
-  --du-bt-text-primary-border: none;
-  --du-bt-disabled-bg: rgba(32, 36, 38, 0.06);
-  --du-bt-disabled-color: rgba(32, 36, 38, 0.2);
-  --du-bt-disabled-border: none;
-  --du-bt-disabled-temp-bg: #c7b8ff;
-  --du-bt-disabled-temp-color: #fff;
-  --du-bt-disabled-temp-border: none;
+.du-theme-qd-dark,
+.du-theme-qh-dark,
+.du-theme-linjie-dark,
+.g-theme-qd-dark,
+.g-theme-qh-dark,
+.g-theme-linjie-dark {
+  --doc-text-primary: var(--du-text-1);
+  --doc-text-secondary: var(--du-text-2);
+  --doc-text-tertiary: var(--du-text-3);
+  --doc-text-placeholder: var(--du-text-disabled);
+  --doc-bg-primary: var(--du-bg-1);
+  --doc-bg-secondary: var(--du-bg-2);
+  --doc-bg-tertiary: var(--du-bg-4);
+  --doc-border: var(--du-border-1);
+  --doc-border-light: var(--du-border-2);
+  --doc-sidebar-bg: var(--du-bg-1);
+  --doc-content-bg: var(--du-bg-1);
+}
+
+/* mihua 暂无独立 theme，使用 qd 的映射 */
+.du-theme-mihua,
+.du-theme-mihua-dark,
+.g-theme-mihua,
+.g-theme-mihua-dark {
+  --doc-text-primary: var(--du-text-1);
+  --doc-text-secondary: var(--du-text-2);
+  --doc-text-tertiary: var(--du-text-3);
+  --doc-text-placeholder: var(--du-text-disabled);
+  --doc-bg-primary: var(--du-bg-1);
+  --doc-bg-secondary: var(--du-bg-2);
+  --doc-bg-tertiary: var(--du-bg-4);
+  --doc-border: var(--du-border-1);
+  --doc-border-light: var(--du-border-2);
+  --doc-sidebar-bg: var(--du-bg-1);
+  --doc-content-bg: var(--du-bg-1);
+}
+
+/* ── Dark Theme — Markdown Body Override ── */
+/* github-markdown-light.css 有硬编码的浅色颜色，需要在暗黑模式下覆盖 */
+.du-theme-qd-dark .markdown-body,
+.du-theme-qh-dark .markdown-body,
+.du-theme-linjie-dark .markdown-body,
+.g-theme-qd-dark .markdown-body,
+.g-theme-qh-dark .markdown-body,
+.g-theme-linjie-dark .markdown-body {
+  color: var(--doc-text-primary);
+  background-color: var(--doc-bg-primary);
+}
+
+.du-theme-qd-dark .markdown-body a,
+.du-theme-qh-dark .markdown-body a,
+.du-theme-linjie-dark .markdown-body a,
+.g-theme-qd-dark .markdown-body a,
+.g-theme-qh-dark .markdown-body a,
+.g-theme-linjie-dark .markdown-body a {
+  color: var(--doc-accent);
+}
+
+.du-theme-qd-dark .markdown-body code,
+.du-theme-qh-dark .markdown-body code,
+.du-theme-linjie-dark .markdown-body code,
+.g-theme-qd-dark .markdown-body code,
+.g-theme-qh-dark .markdown-body code,
+.g-theme-linjie-dark .markdown-body code {
+  background-color: var(--doc-bg-secondary);
+  color: var(--doc-accent);
+}
+
+.du-theme-qd-dark .markdown-body pre,
+.du-theme-qh-dark .markdown-body pre,
+.du-theme-linjie-dark .markdown-body pre,
+.g-theme-qd-dark .markdown-body pre,
+.g-theme-qh-dark .markdown-body pre,
+.g-theme-linjie-dark .markdown-body pre {
+  background-color: var(--doc-bg-secondary);
+}
+
+.du-theme-qd-dark .markdown-body blockquote,
+.du-theme-qh-dark .markdown-body blockquote,
+.du-theme-linjie-dark .markdown-body blockquote,
+.g-theme-qd-dark .markdown-body blockquote,
+.g-theme-qh-dark .markdown-body blockquote,
+.g-theme-linjie-dark .markdown-body blockquote {
+  border-left-color: var(--doc-accent);
+  background-color: var(--doc-accent-bg);
+}
+
+.du-theme-qd-dark .markdown-body th,
+.du-theme-qh-dark .markdown-body th,
+.du-theme-linjie-dark .markdown-body th,
+.g-theme-qd-dark .markdown-body th,
+.g-theme-qh-dark .markdown-body th,
+.g-theme-linjie-dark .markdown-body th,
+.du-theme-qd-dark .markdown-body td,
+.du-theme-qh-dark .markdown-body td,
+.du-theme-linjie-dark .markdown-body td,
+.g-theme-qd-dark .markdown-body td,
+.g-theme-qh-dark .markdown-body td,
+.g-theme-linjie-dark .markdown-body td {
+  border-color: var(--doc-border-light);
 }

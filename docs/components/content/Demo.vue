@@ -7,13 +7,6 @@
         class="h-40px w-full border-b border-b-solid border-b-border-2 flex-none flex justify-between items-center px-8px"
       >
         <div class="font-semibold">{{ title }}</div>
-        <!-- <div>
-          <div
-            class="cursor-pointer hover:bg-gray-100 px-8px py-4px rounded-4px"
-          >
-            <div class="i-mdi-content-copy" />
-          </div>
-        </div> -->
       </div>
       <div class="px-16px flex flex-col flex-1 overflow-hidden">
         <div
@@ -67,6 +60,7 @@
 
 <script setup lang="ts">
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
+import { globalTheme } from '~/composables/dumpling'
 
 const props = defineProps<{
   idx: number

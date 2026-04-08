@@ -13,7 +13,6 @@ const props = defineProps<{
 }>()
 
 const themeName = computed(() => {
-  // g-theme-xxx 是为了兼容，后面全部改成 du-theme
   return `du-theme-basic du-theme-${props.name} g-theme-${props.name}`
 })
 

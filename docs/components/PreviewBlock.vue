@@ -1,9 +1,9 @@
 <template>
   <div class="mb-8px">
-    <div class="px-8px text-14px fw-400 py-4px c-slate-500">{{ title }}</div>
+    <div class="px-4px text-12px fw-400 py-4px c-slate-500">{{ title }}</div>
     <div
       :class="[
-        showSection ? 'py-16px flex-wrap gap-x-8px gap-y-16px' : '',
+        showSection ? 'py-8px flex-wrap gap-x-8px gap-y-4px' : '',
         type,
         showSection
           ? globalTheme.endsWith('dark')
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+const { title, showSection, type } = withDefaults(
   defineProps<{
     title: string
     showSection: boolean

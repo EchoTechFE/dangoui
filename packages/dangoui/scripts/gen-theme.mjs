@@ -4,7 +4,7 @@ import { createThemes } from 'dangoui-design-token'
 import fromPlatte from '../dist/platte.mjs'
 
 const themeHelper = createThemes({
-  theme: ['qd', 'qdm', 'mihua-dark', 'mihua-light', 'qh'],
+  theme: ['qd', 'qd-dark', 'qdm', 'mihua', 'mihua-dark', 'qh', 'qh-dark', 'linjie', 'linjie-dark'],
   defaultTheme: 'qd',
 })
 

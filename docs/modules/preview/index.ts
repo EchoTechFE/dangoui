@@ -24,7 +24,8 @@ export default defineNuxtModule({
         const pathMatch = file.match(/(\d+)\.(.+)\/(\d+)\.(.+)\.md$/)
         let p = ''
         if (pathMatch) {
-          p = pathMatch[2] + '/' + pathMatch[4]
+          // 保留数字前缀: 1.style, 2.bar 等
+          p = pathMatch[1] + '.' + pathMatch[2] + '/' + pathMatch[4]
         }
 
         let i = 1

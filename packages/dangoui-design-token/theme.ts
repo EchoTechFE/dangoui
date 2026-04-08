@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 import { kebabCase } from 'lodash-es'
-// import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
+import mihuaThemes from './mihua-platte.json' assert { type: 'json' }
 import themes from './platte.json' assert { type: 'json' }
 
 type ThemeConfig = {
@@ -9,7 +9,7 @@ type ThemeConfig = {
 }
 
 type CreateThemeOpts = {
-  theme: Array<ThemeConfig | 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark'>
+  theme: Array<ThemeConfig | 'qd' | 'qd-dark' | 'qh' | 'qh-dark' | 'qdm' | 'mihua' | 'mihua-dark' | 'linjie' | 'linjie-dark'>
   defaultTheme: string
 }
 
@@ -344,7 +344,7 @@ export function combineThemes(...themesList: ThemeConfig[][]) {
 export function createThemes(opts: CreateThemeOpts) {
   // 以字符串形式提供的内置主题
   const filteredBuiltinThemes = opts.theme.filter(
-    (theme): theme is 'qd' | 'qh' | 'qdm' | 'mihua-light' | 'mihua-dark' =>
+    (theme): theme is 'qd' | 'qd-dark' | 'qh' | 'qh-dark' | 'qdm' | 'mihua' | 'mihua-dark' | 'linjie' | 'linjie-dark' =>
       typeof theme === 'string',
   )
   // 以对象形式提供的
@@ -379,31 +379,46 @@ export function createThemes(opts: CreateThemeOpts) {
     if (theme.mode.name === '千岛暗黑') {
       theme.mode.name = 'qd-dark'
     }
+    if (theme.mode.name === '奇货') {
+      theme.mode.name = 'qh'
+    }
+    if (theme.mode.name === '商家版') {
+      theme.mode.name = 'qdm'
+    }
+    if (theme.mode.name === '奇货暗黑') {
+      theme.mode.name = 'qh-dark'
+    }
+    if (theme.mode.name === '临界') {
+      theme.mode.name = 'linjie'
+    }
+    if (theme.mode.name === '临界暗黑') {
+      theme.mode.name = 'linjie-dark'
+    }
   })
 
-  // mihuaThemes.forEach((theme) => {
-  //   if (theme.mode.name === '米花') {
-  //     theme.mode.name = 'mihua-light'
-  //   }
-  //   if (theme.mode.name === '米花暗黑') {
-  //     theme.mode.name = 'mihua-dark'
-  //     // TODO: 先强制把 secondary 给 default
-  //     // TODO: 后面设计弄好了要把这里删掉
-  //     theme.color.forEach((c) => {
-  //       if (c.name.startsWith('default/')) {
-  //         const candidate = theme.color.find(
-  //           (candidate) =>
-  //             candidate.name === c.name.replace('default', 'secondary'),
-  //         )
-  //         if (candidate) {
-  //           c.color = candidate.color
-  //           c.rootAlias = candidate.rootAlias
-  //           c.var = candidate.var
-  //         }
-  //       }
-  //     })
-  //   }
-  // })
+  mihuaThemes.forEach((theme) => {
+    if (theme.mode.name === '米花') {
+      theme.mode.name = 'mihua'
+    }
+    if (theme.mode.name === '米花暗黑') {
+      theme.mode.name = 'mihua-dark'
+      // TODO: 先强制把 secondary 给 default
+      // TODO: 后面设计弄好了要把这里删掉
+      theme.color.forEach((c) => {
+        if (c.name.startsWith('default/')) {
+          const candidate = theme.color.find(
+            (candidate) =>
+              candidate.name === c.name.replace('default', 'secondary'),
+          )
+          if (candidate) {
+            c.color = candidate.color
+            c.rootAlias = candidate.rootAlias
+            c.var = candidate.var
+          }
+        }
+      })
+    }
+  })
 
   // 小程序里极致优化包体积使用
   const alias: Record<string, string> = {}
@@ -426,7 +441,7 @@ export function createThemes(opts: CreateThemeOpts) {
 
   ;[
     ...themes,
-    //  ...mihuaThemes,
+    ...mihuaThemes,
   ].forEach((theme) => {
     if (!filteredBuiltinThemes.find((t) => t === theme.mode.name)) {
       return
@@ -533,21 +548,7 @@ export function createThemes(opts: CreateThemeOpts) {
           colorSet.add(prefix)
         }
 
-        if (
-          themeName !== opts.defaultTheme &&
-          defaultThemeConfig.vars[key] === value
-        ) {
-          return
-        }
-
-        // TODO: 暂时不采用引用模式
-        // 一个引用
-        // if (themeConfig.vars[value]) {
-        //   vars[`--du-${key}`] = `var(--du-${value})`
-        // } else {
-        //   vars[`--du-${key}`] = value
-        // }
-
+        // 每个主题都必须显式声明所有 token，CSS 类不相邻无法继承
         vars[`--du-${key}`] = value
       })
 

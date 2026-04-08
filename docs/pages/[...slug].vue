@@ -1,126 +1,249 @@
 <template>
-  <main class="doc-content mt-$doc-header-h px-32px">
-    <ContentDoc
-      class="prose prose-neutral flex-1 !max-w-full text-14px"
-      :path="$route.path === '/' ? '/get-started/introduction' : $route.path"
-    />
-    <div class="grid grid-cols-2 gap-x-16px mb-32px mt-16px">
+  <article class="doc-article">
+    <ContentDoc class="doc-prose prose" />
+
+    <nav class="doc-nav-footer">
       <NuxtLink
         v-if="surround?.[0]"
-        class="border border-solid border-border-2 transition cursor-pointer hover:border-qd-purple rounded-4px p-8px px-16px flex flex-col"
-        :href="surround?.[0]?._path"
+        :to="surround[0]._path"
+        class="doc-nav-prev"
       >
-        <div class="text-12px c-gray-500 mb-8px">上一篇</div>
-        <div class="c-qd-purple text-14px font-medium">
-          {{ surround?.[0]?.title }}
-        </div>
+        <span class="doc-nav-label">上一篇</span>
+        <span class="doc-nav-title">{{ surround[0].title }}</span>
       </NuxtLink>
       <div v-else />
+
       <NuxtLink
         v-if="surround?.[1]"
-        class="border border-solid border-border-2 transition cursor-pointer hover:border-qd-purple rounded-4px p-8px px-16px flex flex-col items-end"
-        :href="surround?.[1]?._path"
+        :to="surround[1]._path"
+        class="doc-nav-next"
       >
-        <div class="text-12px c-gray-500 mb-8px">下一篇</div>
-        <div class="c-qd-purple text-14px font-medium">
-          {{ surround?.[1]?.title }}
-        </div>
+        <span class="doc-nav-label">下一篇</span>
+        <span class="doc-nav-title">{{ surround[1].title }}</span>
       </NuxtLink>
       <div v-else />
-    </div>
-  </main>
-  <div
-    class="doc-outline fixed top-0 right-0 mt-$doc-header-h w-$doc-outline-w text-15px pl-16px border-l border-l-solid border-l-gray-200"
-    v-if="md?.body?.toc?.links"
-  >
-    <div class="font-semibold mb-8px">本页包含</div>
-    <div
-      v-for="link in md.body.toc.links"
-      :key="link.text"
-      :class="[
-        'lh-loose transition transition-all duration-200',
-        isLinkActive(link)
-          ? 'c-qd-purple-700 hover:c-qd-purple-700'
-          : 'c-gray-500 hover:c-gray-800',
-      ]"
-    >
-      <a :href="`#${link.id}`">{{ link.text }}</a>
-    </div>
-  </div>
+    </nav>
+  </article>
 </template>
 
 <script setup lang="ts">
-import { useThrottleFn, useEventListener } from '@vueuse/core'
 definePageMeta({
   layout: 'doc',
 })
 
 const route = useRoute()
 
-const { data: md } = await useAsyncData(route.path, () =>
-  queryContent(
-    route.path === '/' ? '/get-started/introduction' : route.path,
-  ).findOne(),
+const contentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
+
+const { data: md } = await useAsyncData(
+  'content:' + route.path,
+  () => queryContent(contentPath.value).findOne(),
+  { watch: [contentPath] },
 )
 
-const { data: surround } = await useAsyncData(`surround:` + route.path, () => {
-  return queryContent()
+const { data: surround } = await useAsyncData(
+  'surround:' + route.path,
+  () => queryContent()
     .only(['_path', 'title'])
-    .where({
-      _partial: false,
-    })
-    .findSurround(route.path === '/' ? '/get-started/introduction' : route.path)
-})
+    .where({ _partial: false })
+    .findSurround(contentPath.value),
+  { watch: [contentPath] },
+)
+</script>
 
-const linksWithStatus = ref<{ id: string; isActive: boolean }[]>([])
-
-function isLinkActive(link: { id: string }) {
-  return linksWithStatus.value.some((l) => l.id === link.id && l.isActive)
+<style>
+/* ── Article ── */
+.doc-article {
+  width: 100%;
 }
 
-const handleScroll = useThrottleFn(
-  () => {
-    if (md.value?.body?.toc?.links) {
-      const links = md.value.body.toc.links
-      const height = document.documentElement.clientHeight
-      const linksWithRect = links.map((link) => {
-        const el = document.querySelector(`#${link.id}`)!
-        return {
-          ...link,
-          rect: el.getBoundingClientRect(),
-        }
-      })
+/* ── Typography Prose ── */
+.doc-prose {
+  font-family: var(--doc-font-system);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--doc-text-primary);
+  max-width: none;
+}
 
-      linksWithStatus.value = linksWithRect.map((link, idx) => {
-        const { rect } = link
-        let isActive = false
+.doc-prose.prose {
+  max-width: none;
+  width: 100%;
+}
 
-        if (rect.y > 0 && rect.y < height) {
-          isActive = true
-        } else if (rect.y < height) {
-          // 看后一个是不是 active，如果后一个是 active，那么当前就是 active，如果是最后一个元素，那么也是 active
-          const next = linksWithRect[idx + 1]
-          if (next && next.rect.y > 0 && rect.y < height) {
-            isActive = true
-          } else if (!next) {
-            isActive = true
-          }
-        }
+.doc-prose.prose > * {
+  max-width: 100% !important;
+}
 
-        return {
-          id: link.id,
-          isActive,
-        }
-      })
-    }
-  },
-  500,
-  true,
-)
+.doc-prose h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--doc-text-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--doc-border-light);
+}
 
-useEventListener('scroll', handleScroll)
+.doc-prose h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--doc-text-primary);
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-lg);
+}
 
-onMounted(() => {
-  handleScroll()
-})
-</script>
+.doc-prose h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--doc-text-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.doc-prose p {
+  margin-bottom: var(--spacing-lg);
+  color: var(--doc-text-secondary);
+}
+
+.doc-prose a {
+  color: var(--doc-accent);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.doc-prose a:hover {
+  text-decoration: underline;
+}
+
+.doc-prose ul,
+.doc-prose ol {
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-xl);
+  color: var(--doc-text-secondary);
+}
+
+.doc-prose li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.doc-prose code {
+  font-family: var(--doc-font-mono);
+  font-size: 0.9em;
+  padding: 2px 6px;
+  background: var(--doc-bg-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--doc-accent);
+}
+
+.doc-prose pre {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg);
+  background: var(--doc-bg-secondary);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  white-space: pre;
+  border: none !important;
+}
+
+.doc-prose :is(pre, .shiki, code) {
+  border: none !important;
+}
+
+.doc-prose pre code {
+  padding: 0;
+  background: transparent;
+  color: var(--doc-text-primary);
+  font-size: var(--doc-font-size-xs);
+  line-height: var(--doc-line-height-tight);
+  white-space: pre;
+}
+
+.doc-prose blockquote {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-left: 3px solid var(--doc-accent);
+  background: var(--doc-accent-bg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--doc-text-secondary);
+}
+
+.doc-prose hr {
+  margin: var(--spacing-3xl) 0;
+  border: none;
+  border-top: 1px solid var(--doc-border-light);
+}
+
+.doc-prose table {
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.doc-prose th,
+.doc-prose td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--doc-border-light);
+}
+
+.doc-prose th {
+  font-weight: 600;
+  color: var(--doc-text-primary);
+  background: var(--doc-bg-secondary);
+}
+
+.doc-prose td {
+  color: var(--doc-text-secondary);
+}
+
+/* ── Navigation Footer ── */
+.doc-nav-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-4xl);
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid var(--doc-border-light);
+}
+
+.doc-nav-prev,
+.doc-nav-next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg);
+  background: var(--doc-bg-secondary);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.doc-nav-prev:hover,
+.doc-nav-next:hover {
+  background: var(--doc-bg-tertiary);
+}
+
+.doc-nav-next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.doc-nav-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--doc-text-tertiary);
+}
+
+.doc-nav-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--doc-accent);
+}
+</style>

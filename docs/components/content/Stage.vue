@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="p-16px bg-orange-1 c-neutral-6 rounded-4px mt-16px mb-16px text-14px flex items-center"
-  >
-    <IconsFlask class="text-18px mr-4px flex-none c-orange" />
-    该组件目前处于实验性状态，需要进行更加严密的测试，API 也可能发生比较大的变动
+  <div class="flex items-start gap-[var(--spacing-sm)] py-[var(--spacing-md)] px-[var(--spacing-lg)] my-[var(--spacing-lg)] bg-[var(--doc-accent-bg)] rounded-[var(--radius-lg)] border border-solid border-[rgba(88,84,255,0.15)]">
+    <IconsFlask class="w-16px h-16px shrink-0 c-[var(--doc-accent)] mt-[2px]" />
+    <span class="text-13px leading-[1.5] c-[var(--doc-text-secondary)]">该组件目前处于实验性状态，需要进行更加严密的测试，API 也可能发生比较大的变动</span>
   </div>
 </template>
