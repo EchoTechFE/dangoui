@@ -233,30 +233,21 @@ pages/general/typography.vue
 
 **docs 既是设计规范文档（给人看），也是 DangUI 组件的测试床（开发自验）。**
 
-### 文件操作注意事项
+### Docs 样式调试经验
 
-**Rename vs Delete+Recreate：**
-- `git mv` = 保留文件 content history，git log 追踪路径变更
-- 实际操作时，如果新文件是从零写入而不是从旧文件迁移，frontmatter 会丢失
-- **移动文件** = 保持内容不变迁移路径；**删除+新建** = 旧 frontmatter 全丢
+**问题：CSS 样式不生效（heading 字号/颜色等）**
 
-**Commit message 如实反映操作：**
-- commit message 写了"删除"就会在 PR review 时误导判断
-- rename 操作描述应为"移动 X → Y"，不是"删除 X"
+排查步骤：
+1. 先确认实际渲染的 HTML 结构：`document.querySelector('.doc-prose')?.className`
+2. 再确认目标元素的 computed styles：`getComputedStyle(el).fontSize`
+3. 检查 CSS 规则是否存在：`document.styleSheets` 里搜索 selectorText
 
-**Restore 流程（从历史恢复被误删的文件）：**
-- `git show <历史commit>:<文件路径>` 可以读取任意历史版本
-- 恢复后确认 frontmatter 完整（`---` 开头 + `head.meta` / `navigation.stage`）
+**经验法则：**
+- 自定义 CSS（`docs/assets/index.css`）用 `:deep()` 操作符穿透组件
+- 第三方样式（Nuxt Content / Tailwind Typography）依赖类名（如 `.prose`）
+- 如果 `.doc-prose :deep(h1)` 不生效，先检查 `.doc-prose` 是否真的有 `.prose` 类
 
-### Docs 样式与路由规范
-
-**样式修改优先 UnoCSS：**
-- docs 中的样式修改应使用 UnoCSS（`uno.config.ts` 或 inline class），而非新建 `*.css` 文件或 `<style>` 块
-- UnoCSS 是 Dangoui 设计系统的核心工具，保持一致性
-
-**路由切换不自动刷新：**
-- Nuxt 路由切换时页面不会重新请求数据（CSR 特性），开发时需手动刷新或重启 dev server 确认最新内容
-- 涉及 content 文件变更时，建议 `pnpm dev` 重启以确保渲染结果正确
+**Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
 
 ### 文件重命名防丢 frontmatter 规则
 
@@ -277,22 +268,6 @@ done
 
 若检测到 frontmatter 丢失，立即从原始 commit 取出 frontmatter 补回目标文件。
 
-**恢复被误删文件：** `git show <历史commit>:<文件路径>` → 写入新路径 → 确认 frontmatter 完整。
-### Docs 样式调试经验
-
-**问题：CSS 样式不生效（heading 字号/颜色等）**
-
-排查步骤：
-1. 先确认实际渲染的 HTML 结构：`document.querySelector('.doc-prose')?.className`
-2. 再确认目标元素的 computed styles：`getComputedStyle(el).fontSize`
-3. 检查 CSS 规则是否存在：`document.styleSheets` 里搜索 selectorText
-
-**经验法则：**
-- 自定义 CSS（`docs/assets/index.css`）用 `:deep()` 操作符穿透组件
-- 第三方样式（Nuxt Content / Tailwind Typography）依赖类名（如 `.prose`）
-- 如果 `.doc-prose :deep(h1)` 不生效，先检查 `.doc-prose` 是否真的有 `.prose` 类
-
-**Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
 ---
 
 ## 04 · 【预留】
