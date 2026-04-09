@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isHydrated">
+  <div v-if="isHydrated" class="du-theme-basic du-theme-qd g-theme-qd bg-white">
     <DuTheme :name="globalTheme">
       <DuToastProvider>
         <slot />

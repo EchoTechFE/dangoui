@@ -1,36 +1,23 @@
 <template>
   <section
-    class="w-full flex rounded-4px border border-solid border-border-2 h-667px mb-32px text-14px overflow-hidden"
+    class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden"
+    style="height: 680px;"
   >
-    <div class="flex-1 h-full flex flex-col overflow-hidden">
-      <div
-        class="h-40px w-full border-b border-b-solid border-b-border-2 flex-none flex justify-between items-center px-8px"
-      >
-        <div class="font-semibold">{{ title }}</div>
-      </div>
-      <div class="px-4px flex flex-col flex-1 overflow-hidden">
-        <div
-          class="border-b border-b-dashed border-b-border-2 flex-none"
-          v-if="$slots.default"
-        >
+    <div class="flex-1 flex flex-col bg-[var(--doc-bg-primary)] min-w-0">
+      <div class="w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]">{{ title }}</div>
+      <div class="flex flex-col flex-1 overflow-hidden">
+        <div v-if="$slots.default">
           <slot />
         </div>
-        <OverlayScrollbarsComponent
-          class="not-prose py-4px px-2px flex-1"
-          :options="{
-            scrollbars: { autoHide: 'leave', autoHideDelay: 100 },
-            overflow: { x: 'scroll', y: 'scroll' },
-          }"
-          defer
-        >
+        <div class="not-prose overflow-auto px-12px py-10px flex-1">
           <slot name="snippet" />
-        </OverlayScrollbarsComponent>
+        </div>
       </div>
     </div>
     <div
-      class="flex-none flex-basis-375px border-l border-l-solid border-l-border-2 bg-bg-2 relative"
+      class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)]"
     >
-      <iframe ref="iframe" :src="demoPath" class="w-full h-[calc(100%-32px)]" />
+      <iframe ref="iframe" :src="demoPath" class="w-full h-full" style="padding: 0; border: none;" />
       <div
         v-if="consoleOpen"
         class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
@@ -59,7 +46,6 @@
 </template>
 
 <script setup lang="ts">
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-vue'
 import { globalTheme } from '~/composables/dumpling'
 
 const props = defineProps<{

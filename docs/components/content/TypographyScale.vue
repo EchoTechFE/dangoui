@@ -1,11 +1,11 @@
 <template>
   <div class="typo-wrap flex flex-col gap-32px">
     <!-- Platform Bar -->
-    <div class="typo-platform-bar flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-[var(--radius-md)] ml-auto">
+    <div class="typo-platform-bar flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-lg ml-auto">
       <button
         v-for="p in platforms"
         :key="p.id"
-        class="typo-plat flex items-center justify-center h-28px px-8px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px text-12px font-400"
+        class="typo-plat flex items-center justify-center h-28px px-8px border-none cursor-pointer transition-all gap-4px text-12px font-400 rounded-lg"
         :class="currentPlatform === p.id ? 'bg-white shadow-sm font-500 text-gray-900' : 'bg-transparent text-gray-400'"
         @click="currentPlatform = p.id"
       >
@@ -14,9 +14,9 @@
     </div>
 
     <!-- Font Families -->
-    <div class="typo-families flex flex-col border border-[var(--doc-border-light)] rounded-[var(--radius-lg)] overflow-hidden">
-      <div class="typo-family-hd text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] p-14px pb-10px border-b border-b-solid border-b-[var(--doc-border-light)] bg-[var(--doc-bg-secondary)]">字体栈 Font Stack</div>
-      <div class="typo-family-row active flex items-center gap-0 p-14px border-b border-b-solid border-b-[var(--doc-border-light)] transition-all bg-[var(--doc-bg-primary)]">
+    <div class="typo-families flex flex-col border border-[var(--doc-border-light)] rounded-lg overflow-hidden">
+      <div class="typo-family-hd w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]">字体栈 Font Stack</div>
+      <div class="typo-family-row active flex items-center gap-0 p-14px transition-all">
         <div class="typo-family-chips flex items-center gap-6px flex-wrap">
           <span class="text-12px font-mono text-neutral-600">{{ platformFontFamily }}</span>
         </div>
@@ -24,13 +24,13 @@
     </div>
 
     <!-- Install Command (Web only) -->
-    <div v-if="currentPlatform === 'web'" class="border border-solid border-border-2 rounded-4px overflow-hidden">
+    <div v-if="currentPlatform === 'web'" class="border border-solid border-border-2 rounded-lg overflow-hidden">
       <div class="flex items-center justify-between p-8px border-b border-b-solid border-b-border-2">
         <div class="flex items-center gap-x-4px">
           <div
             v-for="tab in installTabs"
             :key="tab.id"
-            class="cursor-pointer hover:bg-bg-2 c-neutral-800 rounded-4px px-8px py-4px text-14px"
+            class="cursor-pointer hover:bg-bg-2 c-neutral-800 rounded-lg px-8px py-4px text-14px"
             :class="activeTab === tab.id ? 'bg-bg-2' : ''"
             @click="activeTab = tab.id"
           >
@@ -44,7 +44,7 @@
     <!-- Three Columns -->
     <div class="typo-cols grid grid-cols-3 gap-24px items-start">
       <!-- Heading -->
-      <div class="typo-col border border-[var(--doc-border-light)] rounded-[var(--radius-lg)] overflow-hidden">
+      <div class="typo-col border border-[var(--doc-border-light)] rounded-lg overflow-hidden">
         <div class="p-16px pb-14px bg-[var(--doc-bg-secondary)] border-b border-b-solid border-b-[var(--doc-border-light)]">
           <div class="text-14px font-500 text-[var(--doc-text-primary)] mb-2px">Heading</div>
           <div class="text-11px text-[var(--doc-text-tertiary)]">{{ platformFontFamily }}</div>
@@ -58,14 +58,14 @@
             {{ item.label }}
           </div>
           <div class="typo-row-footer flex items-center gap-8px">
-            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-[var(--radius-small)] p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
+            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-lg p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
             <span class="typo-dim text-11px text-[var(--doc-text-tertiary)] shrink-0">{{ item.size }} / {{ item.lh }}</span>
           </div>
         </div>
       </div>
 
       <!-- Body -->
-      <div class="typo-col border border-[var(--doc-border-light)] rounded-[var(--radius-lg)] overflow-hidden">
+      <div class="typo-col border border-[var(--doc-border-light)] rounded-lg overflow-hidden">
         <div class="p-16px pb-14px bg-[var(--doc-bg-secondary)] border-b border-b-solid border-b-[var(--doc-border-light)]">
           <div class="text-14px font-500 text-[var(--doc-text-primary)] mb-2px">Body</div>
           <div class="text-11px text-[var(--doc-text-tertiary)]">{{ platformFontFamily }}</div>
@@ -79,14 +79,14 @@
             {{ item.label }}
           </div>
           <div class="typo-row-footer flex items-center gap-8px">
-            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-[var(--radius-small)] p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
+            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-lg p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
             <span class="typo-dim text-11px text-[var(--doc-text-tertiary)] shrink-0">{{ item.size }} / {{ item.lh }}</span>
           </div>
         </div>
       </div>
 
       <!-- Number -->
-      <div class="typo-col border border-[var(--doc-border-light)] rounded-[var(--radius-lg)] overflow-hidden">
+      <div class="typo-col border border-[var(--doc-border-light)] rounded-lg overflow-hidden">
         <div class="p-16px pb-14px bg-[var(--doc-bg-secondary)] border-b border-b-solid border-b-[var(--doc-border-light)]">
           <div class="text-14px font-500 text-[var(--doc-text-primary)] mb-2px">Number</div>
           <div class="text-11px text-[var(--doc-text-tertiary)]">数字字体 · Roboto</div>
@@ -100,7 +100,7 @@
             {{ item.label }}
           </div>
           <div class="typo-row-footer flex items-center gap-8px">
-            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-[var(--radius-small)] p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
+            <span class="typo-token text-11px font-500 font-mono text-[var(--doc-accent)] bg-[var(--doc-accent-bg)] rounded-lg p-2px px-7px tracking-[-0.2px] shrink-0">--font-{{ item.name }}</span>
             <span class="typo-dim text-11px text-[var(--doc-text-tertiary)] shrink-0">{{ item.size }} / {{ item.lh }}</span>
           </div>
         </div>

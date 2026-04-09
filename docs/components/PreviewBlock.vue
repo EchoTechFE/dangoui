@@ -1,15 +1,15 @@
 <template>
-  <div class="mb-8px">
-    <div class="px-4px text-12px fw-400 py-4px c-slate-500">{{ title }}</div>
+  <div class="preview-section">
+    <div
+      v-if="title"
+      class="w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]"
+    >
+      {{ title }}
+    </div>
     <div
       :class="[
-        showSection ? 'py-8px flex-wrap gap-x-8px gap-y-4px' : '',
+        showSection ? 'preview-items px-12px py-10px' : '',
         type,
-        showSection
-          ? globalTheme.endsWith('dark')
-            ? 'bg-hex-101010 rd-8px mx-4px px-8px'
-            : 'bg-white rd-8px mx-4px px-8px'
-          : undefined,
       ]"
     >
       <slot />
@@ -31,3 +31,14 @@ const { title, showSection, type } = withDefaults(
   },
 )
 </script>
+
+<style scoped>
+.preview-section {
+  margin-bottom: 20px;
+}
+.preview-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+}
+</style>
