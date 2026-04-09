@@ -111,7 +111,7 @@ const { data: surround } = await useAsyncData(
 }
 
 .doc-prose a {
-  color: var(--doc-accent);
+  color: var(--doc-text-primary);
   text-decoration: none;
   transition: var(--transition-fast);
 }
@@ -141,8 +141,8 @@ const { data: surround } = await useAsyncData(
 }
 
 .doc-prose pre {
-  margin: var(--spacing-xl) 0;
-  padding: var(--spacing-lg);
+  margin: var(--spacing-sm) 0;
+  padding: var(--spacing-sm);
   background: var(--doc-bg-secondary);
   border-radius: var(--radius-lg);
   overflow-x: auto;

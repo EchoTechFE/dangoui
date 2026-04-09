@@ -274,6 +274,12 @@ pages/general/typography.vue
 
 **Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
 
+**Vite/Nuxt 缓存导致样式错误不消失：**
+- 现象：改了 `.vue` 文件但页面样式不变，报奇怪的 CSS 解析错误（如 "Unknown word" 在某行 template 内容上）
+- 根因：`.nuxt` 缓存残留旧版本组件信息，即使文件已修改，Vite 仍读缓存
+- 解决：`rm -rf .nuxt node_modules/.vite node_modules/.cache`，然后 `pnpm dev` 重启
+- 经验：每次遇到诡异的 HMR/样式问题，先清缓存再排查
+
 ### 文件重命名防丢 frontmatter 规则
 
 批量 `git mv` 重命名 md 文件时，**只做路径变更，frontmatter 会被丢弃**（踩过 23 个文件 frontmatter 全丢的坑）。
