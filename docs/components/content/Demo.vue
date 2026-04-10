@@ -5,11 +5,11 @@
   >
     <div class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0">
       <div class="preview-section-title">{{ title }}</div>
-      <div class="flex flex-col flex-1 overflow-hidden">
+      <div class="flex flex-col flex-1 overflow-hidden w-full">
         <div v-if="$slots.default">
           <slot />
         </div>
-        <div class="not-prose overflow-auto px-12px py-10px flex-1">
+        <div class="not-prose overflow-auto flex-1 w-full">
           <slot name="snippet" />
         </div>
       </div>
@@ -44,6 +44,12 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.not-prose :deep(pre) {
+  width: 100%;
+}
+</style>
 
 <script setup lang="ts">
 import { globalTheme } from '~/composables/dumpling'

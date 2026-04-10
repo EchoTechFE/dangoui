@@ -141,17 +141,16 @@ const { data: surround } = await useAsyncData(
 }
 
 .doc-prose pre {
-  margin: var(--spacing-sm) 0;
+  margin: 0;
   padding: var(--spacing-sm);
   background: var(--doc-bg-secondary);
-  border-radius: var(--radius-lg);
   overflow-x: auto;
   white-space: pre;
   border: none !important;
 }
 
 .doc-prose :is(pre, .shiki, code) {
-  border: none !important;
+  border: none;
 }
 
 .doc-prose pre code {

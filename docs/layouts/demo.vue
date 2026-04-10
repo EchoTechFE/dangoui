@@ -35,3 +35,10 @@ onMounted(() => {
   })
 })
 </script>
+
+<style>
+.not-prose > pre {
+  width: 100%;
+  display: block;
+}
+</style>
