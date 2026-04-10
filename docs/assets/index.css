@@ -5,10 +5,10 @@
 :root {
   /* ── Layout ── */
   --doc-layout-max-w: 1200px;
-  --doc-sidebar-w: 280px;
+  --doc-sidebar-w: 200px;
   --doc-sidebar-padding: 16px;
   --doc-header-h: 56px;
-  --doc-outline-w: 220px;
+  --doc-outline-w: 180px;
 
   /* ── Apple-like Spacing ── */
   --spacing-xs: 4px;

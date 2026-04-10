@@ -93,14 +93,14 @@
       <aside class="doc-sidebar fixed top-[var(--doc-header-h)] left-0 bottom-0 w-[var(--doc-sidebar-w)] bg-[var(--doc-sidebar-bg)] border-r border-r-solid border-r-[var(--doc-border-light)] overflow-y-auto">
         <nav class="p-[var(--spacing-xl)_var(--spacing-md)]">
           <div v-for="navItem in navigation" :key="navItem.title" class="mb-[var(--spacing-xl)]">
-            <div class="text-11px font-600 uppercase tracking-[0.05em] c-[var(--doc-text-tertiary)] px-[var(--spacing-sm)] mb-[var(--spacing-sm)]">{{ navItem.title }}</div>
+            <div class="text-10px font-600 uppercase tracking-[0.05em] c-[var(--doc-text-tertiary)] px-[var(--spacing-sm)] mb-[var(--spacing-sm)]">{{ navItem.title }}</div>
             <div class="flex flex-col gap-2px">
               <NuxtLink
                 v-for="item in navItem.children ?? []"
                 :key="item.title"
                 :to="item._path"
                 :class="[
-                  'flex items-center justify-between p-[var(--spacing-sm)] text-13px no-underline rounded-[var(--radius-md)] transition-all',
+                  'flex items-center justify-between p-[var(--spacing-sm)] text-11px no-underline rounded-[var(--radius-md)] transition-all',
                   isNavItemActive(item)
                     ? 'bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] font-500 hover:bg-[var(--doc-accent-bg-hover)] hover:c-[var(--doc-accent-hover)]'
                     : 'c-[var(--doc-text-secondary)] hover:bg-[var(--doc-bg-secondary)] hover:c-[var(--doc-text-primary)]',
@@ -121,7 +121,7 @@
 
       <!-- Outline -->
       <aside class="doc-outline fixed top-[var(--doc-header-h)] right-0 bottom-0 w-[var(--doc-outline-w)] p-[var(--spacing-xl)_var(--spacing-lg)] overflow-hidden">
-        <div class="text-11px font-600 uppercase tracking-[0.05em] c-[var(--doc-text-tertiary)] mb-[var(--spacing-md)]">本页内容</div>
+        <div class="text-10px font-600 uppercase tracking-[0.05em] c-[var(--doc-text-tertiary)] mb-[var(--spacing-sm)]">本页内容</div>
         <nav class="flex flex-col gap-4px">
           <template v-if="md?.body?.toc?.links">
             <a
@@ -129,7 +129,7 @@
               :key="link.id"
               :href="`#${link.id}`"
               :class="[
-                'block text-12px no-underline p-[var(--spacing-xs)_var(--spacing-sm)] rounded-[var(--radius-sm)] transition-all leading-[1.5]',
+                'block text-10px no-underline p-[var(--spacing-xs)_var(--spacing-sm)] rounded-[var(--radius-sm)] transition-all leading-[1.5]',
                 activeLinkId === link.id
                   ? 'c-[var(--doc-accent)] bg-[var(--doc-accent-bg)]'
                   : 'c-[var(--doc-text-tertiary)] hover:c-[var(--doc-text-secondary)] hover:bg-[var(--doc-bg-secondary)]',
