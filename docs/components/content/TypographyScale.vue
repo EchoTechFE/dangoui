@@ -15,7 +15,7 @@
 
     <!-- Font Families -->
     <div class="typo-families flex flex-col border border-[var(--doc-border-light)] rounded-lg overflow-hidden">
-      <div class="typo-family-hd w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]">字体栈 Font Stack</div>
+      <div class="typo-family-hd preview-section-title">字体栈 Font Stack</div>
       <div class="typo-family-row active flex items-center gap-0 p-14px transition-all">
         <div class="typo-family-chips flex items-center gap-6px flex-wrap">
           <span class="text-12px font-mono text-neutral-600">{{ platformFontFamily }}</span>

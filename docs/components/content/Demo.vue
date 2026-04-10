@@ -3,8 +3,8 @@
     class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden"
     style="height: 680px;"
   >
-    <div class="flex-1 flex flex-col bg-[var(--doc-bg-primary)] min-w-0">
-      <div class="w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]">{{ title }}</div>
+    <div class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0">
+      <div class="preview-section-title">{{ title }}</div>
       <div class="flex flex-col flex-1 overflow-hidden">
         <div v-if="$slots.default">
           <slot />

@@ -2,7 +2,7 @@
   <div class="preview-section">
     <div
       v-if="title"
-      class="w-full text-11px font-600 uppercase tracking-[0.8px] text-[var(--doc-text-tertiary)] bg-[var(--doc-bg-secondary)] px-14px py-14px border-b border-b-solid border-b-[var(--doc-border-light)]"
+      class="preview-section-title"
     >
       {{ title }}
     </div>

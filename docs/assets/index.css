@@ -183,3 +183,17 @@
   border-color: var(--doc-border-light);
 }
 
+/* ── Preview Section Title ── */
+.preview-section-title {
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 14px;
+  color: var(--doc-text-tertiary);
+  padding: 14px;
+  background: var(--doc-bg-secondary);
+  border-bottom: 1px solid var(--doc-border-light);
+}
+
