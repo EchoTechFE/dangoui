@@ -1,23 +1,25 @@
 <template>
   <section
     class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden"
-    style="height: 680px;"
+    :style="{ height: `${previewHeight}px` }"
   >
-    <div class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0">
+    <div
+      class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0 overflow-auto"
+      :style="{ height: `${previewHeight}px` }"
+    >
       <div class="preview-section-title">{{ title }}</div>
-      <div class="flex flex-col flex-1 overflow-hidden w-full">
-        <div v-if="$slots.default">
-          <slot />
-        </div>
-        <div class="not-prose overflow-auto flex-1 w-full">
-          <slot name="snippet" />
-        </div>
+      <div class="not-prose w-full">
+        <slot />
+      </div>
+      <div class="not-prose overflow-auto w-full">
+        <slot name="snippet" />
       </div>
     </div>
     <div
-      class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)]"
+      class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)] flex flex-col"
+      :style="{ height: `${previewHeight}px` }"
     >
-      <iframe ref="iframe" :src="demoPath" class="w-full h-full" style="padding: 0; border: none;" />
+      <iframe ref="iframe" :src="demoPath" class="w-full" style="padding: 0; border: none; background-color: transparent;" />
       <div
         v-if="consoleOpen"
         class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
@@ -61,6 +63,7 @@ const props = defineProps<{
 }>()
 
 const iframe = ref<HTMLIFrameElement>()
+const previewHeight = ref(680)
 
 // props.path from MDC: content:${path}:${filename}:${demoIdx}
 // Content path in Nuxt Content strips N. prefix from both directory and filename.
@@ -120,10 +123,34 @@ watch(globalTheme, (theme) => {
   )
 })
 
+function updateIframeHeight(h: number) {
+  previewHeight.value = h + 32 // 加上底部控制栏高度
+  iframe.value!.style.height = `${h}px`
+}
+
+function getIframeContentHeight(): number {
+  const doc = iframe.value?.contentWindow?.document
+  if (!doc) return 0
+
+  // 获取 body 的真实高度（避免 min-h-screen 等影响）
+  return doc.body.getBoundingClientRect().height
+}
+
+function updateHeight() {
+  const h = getIframeContentHeight()
+  if (h > 0) {
+    previewHeight.value = h + 32
+    iframe.value!.style.height = `${h}px`
+  }
+}
+
 onMounted(() => {
   window.addEventListener('message', (message) => {
     if (message.source !== iframe.value?.contentWindow) {
       return
+    }
+    if (message.data?.type === 'height') {
+      updateIframeHeight(message.data.height)
     }
     if (
       message.data?.type === 'log' &&
@@ -131,6 +158,16 @@ onMounted(() => {
     ) {
       logs.value.push(message.data.message)
     }
+  })
+
+  // iframe 加载后获取内容高度
+  iframe.value?.addEventListener('load', () => {
+    // 先设大高度让内容渲染
+    iframe.value!.style.height = '2000px'
+    previewHeight.value = 2000
+
+    // 延迟获取真实高度
+    setTimeout(updateHeight, 300)
   })
 })
 </script>
