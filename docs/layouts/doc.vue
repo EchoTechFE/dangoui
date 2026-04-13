@@ -63,7 +63,7 @@
               v-for="app in apps"
               :key="app.id"
               :class="[
-                'flex items-center justify-center h-28px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'flex items-center justify-center h-28px px-8px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
                 currentApp === app.id ? 'bg-[var(--doc-bg-primary)] shadow-sm' : 'bg-transparent hover:bg-[var(--doc-bg-primary)]',
               ]"
               @click="handleAppClick(app.id)"
