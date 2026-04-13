@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isHydrated">
+  <div v-if="isHydrated" class="du-theme-basic du-theme-qd g-theme-qd bg-white">
     <DuTheme :name="globalTheme">
       <DuToastProvider>
         <slot />
@@ -35,3 +35,10 @@ onMounted(() => {
   })
 })
 </script>
+
+<style>
+.not-prose > pre {
+  width: 100%;
+  display: block;
+}
+</style>

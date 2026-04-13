@@ -6,7 +6,101 @@
 
 ---
 
-## 01 · 核心架构
+## 01 · 战略目标：原型即上线
+
+### 核心理念
+
+**自然语言描述需求 → AI 生成代码 → 直接上线**
+
+通过 AI 辅助，最大化减少人工介入，让产品经理能用自然语言快速搭出可上线的页面原型。
+
+### 完整流程
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           原型即上线完整流程                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌──────────┐      ┌──────────────┐      ┌─────────┐      ┌──────────────┐ │
+│  │ PM/用户   │ ───→ │ Claude Code   │ ───→ │ HTML 预览 │ ───→ │ 产品周会评审  │ │
+│  │ 自然语言   │      │ 生成 HTML      │      │ 所见即所得 │      │ 定稿          │ │
+│  └──────────┘      └──────────────┘      └─────────┘      └───────┬──────┘ │
+│                                                                    │        │
+│                                                                    ↓        │
+│  ┌──────────┐      ┌──────────────┐      ┌─────────┐      ┌──────────────┐ │
+│  │ 生产代码  │ ←─── │ AI 翻译       │ ←─── │ figma-  │ ←─── │ 设计精调      │ │
+│  │ 上线      │      │ + figma-     │      │ to-code  │      │ Figma 组件   │ │
+│  │          │      │ context.md   │      │ 骨架提取  │      │ 插件导回      │ │
+│  └──────────┘      └──────────────┘      └─────────┘      └──────────────┘ │
+│       ↑                                                                     │
+│       │                                                                     │
+│  ┌────┴────┐                                                               │
+│  │ Dangoui │ ←── 组件库支撑                                                │
+│  │ 组件库   │                                                               │
+│  └─────────┘                                                               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 流程说明
+
+| 阶段 | 工具/方式 | 说明 |
+|------|----------|------|
+| **① 需求描述** | Claude Code 自然语言 | PM/FE 直接描述需求 |
+| **② 原型生成** | Claude 生成 HTML | 快速预览，无需设计介入 |
+| **③ 周会评审** | 产品内部 | 快速迭代，节省设计资源 |
+| **④ 定稿** | 产品/设计确认 | 设计介入，精细化 |
+| **⑤ 导回 Figma** | Figma 插件 | 把 HTML demo 识别为 Figma 组件 |
+| **⑥ 精调** | 设计 | 规范组件结构 |
+| **⑦ 骨架提取** | figma-to-code | REST API 提取结构 |
+| **⑧ AI 翻译** | Claude + figma-context | 翻译为业务代码 |
+| **⑨ 上线** | Dangoui 组件库 | 生产可用代码 |
+
+### PM Terminal 工作流（示例）
+
+PM Terminal 是「原型即上线」在 **Business 层** 的具体实现：
+
+```
+PM 说："我要一个闲置发布页面"
+    ↓
+Business Schema：👻 Islands / PublishPage
+    - slots: [💙 TabBar, 💙 FAB, ...]       ← Component 引用
+    - layout: { flex-direction, gap, ... }   ← 布局信息
+    - tokens: { bg, text, ... }             ← Token 引用
+    ↓
+Claude Code 生成 DangUI 代码
+    ↓
+DangUI 渲染层直接展示
+    ↓
+PM 看到的就是最终 App 呈现的（所见即所得）
+```
+
+**PM Terminal 能搭出什么，取决于 Business Schema 完整性。** Business Schema 格式以 Figma REST API 实际导出的 JSON 为准。
+
+### 设计系统角色
+
+Dangoui 是「原型即上线」流程的**代码底座**：
+
+| 层级 | 内容 | Dangoui 落地 |
+|------|------|-------------|
+| **Token** | 颜色/间距/圆角/字号 | `dangoui-design-token` + `uno-preset-echo` |
+| **Component** | 原子分子组件（Button/Tabs/NavBar） | `packages/dangoui` + `docs` H5 指南 |
+| **Business** | 业务组件（Grid/Header/Feed）+ 布局 + Slots | PM Terminal 搭 demo 的关键 |
+
+**当前约束：** 各端组件库（iOS/Android/Web）还在建设中，设计系统完善度不够，所以 Figma 中转是必要的。后续组件库完备后，可以跳过 Figma 直接从 HTML 预览生成代码。
+
+### 工具链
+
+| 工具 | 用途 |
+|------|------|
+| `figma-to-code` | Figma 骨架提取（REST API） |
+| `.claude/figma-context.md` | 项目规范，AI 翻译上下文 |
+| `.claude/commands/figma.md` | AI skill 入口 |
+| Dangoui 组件库 | 生产代码底座 |
+
+---
+
+## 02 · 核心架构
 
 ### 架构图
 
@@ -28,11 +122,11 @@
 │   ┌──────── Token Schema ─────────┐                          │
 │   │ { "primary/bt/solidBg":      │                           │
 │   │    { "$value": "#7C66FF" } } │                           │
-│   └──────────────────────────────┘                           │
+│   └──────────────────────────────┘                          │
 │   ┌──────── Component Schema ─────┐                          │
 │   │ { "type": "COMPONENT_SET",   │                           │
 │   │  "variants": { "Main": {...} }                           │
-│   └──────────────────────────────┘                           │
+│   └──────────────────────────────┘                          │
 │   ┌──────── Business Schema ───────┐                         │
 │   │ { "👻 Islands / Grid",         │                         │
 │   │  "slots": ["💙 TabBar",        │                         │
@@ -83,30 +177,9 @@ UnoCSS presets       ← Token 真值（设计 Token 的原始值）
 
 **代码真值 ≠ Token 真值：** 组件实现（props/slots/behavior）是 Vue 代码，Token 值（颜色/字号/间距）是设计变量，两回事。
 
-### PM Terminal 工作流
+---
 
-Business Schema = Token（样式底色）+ Component（原子组件）+ Layout（布局结构）
-
-```
-PM 说："我要一个闲置发布页面"
-    ↓
-Business Schema：👻 Islands / PublishPage
-    - slots: [💙 TabBar, 💙 FAB, ...]       ← Component 引用（结构待确认）
-    - layout: { flex-direction, gap, ... }   ← 布局信息（格式待确认）
-    - tokens: { bg, text, ... }             ← Token 引用（格式待确认）
-    ↓
-Claude Code 生成 DangUI 代码
-    ↓
-DangUI 渲染层直接展示
-    ↓
-PM 看到的就是最终 App 呈现的（所见即所得）
-```
-
-**PM Terminal 能搭出什么，取决于 Business Schema 完整性。Business Schema 格式以 Figma REST API 实际导出的 JSON 为准，上例仅为示意。**
-
-───────────────────────────────────────────────────────
-
-## 02 · 规范速查
+## 03 · 规范速查
 
 > 遇到问题查这里，知道答案在哪层数据里，就不用推断。
 
@@ -134,9 +207,25 @@ PM 看到的就是最终 App 呈现的（所见即所得）
 | 业务组件怎么组合 | 自己设计 | 读 Figma Business Schema，或读 `docs/content/` 对应业务模块 |
 | PM Terminal 能搭什么 | 不确定 | 取决于 Business Schema 完整性，Schema 越完整，PM Terminal 能搭的越多 |
 
-───────────────────────────────────────────────────────
+---
 
-## 03 · Docs 内容架构
+## 04 · 【预留】
+
+---
+
+## 05 · 【预留】
+
+---
+
+## 06 · 【预留】
+
+---
+
+## 07 · 【预留】
+
+---
+
+## 08 · Docs 内容架构
 
 ### 实际目录结构
 
@@ -274,6 +363,12 @@ pages/general/typography.vue
 
 **Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
 
+**Vite/Nuxt 缓存导致样式错误不消失：**
+- 现象：改了 `.vue` 文件但页面样式不变，报奇怪的 CSS 解析错误（如 "Unknown word" 在某行 template 内容上）
+- 根因：`.nuxt` 缓存残留旧版本组件信息，即使文件已修改，Vite 仍读缓存
+- 解决：`rm -rf .nuxt node_modules/.vite node_modules/.cache`，然后 `pnpm dev` 重启
+- 经验：每次遇到诡异的 HMR/样式问题，先清缓存再排查
+
 ### 文件重命名防丢 frontmatter 规则
 
 批量 `git mv` 重命名 md 文件时，**只做路径变更，frontmatter 会被丢弃**（踩过 23 个文件 frontmatter 全丢的坑）。
@@ -295,27 +390,70 @@ done
 
 ---
 
-## 04 · 【预留】
-
----
-
-## 05 · 【预留】
-
----
-
-## 06 · 【预留】
-
----
-
-## 07 · 【预留】
-
----
-
-## 08 · 【预留】
-
-───────────────────────────────────────────────────────
-
-## 10 · Git 操作原则
+## 09 · Git 操作原则
 
 - **不要自行新建分支**。除非用户明确要求，所有改动直接提交到当前分支（通常是 main）
 - **不要自行 push**。除非用户明确要求推送
+
+---
+
+## 10 · Roadmap & 里程碑
+
+### 大目标
+
+**打通「自然语言 → 生产代码」的完整闭环，让 PM 能独立完成从需求到上线**
+
+---
+
+### 暴露问题策略
+
+> **核心思路：通过试跑逐步发现 + 集中输出修复**
+
+- figma-context.md 的基础组件映射还有很多细节不够完善和最新
+- **不要追求一次性完善，而是在试跑过程中逐步发现、记录**
+- **集中输出时机：每次试跑后汇总问题，定期（如每天/每周）统一修复**
+- 问题发现流程：试跑 → 记录到 `session-state-dangoui-docs.md`「待修复问题清单」→ 批量修复
+
+---
+
+### P0 — 确保 AI 翻译可用（基础设施）
+
+| 状态 | 任务 | 说明 |
+|------|------|------|
+| ✅ | 安装 figma-to-code | `pnpm add -g @frontend/figma-to-code` |
+| ✅ | 配置 Figma PAT | macOS Keychain 存储 |
+| ✅ | 初始化 dangoui 项目 | `figma-to-code init --ui=dangoui` |
+| ⬜ | 完善 `.claude/figma-context.md` | 填充 dangoui 组件映射表、token 映射、UnoCSS 配置 |
+| ⬜ | 验证 AI 翻译质量 | 给一个 Figma 链接，试跑完整流程，检查输出代码是否可用 |
+
+**为什么 P0 最高？** figma-context.md 是 AI 翻译的「词典」，如果词典不全或不准，输出的代码就是错的。
+
+---
+
+### P1 — 打通核心业务场景
+
+| 状态 | 任务 | 说明 |
+|------|------|------|
+| ⬜ | 完善 Business 层组件 | 如 PublishPage（发布页）、DetailPage（详情页）等，让 PM Terminal 能搭出真实页面 |
+| ⬜ | 补充 component → Vue 组件的映射 | 让 AI 知道 Figma 里的 Button = dangoui 的 DuButton |
+
+**为什么 P1？** 设计系统三层中，Business 层是「原型即上线」的关键 —— PM 能搭出的页面复杂度取决于 Business 组件的丰富度。
+
+---
+
+### P2 — 消除卡点
+
+| 状态 | 任务 | 说明 |
+|------|------|------|
+| ⬜ | Figma 插件环节 | 设计把 HTML demo 导回 Figma，目前缺失 |
+| ⬜ | PM Terminal 入口 | 让 PM 有界面可用，而不是靠 CLI |
+
+---
+
+### P3 — 长期建设
+
+| 状态 | 任务 | 说明 |
+|------|------|------|
+| ⬜ | 完善 Token 层 | iOS/Android/Web 各端 token 对齐 |
+| ⬜ | 完善 Component 层 | 原子组件补全 |
+| ⬜ | 制定 SOP 并推广 | 让 PM/FE/设计都会用这套流程 |

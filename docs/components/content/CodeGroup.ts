@@ -10,7 +10,7 @@ export default defineComponent({
         'div',
         {
           class:
-            'border border-solid border-border-2 rounded-4px overflow-hidden',
+            'border border-solid border-border-2 rounded-lg overflow-hidden',
         },
         [
           h(
