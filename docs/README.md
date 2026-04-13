@@ -1,75 +1,38 @@
-# Nuxt 3 Minimal Starter
+# Dangoui
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Dangoui 是一个单仓多出口的设计系统，核心目标是**原型即上线**。
 
-## Setup
+## 理念
 
-Make sure to install the dependencies:
+自然语言描述需求 → AI 生成代码 → 直接上线
+
+通过 AI 辅助，最大化减少人工介入，让产品经理能用自然语言快速搭出可上线的页面原型。
+
+## 技术栈
+
+- **文档站**: Nuxt 3 + Nuxt Content + UnoCSS
+- **组件库**: Vue 3 + TypeScript
+- **设计 Token**: dangoui-design-token + uno-preset-echo
+
+## 开发
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+pnpm dev          # 文档站开发
+pnpm run generate # 生成静态站
 ```
 
-## Development Server
+## 文档
 
-Start the development server on `http://localhost:3000`:
+线上文档：https://dumpling.echo.tech
 
-```bash
-# npm
-npm run dev
+## 架构
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+```
+Figma → JSON Schema → Dangoui 组件库 → 各端上线代码
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+三层结构：
+- **Token** — 颜色/间距/圆角/字号
+- **Component** — 原子分子组件（Button/Tabs/NavBar）
+- **Business** — 业务组件（Grid/Header/Feed）+ 布局 + Slots
