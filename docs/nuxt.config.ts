@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt', '@nuxt/image'],
@@ -22,7 +24,7 @@ export default defineNuxtConfig({
     },
     resolve: {
       alias: {
-        'oniguruma-to-es': 'oniguruma-to-es/dist/index.mjs',
+        'oniguruma-to-es': fileURLToPath(new URL('../node_modules/oniguruma-to-es/dist/index.mjs', import.meta.url)),
       },
     },
   },
