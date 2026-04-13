@@ -4,9 +4,6 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt', '@nuxt/image'],
   devtools: { enabled: true },
-  routeRules: {
-    '/': { redirect: '/get-started/introduction' },
-  },
   app: {
     head: {
       titleTemplate: '%s - Dango UI',
