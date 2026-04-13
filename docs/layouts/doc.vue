@@ -3,11 +3,11 @@
     <div class="min-h-100vh bg-[var(--doc-bg-primary)]">
       <!-- Header -->
       <header class="fixed top-0 left-0 right-0 h-[var(--doc-header-h)] bg-[var(--doc-header-bg)] backdrop-blur-20 backdrop-saturate-180 border-b border-b-solid border-b-[var(--doc-border-light)] z-100">
-        <div class="flex items-center h-full max-w-[calc(var(--doc-layout-max-w)+var(--doc-sidebar-w)+var(--spacing-3xl)*2)] mx-auto px-[var(--spacing-xl)] gap-4px">
+        <div class="flex items-center h-full px-[var(--spacing-xl)] gap-4px w-full">
           <NuxtLink to="/" class="flex items-center gap-[var(--spacing-sm)] no-underline shrink-0">
             <Logo />
-            <span class="font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em]">Dango UI</span>
-            <span class="text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em]">Beta</span>
+            <span class="font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em] hidden md:inline">Dango UI</span>
+            <span class="text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em] hidden sm:inline">Beta</span>
           </NuxtLink>
 
           <!-- Search -->
@@ -25,7 +25,7 @@
               @focus="handleInputFocus"
               @blur="handleInputBlur"
             />
-            <div class="flex gap-2px">
+            <div class="flex gap-2px hidden sm:flex">
               <kbd :class="kbdClass">⌘</kbd>
               <kbd :class="kbdClass">K</kbd>
             </div>
@@ -63,14 +63,14 @@
               v-for="app in apps"
               :key="app.id"
               :class="[
-                'flex items-center justify-center h-28px px-8px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'flex items-center justify-center h-28px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
                 currentApp === app.id ? 'bg-[var(--doc-bg-primary)] shadow-sm' : 'bg-transparent hover:bg-[var(--doc-bg-primary)]',
               ]"
               @click="handleAppClick(app.id)"
               :title="app.name"
             >
               <DuTheme :name="app.id" class="w-8px h-8px rounded-full shrink-0 bg-[var(--du-primary-solid-bg)]" :class="{ 'scale-120': currentApp === app.id }" />
-              <span :class="['text-11px whitespace-nowrap', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
+              <span :class="['text-11px whitespace-nowrap hidden lg:inline', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
             </button>
           </div>
 

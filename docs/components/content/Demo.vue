@@ -19,7 +19,7 @@
       class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)] flex flex-col"
       :style="{ height: `${previewHeight}px` }"
     >
-      <iframe ref="iframe" :src="demoPath" class="w-full" style="padding: 0; border: none; background-color: transparent;" />
+      <iframe ref="iframe" :src="demoPath" class="w-full" style="height: 667px; overflow-y: auto; padding: 0; border: none; background-color: transparent;" />
       <div
         v-if="consoleOpen"
         class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
@@ -63,37 +63,19 @@ const props = defineProps<{
 }>()
 
 const iframe = ref<HTMLIFrameElement>()
-const previewHeight = ref(680)
+const previewHeight = ref(667)
 
-// props.path from MDC: content:${path}:${filename}:${demoIdx}
-// Content path in Nuxt Content strips N. prefix from both directory and filename.
-// But pages/demos directories keep N. prefix (e.g., 2.bar, 1.style).
-// So we reconstruct by: take the route path segments, strip N. from filename only,
-// and for the category we must NOT strip N. from the first segment (it's the actual dir name).
 const demoPath = computed(() => {
   const p = props.path
     .replace(/^content:/, '')
-    .replace(/:(\d+)$/, '') // strip demo index at end
-    .replace(/\.md$/, '') // strip .md extension
+    .replace(/:(\d+)$/, '')
+    .replace(/\.md$/, '')
 
-  // p is like 'bar:navigation-bar.md' or 'style:button.md'
   const colonIdx = p.lastIndexOf(':')
-  const categoryPart = p.substring(0, colonIdx) // e.g. 'bar' or 'style'
-  const filenameWithExt = p.substring(colonIdx + 1) // e.g. 'navigation-bar.md' or 'button.md'
-  const filename = filenameWithExt.replace(/^(\d+)\./, '') // strip N. sort prefix
+  const categoryPart = p.substring(0, colonIdx)
+  const filenameWithExt = p.substring(colonIdx + 1)
+  const filename = filenameWithExt.replace(/^(\d+)\./, '')
 
-  // For the category: don't strip N. from first segment (it IS the directory name)
-  // But we need to handle multi-segment category paths
-  // categoryPart comes from the route path where N. IS stripped, but pages dirs keep N.
-  // We need to look up the original directory name from the _file field in content API,
-  // but we don't have that here. Instead, for known top-level categories,
-  // we prepend the N. prefix based on the stripped route segment.
-  // Actually, the pages dirs ARE named with N. prefix (1.style, 2.bar etc).
-  // The content route strips N., so we must restore it.
-  // For single-segment category like 'bar', we need to know it's '2.bar'.
-  // The only way is to have a mapping.
-  // For simplicity: if categoryPart is a known top-level category, use the pages dir as-is.
-  // categoryPart = 'bar' → '2.bar', 'style' → '1.style', etc.
   const categoryMap: Record<string, string> = {
     'bar': '2.bar',
     'style': '1.style',
@@ -110,7 +92,6 @@ const demoPath = computed(() => {
 })
 
 const logs = ref<string[]>([])
-
 const consoleOpen = ref(false)
 
 watch(globalTheme, (theme) => {
@@ -123,34 +104,10 @@ watch(globalTheme, (theme) => {
   )
 })
 
-function updateIframeHeight(h: number) {
-  previewHeight.value = h + 32 // 加上底部控制栏高度
-  iframe.value!.style.height = `${h}px`
-}
-
-function getIframeContentHeight(): number {
-  const doc = iframe.value?.contentWindow?.document
-  if (!doc) return 0
-
-  // 获取 body 的真实高度（避免 min-h-screen 等影响）
-  return doc.body.getBoundingClientRect().height
-}
-
-function updateHeight() {
-  const h = getIframeContentHeight()
-  if (h > 0) {
-    previewHeight.value = h + 32
-    iframe.value!.style.height = `${h}px`
-  }
-}
-
 onMounted(() => {
   window.addEventListener('message', (message) => {
     if (message.source !== iframe.value?.contentWindow) {
       return
-    }
-    if (message.data?.type === 'height') {
-      updateIframeHeight(message.data.height)
     }
     if (
       message.data?.type === 'log' &&
@@ -158,16 +115,6 @@ onMounted(() => {
     ) {
       logs.value.push(message.data.message)
     }
-  })
-
-  // iframe 加载后获取内容高度
-  iframe.value?.addEventListener('load', () => {
-    // 先设大高度让内容渲染
-    iframe.value!.style.height = '2000px'
-    previewHeight.value = 2000
-
-    // 延迟获取真实高度
-    setTimeout(updateHeight, 300)
   })
 })
 </script>
