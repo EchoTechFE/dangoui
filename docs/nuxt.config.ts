@@ -20,5 +20,10 @@ export default defineNuxtConfig({
     define: {
       __WEB__: 'true',
     },
+    resolve: {
+      alias: {
+        'oniguruma-to-es': 'oniguruma-to-es/dist/index.mjs',
+      },
+    },
   },
 })
