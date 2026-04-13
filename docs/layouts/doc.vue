@@ -3,11 +3,11 @@
     <div class="min-h-100vh bg-[var(--doc-bg-primary)]">
       <!-- Header -->
       <header class="fixed top-0 left-0 right-0 h-[var(--doc-header-h)] bg-[var(--doc-header-bg)] backdrop-blur-20 backdrop-saturate-180 border-b border-b-solid border-b-[var(--doc-border-light)] z-100">
-        <div class="flex items-center h-full max-w-[calc(var(--doc-layout-max-w)+var(--doc-sidebar-w)+var(--spacing-3xl)*2)] mx-auto px-[var(--spacing-xl)] gap-4px">
+        <div class="flex items-center h-full px-[var(--spacing-sm)] md:px-[var(--spacing-lg)] gap-4px">
           <NuxtLink to="/" class="flex items-center gap-[var(--spacing-sm)] no-underline shrink-0">
             <Logo />
-            <span class="font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em]">Dango UI</span>
-            <span class="text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em]">Beta</span>
+            <span class="hidden md:inline font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em]">Dango UI</span>
+            <span class="hidden lg:inline text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em]">Beta</span>
           </NuxtLink>
 
           <!-- Search -->
@@ -17,7 +17,7 @@
               ref="inputRef"
               v-model="keyword"
               placeholder="搜索文档..."
-              class="flex-1 border-none bg-transparent text-13px c-[var(--doc-text-primary)] outline-none placeholder-[var(--doc-text-placeholder)]"
+              class="flex-1 border-none bg-transparent text-13px c-[var(--doc-text-primary)] outline-none placeholder-[var(--doc-text-placeholder)] w-0 min-w-60px"
               @keydown.esc="handleKeyEsc"
               @keydown.up.prevent="handleKeyUp"
               @keydown.down.prevent="handleKeyDown"
@@ -25,7 +25,7 @@
               @focus="handleInputFocus"
               @blur="handleInputBlur"
             />
-            <div class="flex gap-2px">
+            <div class="hidden lg:flex gap-2px">
               <kbd :class="kbdClass">⌘</kbd>
               <kbd :class="kbdClass">K</kbd>
             </div>
@@ -58,19 +58,20 @@
           </div>
 
           <!-- App Segment Control -->
-          <div class="flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-[var(--radius-md)] ml-auto">
+          <div class="flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-[var(--radius-md)] ml-auto shrink-0">
             <button
               v-for="app in apps"
               :key="app.id"
               :class="[
-                'flex items-center justify-center h-28px px-8px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'flex items-center justify-center h-28px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'px-6px lg:px-8px',
                 currentApp === app.id ? 'bg-[var(--doc-bg-primary)] shadow-sm' : 'bg-transparent hover:bg-[var(--doc-bg-primary)]',
               ]"
               @click="handleAppClick(app.id)"
               :title="app.name"
             >
               <DuTheme :name="app.id" class="w-8px h-8px rounded-full shrink-0 bg-[var(--du-primary-solid-bg)]" :class="{ 'scale-120': currentApp === app.id }" />
-              <span :class="['text-11px whitespace-nowrap', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
+              <span :class="['hidden lg:inline text-11px whitespace-nowrap', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
             </button>
           </div>
 
@@ -344,7 +345,10 @@ useEventListener('scroll', handleScroll)
   }
   .doc-content {
     margin-left: 0;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+  .doc-search {
+    min-width: 0;
   }
 }
 </style>
