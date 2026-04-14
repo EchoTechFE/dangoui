@@ -1,10 +1,9 @@
+import { fileURLToPath } from 'node:url'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt', '@nuxt/image'],
   devtools: { enabled: true },
-  routeRules: {
-    '/': { redirect: '/get-started/introduction' },
-  },
   app: {
     head: {
       titleTemplate: '%s - Dango UI',
@@ -19,6 +18,11 @@ export default defineNuxtConfig({
   vite: {
     define: {
       __WEB__: 'true',
+    },
+    resolve: {
+      alias: {
+        'oniguruma-to-es': fileURLToPath(new URL('../node_modules/oniguruma-to-es/dist/index.mjs', import.meta.url)),
+      },
     },
   },
 })

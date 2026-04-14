@@ -65,6 +65,11 @@ const props = defineProps<{
 const iframe = ref<HTMLIFrameElement>()
 const previewHeight = ref(667)
 
+// props.path from MDC: content:${path}:${filename}:${demoIdx}
+// Content path in Nuxt Content strips N. prefix from both directory and filename.
+// But pages/demos directories keep N. prefix (e.g., 2.bar, 1.style).
+// So we reconstruct by: take the route path segments, strip N. from filename only,
+// and for the category we must NOT strip N. from the first segment (it's the actual dir name).
 const demoPath = computed(() => {
   const p = props.path
     .replace(/^content:/, '')

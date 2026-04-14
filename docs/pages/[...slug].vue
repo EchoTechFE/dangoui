@@ -1,6 +1,6 @@
 <template>
   <article class="doc-article">
-    <ContentDoc class="doc-prose prose" />
+    <ContentDoc class="doc-prose prose" :path="contentPath" />
 
     <nav class="doc-nav-footer">
       <NuxtLink

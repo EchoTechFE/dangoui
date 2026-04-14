@@ -17,7 +17,7 @@
               ref="inputRef"
               v-model="keyword"
               placeholder="搜索文档..."
-              class="flex-1 border-none bg-transparent text-13px c-[var(--doc-text-primary)] outline-none placeholder-[var(--doc-text-placeholder)]"
+              class="flex-1 border-none bg-transparent text-13px c-[var(--doc-text-primary)] outline-none placeholder-[var(--doc-text-placeholder)] w-0 min-w-60px"
               @keydown.esc="handleKeyEsc"
               @keydown.up.prevent="handleKeyUp"
               @keydown.down.prevent="handleKeyDown"
@@ -58,12 +58,13 @@
           </div>
 
           <!-- App Segment Control -->
-          <div class="flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-[var(--radius-md)] ml-auto">
+          <div class="flex items-center gap-2px h-32px px-2px bg-[var(--doc-bg-secondary)] rounded-[var(--radius-md)] ml-auto shrink-0">
             <button
               v-for="app in apps"
               :key="app.id"
               :class="[
-                'flex items-center justify-center h-28px px-8px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'flex items-center justify-center h-28px border-none rounded-[var(--radius-sm)] cursor-pointer transition-all gap-4px',
+                'px-6px lg:px-8px',
                 currentApp === app.id ? 'bg-[var(--doc-bg-primary)] shadow-sm' : 'bg-transparent hover:bg-[var(--doc-bg-primary)]',
               ]"
               @click="handleAppClick(app.id)"
@@ -344,7 +345,10 @@ useEventListener('scroll', handleScroll)
   }
   .doc-content {
     margin-left: 0;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+  .doc-search {
+    min-width: 0;
   }
 }
 </style>
