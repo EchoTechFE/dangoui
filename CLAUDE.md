@@ -1,6 +1,6 @@
 # Dangoui · AI 使用说明
 
-**每次完成操作后，在完成摘要的第一句写「好的，TPP」，这代表我还没忘记。**
+**每次完成操作后，在完成摘要的第一句写「完成了！TPP」。如果忘记上下文，根据 10 章节就能知道进度。**
 
 > 本文件供 AI（如 Claude）自动读取。Dangoui 是一个单仓多出口的设计系统，本文件的规范适用于在 Dangoui 仓库内进行的所有 AI 工作。
 
@@ -221,11 +221,86 @@ UnoCSS presets       ← Token 真值（设计 Token 的原始值）
 
 ---
 
-## 07 · 【预留】
+## 07 · Props 统计与 Figma 属性映射问题
+
+### Props 频率统计
+
+> 统计来源：遍历 `packages/dangoui/src` 所有 .vue 文件的 defineProps
+
+| Prop 名称 | 出现次数 | Figma 对应 | 备注 |
+|-----------|---------|-----------|------|
+| **extStyle** | 31 | - | 自定义样式 |
+| **extClass** | 30 | - | 自定义 class |
+| **color** | 20 | ✅ Color | 二级色彩表 |
+| **value** | 17 | - | v-model 值 |
+| **size** | 16 | ✅ Size | Large/Medium/Normal/Small/Mini |
+| **type** | 11 | ✅ Type | Solid/Soft/Outline/Text |
+| **disabled** | 11 | ✅ State | Default/Disabled |
+| **title** | 8 | ✅ Text | i18n |
+| **icon** | 7 | ✅ iconLeading/iconTrailing | 图标 |
+| **name** | 7 | ✅ Slot name | 插槽名 |
+| **text** | 6 | ✅ Text | i18n |
+| **open** | 5 | ✅ Boolean | 开关 |
+| **bordered** | 5 | ✅ Boolean | 边框开关 |
+| **options** | 5 | - | 选择器选项 |
+| **shape** | 5 | ✅ Type | 形状 |
+| **placeholder** | 5 | ✅ Text | 占位文本 |
+| **inline** | 4 | ✅ Layout | 横向布局 |
+| **label** | 4 | ✅ Text | 标签文本 |
+| **layout** | 4 | ✅ Layout | Vertical/Horizontal |
+| **labelSize** | 4 | ✅ Size | label 宽度 |
+| **labelAlign** | 4 | ✅ Layout | label 对齐 |
+| **arrowRight** | 3 | ✅ arrowTrailing | 右侧箭头 |
+| **visible** | 3 | ✅ Boolean | 显示/隐藏 |
+| **loading** | 2 | ✅ State | 加载中 |
+
+### Props 按 Figma 属性分类对比
+
+| Figma 属性类型 | 值示例 | 代码 props（出现次数） | 对齐情况 |
+|--------------|-------|---------------------|---------|
+| **Variant/Type** | Solid/Soft/Outline/Text | `type`(11), `shape`(5) | ⚠️ Figma 用 Solid/Soft，代码用 primary |
+| **Color** | Primary/Secondary/Success/Error... | `color`(20) | ⚠️ 代码用 string，Figma 有枚举 |
+| **Size** | Large/Medium/Normal/Small/Mini | `size`(16), `labelSize`(4) | ✅ 基本对齐 |
+| **Boolean** | False/True | `disabled`(11), `open`(5), `bordered`(5), `visible`(3), `loading`(2) | ✅ 多个组件复用 |
+| **Text** | i18n Token | `title`(8), `text`(6), `placeholder`(5), `label`(4) | ⚠️ **命名混用，待统一** |
+| **Slot** | - | `name`(7) 部分对应 | ⚠️ iconLeading/Trailing 等未在 props 中体现 |
+| **Layout** | Vertical/Horizontal | `layout`(4), `inline`(4), `labelAlign`(4) | ✅ 有 |
+| **State** | Default/Inputted/Inputting... | `disabled`(11), `loading`(2), `readonly`(1) | ⚠️ 需要扩展 |
+| **Status** | Process/Finished/Error | - | ❌ **未体现，需新增** |
+| **i18n Token** | - | 代码直接用 `text`/`title` 传值 | ⚠️ 需约定 i18n 格式 |
+
+### 命名不一致问题（待统一）
+
+> text/title/placeholder/label 混用，应统一命名规范
+
+| 当前命名 | 使用场景 | 建议统一为 |
+|--------|---------|----------|
+| `title` | 弹窗标题、导航栏标题 | `text` 或 `label` |
+| `text` | 按钮文本、标签文本 | - |
+| `placeholder` | 输入框占位文本 | - |
+| `label` | 表单 label | - |
+
+### 值映射不一致问题（待建立映射表）
+
+> Figma 和代码的值需要建立映射表
+
+| 属性 | Figma 值 | 代码值 | 状态 |
+|------|---------|-------|------|
+| type | Solid | primary | ⚠️ 需映射 |
+| type | Soft | secondary | ⚠️ 需映射 |
+| type | Outline | outline | ✅ 一致 |
+| type | Text | text | ✅ 一致 |
+| color | Primary | primary | ⚠️ 需映射 |
+| color | Secondary | secondary | ⚠️ 需映射 |
+| size | Large | large | ✅ 一致 |
+| size | Medium | medium | ✅ 一致 |
+| size | Normal | normal | ✅ 一致 |
+| size | Small | small | ✅ 一致 |
+| size | Mini | mini | ✅ 一致 |
 
 ---
 
-## 08 · Docs 内容架构
+## 07 · Docs 内容架构
 
 ### 实际目录结构
 
@@ -390,14 +465,14 @@ done
 
 ---
 
-## 09 · Git 操作原则
+## 08 · Git 操作原则
 
 - **不要自行新建分支**。除非用户明确要求，所有改动直接提交到当前分支（通常是 main）
 - **不要自行 push**。除非用户明确要求推送
 
 ---
 
-## 10 · Roadmap & 里程碑
+## 09 · Roadmap & 里程碑
 
 ### 大目标
 
@@ -438,6 +513,8 @@ done
 | ⬜ | 补充 component → Vue 组件的映射 | 让 AI 知道 Figma 里的 Button = dangoui 的 DuButton |
 
 **为什么 P1？** 设计系统三层中，Business 层是「原型即上线」的关键 —— PM 能搭出的页面复杂度取决于 Business 组件的丰富度。
+
+**飞轮效应**：PM 需求 demo → 提醒设计是否有必要抽成组件 → 原子分子更新 / 业务组件新增更改 → Business 层完善 → PM Terminal 能搭更复杂页面 → 更多 PM 需求 demo。组件库完善后反哺 Demo 代码质量，形成正向循环。
 
 ---
 
