@@ -3,23 +3,17 @@
     class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden"
     :style="{ height: `${previewHeight}px` }"
   >
+    <!-- Preview (Left) -->
     <div
-      class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0 overflow-auto"
-      :style="{ height: `${previewHeight}px` }"
+      class="flex-none relative flex flex-col bg-white"
+      :style="{ width: `${previewWidth}px`, height: `${previewHeight}px` }"
     >
-      <div class="preview-section-title">{{ title }}</div>
-      <div class="not-prose w-full">
-        <slot />
-      </div>
-      <div class="not-prose overflow-auto w-full">
-        <slot name="snippet" />
-      </div>
-    </div>
-    <div
-      class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)] flex flex-col"
-      :style="{ height: `${previewHeight}px` }"
-    >
-      <iframe ref="iframe" :src="demoPath" class="w-full" style="height: 667px; overflow-y: auto; padding: 0; border: none; background-color: transparent;" />
+      <iframe
+        ref="iframe"
+        :src="demoPath"
+        class="w-full"
+        :style="{ height: `${previewHeight}px`, padding: 0, border: 'none', backgroundColor: 'transparent', display: 'block' }"
+      />
       <div
         v-if="consoleOpen"
         class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
@@ -44,12 +38,41 @@
         </div>
       </div>
     </div>
+
+    <!-- Code (Right) -->
+    <div
+      class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0 overflow-auto border-l border-l-solid border-l-[var(--doc-border-light)]"
+      :style="{ height: `${previewHeight}px` }"
+    >
+      <div class="preview-section-title">{{ title }}</div>
+      <div class="not-prose w-full">
+        <slot />
+      </div>
+      <div class="not-prose overflow-auto w-full">
+        <slot name="snippet" />
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .not-prose :deep(pre) {
   width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 0;
+  display: block !important;
+  gap: 0 !important;
+}
+.not-prose :deep(code) {
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 13px;
+}
+.not-prose :deep(.line) {
+  padding: 0 4px;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: 1.4em;
 }
 </style>
 
@@ -63,7 +86,10 @@ const props = defineProps<{
 }>()
 
 const iframe = ref<HTMLIFrameElement>()
-const previewHeight = ref(667)
+// 设备尺寸规范（与 PhoneMockup.vue 保持一致，iPhone X/11 Pro/12 mini/13 mini）
+// Frame 396×838, Screen 375×812, iframe容器 418×812
+const previewHeight = ref(812) // iframe 高度 = Screen 高度
+const previewWidth = ref(418)  // iframe 宽度 = Screen(375) + padding(43)
 
 // props.path from MDC: content:${path}:${filename}:${demoIdx}
 // Content path in Nuxt Content strips N. prefix from both directory and filename.
@@ -90,6 +116,7 @@ const demoPath = computed(() => {
     'other': '6.other',
     'composables': '7.composables',
     'get-started': '0.get-started',
+    'business': 'business',
   }
   const category = categoryMap[categoryPart] ?? categoryPart
 

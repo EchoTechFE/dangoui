@@ -1,6 +1,6 @@
 <template>
-  <article class="doc-article">
-    <ContentDoc class="doc-prose prose" :path="contentPath" />
+  <article v-if="md" class="doc-article">
+    <ContentDoc class="doc-prose prose" />
 
     <nav class="doc-nav-footer">
       <NuxtLink
@@ -27,17 +27,21 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: 'doc',
-})
-
 const route = useRoute()
-
 const contentPath = computed(() => route.path === '/' ? '/get-started/introduction' : route.path)
 
+// 使用 useSWR 避免 404 错误
 const { data: md } = await useAsyncData(
   'content:' + route.path,
-  () => queryContent(contentPath.value).findOne(),
+  async () => {
+    try {
+      return await queryContent(contentPath.value).findOne()
+    }
+    catch {
+      // content 不存在时返回 null，不抛错
+      return null
+    }
+  },
   { watch: [contentPath] },
 )
 
