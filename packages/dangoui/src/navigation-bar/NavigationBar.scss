@@ -5,6 +5,7 @@
   height: 44px;
   padding: 6px 7px;
   overflow: hidden;
+  margin-top: var(--window-top);
 
   &__left {
     display: flex;
