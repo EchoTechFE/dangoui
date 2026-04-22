@@ -49,6 +49,31 @@ import { DuForm, DuFormItem, DuPopup, DuTag, DuSwitch, DuTextarea, DuUpload } fr
 | ProductCard | `ProductCard` | src/components/ProductCard.vue | 已生成 |
 -->
 
+| IslandsPin* | `IslandsPin` | docs/business/IslandsPin.vue | 已生成 |
+| IslandsPinBasic* | `IslandsPinBasic` | docs/business/IslandsPinBasic.vue | 已生成 |
+| IslandsHeader* | `IslandsHeader` | docs/business/IslandsHeader.vue | 已生成 |
+| NavigationBar* | `NavigationBar` | docs/business/NavigationBar.vue | 已生成 |
+| IconIslands* | `IconIslands` | docs/business/IconIslands.vue | 已生成 |
+| SearchBar* | `SearchBar` | docs/business/SearchBar.vue | 已生成 |
+| ButtonIcon* | `ButtonIcon` | docs/business/ButtonIcon.vue | 已生成 |
+| IslandsGrid* | `IslandsGrid` | docs/business/IslandsGrid.vue | 已生成 |
+| IslandsGridBasic* | `IslandsGridBasic` | docs/business/IslandsGridBasic.vue | 已生成 |
+| IslandsSlide* | `IslandsSlide` | docs/business/IslandsSlide.vue | 已生成 |
+| IslandsSlideBasic* | `IslandsSlideBasic` | docs/business/IslandsSlideBasic.vue | 已生成 |
+| IslandsQuickEntry* | `IslandsQuickEntry` | docs/business/IslandsQuickEntry.vue | 已生成 |
+| IslandsQuickEntryTitle* | `IslandsQuickEntryTitle` | docs/business/IslandsQuickEntryTitle.vue | 已生成 |
+| IslandsQuickEntryInfo* | `IslandsQuickEntryInfo` | docs/business/IslandsQuickEntryInfo.vue | 已生成 |
+| IslandsFeed* | `IslandsFeed` | docs/business/IslandsFeed.vue | 已生成 |
+| TabsBasic* | `TabsBasic` | docs/business/TabsBasic.vue | 已生成 |
+| IslandsFeedAd* | `IslandsFeedAd` | docs/business/IslandsFeedAd.vue | 已生成 |
+| FeedPost* | `FeedPost` | docs/business/FeedPost.vue | 已生成 |
+| UserIsland* | `UserIsland` | docs/business/UserIsland.vue | 已生成 |
+| SPUBasic* | `SPUBasic` | docs/business/SPUBasic.vue | 已生成 |
+| SPU* | `SPU` | docs/business/SPU.vue | 已生成 |
+| island-detail | `IslandDetail` | docs/business/IslandDetail.vue | 已生成 |
+| StatusBar* | `StatusBar` | docs/business/StatusBar.vue | 已生成 |
+| HomeIndicator* | `HomeIndicator` | docs/business/HomeIndicator.vue | 已生成 |
+
 ---
 
 ## 组件映射规则
