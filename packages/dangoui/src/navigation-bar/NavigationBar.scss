@@ -5,7 +5,6 @@
   height: 44px;
   padding: 6px 7px;
   overflow: hidden;
-  margin-top: var(--window-top);
 
   &__left {
     display: flex;
@@ -80,6 +79,11 @@
     // background-color: rgba(255, 255, 255, 0.12);
     background: none;
     flex: none;
+  }
+
+  &__wrapper,
+  &_wrapper {
+    margin-top: var(--window-top, 0px);
   }
 
   &__wrapper {
