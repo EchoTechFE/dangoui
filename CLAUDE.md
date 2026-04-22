@@ -1,12 +1,17 @@
 # Dangoui · AI 使用说明
 
-**每次完成操作后，在完成摘要的第一句写「完成了！TPP」。如果忘记上下文，根据 10 章节就能知道进度。**
+本文件供 AI（如 Claude）自动读取。Dangoui 是一个单仓多出口的设计系统，本文件的规范适用于在 Dangoui 仓库内进行的所有 AI 工作。
 
-> 本文件供 AI（如 Claude）自动读取。Dangoui 是一个单仓多出口的设计系统，本文件的规范适用于在 Dangoui 仓库内进行的所有 AI 工作。
+## 基本操作原则
+
+- 每次完成操作后，在完成摘要的第一句写「完成了！TPP」。如果忘记上下文，根据 01 战略层的目标就能知道进度
+- 不要自行新建分支。除非用户明确要求，所有改动直接提交到当前分支（通常是 main）
+- 不要自行 push。除非用户明确要求推送
+- 新增文件/文件夹需经过 Jocelyn 同意。dangoui 下的任何新增文件或文件夹（包括业务组件、docs 内容、配置文件等）都需要用户确认后才能创建
 
 ---
 
-## 01 · 战略目标：原型即上线
+## 01 · 战略层：原型即上线
 
 ### 核心理念
 
@@ -14,93 +19,146 @@
 
 通过 AI 辅助，最大化减少人工介入，让产品经理能用自然语言快速搭出可上线的页面原型。
 
-### 完整流程
-
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           原型即上线完整流程                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  ┌──────────┐      ┌──────────────┐      ┌─────────┐      ┌──────────────┐ │
-│  │ PM/用户   │ ───→ │ Claude Code   │ ───→ │ HTML 预览 │ ───→ │ 产品周会评审  │ │
-│  │ 自然语言   │      │ 生成 HTML      │      │ 所见即所得 │      │ 定稿          │ │
-│  └──────────┘      └──────────────┘      └─────────┘      └───────┬──────┘ │
-│                                                                    │        │
-│                                                                    ↓        │
-│  ┌──────────┐      ┌──────────────┐      ┌─────────┐      ┌──────────────┐ │
-│  │ 生产代码  │ ←─── │ AI 翻译       │ ←─── │ figma-  │ ←─── │ 设计精调      │ │
-│  │ 上线      │      │ + figma-     │      │ to-code  │      │ Figma 组件   │ │
-│  │          │      │ context.md   │      │ 骨架提取  │      │ 插件导回      │ │
-│  └──────────┘      └──────────────┘      └─────────┘      └──────────────┘ │
-│       ↑                                                                     │
-│       │                                                                     │
-│  ┌────┴────┐                                                               │
-│  │ Dangoui │ ←── 组件库支撑                                                │
-│  │ 组件库   │                                                               │
-│  └─────────┘                                                               │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+任何人自然语言描述需求
+    ↓
+Demo HTML 生成（AI 参考 CLAUDE.md 理解上下文，由 Jcoelyn 维护）←───────┐
+    ↑                                                             │飞轮效应：Demo促进设计系统完善，反哺 Demo 
+产品周会评审                                                        │
+    ↓                                                             │
+定稿设计精调（Figma 插件导回）                                        │
+    ↓                                                             │
+AI 翻译（figma-to-code 把 Figma 设计稿准确翻译成生产代码，由曾书伟维护）  │
+    ↓                                                             │
+Dangoui 组件库 ←───────────────────────────────────────────────────┘
+    ↓
+生产代码上线
 ```
-
-### 流程说明
 
 | 阶段 | 工具/方式 | 说明 |
 |------|----------|------|
-| **① 需求描述** | Claude Code 自然语言 | PM/FE 直接描述需求 |
-| **② 原型生成** | Claude 生成 HTML | 快速预览，无需设计介入 |
+| **① 需求描述** | PM 自然语言 | 直接描述需求，无需设计介入 |
+| **② Demo 生成** | Claude 生成 HTML | 快速预览，所见即所得 |
 | **③ 周会评审** | 产品内部 | 快速迭代，节省设计资源 |
 | **④ 定稿** | 产品/设计确认 | 设计介入，精细化 |
-| **⑤ 导回 Figma** | Figma 插件 | 把 HTML demo 识别为 Figma 组件 |
-| **⑥ 精调** | 设计 | 规范组件结构 |
-| **⑦ 骨架提取** | figma-to-code | REST API 提取结构 |
-| **⑧ AI 翻译** | Claude + figma-context | 翻译为业务代码 |
-| **⑨ 上线** | Dangoui 组件库 | 生产可用代码 |
+| **⑤ 精调** | Figma 插件导回 | 把 HTML demo 识别为 Figma 组件 |
+| **⑥ AI 翻译** | figma-to-code | Figma → JSON Schema → 生产代码 |
+| **⑦ 上线** | Dangoui 组件库 | 生成可用代码 |
 
-### PM Terminal 工作流（示例）
+### 目标与成功指标
 
-PM Terminal 是「原型即上线」在 **Business 层** 的具体实现：
+**大目标**：打通「自然语言 → 生产代码」的完整闭环，让 PM 能独立完成从需求到上线。
+
+**暴露问题策略**：
+> 通过试跑逐步发现 + 集中输出修复
+
+- figma-to-code/.claude/figma-context.md 的基础组件映射还包括很多细节不够完善
+- 不要追求一次性完善，而是在试跑过程中逐步发现、记录
+- 集中输出时机：每次试跑后汇总问题，定期（如每天/每周）统一修复
+- 问题发现流程：试跑 → 发现问题 → 更新到本文件 P0 任务清单 → 曾书伟修复 → 验证
+
+**P0 — 确保 AI 翻译可用（基础设施）**
+
+> figma-to-code/.claude/figma-context.md 是 AI 翻译的「词典」，如果词典不全或不准，输出的代码就是错的。
+
+已完成：
+- ✅ 安装 figma-to-code
+- ✅ 配置 Figma PAT
+- ✅ 初始化 dangoui 项目
+- ✅ 完善 `figma-to-code/.claude/figma-context.md`
+- ✅ 验证 AI 翻译质量
+
+卡点：
+| 状态 | 任务 | 说明 |
+|------|------|------|
+| ⬜ | 骨架输出结构化 | 148KB 输出难以阅读，需结构化 |
+| ⬜ | 增强 INSTANCE 识别 | IslandsSlide/IslandsSlideBasic/SPU 等未被识别 |
+| ⬜ | 骨架标注视觉位置 | HTML 顺序 ≠ 渲染顺序，需标注左右中 |
+| ✅ | 组件路径冲突 | StatusBar 重复 → 已删除 |
+
+**P1 — 打通核心业务场景**
+
+> Business 层是「原型即上线」的关键 —— PM 能搭出的页面复杂度取决于 Business 组件的丰富度。
+
+卡点：
+| 状态 | 任务 |
+|------|------|
+| ⬜ | IslandsSlide / IslandsSlideBasic |
+| ⬜ | SPU / SPUBasic |
+| ⬜ | NavigationBar 系列 |
+| ⬜ | IslandsHeader / IslandsPin / IslandsFeed |
+
+**P2 — 消除卡点**
+
+已完成：
+- ✅ components/content 嵌套目录扫描
+
+卡点：
+| 状态 | 任务 |
+|------|------|
+| ⬜ | Figma 插件环节（设计把 HTML demo 导回 Figma）|
+| ⬜ | PM Terminal 入口（让 PM 有界面可用，而不是靠 CLI）|
+
+**P3 — 长期建设**
+
+| 状态 | 任务 |
+|------|------|
+| ⬜ | 完善 Token 层（iOS/Android/Web 各端 token 对齐）|
+| ⬜ | 完善 Component 层（原子组件补全）|
+| ⬜ | 制定 SOP 并推广（让 PM/FE/设计都会用这套流程）|
+
+**飞轮效应**：PM 需求 demo → 提醒设计是否有必要抽成组件 → 原子分子更新 / 业务组件新增更改 → Business 层完善 → PM Terminal 能搭更复杂页面 → 更多 PM 需求 demo。组件库完善后反哺 Demo 代码质量，形成正向循环。
+
+**成功指标**：
+
+| 阶段 | 指标 | 验证方式 |
+|------|------|----------|
+| **P0 完成** | AI 翻译可用 | 曾书伟抽 5 个 Figma 页面，Claude 生成的代码可直接预览，无需手动修复 |
+| **P1 完成** | Business 层覆盖核心场景 | PM Terminal 能搭出「闲置发布页」等 3 个以上页面 |
+| **P2 完成** | PM 可独立操作 | 统计 3 个 PM 的 demo 从需求到可预览的耗时，vs 以前缩短 50% |
+| **长期** | PM 自助率 | 季度统计：PM 独立完成的 demo 数 / 总需求数 > 80% |
+
+---
+
+## 02 · 范围层：功能与组件
+
+> 回答「我们要做什么」—— dangoui 有什么组件、PM Terminal 能搭什么页面。
+
+### PM Terminal 与 Business Schema
+
+PM Terminal 是「原型即上线」在 **Business 层** 的具体实现。PM Terminal 能搭出什么页面，取决于 **Business Schema** 的完整性：
 
 ```
 PM 说："我要一个闲置发布页面"
     ↓
 Business Schema：👻 Islands / PublishPage
-    - slots: [💙 TabBar, 💙 FAB, ...]       ← Component 引用
-    - layout: { flex-direction, gap, ... }   ← 布局信息
-    - tokens: { bg, text, ... }             ← Token 引用
+    - slots: [💙 TabBar, 💙 FAB, ...]    ← 引用原子/分子组件
+    - layout: { flex-direction, gap }     ← 布局信息
+    - tokens: { bg, text }                ← Token 引用
     ↓
 Claude Code 生成 DangUI 代码
     ↓
-DangUI 渲染层直接展示
-    ↓
-PM 看到的就是最终 App 呈现的（所见即所得）
+DangUI 渲染层直接展示 → PM 看到的就是最终 App（所见即所得）
 ```
 
-**PM Terminal 能搭出什么，取决于 Business Schema 完整性。** Business Schema 格式以 Figma REST API 实际导出的 JSON 为准。
+Schema 格式以 Figma REST API 实际导出的 JSON 为准。
 
-### 设计系统角色
+### 项目定位与分工
 
-Dangoui 是「原型即上线」流程的**代码底座**：
+**Dangoui 项目定位**：设计系统指南 + 组件库，最终输出 JSON Schema / DSL 世界通用语言，供各端（Flutter / Web / iOS / Android）翻译成自己的代码。
 
-| 层级 | 内容 | Dangoui 落地 |
-|------|------|-------------|
-| **Token** | 颜色/间距/圆角/字号 | `dangoui-design-token` + `uno-preset-echo` |
-| **Component** | 原子分子组件（Button/Tabs/NavBar） | `packages/dangoui` + `docs` H5 指南 |
-| **Business** | 业务组件（Grid/Header/Feed）+ 布局 + Slots | PM Terminal 搭 demo 的关键 |
-
-**当前约束：** 各端组件库（iOS/Android/Web）还在建设中，设计系统完善度不够，所以 Figma 中转是必要的。后续组件库完备后，可以跳过 Figma 直接从 HTML 预览生成代码。
-
-### 工具链
-
-| 工具 | 用途 |
-|------|------|
-| `figma-to-code` | Figma 骨架提取（REST API） |
-| `.claude/figma-context.md` | 项目规范，AI 翻译上下文 |
-| `.claude/commands/figma.md` | AI skill 入口 |
-| Dangoui 组件库 | 生产代码底座 |
+| 目录/文件 | 负责层级 | 维护者 | 工具 |
+|-----------|---------|--------|------|
+| `CLAUDE.md` | 战略层 / 范围层 / 结构层 | Jocelyn | - |
+| `figma-to-code/.claude/figma-context.md` | 框架层 / 表现层 | 曾书伟 | `figma-to-code` CLI（Figma 骨架提取） |
+| `packages/dangoui` | 原子/分子组件 | 前端组 | Dangoui 组件库（生产代码底座） |
+| `docs/` | 文档站 + 组件测试床 | Jocelyn | - |
+| `JSON Schema / DSL` | 各移动端生产代码（iOS/Android/Flutter/HarmonyOS） | Jocelyn | - |
+| 不在此项目中，独立维护 | 原子/分子组件（iOS/Android/Flutter/HarmonyOS） | 移动端组 | - |
 
 ---
 
-## 02 · 核心架构
+## 03 · 结构层：核心架构
 
 ### 架构图
 
@@ -138,14 +196,10 @@ Dangoui 是「原型即上线」流程的**代码底座**：
           ▼                    ▼                    ▼
 ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
 │ 💙 Token 流      │  │💙 Component 流   │  │👻 Business 流    │
-│                  │  │                  │  │                  │
-│ dangoui-design-  │  │ packages/dangoui │  │ 业务组件          │ ← PM Terminal
-│   token          │  │ (运行时组件)       │  │ (Token+Component │    搭 demo 的关键
-│                  │  │                  │  │  + 布局组合)      │
-│ uno-preset-echo  │  │ docs / H5 指南    │  │                  │
-│ (text-h5 等)     │  │ (DangUI自渲染)    │  │ 👻 Islands / Grid│
-└────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘
-         │                    │                    │
+│ dangoui-design-  │  │ packages/dangoui │  │ 业务组件          │
+│   token          │  │ (运行时组件)       │  │ (Token+Component │
+│ uno-preset-echo  │  │ docs / H5 指南    │  │  + 布局组合)      │
+└──────────────────┘  └──────────────────┘  └──────────────────┘
          ▼                    ▼                    ▼
 ┌──────────────────────────────────────────────────────────────┐
 │              App 各端上线代码 (Code Generation)                │
@@ -153,406 +207,119 @@ Dangoui 是「原型即上线」流程的**代码底座**：
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### 三层数据流
-
-| 层级 | Figma 来源 | Schema 内容 | Dangoui 落地 |
-|------|-----------|------------|-------------|
-| **Token** | 💙 Token | 颜色/间距/圆角/字号 | `dangoui-design-token` + `uno-preset-echo` |
-| **Component** | 💙 Component | 原子分子组件（Button/Tabs/NavBar） | `packages/dangoui` + `docs` H5 指南 |
-| **Business** | 👻 Business | 业务组件（Grid/Header/Feed）+ 布局 + Slots | **PM Terminal 搭 demo 的关键** |
-
-### 数据来源优先级
-
-> 遇到任何问题，先问「这个答案在哪层数据里」，不要凭经验推断。
+**数据来源优先级**：遇到任何问题，先问「这个答案在哪层数据里」，不要凭经验推断。
 
 ```
-Figma MCP / REST API  ← 最高，设计真值（Figma 官方接口，两种调用方式）
-  ↓
+Figma MCP / REST API  ← 最高，设计真值
 Dangoui 已有组件实现  ← 代码真值（Vue 组件的实际行为）
-  ↓
 UnoCSS presets       ← Token 真值（设计 Token 的原始值）
-  ↓
 ❌ 凭经验硬编码       ← 禁止
 ```
 
-**代码真值 ≠ Token 真值：** 组件实现（props/slots/behavior）是 Vue 代码，Token 值（颜色/字号/间距）是设计变量，两回事。
+> **代码真值 ≠ Token 真值：** 组件实现（props/slots/behavior）是 Vue 代码，Token 值（颜色/字号/间距）是设计变量，两回事。
 
----
+### DangoUI Docs 文档站
 
-## 03 · 规范速查
+docs 是 Dangoui 的文档站点，也是组件的**测试床**（开发自验）。
 
-> 遇到问题查这里，知道答案在哪层数据里，就不用推断。
-
-### Token 规范去哪找
-
-| 问题 | 不要做 | 应该做 |
-|------|--------|--------|
-| 颜色 token 值是多少 | 查 memory | 读 `packages/dangoui-design-token/theme.ts` |
-| 字体规范是什么 | 重新定义 | 读 `docs/content/2.general/Typography.md` 或 `packages/uno-preset-echo/src/index.ts` 的 shortcuts |
-| 间距/radius 规范 | 猜数字 | 读 `packages/uno-preset-echo/src/index.ts` 的 theme.spacing / theme.borderRadius |
-
-### Component 规范去哪找
-
-| 问题 | 不要做 | 应该做 |
-|------|--------|--------|
-| 组件某个 prop 怎么用 | 猜 | 读 `docs/content/` 里该组件的示例，或读 `packages/dangoui/src/{component}/` 的 Vue 文件 |
-| 某个组件的 API | 看文档猜测 | 直接读组件源码 `packages/dangoui/src/{component}/` |
-| 组件在 Figma 里的定义 | 不确定 | 读 Figma componentPropertyDefinitions（MCP 或 REST API） |
-
-### Business 规范去哪找
-
-| 问题 | 不要做 | 应该做 |
-|------|--------|--------|
-| 业务组件有哪些 slots | 猜结构 | 读 Figma 👻 Business 组件的 schema（slots 数组 + layout） |
-| 业务组件怎么组合 | 自己设计 | 读 Figma Business Schema，或读 `docs/content/` 对应业务模块 |
-| PM Terminal 能搭什么 | 不确定 | 取决于 Business Schema 完整性，Schema 越完整，PM Terminal 能搭的越多 |
-
----
-
-## 04 · 【预留】
-
----
-
-## 05 · 【预留】
-
----
-
-## 06 · 【预留】
-
----
-
-## 07 · Props 统计与 Figma 属性映射问题
-
-### Props 频率统计
-
-> 统计来源：遍历 `packages/dangoui/src` 所有 .vue 文件的 defineProps
-
-| Prop 名称 | 出现次数 | Figma 对应 | 备注 |
-|-----------|---------|-----------|------|
-| **extStyle** | 31 | - | 自定义样式 |
-| **extClass** | 30 | - | 自定义 class |
-| **color** | 20 | ✅ Color | 二级色彩表 |
-| **value** | 17 | - | v-model 值 |
-| **size** | 16 | ✅ Size | Large/Medium/Normal/Small/Mini |
-| **type** | 11 | ✅ Type | Solid/Soft/Outline/Text |
-| **disabled** | 11 | ✅ State | Default/Disabled |
-| **title** | 8 | ✅ Text | i18n |
-| **icon** | 7 | ✅ iconLeading/iconTrailing | 图标 |
-| **name** | 7 | ✅ Slot name | 插槽名 |
-| **text** | 6 | ✅ Text | i18n |
-| **open** | 5 | ✅ Boolean | 开关 |
-| **bordered** | 5 | ✅ Boolean | 边框开关 |
-| **options** | 5 | - | 选择器选项 |
-| **shape** | 5 | ✅ Type | 形状 |
-| **placeholder** | 5 | ✅ Text | 占位文本 |
-| **inline** | 4 | ✅ Layout | 横向布局 |
-| **label** | 4 | ✅ Text | 标签文本 |
-| **layout** | 4 | ✅ Layout | Vertical/Horizontal |
-| **labelSize** | 4 | ✅ Size | label 宽度 |
-| **labelAlign** | 4 | ✅ Layout | label 对齐 |
-| **arrowRight** | 3 | ✅ arrowTrailing | 右侧箭头 |
-| **visible** | 3 | ✅ Boolean | 显示/隐藏 |
-| **loading** | 2 | ✅ State | 加载中 |
-
-### Props 按 Figma 属性分类对比
-
-| Figma 属性类型 | 值示例 | 代码 props（出现次数） | 对齐情况 |
-|--------------|-------|---------------------|---------|
-| **Variant/Type** | Solid/Soft/Outline/Text | `type`(11), `shape`(5) | ⚠️ Figma 用 Solid/Soft，代码用 primary |
-| **Color** | Primary/Secondary/Success/Error... | `color`(20) | ⚠️ 代码用 string，Figma 有枚举 |
-| **Size** | Large/Medium/Normal/Small/Mini | `size`(16), `labelSize`(4) | ✅ 基本对齐 |
-| **Boolean** | False/True | `disabled`(11), `open`(5), `bordered`(5), `visible`(3), `loading`(2) | ✅ 多个组件复用 |
-| **Text** | i18n Token | `title`(8), `text`(6), `placeholder`(5), `label`(4) | ⚠️ **命名混用，待统一** |
-| **Slot** | - | `name`(7) 部分对应 | ⚠️ iconLeading/Trailing 等未在 props 中体现 |
-| **Layout** | Vertical/Horizontal | `layout`(4), `inline`(4), `labelAlign`(4) | ✅ 有 |
-| **State** | Default/Inputted/Inputting... | `disabled`(11), `loading`(2), `readonly`(1) | ⚠️ 需要扩展 |
-| **Status** | Process/Finished/Error | - | ❌ **未体现，需新增** |
-| **i18n Token** | - | 代码直接用 `text`/`title` 传值 | ⚠️ 需约定 i18n 格式 |
-
-### 命名不一致问题（待统一）
-
-> text/title/placeholder/label 混用，应统一命名规范
-
-| 当前命名 | 使用场景 | 建议统一为 |
-|--------|---------|----------|
-| `title` | 弹窗标题、导航栏标题 | `text` 或 `label` |
-| `text` | 按钮文本、标签文本 | - |
-| `placeholder` | 输入框占位文本 | - |
-| `label` | 表单 label | - |
-
-### 值映射不一致问题（待建立映射表）
-
-> Figma 和代码的值需要建立映射表
-
-| 属性 | Figma 值 | 代码值 | 状态 |
-|------|---------|-------|------|
-| type | Solid | primary | ⚠️ 需映射 |
-| type | Soft | secondary | ⚠️ 需映射 |
-| type | Outline | outline | ✅ 一致 |
-| type | Text | text | ✅ 一致 |
-| color | Primary | primary | ⚠️ 需映射 |
-| color | Secondary | secondary | ⚠️ 需映射 |
-| size | Large | large | ✅ 一致 |
-| size | Medium | medium | ✅ 一致 |
-| size | Normal | normal | ✅ 一致 |
-| size | Small | small | ✅ 一致 |
-| size | Mini | mini | ✅ 一致 |
-
----
-
-## 07 · Docs 内容架构
-
-### 实际目录结构
+**目录结构：**
 
 ```
 docs/
+├── business/                      # 业务组件 Vue 文件（IslandDetail/IslandsGrid 等）
 ├── content/                        # Markdown 内容源（Nuxt Content）
 │   ├── 00 GET START/              # 入门
-│   │   ├── _dir.yml
-│   │   └── *.md
 │   ├── 01 STYLE/                  # 通用样式
-│   │   ├── _dir.yml
-│   │   ├── 1.typography.md        # 字体规范（Nuxt Content 识别 ::demo 语法）
-│   │   ├── 2.layout.md
-│   │   ├── 3.button.md
-│   │   ├── 4.icon.md
-│   │   └── Typography.md           # 重复，待清理
 │   ├── 02 BAR/                    # Bar 系列
 │   ├── 03 FORM/                    # 表单类
 │   ├── 04 DATA/                    # 数据展示类
 │   ├── 05 FEEDBACK/                # 反馈类
-│   ├── 06 OTHERS/                 # 其他（config/i18n 等）
-│   ├── 8.composables/              # 组合式函数
+│   ├── 06 OTHERS/                 # 其他
+│   ├── business/                   # 业务组件文档（island-detail 等）
 │   └── index.md
 │
 ├── pages/                          # Vue 页面
 │   ├── [...slug].vue                # 动态路由（加载 content/*.md）
 │   ├── demos/                      # Demo 片段（snippet*.vue）
-│   │   ├── general/button/
-│   │   │   └── snippet1.vue
-│   │   ├── feedback/badge/
-│   │   │   └── snippet1.vue
-│   │   └── ...
-│   └── general/
-│       └── typography.vue            # 复杂展示页（独立 Vue，平台切换）
+│   └── general/                    # 复杂展示页（独立 Vue）
 │
 ├── components/                     # 文档站共用 Vue 组件
-│   ├── content/
-│   │   ├── Demo.vue                # 示例渲染器（Nuxt Content 调用）
-│   │   ├── Stage.vue
-│   │   ├── Api.vue
-│   │   ├── CssVars.vue
-│   │   ├── CodeGroup.ts
-│   │   └── Alert.vue
-│   ├── icons/                      # 文档站图标
-│   │   └── *.vue
-│   ├── ScrollView.vue
-│   ├── PreviewBlock.vue
-│   └── Logo.vue
+│   ├── content/                   # 渲染器（Demo/Stage/Api/CssVars 等）
+│   └── icons/                      # 图标
 │
 ├── layouts/
 │   ├── doc.vue                     # 文档布局
 │   └── demo.vue                    # Demo 布局
-│
-└── nuxt.config.ts
 ```
 
-### 三层协作关系
+**文档生产流程：**
 
-| 目录 | 角色 | 消费谁 | 被谁消费 |
-|------|------|--------|---------|
-| **content/\*.md** | 内容源（文本规范 + `::demo`） | Nuxt Content 解析 | pages/[...slug].vue 路由加载 |
-| **pages/demos/snippet\*.vue** | Demo 片段 | 被 content `::demo` 块引用 | components/Demo.vue 渲染 |
-| **pages/general/\*.vue** | 复杂展示页（需交互） | 直接渲染 packages/dangoui | 独立路由 |
-| **components/content/** | 共用组件（Demo/Api/Stage 等） | pages/demos 依赖它 | content `::demo` 解析后调用 |
+- 简单组件（Button/Tabs）：`content/` 新建 `x.md` → 写 `::demo` 块 → Demo.vue 渲染
+- 复杂展示页：直接写 Vue 页面，读取 content 规范文本
+- 新增文档步骤：content md → Demo 片段 snippet → components 共用组件
 
-### 典型工作流
+**文件操作：**
+- `git mv` 保留 content history；删除+新建会丢 frontmatter
+- rename 后必须校验：`git diff <old>..<new> --name-status | grep '^R' | grep '\.md$'`
+- restore：`git show <commit>:<文件路径>`
 
-**简单组件**（Button/Dialog/Tabs）：在 content Markdown 里写 `::demo` 块
+**样式规范：**
+- 优先 UnoCSS，不新建 `*.css` 文件
+- Nuxt CSR 路由切换不自动刷新，content 变更后建议重启 dev server
+- CSS 不生效时清缓存：`rm -rf .nuxt node_modules/.vite`
 
-```
-content/04 DATA/5.tabs.md
-  └── ::demo 块
-        └── Nuxt Content 解析
-              └── components/Demo.vue
-                    └── pages/demos/4.data-display/tabs/snippet*.vue
-                          └── packages/dangoui 实际组件
-```
+### Props 规范现状
 
-**复杂展示页**（Typography 平台切换）：独立 Vue 页面
+> 来源：遍历 `packages/dangoui/src` 所有 .vue 文件的 defineProps，覆盖 Component（原子/分子组件）和 Business（业务组件）
 
-```
-pages/general/typography.vue
-  └── 独立路由 /general/typography
-        ├── 读取 content/01 STYLE/1.typography.md 规范文本
-        └── packages/dangoui 组件 + UnoCSS 渲染
-```
+**Props 频率 TOP10：**
 
-### 新增文档步骤
+| Prop | 次数 | Figma 对应 |
+|------|------|-----------|
+| extStyle | 31 | - |
+| extClass | 30 | - |
+| color | 20 | ✅ Color |
+| value | 17 | - |
+| size | 16 | ✅ Size |
+| type | 11 | ✅ Type |
+| disabled | 11 | ✅ State |
+| title | 8 | ✅ Text |
+| icon | 7 | ✅ iconLeading/Trailing |
+| text | 6 | ✅ Text |
 
-1. **简单组件** → 在 `content/` 对应目录新建 `x.md`，写规范 + `::demo` 示例
-2. **Demo 片段** → 在 `pages/demos/` 按分类创建 `snippet*.vue`，被 Demo.vue 引用
-3. **复杂展示** → 在 `pages/general/` 新建 `xxx.vue`，读取 content 数据 + 交互渲染
-4. **共用组件** → 在 `components/content/` 新建，供 Demo.vue 等调用
+**Figma 与代码对齐情况：**
 
-**docs 既是设计规范文档（给人看），也是 DangUI 组件的测试床（开发自验）。**
+| 属性类型 | 对齐情况 |
+|----------|---------|
+| Size（Large/Medium/Small） | ✅ 一致 |
+| Boolean（disabled/visible） | ✅ 一致 |
+| Layout（Vertical/Horizontal） | ✅ 一致 |
+| Type（Solid/Soft/Outline） | ⚠️ Figma 用 Solid/Soft，代码用 primary/secondary，需映射 |
+| Text（title/text/placeholder） | ⚠️ 命名混用，待统一 |
+| Status（Process/Finished） | ❌ 代码未体现，需新增 |
 
-### 文件操作注意事项
+**待建立映射表：**
 
-**Rename vs Delete+Recreate：**
-- `git mv` = 保留文件 content history，git log 追踪路径变更
-- 实际操作时，如果新文件是从零写入而不是从旧文件迁移，frontmatter 会丢失
-- **移动文件** = 保持内容不变迁移路径；**删除+新建** = 旧 frontmatter 全丢
-
-**Commit message 如实反映操作：**
-- commit message 写了"删除"就会在 PR review 时误导判断
-- rename 操作描述应为"移动 X → Y"，不是"删除 X"
-
-**Restore 流程（从历史恢复被误删的文件）：**
-- `git show <历史commit>:<文件路径>` 可以读取任意历史版本
-- 恢复后确认 frontmatter 完整（`---` 开头 + `head.meta` / `navigation.stage`）
-
-### Docs 样式与路由规范
-
-**样式修改优先 UnoCSS：**
-- docs 中的样式修改应使用 UnoCSS（`uno.config.ts` 或 inline class），而非新建 `*.css` 文件或 `<style>` 块
-- UnoCSS 是 Dangoui 设计系统的核心工具，保持一致性
-
-**路由切换不自动刷新：**
-- Nuxt 路由切换时页面不会重新请求数据（CSR 特性），开发时需手动刷新或重启 dev server 确认最新内容
-- 涉及 content 文件变更时，建议 `pnpm dev` 重启以确保渲染结果正确
-
-### Docs 样式调试经验
-
-**问题：CSS 样式不生效（heading 字号/颜色等）**
-
-排查步骤：
-1. 先确认实际渲染的 HTML 结构：`document.querySelector('.doc-prose')?.className`
-2. 再确认目标元素的 computed styles：`getComputedStyle(el).fontSize`
-3. 检查 CSS 规则是否存在：`document.styleSheets` 里搜索 selectorText
-
-**经验法则：**
-- 自定义 CSS（`docs/assets/index.css`）用 `:deep()` 操作符穿透组件
-- 第三方样式（Nuxt Content / Tailwind Typography）依赖类名（如 `.prose`）
-- 如果 `.doc-prose :deep(h1)` 不生效，先检查 `.doc-prose` 是否真的有 `.prose` 类
-
-**Tailwind Typography 的 `.prose` 类是 Nuxt Content 的默认样式依赖**，修改 markdown 渲染样式前先确认是否需要添加 `.prose` 类。
-
-**Vite/Nuxt 缓存导致样式错误不消失：**
-- 现象：改了 `.vue` 文件但页面样式不变，报奇怪的 CSS 解析错误（如 "Unknown word" 在某行 template 内容上）
-- 根因：`.nuxt` 缓存残留旧版本组件信息，即使文件已修改，Vite 仍读缓存
-- 解决：`rm -rf .nuxt node_modules/.vite node_modules/.cache`，然后 `pnpm dev` 重启
-- 经验：每次遇到诡异的 HMR/样式问题，先清缓存再排查
-
-### 文件重命名防丢 frontmatter 规则
-
-批量 `git mv` 重命名 md 文件时，**只做路径变更，frontmatter 会被丢弃**（踩过 23 个文件 frontmatter 全丢的坑）。
-
-**任何批量 rename 操作后，必须执行校验：**
-```bash
-git diff <old>..<new> --name-status | grep '^R' | grep '\.md$' | while read -r line; do
-  old=$(echo "$line" | awk '{print $2}')
-  new=$(echo "$line" | awk '{print $3}')
-  old_fm=$(git show <old>:"$old" 2>/dev/null | sed -n '1,/^---$/p')
-  new_content=$(git show <new>:"$new" 2>/dev/null | head -1)
-  if echo "$old_fm" | grep -q '^---' && ! echo "$new_content" | grep -q '^---'; then
-    echo "❌ LOST: $old → $new"
-  fi
-done
-```
-
-若检测到 frontmatter 丢失，立即从原始 commit 取出 frontmatter 补回目标文件。
+| Figma 值 | 代码值 | 状态 |
+|---------|-------|------|
+| Solid | primary | ⚠️ 需映射 |
+| Soft | secondary | ⚠️ 需映射 |
+| Outline | outline | ✅ 一致 |
+| Text | text | ✅ 一致 |
 
 ---
 
-## 08 · Git 操作原则
+## 04 · 表现层：规范速查
 
-- **不要自行新建分支**。除非用户明确要求，所有改动直接提交到当前分支（通常是 main）
-- **不要自行 push**。除非用户明确要求推送
+> 具体组件长什么样、token 值是多少、组件 API 长什么样——这些属于表现层，在 `figma-to-code/.claude/figma-context.md` 里找。
 
----
+### Token / Component / Business 规范去哪找
 
-## 09 · Roadmap & 里程碑
+| 问题 | 答案在 figma-context.md |
+|------|------------------------|
+| Color/Typography/Spacing/Radius 等 token 的具体值 | 第 4 章「设计 Token」 |
+| 各组件（Button/Input/Select 等）的翻译规则 | 第 5 章「组件映射规则」 |
+| 页面结构模板、布局模式（横滑/Cell/固定底部等） | 第 6 章「布局模式规则」 |
+| 代码生成规则（宽度不写死/颜色用 token/动态内容等） | 第 7 章「生成规则」 |
+| 组件引入规范（按需引入、import 写法） | 第 1 章「组件引入」 |
 
-### 大目标
-
-**打通「自然语言 → 生产代码」的完整闭环，让 PM 能独立完成从需求到上线**
-
----
-
-### 暴露问题策略
-
-> **核心思路：通过试跑逐步发现 + 集中输出修复**
-
-- figma-context.md 的基础组件映射还有很多细节不够完善和最新
-- **不要追求一次性完善，而是在试跑过程中逐步发现、记录**
-- **集中输出时机：每次试跑后汇总问题，定期（如每天/每周）统一修复**
-- 问题发现流程：试跑 → 发现问题 → 更新到本文件 P0 任务清单 → 研发修复 → 验证
-
----
-
-### P0 — 确保 AI 翻译可用（基础设施）
-
-> **为什么 P0 最高？** figma-context.md 是 AI 翻译的「词典」，如果词典不全或不准，输出的代码就是错的。
-
-#### 已完成
-- ✅ 安装 figma-to-code
-- ✅ 配置 Figma PAT
-- ✅ 初始化 dangoui 项目
-- ✅ 完善 `.claude/figma-context.md`
-- ✅ 验证 AI 翻译质量
-
-#### 卡点（阻塞 AI 翻译）
-
-| 状态 | 任务 | 说明 |
-|------|------|------|
-| ⬜ | 骨架输出结构化 | 148KB 输出难以阅读，需结构化（如 tree 格式） |
-| ⬜ | 增强 INSTANCE 识别 | IslandsSlide/IslandsSlideBasic/SPU 等未被识别 |
-| ⬜ | 骨架标注视觉位置 | HTML 顺序 ≠ 渲染顺序，需标注左右中 |
-| ✅ | 组件路径冲突 | StatusBar 在 business/ 和 components/content/ 重复 → 已删除 business/StatusBar.vue |
-
----
-
-### P1 — 打通核心业务场景
-
-> **为什么 P1？** Business 层是「原型即上线」的关键 —— PM 能搭出的页面复杂度取决于 Business 组件的丰富度。
-
-#### 卡点（阻塞 Business 层组件生成）
-
-| 状态 | 任务 | 说明 |
-|------|------|------|
-| ⬜ | IslandsSlide / IslandsSlideBasic | 未实现 |
-| ⬜ | SPU / SPUBasic | 未实现 |
-| ⬜ | NavigationBar 系列 | 未实现 |
-| ⬜ | IslandsHeader / IslandsPin / IslandsFeed | 未完整实现 |
-
-#### 基础组件映射
-- ✅ component → Vue 组件映射 | 让 AI 知道 Figma 里的 Button = dangoui 的 DuButton
-
----
-
-### P2 — 消除卡点
-
-#### 已完成
-- ✅ components/content 嵌套目录扫描 | 已配置 `pathPrefix: false`
-
-#### 卡点
-
-| 状态 | 任务 | 说明 |
-|------|------|------|
-| ⬜ | Figma 插件环节 | 设计把 HTML demo 导回 Figma |
-| ⬜ | PM Terminal 入口 | 让 PM 有界面可用，而不是靠 CLI |
-
----
-
-### P3 — 长期建设
-
-| 状态 | 任务 | 说明 |
-|------|------|------|
-| ⬜ | 完善 Token 层 | iOS/Android/Web 各端 token 对齐 |
-| ⬜ | 完善 Component 层 | 原子组件补全 |
-| ⬜ | 制定 SOP 并推广 | 让 PM/FE/设计都会用这套流程 |
-
----
-
-**飞轮效应**：PM 需求 demo → 提醒设计是否有必要抽成组件 → 原子分子更新 / 业务组件新增更改 → Business 层完善 → PM Terminal 能搭更复杂页面 → 更多 PM 需求 demo。组件库完善后反哺 Demo 代码质量，形成正向循环。

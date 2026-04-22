@@ -29,10 +29,22 @@ pnpm run generate # 生成静态站
 ## 架构
 
 ```
-Figma → JSON Schema → Dangoui 组件库 → 各端上线代码
+任何人自然语言描述需求
+    ↓
+Demo HTML 生成（AI 参考 CLAUDE.md 理解上下文，由 Jcoelyn 维护）←───────┐
+    ↑                                                             │飞轮效应：Demo促进设计系统完善，反哺 Demo
+产品周会评审                                                        │
+    ↓                                                             │
+定稿设计精调（Figma 插件导回）                                        │
+    ↓                                                             │
+AI 翻译（figma-to-code 把 Figma 设计稿准确翻译成生产代码，由曾书伟维护）  │
+    ↓                                                             │
+Dangoui 组件库                                ←───────────────────┘
+    ↓
+生产代码上线
 ```
 
 三层结构：
-- **Token** — 颜色/间距/圆角/字号
+- **Token** — Color/Typography/Icon/Spacing/Radius/Shadow
 - **Component** — 原子分子组件（Button/Tabs/NavBar）
 - **Business** — 业务组件（Grid/Header/Feed）+ 布局 + Slots
