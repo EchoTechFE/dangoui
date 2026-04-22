@@ -1,6 +1,8 @@
 <script setup lang="ts">
+// island-detail - 岛详情页面
+// figma-node: 14202:599741
 import { ref } from 'vue'
-import { DuTag, DuButton, DuIcon, DuAvatar, DuDivider } from 'dangoui'
+import { DuTag, DuButton, DuIcon, DuAvatar, DuDivider, DuBadge } from 'dangoui'
 
 // 引入子组件
 import IslandsPin from './IslandsPin.vue'
@@ -25,6 +27,8 @@ import FeedPost from './FeedPost.vue'
 import UserIsland from './UserIsland.vue'
 import SPUBasic from './SPUBasic.vue'
 import SPU from './SPU.vue'
+import PhoneMockup from '~/components/content/PhoneMockup.vue'
+import HomeIndicator from '~/components/content/HomeIndicator.vue'
 
 // 顶部类目数据
 const gridItems = ref([
@@ -42,6 +46,7 @@ const slideItems = ref([
   { id: '4', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
   { id: '5', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
   { id: '6', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
+  { id: '7', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
 ])
 
 // 快捷入口数据
@@ -67,7 +72,7 @@ const feedPosts = ref([
 
 // TabBar 数据
 const tabBars = ref([
-  { id: 'home', name: '首页' },
+  { id: 'home', name: '首页', icon: 'home' },
   { id: 'discovery', name: '发现' },
   { id: 'publish', name: '发布' },
   { id: 'message', name: '消息' },
@@ -108,50 +113,41 @@ const handleTabBarClick = (tab: any) => {
 </script>
 
 <template>
-  <!-- figma-node: 14202:599741 - island-detail -->
-  <div class="bg-[#2b263b] w-full min-h-screen">
+  <PhoneMockup :has-dynamic-island="false">
+    <!-- Header Area: Dark purple background -->
+    <div class="bg-[#2b263b]">
+      <!-- Status Bar -->
+      <div class="px-8 pt-3 pb-2">
+        <StatusBar time="9:41" color="white" type="iPhoneX" />
+      </div>
 
-    <!-- 底部 TabBar -->
-    <IslandsPin>
-      <IslandsPinBasic
-        v-for="tab in tabBars"
-        :key="tab.id"
-        :name="tab.name"
-        :active="activeTabBar === tab.id"
-        @click="handleTabBarClick(tab)"
-      />
-    </IslandsPin>
+      <!-- Navigation Bar -->
+      <div class="px-3 pb-2 flex items-center gap-2">
+        <!-- Logo -->
+        <div class="w-8 h-8 bg-white/20 rounded flex items-center justify-center">
+          <IconIslands />
+        </div>
 
-    <!-- 顶部导航栏 -->
-    <IslandsHeader>
-      <!-- 状态栏 -->
-      <StatusBar time="11:27" />
-
-      <!-- 导航栏 -->
-      <NavigationBar>
-        <!-- Logo 图标 -->
-        <IconIslands />
-
-        <!-- 搜索栏 -->
-        <SearchBar placeholder="Labubu泰坦" @click="handleSearch">
+        <!-- Search Bar -->
+        <SearchBar placeholder="Labubu泰坦" class="flex-1" @click="handleSearch">
           <template #left>
             <DuIcon name="search" :size="16" color="white/40" />
           </template>
           <template #right>
             <DuIcon name="camera" :size="16" color="white" />
-            <span class="text-white text-b5 ml-4">识物</span>
+            <span class="text-white text-b5 ml-1">识物</span>
           </template>
         </SearchBar>
 
         <!-- 发现岛按钮 -->
         <ButtonIcon label="发现岛" />
-      </NavigationBar>
-    </IslandsHeader>
+      </div>
+    </div>
 
-    <!-- 内容区域 -->
-    <div class="bg-white rounded-t-12 flex flex-col gap-8 px-12 pt-12 pb-0">
+    <!-- Main Content Area: White background with rounded top -->
+    <div class="bg-white rounded-t-[12px] px-3 pt-3 pb-0 flex flex-col gap-2">
 
-      <!-- 顶部类目入口 -->
+      <!-- Category Grid -->
       <IslandsGrid>
         <IslandsGridBasic
           v-for="item in gridItems"
@@ -162,7 +158,7 @@ const handleTabBarClick = (tab: any) => {
         />
       </IslandsGrid>
 
-<!-- 横向滑动商品 -->
+      <!-- Product Slide -->
       <IslandsSlide>
         <template v-for="item in slideItems" :key="item.id">
           <IslandsSlideBasic
@@ -171,7 +167,7 @@ const handleTabBarClick = (tab: any) => {
             :images="item.images"
             :tag="item.tag"
             :tagColor="item.tagColor"
-            :wantCount="item.wantCount"
+            size="small"
           />
           <SPU
             v-else
@@ -184,44 +180,36 @@ const handleTabBarClick = (tab: any) => {
         </template>
       </IslandsSlide>
 
-      <!-- 快捷入口网格 -->
+      <!-- Quick Entry Grid -->
       <IslandsQuickEntry>
-        <div class="flex gap-8 flex-wrap">
+        <div class="flex gap-2 flex-wrap">
           <div
             v-for="item in quickEntryItems"
             :key="item.id"
-            class="bg-bg rounded-8 flex justify-between pt-8 pb-4 pl-8 pr-6 w-105 h-62"
+            class="bg-[#f7f7f9] rounded-[8px] flex justify-between pt-2 pb-1 pl-2 pr-1.5 w-[105px] h-[62px]"
             @click="handleQuickEntryClick(item)"
           >
-            <div class="flex flex-col gap-6 justify-center flex-1">
-              <!-- 标题 -->
+            <div class="flex flex-col gap-1.5 justify-center flex-1">
               <IslandsQuickEntryTitle />
-
-              <!-- 描述 -->
               <IslandsQuickEntryInfo
                 :subtitle="item.title"
                 :price="item.price"
                 :unit="item.priceUnit"
               />
             </div>
-
-            <!-- 图片 -->
-            <div class="rounded-4 w-33 h-44 bg-hex-cccccc" />
-
-            <!-- 标签 -->
-            <DuTag v-if="item.tag && item.tag.includes('%')" :color="item.tag.includes('%') ? 'primary' : 'danger'" size="small" round class="ml-2">
+            <div class="rounded-[4px] w-[33px] h-[44px] bg-hex-cccccc" />
+            <DuTag v-if="item.tag && item.tag.includes('%')" color="primary" size="small" round class="ml-0.5">
               {{ item.tag }}
             </DuTag>
-            <DuTag v-else-if="item.tag" color="danger" size="small" round class="ml-2">
+            <DuTag v-else-if="item.tag" color="danger" size="small" round class="ml-0.5">
               {{ item.tag }}
             </DuTag>
           </div>
         </div>
       </IslandsQuickEntry>
 
-      <!-- Feed 流 -->
-      <IslandsFeed>
-        <!-- Tabs -->
+      <!-- Feed Section -->
+      <div class="px-2 pt-2 pb-4 bg-[#f7f7f9]">
         <div class="flex gap-2">
           <TabsBasic
             v-for="(tab, index) in feedTabs"
@@ -233,31 +221,31 @@ const handleTabBarClick = (tab: any) => {
           </TabsBasic>
         </div>
 
-        <!-- Feed 内容 -->
-        <div class="flex gap-8">
-          <!-- 左侧列 -->
-          <div class="flex flex-col gap-8 w-174">
-            <!-- 广告卡片 -->
-            <IslandsFeedAd />
-
-            <!-- 帖子列表 -->
-            <FeedPost
-              v-for="post in feedPosts"
-              :key="post.id"
-              :content="post.content"
-              :username="post.username"
-              :avatar="post.avatar"
-              :likeCount="post.likeCount"
-              :image="post.image"
-              :isVideo="post.isVideo"
-              :tag="post.tag"
-              @click="handlePostClick(post)"
-              @like="handleLike(post)"
-            />
-          </div>
-        </div>
-      </IslandsFeed>
-
+        <IslandsFeed class="mt-3">
+          <IslandsFeedAd />
+          <FeedPost
+            v-for="post in feedPosts"
+            :key="post.id"
+            :content="post.content"
+            :username="post.username"
+            :avatar="post.avatar"
+            :likeCount="post.likeCount"
+            :image="post.image"
+            :isVideo="post.isVideo"
+            :tag="post.tag"
+            @click="handlePostClick(post)"
+            @like="handleLike(post)"
+          />
+        </IslandsFeed>
+      </div>
     </div>
-  </div>
+
+    <!-- IslandsPin -->
+    <IslandsPin :tabs="tabBars" />
+
+    <!-- Home Indicator - absolute at bottom of Screen -->
+    <div class="absolute bottom-2 left-0 right-0 flex justify-center">
+      <HomeIndicator theme="dark" />
+    </div>
+  </PhoneMockup>
 </template>
