@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.16
+
+### Patch Changes
+
+- 59da401: Fix iconfont unicode mapping to match the bundled icon font and apply NavigationBar window offset on the wrapper.
+
 ## 3.6.15
 
 ### Patch Changes
