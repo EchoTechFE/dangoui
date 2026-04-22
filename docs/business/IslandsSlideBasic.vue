@@ -27,17 +27,20 @@ defineProps<{
     <div class="relative">
       <!-- 根据 size 决定图片尺寸 -->
       <template v-if="size === 'small'">
-        <!-- 74x99 尺寸：3 张叠放 -->
+        <!-- 74x99 尺寸：3 张叠放，呈阶梯状排列 -->
         <div class="relative w-[74px] h-[99px]">
+          <!-- 第一张（最大，底层） -->
           <div class="absolute top-0 left-0 rounded-2 overflow-hidden">
             <DuImage v-if="images?.[0]" :src="images[0]" :width="74" :height="99" radius="8" mode="aspectFill" />
             <div v-else class="w-[74px] h-[99px] rounded-2 bg-hex-cccccc" />
           </div>
-          <div class="absolute top-0 left-0 rounded-2 overflow-hidden">
+          <!-- 第二张（中层，向右向下偏移） -->
+          <div class="absolute top-[8px] left-[6px] rounded-2 overflow-hidden">
             <DuImage v-if="images?.[1]" :src="images[1]" :width="63" :height="84" radius="8" mode="aspectFill" />
             <div v-else class="w-[63px] h-[84px] rounded-2 bg-hex-cccccc" />
           </div>
-          <div class="absolute top-0 left-0 rounded-2 overflow-hidden">
+          <!-- 第三张（最小，顶层，再向右向下偏移） -->
+          <div class="absolute top-[16px] left-[11px] rounded-2 overflow-hidden">
             <DuImage v-if="images?.[2]" :src="images[2]" :width="48" :height="64" radius="8" mode="aspectFill" />
             <div v-else class="w-[48px] h-[64px] rounded-2 bg-hex-cccccc" />
           </div>
