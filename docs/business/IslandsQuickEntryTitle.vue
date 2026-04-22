@@ -2,7 +2,7 @@
 // IslandsQuickEntryTitle - 快捷入口标题/图标组件
 // 图标是静态 SVG 图形，来自 Figma skeleton
 defineProps<{
-  icon?: string  // 可选图标标识
+  iconType?: 'idle' | 'character' | '盲盒' | '手办' | '数码' | '游戏' | '卡牌' | '周边' | '更多'
 }>()
 </script>
 
@@ -10,7 +10,7 @@ defineProps<{
   <!-- figma-node: 14205:620256 -->
   <div class="flex gap-1 items-center">
     <slot>
-      <!-- 默认图标：斋宫图标 -->
+      <!-- 默认图标：闲置图标 -->
       <div class="bg-[#2b263b] flex-1">
         <div class="bg-[#040000] w-9 h-13" />
         <div class="bg-[#040000] w-3 h-10" />

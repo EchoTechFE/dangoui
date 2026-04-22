@@ -24,6 +24,7 @@ import IslandsFeedAd from './IslandsFeedAd.vue'
 import FeedPost from './FeedPost.vue'
 import UserIsland from './UserIsland.vue'
 import SPUBasic from './SPUBasic.vue'
+import SPU from './SPU.vue'
 
 // 顶部类目数据
 const gridItems = ref([
@@ -35,12 +36,12 @@ const gridItems = ref([
 
 // 横向滑动商品数据
 const slideItems = ref([
-  { id: '1', name: '最新款式', image: '', tag: '+36', tagColor: 'danger', wantCount: '' },
-  { id: '2', name: 'Spu Name', image: '', tag: 'NEW', tagColor: 'primary', wantCount: '{n}' },
-  { id: '3', name: 'Spu Name', image: '', wantCount: '{n}' },
-  { id: '4', name: 'Spu Name', image: '', wantCount: '{n}' },
-  { id: '5', name: 'Spu Name', image: '', wantCount: '{n}' },
-  { id: '6', name: 'Spu Name', image: '', wantCount: '{n}' },
+  { id: '1', name: '最新款式', type: 'slide', images: ['', '', ''], tag: '+36', tagColor: 'danger', wantCount: '' },
+  { id: '2', name: 'Spu Name', type: 'spu', image: '', tag: 'NEW', tagColor: 'primary', wantCount: '{n}' },
+  { id: '3', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
+  { id: '4', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
+  { id: '5', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
+  { id: '6', name: 'Spu Name', type: 'spu', image: '', wantCount: '{n}' },
 ])
 
 // 快捷入口数据
@@ -161,17 +162,26 @@ const handleTabBarClick = (tab: any) => {
         />
       </IslandsGrid>
 
-      <!-- 横向滑动商品 -->
+<!-- 横向滑动商品 -->
       <IslandsSlide>
-        <IslandsSlideBasic
-          v-for="item in slideItems"
-          :key="item.id"
-          :name="item.name"
-          :image="item.image"
-          :tag="item.tag"
-          :tagColor="item.tagColor"
-          :wantCount="item.wantCount"
-        />
+        <template v-for="item in slideItems" :key="item.id">
+          <IslandsSlideBasic
+            v-if="item.type === 'slide'"
+            :name="item.name"
+            :images="item.images"
+            :tag="item.tag"
+            :tagColor="item.tagColor"
+            :wantCount="item.wantCount"
+          />
+          <SPU
+            v-else
+            :name="item.name"
+            :image="item.image"
+            :tag="item.tag"
+            :tagColor="item.tagColor"
+            :wantCount="item.wantCount"
+          />
+        </template>
       </IslandsSlide>
 
       <!-- 快捷入口网格 -->
