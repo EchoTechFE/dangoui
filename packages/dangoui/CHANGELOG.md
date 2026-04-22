@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.15
+
+### Patch Changes
+
+- 19cc5aa: Fix NavigationBar top offset for window inset.
+
 ## 3.6.14
 
 ### Patch Changes
