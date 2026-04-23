@@ -11,11 +11,14 @@
 - ✅ 配置 Figma PAT
 - ✅ 初始化 dangoui 项目
 - ✅ 完善 `figma-to-code/.claude/figma-context.md`
-- ✅ 验证 AI 翻译质量
+- ⬜ 验证 AI 翻译质量（进行中：Islands 验证发现问题）
 
 卡点：
 | 状态 | 任务 | 说明 |
 |------|------|------|
+| ⬜ | figma-context.md 精简 | 1954 行太臃肿，需精简至合理范围 |
+| ⬜ | 组件映射使用率 | 生成的代码没用 dangoui 组件，用了 HTML + UnoCSS |
+| ⬜ | 还原质量 | 非组件部分还原度差 |
 | ⬜ | 骨架输出结构化 | 148KB 输出难以阅读，需结构化 |
 | ⬜ | 增强 INSTANCE 识别 | IslandsSlide/IslandsSlideBasic/SPU 等未被识别 |
 | ⬜ | 骨架标注视觉位置 | HTML 顺序 ≠ 渲染顺序，需标注左右中 |
