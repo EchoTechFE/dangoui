@@ -428,17 +428,17 @@ function getBuiltInTheme(theme: Theme) {
     ],
     [
       'mihua-dark',
-      // {
-      //   '--du-c-primary': '#aef056',
-      //   '--du-c-2': '#9d96ff',
-      //   '--du-c-text-primary': ((theme as any).colors?.white)[800],
-      //   '--du-c-text-2': ((theme as any).colors?.white)[700],
-      //   '--du-c-text-3': ((theme as any).colors?.white)[600],
-      //   '--du-c-text-disable': ((theme as any).colors?.white)[400],
-      //   '--du-c-bg-primary': ((theme as any).colors?.white)[900],
-      //   '--du-c-bg-2': ((theme as any).colors?.white)[500],
-      //   '--du-c-bg-3': ((theme as any).colors?.white)[300],
-      // },
+      {
+        '--du-c-primary': '#aef056',
+        '--du-c-2': '#9d96ff',
+        '--du-c-text-primary': ((theme as any).colors?.white)[800],
+        '--du-c-text-2': ((theme as any).colors?.white)[700],
+        '--du-c-text-3': ((theme as any).colors?.white)[600],
+        '--du-c-text-disable': ((theme as any).colors?.white)[400],
+        '--du-c-bg-primary': ((theme as any).colors?.white)[900],
+        '--du-c-bg-2': ((theme as any).colors?.white)[500],
+        '--du-c-bg-3': ((theme as any).colors?.white)[300],
+      },
       {
         '--du-c-primary': ((theme as any).colors?.qdPurple)[500],
         '--du-c-2': ((theme as any).colors?.qdPurple)[900],
@@ -447,14 +447,14 @@ function getBuiltInTheme(theme: Theme) {
     ],
     [
       'mihua',
-      // {
-      //   '--du-c-primary': '#aef056',
-      //   '--du-c-2': '#9d96ff',
-      //   '--du-c-bg-primary': '#e0deff',
-      //   '--du-c-bg-2': '#f7f7f9',
-      //   '--du-c-bg-3': '#fff',
-      //   '--du-c-bg-4': 'rgba(16,16,16,0.4)',
-      // },
+      {
+        '--du-c-primary': '#aef056',
+        '--du-c-2': '#9d96ff',
+        '--du-c-bg-primary': '#e0deff',
+        '--du-c-bg-2': '#f7f7f9',
+        '--du-c-bg-3': '#fff',
+        '--du-c-bg-4': 'rgba(16,16,16,0.4)',
+      },
       {
         '--du-c-primary': ((theme as any).colors?.qdPurple)[500],
         '--du-c-2': ((theme as any).colors?.qdPurple)[900],
