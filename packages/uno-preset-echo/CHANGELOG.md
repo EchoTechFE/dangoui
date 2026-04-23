@@ -1,5 +1,12 @@
 # unocss-preset-echo
 
+## 1.7.19
+
+### Patch Changes
+
+- Updated dependencies [d4f12be]
+  - unocss-preset-echo-colors@1.7.18
+
 ## 1.7.18
 
 ### Patch Changes
