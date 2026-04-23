@@ -1,5 +1,11 @@
 # unocss-preset-echo-colors
 
+## 1.7.18
+
+### Patch Changes
+
+- d4f12be: Enable Mihua theme colors.
+
 ## 1.7.17
 
 ### Patch Changes
