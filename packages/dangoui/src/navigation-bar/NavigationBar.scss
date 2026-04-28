@@ -81,6 +81,11 @@
     flex: none;
   }
 
+  &__wrapper,
+  &_wrapper {
+    margin-top: var(--window-top, 0px);
+  }
+
   &__wrapper {
     --du-c-primary-navigation-bar-text: #fff;
     --du-c-primary-navigation-bar-bg: rgba(
