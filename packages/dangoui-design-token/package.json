@@ -14,6 +14,7 @@
   "author": "zhuscat",
   "license": "ISC",
   "dependencies": {
+    "@unocss/core": "^0.57.3",
     "chroma-js": "^2.4.2",
     "lodash-es": "^4.17.21"
   },

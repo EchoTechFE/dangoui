@@ -1,6 +1,6 @@
 import { definePreset } from '@unocss/core'
 import presetMp, { PresetMpOptions } from 'unocss-preset-mp'
-import presetEchoColors from 'unocss-preset-echo-colors'
+import { presetEchoColors } from 'dangoui-design-token'
 import deepmerge from 'deepmerge'
 
 type PresetEchoOptions = {
