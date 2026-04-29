@@ -12,7 +12,7 @@
 
           <!-- Search -->
           <div class="doc-search flex items-center gap-[var(--spacing-sm)] h-32px px-[var(--spacing-md)] bg-[var(--doc-bg-secondary)] border border-solid border-transparent rounded-[var(--radius-md)] transition-all" ref="searchbar">
-            <IconsSearch class="w-14px h-14px c-[var(--doc-text-tertiary)] shrink-0" />
+            <Search class="w-14px h-14px c-[var(--doc-text-tertiary)] shrink-0" />
             <input
               ref="inputRef"
               v-model="keyword"
@@ -84,7 +84,7 @@
               {{ isDarkMode ? '☀️' : '🌙' }}
             </button>
             <a href="https://github.com/EchoTechFE/dangoui" target="_blank" :class="actionBtnClass">
-              <IconsGitHub />
+              <GitHub />
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@
                 ]"
               >
                 <span>{{ item.title }}</span>
-                <IconsFlask v-if="item.stage === 'alpha'" :class="['w-14px h-14px', isNavItemActive(item) ? 'c-[var(--doc-accent)]' : 'c-[var(--doc-text-tertiary)]']" />
+                <Flask v-if="item.stage === 'alpha'" :class="['w-14px h-14px', isNavItemActive(item) ? 'c-[var(--doc-accent)]' : 'c-[var(--doc-text-tertiary)]']" />
               </NuxtLink>
             </div>
           </div>
