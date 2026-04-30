@@ -594,3 +594,6 @@ export function createThemes(opts: CreateThemeOpts) {
     getAlias,
   }
 }
+
+// Re-export UnoCSS preset and colors
+export { presetEchoColors, colors } from './src/preset-colors'

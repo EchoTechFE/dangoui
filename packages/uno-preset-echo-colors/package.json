@@ -1,6 +1,7 @@
 {
   "name": "unocss-preset-echo-colors",
-  "version": "1.7.18",
+  "version": "1.7.17",
+  "deprecated": "Please use dangoui-design-token instead, which now includes presetEchoColors",
   "description": "",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

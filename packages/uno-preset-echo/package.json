@@ -22,7 +22,7 @@
     "@unocss/extractor-arbitrary-variants": "^0.57.3",
     "@unocss/rule-utils": "^0.57.3",
     "deepmerge": "^4.3.1",
-    "unocss-preset-echo-colors": "workspace:^",
+    "dangoui-design-token": "workspace:^",
     "unocss-preset-mp": "^1.4.4"
   },
   "devDependencies": {

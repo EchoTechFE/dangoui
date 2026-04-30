@@ -3,16 +3,16 @@
     <div class="min-h-100vh bg-[var(--doc-bg-primary)]">
       <!-- Header -->
       <header class="fixed top-0 left-0 right-0 h-[var(--doc-header-h)] bg-[var(--doc-header-bg)] backdrop-blur-20 backdrop-saturate-180 border-b border-b-solid border-b-[var(--doc-border-light)] z-100">
-        <div class="flex items-center h-full px-[var(--spacing-sm)] md:px-[var(--spacing-lg)] gap-4px">
+        <div class="flex items-center h-full px-[var(--spacing-xl)] gap-4px w-full">
           <NuxtLink to="/" class="flex items-center gap-[var(--spacing-sm)] no-underline shrink-0">
             <Logo />
-            <span class="hidden md:inline font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em]">Dango UI</span>
-            <span class="hidden lg:inline text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em]">Beta</span>
+            <span class="font-[var(--doc-font-system)] text-15px font-600 c-[var(--doc-text-primary)] tracking-[-0.01em] hidden md:inline">Dango UI</span>
+            <span class="text-10px font-500 py-2px px-6px rounded-[var(--radius-sm)] bg-[var(--doc-accent-bg)] c-[var(--doc-accent)] tracking-[0.02em] hidden sm:inline">Beta</span>
           </NuxtLink>
 
           <!-- Search -->
           <div class="doc-search flex items-center gap-[var(--spacing-sm)] h-32px px-[var(--spacing-md)] bg-[var(--doc-bg-secondary)] border border-solid border-transparent rounded-[var(--radius-md)] transition-all" ref="searchbar">
-            <IconsSearch class="w-14px h-14px c-[var(--doc-text-tertiary)] shrink-0" />
+            <Search class="w-14px h-14px c-[var(--doc-text-tertiary)] shrink-0" />
             <input
               ref="inputRef"
               v-model="keyword"
@@ -25,7 +25,7 @@
               @focus="handleInputFocus"
               @blur="handleInputBlur"
             />
-            <div class="hidden lg:flex gap-2px">
+            <div class="flex gap-2px hidden sm:flex">
               <kbd :class="kbdClass">⌘</kbd>
               <kbd :class="kbdClass">K</kbd>
             </div>
@@ -71,7 +71,7 @@
               :title="app.name"
             >
               <DuTheme :name="app.id" class="w-8px h-8px rounded-full shrink-0 bg-[var(--du-primary-solid-bg)]" :class="{ 'scale-120': currentApp === app.id }" />
-              <span :class="['hidden lg:inline text-11px whitespace-nowrap', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
+              <span :class="['text-11px whitespace-nowrap hidden lg:inline', currentApp === app.id ? 'c-[var(--doc-text-primary)] font-500' : 'c-[var(--doc-text-tertiary)]']">{{ app.name }}</span>
             </button>
           </div>
 
@@ -84,7 +84,7 @@
               {{ isDarkMode ? '☀️' : '🌙' }}
             </button>
             <a href="https://github.com/EchoTechFE/dangoui" target="_blank" :class="actionBtnClass">
-              <IconsGitHub />
+              <GitHub />
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@
                 ]"
               >
                 <span>{{ item.title }}</span>
-                <IconsFlask v-if="item.stage === 'alpha'" :class="['w-14px h-14px', isNavItemActive(item) ? 'c-[var(--doc-accent)]' : 'c-[var(--doc-text-tertiary)]']" />
+                <Flask v-if="item.stage === 'alpha'" :class="['w-14px h-14px', isNavItemActive(item) ? 'c-[var(--doc-accent)]' : 'c-[var(--doc-text-tertiary)]']" />
               </NuxtLink>
             </div>
           </div>

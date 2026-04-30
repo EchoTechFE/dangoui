@@ -4,6 +4,18 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt', '@nuxt/image'],
   devtools: { enabled: true },
+  imports: {
+    dirs: ['business'],
+  },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
+  alias: {
+    business: '~/business',
+  },
   app: {
     head: {
       titleTemplate: '%s - Dango UI',
@@ -14,6 +26,10 @@ export default defineNuxtConfig({
       theme: 'min-light',
       preload: ['ts', 'js', 'vue', 'bash'],
     },
+  },
+  routeRules: {
+    '/': { redirect: '/get-started/introduction' },
+    '/business/**': { ssr: true },
   },
   vite: {
     define: {

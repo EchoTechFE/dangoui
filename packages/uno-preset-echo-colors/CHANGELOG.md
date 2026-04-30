@@ -1,10 +1,8 @@
 # unocss-preset-echo-colors
 
-## 1.7.18
-
-### Patch Changes
-
-- d4f12be: Enable Mihua theme colors.
+> ⚠️ **Deprecated**: This package is deprecated. Please use `dangoui-design-token` instead, which now includes the same functionality.
+> - Import `presetEchoColors` from `dangoui-design-token/theme.ts`
+> - This package will receive no further updates
 
 ## 1.7.17
 

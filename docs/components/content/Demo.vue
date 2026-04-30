@@ -1,22 +1,19 @@
 <template>
   <section
-    class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden h-667px"
+    class="w-full flex rounded-lg border border-[var(--doc-border-light)] mb-32px text-14px overflow-hidden"
+    :style="{ height: `${previewHeight}px` }"
   >
+    <!-- Preview (Left) -->
     <div
-      class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0 overflow-auto h-full"
+      class="flex-none relative flex flex-col bg-white"
+      :style="{ width: `${previewWidth}px`, height: `${previewHeight}px` }"
     >
-      <div class="preview-section-title">{{ title }}</div>
-      <div class="not-prose w-full">
-        <slot />
-      </div>
-      <div class="not-prose overflow-auto w-full">
-        <slot name="snippet" />
-      </div>
-    </div>
-    <div
-      class="flex-none w-[375px] bg-bg-2 relative border-l border-l-solid border-l-[var(--doc-border-light)] flex flex-col h-full"
-    >
-      <iframe ref="iframe" :src="demoPath" class="w-full flex-1 overflow-auto" style="padding: 0; border: none; background-color: transparent;" />
+      <iframe
+        ref="iframe"
+        :src="demoPath"
+        class="w-full"
+        :style="{ height: `${previewHeight}px`, padding: 0, border: 'none', backgroundColor: 'transparent', display: 'block' }"
+      />
       <div
         v-if="consoleOpen"
         class="bottom-32px absolute left-0 right-0 h-200px z-10 bg-white border-t border-t-solid border-t-border-2 overflow-scroll"
@@ -41,12 +38,41 @@
         </div>
       </div>
     </div>
+
+    <!-- Code (Right) -->
+    <div
+      class="flex-1 flex flex-col items-start bg-[var(--doc-bg-primary)] min-w-0 overflow-auto border-l border-l-solid border-l-[var(--doc-border-light)]"
+      :style="{ height: `${previewHeight}px` }"
+    >
+      <div class="preview-section-title">{{ title }}</div>
+      <div class="not-prose w-full">
+        <slot />
+      </div>
+      <div class="not-prose overflow-auto w-full">
+        <slot name="snippet" />
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .not-prose :deep(pre) {
   width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 0;
+  display: block !important;
+  gap: 0 !important;
+}
+.not-prose :deep(code) {
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 13px;
+}
+.not-prose :deep(.line) {
+  padding: 0 4px;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: 1.4em;
 }
 </style>
 
@@ -60,6 +86,10 @@ const props = defineProps<{
 }>()
 
 const iframe = ref<HTMLIFrameElement>()
+// 设备尺寸规范（与 PhoneMockup.vue 保持一致，iPhone X/11 Pro/12 mini/13 mini）
+// Frame 396×838, Screen 375×812, iframe容器 418×812
+const previewHeight = ref(812) // iframe 高度 = Screen 高度
+const previewWidth = ref(418)  // iframe 宽度 = Screen(375) + padding(43)
 
 // props.path from MDC: content:${path}:${filename}:${demoIdx}
 // Content path in Nuxt Content strips N. prefix from both directory and filename.
@@ -69,27 +99,14 @@ const iframe = ref<HTMLIFrameElement>()
 const demoPath = computed(() => {
   const p = props.path
     .replace(/^content:/, '')
-    .replace(/:(\d+)$/, '') // strip demo index at end
-    .replace(/\.md$/, '') // strip .md extension
+    .replace(/:(\d+)$/, '')
+    .replace(/\.md$/, '')
 
-  // p is like 'bar:navigation-bar.md' or 'style:button.md'
   const colonIdx = p.lastIndexOf(':')
-  const categoryPart = p.substring(0, colonIdx) // e.g. 'bar' or 'style'
-  const filenameWithExt = p.substring(colonIdx + 1) // e.g. 'navigation-bar.md' or 'button.md'
-  const filename = filenameWithExt.replace(/^(\d+)\./, '') // strip N. sort prefix
+  const categoryPart = p.substring(0, colonIdx)
+  const filenameWithExt = p.substring(colonIdx + 1)
+  const filename = filenameWithExt.replace(/^(\d+)\./, '')
 
-  // For the category: don't strip N. from first segment (it IS the directory name)
-  // But we need to handle multi-segment category paths
-  // categoryPart comes from the route path where N. IS stripped, but pages dirs keep N.
-  // We need to look up the original directory name from the _file field in content API,
-  // but we don't have that here. Instead, for known top-level categories,
-  // we prepend the N. prefix based on the stripped route segment.
-  // Actually, the pages dirs ARE named with N. prefix (1.style, 2.bar etc).
-  // The content route strips N., so we must restore it.
-  // For single-segment category like 'bar', we need to know it's '2.bar'.
-  // The only way is to have a mapping.
-  // For simplicity: if categoryPart is a known top-level category, use the pages dir as-is.
-  // categoryPart = 'bar' → '2.bar', 'style' → '1.style', etc.
   const categoryMap: Record<string, string> = {
     'bar': '2.bar',
     'style': '1.style',
@@ -99,6 +116,7 @@ const demoPath = computed(() => {
     'other': '6.other',
     'composables': '7.composables',
     'get-started': '0.get-started',
+    'business': 'business',
   }
   const category = categoryMap[categoryPart] ?? categoryPart
 
@@ -106,7 +124,6 @@ const demoPath = computed(() => {
 })
 
 const logs = ref<string[]>([])
-
 const consoleOpen = ref(false)
 
 watch(globalTheme, (theme) => {
