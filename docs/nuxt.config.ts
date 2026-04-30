@@ -27,6 +27,12 @@ export default defineNuxtConfig({
       preload: ['ts', 'js', 'vue', 'bash'],
     },
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/get-started/introduction', '/get-started/quick-start', '/get-started/theme'],
+    },
+  },
   routeRules: {
     '/': { redirect: '/get-started/introduction' },
     '/business/**': { ssr: true },
