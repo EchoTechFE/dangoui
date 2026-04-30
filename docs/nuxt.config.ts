@@ -30,6 +30,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { redirect: '/get-started/introduction' },
     '/business/**': { ssr: true },
+    '/island-detail-preview': { prerender: false },
   },
   vite: {
     define: {
