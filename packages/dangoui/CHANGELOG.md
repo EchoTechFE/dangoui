@@ -1,5 +1,11 @@
 # dangoui
 
+## 3.6.17
+
+### Patch Changes
+
+- 788e518: Prevent Popup content from receiving clicks while enter and leave transitions are running.
+
 ## 3.6.16
 
 ### Patch Changes
