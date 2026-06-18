@@ -32,6 +32,7 @@ import {
   inject,
   normalizeStyle,
   normalizeClass,
+  onBeforeUnmount,
 } from 'vue'
 import DuIcon from '../icon/Icon.vue'
 import DuRootPortal from '../root-portal/RootPortal.vue'
@@ -127,9 +128,33 @@ const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
+const ENTER_DELAY = 100
+const TRANSITION_DURATION = 300
+const LEAVE_DURATION = ENTER_DELAY + TRANSITION_DURATION
+
 const innerVisible = ref(props.visible)
 const openAni = ref(false)
+const contentInteractive = ref(false)
 const themeConfig = inject(themeInjectionKey, null)
+
+let enterTimer: ReturnType<typeof setTimeout> | null = null
+let interactiveTimer: ReturnType<typeof setTimeout> | null = null
+let leaveTimer: ReturnType<typeof setTimeout> | null = null
+
+function clearTimer(timer: ReturnType<typeof setTimeout> | null) {
+  if (timer) {
+    clearTimeout(timer)
+  }
+}
+
+function clearTransitionTimers() {
+  clearTimer(enterTimer)
+  clearTimer(interactiveTimer)
+  clearTimer(leaveTimer)
+  enterTimer = null
+  interactiveTimer = null
+  leaveTimer = null
+}
 
 const themeName = computed(() => {
   if (!themeConfig?.name) {
@@ -159,6 +184,7 @@ const className = computed(() => {
       [`du-popup--${props.type}`]: true,
       [`du-popup--${props.type}-open`]: openAni.value,
       [`du-popup--${props.type}-safe-area`]: props.safeArea,
+      'du-popup__content--locked': !contentInteractive.value,
     },
   ])
 })
@@ -180,7 +206,7 @@ const maskClassName = computed(() => {
 })
 
 const handleMaskClick = () => {
-  if (props.maskClick) {
+  if (props.maskClick && props.visible && contentInteractive.value) {
     emit('update:visible', false)
     emit('close')
   }
@@ -198,22 +224,30 @@ if (__WEB__) {
 watch(
   () => props.visible,
   (val) => {
+    clearTransitionTimers()
+    contentInteractive.value = false
+
     if (val) {
       innerVisible.value = val
     } else {
-      setTimeout(() => {
+      leaveTimer = setTimeout(() => {
         innerVisible.value = props.visible
-      }, 400)
+      }, LEAVE_DURATION)
     }
 
     if (val) {
       // 延迟一下，然后开始动画
-      setTimeout(() => {
+      enterTimer = setTimeout(() => {
         // 确保执行动画的时候，是打开的
         if (props.visible) {
           openAni.value = true
+          interactiveTimer = setTimeout(() => {
+            if (props.visible) {
+              contentInteractive.value = true
+            }
+          }, TRANSITION_DURATION)
         }
-      }, 100)
+      }, ENTER_DELAY)
     } else {
       // 马上开始动画
       openAni.value = false
@@ -223,6 +257,10 @@ watch(
     immediate: true,
   },
 )
+
+onBeforeUnmount(() => {
+  clearTransitionTimers()
+})
 
 const closeIcon = (function () {
   if (__WEB__) {
