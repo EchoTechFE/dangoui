@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.demo-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--du-bg-1, #f7f7f9);
+  padding: 32px 16px;
+}
+.component-gallery {
+  max-width: 488px;
+  margin: 32px auto;
+  display: grid;
+  gap: 20px;
+}
+.component-gallery section {
+  padding: 16px;
+}
+.component-gallery .du-react-card__body {
+  display: grid;
+  gap: 16px;
+}
+.gallery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.h5-scroll-demo {
+  height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--du-border-2);
+  border-radius: 8px;
+}
+.demo-card {
+  max-width: 440px;
+  margin: 24px auto;
+  padding: 32px 24px;
+  border-radius: 24px;
+  background: var(--du-bg-3, white);
+  box-shadow: 0 8px 40px #00000008;
+}
+.eyebrow {
+  letter-spacing: 3px;
+  color: var(--du-primary-color);
+  font-size: 11px;
+  font-weight: 600;
+}
+h1 {
+  margin: 20px 0 12px;
+  font-size: 26px;
+  letter-spacing: -1px;
+}
+.subtitle,
+small,
+.footnote {
+  color: var(--du-text-2, #666);
+}
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+section {
+  border-top: 1px solid var(--du-border-3, #eee);
+  padding: 20px 0;
+}
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+.address-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+small {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 20px;
+}
+.row,
+.goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.row h2 {
+  margin: 0;
+}
+.row {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+.goods-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 64px;
+  border-radius: 10px;
+  background: var(--du-primary-soft-bg);
+  color: var(--du-primary-color);
+  font-size: 24px;
+}
+.goods > div {
+  flex: 1;
+}
+.demo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.footnote {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 24px;
+  line-height: 18px;
+}
+.theme-picker {
+  max-width: 440px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.theme-picker select {
+  background: var(--du-bg-3);
+  color: inherit;
+  border: 1px solid var(--du-border-3, #ddd);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
