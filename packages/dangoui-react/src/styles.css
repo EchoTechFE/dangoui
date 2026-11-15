@@ -1,0 +1,1489 @@
+.du-react {
+  color: var(--du-text-1, #202426);
+  font-family: inherit;
+}
+.du-react-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+.du-react-button {
+  box-sizing: border-box;
+  font-family: inherit;
+  cursor: pointer;
+  gap: 0;
+  margin: 0;
+  appearance: none;
+}
+.du-react-button:disabled {
+  cursor: default;
+}
+.du-react-button__icon {
+  flex-shrink: 0;
+  justify-content: center;
+}
+.du-react-button__icon--only {
+  margin: 0;
+}
+.du-react-button:focus-visible,
+.du-react-popup button:focus-visible {
+  outline: 2px solid var(--du-primary-color);
+  outline-offset: 3px;
+}
+.du-react-loading {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: du-react-spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+.du-react-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+.du-react-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--du-mask-2, rgba(32, 36, 38, 0.6));
+  pointer-events: auto;
+}
+.du-react-popup {
+  box-sizing: border-box;
+  position: absolute;
+  background: var(--du-bg-3, #fff);
+  color: var(--du-text-1, #202426);
+  max-height: 90vh;
+  max-height: 90dvh;
+  max-height: calc(var(--du-viewport-height, 100dvh) * 0.9);
+  overflow: auto;
+  overscroll-behavior: contain;
+  border-radius: 15px;
+  padding: 20px;
+  min-width: 271px;
+  max-width: calc(100vw - 32px);
+  pointer-events: auto;
+  outline: none;
+}
+.du-react-popup--center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.du-react-popup--bottom,
+.du-react-popup--top {
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.du-react-popup--bottom {
+  bottom: 0;
+  border-radius: 15px 15px 0 0;
+}
+.du-react-popup--top {
+  top: 0;
+  border-radius: 0 0 15px 15px;
+}
+.du-react-popup--safe {
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+}
+.du-react-popup--top.du-react-popup--safe {
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
+  padding-bottom: 20px;
+}
+.du-react-popup__title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 0 24px 12px 0;
+}
+.du-react-popup__description {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 12px;
+  color: var(--du-text-2, #666);
+}
+.du-react-popup__close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  font-size: 24px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.du-react-overlay[data-state='open'] {
+  animation: du-react-fade-in 0.18s ease-out;
+}
+.du-react-overlay[data-state='closed'] {
+  animation: du-react-fade-out 0.15s ease-in;
+}
+.du-react-popup[data-state='open'] {
+  animation: du-react-fade-in 0.18s ease-out;
+}
+.du-react-popup[data-state='closed'] {
+  animation: du-react-fade-out 0.15s ease-in;
+}
+.du-react-dialog__body {
+  font-size: 14px;
+  line-height: 22px;
+  overflow-wrap: anywhere;
+}
+.du-react-dialog__body [role='alert'] {
+  color: var(--du-error-color);
+}
+.du-react-dialog__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.du-react-dialog__actions > button {
+  flex: 1;
+}
+.du-react-toast-region {
+  position: fixed;
+  z-index: 2000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.du-react-toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(280px, calc(100vw - 40px));
+  width: max-content;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  line-height: 22px;
+  overflow-wrap: anywhere;
+}
+.du-react-preview.du-react-popup {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  transform: none;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.du-react-preview .du-react-popup__close {
+  z-index: 1;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+.du-react-preview__viewport {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+.du-react-preview__viewport img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.du-react-preview__viewport > .du-react-loading {
+  position: absolute;
+}
+.du-react-preview__zoom {
+  position: fixed;
+  right: 16px;
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  background: #222;
+  color: white;
+  border: 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+.du-react-preview__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+}
+.du-react-preview__navigation button {
+  color: white;
+  background: #222;
+  border: 0;
+  width: 44px;
+  height: 36px;
+  border-radius: 6px;
+}
+.du-react-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@keyframes du-react-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes du-react-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes du-react-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .du-react-popup[data-state],
+  .du-react-overlay[data-state] {
+    animation-duration: 0.001ms;
+  }
+  .du-react-loading {
+    animation-duration: 2s;
+  }
+}
+
+/* Web controls use the same semantic theme variables as the Vue palette. */
+.du-react-muted {
+  color: var(--du-text-3);
+}
+.du-react-error,
+.du-react-required {
+  color: var(--du-error-color);
+}
+.du-react-required {
+  margin-inline-end: 4px;
+}
+.du-react-form {
+  margin: 0;
+}
+.du-react-form-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 22px;
+}
+.du-react-form-item--border {
+  border-bottom: 1px solid var(--du-border-3);
+}
+.du-react-form-item__label {
+  flex: 0 0 var(--du-label-width, 80px);
+  text-align: var(--du-label-align, left);
+  padding-top: 9px;
+}
+.du-react-form-item__content {
+  flex: 1;
+  min-width: 0;
+}
+.du-react-form-item[data-layout='vertical'] {
+  flex-direction: column;
+  gap: 6px;
+}
+.du-react-form-item[data-layout='vertical'] > label {
+  flex-basis: auto;
+  padding: 0;
+}
+.du-react-form-item[data-layout='vertical'] > .du-react-form-item__content {
+  width: 100%;
+}
+.du-react-form-item__help {
+  margin-top: 4px;
+  color: var(--du-text-3);
+  font-size: 12px;
+}
+.du-react-form-item__help.du-react-error {
+  color: var(--du-error-color);
+}
+.du-react-form-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 40px;
+  gap: 12px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: start;
+  font: inherit;
+  cursor: pointer;
+}
+.du-react-input,
+.du-react-textarea {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  background: var(--du-bg-3);
+  color: var(--du-text-1);
+  border-radius: 6px;
+  gap: 8px;
+}
+.du-react-input input,
+.du-react-textarea textarea {
+  box-sizing: border-box;
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  line-height: 22px;
+  outline-offset: -2px;
+}
+.du-react-input--bordered {
+  border: 1px solid var(--du-border-2);
+}
+.du-react-input:focus-within,
+.du-react-textarea:focus-within {
+  outline: 2px solid var(--du-primary-color);
+  outline-offset: 1px;
+}
+.du-react-input input:focus,
+.du-react-textarea textarea:focus {
+  outline: 0;
+}
+.du-react-input input::placeholder,
+.du-react-textarea textarea::placeholder {
+  color: var(--du-text-3);
+  opacity: 1;
+}
+.du-react-input[data-disabled='true'],
+.du-react-input input:disabled,
+.du-react-textarea textarea:disabled {
+  color: var(--du-text-disabled);
+  cursor: default;
+}
+.du-react-input__prefix {
+  padding-inline-start: 10px;
+}
+.du-react-input__clear {
+  color: var(--du-text-3);
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  font-size: 20px;
+}
+.du-react-textarea {
+  display: block;
+}
+.du-react-textarea textarea {
+  resize: vertical;
+}
+.du-react-textarea__count {
+  display: block;
+  padding: 0 10px 6px;
+  text-align: end;
+  font-size: 12px;
+  color: var(--du-text-3);
+}
+.du-react-input-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--du-control-color);
+}
+.du-react-input-number button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: var(--du-control-soft);
+  color: inherit;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.du-react-input-number input {
+  width: 60px;
+  min-width: 0;
+  text-align: center;
+  border: 1px solid var(--du-border-2);
+  border-radius: 4px;
+  background: var(--du-bg-3);
+  color: var(--du-text-1);
+  padding: 4px;
+  font: inherit;
+}
+.du-react-input-number--compact {
+  gap: 0;
+}
+.du-react-input-number[data-size='mini'] button,
+.du-react-input-number[data-size='small'] button {
+  width: 24px;
+  height: 24px;
+}
+.du-react-input-number button:disabled {
+  color: var(--du-text-disabled);
+  cursor: default;
+}
+.du-react-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--du-bg-2);
+}
+.du-react-search .du-react-input {
+  background: transparent;
+  flex: 1;
+}
+.du-react-search-right {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-inline-start: 8px;
+}
+.du-react-choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.du-react-choice-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.du-react-choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+}
+.du-react-choice input {
+  position: absolute;
+  inset-inline-start: 0;
+  width: var(--du-choice-size, 20px);
+  height: var(--du-choice-size, 20px);
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.du-react-choice__mark {
+  pointer-events: none;
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--du-choice-size, 20px);
+  height: var(--du-choice-size, 20px);
+  border: 1px solid var(--du-border-1);
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+}
+.du-react-choice[data-shape='round'] .du-react-choice__mark {
+  border-radius: 50%;
+}
+.du-react-choice[data-checked='true'] .du-react-choice__mark {
+  border-color: var(--du-control-color);
+  background: var(--du-control-color);
+}
+.du-react-choice input[type='radio']:checked + .du-react-choice__mark::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.du-react-choice input:focus-visible + .du-react-choice__mark {
+  outline: 2px solid var(--du-control-color);
+  outline-offset: 3px;
+}
+.du-react-choice[data-disabled='true'] {
+  opacity: 0.4;
+  cursor: default;
+}
+.du-react-choice[data-position='right'] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.du-react-choice[data-position='right'] input {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.du-react-choice[data-shape='card'],
+.du-react-choice[data-shape='button'] {
+  border: 1px solid var(--du-border-2);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.du-react-choice[data-shape='card'][data-checked='true'],
+.du-react-choice[data-shape='button'][data-checked='true'] {
+  border-color: var(--du-control-color);
+  background: var(--du-control-soft);
+  color: var(--du-control-color);
+}
+.du-react-choice[data-shape='button'] .du-react-choice__mark {
+  display: none;
+}
+.du-react-choice[data-shape='button'] input {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.du-react-choice[data-shape='button']:focus-within {
+  outline: 2px solid var(--du-control-color);
+}
+.du-react-switch .du-react-choice__mark {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--du-bg-4);
+}
+.du-react-switch .du-react-choice__mark::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px #0002;
+  transition: transform 0.15s;
+}
+.du-react-switch[data-checked='true'] .du-react-choice__mark::after {
+  transform: translateX(16px);
+}
+.du-react-switch input {
+  width: 40px;
+  height: 24px;
+}
+.du-react-radio-icon {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--du-border-1);
+  border-radius: 50%;
+}
+.du-react-radio-icon[data-checked='true'] {
+  border-color: var(--du-control-color);
+  background: var(--du-control-color);
+}
+.du-react-radio-icon[data-checked='true']::after {
+  content: '';
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: white;
+}
+.du-react-radio-icon[data-disabled='true'] {
+  opacity: 0.4;
+}
+.du-react-tabs-wrapper {
+  display: block;
+  min-width: 0;
+}
+.du-react-tabs__header {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.du-react-tabs {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  gap: 20px;
+  min-width: 0;
+  scrollbar-width: none;
+}
+.du-react-tab {
+  border: 0;
+  background: transparent;
+  color: var(--du-text-2);
+  padding: 12px 0;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.du-react-tab[aria-selected='true'] {
+  color: var(--du-control-color);
+  font-weight: 500;
+}
+.du-react-tabs[data-size='large'] .du-react-tab {
+  font-size: 16px;
+}
+.du-react-tabs__indicator {
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--du-control-color);
+  left: var(--du-tab-left, 0);
+  width: var(--du-tab-width, 0);
+  transition:
+    left 0.15s,
+    width 0.15s;
+}
+.du-react-tabs[data-type='text'] .du-react-tabs__indicator,
+.du-react-tabs[data-type='tag'] .du-react-tabs__indicator {
+  display: none;
+}
+.du-react-tabs[data-type='tag'] {
+  gap: 8px;
+}
+.du-react-tabs[data-type='tag'] .du-react-tab {
+  margin: 6px 0;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: var(--du-bg-2);
+}
+.du-react-tabs[data-type='tag'] .du-react-tab[aria-selected='true'] {
+  background: var(--du-control-soft);
+}
+.du-react-tab:disabled {
+  color: var(--du-text-disabled);
+  cursor: default;
+}
+.du-react-tabs-wrapper > [role='tabpanel'] {
+  flex-basis: 100%;
+  padding-top: 12px;
+}
+.du-react-tabs-right {
+  flex-shrink: 0;
+  padding-inline-start: 12px;
+}
+.du-react-option-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 50vh;
+  overflow-y: auto;
+  margin: 8px 0;
+}
+.du-react-option-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--du-border-3);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.du-react-option-list button[aria-selected='true'],
+.du-react-option-list button[aria-pressed='true'] {
+  color: var(--du-primary-color);
+  background: var(--du-primary-soft-bg);
+}
+.du-react-option-list button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.du-react-option-list small,
+.du-react-action-sheet small {
+  display: block;
+  color: var(--du-text-3);
+  font-size: 12px;
+  margin-top: 4px;
+}
+.du-react-picker-view {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.du-react-picker-view select {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--du-border-2);
+  border-radius: 8px;
+  color: inherit;
+  background: var(--du-bg-3);
+  font: inherit;
+}
+.du-react-picker-view option {
+  padding: 10px;
+}
+.du-react-cascader {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+.du-react-cascader > div {
+  flex: 1;
+  min-width: 100px;
+}
+.du-react-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+.du-react-calendar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 16px;
+}
+.du-react-calendar__header button {
+  width: 36px;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  color: inherit;
+  background: var(--du-bg-2);
+  font-size: 22px;
+}
+.du-react-calendar__week,
+.du-react-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+.du-react-calendar__week {
+  color: var(--du-text-3);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.du-react-calendar__days {
+  margin-bottom: 16px;
+}
+.du-react-calendar__days button {
+  min-height: 40px;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 4px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+}
+.du-react-calendar__days button[aria-pressed='true'] {
+  background: var(--du-primary-solid-bg);
+  color: var(--du-primary-solid-color);
+}
+.du-react-calendar__days button[data-in-range='true'] {
+  background: var(--du-primary-soft-bg);
+  color: var(--du-primary-color);
+}
+.du-react-calendar__days button:disabled,
+.du-react-calendar__header button:disabled {
+  opacity: 0.3;
+}
+.du-react-upload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.du-react-upload__item {
+  position: relative;
+  width: 88px;
+  font-size: 11px;
+}
+.du-react-upload[data-size='large'] .du-react-upload__item {
+  width: 112px;
+}
+.du-react-upload__preview {
+  display: block;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--du-border-3);
+  border-radius: 8px;
+  background: var(--du-bg-2);
+  color: inherit;
+  overflow: hidden;
+}
+.du-react-upload__preview .du-react-image {
+  width: 100%;
+  height: 100%;
+}
+.du-react-upload__preview:disabled {
+  opacity: 1;
+}
+.du-react-upload__item > [role='status'] {
+  display: block;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.du-react-upload__item[data-status='failed'] > [role='status'] {
+  color: var(--du-error-color);
+}
+.du-react-upload__actions {
+  display: flex;
+  justify-content: space-between;
+}
+.du-react-upload__actions button {
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--du-primary-color);
+  font: inherit;
+}
+.du-react-upload__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 4px;
+  background: var(--du-primary-solid-bg);
+  color: var(--du-primary-solid-color);
+  border-radius: 8px 0 4px 0;
+}
+.du-react-image {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.du-react-image img {
+  display: block;
+  width: 100%;
+}
+.du-react-image__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--du-text-3);
+  background: var(--du-bg-2);
+  font-size: 12px;
+}
+.du-react-avatar {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--du-control-soft, var(--du-bg-2));
+  color: var(--du-control-color, var(--du-text-2));
+}
+.du-react-avatar .du-react-image {
+  width: 100%;
+  height: 100%;
+}
+.du-react-avatar--bordered {
+  box-sizing: border-box;
+  border: 2px solid var(--du-bg-3);
+}
+.du-react-avatar-group {
+  display: flex;
+  align-items: center;
+}
+.du-react-card {
+  background: var(--du-bg-3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.du-react-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+.du-react-card__header > strong {
+  flex: 1;
+  font-size: 16px;
+}
+.du-react-card__header > button[aria-expanded] {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: start;
+}
+.du-react-card__header small {
+  color: var(--du-text-3);
+}
+.du-react-card__body {
+  padding: 0 16px 16px;
+}
+.du-react-card[data-size='large'] .du-react-card__body {
+  padding: 0 20px 20px;
+}
+.du-react-divider {
+  border: 0;
+  border-top: 1px solid var(--du-border-3);
+  margin: 12px 0;
+}
+.du-react-divider[data-orientation='vertical'] {
+  display: inline-block;
+  border-top: 0;
+  border-inline-start: 1px solid var(--du-border-3);
+  height: 1em;
+  margin: 0 8px;
+  vertical-align: middle;
+}
+.du-react-tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.du-react-tag[data-weight='light'] {
+  font-weight: 400;
+}
+.du-react-tag[data-bg='soft'] {
+  background: var(--du-control-soft);
+  color: var(--du-control-color);
+}
+.du-react-tag[data-bg='solid'] {
+  background: var(--du-tag-solid-bg);
+  color: var(--du-tag-solid-color);
+}
+.du-react-tag[data-bg='ghost'] {
+  background: transparent;
+  color: var(--du-control-color);
+}
+.du-react-tag[data-bordered='true'] {
+  border-color: var(--du-control-color);
+}
+.du-react-tag[data-round='true'] {
+  border-radius: 999px;
+}
+.du-react-tag[data-size='mini'] {
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 14px;
+}
+.du-react-tag[data-size='small'] {
+  padding: 0 4px;
+}
+.du-react-tag[data-size='medium'] {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.du-react-tag[data-size='large'] {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.du-react-tag > button {
+  border: 0;
+  padding: 0 2px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.du-react-tags-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.du-react-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  gap: 12px;
+  font-size: 14px;
+}
+.du-react-empty img {
+  max-width: 180px;
+  max-height: 140px;
+  object-fit: contain;
+}
+.du-react-badge {
+  position: relative;
+  display: inline-flex;
+}
+.du-react-badge__value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  min-width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  background: var(--du-control-color);
+  color: white;
+  border-radius: 12px;
+  font: 10px/16px sans-serif;
+}
+.du-react-badge:not(:empty) > :first-child:not(sup) + sup {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+.du-react-badge__value[data-dot='true'] {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  padding: 0;
+}
+.du-react-steps {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.du-react-steps li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  flex: 1;
+  color: var(--du-text-3);
+  font-size: 14px;
+}
+.du-react-steps__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--du-bg-4);
+}
+.du-react-steps [data-status='process'],
+.du-react-steps [data-status='success'] {
+  color: var(--du-control-color);
+}
+.du-react-steps [data-status='process'] .du-react-steps__mark,
+.du-react-steps [data-status='success'] .du-react-steps__mark {
+  background: var(--du-control-color);
+  color: white;
+}
+.du-react-steps [data-status='error'] {
+  color: var(--du-error-color);
+}
+.du-react-steps small {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.du-react-steps[data-direction='vertical'] {
+  flex-direction: column;
+}
+.du-react-steps[data-type='ghost'] .du-react-steps__mark {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+}
+.du-react-skeleton__block {
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--du-bg-4),
+    var(--du-bg-2),
+    var(--du-bg-4)
+  );
+  background-size: 200% 100%;
+  animation: du-react-skeleton 1.4s ease-in-out infinite;
+}
+.du-react-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.du-react-navigation-bar {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: calc(44px + env(safe-area-inset-top, 0px));
+  padding: env(safe-area-inset-top, 0px) 7px 0;
+  color: var(--du-text-1);
+  background: var(--du-bg-3);
+}
+.du-react-navigation-bar[data-transparent='true'] {
+  background: transparent;
+}
+.du-react-navigation-bar[data-transparent='true']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--du-bg-3);
+  opacity: var(--du-nav-opacity, 0);
+  pointer-events: none;
+}
+.du-react-navigation-bar[data-fixed='true'] {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+}
+.du-react-navigation-bar__placeholder {
+  height: calc(44px + env(safe-area-inset-top, 0px));
+}
+.du-react-navigation-bar__title {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.du-react-navigation-bar[data-center='true'] .du-react-navigation-bar__title {
+  text-align: center;
+}
+.du-react-navigation-bar > button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 20px;
+  min-width: 32px;
+  min-height: 32px;
+}
+.du-react-navigation-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.du-react-action-sheet {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.du-react-action-sheet button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--du-border-3);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+.du-react-action-sheet button:disabled {
+  opacity: 0.4;
+}
+.du-react-action-sheet button[data-danger='true'] {
+  color: var(--du-error-color);
+}
+.du-react-action-sheet[data-type='grid'] {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.du-react-action-sheet[data-type='grid'] button {
+  flex-direction: column;
+  border: 0;
+}
+.du-react-notice-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--du-control-color);
+  background: var(--du-control-soft);
+  font-size: 12px;
+}
+.du-react-notice-bar[data-type='primary'] {
+  background: var(--du-control-color);
+  color: white;
+}
+.du-react-notice-bar[data-layout='vertical'] {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.du-react-notice-bar__text {
+  flex: 1;
+  min-width: 0;
+}
+.du-react-notice-bar__text[data-ellipsis='true'] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.du-react-notice-bar > button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+}
+.du-react-snackbar {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: var(--du-text-1);
+  background: var(--du-bg-3);
+  box-shadow: 0 2px 20px #0002;
+}
+.du-react-snackbar > span {
+  flex: 1;
+}
+.du-react-snackbar > button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+.du-react-transition[data-state='open'] {
+  animation: du-react-fade-in var(--du-transition-duration) ease-out;
+}
+.du-react-transition[data-state='closed'] {
+  animation: du-react-fade-out var(--du-transition-duration) ease-in forwards;
+}
+.du-react-transition[data-name='fadeInUp'][data-state='open'] {
+  animation-name: du-react-fade-up;
+}
+.du-react-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.du-react-rate__star {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 28px;
+  font-size: 24px;
+  line-height: 28px;
+}
+.du-react-rate__empty {
+  color: var(--du-bg-4);
+}
+.du-react-rate__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  color: var(--du-control-color);
+}
+.du-react-rate__star > input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.du-react-rate__star:focus-within {
+  outline: 2px solid var(--du-control-color);
+  border-radius: 2px;
+}
+.du-react-rate[data-size='large'] .du-react-rate__star {
+  width: 32px;
+  height: 36px;
+  font-size: 32px;
+  line-height: 36px;
+}
+.du-react-rate[data-size='mini'] .du-react-rate__star,
+.du-react-rate[data-size='small'] .du-react-rate__star {
+  width: 16px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+.du-react-tooltip-trigger {
+  display: inline-flex;
+}
+.du-react-tooltip {
+  position: fixed;
+  z-index: 2100;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--du-bg-3);
+  background: var(--du-text-1);
+  max-width: min(280px, calc(100vw - 32px));
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}
+.du-react-tooltip[data-placement='bottom'] {
+  transform: translateX(-50%);
+}
+.du-react-swiper {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+.du-react-swiper__viewport {
+  display: grid;
+  overflow: hidden;
+}
+.du-react-swiper__slide {
+  grid-area: 1 / 1;
+  min-width: 0;
+  width: 100%;
+  transition: transform 250ms ease;
+}
+.du-react-swiper__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.du-react-swiper__controls > button {
+  border: 0;
+  border-radius: 4px;
+  color: inherit;
+  background: var(--du-bg-2);
+  width: 32px;
+  height: 28px;
+  font-size: 20px;
+}
+.du-react-swiper__indicators {
+  display: flex;
+  gap: 4px;
+}
+.du-react-swiper__indicators button {
+  border: 0;
+  width: 16px;
+  height: 4px;
+  padding: 0;
+  border-radius: 2px;
+  background: var(--du-border-1);
+}
+.du-react-swiper__indicators button[aria-current] {
+  background: var(--du-primary-color);
+}
+.du-react-swiper__indicators[data-type='bar-full'] {
+  flex: 1;
+}
+.du-react-swiper__indicators[data-type='bar-full'] button {
+  flex: 1;
+}
+.du-react-dropdown fieldset {
+  margin: 0 0 16px;
+  padding: 12px 0;
+  border: 0;
+}
+.du-react-dropdown legend {
+  font-size: 14px;
+  font-weight: 500;
+}
+.du-react-dropdown h4 {
+  margin: 8px 0;
+  font-size: 12px;
+  color: var(--du-text-3);
+}
+@keyframes du-react-skeleton {
+  to {
+    background-position: -200% 0;
+  }
+}
+@keyframes du-react-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .du-react-transition,
+  .du-react-skeleton__block {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+  }
+  .du-react-tabs__indicator,
+  .du-react-swiper__slide,
+  .du-react-switch .du-react-choice__mark::after {
+    transition: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .du-react-input input,
+  .du-react-textarea textarea,
+  .du-react-input-number input,
+  .du-react-picker-view select,
+  .du-react-calendar input[type='time'] {
+    font-size: 16px;
+  }
+  .du-react-popup__close,
+  .du-react-navigation-bar > button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .du-react-form-field {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,38 @@
+name: React package
+
+on:
+  pull_request:
+    paths:
+      - 'packages/dangoui-react/**'
+      - 'packages/dangoui-design-token/**'
+      - 'packages/dangoui-icon-config/**'
+      - 'packages/uno-preset-echo/**'
+      - 'packages/dangoui/src/button/**'
+      - 'packages/dangoui/src/cssvars.ts'
+      - 'packages/dangoui/src/empty/cssvars.ts'
+      - 'packages/dangoui/src/input/cssvars.ts'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - 'vitest.workspace.ts'
+      - '.github/workflows/react.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --filter dangoui-react... --frozen-lockfile --ignore-scripts
+      - run: pnpm --filter dangoui-design-token build
+      - run: pnpm --filter unocss-preset-echo build
+      - run: pnpm --filter dangoui-react check
+      - run: pnpm --filter dangoui-react test
+      - run: pnpm --filter dangoui-react build
+      - run: pnpm --filter dangoui-react build:example
+      - run: pnpm --filter dangoui-react test:package
