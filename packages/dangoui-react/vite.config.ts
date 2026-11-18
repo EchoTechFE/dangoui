@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'node:path'
 import { readdirSync, readFileSync } from 'node:fs'
-import { compile } from 'sass'
+import { compileString } from 'sass'
 import { createThemes } from '../dangoui-design-token/theme'
 import cssvars from '../dangoui/src/cssvars'
 import { fromPlatte } from '../dangoui/src/button/platte'
@@ -39,8 +39,9 @@ function sharedStyles() {
     css += `.du-react-button[data-color="${color}"] {${declarations(vars)}}\n`
   }
   // Reuse the existing, framework-independent visual rules and size variants.
-  css += compile(
-    resolve(__dirname, '../dangoui/src/button/style.scss'),
+  css += compileString(
+    '@use "style" with ($du-button-size-unit: var(--du-h5-unit, 1px));',
+    { loadPaths: [resolve(__dirname, '../dangoui/src/button')] },
   ).css.replaceAll('du-button', 'du-react-button')
   css += readFileSync(resolve(__dirname, 'src/styles.css'), 'utf8')
   return css

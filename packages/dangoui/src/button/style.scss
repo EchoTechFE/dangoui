@@ -1,3 +1,13 @@
+$du-button-size-unit: 1px !default;
+
+@function du-button-length($value) {
+  @if $du-button-size-unit == 1px {
+    @return $value * 1px;
+  }
+
+  @return calc(#{$value} * #{$du-button-size-unit});
+}
+
 .du-button {
   position: relative;
   display: inline-flex;
@@ -13,71 +23,71 @@
     align-items: center;
 
     &--large {
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-      margin-right: 8px;
-      line-height: 20px;
+      width: du-button-length(20);
+      height: du-button-length(20);
+      font-size: du-button-length(20);
+      margin-right: du-button-length(8);
+      line-height: du-button-length(20);
     }
     &--large-right {
       margin-right: 0;
-      margin-left: 8px;
+      margin-left: du-button-length(8);
     }
 
     &--medium {
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      margin-right: 6px;
-      line-height: 16px;
+      width: du-button-length(16);
+      height: du-button-length(16);
+      font-size: du-button-length(16);
+      margin-right: du-button-length(6);
+      line-height: du-button-length(16);
     }
     &--medium-right {
       margin-right: 0;
-      margin-left: 6px;
+      margin-left: du-button-length(6);
     }
 
     &--normal {
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      margin-right: 6px;
-      line-height: 16px;
+      width: du-button-length(16);
+      height: du-button-length(16);
+      font-size: du-button-length(16);
+      margin-right: du-button-length(6);
+      line-height: du-button-length(16);
     }
     &--normal-right {
       margin-right: 0;
-      margin-left: 6px;
+      margin-left: du-button-length(6);
     }
 
     &--small {
-      width: 12px;
-      height: 12px;
-      font-size: 12px;
-      margin-right: 4px;
-      line-height: 12px;
+      width: du-button-length(12);
+      height: du-button-length(12);
+      font-size: du-button-length(12);
+      margin-right: du-button-length(4);
+      line-height: du-button-length(12);
     }
     &--small-right {
       margin-right: 0;
-      margin-left: 4px;
+      margin-left: du-button-length(4);
     }
 
     &--mini {
-      width: 12px;
-      height: 12px;
-      font-size: 12px;
-      margin-right: 4px;
-      line-height: 12px;
+      width: du-button-length(12);
+      height: du-button-length(12);
+      font-size: du-button-length(12);
+      margin-right: du-button-length(4);
+      line-height: du-button-length(12);
     }
     &--mini-right {
       margin-right: 0;
-      margin-left: 4px;
+      margin-left: du-button-length(4);
     }
   }
 
   &__arrow-right {
-    width: 8px;
-    height: 8px;
-    font-size: 8px;
-    margin-left: 4px;
+    width: du-button-length(8);
+    height: du-button-length(8);
+    font-size: du-button-length(8);
+    margin-left: du-button-length(4);
     display: inline-flex;
     align-items: center;
   }
@@ -91,46 +101,46 @@
   }
 
   &--large {
-    height: 40px;
-    padding: 0 16px;
+    height: du-button-length(40);
+    padding: 0 du-button-length(16);
 
-    font-size: 16px;
-    border-radius: 8px;
-    line-height: 44px;
+    font-size: du-button-length(16);
+    border-radius: du-button-length(8);
+    line-height: du-button-length(44);
   }
 
   &--medium {
-    height: 36px;
-    padding: 0 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    line-height: 22px;
+    height: du-button-length(36);
+    padding: 0 du-button-length(14);
+    border-radius: du-button-length(6);
+    font-size: du-button-length(14);
+    line-height: du-button-length(22);
   }
 
   &--normal {
-    height: 32px;
-    padding: 0 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    line-height: 22px;
+    height: du-button-length(32);
+    padding: 0 du-button-length(12);
+    border-radius: du-button-length(4);
+    font-size: du-button-length(14);
+    line-height: du-button-length(22);
   }
 
   &--small {
-    height: 28px;
-    padding: 0 10px;
+    height: du-button-length(28);
+    padding: 0 du-button-length(10);
 
-    font-size: 12px;
-    line-height: 18px;
-    border-radius: 4px;
+    font-size: du-button-length(12);
+    line-height: du-button-length(18);
+    border-radius: du-button-length(4);
   }
 
   &--mini {
-    height: 24px;
-    padding: 0 8px;
+    height: du-button-length(24);
+    padding: 0 du-button-length(8);
 
-    font-size: 12px;
-    line-height: 18px;
-    border-radius: 4px;
+    font-size: du-button-length(12);
+    line-height: du-button-length(18);
+    border-radius: du-button-length(4);
   }
 
   &--primary {
