@@ -99,6 +99,9 @@ export function App() {
 </DangoProvider>
 ```
 
+从按 375px 宽度设计的 H5 页面迁移时，可在 `tokens` 中传入
+`'--du-h5-unit': 'calc(100vw / 375)'`。Button 的尺寸和字号以及 Switch 的轨道和滑块会跟随该比例，颜色继续使用当前主题色板。
+
 Portal 默认使用 Provider 所在 `ownerDocument.body`，也可用 `portalContainer` 或 Popup 的 `container` 指定同文档容器。跨 Portal 的定制变量应通过 `tokens` 传入；仅写在外部祖先选择器或 Provider `style` 中的自定义变量不会自动复制。包 CSS 不写 `:root`/`page` 或全局 reset，组件 class 使用 `du-react-*`，支持与现有 Vue `.du-*` 共存。提供一个 CSS 入口，包含九套主题和所有组件样式。
 
 ## API
