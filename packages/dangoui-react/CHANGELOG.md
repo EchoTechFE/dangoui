@@ -1,5 +1,11 @@
 # dangoui-react
 
+## 0.2.6
+
+### Patch Changes
+
+- 73686bc: Allow Button and Switch to follow the host's mobile sizing through the optional `--du-h5-unit` design token.
+
 ## 0.2.5
 
 ### Patch Changes
