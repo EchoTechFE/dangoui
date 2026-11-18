@@ -580,32 +580,69 @@
 .du-react-choice[data-shape='button']:focus-within {
   outline: 2px solid var(--du-control-color);
 }
-.du-react-switch .du-react-choice__mark {
+.du-react-choice.du-react-switch .du-react-choice__mark {
   position: relative;
-  width: 40px;
+  width: 42px;
   height: 24px;
-  border: 0;
-  border-radius: 20px;
+  border: 2px solid var(--du-border-2);
+  border-radius: 1000px;
+  background: #fff;
+  overflow: hidden;
+}
+.du-react-choice.du-react-switch[data-disabled='true'] {
+  opacity: 1;
+}
+.du-react-switch {
+  min-height: 0;
+}
+.du-react-switch[data-disabled='true'][data-checked='false'] .du-react-choice__mark {
   background: var(--du-bg-4);
+}
+.du-react-switch[data-checked='true'] .du-react-choice__mark {
+  border-color: var(--du-control-color);
+  background: var(--du-control-color);
+}
+.du-react-switch[data-disabled='true'][data-checked='true'] .du-react-choice__mark {
+  border-color: var(--du-primary-solid-disabledtemp-bg);
+  background: var(--du-primary-solid-disabledtemp-bg);
 }
 .du-react-switch .du-react-choice__mark::after {
   content: '';
   position: absolute;
   width: 20px;
   height: 20px;
-  left: 2px;
-  top: 2px;
+  left: 0;
+  top: 0;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 1px 3px #0002;
-  transition: transform 0.15s;
+  box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.08),
+    0 0 8px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease-in-out;
 }
 .du-react-switch[data-checked='true'] .du-react-choice__mark::after {
-  transform: translateX(16px);
+  transform: translateX(18px);
 }
 .du-react-switch input {
-  width: 40px;
+  width: 42px;
   height: 24px;
+}
+@media (max-width: 600px) {
+  .du-react-choice.du-react-switch .du-react-choice__mark {
+    width: clamp(36px, 11.2vw, 44px);
+    height: clamp(20.57px, 6.4vw, 25px);
+  }
+  .du-react-switch .du-react-choice__mark::after {
+    width: clamp(17px, 5.333vw, 21px);
+    height: clamp(17px, 5.333vw, 21px);
+  }
+  .du-react-switch[data-checked='true'] .du-react-choice__mark::after {
+    transform: translateX(clamp(15px, 4.8vw, 19px));
+  }
+  .du-react-switch input {
+    width: clamp(36px, 11.2vw, 44px);
+    height: clamp(20.57px, 6.4vw, 25px);
+  }
 }
 .du-react-radio-icon {
   box-sizing: border-box;
