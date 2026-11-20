@@ -416,7 +416,7 @@ describe('tabs, picker and selection overlays', () => {
   })
   it('keeps Select draft isolated until confirm, filters, and preserves number values', async () => {
     const change = vi.fn()
-    render(
+    const { rerender } = render(
       <DangoProvider>
         <Select
           defaultOpen
@@ -488,7 +488,7 @@ describe('tabs, picker and selection overlays', () => {
           children: [{ value: 'y', label: '禁用市' }],
         },
       ]
-    render(
+    const { rerender } = render(
       <DangoProvider>
         <Cascader
           defaultOpen
@@ -548,6 +548,7 @@ describe('Calendar', () => {
     render(
       <DangoProvider>
         <Calendar
+          key="immediate"
           defaultOpen
           type="range"
           min="2026-11-01"
@@ -608,6 +609,45 @@ describe('Calendar', () => {
     })
     await user.click(screen.getByRole('button', { name: '确定' }))
     expect(change).toHaveBeenCalledWith('2026-11-15T12:30')
+  })
+  it('supports optional clear and immediate actions without changing CalendarValue output', async () => {
+    const changed = vi.fn(),
+      clear = vi.fn(),
+      immediate = vi.fn()
+    const { rerender } = render(
+      <DangoProvider>
+        <Calendar
+          defaultOpen
+          value="2026-11-15T12:30"
+          min="2026-11-01"
+          max="2026-11-30"
+          showTimePicker
+          onValueChange={changed}
+          onClear={clear}
+          onImmediate={immediate}
+        />
+      </DangoProvider>,
+    )
+    const user = userEvent.setup()
+    await user.click(screen.getByRole('button', { name: '清除' }))
+    expect(clear).toHaveBeenCalledOnce()
+    expect(changed).not.toHaveBeenCalled()
+    rerender(
+      <DangoProvider>
+        <Calendar
+          key="immediate"
+          defaultOpen
+          value="2026-11-15T12:30"
+          min="2026-11-01"
+          max="2026-11-30"
+          showTimePicker
+          onValueChange={changed}
+          onImmediate={immediate}
+        />
+      </DangoProvider>,
+    )
+    await user.click(screen.getByRole('button', { name: '立即开始' }))
+    expect(immediate).toHaveBeenCalledOnce()
   })
 })
 

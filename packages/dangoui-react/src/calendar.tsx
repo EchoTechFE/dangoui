@@ -23,6 +23,10 @@ export interface CalendarProps
   selectableCount?: number
   weekStart?: number
   confirmText?: string
+  clearText?: string
+  onClear?: () => void
+  immediateText?: string
+  onImmediate?: () => void
   disabledDate?: (date: string) => boolean
   showTimePicker?: boolean
   timeStep?: 1 | 5 | 10
@@ -52,6 +56,10 @@ export function Calendar({
   selectableCount = 30,
   weekStart = 0,
   confirmText = '确定',
+  clearText = '清除',
+  onClear,
+  immediateText,
+  onImmediate,
   disabledDate,
   showTimePicker,
   timeStep = 5,
@@ -165,27 +173,67 @@ export function Calendar({
         position="bottom"
       >
         <div className="du-react-calendar__header">
-          <button
-            type="button"
-            aria-label="上个月"
-            disabled={
-              inactive || Boolean(min && previousEnd < min.slice(0, 10))
-            }
-            onClick={() => setMonth(new Date(year, m - 1, 1, 12))}
-          >
-            ‹
-          </button>
-          <strong aria-live="polite">
-            {year}年{m + 1}月
-          </strong>
-          <button
-            type="button"
-            aria-label="下个月"
-            disabled={inactive || Boolean(max && nextStart > max.slice(0, 10))}
-            onClick={() => setMonth(new Date(year, m + 1, 1, 12))}
-          >
-            ›
-          </button>
+          {onClear ? (
+            <button
+              type="button"
+              className="du-react-calendar__action"
+              disabled={inactive}
+              onClick={() => {
+                onClear()
+                setVisible(false)
+              }}
+            >
+              {clearText}
+            </button>
+          ) : (
+            <span
+              className="du-react-calendar__action-placeholder"
+              aria-hidden="true"
+            />
+          )}
+          <div className="du-react-calendar__header-nav">
+            <button
+              type="button"
+              aria-label="上个月"
+              disabled={
+                inactive || Boolean(min && previousEnd < min.slice(0, 10))
+              }
+              onClick={() => setMonth(new Date(year, m - 1, 1, 12))}
+            >
+              ‹
+            </button>
+            <strong aria-live="polite">
+              {year}年{m + 1}月
+            </strong>
+            <button
+              type="button"
+              aria-label="下个月"
+              disabled={
+                inactive || Boolean(max && nextStart > max.slice(0, 10))
+              }
+              onClick={() => setMonth(new Date(year, m + 1, 1, 12))}
+            >
+              ›
+            </button>
+          </div>
+          {onImmediate ? (
+            <button
+              type="button"
+              className="du-react-calendar__action"
+              disabled={inactive}
+              onClick={() => {
+                onImmediate()
+                setVisible(false)
+              }}
+            >
+              {immediateText ?? '立即开始'}
+            </button>
+          ) : (
+            <span
+              className="du-react-calendar__action-placeholder"
+              aria-hidden="true"
+            />
+          )}
         </div>
         <div className="du-react-calendar__week" aria-hidden="true">
           {Array.from({ length: 7 }, (_, i) => (

@@ -918,6 +918,23 @@
   align-items: center;
   margin: 8px 0 16px;
 }
+.du-react-calendar__header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.du-react-calendar__action,
+.du-react-calendar__action-placeholder {
+  width: auto !important;
+  min-width: 36px;
+  padding: 0 4px;
+  background: transparent !important;
+  color: var(--du-primary-color) !important;
+  font-size: 14px !important;
+}
+.du-react-calendar__action-placeholder {
+  visibility: hidden;
+}
 .du-react-calendar__header button {
   width: 36px;
   height: 32px;

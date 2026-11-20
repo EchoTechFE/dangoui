@@ -1,5 +1,11 @@
 # dangoui-react
 
+## 0.3.0
+
+### Minor Changes
+
+- Add optional clear and immediate actions to Calendar while preserving CalendarValue output types.
+
 ## 0.2.7
 
 ### Patch Changes
