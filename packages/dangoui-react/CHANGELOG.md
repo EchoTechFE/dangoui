@@ -1,10 +1,11 @@
 # dangoui-react
 
-## 0.2.6
+## 0.2.7
 
 ### Patch Changes
 
 - 73686bc: Allow Button and Switch to follow the host's mobile sizing through the optional `--du-h5-unit` design token.
+- bdd5c25: Match Vue Popup sheet motion with delayed opening and position-aware transitions for bottom, top, and center popups.
 
 ## 0.2.5
 
