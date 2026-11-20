@@ -84,10 +84,12 @@
 .du-react-popup--bottom {
   bottom: 0;
   border-radius: 15px 15px 0 0;
+  transform: translateY(100%);
 }
 .du-react-popup--top {
   top: 0;
   border-radius: 0 0 15px 15px;
+  transform: translateY(-100%);
 }
 .du-react-popup--safe {
   padding-left: max(20px, env(safe-area-inset-left, 0px));
@@ -124,16 +126,28 @@
   cursor: pointer;
 }
 .du-react-overlay[data-state='open'] {
-  animation: du-react-fade-in 0.18s ease-out;
+  animation: du-react-fade-in 0.3s ease-out 100ms both;
 }
 .du-react-overlay[data-state='closed'] {
-  animation: du-react-fade-out 0.15s ease-in;
+  animation: du-react-popup-fade-out 0.4s ease-in both;
 }
-.du-react-popup[data-state='open'] {
-  animation: du-react-fade-in 0.18s ease-out;
+.du-react-popup--bottom[data-state='open'] {
+  animation: du-react-popup-bottom-in 0.3s ease-out 100ms both;
 }
-.du-react-popup[data-state='closed'] {
-  animation: du-react-fade-out 0.15s ease-in;
+.du-react-popup--bottom[data-state='closed'] {
+  animation: du-react-popup-bottom-out 0.4s ease-in both;
+}
+.du-react-popup--top[data-state='open'] {
+  animation: du-react-popup-top-in 0.3s ease-out 100ms both;
+}
+.du-react-popup--top[data-state='closed'] {
+  animation: du-react-popup-top-out 0.4s ease-in both;
+}
+.du-react-popup--center[data-state='open'] {
+  animation: du-react-popup-center-in 0.3s ease-out 100ms both;
+}
+.du-react-popup--center[data-state='closed'] {
+  animation: du-react-popup-center-out 0.4s ease-in both;
 }
 .du-react-dialog__body {
   font-size: 14px;
@@ -274,10 +288,94 @@
     opacity: 0;
   }
 }
+@keyframes du-react-popup-bottom-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes du-react-popup-bottom-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+@keyframes du-react-popup-top-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes du-react-popup-top-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes du-react-popup-center-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes du-react-popup-center-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  75% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+@keyframes du-react-popup-fade-out {
+  from {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .du-react-popup[data-state],
   .du-react-overlay[data-state] {
     animation-duration: 0.001ms;
+    animation-delay: 0ms;
   }
   .du-react-loading {
     animation-duration: 2s;

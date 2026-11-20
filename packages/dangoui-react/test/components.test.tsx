@@ -63,6 +63,22 @@ describe('Button and icons', () => {
 })
 
 describe('Popup', () => {
+  it('keeps position-specific transition state for Vue-compatible sheet motion', async () => {
+    render(
+      <DangoProvider>
+        <Popup title="底部弹层" open position="bottom">
+          内容
+        </Popup>
+      </DangoProvider>,
+    )
+
+    const dialog = await screen.findByRole('dialog', { name: '底部弹层' })
+    const overlay = document.querySelector('.du-react-overlay')
+    expect(dialog.classList.contains('du-react-popup--bottom')).toBe(true)
+    expect(dialog.getAttribute('data-state')).toBe('open')
+    expect(overlay?.getAttribute('data-state')).toBe('open')
+  })
+
   it('preserves nested themes and token overrides across a custom portal', async () => {
     const target = document.createElement('div')
     document.body.append(target)
