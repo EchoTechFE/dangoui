@@ -416,7 +416,7 @@ describe('tabs, picker and selection overlays', () => {
   })
   it('keeps Select draft isolated until confirm, filters, and preserves number values', async () => {
     const change = vi.fn()
-    const { rerender } = render(
+    render(
       <DangoProvider>
         <Select
           defaultOpen
@@ -488,7 +488,7 @@ describe('tabs, picker and selection overlays', () => {
           children: [{ value: 'y', label: '禁用市' }],
         },
       ]
-    const { rerender } = render(
+    render(
       <DangoProvider>
         <Cascader
           defaultOpen
