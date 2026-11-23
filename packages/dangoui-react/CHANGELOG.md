@@ -1,5 +1,15 @@
 # dangoui-react
 
+## 0.5.0
+
+### Minor Changes
+
+- b2cdf7d: 复刻 Vue DuCalendar 的时间选择能力。Calendar 的 showTimePicker 现在使用支持触摸、滚轮和键盘操作的 PickerView，按 timeStep 生成小时/分钟列，并支持范围时间校验及带时间的多选结果。
+
+### Patch Changes
+
+- b2cdf7d: 移除输入控件的移动端点击闪灰和鼠标聚焦边框，并按 Vue DuDialog 的尺寸恢复紧凑但可见的标题、内容和操作区间距。
+
 ## 0.4.0
 
 ### Minor Changes
