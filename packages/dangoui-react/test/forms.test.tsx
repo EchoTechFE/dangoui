@@ -477,6 +477,30 @@ describe('tabs, picker and selection overlays', () => {
     await user.selectOptions(screen.getByLabelText('第 1 列'), '2')
     expect(change).toHaveBeenCalledWith(['2', 'a'])
   })
+  it('supports wheel PickerView keyboard and pointer selection', async () => {
+    const change = vi.fn()
+    render(
+      <DangoProvider>
+        <PickerView
+          appearance="wheel"
+          columns={[
+            [
+              { label: '08时', value: '8' },
+              { label: '09时', value: '9' },
+            ],
+          ]}
+          defaultValue={['8']}
+          onValueChange={change}
+          columnLabels={['小时']}
+        />
+      </DangoProvider>,
+    )
+    const column = screen.getByRole('listbox', { name: '小时' })
+    fireEvent.keyDown(column, { key: 'ArrowDown' })
+    expect(change).toHaveBeenCalledWith(['9'])
+    await userEvent.setup().click(screen.getByRole('option', { name: '08时' }))
+    expect(change).toHaveBeenLastCalledWith(['8'])
+  })
   it('navigates Cascader and propagates disabled ancestors into searchable leaves', async () => {
     const change = vi.fn(),
       options = [
@@ -604,11 +628,51 @@ describe('Calendar', () => {
     )
     const user = userEvent.setup()
     await user.click(await screen.findByLabelText('2026-11-15'))
-    fireEvent.change(screen.getByLabelText('时间'), {
-      target: { value: '12:30' },
-    })
+    expect(screen.getByLabelText('小时')).toBeTruthy()
+    expect(screen.getByLabelText('分钟')).toBeTruthy()
+    await user.click(screen.getByRole('option', { name: '12时' }))
+    await user.click(screen.getByRole('option', { name: '30分' }))
     await user.click(screen.getByRole('button', { name: '确定' }))
     expect(change).toHaveBeenCalledWith('2026-11-15T12:30')
+  })
+  it('uses Vue-compatible default and stepped times for range calendars', async () => {
+    const change = vi.fn()
+    render(
+      <DangoProvider>
+        <Calendar
+          defaultOpen
+          type="range"
+          min="2026-11-01"
+          max="2026-11-30"
+          showTimePicker
+          timeStep={10}
+          onValueChange={change}
+        />
+      </DangoProvider>,
+    )
+    const user = userEvent.setup()
+    await user.click(await screen.findByLabelText('2026-11-15'))
+    await user.click(screen.getByLabelText('2026-11-15'))
+    expect(
+      screen
+        .getAllByRole('option', { name: '08时' })
+        .filter((button) => button.getAttribute('aria-selected') === 'true'),
+    ).toHaveLength(1)
+    expect(
+      screen
+        .getAllByRole('option', { name: '20时' })
+        .filter((button) => button.getAttribute('aria-selected') === 'true'),
+    ).toHaveLength(1)
+    expect(
+      screen
+        .getAllByRole('option', { name: '00分' })
+        .filter((button) => button.getAttribute('aria-selected') === 'true'),
+    ).toHaveLength(2)
+    await user.click(screen.getByRole('button', { name: '确定' }))
+    expect(change).toHaveBeenCalledWith([
+      '2026-11-15T08:00',
+      '2026-11-15T20:00',
+    ])
   })
   it('supports optional clear and immediate actions without changing CalendarValue output', async () => {
     const changed = vi.fn(),

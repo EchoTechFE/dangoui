@@ -697,14 +697,16 @@
   --du-switch-travel: calc(18 * var(--du-h5-unit));
   min-height: 0;
 }
-.du-react-switch[data-disabled='true'][data-checked='false'] .du-react-choice__mark {
+.du-react-switch[data-disabled='true'][data-checked='false']
+  .du-react-choice__mark {
   background: var(--du-bg-4);
 }
 .du-react-switch[data-checked='true'] .du-react-choice__mark {
   border-color: var(--du-control-color);
   background: var(--du-control-color);
 }
-.du-react-switch[data-disabled='true'][data-checked='true'] .du-react-choice__mark {
+.du-react-switch[data-disabled='true'][data-checked='true']
+  .du-react-choice__mark {
   border-color: var(--du-primary-solid-disabledtemp-bg);
   background: var(--du-primary-solid-disabledtemp-bg);
 }
@@ -897,6 +899,86 @@
 .du-react-picker-view option {
   padding: 10px;
 }
+.du-react-picker-view--wheel {
+  --du-picker-view-height: 264px;
+  --du-picker-view-row-height: 44px;
+  --du-picker-view-edge: calc(
+    (var(--du-picker-view-height) - var(--du-picker-view-row-height)) / 2
+  );
+  position: relative;
+  height: var(--du-picker-view-height);
+  gap: 0;
+  margin: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.du-react-picker-view--wheel::before,
+.du-react-picker-view__column::after {
+  position: absolute;
+  pointer-events: none;
+  content: '';
+}
+.du-react-picker-view--wheel::before {
+  top: var(--du-picker-view-edge);
+  inset-inline: 8px;
+  height: var(--du-picker-view-row-height);
+  border-radius: 4px;
+  background: var(--du-primary-soft-bg);
+}
+.du-react-picker-view__column {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+.du-react-picker-view__column:focus-visible {
+  outline: 2px solid var(--du-primary-color);
+  outline-offset: -2px;
+}
+.du-react-picker-view__column[aria-disabled='true'] {
+  opacity: 0.5;
+}
+.du-react-picker-view__column::after {
+  inset: 0;
+  background-image: linear-gradient(
+      to bottom,
+      var(--du-bg-3, #fff),
+      transparent
+    ),
+    linear-gradient(to top, var(--du-bg-3, #fff), transparent);
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-size: 100% var(--du-picker-view-edge);
+  transform: translateZ(0);
+}
+.du-react-picker-view__track {
+  position: absolute;
+  top: var(--du-picker-view-edge);
+  inset-inline: 0;
+  transition: transform 0.25s ease;
+}
+.du-react-picker-view__track[data-dragging='true'] {
+  transition: none;
+}
+.du-react-picker-view__item {
+  height: var(--du-picker-view-row-height);
+  padding: 0 8px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: var(--du-picker-view-row-height);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.du-react-picker-view__item[aria-selected='true'] {
+  font-weight: 500;
+}
+.du-react-picker-view__item[aria-disabled='true'] {
+  opacity: 0.4;
+}
 .du-react-cascader {
   display: flex;
   gap: 8px;
@@ -979,6 +1061,26 @@
 .du-react-calendar__days button:disabled,
 .du-react-calendar__header button:disabled {
   opacity: 0.3;
+}
+.du-react-calendar__time {
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.04);
+}
+.du-react-calendar__time-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.du-react-calendar__time-pickers {
+  display: flex;
+}
+.du-react-calendar__time-pickers > .du-react-picker-view {
+  flex: 1;
+  min-width: 0;
+  --du-picker-view-height: 106px;
 }
 .du-react-upload {
   display: flex;
@@ -1618,6 +1720,7 @@
   }
   .du-react-tabs__indicator,
   .du-react-swiper__slide,
+  .du-react-picker-view__track,
   .du-react-switch .du-react-choice__mark::after {
     transition: none;
   }
@@ -1627,8 +1730,7 @@
   .du-react-input input,
   .du-react-textarea textarea,
   .du-react-input-number input,
-  .du-react-picker-view select,
-  .du-react-calendar input[type='time'] {
+  .du-react-picker-view select {
     font-size: 16px;
   }
   .du-react-popup__close,

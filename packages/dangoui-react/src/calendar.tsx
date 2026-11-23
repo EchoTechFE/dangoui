@@ -1,8 +1,9 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Popup, type PopupProps } from './popup'
 import { Button } from './button'
 import { cx, useControllable, useOnOpen } from './internal'
 import { FormField, useField } from './form'
+import { PickerView, type PickerOption } from './select'
 
 export type CalendarValue = string | readonly string[]
 export interface CalendarProps
@@ -42,6 +43,20 @@ function dayString(date: Date) {
     '0',
   )}-${String(date.getDate()).padStart(2, '0')}`
 }
+function readTime(
+  value: string | undefined,
+  fallback: string[],
+  step: 1 | 5 | 10,
+) {
+  const match = value?.slice(11, 16).match(/^(\d{2}):(\d{2})$/)
+  if (!match) return fallback
+  const hour = Math.min(23, Number(match[1]))
+  const minute = Math.min(59, Number(match[2]))
+  return [String(hour), String(Math.floor(minute / step) * step)]
+}
+function timeValue([hour, minute]: readonly string[]) {
+  return `${hour.padStart(2, '0')}:${minute.padStart(2, '0')}`
+}
 export function Calendar({
   open,
   defaultOpen = false,
@@ -77,9 +92,9 @@ export function Calendar({
     [visible, setVisible] = useControllable(open, defaultOpen, onOpenChange)
   const [draft, setDraft] = useState<string[]>([]),
     [month, setMonth] = useState(() => parseDay(min ?? dayString(new Date()))),
-    [time, setTime] = useState('00:00'),
-    [selectionError, setSelectionError] = useState(''),
-    id = useId()
+    [startTime, setStartTime] = useState(['8', '0']),
+    [endTime, setEndTime] = useState(['20', '0']),
+    [selectionError, setSelectionError] = useState('')
   const daysRef = useRef<HTMLDivElement>(null),
     focusDate = useRef<string | null>(null)
   useEffect(() => {
@@ -103,7 +118,8 @@ export function Calendar({
     const date = parseDay(anchor)
     if (!Number.isNaN(date.getTime()))
       setMonth(new Date(date.getFullYear(), date.getMonth(), 1, 12))
-    setTime(dates[0]?.slice(11, 16) || '00:00')
+    setStartTime(readTime(dates[0], ['8', '0'], timeStep))
+    setEndTime(readTime(dates[1], ['20', '0'], timeStep))
   })
   const year = month.getFullYear(),
     m = month.getMonth(),
@@ -150,6 +166,26 @@ export function Calendar({
   }
   const previousEnd = dayString(new Date(year, m, 0, 12)),
     nextStart = dayString(new Date(year, m + 1, 1, 12))
+  const timeColumns: readonly (readonly PickerOption[])[] = [
+    Array.from({ length: 24 }, (_, value) => ({
+      label: `${String(value).padStart(2, '0')}时`,
+      value: String(value),
+    })),
+    Array.from({ length: 60 / timeStep }, (_, index) => {
+      const value = index * timeStep
+      return {
+        label: `${String(value).padStart(2, '0')}分`,
+        value: String(value),
+      }
+    }),
+  ]
+  const invalidTimeRange =
+    showTimePicker &&
+    type === 'range' &&
+    draft.length === 2 &&
+    draft[0] === draft[1] &&
+    timeValue(startTime) >= timeValue(endTime)
+  const timeError = invalidTimeRange ? '开始应早于结束' : ''
   return (
     <>
       {open === undefined && (
@@ -315,44 +351,71 @@ export function Calendar({
             )
           })}
         </div>
-        {showTimePicker && type === 'single' && (
-          <label htmlFor={id}>
-            时间{' '}
-            <input
-              id={id}
-              type="time"
-              disabled={inactive}
-              value={time}
-              step={timeStep * 60}
-              onChange={(e) => setTime(e.target.value)}
-            />
-          </label>
+        {showTimePicker && (
+          <div className="du-react-calendar__time">
+            {type === 'range' && (
+              <div className="du-react-calendar__time-header">
+                <span>开始时间</span>
+                <span aria-hidden="true">→</span>
+                <span>结束时间</span>
+              </div>
+            )}
+            <div className="du-react-calendar__time-pickers">
+              <PickerView
+                appearance="wheel"
+                columns={timeColumns}
+                columnLabels={
+                  type === 'range' ? ['开始小时', '开始分钟'] : ['小时', '分钟']
+                }
+                value={startTime}
+                onValueChange={setStartTime}
+                disabled={inactive}
+              />
+              {type === 'range' && (
+                <PickerView
+                  appearance="wheel"
+                  columns={timeColumns}
+                  columnLabels={['结束小时', '结束分钟']}
+                  value={endTime}
+                  onValueChange={setEndTime}
+                  disabled={inactive}
+                />
+              )}
+            </div>
+          </div>
         )}
         <Button
           full
           disabled={
             inactive ||
             Boolean(selectionError) ||
+            Boolean(timeError) ||
             !draft.length ||
             (type === 'range' && draft.length !== 2) ||
-            draft.some(blocked) ||
-            (showTimePicker && type === 'single' && !time)
+            draft.some(blocked)
           }
           onClick={() => {
-            const result =
-              type === 'single'
-                ? `${draft[0]}${showTimePicker ? `T${time}` : ''}`
-                : [...draft]
+            let result: CalendarValue
+            if (!showTimePicker)
+              result = type === 'single' ? draft[0] : [...draft]
+            else if (type === 'single')
+              result = `${draft[0]}T${timeValue(startTime)}`
+            else if (type === 'range')
+              result = draft.map(
+                (date, index) =>
+                  `${date}T${timeValue(index === 0 ? startTime : endTime)}`,
+              )
+            else result = draft.map((date) => `${date}T${timeValue(startTime)}`)
             setSelected(result)
             onConfirm?.(result)
             setVisible(false)
           }}
         >
-          {selectionError || confirmText}
+          {selectionError || timeError || confirmText}
         </Button>
-        {selectionError && (
+        {(selectionError || timeError) && (
           <p role="status" className="du-react-error">
-            {selectionError}
+            {selectionError || timeError}
           </p>
         )}
       </Popup>

@@ -10,9 +10,9 @@
 | Checkbox、CheckboxGroup、Radio、RadioGroup、RadioIcon、Switch  | checked/defaultChecked/onCheckedChange；组使用 value/defaultValue/onValueChange（string 或 number，CheckboxGroup 为数组）；禁用/只读/选择上限/原生键盘；RadioIcon 为装饰图形 |
 | Form、FormItem、FormField                                      | 原生 form、横纵布局、必填/提示/错误关联、disabled；FormField 为选择器按钮；业务负责校验与提交，不内置 schema 表单引擎                                                        |
 | Select                                                         | options: {label,value,disabled}[]；单选或 mode="multiple"；filterable、withConfirm、草稿与确认；可控 open/onOpenChange                                                       |
-| Picker、PickerView                                             | columns: {label,value,disabled}[][]；string[] value；原生 select 列提供键盘选择；Picker 确认前隔离草稿                                                                       |
+| Picker、PickerView                                             | columns: {label,value,disabled}[][]；string[] value；PickerView 提供触摸/滚轮步进及键盘可访问列；Picker 确认前隔离草稿                                                                       |
 | Cascader                                                       | options 递归 children，string[] 路径；逐层选择与 showSearch；禁用祖先的叶子不可搜索选中                                                                                      |
-| Calendar                                                       | single/multiple/range；YYYY-MM-DD string 或数组；min/max/disabledDate/selectableCount；键盘跨月，单选可 showTimePicker（YYYY-MM-DDTHH:mm）                                   |
+| Calendar                                                       | single/multiple/range；YYYY-MM-DD string 或数组；min/max/disabledDate/selectableCount；showTimePicker 使用 PickerView 的小时/分钟滚轮（YYYY-MM-DDTHH:mm），支持 timeStep=1/5/10 |
 | Upload                                                         | UploadFile[]，稳定 uid/status/percent；upload/chooseFiles adapter、beforeUpload、maxCount/maxSize；ref.addFiles/retry/cancel/remove；sessionKey 失效保护                     |
 | Tabs、Tab、TabPane、TabsRight                                  | string value/defaultValue/onValueChange；Tab name 与 TabPane name 关联；自动/手动键盘激活，跳过禁用项、指示条与滚动                                                          |
 | Card、Divider、Tag、TagsPanel                                  | 卡片标题/内容/折叠；分隔线；语义色标签/移除；标签列表/收起/添加                                                                                                              |
@@ -77,7 +77,7 @@ React 包直接运行在浏览器 DOM，覆盖移动浏览器、App 内 H5 WebVi
 | 图片手势             | ImagePreview 图片级 1–5 倍双指缩放、放大拖动和复位，缩放不切页；图片区域接管手势，其他区域保留页面浏览器行为                                                                                                         |
 | 页面/容器滚动        | Tabs 只修改自身 scrollLeft；NavigationBar 自动选有实际纵向溢出的最近滚动祖先，随滚动/窗口尺寸重新判断；可用 scrollTarget（元素/window/返回目标的函数）覆盖；透明背景来自当前主题                                     |
 | 软键盘与浏览器地址栏 | Popup 挂载 ownerDocument.body 时监听该文档 visualViewport resize/scroll，在 scale=1 时跟随高度/偏移并滚动到内部焦点；自定义 container/portalContainer 保留 inset: 0，不覆盖容器尺寸；无此 API 回退 vh/dvh            |
-| 输入法和触摸目标     | 原生 input/textarea、inputMode/enterKeyHint/autocomplete；中文输入 Enter 不提前确认；coarse pointer 下输入文字（含 Calendar 时间）16px，关闭/导航触摸目标至少 44px；导航内容及占位保持 Vue 44px 基准，另加顶部安全区 |
+| 输入法和触摸目标     | 原生 input/textarea、inputMode/enterKeyHint/autocomplete；中文输入 Enter 不提前确认；Calendar 时间使用 PickerView 滚轮，coarse pointer 下输入文字 16px，关闭/导航触摸目标至少 44px；导航内容及占位保持 Vue 44px 基准，另加顶部安全区 |
 | 刘海/横屏/底部安全区 | 示例 viewport-fit=cover；Popup 和 NavigationBar 使用 env(safe-area-inset-\*)，页面底部操作区由业务布局负责                                                                                                           |
 | 文件/照片            | Upload 原生 input type=file + accept/multiple；选择、上传可注入 adapter，取消/切店/卸载隔离；需要原生相册/相机返回、上传签名时由宿主 adapter 对接                                                                    |
 | 返回与嵌入           | Portal、焦点和滚动锁绑定 ownerDocument，可在 iframe 中运行；NavigationBar onBack/onShare 和 Popup onOpenChange 由应用对接宿主返回协议，不自动修改浏览器历史                                                          |
@@ -107,7 +107,7 @@ Upload 继承 Form/FormItem 的 disabled、标签和错误说明。FormItem requ
 ## 待验收差异
 
 - 58 个名称有实现和类型，不表示完整 Vue props、所有尺寸视觉与动画完全等价。
-- PickerView 使用浏览器原生列；没有移动端滚轮吸附/惯性。Calendar 使用日期字符串，范围按日计算。
+- PickerView 使用按钮列和触摸/滚轮步进，支持键盘可访问的隐藏原生列。Calendar 使用日期字符串，范围按日计算，时间值按 `timeStep` 对齐。
 - Popup/Dialog/Select 等需 DangoProvider；Portal 的自定义主题使用 tokens 显式传递。
 - 手势基于 Pointer Events；真实 App 返回优先级、WebView 软键盘、安全区、相册和原生上传仍需宿主验收。
 - 示例使用本地模拟。正式 Nexus 发布、最小权限安装和业务页面视觉签收尚未完成。
