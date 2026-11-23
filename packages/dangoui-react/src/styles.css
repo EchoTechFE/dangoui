@@ -1,6 +1,7 @@
 .du-react {
   color: var(--du-text-1, #202426);
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 .du-react-icon {
   display: inline-block;
@@ -100,6 +101,21 @@
   padding-top: calc(20px + env(safe-area-inset-top, 0px));
   padding-bottom: 20px;
 }
+.du-react-popup.du-react-dialog {
+  padding: 0;
+}
+.du-react-dialog .du-react-popup__title {
+  margin: 0;
+  padding: 15px 15px 8px;
+  text-align: center;
+}
+.du-react-dialog__body {
+  padding: 0 20px 8px;
+}
+.du-react-dialog__actions {
+  margin-top: 8px;
+  padding: 0 20px 20px;
+}
 .du-react-popup__title {
   font-size: 16px;
   line-height: 24px;
@@ -153,6 +169,7 @@
   font-size: 14px;
   line-height: 22px;
   overflow-wrap: anywhere;
+  padding: 0 20px 8px;
 }
 .du-react-dialog__body [role='alert'] {
   color: var(--du-error-color);
@@ -160,7 +177,8 @@
 .du-react-dialog__actions {
   display: flex;
   gap: 8px;
-  margin-top: 20px;
+  margin-top: 8px;
+  padding: 0 20px 20px;
 }
 .du-react-dialog__actions > button {
   flex: 1;
@@ -482,11 +500,6 @@
 }
 .du-react-input--bordered {
   border: 1px solid var(--du-border-2);
-}
-.du-react-input:focus-within,
-.du-react-textarea:focus-within {
-  outline: 2px solid var(--du-primary-color);
-  outline-offset: 1px;
 }
 .du-react-input input:focus,
 .du-react-textarea textarea:focus {

@@ -255,6 +255,12 @@ describe('feedback and Dialog', () => {
         message: '确定提交？',
       })
     })
+    expect(
+      screen.getByRole('dialog').classList.contains('du-react-dialog'),
+    ).toBe(true)
+    expect(
+      screen.getByRole('dialog').querySelector('.du-react-dialog__body'),
+    ).toBeTruthy()
     await userEvent.setup().click(screen.getByRole('button', { name: '取消' }))
     await expect(dialog.result).resolves.toEqual({ reason: 'cancel' })
     act(() => {
