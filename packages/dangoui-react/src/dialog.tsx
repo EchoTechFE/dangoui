@@ -70,6 +70,7 @@ export function Dialog({
   return (
     <Popup
       {...props}
+      className={`du-react-dialog ${props.className ?? ''}`.trim()}
       open={open}
       position="center"
       closable={false}
