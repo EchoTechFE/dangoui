@@ -1,4 +1,12 @@
-import { useId, useState, type HTMLAttributes, type ReactNode } from 'react'
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type ReactNode,
+  type PointerEvent,
+} from 'react'
 import { Popup, type PopupProps } from './popup'
 import { Button } from './button'
 import { Input } from './input'
@@ -214,6 +222,7 @@ export interface PickerViewProps
   onValueChange?: (value: string[]) => void
   disabled?: boolean
   columnLabels?: readonly string[]
+  appearance?: 'native' | 'wheel'
 }
 export function PickerView({
   columns,
@@ -222,6 +231,7 @@ export function PickerView({
   onValueChange,
   disabled,
   columnLabels,
+  appearance = 'native',
   className,
   ...props
 }: PickerViewProps) {
@@ -233,32 +243,205 @@ export function PickerView({
       columns.map((col) => col.find((item) => !item.disabled)?.value ?? ''),
     onValueChange as (v: readonly string[]) => void,
   )
+  function choose(index: number, value: string) {
+    if (value === selected[index]) return
+    const next = [...selected]
+    next[index] = value
+    setSelected(next)
+  }
+
   return (
-    <div {...props} className={cx('du-react-picker-view', className)}>
-      {columns.map((column, index) => (
-        <select
-          key={index}
-          aria-label={columnLabels?.[index] ?? `第 ${index + 1} 列`}
-          disabled={inactive || !column.length}
-          value={selected[index] ?? ''}
-          size={Math.max(2, Math.min(5, column.length))}
-          onChange={(event) => {
-            const next = [...selected]
-            next[index] = event.target.value
-            setSelected(next)
-          }}
-        >
-          {column.map((item) => (
-            <option
-              key={item.value}
-              value={item.value}
-              disabled={inactive || item.disabled}
-            >
-              {item.label}
-            </option>
-          ))}
-        </select>
-      ))}
+    <div
+      {...props}
+      className={cx(
+        'du-react-picker-view',
+        appearance === 'wheel' && 'du-react-picker-view--wheel',
+        className,
+      )}
+    >
+      {columns.map((column, index) => {
+        const label = columnLabels?.[index] ?? `第 ${index + 1} 列`
+        return appearance === 'wheel' ? (
+          <PickerWheelColumn
+            key={index}
+            options={column}
+            label={label}
+            value={selected[index]}
+            disabled={inactive}
+            onChange={(value) => choose(index, value)}
+          />
+        ) : (
+          <select
+            key={index}
+            aria-label={label}
+            disabled={inactive || !column.length}
+            value={selected[index] ?? ''}
+            size={Math.max(2, Math.min(5, column.length))}
+            onChange={(event) => choose(index, event.target.value)}
+          >
+            {column.map((item) => (
+              <option
+                key={item.value}
+                value={item.value}
+                disabled={inactive || item.disabled}
+              >
+                {item.label}
+              </option>
+            ))}
+          </select>
+        )
+      })}
+    </div>
+  )
+}
+
+const pickerRowHeight = 44
+
+function PickerWheelColumn({
+  options,
+  label,
+  value,
+  disabled,
+  onChange,
+}: {
+  options: readonly PickerOption[]
+  label: string
+  value?: string
+  disabled?: boolean
+  onChange: (value: string) => void
+}) {
+  const id = useId()
+  const columnRef = useRef<HTMLDivElement>(null)
+  const pointer = useRef<{ id: number; y: number } | null>(null)
+  const [offset, setOffset] = useState(0)
+  const selected = options.findIndex(
+    (item) => item.value === value && !item.disabled,
+  )
+  const current =
+    selected >= 0 ? selected : options.findIndex((item) => !item.disabled)
+  const inactive = disabled || current < 0
+
+  function choose(index: number) {
+    const item = options[index]
+    if (!inactive && item && !item.disabled) onChange(item.value)
+  }
+
+  function move(amount: number) {
+    if (!amount) return
+    let index = Math.max(0, Math.min(current + amount, options.length - 1))
+    while (index !== current && options[index]?.disabled)
+      index += index > current ? -1 : 1
+    choose(index)
+  }
+
+  useEffect(() => {
+    const column = columnRef.current
+    if (!column || inactive) return
+    function onWheel(event: globalThis.WheelEvent) {
+      if (!event.deltaY || event.ctrlKey) return
+      event.preventDefault()
+      const steps =
+        event.deltaMode === 1
+          ? Math.round(event.deltaY / 3)
+          : Math.round(event.deltaY / pickerRowHeight)
+      move(steps || Math.sign(event.deltaY))
+    }
+    column.addEventListener('wheel', onWheel, { passive: false })
+    return () => column.removeEventListener('wheel', onWheel)
+  })
+
+  function resetDrag() {
+    pointer.current = null
+    setOffset(0)
+  }
+
+  function finishDrag(event: PointerEvent<HTMLDivElement>) {
+    if (pointer.current?.id !== event.pointerId) return
+    const distance = event.clientY - pointer.current.y
+    resetDrag()
+    if (Math.abs(distance) > 4) {
+      move(Math.round(-distance / pickerRowHeight))
+    } else {
+      const row = (event.target as HTMLElement).closest<HTMLElement>(
+        '[data-picker-index]',
+      )
+      if (row) choose(Number(row.dataset.pickerIndex))
+    }
+  }
+
+  return (
+    <div
+      ref={columnRef}
+      className="du-react-picker-view__column"
+      role="listbox"
+      aria-label={label}
+      aria-disabled={inactive || undefined}
+      aria-activedescendant={current < 0 ? undefined : `${id}-${current}`}
+      tabIndex={inactive ? undefined : 0}
+      onKeyDown={(event) => {
+        if (
+          inactive ||
+          !['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)
+        )
+          return
+        event.preventDefault()
+        if (event.key === 'Home')
+          choose(options.findIndex((item) => !item.disabled))
+        else if (event.key === 'End')
+          choose(
+            options.length -
+              1 -
+              [...options].reverse().findIndex((item) => !item.disabled),
+          )
+        else {
+          const step = event.key === 'ArrowDown' ? 1 : -1
+          let next = current + step
+          while (options[next]?.disabled) next += step
+          choose(next)
+        }
+      }}
+      onPointerDown={(event) => {
+        if (inactive || !event.isPrimary || event.button !== 0) return
+        pointer.current = { id: event.pointerId, y: event.clientY }
+        // Capturing on the pressed row retains its target for taps and keeps drags
+        // active even if the pointer moves outside the column.
+        if (
+          event.target instanceof HTMLElement &&
+          'setPointerCapture' in event.target
+        )
+          event.target.setPointerCapture(event.pointerId)
+      }}
+      onPointerMove={(event) => {
+        if (pointer.current?.id === event.pointerId)
+          setOffset(event.clientY - pointer.current.y)
+      }}
+      onPointerUp={finishDrag}
+      onPointerCancel={resetDrag}
+      onLostPointerCapture={resetDrag}
+    >
+      <div
+        className="du-react-picker-view__track"
+        data-dragging={offset !== 0 || undefined}
+        style={{
+          transform: `translateY(${
+            offset - Math.max(0, current) * pickerRowHeight
+          }px)`,
+        }}
+      >
+        {options.map((item, index) => (
+          <div
+            key={item.value}
+            id={`${id}-${index}`}
+            role="option"
+            data-picker-index={index}
+            aria-selected={index === current}
+            aria-disabled={item.disabled || undefined}
+            className="du-react-picker-view__item"
+          >
+            {item.label}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
