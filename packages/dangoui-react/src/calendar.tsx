@@ -202,7 +202,11 @@ export function Calendar({
       )}
       <Popup
         {...props}
-        className={cx('du-react-calendar', props.className)}
+        className={cx(
+          'du-react-calendar',
+          showTimePicker && 'du-react-calendar--with-time',
+          props.className,
+        )}
         open={visible}
         onOpenChange={setVisible}
         title={title}

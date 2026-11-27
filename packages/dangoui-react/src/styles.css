@@ -1007,6 +1007,9 @@
   gap: 8px;
   margin-top: 16px;
 }
+.du-react-calendar--with-time {
+  max-height: calc(100% - max(8px, env(safe-area-inset-top, 0px)));
+}
 .du-react-calendar__header {
   display: flex;
   justify-content: space-between;
@@ -1093,7 +1096,11 @@
 .du-react-calendar__time-pickers > .du-react-picker-view {
   flex: 1;
   min-width: 0;
-  --du-picker-view-height: 106px;
+  --du-picker-view-height: clamp(
+    154px,
+    calc(var(--du-viewport-height, 100vh) * 0.28),
+    220px
+  );
 }
 .du-react-upload {
   display: flex;
