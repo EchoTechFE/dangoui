@@ -1,5 +1,11 @@
 # dangoui-react
 
+## 0.5.1
+
+### Patch Changes
+
+- 09b7199: Increase the height of Calendar's time wheels and let the popup expand while keeping the full date grid. On shorter screens, scroll the popup to reach the confirm button.
+
 ## 0.5.0
 
 ### Minor Changes
